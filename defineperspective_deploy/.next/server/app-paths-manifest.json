@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/ai-services/page": "app/ai-services/page.js",
+  "/ai-studios/[id]/page": "app/ai-studios/[id]/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/lab/page": "app/lab/page.js",
+  "/page": "app/page.js",
+  "/photography/[id]/page": "app/photography/[id]/page.js",
+  "/portfolio/page": "app/portfolio/page.js",
+  "/services/creative-campaign-design/page": "app/services/creative-campaign-design/page.js",
+  "/services/dp-360/page": "app/services/dp-360/page.js",
+  "/services/page": "app/services/page.js",
+  "/services/professional-advertisement-photography/page": "app/services/professional-advertisement-photography/page.js",
+  "/services/professional-video-production/page": "app/services/professional-video-production/page.js"
+}

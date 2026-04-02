@@ -1,0 +1,18 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/ai-services/page": "/ai-services",
+  "/ai-studios/[id]/page": "/ai-studios/[id]",
+  "/contact/page": "/contact",
+  "/favicon.ico/route": "/favicon.ico",
+  "/lab/page": "/lab",
+  "/page": "/",
+  "/photography/[id]/page": "/photography/[id]",
+  "/portfolio/page": "/portfolio",
+  "/services/creative-campaign-design/page": "/services/creative-campaign-design",
+  "/services/dp-360/page": "/services/dp-360",
+  "/services/page": "/services",
+  "/services/professional-advertisement-photography/page": "/services/professional-advertisement-photography",
+  "/services/professional-video-production/page": "/services/professional-video-production"
+}
