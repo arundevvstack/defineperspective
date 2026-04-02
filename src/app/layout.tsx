@@ -13,6 +13,7 @@ const firaCode = Fira_Code({
 });
 
 import ThemeWrapper from "@/components/theme-wrapper";
+import GlassFooter from "@/components/glass-footer";
 
 export const metadata: Metadata = {
   title: "Define Perspective | The Future of Vision - 2026 AI Media Production",
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <ThemeWrapper>
           {children}
+          <GlassFooter />
         </ThemeWrapper>
         <script
           type="application/ld+json"
