@@ -20,6 +20,7 @@ function NavbarContent() {
     { name: "SERVICES", href: "/services" },
     { name: "AI STUDIOS", href: "/portfolio?view=ai" },
     { name: "PORTFOLIO", href: "/portfolio" },
+    { name: "LAB", href: "/lab" },
     { name: "ABOUT", href: "/about" },
     { name: "CONTACT", href: "/contact" },
   ];
