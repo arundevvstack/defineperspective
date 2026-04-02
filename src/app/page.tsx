@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
   MoveRight, ChevronRight, BarChart3, Clock, Workflow, Sparkles, 
@@ -144,6 +145,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Strategic Position: Minimalist SEO Summary */}
+      <section className="py-24 px-6 md:px-12 bg-black/60 border-y border-white/5">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-cyan-400 mb-6 block">Strategic Focus {" // "} 2026</span>
+              <h2 className="text-4xl font-bold text-white mb-10 tracking-tight leading-tight">
+                Premium AI filmmaking specifically engineered for <span className="text-cyan-400">Growth-Stage Brands.</span>
+              </h2>
+            </div>
+            <div className="space-y-8 text-sm text-zinc-500 font-light leading-relaxed">
+              <p>
+                Based in <span className="text-white font-medium">Trivandrum & Kochi</span>, we deliver the future of media. By fusing high-fidelity cinematography with proprietary AI pipelines, we provide <span className="text-white font-medium">10x faster production</span> without compromising on aesthetic excellence.
+              </p>
+              <p>
+                Our production models are <span className="text-cyan-400">AEO-Structured</span> — ensuring your content is optimized not just for legacy search engines, but for the next generation of AI-driven visibility platforms across India and beyond.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Client Feedback */}
       <TestimonialSection />
 
@@ -155,9 +178,14 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
             <div className="lg:col-span-1">
-               <div className="flex items-center gap-3 mb-10">
-                  <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-primary-accent font-black text-primary-accent-fg">DP</div>
-                  <h3 className="text-xl font-bold uppercase tracking-widest text-white">Define Perspective</h3>
+               <div className="flex items-center m-0 p-0">
+                   <Image 
+                     src="/images/main-logo.png" 
+                     alt="Define Perspective Logo" 
+                     width={260} 
+                     height={94} 
+                     className="object-contain m-0 p-0"
+                   />
                </div>
                <div className="space-y-6 text-sm text-zinc-500 font-light leading-relaxed mb-10">
                   <div className="flex items-start gap-4">

@@ -83,9 +83,20 @@ export default function DP360Page() {
            <h3 className="text-4xl font-black uppercase tracking-widest mb-12 text-white max-w-2xl leading-tight">
              Ready to Scale Your Brand with the 360° Node?
            </h3>
-           <button className="h-20 px-16 rounded-full bg-cyan-400 text-black font-black uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-2xl">
-             Initialize Full Spectrum Analysis
-           </button>
+           <div className="flex flex-wrap justify-center gap-8">
+               <button 
+                 onClick={() => window.location.href = '/portfolio'}
+                 className="h-20 px-16 rounded-full border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:scale-110 hover:bg-white/5 active:scale-95 transition-all shadow-xl"
+               >
+                 View Related Portfolio
+               </button>
+               <button 
+                 onClick={() => window.location.href = '/contact?subject=Portfolio Inquiry: DP 360 Framework'}
+                 className="h-20 px-16 rounded-full bg-cyan-400 text-black font-black uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-2xl"
+               >
+                 Initialize Full Spectrum Analysis
+               </button>
+           </div>
         </section>
       </div>
 

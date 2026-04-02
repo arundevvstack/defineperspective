@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
   Sparkles, Megaphone, Globe, UserCog, Brackets, ArrowUpRight, 
@@ -58,14 +59,6 @@ export default function AIServicesPage() {
 
       <div className="container mx-auto relative z-10">
         <header className="mb-32 text-center max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="flex items-center justify-center gap-4 mb-12"
-          >
-             <div className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
-             <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-cyan-400">DP AI STUDIOS // 2026 Core</span>
-          </motion.div>
           
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}

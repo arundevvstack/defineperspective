@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 
 const serviceSections = [
   {
-    title: "Cinematic Video Production",
-    subtitle: "Premium Craftsmanship & Storytelling Across Kerala",
+    title: "Specialized Video & Ad Production",
+    subtitle: "Premium Craftsmanship & Cinematic Storytelling Across Kerala",
     icon: Star,
     items: [
       {
@@ -57,8 +57,8 @@ const serviceSections = [
     ]
   },
   {
-    title: "AI-Powered Media Solutions",
-    subtitle: "2026-Era Speed, Scalability & AEO Optimized",
+    title: "AI Studios & Generative Scaling",
+    subtitle: "2026-Era Speed, Scalability & AEO Optimized Content",
     icon: Cpu,
     items: [
       {
@@ -96,8 +96,8 @@ const serviceSections = [
     ]
   },
   {
-    title: "Elite Hybrid & Virtual Production",
-    subtitle: "Where Human Artistry Meets AI Acceleration",
+    title: "Strategic Hybrid Ecosystem",
+    subtitle: "Where Cinematic Artistry Meets AI Acceleration",
     icon: Wand2,
     items: [
       {
@@ -204,10 +204,10 @@ export default function ServiceGrid() {
             transition={{ duration: 0.8 }}
             className="text-5xl font-black md:text-8xl text-foreground tracking-widest uppercase leading-[0.85]"
           >
-            Digital Production <span className="text-primary-accent font-black italic shadow-glow">OS_</span>
+            Media <span className="text-primary-accent font-black italic shadow-glow">Production</span>
           </motion.h2>
           <p className="mt-16 text-xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
-            Elevate your brand with 2026-ready media. We have split our specialized capabilities into two high-performance divisions to better serve your specific trajectory.
+            Future-Proof Media. Specialized AI and Cinematic divisions delivering high-velocity production for brands in Kerala & India.
           </p>
         </div>
 
@@ -218,10 +218,10 @@ export default function ServiceGrid() {
                 
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
                    <div className="max-w-2xl">
-                      <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-6 block">Node {sIdx + 1} {" // "} Search Optimized</span>
-                      <h3 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-widest group">
+                      <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-6 block">Division 0{sIdx + 1} {" // "} Strategic Node</span>
+                      <h2 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-widest group leading-none">
                          {section.title}
-                      </h3>
+                      </h2>
                       <p className="mt-6 text-lg text-zinc-500 font-light uppercase tracking-[0.2em]">
                          {section.subtitle}
                       </p>
@@ -253,14 +253,14 @@ export default function ServiceGrid() {
                         )}>
                           <service.icon size={28} className="text-black font-black" />
                         </div>
-
+ 
                         <h4 className="mb-6 text-xl font-bold text-foreground tracking-widest uppercase leading-tight min-h-[3.5rem]">
                           {service.title}
                         </h4>
                         <p className="mb-10 text-zinc-400 font-light leading-relaxed text-xs uppercase tracking-tighter">
                           {service.desc}
                         </p>
-
+ 
                         <div className="mt-auto flex items-center justify-between border-t border-[var(--border-subtle)] pt-8 group-hover:border-primary-accent/30">
                           <span className="text-[10px] font-mono tracking-widest text-zinc-600 group-hover:text-primary-accent uppercase transition-colors">
                              Explore Node

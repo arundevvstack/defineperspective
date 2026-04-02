@@ -68,20 +68,25 @@ export default function TerminalHero() {
               className="mt-12 flex flex-col gap-10"
             >
               <div className="text-xl text-zinc-400 md:text-2xl lg:max-w-4xl font-light leading-relaxed">
-                <p className="mb-4 font-mono text-cyan-400">{"> "}Defining the Future of Media Production_</p>
-                <p>We combine cinematic filmmaking with AI-powered speed and scalability to deliver high-impact content for modern brands in Kerala, India, and beyond.</p>
-                
-                <div className="mt-8 grid md:grid-cols-3 gap-6">
-                  {[
-                    { title: "AI-Powered Velocity", text: "10x faster delivery for AI Video Production across Kerala and India." },
-                    { title: "Cinematic Excellence", text: "Premium corporate video production and ad films in Trivandrum & Kochi." },
-                    { title: "AI Search Optimized", text: "AEO-structured content for maximum visibility on Google and AI agents." }
-                  ].map((item, idx) => (
-                    <div key={idx} className="p-4 border border-white/5 bg-white/5 rounded-xl">
-                      <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
-                      <p className="text-sm text-zinc-500">{item.text}</p>
-                    </div>
-                  ))}
+                <p className="mb-4 font-mono text-cyan-400 opacity-60 text-sm tracking-widest">{"> "}Defining the Future of Media Production_</p>
+                <div className="space-y-8">
+                  <p className="text-2xl md:text-4xl text-white font-medium leading-tight">
+                    We combine <span className="text-cyan-400">Cinematic Excellence</span> with <span className="text-red-400">AI-Powered Velocity</span> to scale high-impact brands.
+                  </p>
+                  
+                  <div className="mt-12 grid md:grid-cols-3 gap-8">
+                    {[
+                      { title: "10x Velocity", text: "AI-Integrated workflows for high-speed video production across Kerala and India." },
+                      { title: "Premium Quality", text: "Cinematic ad films and corporate videos tailored for Trivandrum & Kochi." },
+                      { title: "AEO Optimized", text: "Structured content for maximum visibility on Google and AI agents." }
+                    ].map((item, idx) => (
+                      <div key={idx} className="group relative">
+                        <div className="h-0.5 w-8 bg-cyan-400 mb-4 transition-all group-hover:w-full" />
+                        <h3 className="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-3">{item.title}</h3>
+                        <p className="text-sm text-zinc-500 leading-relaxed font-light">{item.text}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 

@@ -24,8 +24,9 @@ const videoData = [
     category: "Corporate & Brand Films",
     description: "Premium brand storytelling and corporate video production in Kerala, designed to build trust and authority.",
     projects: [
-      { id: "corp1", title: "Global Tech Summit", videoId: "dQw4w9WgXcQ" },
-      { id: "corp2", title: "Luxury Real Estate", videoId: "dQw4w9WgXcQ" },
+      { id: "corp1", title: "To U Commercial", videoId: "NEqjeiDThcY", service: "TVC", industry: "Fashion/ Apparal" },
+      { id: "corp2", title: "BB App Commercial", videoId: "INpn97C16yM?si=UGL4o35v9EWjGoAt", service: "TVC", industry: "Tech Driven App" },
+      { id: "corp3", title: "Dotspace Commercial", videoId: "HuX40LSwF7M", service: "TVC", industry: "Co-working Space" },
     ]
   },
   {
@@ -199,7 +200,10 @@ function PortfolioContent() {
                        ) : (
                          <iframe 
                            src={`https://www.youtube.com/embed/${project.videoId}`} 
-                           className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+                           title={project.title}
+                           className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700 font-bold border-0"
+                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                           referrerPolicy="strict-origin-when-cross-origin"
                            allowFullScreen
                          />
                        )}
@@ -212,8 +216,17 @@ function PortfolioContent() {
                     <div className="px-4">
                       <h4 className="text-xl font-bold uppercase tracking-widest mb-2 group-hover:text-primary-accent transition-colors">{project.title}</h4>
                       <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest leading-loose">
-                         Studio Pipeline: {activeTab === "ai" ? "Neural Core" : "Optic Engine"} <br />
-                         Status: Released v2.0
+                         {project.service ? (
+                           <>
+                             Service: {project.service} <br />
+                             Industry: {project.industry}
+                           </>
+                         ) : (
+                           <>
+                             Studio Pipeline: {project.pipeline || (activeTab === "ai" ? "Neural Core" : "Optic Engine")} <br />
+                             Status: {project.status || "Released v2.0"}
+                           </>
+                         )}
                       </p>
                     </div>
                   </motion.div>

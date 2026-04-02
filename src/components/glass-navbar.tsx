@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, Suspense } from "react";
 import { Search, Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,9 +19,8 @@ function NavbarContent() {
   const links = [
     { name: "HOME", href: "/" },
     { name: "SERVICES", href: "/services" },
-    { name: "AI STUDIOS", href: "/portfolio?view=ai" },
+    { name: "AI SERVICES", href: "/ai-services" },
     { name: "PORTFOLIO", href: "/portfolio" },
-    { name: "LAB", href: "/lab" },
     { name: "ABOUT", href: "/about" },
     { name: "CONTACT", href: "/contact" },
   ];
@@ -29,26 +29,15 @@ function NavbarContent() {
     <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-white/5 bg-obsidian/80 backdrop-blur-3xl px-6 md:px-12 py-4">
       <div className="container mx-auto flex h-12 items-center justify-between">
         {/* Brand Logo */}
-        <a href="/" className="group flex cursor-pointer items-center gap-2">
-          <div className={cn(
-            "h-10 w-10 flex items-center justify-center rounded-xl transition-all duration-500 group-hover:scale-110",
-            isAiServices 
-              ? "bg-gradient-to-tr from-cyan-400 to-blue-600 shadow-[0_0_20px_rgba(0,245,255,0.4)]" 
-              : "bg-gradient-to-tr from-red-400 to-red-900 shadow-[0_0_20px_rgba(240,68,71,0.4)]"
-          )}>
-            <span className="font-bold text-primary-accent-fg text-xl">{isAiServices ? "AI" : "DP"}</span>
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className={cn(
-              "text-xl font-bold tracking-tighter transition-colors duration-500",
-              isAiServices ? "text-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.2)]" : "text-foreground"
-            )}>
-              {isAiServices ? "DP AI STUDIOS" : "DEFINE PERSPECTIVE"}
-            </span>
-            <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">
-              {isAiServices ? "neural.media.engine" : "media.ai.vfx"}
-            </span>
-          </div>
+        <a href="/" className="group flex cursor-pointer items-center transition-all duration-500 hover:scale-105 p-0 m-0 leading-none">
+            <Image 
+              src={isAiServices ? "/images/ai-logo.png" : "/images/main-logo.png"} 
+              alt="Define Perspective" 
+              width={240} 
+              height={76} 
+              className="object-contain m-0 p-0"
+              priority
+            />
         </a>
 
         {/* Desktop Links */}

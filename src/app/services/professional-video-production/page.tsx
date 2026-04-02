@@ -58,12 +58,23 @@ export default function ProfessionalVideoProductionPage() {
            </div>
         </section>
 
-        <section className="py-24 border-t border-white/5 text-center">
-           <h3 className="text-3xl font-bold uppercase tracking-widest mb-10 text-white">Direct Your Vision</h3>
-           <button className="h-16 px-12 rounded-full bg-white text-black font-black uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-2xl">
-             Request a Quote
-           </button>
-        </section>
+         <section className="py-24 border-t border-white/5 text-center">
+            <h3 className="text-3xl font-bold uppercase tracking-widest mb-12 text-white">Direct Your Vision</h3>
+            <div className="flex flex-wrap justify-center gap-6">
+                <button 
+                  onClick={() => window.location.href = '/portfolio'}
+                  className="h-16 px-12 rounded-full border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:scale-110 hover:bg-white/5 active:scale-95 transition-all shadow-xl"
+                >
+                  View Related Portfolio
+                </button>
+                <button 
+                  onClick={() => window.location.href = '/contact?subject=Portfolio Inquiry: Professional Video Production'}
+                  className="h-16 px-12 rounded-full bg-white text-black font-black uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-2xl"
+                >
+                  Request a Quote
+                </button>
+            </div>
+         </section>
       </div>
 
       <AIDiscoveryAgent />
