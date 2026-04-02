@@ -36,7 +36,7 @@ export default function FAQSection() {
       <div className="container mx-auto">
         <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-12 max-w-6xl mx-auto">
            <div className="max-w-3xl">
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-zinc-500 mb-6 block">Quick Support // Help Center</span>
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-zinc-500 mb-6 block">Quick Support {" // "} Help Center</span>
               <h2 className="text-4xl font-black md:text-7xl text-white tracking-widest uppercase">
                 Common Questions
               </h2>

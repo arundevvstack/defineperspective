@@ -61,7 +61,7 @@ export default function AICaseStudy({ params }: { params: Promise<{ id: string }
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.5 }}
            >
-              <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block">Case Study // AI Design</span>
+              <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block">Case Study {" // "} AI Design</span>
               <h1 className="text-4xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.85] text-white">
                 {project.title}
               </h1>

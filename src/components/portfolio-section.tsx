@@ -116,7 +116,7 @@ export default function PortfolioSection() {
               {/* Project Details */}
               <div className="lg:col-span-5 flex flex-col gap-10 lg:ltr text-left">
                  <div>
-                    <span className="text-[10px] font-mono tracking-widest text-cyan-400 uppercase mb-4 block">Case Study // 0{idx + 1}</span>
+                    <span className="text-[10px] font-mono tracking-widest text-cyan-400 uppercase mb-4 block">Case Study {" // "} 0{idx + 1}</span>
                     <h3 className="text-4xl font-bold text-white mb-6 tracking-tight">{project.title}</h3>
                     <p className="text-zinc-400 leading-relaxed text-lg font-light">{project.desc}</p>
                  </div>

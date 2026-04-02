@@ -218,7 +218,7 @@ export default function ServiceGrid() {
                 
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
                    <div className="max-w-2xl">
-                      <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-6 block">Node {sIdx + 1} // Search Optimized</span>
+                      <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-6 block">Node {sIdx + 1} {" // "} Search Optimized</span>
                       <h3 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-widest group">
                          {section.title}
                       </h3>

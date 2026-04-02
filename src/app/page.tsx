@@ -59,7 +59,7 @@ export default function Home() {
       <section className="py-40 px-6 md:px-12 bg-black/80">
         <div className="container mx-auto">
           <div className="mb-24 text-center max-w-4xl mx-auto">
-            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-cyan-400 mb-6 block font-bold underline">Industries We Serve // Kerala & India</span>
+            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-cyan-400 mb-6 block font-bold underline">Industries We Serve {" // "} Kerala & India</span>
             <h2 className="text-4xl font-black md:text-7xl text-white tracking-widest uppercase">Our Strategic Verticals</h2>
             <p className="mt-8 text-xl text-zinc-500 font-light leading-relaxed mb-16">
                "We work with brands that want a competitive advantage. Our hybrid production model serves industries that prioritize speed and high-level filmmaking."
@@ -230,7 +230,7 @@ export default function Home() {
 
           <div className="mt-40 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-10 text-[10px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
              <span>Defining the Perspective © 2026. All rights reserved.</span>
-             <span className="hidden md:inline">Nodes: TRV • COK • MAA // Latency: 1ms</span>
+             <span className="hidden md:inline">Nodes: TRV • COK • MAA {" // "} Latency: 1ms</span>
           </div>
         </div>
       </footer>

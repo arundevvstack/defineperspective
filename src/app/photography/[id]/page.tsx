@@ -69,7 +69,7 @@ export default function PhotoCaseStudy({ params }: { params: Promise<{ id: strin
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.5 }}
            >
-              <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block">Case Study // Photography</span>
+              <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block">Case Study {" // "} Photography</span>
               <h1 className="text-4xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.85]">
                 {project.title}
               </h1>

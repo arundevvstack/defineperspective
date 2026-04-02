@@ -109,7 +109,7 @@ function PortfolioContent() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
           >
-            <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Archives // v2026 Core</span>
+            <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Archives {" // "} v2026 Core</span>
             <h1 className="text-4xl md:text-9xl font-black tracking-tight uppercase mb-10 leading-[0.85]">
               Visions in <br /><span className="text-primary-accent">Execution.</span>
             </h1>
@@ -155,7 +155,7 @@ function PortfolioContent() {
             >
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
                 <div className="max-w-3xl">
-                  <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 block">Division // {activeTab}</span>
+                  <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 block">Division {" // "} {activeTab}</span>
                   <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white mb-6">
                     {section.category}
                   </h2>
