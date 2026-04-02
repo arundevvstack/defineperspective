@@ -1,0 +1,81 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Plus, Users, Globe, BarChart3, Star, Building2, CheckCircle2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const metrics = [
+  {
+    icon: Plus,
+    value: "9",
+    label: "Years of Experience",
+    color: "cyan",
+  },
+  {
+    icon: BarChart3,
+    value: "10,000",
+    label: "Minutes of Film Produced",
+    color: "purple",
+  },
+  {
+    icon: Globe,
+    value: "5",
+    label: "Countries Worked In",
+    color: "green",
+  },
+  {
+    icon: Users,
+    value: "99%",
+    label: "Satisfied Clients",
+    color: "orange",
+  },
+  {
+    icon: Star,
+    value: "4.9/5",
+    label: "Review Score",
+    color: "rose",
+  },
+  {
+    icon: Building2,
+    value: "20",
+    label: "Industries Served",
+    color: "blue",
+  },
+];
+
+export default function MetricsSection() {
+  return (
+    <section className="py-40 px-6 md:px-12 bg-obsidian relative overflow-hidden">
+      <div className="container mx-auto">
+        <div className="mb-24 flex flex-col items-center text-center">
+            <h2 className="text-4xl font-extrabold md:text-6xl text-white tracking-widest uppercase flex flex-col md:flex-row items-center gap-4">
+              WHY BRANDS <span className="text-cyan-400">CHOOSE US</span>
+            </h2>
+            <div className="mt-8 h-1 w-24 rounded-full bg-cyan-400/30" />
+        </div>
+
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
+          {metrics.map((metric, idx) => (
+            <motion.div
+              key={metric.label}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.1, duration: 0.8 }}
+              className="group relative flex flex-col items-center justify-center p-8 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm transition-all hover:bg-white/10"
+            >
+              <div className="mb-6 h-12 w-12 flex items-center justify-center rounded-xl bg-white/5 group-hover:scale-110 transition-transform">
+                <metric.icon size={24} className="text-zinc-500 group-hover:text-cyan-400" />
+              </div>
+              <h3 className="text-4xl font-black text-white tracking-tighter mb-2 group-hover:text-glow">
+                {metric.value}{metric.label === "Years of Experience" || metric.label === "Countries Worked In" || metric.label === "Industries Served" ? "+" : ""}
+              </h3>
+              <p className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase text-center leading-tight">
+                {metric.label}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

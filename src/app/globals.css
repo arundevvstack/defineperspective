@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  --color-obsidian: #0B0B0B;
+  --color-primary-accent: var(--accent);
+  --color-primary-accent-fg: var(--accent-foreground);
+  --color-cyan-glow: var(--accent);
+  --color-cyan-400: var(--accent);
+  --color-glass-white: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --glass-white: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.05);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.theme-red {
+  --accent: #f04447;
+  --accent-rgb: 240, 68, 71;
+  --accent-foreground: #ffffff;
+  --glow: rgba(240, 68, 71, 0.4);
+  --glow-strong: rgba(240, 68, 71, 0.6);
+  --shadow: rgba(0, 0, 0, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.theme-blue {
+  --accent: #00F5FF;
+  --accent-rgb: 0, 245, 255;
+  --accent-foreground: #FFF;
+  --glow: rgba(0, 245, 255, 0.4);
+  --glow-strong: rgba(0, 245, 255, 0.6);
+  --shadow: rgba(0, 245, 255, 0.1);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s ease;
+}
+
+/* Elite Accessibility: Global Focus Invisible Ring */
+:focus-visible {
+  outline: 2px solid #52525b; /* zinc-600 light grey */
+  outline-offset: 4px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(82, 82, 91, 0.4);
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: var(--color-glass-white);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  background-color: var(--accent);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
 }
