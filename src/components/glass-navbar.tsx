@@ -16,16 +16,60 @@ function NavbarContent() {
   const activeView = searchParams.get("view");
   const isAiServices = pathname === "/ai-services" || activeView === "ai";
 
-  const links = [
-    { name: "HOME", href: "/" },
-    { name: "VIDEO", href: "/services/video-production" },
-    { name: "AI MEDIA", href: "/services/ai-media-production" },
-    { name: "AI CGI", href: "/services/cgi-virtual-production" },
-    { name: "PRODUCT", href: "/services/product-content" },
-    { name: "PERFORMANCE", href: "/services/performance-marketing" },
-    { name: "STRATEGY", href: "/services/video-strategy" },
-    { name: "PORTFOLIO", href: "/portfolio" },
+  const serviceLinks = [
+    { name: "Video Production", href: "/services/video-production" },
+    { name: "Product Content", href: "/services/product-content" },
+    { name: "Performance Ads", href: "/services/performance-marketing" },
+    { name: "Strategy & Consulting", href: "/services/video-strategy" },
   ];
+
+  const aiStudioLinks = [
+    { name: "AI Media Production", href: "/services/ai-media-production" },
+    { name: "AI CGI & Virtual Prod", href: "/services/cgi-virtual-production" },
+  ];
+
+  const NavDropdown = ({ title, items }: { title: string; items: { name: string; href: string }[] }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <div 
+        className="relative group"
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+      >
+        <button className={cn(
+          "text-sm font-semibold transition-colors flex items-center gap-2 py-2 uppercase tracking-widest",
+          items.some(item => pathname === item.href) ? "text-primary-accent" : "text-foreground/80 group-hover:text-primary-accent"
+        )}>
+          {title}
+          <motion.span animate={{ rotate: isOpen ? 180 : 0 }} className="text-[10px]">▼</motion.span>
+        </button>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-0 w-64 bg-obsidian/95 backdrop-blur-3xl border border-white/5 rounded-2xl p-4 shadow-2xl mt-2 flex flex-col gap-2 z-[110]"
+            >
+              {items.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    "px-4 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all",
+                    pathname === item.href ? "bg-primary-accent text-white" : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                  )}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-white/5 bg-obsidian/80 backdrop-blur-3xl px-6 md:px-12 py-4">
@@ -43,29 +87,22 @@ function NavbarContent() {
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden items-center gap-10 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={cn(
-                "text-sm font-semibold transition-colors hover:text-primary-accent",
-                pathname === link.href ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent"
-              )}
-            >
-              {link.name}
-            </a>
-          ))}
+        <div className="hidden items-center gap-8 md:flex">
+          <a href="/" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Home</a>
+          
+          <NavDropdown title="Services" items={serviceLinks} />
+          <NavDropdown title="DP AI Studios" items={aiStudioLinks} />
+
+          <a href="/portfolio" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Portfolio</a>
+          
           <div className="h-6 w-[1px] bg-white/10 mx-2" />
-          <button className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-zinc-400 transition hover:bg-white/10 hover:text-primary-accent">
-            <Search size={20} />
-          </button>
+          
           <Magnetic intensity={1.5}>
             <button 
               onClick={() => window.location.href = '/contact'}
               className="h-10 px-6 rounded-full bg-primary-accent text-zinc-200 font-black uppercase tracking-widest text-[10px] hover:scale-105 active:scale-95 hover:text-white transition-all shadow-lg"
             >
-              {isAiServices ? "START PROJECT" : "REQUEST QUOTE"}
+              Consult Now
             </button>
           </Magnetic>
         </div>
@@ -89,31 +126,35 @@ function NavbarContent() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 top-0 z-[49] flex flex-col bg-obsidian/95 backdrop-blur-3xl p-12 pt-32 gap-8 md:hidden overflow-y-auto"
           >
-            {links.map((link, lIdx) => (
-              <motion.a
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: lIdx * 0.1 }}
-                key={link.name}
-                href={link.href}
-                className={cn(
-                  "text-4xl font-black uppercase tracking-tighter transition-colors hover:text-primary-accent",
-                  pathname === link.href ? "text-primary-accent" : "text-white"
-                )}
-                onClick={() => setMobileMenu(false)}
-              >
-                {link.name}
-              </motion.a>
-            ))}
+            <div className="flex flex-col gap-6">
+              <a href="/" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Home</a>
+              
+              <div className="space-y-4">
+                <span className="text-[10px] font-mono text-primary-accent uppercase tracking-widest">Services</span>
+                {serviceLinks.map(link => (
+                  <a key={link.name} href={link.href} className="block text-2xl font-bold uppercase text-zinc-400 pl-4" onClick={() => setMobileMenu(false)}>{link.name}</a>
+                ))}
+              </div>
+
+              <div className="space-y-4">
+                <span className="text-[10px] font-mono text-primary-accent uppercase tracking-widest">DP AI Studios</span>
+                {aiStudioLinks.map(link => (
+                  <a key={link.name} href={link.href} className="block text-2xl font-bold uppercase text-zinc-400 pl-4" onClick={() => setMobileMenu(false)}>{link.name}</a>
+                ))}
+              </div>
+
+              <a href="/portfolio" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Portfolio</a>
+            </div>
+
             <div className="mt-auto pb-12 flex flex-col gap-6">
                 <button 
                   onClick={() => {
                     setMobileMenu(false);
-                    window.dispatchEvent(new CustomEvent('open-ai-chat'));
+                    window.location.href = '/contact';
                   }}
                   className="h-20 w-full rounded-2xl bg-primary-accent font-black text-primary-accent-fg text-xl flex items-center justify-center gap-4 shadow-[0_0_30px_var(--glow)]"
                 >
-                   Consult AI <ArrowRight size={24} />
+                   Book Strategy <ArrowRight size={24} />
                 </button>
                 <div className="flex justify-between items-center text-[10px] font-mono text-zinc-600 uppercase tracking-widest px-2">
                    <span>Nodes: TRV • COK</span>
