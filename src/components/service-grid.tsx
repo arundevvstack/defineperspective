@@ -88,6 +88,45 @@ const serviceSections = [
     ]
   },
   {
+    title: "AI CGI & Virtual Production",
+    subtitle: "Premium 3D Visualization & Virtual Environments India",
+    icon: Wand2,
+    items: [
+      {
+        id: "cgi-prod-video",
+        title: "AI CGI Product Videos",
+        desc: "Impossible product shots and surreal 3D environments rendered via AI.",
+        icon: Sparkles,
+        color: "from-cyan-400 to-blue-500",
+        href: "/services/cgi-virtual-production/ai-cgi-product-videos"
+      },
+      {
+        id: "virtual-prod-env",
+        title: "Virtual Production AI Environments",
+        desc: "Shoot against high-res AI digital backgrounds for global locations-on-demand.",
+        icon: Globe,
+        color: "from-indigo-400 to-purple-600",
+        href: "/services/cgi-virtual-production/virtual-production-services"
+      },
+      {
+        id: "3d-vis-ai",
+        title: "AI-Generated 3D Product Visualization",
+        desc: "Photorealistic 3D renders that eliminate the need for physical studio time.",
+        icon: Layers,
+        color: "from-emerald-400 to-green-600",
+        href: "/services/cgi-virtual-production/3d-product-visualization"
+      },
+      {
+        id: "vfx-ai-enhance",
+        title: "AI VFX & Motion Enhancement",
+        desc: "Elevating traditional footage with high-end neural visual effects.",
+        icon: Zap,
+        color: "from-rose-400 to-pink-600",
+        href: "/services/cgi-virtual-production/vfx-motion-enhancement"
+      }
+    ]
+  },
+  {
     title: "Product & E-commerce Content",
     subtitle: "Billboard-Ready Visuals for Amazon, Flipkart & D2C Brands",
     icon: Package,
@@ -127,46 +166,7 @@ const serviceSections = [
     ]
   },
   {
-    title: "Social Media Content Creation",
-    subtitle: "High-Velocity Vertical Video Production Across India",
-    icon: Share2,
-    items: [
-      {
-        id: "social-video",
-        title: "Social Media Video Production",
-        desc: "Engaging vertical content tailored for viral platform algorithms.",
-        icon: Video,
-        color: "from-pink-400 to-purple-600",
-        href: "/services/social-media/social-media-video-production"
-      },
-      {
-        id: "insta-reels",
-        title: "Instagram Reels Creation",
-        desc: "Trend-first Reels engineered for maximum engagement and brand reach.",
-        icon: Star,
-        color: "from-rose-400 to-orange-500",
-        href: "/services/social-media/instagram-reels-creation"
-      },
-      {
-        id: "yt-shorts",
-        title: "YouTube Shorts Production",
-        desc: "Fast-paced Shorts to grow your channel and drive mobile traffic.",
-        icon: PlayCircle,
-        color: "from-red-500 to-red-800",
-        href: "/services/social-media/youtube-shorts-production"
-      },
-      {
-        id: "ugc-video",
-        title: "UGC Video Production",
-        desc: "Authentic, relatability-focused User Generated Content at professional scale.",
-        icon: Users,
-        color: "from-emerald-400 to-teal-600",
-        href: "/services/social-media/ugc-video-production"
-      }
-    ]
-  },
-  {
-    title: "Performance Marketing Ads",
+    title: "Performance Marketing Video Ads",
     subtitle: "Conversion-Centric Ad Creatives for FB, IG & YouTube",
     icon: Target,
     items: [
@@ -201,45 +201,6 @@ const serviceSections = [
         icon: Zap,
         color: "from-amber-400 to-orange-600",
         href: "/services/performance-marketing/conversion-focused-video-ads"
-      }
-    ]
-  },
-  {
-    title: "CGI & Virtual Production",
-    subtitle: "Premium 3D Visualization & Virtual Environments India",
-    icon: Wand2,
-    items: [
-      {
-        id: "cgi-product",
-        title: "CGI Product Videos",
-        desc: "Impossible product shots and surreal 3D environments for luxury brands.",
-        icon: Sparkles,
-        color: "from-cyan-400 to-blue-500",
-        href: "/services/cgi-virtual-production/cgi-product-videos"
-      },
-      {
-        id: "virtual-prod",
-        title: "Virtual Production Services",
-        desc: "Shoot against high-res digital backgrounds for global locations-on-demand.",
-        icon: Globe,
-        color: "from-indigo-400 to-purple-600",
-        href: "/services/cgi-virtual-production/virtual-production-services"
-      },
-      {
-        id: "3d-vis",
-        title: "3D Product Visualization",
-        desc: "Detailed, photorealistic 3D renders that eliminate the need for physical samples.",
-        icon: Layers,
-        color: "from-emerald-400 to-green-600",
-        href: "/services/cgi-virtual-production/3d-product-visualization"
-      },
-      {
-        id: "vfx-enhance",
-        title: "VFX & Motion Enhancement",
-        desc: "Elevating traditional footage with high-end digital visual effects.",
-        icon: Zap,
-        color: "from-rose-400 to-pink-600",
-        href: "/services/cgi-virtual-production/vfx-motion-enhancement"
       }
     ]
   },

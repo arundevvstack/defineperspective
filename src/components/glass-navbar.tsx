@@ -20,10 +20,9 @@ function NavbarContent() {
     { name: "HOME", href: "/" },
     { name: "VIDEO", href: "/services/video-production" },
     { name: "AI MEDIA", href: "/services/ai-media-production" },
+    { name: "AI CGI", href: "/services/cgi-virtual-production" },
     { name: "PRODUCT", href: "/services/product-content" },
-    { name: "SOCIAL", href: "/services/social-media" },
     { name: "PERFORMANCE", href: "/services/performance-marketing" },
-    { name: "CGI", href: "/services/cgi-virtual-production" },
     { name: "STRATEGY", href: "/services/video-strategy" },
     { name: "PORTFOLIO", href: "/portfolio" },
   ];

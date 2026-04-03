@@ -13,29 +13,75 @@ import { cn } from "@/lib/utils";
 
 const serviceSections = [
   {
-    title: "Specialized Video & Ad Production",
-    subtitle: "Premium Craftsmanship & Cinematic Storytelling",
+    title: "Video Production",
+    subtitle: "Elite Ad Films & Corporate Brand Storytelling",
     icon: Star,
-    color: "from-red-400 to-red-600",
-    accent: "text-red-400",
+    accent: "text-blue-400",
     items: [
-      { id: "brand-films", title: "Brand Films & TV Commercials", icon: PlayCircle, color: "from-red-400 to-red-500" },
-      { id: "corp-id", title: "Corporate & Company Videos", icon: Workflow, color: "from-red-500 to-red-700" },
-      { id: "ads-photo", title: "Professional Ad Photography", icon: Camera, color: "from-orange-500 to-red-600" },
-      { id: "campaign-strategy", title: "Creative Strategy & Planning", icon: Eye, color: "from-indigo-500 to-purple-600" }
+      { id: "corp-video", title: "Corporate Video Production Company in Kerala", icon: Workflow, color: "from-blue-400 to-indigo-600" },
+      { id: "brand-film", title: "Brand Film Production", icon: Star, color: "from-amber-400 to-red-500" },
+      { id: "ad-film", title: "Ad Film / Commercial Video Production", icon: Video, color: "from-red-400 to-rose-600" },
+      { id: "promo-video", title: "Promotional Video Production", icon: Zap, color: "from-orange-400 to-amber-600" }
     ]
   },
   {
-    title: "AI Studios & Generative Scaling",
-    subtitle: "2026-Era Speed, Scalability & AEO",
+    title: "AI Media Production",
+    subtitle: "2026-Era Generative Video & Post-Production",
     icon: Cpu,
-    color: "from-cyan-400 to-blue-600",
     accent: "text-cyan-400",
     items: [
-      { id: "ai-video", title: "Generative AI Video Production", icon: Video, color: "from-cyan-400 to-blue-500" },
-      { id: "ai-cgi", title: "AI & CGI Fusion Hub", icon: Globe, color: "from-blue-500 to-purple-600" },
-      { id: "ai-scale", title: "Automated Content Scaling", icon: Zap, color: "from-orange-400 to-red-500" },
-      { id: "performance-ads", title: "AI-Optimized Social Ads", icon: Target, color: "from-rose-400 to-pink-500" }
+      { id: "ai-video-services", title: "AI Video Production Services", icon: Sparkles, color: "from-cyan-400 to-blue-600" },
+      { id: "ai-ad-gen", title: "AI Ad Creative Generation", icon: Zap, color: "from-purple-400 to-indigo-600" },
+      { id: "ai-no-shoot", title: "AI Product Videos (No Shoot Required)", icon: Image, color: "from-emerald-400 to-cyan-600" },
+      { id: "ai-avatars", title: "AI Avatar Videos & AI Presenters", icon: Users, color: "from-pink-400 to-rose-600" }
+    ]
+  },
+  {
+    title: "AI CGI & Virtual Production",
+    subtitle: "Premium 3D Visualization & Virtual Environments",
+    icon: Wand2,
+    accent: "text-purple-400",
+    items: [
+      { id: "cgi-prod-video", title: "AI CGI Product Videos", icon: Sparkles, color: "from-cyan-400 to-blue-500" },
+      { id: "virtual-prod-env", title: "Virtual Production AI Environments", icon: Globe, color: "from-indigo-400 to-purple-600" },
+      { id: "3d-vis-ai", title: "AI-Generated 3D Product Visualization", icon: Layers, color: "from-emerald-400 to-green-600" },
+      { id: "vfx-ai-enhance", title: "AI VFX & Motion Enhancement", icon: Zap, color: "from-rose-400 to-pink-600" }
+    ]
+  },
+  {
+    title: "Product & E-commerce Content",
+    subtitle: "Billboard-Ready Visuals for Global Marketplaces",
+    icon: Package,
+    accent: "text-amber-400",
+    items: [
+      { id: "prod-video", title: "Product Video Production", icon: Camera, color: "from-yellow-400 to-amber-600" },
+      { id: "ecomm-photo", title: "E-commerce Product Photography", icon: Image, color: "from-blue-400 to-cyan-600" },
+      { id: "marketplace-video", title: "Amazon / Flipkart Product Videos", icon: Globe, color: "from-orange-400 to-red-600" },
+      { id: "prod-demo", title: "Product Demo Videos", icon: PlayCircle, color: "from-indigo-400 to-blue-600" }
+    ]
+  },
+  {
+    title: "Performance Marketing Video Ads",
+    subtitle: "Conversion-Centric Ad Creatives for High-Growth Brands",
+    icon: Target,
+    accent: "text-red-400",
+    items: [
+      { id: "perf-ads", title: "Performance Marketing Video Ads", icon: BarChart3, color: "from-green-400 to-emerald-600" },
+      { id: "fb-ig-ads", title: "Facebook & Instagram Ad Creatives", icon: Share2, color: "from-blue-500 to-indigo-700" },
+      { id: "yt-ads", title: "YouTube Ads Production", icon: Video, color: "from-red-600 to-black" },
+      { id: "conv-ads", title: "Conversion-Focused Video Ads", icon: Zap, color: "from-amber-400 to-orange-600" }
+    ]
+  },
+  {
+    title: "Video Strategy & Consulting",
+    subtitle: "Data-Driven Planning & Content Funnel Architecture",
+    icon: BarChart3,
+    accent: "text-zinc-400",
+    items: [
+      { id: "vid-strat", title: "Video Marketing Strategy", icon: Target, color: "from-zinc-400 to-zinc-800" },
+      { id: "cont-plan", title: "Content Strategy & Planning", icon: Workflow, color: "from-blue-400 to-indigo-600" },
+      { id: "camp-exec", title: "Campaign Planning & Execution", icon: Globe, color: "from-cyan-400 to-emerald-600" },
+      { id: "vid-funnel", title: "Video Funnel Strategy", icon: Layers, color: "from-orange-400 to-red-600" }
     ]
   }
 ];

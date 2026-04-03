@@ -17,6 +17,8 @@ import FAQSection from "@/components/faq-section";
 import PricingCalculator from "@/components/pricing-calculator";
 import AIDiscoveryAgent from "@/components/ai-discovery-agent";
 
+import IndustriesSection from "@/components/industries-section";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground transition-colors duration-500 overflow-x-hidden">
@@ -55,25 +57,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 3: Who We Work With (Industries) */}
-      <section className="py-40 px-6 md:px-12 bg-black/80">
-        <div className="container mx-auto">
-          <div className="mb-24 text-center max-w-4xl mx-auto">
-            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-cyan-400 mb-6 block font-bold underline">Industries We Serve {" // "} Kerala & India</span>
-            <h2 className="text-4xl font-black md:text-7xl text-white tracking-widest uppercase">Our Strategic Verticals</h2>
-            <p className="mt-8 text-xl text-zinc-500 font-light leading-relaxed mb-16">
-               "We work with brands that want a competitive advantage. Our hybrid production model serves industries that prioritize speed and high-level filmmaking."
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-               {["Real Estate", "D2C Brands", "Startups", "Hospitals", "Restaurants", "Automotive", "EdTech"].map((ind) => (
-                 <span key={ind} className="px-8 py-3 rounded-full border border-white/10 bg-white/5 text-sm uppercase tracking-widest text-zinc-300 hover:border-cyan-400 hover:text-cyan-400 cursor-default transition-all duration-300">
-                    {ind}
-                 </span>
-               ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Section 3: Strategic Verticals (Industries) */}
+      <IndustriesSection />
 
       {/* Section 4: Results & Metrics */}
       <MetricsSection />
