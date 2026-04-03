@@ -1,3 +1,4 @@
+// Deploy Trigger: Secrets configured. Initializing build 2026-04-03 18:30:00
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
