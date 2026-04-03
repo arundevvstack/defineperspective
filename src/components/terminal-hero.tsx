@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export default function TerminalHero() {
   const [displayText, setDisplayText] = useState("");
-  const targetText = "High-Quality Video Production & Photography for Your Brand.";
+  const targetText = "AI-Powered Video Production Company in Kerala for Brands That Want to Scale.";
   const speed = 40;
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function TerminalHero() {
               <div className="h-3 w-3 rounded-full bg-green-400/60" />
             </div>
             <div className="flex-1 text-center text-[10px] font-mono text-zinc-500 tracking-[0.2em] uppercase opacity-60">
-              defineperspective.in — professional media services — Kerala, India
+              defineperspective.in — AI Media & CGI Studio — Trivandrum · Kochi · India
             </div>
           </div>
 
@@ -68,17 +68,17 @@ export default function TerminalHero() {
               className="mt-12 flex flex-col gap-10"
             >
               <div className="text-xl text-zinc-400 md:text-2xl lg:max-w-4xl font-light leading-relaxed">
-                <p className="mb-4 font-mono text-cyan-400 opacity-60 text-sm tracking-widest">{"> "}Defining the Future of Media Production_</p>
+                <p className="mb-4 font-mono text-cyan-400 opacity-60 text-sm tracking-widest">{"> "}Initializing High-Converting Video Growth Engine_</p>
                 <div className="space-y-8">
                   <p className="text-2xl md:text-4xl text-white font-medium leading-tight">
-                    We combine <span className="text-cyan-400">Cinematic Excellence</span> with <span className="text-red-400">AI-Powered Velocity</span> to scale high-impact brands.
+                    We combine <span className="text-cyan-400">AI Media Production</span> with <span className="text-red-400">Performance Marketing</span> to scale high-impact brands in India.
                   </p>
                   
                   <div className="mt-12 grid md:grid-cols-3 gap-8">
                     {[
-                      { title: "10x Velocity", text: "AI-Integrated workflows for high-speed video production across Kerala and India." },
-                      { title: "Premium Quality", text: "Cinematic ad films and corporate videos tailored for Trivandrum & Kochi." },
-                      { title: "AEO Optimized", text: "Structured content for maximum visibility on Google and AI agents." }
+                      { title: "AI Content Creation", text: "Generative AI workflows for high-speed video production across Kerala and India." },
+                      { title: "CGI & Virtual Prod", text: "Premium CGI product videos and virtual sets tailored for Trivandrum & Kochi." },
+                      { title: "Performance Ads", text: "Conversion-focused video ads optimized for maximum visibility on AI search agents." }
                     ].map((item, idx) => (
                       <div key={idx} className="group relative">
                         <div className="h-0.5 w-8 bg-cyan-400 mb-4 transition-all group-hover:w-full" />
@@ -93,17 +93,17 @@ export default function TerminalHero() {
               <div className="flex flex-wrap gap-6 items-center">
                 <button 
                   onClick={() => {
-                    window.dispatchEvent(new CustomEvent('open-ai-chat', { detail: 'Strategy Session' }));
+                    window.location.href = '/contact?subject=AI Video Ad Strategy Session';
                   }}
                   className="h-14 rounded-full bg-primary-accent px-10 text-sm font-black tracking-widest text-zinc-200 transition hover:scale-110 hover:text-white focus:ring-2 focus:ring-zinc-400 focus:outline-none shadow-[0_0_20px_var(--glow)] uppercase"
                 >
-                  Request a Quote
+                  Get High-Converting Video Ads
                 </button>
                 <button 
                   onClick={() => window.location.href = '/portfolio'}
                   className="h-14 rounded-full border border-white/10 bg-white/5 px-10 text-sm font-bold tracking-widest text-white backdrop-blur-sm transition hover:bg-white/10 uppercase"
                 >
-                  View Our Work
+                  Get AI Video Demo
                 </button>
               </div>
             </motion.div>

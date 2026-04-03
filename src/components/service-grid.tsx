@@ -10,104 +10,276 @@ import { cn } from "@/lib/utils";
 
 const serviceSections = [
   {
-    title: "Specialized Video & Ad Production",
-    subtitle: "Premium Craftsmanship & Cinematic Storytelling Across Kerala",
-    icon: Star,
+    title: "Video Production",
+    subtitle: "Elite Ad Films & Corporate Brand Storytelling in Kerala",
+    icon: PlayCircle,
     items: [
       {
         id: "corp-video",
-        title: "Corporate Video Production",
-        desc: "Professional brand stories and heritage films for global enterprises in India.",
+        title: "Corporate Video Production Company in Kerala",
+        desc: "Professional brand stories and heritage films for global enterprises in Thrivandrum & Kochi.",
         icon: Workflow,
-        color: "from-red-400 to-indigo-500",
-        href: "/services/professional-video-production"
+        color: "from-blue-400 to-indigo-600",
+        href: "/services/video-production/corporate-video-production-company-in-kerala"
+      },
+      {
+        id: "brand-film",
+        title: "Brand Film Production",
+        desc: "Premium cinematic films that define your company's visionary identity.",
+        icon: Star,
+        color: "from-amber-400 to-red-500",
+        href: "/services/video-production/brand-film-production"
       },
       {
         id: "ad-film",
-        title: "Ad Film Production India",
-        desc: "High-impact television commercials (TVC) and digital video ads for premium brands.",
-        icon: PlayCircle,
-        color: "from-red-400 to-red-600",
-        href: "/services/professional-video-production"
-      },
-      {
-        id: "product-shoot",
-        title: "Product Video Shoot Kerala",
-        desc: "Dashing product visuals and billboard-ready photography for E-commerce & Retail.",
-        icon: Camera,
-        color: "from-amber-400 to-yellow-500",
-        href: "/services/professional-advertisement-photography"
-      },
-    ]
-  },
-  {
-    title: "AI Studios & Generative Scaling",
-    subtitle: "2026-Era Speed, Scalability & AEO Optimized Content",
-    icon: Cpu,
-    items: [
-      {
-        id: "ai-video",
-        title: "AI Video Production Kerala",
-        desc: "Text-to-video commercials and generative AI dreamscapes for modern brands.",
+        title: "Ad Film / Commercial Video Production",
+        desc: "High-impact television commercials (TVC) and premium digital video ads.",
         icon: Video,
-        color: "from-cyan-400 to-red-600",
-        href: "/services/professional-video-production"
+        color: "from-red-400 to-rose-600",
+        href: "/services/video-production/ad-film-commercial-video-production"
       },
       {
-        id: "ai-content",
-        title: "AI Content Creation India",
-        desc: "Automated at-scale content generation optimized for AI search engines.",
-        icon: Database,
-        color: "from-green-400 to-emerald-500",
-        href: "/services/professional-video-production"
-      },
-      {
-        id: "ai-reels",
-        title: "AI Reels & Short-form Video",
-        desc: "50+ optimized assets generated instantly from a single master project.",
+        id: "promo-video",
+        title: "Promotional Video Production",
+        desc: "High-energy videos designed to launch products and ignite growth.",
         icon: Zap,
-        color: "from-orange-400 to-red-500",
-        href: "/services/professional-video-production"
-      },
-      {
-        id: "ai-explainer",
-        title: "AI Explainer Videos",
-        desc: "Complex concept visualization using bespoke AI animation and voice synthesis.",
-        icon: Sparkles,
-        color: "from-red-400 to-red-900",
-        href: "/services/professional-video-production"
+        color: "from-orange-400 to-amber-600",
+        href: "/services/video-production/promotional-video-production"
       }
     ]
   },
   {
-    title: "Strategic Hybrid Ecosystem",
-    subtitle: "Where Cinematic Artistry Meets AI Acceleration",
+    title: "AI Media Production",
+    subtitle: "2026-Era Generative Video & Post-Production Labs India",
+    icon: Cpu,
+    items: [
+      {
+        id: "ai-video-services",
+        title: "AI Video Production Services",
+        desc: "Full-scale generative video production utilizing proprietary neural workflows.",
+        icon: Sparkles,
+        color: "from-cyan-400 to-blue-600",
+        href: "/services/ai-media-production/ai-video-production-services"
+      },
+      {
+        id: "ai-ad-gen",
+        title: "AI Ad Creative Generation",
+        desc: "High-velocity ad creative testing with AI-generated visual variants.",
+        icon: Zap,
+        color: "from-purple-400 to-indigo-600",
+        href: "/services/ai-media-production/ai-ad-creative-generation"
+      },
+      {
+        id: "ai-no-shoot",
+        title: "AI Product Videos (No Shoot Required)",
+        desc: "Render hyper-realistic product commercials entirely from static images/models.",
+        icon: Image,
+        color: "from-emerald-400 to-cyan-600",
+        href: "/services/ai-media-production/ai-product-videos-no-shoot-required"
+      },
+      {
+        id: "ai-avatars",
+        title: "AI Avatar Videos & AI Presenters",
+        desc: "Photorealistic AI characters for training, explainers, and brand ambassadors.",
+        icon: Users,
+        color: "from-pink-400 to-rose-600",
+        href: "/services/ai-media-production/ai-avatar-videos-ai-presenters"
+      }
+    ]
+  },
+  {
+    title: "Product & E-commerce Content",
+    subtitle: "Billboard-Ready Visuals for Amazon, Flipkart & D2C Brands",
+    icon: Package,
+    items: [
+      {
+        id: "prod-video",
+        title: "Product Video Production",
+        desc: "Cinematic product close-ups and lifestyle films for premium retail.",
+        icon: Camera,
+        color: "from-yellow-400 to-amber-600",
+        href: "/services/product-content/product-video-production"
+      },
+      {
+        id: "ecomm-photo",
+        title: "E-commerce Product Photography",
+        desc: "High-precision studio photography for catalogs and digital storefronts.",
+        icon: Image,
+        color: "from-blue-400 to-cyan-600",
+        href: "/services/product-content/e-commerce-product-photography"
+      },
+      {
+        id: "marketplace-video",
+        title: "Amazon / Flipkart Product Videos",
+        desc: "Conversion-optimized product videos compliant with marketplace standards.",
+        icon: Globe,
+        color: "from-orange-400 to-red-600",
+        href: "/services/product-content/amazon-flipkart-product-videos"
+      },
+      {
+        id: "prod-demo",
+        title: "Product Demo Videos",
+        desc: "Clear, engaging walkthroughs showcasing your product's core utility.",
+        icon: PlayCircle,
+        color: "from-indigo-400 to-blue-600",
+        href: "/services/product-content/product-demo-videos"
+      }
+    ]
+  },
+  {
+    title: "Social Media Content Creation",
+    subtitle: "High-Velocity Vertical Video Production Across India",
+    icon: Share2,
+    items: [
+      {
+        id: "social-video",
+        title: "Social Media Video Production",
+        desc: "Engaging vertical content tailored for viral platform algorithms.",
+        icon: Video,
+        color: "from-pink-400 to-purple-600",
+        href: "/services/social-media/social-media-video-production"
+      },
+      {
+        id: "insta-reels",
+        title: "Instagram Reels Creation",
+        desc: "Trend-first Reels engineered for maximum engagement and brand reach.",
+        icon: Star,
+        color: "from-rose-400 to-orange-500",
+        href: "/services/social-media/instagram-reels-creation"
+      },
+      {
+        id: "yt-shorts",
+        title: "YouTube Shorts Production",
+        desc: "Fast-paced Shorts to grow your channel and drive mobile traffic.",
+        icon: PlayCircle,
+        color: "from-red-500 to-red-800",
+        href: "/services/social-media/youtube-shorts-production"
+      },
+      {
+        id: "ugc-video",
+        title: "UGC Video Production",
+        desc: "Authentic, relatability-focused User Generated Content at professional scale.",
+        icon: Users,
+        color: "from-emerald-400 to-teal-600",
+        href: "/services/social-media/ugc-video-production"
+      }
+    ]
+  },
+  {
+    title: "Performance Marketing Ads",
+    subtitle: "Conversion-Centric Ad Creatives for FB, IG & YouTube",
+    icon: Target,
+    items: [
+      {
+        id: "perf-ads",
+        title: "Performance Marketing Video Ads",
+        desc: "ROI-driven ad creatives designed to lower CPA and boost conversion.",
+        icon: BarChart3,
+        color: "from-green-400 to-emerald-600",
+        href: "/services/performance-marketing/performance-marketing-video-ads"
+      },
+      {
+        id: "fb-ig-ads",
+        title: "Facebook & Instagram Ad Creatives",
+        desc: "Thumb-stopping visuals specifically for Meta's high-stakes feed.",
+        icon: Share2,
+        color: "from-blue-500 to-indigo-700",
+        href: "/services/performance-marketing/facebook-instagram-ad-creatives"
+      },
+      {
+        id: "yt-ads",
+        title: "YouTube Ads Production",
+        desc: "High-retention skippable and unskippable ads for YouTube campaigns.",
+        icon: Video,
+        color: "from-red-600 to-black",
+        href: "/services/performance-marketing/youtube-ads-production"
+      },
+      {
+        id: "conv-ads",
+        title: "Conversion-Focused Video Ads",
+        desc: "Scientific ad structures built to guide viewers toward immediate action.",
+        icon: Zap,
+        color: "from-amber-400 to-orange-600",
+        href: "/services/performance-marketing/conversion-focused-video-ads"
+      }
+    ]
+  },
+  {
+    title: "CGI & Virtual Production",
+    subtitle: "Premium 3D Visualization & Virtual Environments India",
     icon: Wand2,
     items: [
       {
-        id: "ai-plus-cinematic",
-        title: "AI + Cinematic Production",
-        desc: "Our flagship hybrid model blending human craft with generative enhancements.",
-        icon: Star,
-        color: "from-cyan-400 to-red-900",
-        href: "/services/professional-video-production"
+        id: "cgi-product",
+        title: "CGI Product Videos",
+        desc: "Impossible product shots and surreal 3D environments for luxury brands.",
+        icon: Sparkles,
+        color: "from-cyan-400 to-blue-500",
+        href: "/services/cgi-virtual-production/cgi-product-videos"
       },
       {
-        id: "ai-assisted-film",
-        title: "AI-Assisted Film Production",
-        desc: "Script-to-master workflows using AI for virtual production and VFX.",
-        icon: Target,
-        color: "from-red-400 to-red-600",
-        href: "/services/professional-video-production"
+        id: "virtual-prod",
+        title: "Virtual Production Services",
+        desc: "Shoot against high-res digital backgrounds for global locations-on-demand.",
+        icon: Globe,
+        color: "from-indigo-400 to-purple-600",
+        href: "/services/cgi-virtual-production/virtual-production-services"
       },
       {
-        id: "ai-enhanced-edit",
-        title: "AI-Enhanced Editing",
-        desc: "Next-gen post-production with AI color grading and scene optimization.",
+        id: "3d-vis",
+        title: "3D Product Visualization",
+        desc: "Detailed, photorealistic 3D renders that eliminate the need for physical samples.",
         icon: Layers,
-        color: "from-purple-500 to-pink-500",
-        href: "/services/professional-video-production"
+        color: "from-emerald-400 to-green-600",
+        href: "/services/cgi-virtual-production/3d-product-visualization"
       },
+      {
+        id: "vfx-enhance",
+        title: "VFX & Motion Enhancement",
+        desc: "Elevating traditional footage with high-end digital visual effects.",
+        icon: Zap,
+        color: "from-rose-400 to-pink-600",
+        href: "/services/cgi-virtual-production/vfx-motion-enhancement"
+      }
+    ]
+  },
+  {
+    title: "Video Strategy & Consulting",
+    subtitle: "Data-Driven Planning & Content Funnel Architecture",
+    icon: BarChart3,
+    items: [
+      {
+        id: "vid-strat",
+        title: "Video Marketing Strategy",
+        desc: "Multi-channel media roadmaps for sustainable brand growth.",
+        icon: Target,
+        color: "from-zinc-400 to-zinc-800",
+        href: "/services/video-strategy/video-marketing-strategy"
+      },
+      {
+        id: "cont-plan",
+        title: "Content Strategy & Planning",
+        desc: "Holistic content calendars engineered for maximum audience retention.",
+        icon: Workflow,
+        color: "from-blue-400 to-indigo-600",
+        href: "/services/video-strategy/content-strategy-planning"
+      },
+      {
+        id: "camp-exec",
+        title: "Campaign Planning & Execution",
+        desc: "End-to-end management of high-stakes visual marketing campaigns.",
+        icon: Globe,
+        color: "from-cyan-400 to-emerald-600",
+        href: "/services/video-strategy/campaign-planning-execution"
+      },
+      {
+        id: "vid-funnel",
+        title: "Video Funnel Strategy",
+        desc: "Architecting video sequences that move users from awareness to sale.",
+        icon: Layers,
+        color: "from-orange-400 to-red-600",
+        href: "/services/video-strategy/video-funnel-strategy"
+      }
     ]
   }
 ];

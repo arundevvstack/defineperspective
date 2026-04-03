@@ -61,11 +61,25 @@ export default function GlassFooter() {
           </div>
 
           <div className="lg:col-span-1">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Strategic Hubs</h4>
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Service Pillars</h4>
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
-                <li className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Trivandrum • Head Office</li>
-                <li className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Kochi • AI Innovation Wing</li>
-                <li className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Chennai • Media & Photo Studio</li>
+                <li onClick={() => window.location.href = '/services/video-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Video Production</li>
+                <li onClick={() => window.location.href = '/services/ai-media-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">AI Media Production</li>
+                <li onClick={() => window.location.href = '/services/product-content'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Product Content</li>
+                <li onClick={() => window.location.href = '/services/social-media'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Social Media</li>
+                <li onClick={() => window.location.href = '/services/performance-marketing'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Performance Ads</li>
+                <li onClick={() => window.location.href = '/services/cgi-virtual-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">CGI & Virtual Prod</li>
+                <li onClick={() => window.location.href = '/services/video-strategy'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Video Strategy</li>
+             </ul>
+          </div>
+
+          <div className="lg:col-span-1">
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Strategic Locations</h4>
+             <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
+                <li onClick={() => window.location.href = '/locations/trivandrum'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Trivandrum • HQ</li>
+                <li onClick={() => window.location.href = '/locations/kochi'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Kochi • AI Lab</li>
+                <li onClick={() => window.location.href = '/locations/kerala'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Kerala • Full Coverage</li>
+                <li onClick={() => window.location.href = '/locations/india'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">India • Remote Nodes</li>
              </ul>
           </div>
 

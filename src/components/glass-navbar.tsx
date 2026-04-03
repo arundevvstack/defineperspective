@@ -18,11 +18,14 @@ function NavbarContent() {
 
   const links = [
     { name: "HOME", href: "/" },
-    { name: "SERVICES", href: "/services" },
-    { name: "AI SERVICES", href: "/ai-services" },
+    { name: "VIDEO", href: "/services/video-production" },
+    { name: "AI MEDIA", href: "/services/ai-media-production" },
+    { name: "PRODUCT", href: "/services/product-content" },
+    { name: "SOCIAL", href: "/services/social-media" },
+    { name: "PERFORMANCE", href: "/services/performance-marketing" },
+    { name: "CGI", href: "/services/cgi-virtual-production" },
+    { name: "STRATEGY", href: "/services/video-strategy" },
     { name: "PORTFOLIO", href: "/portfolio" },
-    { name: "ABOUT", href: "/about" },
-    { name: "CONTACT", href: "/contact" },
   ];
 
   return (
