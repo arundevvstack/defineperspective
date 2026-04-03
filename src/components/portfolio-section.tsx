@@ -53,9 +53,13 @@ export default function PortfolioSection() {
               See how our AI-integrated workflows helped businesses explain, convert, and dominate their niche.
             </p>
           </div>
-          <button className="mt-12 flex items-center gap-4 text-primary-accent font-bold tracking-widest text-sm uppercase hover:text-white transition-colors duration-300">
-            Explore All Project Nodes <ChevronRight size={18} />
-          </button>
+          <motion.button 
+            whileHover={{ x: 5 }}
+            onClick={() => window.location.href = '/portfolio'}
+            className="mt-12 flex items-center gap-4 text-primary-accent font-black tracking-[0.2em] text-[10px] uppercase hover:text-white transition-colors duration-300 group"
+          >
+            Explore All Project Nodes <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </motion.button>
         </div>
 
         <div className="space-y-40">
@@ -150,9 +154,14 @@ export default function PortfolioSection() {
                     </div>
                  </div>
                  
-                 <button className="h-16 w-full rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center gap-4 text-sm font-black tracking-widest uppercase text-white hover:bg-white hover:text-white transition-all">
-                    Unlock Full Metrics <MoveRight size={18} />
-                 </button>
+                 <motion.button 
+                   whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.08)" }}
+                   whileTap={{ scale: 0.98 }}
+                   onClick={() => window.location.href = `/portfolio?id=${project.id}`}
+                   className="h-16 w-full rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center gap-4 text-[10px] font-black tracking-[0.2em] uppercase text-white hover:border-primary-accent/30 transition-all shadow-xl"
+                 >
+                    Unlock Full Metrics <MoveRight size={18} className="text-primary-accent" />
+                 </motion.button>
               </div>
             </motion.div>
           ))}

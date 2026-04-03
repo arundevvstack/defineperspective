@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, Sparkles } from "lucide-react";
+import { Terminal, Sparkles, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function TerminalHero() {
@@ -91,20 +91,42 @@ export default function TerminalHero() {
               </div>
 
               <div className="flex flex-wrap gap-6 items-center">
-                <button 
+                <motion.button 
+                  whileHover="hover"
+                  whileTap="tap"
                   onClick={() => {
                     window.location.href = '/contact?subject=AI Video Ad Strategy Session';
                   }}
-                  className="h-14 rounded-full bg-primary-accent px-10 text-sm font-black tracking-widest text-zinc-200 transition hover:scale-110 hover:text-white focus:ring-2 focus:ring-zinc-400 focus:outline-none shadow-[0_0_20px_var(--glow)] uppercase"
+                  className="group relative h-14 px-10 rounded-full bg-primary-accent text-white font-black uppercase tracking-[0.2em] text-[11px] flex items-center gap-3 overflow-hidden shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.4)]"
                 >
-                  Get High-Converting Video Ads
-                </button>
-                <button 
+                  <motion.div
+                    variants={{
+                      hover: { x: ["-100%", "100%"] }
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
+                  />
+                  <span className="relative z-10 transition-transform group-hover:-translate-x-1">Get High-Converting Video Ads</span>
+                  <motion.div
+                    variants={{
+                      hover: { x: 0, opacity: 1 },
+                      initial: { x: -10, opacity: 0 }
+                    }}
+                    initial="initial"
+                    className="relative z-10"
+                  >
+                    <ArrowRight size={18} />
+                  </motion.div>
+                </motion.button>
+
+                <motion.button 
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => window.location.href = '/portfolio'}
-                  className="h-14 rounded-full border border-white/10 bg-white/5 px-10 text-sm font-bold tracking-widest text-white backdrop-blur-sm transition hover:bg-white/10 uppercase"
+                  className="h-14 px-10 rounded-full border border-white/10 bg-white/5 text-[11px] font-black tracking-[0.2em] text-white backdrop-blur-sm transition-all uppercase"
                 >
                   Get AI Video Demo
-                </button>
+                </motion.button>
               </div>
             </motion.div>
           </div>

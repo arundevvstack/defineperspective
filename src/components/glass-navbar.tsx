@@ -177,12 +177,40 @@ function NavbarContent() {
           <div className="h-6 w-[1px] bg-white/10 mx-1" />
           
           <Magnetic intensity={1.5}>
-            <button 
+            <motion.button 
+              whileHover="hover"
+              whileTap="tap"
               onClick={() => window.location.href = '/contact'}
-              className="h-9 px-5 rounded-full bg-primary-accent text-zinc-200 font-black uppercase tracking-widest text-[9px] hover:scale-105 active:scale-95 hover:text-white transition-all shadow-lg"
+              className="group relative h-10 px-7 rounded-full bg-primary-accent text-white font-black uppercase tracking-[0.25em] text-[10px] flex items-center gap-2 overflow-hidden transition-all shadow-[0_0_25px_rgba(var(--primary-accent-rgb),0.4)]"
             >
-              Get Started
-            </button>
+              {/* Animated Gradient Background */}
+              <motion.div
+                variants={{
+                  hover: { x: ["-100%", "100%"] }
+                }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] z-10"
+              />
+              
+              {/* Border Glow */}
+              <div className="absolute inset-0 rounded-full border border-white/20 group-hover:border-white/50 transition-colors z-20" />
+              
+              <span className="relative z-30 transition-transform duration-300 group-hover:-translate-x-1">Get Started</span>
+              
+              <motion.span 
+                variants={{
+                  hover: { opacity: 1, x: 0, scale: 1.1 },
+                  initial: { opacity: 0, x: -10, scale: 0.8 }
+                }}
+                initial="initial"
+                className="relative z-30"
+              >
+                <ArrowRight size={14} className="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]" />
+              </motion.span>
+              
+              {/* Pulse Effect */}
+              <div className="absolute inset-0 bg-primary-accent rounded-full animate-ping opacity-10 group-hover:opacity-20 transition-opacity" />
+            </motion.button>
           </Magnetic>
         </div>
 
@@ -228,15 +256,22 @@ function NavbarContent() {
             </div>
 
             <div className="mt-auto pb-12 flex flex-col gap-6">
-                <button 
+                <motion.button 
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     setMobileMenu(false);
                     window.location.href = '/contact';
                   }}
-                  className="h-20 w-full rounded-2xl bg-primary-accent font-black text-primary-accent-fg text-xl flex items-center justify-center gap-4 shadow-[0_0_30px_var(--glow)]"
+                  className="group relative h-20 w-full rounded-2xl bg-primary-accent font-black text-white text-xl flex items-center justify-center gap-4 shadow-[0_0_40px_rgba(var(--primary-accent-rgb),0.4)] overflow-hidden"
                 >
-                   Book Strategy <ArrowRight size={24} />
-                </button>
+                  <motion.div 
+                    animate={{ x: ["-100%", "200%"] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-25deg]"
+                  />
+                  <span className="relative z-10 uppercase tracking-widest">Book Strategy</span> 
+                  <ArrowRight size={24} className="relative z-10 group-hover:translate-x-2 transition-transform" />
+                </motion.button>
                 <div className="flex justify-between items-center text-[10px] font-mono text-zinc-600 uppercase tracking-widest px-2">
                    <span>Nodes: TRV • COK</span>
                    <span>Latency: 1ms</span>

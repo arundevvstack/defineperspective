@@ -93,18 +93,26 @@ export default function HomeContent() {
                    </p>
                 </div>
                 <div className="flex flex-col gap-6 mt-auto">
-                  <button 
+                  <motion.button 
+                    whileHover="hover"
+                    whileTap="tap"
                     onClick={() => window.location.href = '/contact?subject=Priority Strategy Session Request'}
-                    className="h-20 w-full rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_var(--glow)] flex items-center justify-center gap-4"
+                    className="group relative h-20 w-full rounded-2xl bg-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-[0_0_40px_rgba(var(--primary-accent-rgb),0.4)] overflow-hidden"
                   >
-                    Get a Quote <ArrowRight size={20} />
-                  </button>
+                    <motion.div 
+                      variants={{ hover: { x: ["-100%", "200%"] } }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg]"
+                    />
+                    <span className="relative z-10">Get a Quote</span> 
+                    <ArrowRight size={22} className="relative z-10 group-hover:translate-x-2 transition-transform" />
+                  </motion.button>
                   <Link 
                     href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20a%20Consultation."
                     target="_blank"
-                    className="h-20 w-full rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 hover:border-primary-accent/50 transition-all flex items-center justify-center gap-4"
+                    className="group h-20 w-full rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 hover:border-primary-accent/50 transition-all flex items-center justify-center gap-4"
                   >
-                    Chat on WhatsApp <MessageCircle size={20} className="text-primary-accent group-hover:text-white transition-colors" />
+                    Chat on WhatsApp <MessageCircle size={22} className="text-[#25D366] group-hover:scale-110 transition-transform" />
                   </Link>
                 </div>
              </motion.div>
@@ -123,20 +131,26 @@ export default function HomeContent() {
                    </p>
                 </div>
                 <div className="flex flex-col gap-6 mt-auto">
-                  <button 
-                    onClick={() => {
-                      window.dispatchEvent(new CustomEvent('open-ai-chat', { detail: 'Quote Request' }));
-                    }}
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => window.location.href = '/contact?subject=AI Content Production Inquiry'}
                     className="h-20 w-full rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 hover:border-primary-accent/50 transition-all flex items-center justify-center gap-4"
                   >
-                    Self-Service Quote <ArrowRight size={20} />
-                  </button>
+                    Request AI Demo <ArrowRight size={22} />
+                  </motion.button>
                   <Link 
                     href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20AI%20Content%20Production."
                     target="_blank"
-                    className="h-20 w-full rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_var(--glow)] flex items-center justify-center gap-4"
+                    className="group relative h-20 w-full rounded-2xl bg-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-[0_0_40px_rgba(var(--primary-accent-rgb),0.4)] overflow-hidden"
                   >
-                    Discuss on WhatsApp <MessageCircle size={20} />
+                    <motion.div 
+                      animate={{ x: ["-100%", "200%"] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg]"
+                    />
+                    <span className="relative z-10">Discuss on WhatsApp</span> 
+                    <MessageCircle size={22} className="relative z-10 group-hover:scale-110 transition-transform" />
                   </Link>
                 </div>
              </motion.div>
