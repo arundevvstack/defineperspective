@@ -38,22 +38,6 @@ const serviceSections = [
         color: "from-amber-400 to-yellow-500",
         href: "/services/professional-advertisement-photography"
       },
-      {
-        id: "social-media",
-        title: "Social Media Video Production",
-        desc: "Viral-ready reels, shorts, and YouTube content production for startups.",
-        icon: Share2,
-        color: "from-rose-400 to-pink-500",
-        href: "/services/professional-video-production"
-      },
-      {
-         id: "drone-vid",
-         title: "Drone Videography India",
-         desc: "Cinematic aerial shots and 4K drone videography across Trivandrum & Kochi.",
-         icon: Target,
-         color: "from-purple-500 to-pink-500",
-         href: "/services/professional-video-production"
-      }
     ]
   },
   {
@@ -124,14 +108,6 @@ const serviceSections = [
         color: "from-purple-500 to-pink-500",
         href: "/services/professional-video-production"
       },
-      {
-        id: "ai-drone",
-        title: "AI + Drone Video Production",
-        desc: "Smart autonomous flight paths and AI-tracked aerial stabilization.",
-        icon: Eye,
-        color: "from-yellow-400 to-orange-500",
-        href: "/services/professional-video-production"
-      }
     ]
   }
 ];
