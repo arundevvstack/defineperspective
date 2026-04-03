@@ -64,12 +64,6 @@ export default function RootLayout({
                 "name": "Service Catalog",
                 "itemListElement": [
                   {
-                    "@id": "https://defineperspective.in/#dp360",
-                    "@type": "ServiceGroup",
-                    "name": "DP 360° Service",
-                    "description": "Comprehensive Cinematic Production & AI Media ecosystem."
-                  },
-                  {
                     "@type": "Service",
                     "name": "Professional Video Production",
                     "description": "AI-Native TVCs, Explainers, and Reels."

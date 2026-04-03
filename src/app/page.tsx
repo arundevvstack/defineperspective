@@ -10,7 +10,6 @@ import {
 import GlassNavbar from "@/components/glass-navbar";
 import TerminalHero from "@/components/terminal-hero";
 import ServiceGrid from "@/components/service-grid";
-import DP360Section from "@/components/dp360-section";
 import PortfolioSection from "@/components/portfolio-section";
 import MetricsSection from "@/components/metrics-section";
 import TestimonialSection from "@/components/testimonial-section";
@@ -80,7 +79,6 @@ export default function Home() {
       <MetricsSection />
 
       {/* Section 5: DP 360° Plan (The "Bridge") */}
-      <DP360Section />
 
       {/* Section 6: Our Work (Portfolio) */}
       <PortfolioSection />
