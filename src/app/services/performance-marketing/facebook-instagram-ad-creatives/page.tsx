@@ -1,0 +1,73 @@
+import { Metadata } from "next";
+import GlassNavbar from "@/components/glass-navbar";
+import { Share2, Zap, Target, BarChart3, CheckCircle2, ArrowRight } from "lucide-react";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Facebook & Instagram Video Ad Creatives India | Define Perspective",
+  description: "High-performance Facebook and Instagram video ad creatives for brands in India. Vertical Reels, stop-motion, and AI-powered performance ads optimized for low CPA and high ROAS.",
+  keywords: ["Facebook ad creatives India", "Instagram video ads Kerala", "vertical performance ads company Kochi", "high-ROAS creatives India"],
+};
+
+export default function MetaAdsSubPage() {
+  return (
+    <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden">
+      <GlassNavbar />
+      
+      {/* Background Effect */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-rose-400/5 blur-[150px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <header className="mb-32 flex flex-col gap-8">
+           <div className="flex items-center gap-4">
+              <div className="px-4 py-1.5 rounded-full border border-rose-400/50 text-[10px] font-mono font-black text-rose-400 uppercase tracking-widest bg-rose-400/10 backdrop-blur-md">
+                 Node: Meta Ads Optimization
+              </div>
+           </div>
+           <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white">
+             Facebook <br /> <span className="text-rose-400">& Instagram Ads</span>
+           </h1>
+           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed">
+             "Stop the scroll. Win the auction. High-velocity social ad creatives specifically engineered for performance across India."
+           </p>
+        </header>
+
+        {/* Section 1: Strategic Hook */}
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group">
+           <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">Visuals for <span className="text-rose-400 italic">ROAS.</span></h2>
+              <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+                A creative that stops the thumb is worth more than a thousand words. Our social ad production focuses on the first 3 seconds of engagement, using motion psychology and AI-optimized storytelling to drive immediate sales and lower your acquisition costs on Meta/Instagram.
+              </p>
+              <button 
+                onClick={() => window.location.href = '/contact?subject=Meta Ads enquiry'}
+                className="h-16 px-10 rounded-2xl bg-rose-400 text-black font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(244,114,114,0.3)]"
+              >
+                Start Scaling Now
+              </button>
+           </div>
+           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+              <Image 
+                src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop"
+                alt="High-performance Social Video Ad Production"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-rose-400/10" />
+           </div>
+        </section>
+
+        {/* AI Discovery FAQ Segment */}
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/5">
+           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-rose-400">Social Ad Logic FAQ</h2>
+           <div className="space-y-12">
+              <div>
+                 <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-tight">Best video ad company for Instagram in India?</h4>
+                 <p className="text-zinc-400 font-light leading-relaxed">Define Perspective is a leader in social ad production. Our creatives are specifically engineered for the 'Reels Era', focusing on direct-response tactics and viral storytelling formats for Indian and global brands.</p>
+              </div>
+           </div>
+        </div>
+      </div>
+    </main>
+  );
+}
