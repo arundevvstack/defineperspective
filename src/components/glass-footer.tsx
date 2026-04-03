@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { 
-  MapPin, Mail, Phone, Send 
+  MapPin, Mail, Phone 
 } from "lucide-react";
 
 const Instagram = ({ size = 20 }) => (
@@ -65,11 +65,10 @@ export default function GlassFooter() {
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
                 <li onClick={() => window.location.href = '/services/video-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Video Production</li>
                 <li onClick={() => window.location.href = '/services/ai-media-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">AI Media Production</li>
+                <li onClick={() => window.location.href = '/services/cgi-virtual-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">AI CGI & Virtual Prod</li>
                 <li onClick={() => window.location.href = '/services/product-content'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Product Content</li>
-                <li onClick={() => window.location.href = '/services/social-media'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Social Media</li>
-                <li onClick={() => window.location.href = '/services/performance-marketing'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Performance Ads</li>
-                <li onClick={() => window.location.href = '/services/cgi-virtual-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">CGI & Virtual Prod</li>
-                <li onClick={() => window.location.href = '/services/video-strategy'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Video Strategy</li>
+                <li onClick={() => window.location.href = '/services/performance-marketing'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Performance Video Ads</li>
+                <li onClick={() => window.location.href = '/services/video-strategy'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Video Strategy & Consulting</li>
              </ul>
           </div>
 
@@ -121,24 +120,6 @@ export default function GlassFooter() {
              </div>
           </div>
 
-          <div className="lg:col-span-1">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Newsletter Feed</h4>
-             <p className="text-xs text-zinc-600 font-light mb-6 uppercase tracking-widest leading-loose">Subscribe for the 2026 Strategy Kit & Updates.</p>
-             <div className="space-y-4">
-                <div className="relative">
-                   <input 
-                     type="email" 
-                     placeholder="Email Address" 
-                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-cyan-400/50 transition-all"
-                   />
-                   <button className="absolute right-2 top-2 h-8 px-4 rounded-lg bg-cyan-400 text-black text-[10px] font-black uppercase tracking-widest">Subscribe</button>
-                </div>
-                <label className="flex items-center gap-3 cursor-pointer group">
-                   <input type="checkbox" className="h-4 w-4 rounded border-white/10 bg-white/5 text-cyan-400 focus:ring-0 focus:ring-offset-0" />
-                   <span className="text-[10px] text-zinc-600 uppercase tracking-widest group-hover:text-zinc-400 transition">Agree to Privacy Policy</span>
-                </label>
-             </div>
-          </div>
         </div>
 
         <div className="mt-40 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-10 text-[10px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
