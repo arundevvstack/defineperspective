@@ -23,12 +23,12 @@ import GlassNavbar from "@/components/glass-navbar";
 import Magnetic from "@/components/magnetic";
 
 const SERVICE_NODES = [
-  { id: "cinema", label: "Cinema Cam", icon: Camera, color: "bg-red-500", price: 2500, time: 5, power: 80, desc: "High-end 8K cinematic capture." },
-  { id: "neural", label: "Neural Grade", icon: BrainCircuit, color: "bg-cyan-400", price: 1200, time: 2, power: 95, desc: "AI-powered photorealistic grading." },
-  { id: "audio", label: "Sound Lab", icon: Volume2, color: "bg-purple-500", price: 800, time: 3, power: 60, desc: "Immersive Dolby Atmos design." },
-  { id: "vfx", label: "CGI / VFX", icon: Wand2, color: "bg-yellow-500", price: 3000, time: 10, power: 100, desc: "Digital asset & visual effects integration." },
-  { id: "velocity", label: "Fast Flow", icon: Zap, color: "bg-orange-500", price: 500, time: -1, power: 40, desc: "Rapid delivery optimization pipeline." },
-  { id: "analytics", label: "AEO Optimization", icon: BarChart3, color: "bg-green-500", price: 1000, time: 4, power: 75, desc: "Search-optimized metadata & structure." },
+  { id: "cinema", label: "Cinema Cam", icon: Camera, color: "bg-primary-accent", price: 2500, time: 5, power: 80, desc: "High-end 8K cinematic capture." },
+  { id: "neural", label: "Neural Grade", icon: BrainCircuit, color: "bg-primary-accent", price: 1200, time: 2, power: 95, desc: "AI-powered photorealistic grading." },
+  { id: "audio", label: "Sound Lab", icon: Volume2, color: "bg-primary-accent", price: 800, time: 3, power: 60, desc: "Immersive Dolby Atmos design." },
+  { id: "vfx", label: "CGI / VFX", icon: Wand2, color: "bg-primary-accent", price: 3000, time: 10, power: 100, desc: "Digital asset & visual effects integration." },
+  { id: "velocity", label: "Fast Flow", icon: Zap, color: "bg-primary-accent", price: 500, time: -1, power: 40, desc: "Rapid delivery optimization pipeline." },
+  { id: "analytics", label: "AEO Optimization", icon: BarChart3, color: "bg-primary-accent", price: 1000, time: 4, power: 75, desc: "Search-optimized metadata & structure." },
 ];
 
 export default function LabPage() {
@@ -54,7 +54,7 @@ export default function LabPage() {
       {/* Decorative Elements */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 h-[800px] w-[800px] bg-primary-accent/20 blur-[150px] rounded-full animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 h-[600px] w-[600px] bg-cyan-400/10 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 h-[600px] w-[600px] bg-primary-accent/10 blur-[150px] rounded-full animate-pulse" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
@@ -66,7 +66,7 @@ export default function LabPage() {
           >
             <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block font-black underline">DP Lab {" // "} Experimental Canvas</span>
             <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.85]">
-              Modular <br /><span className="text-cyan-400">Production.</span>
+              Modular <br /><span className="text-primary-accent">Production.</span>
             </h1>
             <p className="text-xl text-zinc-500 font-light leading-relaxed max-w-2xl">
               Drag and drop service blocks to build your custom cinematic pipeline. Experience real-time intelligence on budget, velocity, and visual power.
@@ -135,7 +135,7 @@ export default function LabPage() {
                        <h3 className="text-xs font-mono tracking-[0.4em] uppercase text-zinc-500 font-black underline">Live Production Pipeline</h3>
                        <button 
                          onClick={() => setPipeline([])}
-                         className="text-[10px] font-mono text-red-400 hover:text-red-300 uppercase tracking-widest flex items-center gap-2 transition-colors font-black underline"
+                         className="text-[10px] font-mono text-primary-accent hover:text-primary-accent uppercase tracking-widest flex items-center gap-2 transition-colors font-black underline"
                        >
                          <Trash2 size={12} /> Clear Canvas
                        </button>
@@ -149,7 +149,7 @@ export default function LabPage() {
                             initial={{ opacity: 0, scale: 0.8, x: -20 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}
                             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-                            className="p-8 rounded-3xl bg-black border border-white/10 flex items-center justify-between relative group hover:border-primary-accent/40 hover:shadow-[0_0_30px_rgba(240,68,71,0.1)] transition-all"
+                            className="p-8 rounded-3xl bg-black border border-white/10 flex items-center justify-between relative group hover:border-primary-accent/40 hover:shadow-[0_0_30px_var(--glow)] transition-all"
                           >
                             <div className="flex items-center gap-6">
                                <div className={cn("h-14 w-14 rounded-2xl flex items-center justify-center text-white", item.color)}>
@@ -162,7 +162,7 @@ export default function LabPage() {
                             </div>
                             <button 
                               onClick={() => removeFromPipeline(item.uniqueId)}
-                              className="h-10 w-10 rounded-xl bg-white/5 hover:bg-red-500/10 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center"
+                              className="h-10 w-10 rounded-xl bg-white/5 hover:bg-primary-accent/10 hover:text-primary-accent opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center"
                             >
                               <Trash2 size={16} />
                             </button>
@@ -178,19 +178,19 @@ export default function LabPage() {
                    <div className="flex gap-12">
                       <div className="flex flex-col">
                          <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
-                           <BarChart size={10} className="text-green-400" /> Budget
+                           <BarChart size={10} className="text-primary-accent" /> Budget
                          </span>
                          <span className="text-2xl font-black text-white tracking-widest">${totalPrice.toLocaleString()}</span>
                       </div>
                       <div className="flex flex-col">
                          <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
-                           <Zap size={10} className="text-orange-400" /> Latency
+                           <Zap size={10} className="text-primary-accent" /> Latency
                          </span>
                          <span className="text-2xl font-black text-white tracking-widest">{totalTime}d</span>
                       </div>
                       <div className="flex flex-col">
                          <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
-                           <Sparkles size={10} className="text-cyan-400" /> Power
+                           <Sparkles size={10} className="text-primary-accent" /> Power
                          </span>
                          <span className="text-2xl font-black text-white tracking-widest">{avgPower}%</span>
                       </div>
@@ -217,7 +217,7 @@ export default function LabPage() {
              {/* Production Analysis */}
              <div className="mt-20 p-12 rounded-[3rem] border border-white/5 bg-white/5">
                 <div className="flex items-center gap-4 mb-8">
-                   <div className="h-10 w-10 rounded-xl bg-cyan-400/10 flex items-center justify-center text-cyan-400">
+                   <div className="h-10 w-10 rounded-xl bg-primary-accent/10 flex items-center justify-center text-primary-accent">
                       <Sparkles size={20} />
                    </div>
                    <h3 className="text-xl font-bold uppercase tracking-widest">Lab Simulation Intelligence</h3>
@@ -232,7 +232,7 @@ export default function LabPage() {
                          <motion.div 
                            initial={{ width: 0 }}
                            animate={{ width: `${Math.min(100, pipeline.length * 20)}%` }}
-                           className="h-full bg-cyan-400"
+                           className="h-full bg-primary-accent"
                          />
                       </div>
                    </div>

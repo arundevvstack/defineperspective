@@ -152,7 +152,7 @@ export default function AIDiscoveryAgent() {
             initial={{ opacity: 0, y: 100, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-8 right-8 z-50 w-[90vw] md:w-[450px] h-[600px] max-h-[80vh] rounded-3xl bg-[#0F0F0F]/95 backdrop-blur-3xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col border border-white/10"
+            className="fixed bottom-8 right-8 z-50 w-[90vw] md:w-[450px] h-[600px] max-h-[80vh] rounded-3xl bg-[#0F0F0F]/95 backdrop-blur-3xl shadow-[0_30px_100px_var(--glow)] overflow-hidden flex flex-col border border-white/10"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-6 bg-white/5 border-b border-white/5">

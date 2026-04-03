@@ -46,7 +46,7 @@ export default function FAQSection() {
            </div>
            
            <div className="p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl flex items-center gap-4 group hover:bg-white/10 transition-all cursor-pointer">
-              <Search className="text-zinc-600 group-hover:text-cyan-400" />
+              <Search className="text-zinc-600 group-hover:text-primary-accent" />
               <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-white transition">Search for answers</span>
            </div>
         </div>
@@ -61,12 +61,12 @@ export default function FAQSection() {
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 className="w-full p-10 flex items-center justify-between text-left gap-8"
               >
-                 <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-cyan-400 transition">
+                 <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-primary-accent transition">
                     {faq.question}
                  </h3>
                  <div className={cn(
                    "h-12 w-12 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all",
-                   openIdx === idx ? "bg-cyan-400 border-cyan-400 text-black rotate-180" : "text-zinc-600"
+                   openIdx === idx ? "bg-primary-accent border-primary-accent text-white rotate-180" : "text-zinc-600"
                  )}>
                     {openIdx === idx ? <Minus size={20} /> : <Plus size={20} />}
                  </div>

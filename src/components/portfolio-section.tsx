@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MoveRight, ChevronRight, BarChart3, Clock, Workflow } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const projects = [
@@ -52,7 +53,7 @@ export default function PortfolioSection() {
               See how our AI-integrated workflows helped businesses explain, convert, and dominate their niche.
             </p>
           </div>
-          <button className="mt-12 flex items-center gap-4 text-cyan-400 font-bold tracking-widest text-sm uppercase hover:text-white transition-colors duration-300">
+          <button className="mt-12 flex items-center gap-4 text-primary-accent font-bold tracking-widest text-sm uppercase hover:text-white transition-colors duration-300">
             Explore All Project Nodes <ChevronRight size={18} />
           </button>
         </div>
@@ -69,7 +70,6 @@ export default function PortfolioSection() {
                 idx % 2 === 1 && "lg:rtl" // Alternative layout
               )}
             >
-              {/* Before / After Slider */}
               <div className="lg:col-span-7 relative group select-none lg:ltr">
                   <div 
                     ref={containerRef}
@@ -78,23 +78,34 @@ export default function PortfolioSection() {
                     onTouchMove={handleSlider}
                   >
                     {/* After Image */}
-                    <div 
-                      className="absolute inset-0 z-0 h-full w-full bg-cover bg-center" 
-                      style={{ backgroundImage: `url(${project.afterUrl})` }}
+                    <Image 
+                      src={project.afterUrl} 
+                      alt={`${project.title} - Final`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
                     />
                     {/* Before Image Overlay */}
                     <div 
-                      className="absolute inset-0 z-10 h-full w-full bg-cover bg-center overflow-hidden border-r-[3px] border-cyan-400/50 backdrop-blur-sm" 
+                      className="absolute inset-0 z-10 h-full w-full overflow-hidden border-r-[3px] border-primary-accent/50 backdrop-blur-sm" 
                       style={{ 
-                        backgroundImage: `url(${project.beforeUrl})`,
                         clipPath: `inset(0 ${100 - sliderPos}% 0 0)`
                       }}
-                    />
+                    >
+                       <Image 
+                        src={project.beforeUrl} 
+                        alt={`${project.title} - Draft`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
+                      />
+                    </div>
+
                     {/* Labels */}
                     <div className="absolute top-6 left-6 z-20 rounded-full shadow px-4 py-1.5 bg-black/60 text-[10px] font-mono text-zinc-400 uppercase tracking-[0.2em] backdrop-blur-md border border-white/5">
                       Raw Concept
                     </div>
-                    <div className="absolute top-6 right-6 z-20 rounded-full shadow px-4 py-1.5 bg-cyan-400 text-[10px] font-mono text-black font-black uppercase tracking-[0.2em]">
+                    <div className="absolute top-6 right-6 z-20 rounded-full shadow px-4 py-1.5 bg-primary-accent text-[10px] font-mono text-white font-black uppercase tracking-[0.2em]">
                       AI Final Master
                     </div>
                     
@@ -103,7 +114,7 @@ export default function PortfolioSection() {
                       className="absolute top-0 bottom-0 z-30 w-[2px] flex items-center justify-center pointer-events-none group-hover:scale-110 transition-transform" 
                       style={{ left: `${sliderPos}%` }}
                     >
-                      <div className="h-10 w-10 flex items-center justify-center rounded-full bg-cyan-400 text-black shadow-[0_0_20px_rgba(240,68,71,1)]">
+                      <div className="h-10 w-10 flex items-center justify-center rounded-full bg-primary-accent text-white shadow-[0_0_20px_var(--glow)]">
                          <MoveRight size={20} className="rotate-0" />
                       </div>
                     </div>
@@ -116,30 +127,30 @@ export default function PortfolioSection() {
               {/* Project Details */}
               <div className="lg:col-span-5 flex flex-col gap-10 lg:ltr text-left">
                  <div>
-                    <span className="text-[10px] font-mono tracking-widest text-cyan-400 uppercase mb-4 block">Case Study {" // "} 0{idx + 1}</span>
+                    <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-4 block">Case Study {" // "} 0{idx + 1}</span>
                     <h3 className="text-4xl font-bold text-white mb-6 tracking-tight">{project.title}</h3>
                     <p className="text-zinc-400 leading-relaxed text-lg font-light">{project.desc}</p>
                  </div>
 
                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div className="flex flex-col gap-2 p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 group">
-                       <Workflow size={20} className="text-cyan-400 mb-2 transition-transform group-hover:scale-110" />
+                       <Workflow size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110" />
                        <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1">Architecture</span>
                        <span className="text-xs font-bold text-white uppercase tracking-wider">{project.workflow}</span>
                     </div>
                     <div className="flex flex-col gap-2 p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 group">
-                       <Clock size={20} className="text-purple-400 mb-2 transition-transform group-hover:scale-110" />
+                       <Clock size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110" />
                        <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1">Velocity</span>
                        <span className="text-xs font-bold text-white uppercase tracking-wider">{project.ttm}</span>
                     </div>
                     <div className="flex flex-col gap-2 p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 group">
-                       <BarChart3 size={20} className="text-pink-400 mb-2 transition-transform group-hover:scale-110" />
+                       <BarChart3 size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110" />
                        <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1">Impact Agent</span>
                        <span className="text-xs font-bold text-white uppercase tracking-wider">{project.roi}</span>
                     </div>
                  </div>
                  
-                 <button className="h-16 w-full rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center gap-4 text-sm font-black tracking-widest uppercase text-white hover:bg-white hover:text-black transition-all">
+                 <button className="h-16 w-full rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center gap-4 text-sm font-black tracking-widest uppercase text-white hover:bg-white hover:text-white transition-all">
                     Unlock Full Metrics <MoveRight size={18} />
                  </button>
               </div>

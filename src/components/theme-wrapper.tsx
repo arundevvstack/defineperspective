@@ -7,16 +7,21 @@ function ThemeController({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   
-  const isAiServices = pathname === "/ai-services";
+  const isAiPath = 
+    pathname.startsWith("/services/ai-media-production") || 
+    pathname.startsWith("/services/cgi-virtual-production") || 
+    pathname.startsWith("/ai-studios") ||
+    pathname === "/ai-services";
+    
   const isAiTabOnPortfolio = pathname === "/portfolio" && searchParams.get("view") === "ai";
 
   useEffect(() => {
     // 1. Handle Divisional Themes (Red/Blue)
-    const isBlue = isAiServices || isAiTabOnPortfolio;
+    const isBlue = isAiPath || isAiTabOnPortfolio;
     const themeClass = isBlue ? "theme-blue" : "theme-red";
     document.body.classList.remove("theme-red", "theme-blue");
     document.body.classList.add(themeClass);
-  }, [isAiServices, isAiTabOnPortfolio, pathname]);
+  }, [isAiPath, isAiTabOnPortfolio, pathname]);
 
   return <>{children}</>;
 }

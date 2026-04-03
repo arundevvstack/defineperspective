@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, Suspense } from "react";
 import { Search, Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -14,35 +15,97 @@ function NavbarContent() {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const activeView = searchParams.get("view");
-  const isAiServices = pathname === "/ai-services" || activeView === "ai";
+  const isAiServices = 
+    pathname.startsWith("/services/ai-media-production") || 
+    pathname.startsWith("/services/cgi-virtual-production") || 
+    pathname.startsWith("/ai-studios") ||
+    pathname === "/ai-services" || 
+    (pathname === "/portfolio" && activeView === "ai");
 
-  const serviceLinks = [
-    { name: "Video Production", href: "/services/video-production" },
-    { name: "Product Content", href: "/services/product-content" },
-    { name: "Performance Ads", href: "/services/performance-marketing" },
-    { name: "Strategy & Consulting", href: "/services/video-strategy" },
+  const serviceCategories = [
+    {
+      name: "Video Production",
+      href: "/services/video-production",
+      desc: "Elite Ad Films & Brand Storytelling",
+      subItems: [
+        { name: "Ad Films & Commercials", href: "/services/video-production/ad-film-commercial-video-production" },
+        { name: "Corporate Brand Films", href: "/services/video-production/corporate-video-production-company-in-kerala" },
+        { name: "Brand Storytelling", href: "/services/video-production/brand-film-production" },
+        { name: "Promotional Films", href: "/services/video-production/promotional-video-production" },
+      ]
+    },
+    {
+      name: "Product & E-comm",
+      href: "/services/product-content",
+      desc: "Visual Engine for D2C Brands",
+      subItems: [
+        { name: "Product Photography", href: "/services/product-content/e-commerce-product-photography" },
+        { name: "Product Demo Videos", href: "/services/product-content/product-demo-videos" },
+        { name: "Amazon/Flipkart Content", href: "/services/product-content/amazon-flipkart-product-videos" },
+      ]
+    },
+    {
+      name: "Performance Ads",
+      href: "/services/performance-marketing",
+      desc: "Conversion-Centric Ad Creatives",
+      subItems: [
+        { name: "Conversion Ads", href: "/services/performance-marketing/conversion-focused-video-ads" },
+        { name: "Meta Ad Creatives", href: "/services/performance-marketing/facebook-instagram-ad-creatives" },
+        { name: "Performance Strategy", href: "/services/performance-marketing/performance-marketing-video-ads" },
+      ]
+    },
+    {
+      name: "Strategy & Consulting",
+      href: "/services/video-strategy",
+      desc: "Data-Driven Media Planning",
+      subItems: [
+        { name: "Content Roadmaps", href: "/services/video-strategy/content-strategy-planning" },
+        { name: "Video Funnel Design", href: "/services/video-strategy/video-funnel-strategy" },
+        { name: "Campaign Execution", href: "/services/video-strategy/campaign-planning-execution" },
+      ]
+    }
   ];
 
-  const aiStudioLinks = [
-    { name: "AI Media Production", href: "/services/ai-media-production" },
-    { name: "AI CGI & Virtual Prod", href: "/services/cgi-virtual-production" },
+  const aiStudioCategories = [
+    {
+      name: "AI Media Production",
+      href: "/services/ai-media-production",
+      desc: "Generative Video & Neural Workflows",
+      subItems: [
+        { name: "AI Video Services", href: "/services/ai-media-production/ai-video-production-services" },
+        { name: "AI Ad Creative Gen", href: "/services/ai-media-production/ai-ad-creative-generation" },
+        { name: "AI Zero-Shoot Product", href: "/services/ai-media-production/ai-product-videos-no-shoot-required" },
+        { name: "AI Avatars & Presenters", href: "/services/ai-media-production/ai-avatar-videos-ai-presenters" },
+      ]
+    },
+    {
+      name: "AI CGI & Virtual Production",
+      href: "/services/cgi-virtual-production",
+      desc: "3D Visuals & Virtual Studios",
+      subItems: [
+        { name: "AI CGI Product Videos", href: "/services/cgi-virtual-production/ai-cgi-product-videos" },
+        { name: "3D Visual Analysis", href: "/services/cgi-virtual-production/3d-product-visualization" },
+        { name: "AI VFX Enhancement", href: "/services/cgi-virtual-production/vfx-motion-enhancement" },
+        { name: "Virtual Studio Setup", href: "/services/cgi-virtual-production/virtual-production-services" },
+      ]
+    }
   ];
 
-  const NavDropdown = ({ title, items }: { title: string; items: { name: string; href: string }[] }) => {
+  const NavDropdown = ({ title, categories }: { title: string; categories: typeof serviceCategories }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
       <div 
-        className="relative group"
+        className="relative group outline-none"
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
-        <button className={cn(
-          "text-sm font-semibold transition-colors flex items-center gap-2 py-2 uppercase tracking-widest",
-          items.some(item => pathname === item.href) ? "text-primary-accent" : "text-foreground/80 group-hover:text-primary-accent"
+        <Link href={categories[0].href} className={cn(
+          "text-sm font-semibold transition-colors flex items-center gap-2 py-2 uppercase tracking-widest outline-none",
+          categories.some(cat => pathname.startsWith(cat.href)) ? "text-primary-accent" : "text-foreground/80 group-hover:text-primary-accent"
         )}>
           {title}
           <motion.span animate={{ rotate: isOpen ? 180 : 0 }} className="text-[10px]">▼</motion.span>
-        </button>
+        </Link>
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -50,19 +113,33 @@ function NavbarContent() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 w-64 bg-obsidian/95 backdrop-blur-3xl border border-white/5 rounded-2xl p-4 shadow-2xl mt-2 flex flex-col gap-2 z-[110]"
+              className="absolute top-full left-1/2 -translate-x-1/2 w-[800px] bg-obsidian/95 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] p-10 shadow-2xl mt-4 grid grid-cols-2 gap-x-16 gap-y-10 z-[110] overflow-hidden"
             >
-              {items.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={cn(
-                    "px-4 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all",
-                    pathname === item.href ? "bg-primary-accent text-white" : "text-zinc-400 hover:bg-white/5 hover:text-white"
-                  )}
-                >
-                  {item.name}
-                </a>
+               <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-transparent pointer-events-none" />
+              {categories.map((cat) => (
+                <div key={cat.name} className="space-y-6 relative z-10 group/cat">
+                  <Link href={cat.href} className="block border-b border-white/5 pb-4 transition-all">
+                    <h4 className="text-sm font-bold text-white group-hover/cat:text-primary-accent uppercase tracking-widest mb-1 transition-colors">
+                      {cat.name}
+                    </h4>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">{cat.desc}</p>
+                  </Link>
+                  <div className="flex flex-col gap-3">
+                    {cat.subItems.map(sub => (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        className={cn(
+                          "text-[10px] font-medium uppercase tracking-tighter transition-all flex items-center gap-2",
+                          pathname === sub.href ? "text-primary-accent" : "text-zinc-500 hover:text-white"
+                        )}
+                      >
+                         <span className="h-1 w-1 rounded-full bg-zinc-800 transition-colors group-hover:bg-primary-accent" />
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               ))}
             </motion.div>
           )}
@@ -75,7 +152,7 @@ function NavbarContent() {
     <nav className="fixed top-0 left-0 right-0 z-[100] border-b border-white/5 bg-obsidian/80 backdrop-blur-3xl px-6 md:px-12 py-4">
       <div className="container mx-auto flex h-12 items-center justify-between">
         {/* Brand Logo */}
-        <a href="/" className="group flex cursor-pointer items-center transition-all duration-500 hover:scale-105 p-0 m-0 leading-none">
+        <Link href="/" className="group flex cursor-pointer items-center transition-all duration-500 hover:scale-105 p-0 m-0 leading-none">
             <Image 
               src={isAiServices ? "/images/ai-logo.png" : "/images/main-logo.png"} 
               alt="Define Perspective" 
@@ -84,18 +161,18 @@ function NavbarContent() {
               className="object-contain m-0 p-0"
               priority
             />
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden items-center gap-6 lg:gap-8 md:flex">
-          <a href="/" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Home</a>
-          <a href="/about" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/about" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>About</a>
+          <Link href="/" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Home</Link>
+          <Link href="/about" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/about" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>About</Link>
           
-          <NavDropdown title="Services" items={serviceLinks} />
-          <NavDropdown title="DP AI Studios" items={aiStudioLinks} />
+          <NavDropdown title="Services" categories={serviceCategories} />
+          <NavDropdown title="DP AI Studios" categories={aiStudioCategories} />
 
-          <a href="/portfolio" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Portfolio</a>
-          <a href="/contact" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Contact</a>
+          <Link href="/portfolio" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Portfolio</Link>
+          <Link href="/contact" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Contact</Link>
           
           <div className="h-6 w-[1px] bg-white/10 mx-1" />
           
@@ -129,25 +206,25 @@ function NavbarContent() {
             className="fixed inset-0 top-0 z-[49] flex flex-col bg-obsidian/95 backdrop-blur-3xl p-12 pt-32 gap-8 md:hidden overflow-y-auto"
           >
             <div className="flex flex-col gap-6">
-              <a href="/" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Home</a>
-              <a href="/about" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>About</a>
+              <Link href="/" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Home</Link>
+              <Link href="/about" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>About</Link>
               
               <div className="space-y-4">
                 <span className="text-[10px] font-mono text-primary-accent uppercase tracking-widest">Services</span>
-                {serviceLinks.map(link => (
-                  <a key={link.name} href={link.href} className="block text-2xl font-bold uppercase text-zinc-400 pl-4" onClick={() => setMobileMenu(false)}>{link.name}</a>
+                {serviceCategories.map(cat => (
+                  <Link key={cat.name} href={cat.href} className="block text-2xl font-bold uppercase text-zinc-400 pl-4" onClick={() => setMobileMenu(false)}>{cat.name}</Link>
                 ))}
               </div>
 
               <div className="space-y-4">
                 <span className="text-[10px] font-mono text-primary-accent uppercase tracking-widest">DP AI Studios</span>
-                {aiStudioLinks.map(link => (
-                  <a key={link.name} href={link.href} className="block text-2xl font-bold uppercase text-zinc-400 pl-4" onClick={() => setMobileMenu(false)}>{link.name}</a>
+                {aiStudioCategories.map(cat => (
+                  <Link key={cat.name} href={cat.href} className="block text-2xl font-bold uppercase text-zinc-400 pl-4" onClick={() => setMobileMenu(false)}>{cat.name}</Link>
                 ))}
               </div>
 
-              <a href="/portfolio" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Portfolio</a>
-              <a href="/contact" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Contact</a>
+              <Link href="/portfolio" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Portfolio</Link>
+              <Link href="/contact" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Contact</Link>
             </div>
 
             <div className="mt-auto pb-12 flex flex-col gap-6">

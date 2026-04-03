@@ -26,11 +26,11 @@ export default function TestimonialSection() {
     <section className="py-40 px-6 md:px-12 bg-obsidian relative overflow-hidden">
       <div className="container mx-auto">
         <div className="mb-24 flex flex-col items-center text-center">
-            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-cyan-400 mb-6 block">Global Perspectives {" // "} v2.0</span>
+            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-6 block">Global Perspectives {" // "} v2.0</span>
             <h2 className="text-4xl font-black md:text-7xl text-white tracking-widest uppercase">
               Trust in Every Frame
             </h2>
-            <div className="mt-8 h-1 w-24 rounded-full bg-cyan-400/20" />
+            <div className="mt-8 h-1 w-24 rounded-full bg-primary-accent/20" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -42,13 +42,13 @@ export default function TestimonialSection() {
               transition={{ delay: idx * 0.1, duration: 1 }}
               className="group relative p-12 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm transition-all hover:bg-white/10"
             >
-              <div className="absolute -top-6 -left-6 h-12 w-12 rounded-full bg-cyan-400 flex items-center justify-center text-black shadow-2xl transition-transform group-hover:scale-110">
+              <div className="absolute -top-6 -left-6 h-12 w-12 rounded-full bg-primary-accent flex items-center justify-center text-white shadow-2xl transition-transform group-hover:scale-110">
                  <Quote size={20} />
               </div>
 
               <div className="mb-10 flex gap-1">
                  {[...Array(testimonial.rating)].map((_, i) => (
-                   <Star key={i} size={16} className="fill-cyan-400 text-cyan-400" />
+                   <Star key={i} size={16} className="fill-primary-accent text-primary-accent" />
                  ))}
               </div>
 
@@ -57,13 +57,13 @@ export default function TestimonialSection() {
               </blockquote>
 
               <div className="flex items-center gap-6 mt-auto">
-                 <div className="h-12 w-12 rounded-full bg-gradient-to-tr from-cyan-400 to-red-900 flex items-center justify-center font-black text-black text-sm uppercase">
+                 <div className="h-12 w-12 rounded-full bg-gradient-to-tr from-primary-accent to-primary-accent flex items-center justify-center font-black text-black text-sm uppercase">
                     {testimonial.author.split(' ').map(n => n[0]).join('')}
                  </div>
                  <div className="flex flex-col">
                     <span className="text-lg font-bold text-white uppercase tracking-widest">{testimonial.author}</span>
                     <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest leading-relaxed">
-                       {testimonial.role} — <span className="text-cyan-400">{testimonial.location}</span>
+                       {testimonial.role} — <span className="text-primary-accent">{testimonial.location}</span>
                     </span>
                  </div>
               </div>

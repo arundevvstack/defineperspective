@@ -7,8 +7,6 @@
   --color-obsidian: #0B0B0B;
   --color-primary-accent: var(--accent);
   --color-primary-accent-fg: var(--accent-foreground);
-  --color-cyan-glow: var(--accent);
-  --color-cyan-400: var(--accent);
   --color-glass-white: rgba(255, 255, 255, 0.05);
   --color-glass-border: rgba(255, 255, 255, 0.1);
 }
@@ -31,9 +29,9 @@
 }
 
 .theme-blue {
-  --accent: #00F5FF;
+  --accent: #00f5ff;
   --accent-rgb: 0, 245, 255;
-  --accent-foreground: #FFF;
+  --accent-foreground: #FFFFFF;
   --glow: rgba(0, 245, 255, 0.4);
   --glow-strong: rgba(0, 245, 255, 0.6);
   --shadow: rgba(0, 245, 255, 0.1);

@@ -18,7 +18,7 @@ const aiServices = [
     desc: "Next-gen video generation for commercials, explainers, and digital backgrounds without traditional sets.",
     features: ["Text-to-Video Engine", "AI Digital Environments", "Deep-Level Post Editing"],
     icon: Video,
-    color: "text-cyan-400"
+    color: "text-primary-accent"
   },
   {
     id: "ai-cgi",
@@ -26,7 +26,7 @@ const aiServices = [
     desc: "Merging real-world physics with AI-generated visual effects and 3D architectural renders.",
     features: ["Virtual Studio Hub", "Physically Accurate AI", "Real-time 3D Rendering"],
     icon: Globe,
-    color: "text-purple-400"
+    color: "text-primary-accent"
   },
   {
     id: "ai-scale",
@@ -34,7 +34,7 @@ const aiServices = [
     desc: "One master shoot turned into 100+ platform-optimized short-form assets in under 24 hours.",
     features: ["Social Formatting AI", "Automated Hook Testing", "Multi-Language Dubbing"],
     icon: Zap,
-    color: "text-orange-400"
+    color: "text-primary-accent"
   },
   {
     id: "performance-ads",
@@ -42,7 +42,7 @@ const aiServices = [
     desc: "High-velocity ad creative designed specifically for algorithmic engagement on Meta and TikTok.",
     features: ["Click-Rate Optimization", "Dynamic Visual Testing", "Regional Content Localization"],
     icon: Target,
-    color: "text-rose-400"
+    color: "text-primary-accent"
   }
 ];
 
@@ -53,8 +53,8 @@ export default function AIServicesPage() {
       
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0 opacity-20 transition-colors duration-1000">
-        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-cyan-400/20 blur-[150px] rounded-full animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-blue-500/10 blur-[180px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-primary-accent/20 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-primary-accent/10 blur-[180px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container mx-auto relative z-10">
@@ -65,7 +65,7 @@ export default function AIServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-6xl font-black md:text-9xl tracking-tight uppercase mb-10 leading-[0.85]"
           >
-            Future-Proof <br /><span className="text-cyan-400">Intelligence.</span>
+            Future-Proof <br /><span className="text-primary-accent">Intelligence.</span>
           </motion.h1>
           <p className="text-xl text-zinc-400 font-light max-w-3xl mx-auto leading-relaxed">
             Welcome to the laboratory. We deploy advanced neural architectures to streamline media production, 
@@ -79,7 +79,7 @@ export default function AIServicesPage() {
               key={service.id}
               initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="group grid grid-cols-1 lg:grid-cols-12 gap-12 p-12 lg:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl hover:bg-white/10 transition-all outline outline-1 outline-white/5 hover:outline-cyan-400/20"
+              className="group grid grid-cols-1 lg:grid-cols-12 gap-12 p-12 lg:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl hover:bg-white/10 transition-all outline outline-1 outline-white/5 hover:outline-primary-accent/20"
             >
               <div className="lg:col-span-7 flex flex-col justify-center">
                  <div className="flex items-center gap-6 mb-10">
@@ -109,7 +109,7 @@ export default function AIServicesPage() {
                     <ul className="space-y-8">
                        {service.features.map(f => (
                          <li key={f} className="flex items-center gap-5 text-sm font-medium text-zinc-400">
-                           <div className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(0,245,255,1)]" /> {f}
+                           <div className="h-2 w-2 rounded-full bg-primary-accent shadow-[0_0_10px_var(--glow)]" /> {f}
                          </li>
                        ))}
                     </ul>

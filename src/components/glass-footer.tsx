@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { 
   MapPin, Mail, Phone 
 } from "lucide-react";
@@ -25,6 +26,11 @@ const Facebook = ({ size = 20 }) => (
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
   </svg>
 );
+const Whatsapp = ({ size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </svg>
+);
 
 export default function GlassFooter() {
   return (
@@ -43,16 +49,16 @@ export default function GlassFooter() {
              </div>
              <div className="space-y-6 text-sm text-zinc-500 font-light leading-relaxed mb-10">
                 <div className="flex items-start gap-4">
-                   <MapPin size={18} className="text-cyan-400 shrink-0" />
+                   <MapPin size={18} className="text-primary-accent shrink-0" />
                    <span>Define Perspective, Second Floor, TC.4/1224/4, Kuravankonam, Kowdiar, Thrivandrum, Pin: 695003</span>
                 </div>
                 <div className="flex items-center gap-4">
-                   <Mail size={18} className="text-cyan-400 shrink-0" />
+                   <Mail size={18} className="text-primary-accent shrink-0" />
                    <span>mail@defineperspective.in</span>
                 </div>
                 <div className="flex items-center gap-4">
-                   <Phone size={18} className="text-cyan-400 shrink-0" />
-                   <span>+91 871 400 5550</span>
+                   <Phone size={18} className="text-primary-accent shrink-0" />
+                   <span>+91 949 619 1684</span>
                 </div>
              </div>
              <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest italic leading-relaxed">
@@ -61,24 +67,24 @@ export default function GlassFooter() {
           </div>
 
           <div className="lg:col-span-1">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Service Pillars</h4>
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Service Pillars</h4>
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
-                <li onClick={() => window.location.href = '/services/video-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Video Production</li>
-                <li onClick={() => window.location.href = '/services/ai-media-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">AI Media Production</li>
-                <li onClick={() => window.location.href = '/services/cgi-virtual-production'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">AI CGI & Virtual Prod</li>
-                <li onClick={() => window.location.href = '/services/product-content'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Product Content</li>
-                <li onClick={() => window.location.href = '/services/performance-marketing'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Performance Video Ads</li>
-                <li onClick={() => window.location.href = '/services/video-strategy'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Video Strategy & Consulting</li>
+                <li><Link href="/services/video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Video Production</Link></li>
+                <li><Link href="/services/ai-media-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Media Production</Link></li>
+                <li><Link href="/services/cgi-virtual-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI CGI & Virtual Prod</Link></li>
+                <li><Link href="/services/product-content" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product Content</Link></li>
+                <li><Link href="/services/performance-marketing" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Performance Video Ads</Link></li>
+                <li><Link href="/services/video-strategy" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Video Strategy & Consulting</Link></li>
              </ul>
           </div>
 
           <div className="lg:col-span-1">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Strategic Locations</h4>
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Strategic Locations</h4>
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
-                <li onClick={() => window.location.href = '/locations/trivandrum'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Trivandrum • HQ</li>
-                <li onClick={() => window.location.href = '/locations/kochi'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Kochi • AI Lab</li>
-                <li onClick={() => window.location.href = '/locations/kerala'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">Kerala • Full Coverage</li>
-                <li onClick={() => window.location.href = '/locations/india'} className="hover:text-cyan-400 cursor-pointer transition uppercase tracking-widest text-[10px]">India • Remote Nodes</li>
+                <li><Link href="/locations/trivandrum" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Trivandrum • HQ</Link></li>
+                <li><Link href="/locations/kochi" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Kochi • AI Lab</Link></li>
+                <li><Link href="/locations/kerala" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Kerala • Full Coverage</Link></li>
+                <li><Link href="/locations/india" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">India • Remote Nodes</Link></li>
              </ul>
           </div>
 
@@ -89,7 +95,7 @@ export default function GlassFooter() {
                   href="https://www.instagram.com/defineperspective/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-cyan-400 transition-all border border-white/5 hover:border-cyan-400/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
                 >
                    <Instagram size={20} />
                 </a>
@@ -97,7 +103,7 @@ export default function GlassFooter() {
                   href="https://www.youtube.com/@DefinePerspective" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-cyan-400 transition-all border border-white/5 hover:border-cyan-400/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
                 >
                    <Youtube size={20} />
                 </a>
@@ -105,15 +111,23 @@ export default function GlassFooter() {
                   href="https://www.linkedin.com/company/define-perspective" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-cyan-400 transition-all border border-white/5 hover:border-cyan-400/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
                 >
                    <Linkedin size={20} />
+                </a>
+                <a 
+                  href="https://wa.me/919496191684" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
+                >
+                   <Whatsapp size={20} />
                 </a>
                 <a 
                   href="https://www.facebook.com/defineperspectiveofficial/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-cyan-400 transition-all border border-white/5 hover:border-cyan-400/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
                 >
                    <Facebook size={20} />
                 </a>

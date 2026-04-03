@@ -16,9 +16,29 @@ import ThemeWrapper from "@/components/theme-wrapper";
 import GlassFooter from "@/components/glass-footer";
 
 export const metadata: Metadata = {
-  title: "Define Perspective | The Future of Vision - 2026 AI Media Production",
-  description: "Elite media solutions for a visionary market. High-impact photography, AI-integrated video production, and the DP 360 framework based in Thrivandrum, Kerala.",
-  keywords: ["Professional video production Kerala", "AI video agency India", "commercial photography Thrivandrum", "DP 360 media services", "explainer video production", "advertising agency Kerala"],
+  title: "Define Perspective | Elite AI Media & Video Production India",
+  description: "2026-era production studio fusion human cinematic filmmaking with proprietary AI pipelines. Specialized in TVCs, Brand Films, and Virtual Production in Kerala & India.",
+  keywords: [
+    "Professional video production Kerala", 
+    "AI video agency India", 
+    "Cinematic brand films", 
+    "Virtual production Kerala", 
+    "AI ad creatives",
+    "Define Perspective Media"
+  ],
+  openGraph: {
+    title: "Define Perspective | AI-Augmented Media Production",
+    description: "The future of vision. Human craft meets AI velocity.",
+    url: "https://defineperspective.in",
+    siteName: "Define Perspective",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Define Perspective | AI Media Evolution",
+    description: "Elite cinematic production for 2026 brands.",
+  },
 };
 
 export default function RootLayout({
@@ -44,7 +64,7 @@ export default function RootLayout({
               "name": "Define Perspective",
               "url": "https://defineperspective.in",
               "logo": "https://defineperspective.in/logo.png",
-              "description": "Elite media solutions for a visionary market. High-impact photography, AI-integrated video production, and the DP 360 framework.",
+              "description": "Elite media solutions for a visionary market. High-fidelity cinematic filmmaking fused with 2026 AI-augmented production pipelines.",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Second Floor, TC.4/1224/4, Kuravankonam, Kowdiar",
@@ -55,30 +75,40 @@ export default function RootLayout({
               },
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+91-871-400-5550",
+                "telephone": "+91-949-619-1684",
                 "contactType": "customer service",
                 "email": "mail@defineperspective.in"
               },
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Service Catalog",
+                "name": "Service Hub",
                 "itemListElement": [
                   {
                     "@type": "Service",
-                    "name": "Professional Video Production",
-                    "description": "AI-Native TVCs, Explainers, and Reels."
+                    "name": "Elite Video Production",
+                    "description": "Premium Ad Films, Corporate Storytelling, and Brand Films."
                   },
                   {
                     "@type": "Service",
-                    "name": "Professional Advertisement Photography",
-                    "description": "High-impact advertisement and fashion photography."
+                    "name": "AI Media Production",
+                    "description": "Generative Video, AI Ad Creatives, and Neural Workflows."
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "Virtual Production",
+                    "description": "AI-Generated Digital Environments and CGI Pipelines."
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "Performance Video Ads",
+                    "description": "Conversion-Optimized Ad Creatives for Digital Growth."
                   }
                 ]
               },
               "sameAs": [
-                "https://facebook.com/defineperspective",
-                "https://instagram.com/defineperspective",
-                "https://youtube.com/defineperspective",
+                "https://facebook.com/defineperspectiveofficial/",
+                "https://instagram.com/defineperspective/",
+                "https://youtube.com/@DefinePerspective",
                 "https://linkedin.com/company/defineperspective"
               ]
             }),

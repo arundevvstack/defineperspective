@@ -1,0 +1,179 @@
+"use client";
+
+import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
+import { 
+  BarChart3, Zap, Star, ArrowRight, Calendar, MessageCircle
+} from "lucide-react";
+import GlassNavbar from "@/components/glass-navbar";
+import TerminalHero from "@/components/terminal-hero";
+import ServiceGrid from "@/components/service-grid";
+import Link from "next/link";
+
+// Dynamic imports for performance optimization
+const IndustriesSection = dynamic(() => import("@/components/industries-section"));
+const MetricsSection = dynamic(() => import("@/components/metrics-section"));
+const PortfolioSection = dynamic(() => import("@/components/portfolio-section"));
+const TestimonialSection = dynamic(() => import("@/components/testimonial-section"));
+const FAQSection = dynamic(() => import("@/components/faq-section"));
+const AIDiscoveryAgent = dynamic(() => import("@/components/ai-discovery-agent"), { ssr: false });
+
+
+export default function HomeContent() {
+  return (
+    <main className="min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden">
+      <GlassNavbar />
+      
+      {/* Section 0: Hero Section */}
+      <TerminalHero />
+
+      {/* Section 1: Services Matrix */}
+      <section id="services" className="relative z-10">
+        <ServiceGrid />
+      </section>
+
+      {/* Section 2: Why Choose Us (Benefits) */}
+      <section className="py-32 px-6 md:px-12 bg-black relative border-y border-white/5">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+             {[
+               { title: "Fast Delivery with AI", text: "Production cycles reduced from weeks to days with high-velocity AI pipelines.", icon: Zap },
+               { title: "Premium Cinematic Quality", text: "High-end filmmaking fused with modern AI to outshine traditional competition.", icon: Star },
+               { title: "Cost-Effective Scale", text: "Efficient asset generation at lower budgets for startups and brands across India.", icon: BarChart3 }
+             ].map((benefit, bIdx) => (
+               <motion.div 
+                 key={bIdx}
+                 initial={{ opacity: 0, y: 30 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ delay: bIdx * 0.1 }}
+                 className="p-12 rounded-[3rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col items-center group hover:border-primary-accent/30 transition-all shadow-2xl"
+               >
+                 <div className="h-16 w-16 rounded-2xl bg-primary-accent text-white flex items-center justify-center mb-10 group-hover:scale-110 transition-transform shadow-glow">
+                    <benefit.icon size={32} />
+                 </div>
+                 <h3 className="text-2xl font-black uppercase tracking-widest text-white mb-6 leading-none">{benefit.title}</h3>
+                 <p className="text-zinc-600 font-light leading-relaxed uppercase text-[10px] tracking-widest">{benefit.text}</p>
+               </motion.div>
+             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Strategic Verticals (Industries) */}
+      <IndustriesSection />
+
+      {/* Section 4: Results & Metrics */}
+      <MetricsSection />
+
+      {/* Section 6: Our Work (Portfolio) */}
+      <PortfolioSection />
+
+      {/* Section 7: Conversion Hub (Call to Action) */}
+      <section className="py-48 px-6 md:px-12 bg-black relative">
+        <div className="container mx-auto max-w-6xl">
+          <div className="mb-32 flex flex-col items-center text-center max-w-4xl mx-auto">
+            <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Project Node {" // "} Intake Initialized</span>
+            <h2 className="text-5xl md:text-[8rem] font-black text-white tracking-tighter uppercase leading-[0.8]">
+              Ready for <br /><span className="text-primary-accent italic shadow-glow">Impact?</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-32 text-left">
+             <motion.div 
+               whileHover={{ y: -10 }}
+               className="p-16 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-10 hover:border-primary-accent/30 transition-all group shadow-2xl"
+             >
+                <div className="h-20 w-20 rounded-3xl bg-primary-accent text-white flex items-center justify-center transition-transform group-hover:scale-110 shadow-glow">
+                   <Calendar size={36} />
+                </div>
+                <div>
+                   <h3 className="text-4xl font-black uppercase tracking-widest mb-6 leading-tight">Strategic <br />Consultation</h3>
+                   <p className="text-lg text-zinc-500 font-light leading-relaxed mb-10 uppercase tracking-widest text-[11px]">
+                     "Architecture for high-stakes visual projects. Plan your media roadmap for 2026."
+                   </p>
+                </div>
+                <div className="flex flex-col gap-6 mt-auto">
+                  <button 
+                    onClick={() => window.location.href = '/contact?subject=Priority Strategy Session Request'}
+                    className="h-20 w-full rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_var(--glow)] flex items-center justify-center gap-4"
+                  >
+                    Get a Quote <ArrowRight size={20} />
+                  </button>
+                  <Link 
+                    href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20a%20Consultation."
+                    target="_blank"
+                    className="h-20 w-full rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 hover:border-primary-accent/50 transition-all flex items-center justify-center gap-4"
+                  >
+                    Chat on WhatsApp <MessageCircle size={20} className="text-primary-accent group-hover:text-white transition-colors" />
+                  </Link>
+                </div>
+             </motion.div>
+
+             <motion.div 
+               whileHover={{ y: -10 }}
+               className="p-16 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-10 hover:border-primary-accent/30 transition-all group shadow-2xl"
+             >
+                <div className="h-20 w-20 rounded-3xl bg-white/5 border border-white/10 text-primary-accent flex items-center justify-center transition-transform group-hover:scale-110 shadow-glow">
+                   <Zap size={36} />
+                </div>
+                <div>
+                   <h3 className="text-4xl font-black uppercase tracking-widest mb-6 leading-tight">AI Content <br />Pipeline</h3>
+                   <p className="text-lg text-zinc-500 font-light leading-relaxed mb-10 uppercase tracking-widest text-[11px]">
+                     "Scale your brand identity with photorealistic generative assets and motion."
+                   </p>
+                </div>
+                <div className="flex flex-col gap-6 mt-auto">
+                  <button 
+                    onClick={() => {
+                      window.dispatchEvent(new CustomEvent('open-ai-chat', { detail: 'Quote Request' }));
+                    }}
+                    className="h-20 w-full rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 hover:border-primary-accent/50 transition-all flex items-center justify-center gap-4"
+                  >
+                    Self-Service Quote <ArrowRight size={20} />
+                  </button>
+                  <Link 
+                    href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20AI%20Content%20Production."
+                    target="_blank"
+                    className="h-20 w-full rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_var(--glow)] flex items-center justify-center gap-4"
+                  >
+                    Discuss on WhatsApp <MessageCircle size={20} />
+                  </Link>
+                </div>
+             </motion.div>
+          </div>
+        </div>
+      </section>
+
+       {/* Strategic Position: AEO Summary */}
+      <section className="py-32 px-6 md:px-12 bg-black/60 border-y border-white/5">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div>
+              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block">Strategic Position {" // "} Core v2.0</span>
+              <h2 className="text-5xl font-black text-white mb-10 tracking-tighter leading-none uppercase">
+                AI filmmaking for <br /><span className="text-primary-accent shadow-glow">Visionary Brands.</span>
+              </h2>
+            </div>
+            <div className="space-y-10 text-xl font-light text-zinc-500 leading-relaxed uppercase tracking-tight">
+              <p>
+                Based in <span className="text-white font-bold">Trivandrum & Kochi</span>, we deliver the future of media. By fusing high-fidelity cinematography with proprietary neural pipelines, we provide <span className="text-white font-bold italic">10x faster production</span> cycles without aesthetic compromise.
+              </p>
+              <p>
+                Everything we build is <span className="text-primary-accent font-bold">AEO-Structured</span> — optimized for discoverability by the next generation of AI search agents and LLMs across the global media landscape.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Feedback */}
+      <TestimonialSection />
+
+      {/* Intelligent FAQ */}
+      <FAQSection />
+
+      {/* Floating AI Agent */}
+      <AIDiscoveryAgent />
+    </main>
+  );
+}

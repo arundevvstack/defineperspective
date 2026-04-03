@@ -25,8 +25,8 @@ export default function TerminalHero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
       {/* Background Fluid Motion (Simulated) */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] animate-pulse rounded-full bg-[#00F5FF]/20 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-[400px] w-[400px] animate-pulse rounded-full bg-[#7000FF]/20 blur-[100px]" />
+        <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] animate-pulse rounded-full bg-primary-accent/20 blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 h-[400px] w-[400px] animate-pulse rounded-full bg-primary-accent/10 blur-[100px]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
@@ -39,9 +39,9 @@ export default function TerminalHero() {
           {/* Terminal Toolbar */}
           <div className="flex items-center gap-3 border-b border-white/10 bg-white/5 px-6 py-4">
             <div className="flex gap-2">
-              <div className="h-3 w-3 rounded-full bg-red-400/60" />
-              <div className="h-3 w-3 rounded-full bg-yellow-400/60" />
-              <div className="h-3 w-3 rounded-full bg-green-400/60" />
+              <div className="h-3 w-3 rounded-full bg-primary-accent/60" />
+              <div className="h-3 w-3 rounded-full bg-primary-accent/60" />
+              <div className="h-3 w-3 rounded-full bg-primary-accent/60" />
             </div>
             <div className="flex-1 text-center text-[10px] font-mono text-zinc-500 tracking-[0.2em] uppercase opacity-60">
               defineperspective.in — AI Media & CGI Studio — Trivandrum · Kochi · India
@@ -50,11 +50,11 @@ export default function TerminalHero() {
 
           <div className="p-6 md:p-16">
             <div className="flex items-start gap-4 md:gap-6 font-mono text-xl leading-tight md:text-4xl lg:text-5xl">
-              <span className="mt-1 md:mt-2 text-cyan-400 shrink-0">
+              <span className="mt-1 md:mt-2 text-primary-accent shrink-0">
                 <Terminal size={24} className="md:w-8 md:h-8" />
               </span>
               <div className="flex-1">
-                <span className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                <span className="text-white drop-shadow-[0_0_15px_var(--glow)]">
                   {displayText}
                 </span>
                 <span className="terminal-cursor inline-block h-[24px] w-[8px] md:h-[48px] md:w-[16px] translate-y-1 md:translate-y-2" />
@@ -68,10 +68,10 @@ export default function TerminalHero() {
               className="mt-12 flex flex-col gap-10"
             >
               <div className="text-xl text-zinc-400 md:text-2xl lg:max-w-4xl font-light leading-relaxed">
-                <p className="mb-4 font-mono text-cyan-400 opacity-60 text-sm tracking-widest">{"> "}Initializing High-Converting Video Growth Engine_</p>
+                <p className="mb-4 font-mono text-primary-accent opacity-60 text-sm tracking-widest">{"> "}Initializing High-Converting Video Growth Engine_</p>
                 <div className="space-y-8">
                   <p className="text-2xl md:text-4xl text-white font-medium leading-tight">
-                    We combine <span className="text-cyan-400">AI Media Production</span> with <span className="text-red-400">Performance Marketing</span> to scale high-impact brands in India.
+                    We combine <span className="text-primary-accent">AI Media Production</span> with <span className="text-primary-accent">Performance Marketing</span> to scale high-impact brands in India.
                   </p>
                   
                   <div className="mt-12 grid md:grid-cols-3 gap-8">
@@ -81,7 +81,7 @@ export default function TerminalHero() {
                       { title: "Performance Ads", text: "Conversion-focused video ads optimized for maximum visibility on AI search agents." }
                     ].map((item, idx) => (
                       <div key={idx} className="group relative">
-                        <div className="h-0.5 w-8 bg-cyan-400 mb-4 transition-all group-hover:w-full" />
+                        <div className="h-0.5 w-8 bg-primary-accent mb-4 transition-all group-hover:w-full" />
                         <h3 className="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-3">{item.title}</h3>
                         <p className="text-sm text-zinc-500 leading-relaxed font-light">{item.text}</p>
                       </div>

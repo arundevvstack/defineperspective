@@ -1,0 +1,240 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { 
+  Play, 
+  Video, 
+  Camera, 
+  MoveRight,
+  Cpu,
+  ArrowRight
+} from "lucide-react";
+import Image from "next/image";
+import GlassNavbar from "@/components/glass-navbar";
+import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import { cn } from "@/lib/utils";
+import { useRouter, useSearchParams } from "next/navigation";
+
+const videoData = [
+  {
+    category: "Corporate & Brand Films",
+    description: "Premium brand storytelling and corporate video production in Kerala, designed to build trust and authority.",
+    projects: [
+      { id: "corp1", title: "To U Commercial", videoId: "NEqjeiDThcY", service: "TVC", industry: "Fashion/ Apparal" },
+      { id: "corp2", title: "BB App Commercial", videoId: "INpn97C16yM", service: "TVC", industry: "Tech Driven App" },
+      { id: "corp3", title: "Dotspace Commercial", videoId: "HuX40LSwF7M", service: "TVC", industry: "Co-working Space" },
+    ]
+  },
+  {
+    category: "Social Media & Ads",
+    description: "High-impact reels, ads, and short-form videos for brands across India, optimized for algorithmic growth.",
+    projects: [
+      { id: "social1", title: "Elite Fashion Social", videoId: "dQw4w9WgXcQ" },
+      { id: "social2", title: "Product Launch Reel", videoId: "dQw4w9WgXcQ" },
+    ]
+  }
+];
+
+const aiData = [
+  {
+    category: "AI Video Production & Core",
+    description: "Photorealistic generative video and motion for brands. Visual velocity refined.",
+    projects: [
+      { id: "ai1", title: "Neural Horizons", img: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200" },
+      { id: "ai2", title: "Synthetic Flow", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200" },
+    ]
+  }
+];
+
+const photoData = [
+  {
+    category: "Commercial Photography",
+    description: "High-impact advertisement photography for billboards, luxury catalogs, and product advertising in India.",
+    projects: [
+      { id: "photo1", title: "Luxury Timepiece", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1200" },
+      { id: "photo2", title: "Fashion Editorial", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200" },
+    ]
+  }
+];
+
+export default function PortfolioContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const activeTab = searchParams.get("view") || "video";
+
+  const tabs = [
+    { id: "video", label: "Video Production", icon: Video },
+    { id: "ai", label: "AI Studios", icon: Cpu },
+    { id: "photo", label: "Photography", icon: Camera },
+  ];
+
+  const handleNavigate = (pathOrId: string) => {
+    if (pathOrId.startsWith("/")) {
+      router.push(pathOrId);
+    } else {
+      router.push(`/portfolio?view=${pathOrId}`, { scroll: false });
+    }
+  };
+
+  const currentData = activeTab === "video" ? videoData : activeTab === "ai" ? aiData : photoData;
+
+  return (
+    <main className="min-h-screen bg-obsidian text-white pt-20 pb-40 relative overflow-hidden">
+      <GlassNavbar />
+      
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <div className="absolute top-0 left-1/4 h-[800px] w-[800px] bg-primary-accent/10 blur-[150px] rounded-full animate-pulse" />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-6 md:px-12">
+        <section className="py-32 text-center max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
+            <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Project Archives {" // "} v2026 Core</span>
+            <h1 className="text-4xl md:text-9xl font-black tracking-[0.02em] uppercase mb-10 leading-[0.85]">
+              Cinematic <br /><span className="text-primary-accent italic shadow-glow">Execution.</span>
+            </h1>
+            
+            <div className="mt-20 flex justify-center w-full">
+              <div className="flex p-2 rounded-full bg-white/5 border border-white/5 backdrop-blur-3xl overflow-hidden">
+                 <div className="flex">
+                    {tabs.map((tab) => (
+                      <button
+                        key={tab.id}
+                        onClick={() => handleNavigate(tab.id)}
+                        className={cn(
+                          "relative px-10 py-5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-500 flex items-center gap-3 outline-none",
+                          activeTab === tab.id ? "text-white" : "text-zinc-600 hover:text-white"
+                        )}
+                      >
+                        {activeTab === tab.id && (
+                          <motion.div 
+                            layoutId="activePortfolioTab"
+                            className="absolute inset-0 bg-primary-accent rounded-full shadow-[0_0_30px_var(--glow)]"
+                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                          />
+                        )}
+                        <tab.icon size={16} className="relative z-10" />
+                        <span className="relative z-10">{tab.label}</span>
+                      </button>
+                    ))}
+                 </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <div className="space-y-48">
+          {currentData.map((section, sectionIdx) => (
+            <motion.section 
+              key={activeTab + section.category}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-12 border-b border-white/5 pb-16 group">
+                <div className="max-w-4xl">
+                  <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 block">Capability node {" // "} {activeTab}</span>
+                  <h2 className="text-4xl md:text-8xl font-black uppercase tracking-tighter text-white mb-6 group-hover:text-primary-accent transition-colors leading-none">
+                    {section.category}
+                  </h2>
+                  <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest">
+                    {section.description}
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+                {section.projects.map((project: any, projectIdx) => (
+                  <motion.div 
+                    key={project.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: projectIdx * 0.1 }}
+                    className="group"
+                  >
+                    <div 
+                      className={cn(
+                        "relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-2xl mb-10 transition-all duration-700",
+                        activeTab === "photo" ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
+                      )}
+                    >
+                       {activeTab !== "video" ? (
+                         <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105">
+                           <Image 
+                             src={project.img || ""} 
+                             alt={project.title} 
+                             fill
+                             className="object-cover"
+                             loading="lazy"
+                           />
+                         </div>
+                       ) : (
+                         <iframe 
+                           src={`https://www.youtube.com/embed/${project.videoId}`} 
+                           title={project.title}
+                           className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-1000 border-0"
+                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                           allowFullScreen
+                         />
+                       )}
+                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                          <div className="h-16 w-16 rounded-full bg-primary-accent text-white flex items-center justify-center scale-75 group-hover:scale-100 transition-transform shadow-[0_0_40px_var(--glow)]">
+                             {activeTab === "video" ? <Play size={24} fill="currentColor" /> : <MoveRight size={24} />}
+                          </div>
+                       </div>
+                    </div>
+                    <div className="px-4">
+                      <h4 className="text-2xl font-black uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">{project.title}</h4>
+                      <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest leading-loose">
+                         {project.service ? (
+                           <>
+                             Service: {project.service} <br />
+                             Industry: {project.industry}
+                           </>
+                         ) : (
+                           <>
+                             Pipeline: {activeTab === "ai" ? "Neural Render" : "Optic Sensors"} <br />
+                             Status: Release v2.0
+                           </>
+                         )}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.section>
+          ))}
+        </div>
+
+        <section className="mt-80 p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group">
+          <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          <div className="relative z-10">
+            <h2 className="text-5xl md:text-[9rem] font-black uppercase tracking-tighter text-white mb-16 leading-[0.8]">
+              Ready for <br /><span className="text-primary-accent italic shadow-glow">Impact?</span>
+            </h2>
+            <div className="flex flex-col sm:flex-row justify-center gap-8">
+              <button 
+                onClick={() => window.location.href = '/contact'}
+                className="h-20 px-16 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-[0_0_40px_var(--glow)] flex items-center justify-center gap-4"
+              >
+                Start New Project <ArrowRight size={20} />
+              </button>
+              <button 
+                onClick={() => window.location.href = 'https://wa.me/919496191684'}
+                className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-4"
+              >
+                Chat on WhatsApp
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <AIDiscoveryAgent />
+    </main>
+  );
+}

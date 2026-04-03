@@ -13,13 +13,13 @@ const serviceSections = [
     title: "Video Production",
     subtitle: "Elite Ad Films & Corporate Brand Storytelling in Kerala",
     icon: PlayCircle,
+    theme: "theme-red",
     items: [
       {
         id: "corp-video",
         title: "Corporate Video Production Company in Kerala",
         desc: "Professional brand stories and heritage films for global enterprises in Thrivandrum & Kochi.",
         icon: Workflow,
-        color: "from-blue-400 to-indigo-600",
         href: "/services/video-production/corporate-video-production-company-in-kerala"
       },
       {
@@ -27,7 +27,6 @@ const serviceSections = [
         title: "Brand Film Production",
         desc: "Premium cinematic films that define your company's visionary identity.",
         icon: Star,
-        color: "from-amber-400 to-red-500",
         href: "/services/video-production/brand-film-production"
       },
       {
@@ -35,7 +34,6 @@ const serviceSections = [
         title: "Ad Film / Commercial Video Production",
         desc: "High-impact television commercials (TVC) and premium digital video ads.",
         icon: Video,
-        color: "from-red-400 to-rose-600",
         href: "/services/video-production/ad-film-commercial-video-production"
       },
       {
@@ -43,7 +41,6 @@ const serviceSections = [
         title: "Promotional Video Production",
         desc: "High-energy videos designed to launch products and ignite growth.",
         icon: Zap,
-        color: "from-orange-400 to-amber-600",
         href: "/services/video-production/promotional-video-production"
       }
     ]
@@ -52,13 +49,13 @@ const serviceSections = [
     title: "AI Media Production",
     subtitle: "2026-Era Generative Video & Post-Production Labs India",
     icon: Cpu,
+    theme: "theme-blue",
     items: [
       {
         id: "ai-video-services",
         title: "AI Video Production Services",
         desc: "Full-scale generative video production utilizing proprietary neural workflows.",
         icon: Sparkles,
-        color: "from-cyan-400 to-blue-600",
         href: "/services/ai-media-production/ai-video-production-services"
       },
       {
@@ -66,7 +63,6 @@ const serviceSections = [
         title: "AI Ad Creative Generation",
         desc: "High-velocity ad creative testing with AI-generated visual variants.",
         icon: Zap,
-        color: "from-purple-400 to-indigo-600",
         href: "/services/ai-media-production/ai-ad-creative-generation"
       },
       {
@@ -74,7 +70,6 @@ const serviceSections = [
         title: "AI Product Videos (No Shoot Required)",
         desc: "Render hyper-realistic product commercials entirely from static images/models.",
         icon: Image,
-        color: "from-emerald-400 to-cyan-600",
         href: "/services/ai-media-production/ai-product-videos-no-shoot-required"
       },
       {
@@ -82,7 +77,6 @@ const serviceSections = [
         title: "AI Avatar Videos & AI Presenters",
         desc: "Photorealistic AI characters for training, explainers, and brand ambassadors.",
         icon: Users,
-        color: "from-pink-400 to-rose-600",
         href: "/services/ai-media-production/ai-avatar-videos-ai-presenters"
       }
     ]
@@ -91,13 +85,13 @@ const serviceSections = [
     title: "AI CGI & Virtual Production",
     subtitle: "Premium 3D Visualization & Virtual Environments India",
     icon: Wand2,
+    theme: "theme-blue",
     items: [
       {
         id: "cgi-prod-video",
         title: "AI CGI Product Videos",
         desc: "Impossible product shots and surreal 3D environments rendered via AI.",
         icon: Sparkles,
-        color: "from-cyan-400 to-blue-500",
         href: "/services/cgi-virtual-production/ai-cgi-product-videos"
       },
       {
@@ -105,7 +99,6 @@ const serviceSections = [
         title: "Virtual Production AI Environments",
         desc: "Shoot against high-res AI digital backgrounds for global locations-on-demand.",
         icon: Globe,
-        color: "from-indigo-400 to-purple-600",
         href: "/services/cgi-virtual-production/virtual-production-services"
       },
       {
@@ -113,7 +106,6 @@ const serviceSections = [
         title: "AI-Generated 3D Product Visualization",
         desc: "Photorealistic 3D renders that eliminate the need for physical studio time.",
         icon: Layers,
-        color: "from-emerald-400 to-green-600",
         href: "/services/cgi-virtual-production/3d-product-visualization"
       },
       {
@@ -121,7 +113,6 @@ const serviceSections = [
         title: "AI VFX & Motion Enhancement",
         desc: "Elevating traditional footage with high-end neural visual effects.",
         icon: Zap,
-        color: "from-rose-400 to-pink-600",
         href: "/services/cgi-virtual-production/vfx-motion-enhancement"
       }
     ]
@@ -130,13 +121,13 @@ const serviceSections = [
     title: "Product & E-commerce Content",
     subtitle: "Billboard-Ready Visuals for Amazon, Flipkart & D2C Brands",
     icon: Package,
+    theme: "theme-red",
     items: [
       {
         id: "prod-video",
         title: "Product Video Production",
         desc: "Cinematic product close-ups and lifestyle films for premium retail.",
         icon: Camera,
-        color: "from-yellow-400 to-amber-600",
         href: "/services/product-content/product-video-production"
       },
       {
@@ -144,7 +135,6 @@ const serviceSections = [
         title: "E-commerce Product Photography",
         desc: "High-precision studio photography for catalogs and digital storefronts.",
         icon: Image,
-        color: "from-blue-400 to-cyan-600",
         href: "/services/product-content/e-commerce-product-photography"
       },
       {
@@ -152,7 +142,6 @@ const serviceSections = [
         title: "Amazon / Flipkart Product Videos",
         desc: "Conversion-optimized product videos compliant with marketplace standards.",
         icon: Globe,
-        color: "from-orange-400 to-red-600",
         href: "/services/product-content/amazon-flipkart-product-videos"
       },
       {
@@ -160,7 +149,6 @@ const serviceSections = [
         title: "Product Demo Videos",
         desc: "Clear, engaging walkthroughs showcasing your product's core utility.",
         icon: PlayCircle,
-        color: "from-indigo-400 to-blue-600",
         href: "/services/product-content/product-demo-videos"
       }
     ]
@@ -169,13 +157,13 @@ const serviceSections = [
     title: "Performance Marketing Video Ads",
     subtitle: "Conversion-Centric Ad Creatives for FB, IG & YouTube",
     icon: Target,
+    theme: "theme-red",
     items: [
       {
         id: "perf-ads",
         title: "Performance Marketing Video Ads",
         desc: "ROI-driven ad creatives designed to lower CPA and boost conversion.",
         icon: BarChart3,
-        color: "from-green-400 to-emerald-600",
         href: "/services/performance-marketing/performance-marketing-video-ads"
       },
       {
@@ -183,7 +171,6 @@ const serviceSections = [
         title: "Facebook & Instagram Ad Creatives",
         desc: "Thumb-stopping visuals specifically for Meta's high-stakes feed.",
         icon: Share2,
-        color: "from-blue-500 to-indigo-700",
         href: "/services/performance-marketing/facebook-instagram-ad-creatives"
       },
       {
@@ -191,7 +178,6 @@ const serviceSections = [
         title: "YouTube Ads Production",
         desc: "High-retention skippable and unskippable ads for YouTube campaigns.",
         icon: Video,
-        color: "from-red-600 to-black",
         href: "/services/performance-marketing/youtube-ads-production"
       },
       {
@@ -199,7 +185,6 @@ const serviceSections = [
         title: "Conversion-Focused Video Ads",
         desc: "Scientific ad structures built to guide viewers toward immediate action.",
         icon: Zap,
-        color: "from-amber-400 to-orange-600",
         href: "/services/performance-marketing/conversion-focused-video-ads"
       }
     ]
@@ -208,13 +193,13 @@ const serviceSections = [
     title: "Video Strategy & Consulting",
     subtitle: "Data-Driven Planning & Content Funnel Architecture",
     icon: BarChart3,
+    theme: "theme-red",
     items: [
       {
         id: "vid-strat",
         title: "Video Marketing Strategy",
         desc: "Multi-channel media roadmaps for sustainable brand growth.",
         icon: Target,
-        color: "from-zinc-400 to-zinc-800",
         href: "/services/video-strategy/video-marketing-strategy"
       },
       {
@@ -222,7 +207,6 @@ const serviceSections = [
         title: "Content Strategy & Planning",
         desc: "Holistic content calendars engineered for maximum audience retention.",
         icon: Workflow,
-        color: "from-blue-400 to-indigo-600",
         href: "/services/video-strategy/content-strategy-planning"
       },
       {
@@ -230,7 +214,6 @@ const serviceSections = [
         title: "Campaign Planning & Execution",
         desc: "End-to-end management of high-stakes visual marketing campaigns.",
         icon: Globe,
-        color: "from-cyan-400 to-emerald-600",
         href: "/services/video-strategy/campaign-planning-execution"
       },
       {
@@ -238,7 +221,6 @@ const serviceSections = [
         title: "Video Funnel Strategy",
         desc: "Architecting video sequences that move users from awareness to sale.",
         icon: Layers,
-        color: "from-orange-400 to-red-600",
         href: "/services/video-strategy/video-funnel-strategy"
       }
     ]
@@ -305,7 +287,7 @@ export default function ServiceGrid() {
             transition={{ duration: 1 }}
             className="h-14 w-14 rounded-2xl bg-primary-accent flex items-center justify-center text-primary-accent-fg mb-10 shadow-[0_0_30px_var(--glow)]"
           >
-             <Cpu size={32} />
+             <Sparkles size={32} />
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -316,18 +298,18 @@ export default function ServiceGrid() {
             Media <span className="text-primary-accent font-black italic shadow-glow">Production</span>
           </motion.h2>
           <p className="mt-16 text-xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
-            Future-Proof Media. Specialized AI and Cinematic divisions delivering high-velocity production for brands in Kerala & India.
+            "Eliminating mediocrity. High-end human filmmaking fused with 2026 AI-augmented production for brands in India."
           </p>
         </div>
 
         <div className="space-y-40">
            {serviceSections.map((section, sIdx) => (
-             <div key={section.title} className="relative">
+             <div key={section.title} className={cn("relative", section.theme)}>
                 <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary-accent/50 via-white/5 to-transparent hidden lg:block" />
                 
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
                    <div className="max-w-2xl">
-                      <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-6 block">Division 0{sIdx + 1} {" // "} Strategic Node</span>
+                      <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-6 block">Division 0{sIdx + 1} // Strategic Node</span>
                       <h2 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-widest group leading-none">
                          {section.title}
                       </h2>
@@ -337,7 +319,7 @@ export default function ServiceGrid() {
                    </div>
                    
                    <div className="h-16 w-16 rounded-full border border-[var(--border-subtle)] bg-[var(--glass-white)] flex items-center justify-center text-zinc-600 hover:text-primary-accent transition cursor-help group">
-                      <section.icon size={24} className="group-hover:scale-110 transition-all" />
+                      <section.icon size={24} className="group-hover:scale-110 transition-all text-primary-accent" />
                    </div>
                 </div>
                 
@@ -352,21 +334,19 @@ export default function ServiceGrid() {
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.05, duration: 0.8 }}
-                        className="relative flex flex-col h-full rounded-3xl border border-[var(--border-subtle)] bg-[var(--glass-white)] p-10 transition-shadow hover:shadow-[0_20px_50px_rgba(var(--accent-rgb),0.2)] duration-500 overflow-hidden"
+                        className="relative flex flex-col h-full rounded-[2.5rem] border border-[var(--border-subtle)] bg-[var(--glass-white)] p-10 transition-shadow hover:shadow-[0_20px_50px_rgba(var(--accent-rgb),0.2)] duration-500 overflow-hidden"
                       >
+                         {/* Dynamic Background */}
                         <div className="absolute top-0 right-0 h-40 w-40 bg-gradient-to-br from-primary-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                         
-                        <div className={cn(
-                          "mb-10 h-14 w-14 flex items-center justify-center rounded-2xl bg-gradient-to-tr transition-all group-hover:scale-110 shadow-2xl",
-                          service.color
-                        )}>
-                          <service.icon size={28} className="text-black font-black" />
+                        <div className="mb-10 h-16 w-16 flex items-center justify-center rounded-2xl bg-primary-accent/10 transition-all group-hover:scale-110 shadow-2xl">
+                          <service.icon size={30} className="text-primary-accent" />
                         </div>
  
-                        <h4 className="mb-6 text-xl font-bold text-foreground tracking-widest uppercase leading-tight min-h-[3.5rem]">
+                        <h4 className="mb-6 text-xl font-bold text-foreground tracking-widest uppercase leading-tight min-h-[3.5rem] group-hover:text-primary-accent transition-colors">
                           {service.title}
                         </h4>
-                        <p className="mb-10 text-zinc-400 font-light leading-relaxed text-xs uppercase tracking-tighter">
+                        <p className="mb-10 text-zinc-500 font-light leading-relaxed text-xs uppercase tracking-tighter">
                           {service.desc}
                         </p>
  
