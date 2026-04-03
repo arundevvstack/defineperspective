@@ -181,35 +181,29 @@ function NavbarContent() {
               whileHover="hover"
               whileTap="tap"
               onClick={() => window.location.href = '/contact'}
-              className="group relative h-10 px-7 rounded-full bg-primary-accent text-white font-black uppercase tracking-[0.25em] text-[10px] flex items-center gap-2 overflow-hidden transition-all shadow-[0_0_25px_rgba(var(--primary-accent-rgb),0.4)]"
+              className="group relative h-9 px-5 rounded-full bg-primary-accent text-white font-semibold uppercase tracking-widest text-[11px] flex items-center gap-2 overflow-hidden transition-all shadow-[0_0_15px_rgba(var(--primary-accent-rgb),0.3)]"
             >
-              {/* Animated Gradient Background */}
+              {/* Subtle Shimmer Effect */}
               <motion.div
                 variants={{
-                  hover: { x: ["-100%", "100%"] }
+                  hover: { x: ["-100%", "200%"] }
                 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] z-10"
+                transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg]"
               />
               
-              {/* Border Glow */}
-              <div className="absolute inset-0 rounded-full border border-white/20 group-hover:border-white/50 transition-colors z-20" />
-              
-              <span className="relative z-30 transition-transform duration-300 group-hover:-translate-x-1">Get Started</span>
+              <span className="relative z-10">Get Started</span>
               
               <motion.span 
                 variants={{
-                  hover: { opacity: 1, x: 0, scale: 1.1 },
-                  initial: { opacity: 0, x: -10, scale: 0.8 }
+                  hover: { x: 0, opacity: 1 },
+                  initial: { x: -5, opacity: 0 }
                 }}
                 initial="initial"
-                className="relative z-30"
+                className="relative z-10"
               >
-                <ArrowRight size={14} className="text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]" />
+                <ArrowRight size={12} />
               </motion.span>
-              
-              {/* Pulse Effect */}
-              <div className="absolute inset-0 bg-primary-accent rounded-full animate-ping opacity-10 group-hover:opacity-20 transition-opacity" />
             </motion.button>
           </Magnetic>
         </div>
