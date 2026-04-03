@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Workflow, ArrowLeft, CheckCircle2, Megaphone } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 
 // Corrected directive for Next.js 16 requirements.
 export default function CreativeCampaignDesignPage() {
@@ -112,7 +112,7 @@ export default function CreativeCampaignDesignPage() {
           </div>{" "}
         </section>{" "}
       </div>{" "}
-      <AIDiscoveryAgent />{" "}
+      <WhatsAppChat />{" "}
     </main>
   );
 }

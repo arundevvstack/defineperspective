@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, Wand2, Globe, Clock, ArrowRight } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 
 export default function AboutContent() {
   return (
@@ -123,7 +123,7 @@ export default function AboutContent() {
         </section>
       </div>
 
-      <AIDiscoveryAgent />
+      <WhatsAppChat />
     </main>
   );
 }

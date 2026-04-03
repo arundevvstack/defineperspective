@@ -12,7 +12,7 @@ import {
   Database,
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 import { use } from "react";
 const projects = {
   "ai-design-1": {
@@ -216,7 +216,7 @@ export default function AICaseStudy({
           </div>{" "}
         </section>{" "}
       </div>{" "}
-      <AIDiscoveryAgent />{" "}
+      <WhatsAppChat />{" "}
     </main>
   );
 }

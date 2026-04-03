@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 import { Mail, Phone, ArrowRight, MessageCircle } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 
 function ContactForm() {
   const searchParams = useSearchParams();
@@ -190,7 +190,7 @@ export default function ContactContent() {
         </div>
       </div>
 
-      <AIDiscoveryAgent />
+      <WhatsAppChat />
     </main>
   );
 }

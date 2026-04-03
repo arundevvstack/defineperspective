@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Camera, ArrowLeft, CheckCircle2, MessageSquare } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 
 // Fixed directive for Next.js 16 build stability
 export default function AdvertisementPhotographyPage() {
@@ -113,7 +113,7 @@ export default function AdvertisementPhotographyPage() {
           </div>{" "}
         </section>{" "}
       </div>{" "}
-      <AIDiscoveryAgent />{" "}
+      <WhatsAppChat />{" "}
     </main>
   );
 }

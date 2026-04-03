@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 
 import { use } from "react";
 
@@ -153,7 +153,7 @@ export default function PhotoCaseStudy({ params }: { params: Promise<{ id: strin
          </section>
       </div>
 
-      <AIDiscoveryAgent />
+      <WhatsAppChat />
     </main>
   );
 }

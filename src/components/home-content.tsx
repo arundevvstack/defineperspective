@@ -16,7 +16,7 @@ const MetricsSection = dynamic(() => import("@/components/metrics-section"));
 const PortfolioSection = dynamic(() => import("@/components/portfolio-section"));
 const TestimonialSection = dynamic(() => import("@/components/testimonial-section"));
 const FAQSection = dynamic(() => import("@/components/faq-section"));
-const AIDiscoveryAgent = dynamic(() => import("@/components/ai-discovery-agent"), { ssr: false });
+const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat"), { ssr: false });
 
 
 export default function HomeContent() {
@@ -173,7 +173,7 @@ export default function HomeContent() {
       <FAQSection />
 
       {/* Floating AI Agent */}
-      <AIDiscoveryAgent />
+      <WhatsAppChat />
     </main>
   );
 }

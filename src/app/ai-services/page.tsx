@@ -8,7 +8,7 @@ import {
   Box, Workflow, Package, Wand2, Cpu, Star, PlayCircle, Users, ArrowRight
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 import { cn } from "@/lib/utils";
 
 const aiServices = [
@@ -120,7 +120,7 @@ export default function AIServicesPage() {
         </div>
       </div>
 
-      <AIDiscoveryAgent />
+      <WhatsAppChat />
     </main>
   );
 }

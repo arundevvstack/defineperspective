@@ -6,7 +6,7 @@ import {
   Cpu, PlayCircle, Image, Star
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -173,7 +173,7 @@ export default function ServicesContent() {
         </div>
       </div>
       
-      <AIDiscoveryAgent />
+      <WhatsAppChat />
     </main>
   );
 }

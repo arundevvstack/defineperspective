@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 import { cn } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -234,7 +234,7 @@ export default function PortfolioContent() {
         </section>
       </div>
 
-      <AIDiscoveryAgent />
+      <WhatsAppChat />
     </main>
   );
 }

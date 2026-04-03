@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Video, ArrowLeft, CheckCircle2, Sparkles } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import AIDiscoveryAgent from "@/components/ai-discovery-agent";
+import WhatsAppChat from "@/components/whatsapp-chat";
 
 // Note: In Next.js 16+, metadata should ideally be in a Server Component.
 // For now, we fix the directive and syntax to restore the build.
@@ -114,7 +114,7 @@ export default function ProfessionalVideoProductionPage() {
           </div>{" "}
         </section>{" "}
       </div>{" "}
-      <AIDiscoveryAgent />{" "}
+      <WhatsAppChat />{" "}
     </main>
   );
 }
