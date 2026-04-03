@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { 
-  Workflow, Users, BarChart3, Target, Sparkles, 
+  Workflow, Camera, BrainCircuit, Target, Sparkles, 
   ArrowRight, ShieldCheck, CheckCircle2, Globe, Megaphone 
 } from "lucide-react";
 
@@ -14,18 +14,18 @@ const inclusions = [
   },
   {
     title: "Strategic Video Production",
-    desc: "We create videos, Reels, and social media content that are built to get more views and sales.",
+    desc: "We create videos, Reels, and cinematic content that are built to command attention.",
     icon: Workflow,
   },
   {
-    title: "Influencer Marketing",
-    desc: "We connect your brand with the right influencers to help you reach more people effectively.",
-    icon: Megaphone,
+    title: "Cinematic Photography",
+    desc: "Premium brand photography engineered to capture the soul of your product or service.",
+    icon: Camera,
   },
   {
-    title: "Digital Marketing & Ads",
-    desc: "We help you run your ads on social media to make sure your content reaches the right customers.",
-    icon: BarChart3,
+    title: "Neural/AI Visuals",
+    desc: "Next-gen post-production utilizing AI for hyper-realistic grading and visual effects.",
+    icon: BrainCircuit,
   },
 ];
 

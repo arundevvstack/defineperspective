@@ -1,30 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Workflow, ArrowLeft, CheckCircle2, Target, Megaphone, BarChart3, Globe } from "lucide-react";
+import { Workflow, ArrowLeft, CheckCircle2, Target, Camera, BrainCircuit, Globe } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import AIDiscoveryAgent from "@/components/ai-discovery-agent";
 
 const inclusions = [
   {
     title: "Creative Campaign Design",
-    desc: "Strategic thinking meets innovative design to craft campaigns that amplify your message.",
+    desc: "Strategic thinking meets innovative design to craft campaigns that amplify your message through visual storytelling.",
     icon: Target,
   },
   {
     title: "Strategic Media Production",
-    desc: "Every micro-video, reel, and poster is engineered for your specific funnel stage.",
+    desc: "Every micro-video, reel, and cinematic asset is engineered for maximum aesthetic impact and brand resonance.",
     icon: Workflow,
   },
   {
-    title: "Influencer Marketing",
-    desc: "Connecting your brand with voices that matter through AI-vetted collaborations.",
-    icon: Megaphone,
+    title: "Cinematic Photography",
+    desc: "Elite-tier brand photography that captures the cinematic essence of your product with surgical precision.",
+    icon: Camera,
   },
   {
-    title: "Performance Digital Marketing",
-    desc: "Implementation of effective strategies to ensure your content actually reaches the right eyes.",
-    icon: BarChart3,
+    title: "Neural AI Post-Production",
+    desc: "Leveraging proprietary AI models for next-gen color grading, lighting simulation, and digital visual effects.",
+    icon: BrainCircuit,
   },
 ];
 
@@ -54,9 +54,9 @@ export default function DP360Page() {
            >
              Comprehensive <br /> <span className="text-cyan-400">Digital Production</span>
            </motion.h1>
-           <p className="text-2xl text-zinc-300 font-light leading-relaxed max-w-4xl">
-             "Elevate your brand with our powerful, cohesive ecosystem that combines strategy, creation, and distribution. We bridge the gap between cinematic storytelling and machine-speed efficiency."
-           </p>
+            <p className="text-2xl text-zinc-300 font-light leading-relaxed max-w-4xl">
+              "Elevate your brand with our powerful, cohesive production ecosystem that combines creative strategy, elite cinematography, and neural post-production. We bridge the gap between human storytelling and AI-driven efficiency."
+            </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-40">

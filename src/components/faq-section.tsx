@@ -19,8 +19,8 @@ const faqs = [
     answer: "Yes, we are a full-service ad film production company based in Trivandrum. We handle everything from corporate brand films to product video shoots and social media content for startups and established businesses across India.",
   },
   {
-    question: "Can AI-powered media production reduce my advertising costs?",
-    answer: "Absolutely. Our AI-assisted workflows allow us to generate 50+ social media assets (Reels, Shorts, Ads) from a single master shoot, significantly lowering the cost-per-content while maximizing ROI for performance marketing.",
+    question: "Can AI-powered media production reduce my overall project costs?",
+    answer: "Absolutely. Our AI-assisted workflows allow us to generate specialized cinematic assets and multi-format variants from a single master session, significantly lowering the cost-per-minute of high-fidelity output while maintaining elite visual consistency.",
   },
   {
      question: "Do you provide drone videography and photography near me in Kochi?",

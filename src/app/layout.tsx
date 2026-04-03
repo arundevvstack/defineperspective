@@ -67,7 +67,7 @@ export default function RootLayout({
                     "@id": "https://defineperspective.in/#dp360",
                     "@type": "ServiceGroup",
                     "name": "DP 360° Service",
-                    "description": "Comprehensive Digital Production & Marketing ecosystem."
+                    "description": "Comprehensive Cinematic Production & AI Media ecosystem."
                   },
                   {
                     "@type": "Service",
