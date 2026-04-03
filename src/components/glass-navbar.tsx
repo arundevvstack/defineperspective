@@ -87,22 +87,24 @@ function NavbarContent() {
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 lg:gap-8 md:flex">
           <a href="/" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Home</a>
+          <a href="/about" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/about" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>About</a>
           
           <NavDropdown title="Services" items={serviceLinks} />
           <NavDropdown title="DP AI Studios" items={aiStudioLinks} />
 
           <a href="/portfolio" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Portfolio</a>
+          <a href="/contact" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Contact</a>
           
-          <div className="h-6 w-[1px] bg-white/10 mx-2" />
+          <div className="h-6 w-[1px] bg-white/10 mx-1" />
           
           <Magnetic intensity={1.5}>
             <button 
               onClick={() => window.location.href = '/contact'}
-              className="h-10 px-6 rounded-full bg-primary-accent text-zinc-200 font-black uppercase tracking-widest text-[10px] hover:scale-105 active:scale-95 hover:text-white transition-all shadow-lg"
+              className="h-9 px-5 rounded-full bg-primary-accent text-zinc-200 font-black uppercase tracking-widest text-[9px] hover:scale-105 active:scale-95 hover:text-white transition-all shadow-lg"
             >
-              Consult Now
+              Get Started
             </button>
           </Magnetic>
         </div>
@@ -128,6 +130,7 @@ function NavbarContent() {
           >
             <div className="flex flex-col gap-6">
               <a href="/" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Home</a>
+              <a href="/about" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>About</a>
               
               <div className="space-y-4">
                 <span className="text-[10px] font-mono text-primary-accent uppercase tracking-widest">Services</span>
@@ -144,6 +147,7 @@ function NavbarContent() {
               </div>
 
               <a href="/portfolio" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Portfolio</a>
+              <a href="/contact" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Contact</a>
             </div>
 
             <div className="mt-auto pb-12 flex flex-col gap-6">
