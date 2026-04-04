@@ -69,7 +69,7 @@ export default function GlassFooter() {
           <div className="lg:col-span-1">
              <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Resources</h4>
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
-                <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs & Insights</Link></li>
+                <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs</Link></li>
                 <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Website Analysis</Link></li>
                 <li><Link href="/portfolio" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Client Portfolio</Link></li>
                 <li><Link href="/lab" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Production Lab</Link></li>

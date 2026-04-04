@@ -115,24 +115,24 @@ function NavbarContent() {
               className="absolute top-full left-1/2 -translate-x-1/2 w-[800px] bg-obsidian/95 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] p-10 shadow-xl mt-4 grid grid-cols-2 gap-x-16 gap-y-10 z-[110] overflow-hidden"
             >
               {categories.map((cat) => (
-                <div key={cat.name} className="space-y-6 relative z-10 group/cat">
-                  <Link href={cat.href} className="block border-b border-white/5 pb-4 transition-all">
-                    <h4 className="text-sm font-bold text-white group-hover/cat:text-primary-accent uppercase tracking-widest mb-1 transition-colors">
+                <div key={cat.name} className="space-y-8 relative z-10 group/cat">
+                  <Link href={cat.href} className="block border-b border-white/5 pb-6 transition-all">
+                    <h4 className="text-base font-black text-white group-hover/cat:text-primary-accent uppercase tracking-widest mb-2 transition-colors">
                       {cat.name}
                     </h4>
-                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">{cat.desc}</p>
+                    <p className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest leading-relaxed">{cat.desc}</p>
                   </Link>
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-4">
                     {cat.subItems.map(sub => (
                       <Link
                         key={sub.name}
                         href={sub.href}
                         className={cn(
-                          "text-[10px] font-medium uppercase tracking-tighter transition-all flex items-center gap-2",
-                          pathname === sub.href ? "text-primary-accent" : "text-zinc-500 hover:text-primary-accent"
+                          "text-xs font-bold uppercase tracking-tight transition-all flex items-center gap-3",
+                          pathname === sub.href ? "text-primary-accent" : "text-zinc-500 hover:text-white"
                         )}
                       >
-                        <span className="h-1 w-1 rounded-full bg-zinc-800 transition-colors group-hover:bg-primary-accent hover:bg-white hover:text-primary-accent transition-all duration-300" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-zinc-800 transition-colors group-hover:bg-primary-accent hover:bg-white hover:text-primary-accent transition-all duration-300" />
                         {sub.name}
                       </Link>
                     ))}

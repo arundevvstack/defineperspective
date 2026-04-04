@@ -22,11 +22,19 @@ export default function AnalysisDashboard() {
   const [visitors, setVisitors] = useState(14528);
   const [activeSystems, setActiveSystems] = useState(842);
   const [logs, setLogs] = useState<string[]>([]);
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
   const [seoScore, setSeoScore] = useState(92);
-  const [dataPoints, setDataPoints] = useState<number[]>(Array(24).fill(0).map(() => 40 + Math.floor(Math.random() * 60)));
+  const [dataPoints, setDataPoints] = useState<number[]>([]);
+  const [chartMode, setChartMode] = useState<"daily" | "live">("live");
+  const [isSaving, setIsSaving] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [systemAlerts, setSystemAlerts] = useState(0);
 
   useEffect(() => {
+    // Initial client-side populate
+    setCurrentTime(new Date());
+    setDataPoints(Array(24).fill(0).map(() => 40 + Math.floor(Math.random() * 60)));
+
     const logInterval = setInterval(() => {
       const actions = ["SEO_SCAN", "MARKET_ANALYSIS", "TREND_FETCH", "SYNC_ACTIVE", "SEARCH_CHECK"];
       const resources = ["Cloud_Server", "SearchAPI", "Analytics_Core", "SEO_Validator"];
@@ -47,6 +55,26 @@ export default function AnalysisDashboard() {
     };
   }, []);
 
+  const handleSaveReport = () => {
+    setIsSaving(true);
+    setTimeout(() => setIsSaving(false), 2000);
+  };
+
+  const handleRefreshSEO = () => {
+    setIsRefreshing(true);
+    setTimeout(() => {
+      setIsRefreshing(false);
+      setSeoScore(prev => Math.min(98.5, prev + 0.5));
+    }, 1500);
+  };
+
+  const toggleChartMode = (mode: "daily" | "live") => {
+    setChartMode(mode);
+    setDataPoints(Array(24).fill(0).map(() => 
+      mode === "live" ? 40 + Math.floor(Math.random() * 60) : 20 + Math.floor(Math.random() * 40)
+    ));
+  };
+
   // UI Components
   const SidebarButton = ({ icon: Icon, label, tab }: { icon: any; label: string; tab: TabType }) => (
     <button 
@@ -65,8 +93,11 @@ export default function AnalysisDashboard() {
     </button>
   );
 
-  const StatBox = ({ title, value, sub, icon: Icon, color }: { title: string; value: string; sub: string; icon: any; color?: string }) => (
-    <div className="p-8 bg-zinc-900 border border-white/5 rounded-[3rem] relative overflow-hidden group transition-all hover:border-white/20 shadow-xl">
+  const StatBox = ({ title, value, sub, icon: Icon, color, onClick }: { title: string; value: string; sub: string; icon: any; color?: string; onClick?: () => void }) => (
+    <div 
+      onClick={onClick}
+      className={`p-8 bg-zinc-900 border border-white/5 rounded-[3rem] relative overflow-hidden group transition-all hover:border-white/20 shadow-xl ${onClick ? "cursor-pointer active:scale-[0.98]" : ""}`}
+    >
        <div className={`p-4 rounded-2xl bg-white/5 w-fit mb-8 ${color || "text-primary-accent"}`}>
           <Icon size={24} />
        </div>
@@ -109,11 +140,21 @@ export default function AnalysisDashboard() {
               </div>
 
               <div className="mt-12 pt-8 border-t border-white/5">
-                 <button className="flex items-center gap-4 text-zinc-500 hover:text-white transition-colors text-[11px] font-black uppercase tracking-widest mb-6 w-full group">
+                 <button 
+                  onClick={() => alert("Management Settings Panel - System locked for security.")}
+                  className="flex items-center gap-4 text-zinc-500 hover:text-white transition-colors text-[11px] font-black uppercase tracking-widest mb-6 w-full group active:scale-95"
+                 >
                     <Settings size={16} className="group-hover:rotate-90 transition-transform" /> settings_panel
                  </button>
-                 <button className="flex items-center gap-4 text-zinc-500 hover:text-white transition-colors text-[11px] font-black uppercase tracking-widest w-full">
-                    <Bell size={16} /> system_alerts
+                 <button 
+                  onClick={() => setSystemAlerts(0)}
+                  className="flex items-center gap-4 text-zinc-500 hover:text-white transition-colors text-[11px] font-black uppercase tracking-widest w-full group active:scale-95"
+                 >
+                    <div className="relative">
+                      <Bell size={16} />
+                      {systemAlerts > 0 && <span className="absolute -top-1 -right-1 w-2 h-2 bg-primary-accent rounded-full animate-ping" />}
+                    </div>
+                    system_alerts
                  </button>
               </div>
            </div>
@@ -136,11 +177,18 @@ export default function AnalysisDashboard() {
                  </div>
               </div>
               <div className="flex items-center gap-4">
-                 <button className="h-12 w-12 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all">
-                    <Download size={18} />
+                 <button 
+                  onClick={handleSaveReport}
+                  className="h-12 w-12 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all group active:scale-95"
+                 >
+                    <Download size={18} className={isSaving ? "animate-bounce" : "group-hover:translate-y-0.5 transition-transform"} />
                  </button>
-                 <button className="h-12 w-40 rounded-2xl bg-primary-accent text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-white hover:text-primary-accent transition-all shadow-xl">
-                    Save Report <ChevronRight size={14} />
+                 <button 
+                  onClick={handleSaveReport}
+                  disabled={isSaving}
+                  className="h-12 w-40 rounded-2xl bg-primary-accent text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-white hover:text-primary-accent transition-all shadow-xl disabled:opacity-50 active:scale-95"
+                 >
+                    {isSaving ? "Saving..." : "Save Report"} <ChevronRight size={14} className={isSaving ? "animate-ping" : ""} />
                  </button>
               </div>
            </div>
@@ -156,10 +204,10 @@ export default function AnalysisDashboard() {
                 >
                    {/* STAT GRID */}
                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                      <StatBox title="Total Visitors" value={visitors.toLocaleString()} sub="+14% vs Yesterday" icon={Users} />
+                      <StatBox title="Total Visitors" value={visitors.toLocaleString()} sub="+14% vs Yesterday" icon={Users} onClick={() => setActiveTab("overview")} />
                       <StatBox title="Avg. Time on Site" value="128s" sub="Top Engagement" icon={Clock} color="text-blue-500" />
-                      <StatBox title="SEO Ranking Index" value={`${seoScore.toFixed(0)}%`} sub="Top 2% Performance" icon={Gauge} color="text-green-500" />
-                      <StatBox title="Search Readiness" value="Highly Optimized" sub="Search Visibility Active" icon={Cpu} color="text-zinc-500" />
+                      <StatBox title="SEO Ranking Index" value={`${seoScore.toFixed(0)}%`} sub="Top 2% Performance" icon={Gauge} color="text-green-500" onClick={() => setActiveTab("seo")} />
+                      <StatBox title="Search Readiness" value="Highly Optimized" sub="Search Visibility Active" icon={Cpu} color="text-zinc-500" onClick={() => setActiveTab("system")} />
                    </div>
 
                    {/* PERFORMANCE CHART AREA */}
@@ -172,10 +220,20 @@ export default function AnalysisDashboard() {
                                <h3 className="text-[11px] font-black uppercase tracking-[0.5em] text-primary-accent mb-2">Growth Charts_</h3>
                                <h2 className="text-4xl font-black uppercase tracking-tighter">Visitor_Traffic</h2>
                             </div>
-                            <div className="flex gap-4">
-                               <button className="h-10 px-6 rounded-xl bg-white/5 text-[10px] uppercase font-bold tracking-widest border border-white/10 hover:text-primary-accent">Daily</button>
-                               <button className="h-10 px-6 rounded-xl bg-primary-accent text-[10px] uppercase font-bold tracking-widest">Live</button>
-                            </div>
+                             <div className="flex gap-4">
+                                <button 
+                                  onClick={() => toggleChartMode("daily")}
+                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'daily' ? 'bg-white text-black border-white' : 'bg-white/5 text-zinc-500 border-white/10 hover:text-primary-accent'}`}
+                                >
+                                  Daily
+                                </button>
+                                <button 
+                                  onClick={() => toggleChartMode("live")}
+                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'live' ? 'bg-primary-accent text-white border-primary-accent' : 'bg-white/5 text-zinc-500 border-white/10 hover:text-primary-accent'}`}
+                                >
+                                  Live
+                                </button>
+                             </div>
                          </div>
                          
                          <div className="flex-1 relative flex items-end justify-between gap-2 overflow-hidden pt-10">
@@ -257,7 +315,7 @@ export default function AnalysisDashboard() {
                          </div>
                          <div>
                             <h2 className="text-3xl font-black uppercase tracking-tighter">SEO Health_Report</h2>
-                            <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Last scan: {currentTime.toLocaleTimeString()}</p>
+                            <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Last scan: {currentTime?.toLocaleTimeString() || "Initializing..."}</p>
                          </div>
                       </div>
 
@@ -295,9 +353,13 @@ export default function AnalysisDashboard() {
                          <p className="text-base font-light text-white/80 leading-relaxed uppercase tracking-widest mb-10">
                             "Modern search tools and AI are now 40% more likely to find businesses with structured website data in 2026."
                          </p>
-                         <button className="h-16 w-full rounded-2xl bg-white text-primary-accent text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:translate-y-[-4px] transition-transform shadow-2xl">
-                            Update Optimization <ArrowRight size={14} />
-                         </button>
+                          <button 
+                            onClick={handleRefreshSEO}
+                            disabled={isRefreshing}
+                            className="h-16 w-full rounded-2xl bg-white text-primary-accent text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:translate-y-[-4px] transition-transform shadow-2xl active:scale-95 disabled:opacity-75"
+                          >
+                             {isRefreshing ? "Scanning..." : "Update Optimization"} <RefreshCw size={14} className={isRefreshing ? "animate-spin" : ""} />
+                          </button>
                          <div className="absolute -bottom-10 -right-10 opacity-10 pointer-events-none">
                             <Search size={220} />
                          </div>
@@ -372,9 +434,12 @@ export default function AnalysisDashboard() {
                             <p className="text-sm font-light text-zinc-500 uppercase tracking-widest leading-loose mb-10 max-w-sm">
                                Google Trends shows a massive increase in 'AI Video Ads' this month. We suggest focusing on this area.
                             </p>
-                            <button className="h-16 px-10 rounded-2xl bg-white text-obsidian text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-transform">
-                               Launch Campaign Now_
-                            </button>
+                             <button 
+                                onClick={() => window.location.href = '/contact'}
+                                className="h-16 px-10 rounded-2xl bg-white text-obsidian text-[11px] font-black uppercase tracking-widest hover:scale-105 transition-transform active:scale-95 shadow-xl"
+                             >
+                                Launch Campaign Now_
+                             </button>
                          </div>
                       </div>
                    </div>

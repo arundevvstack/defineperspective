@@ -41,7 +41,16 @@ const BLOGS = [
     date: "April 03, 2026",
     author: "Shamnad Shams",
     category: "Market Report",
-    image: "/images/blog/ai-kerala-hero.png"
+    image: "/images/blog/ai-kerala-hero-v2.png"
+  },
+  {
+    slug: "best-ai-video-production-kerala",
+    title: "#1 AI Video Production Company In Kerala | Kochi & Trivandrum (Elite 2026)",
+    excerpt: "The authoritative pillar guide to AI-powered media production, market dominance, and neural storytelling for premium brands in Kochi and Trivandrum.",
+    date: "April 4, 2026",
+    author: "Define Editorial",
+    category: "Pillar Guide",
+    image: "/images/blog/ai-kerala-hero-v2.png"
   },
   {
     slug: "performance-video-ads-d2c",
@@ -80,19 +89,15 @@ export default function BlogsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block font-black underline">Intelligence Hub {" // "} Thought Leadership</span>
-            <h1 className="text-6xl md:text-[10rem] font-black uppercase tracking-tighter mb-12 leading-[0.85]">
-               Insights <br /> <span className="text-primary-accent italic">Defined_</span>
+            <h1 className="text-6xl md:text-[8rem] font-black uppercase tracking-tighter leading-none mb-12">
+               BLOGS_
             </h1>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed max-w-2xl uppercase tracking-widest leading-loose">
-              Exploring the intersection of human creativity and proprietary AI production pipelines.
-            </p>
           </motion.div>
         </section>
 
         {/* Filters */}
         <div className="flex flex-wrap gap-4 mb-20 overflow-x-auto pb-4 scrollbar-hide">
-           {["All Insights", "AI Nodes", "Vertical Economy", "Production Strategy", "Cinematic Density"].map((tag, i) => (
+           {["All Posts", "AI Nodes", "Vertical Economy", "Production Strategy", "Cinematic Density"].map((tag, i) => (
              <button 
                key={i}
                className="px-8 py-3 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-widest text-zinc-500 hover:text-white hover:border-primary-accent/50 hover:bg-white/5 transition-all whitespace-nowrap"
