@@ -26,14 +26,14 @@ export default function MetaAdsSubPage() {
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden">
       {" "}
       <GlassNavbar /> {/* Background Effect */}{" "}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[150px] rounded-full pointer-events-none" />{" "}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[150px] rounded-full pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />{" "}
       <div className="container mx-auto max-w-6xl relative z-10">
         {" "}
         <header className="mb-32 flex flex-col gap-8">
           {" "}
           <div className="flex items-center gap-4">
             {" "}
-            <div className="px-4 py-1.5 rounded-full border border-primary-accent/50 text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md hover:bg-white hover:text-primary-accent transition-all duration-300">
               {" "}
               Node: Meta Ads Optimization{" "}
             </div>{" "}
@@ -67,13 +67,13 @@ export default function MetaAdsSubPage() {
             </p>{" "}
             <Link
               href="/contact?subject=Meta Ads enquiry"
-              className="h-16 px-10 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_var(--glow)]"
+              className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
             >
               {" "}
               Start Scaling Now{" "}
             </Link>{" "}
           </div>{" "}
-          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             {" "}
             <Image
               src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop"
@@ -81,11 +81,11 @@ export default function MetaAdsSubPage() {
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />{" "}
-            <div className="absolute inset-0 bg-primary-accent/10" />{" "}
+            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />{" "}
           </div>{" "}
         </section>{" "}
         {/* AI Discovery FAQ Segment */}{" "}
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/5">
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20">
           {" "}
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
             Social Ad Logic FAQ

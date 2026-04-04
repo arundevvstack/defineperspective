@@ -53,22 +53,21 @@ export default function PortfolioSection() {
               See how our AI-integrated workflows helped businesses explain, convert, and dominate their niche.
             </p>
           </div>
-          <motion.button 
-            whileHover={{ x: 5 }}
-            onClick={() => window.location.href = '/portfolio'}
-            className="mt-12 flex items-center gap-4 text-primary-accent font-black tracking-[0.2em] text-[10px] uppercase hover:text-white transition-colors duration-300 group"
+          <button
+onClick={() => window.location.href = '/portfolio'}
+            className="mt-12 flex items-center gap-4 text-primary-accent font-black tracking-[0.2em] text-[10px] uppercase hover:text-primary-accent transition-colors duration-300 group"
           >
             Explore All Project Nodes <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </motion.button>
+          </button>
         </div>
 
         <div className="space-y-40">
           {projects.map((project, idx) => (
             <motion.div 
               key={project.id} 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              
+whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               className={cn(
                 "grid grid-cols-1 lg:grid-cols-12 gap-16 items-center",
                 idx % 2 === 1 && "lg:rtl" // Alternative layout
@@ -77,7 +76,7 @@ export default function PortfolioSection() {
               <div className="lg:col-span-7 relative group select-none lg:ltr">
                   <div 
                     ref={containerRef}
-                    className="relative aspect-video w-full rounded-3xl overflow-hidden cursor-ew-resize border border-white/5 shadow-2xl"
+                    className="relative aspect-video w-full rounded-3xl overflow-hidden cursor-ew-resize border border-white/5 shadow-xl"
                     onMouseMove={handleSlider}
                     onTouchMove={handleSlider}
                   >
@@ -93,7 +92,7 @@ export default function PortfolioSection() {
                     <div 
                       className="absolute inset-0 z-10 h-full w-full overflow-hidden border-r-[3px] border-primary-accent/50 backdrop-blur-sm" 
                       style={{ 
-                        clipPath: `inset(0 ${100 - sliderPos}% 0 0)`
+                        clipPath: `inset(0 ${100 - sliderPos}}% 0 0)`
                       }}
                     >
                        <Image 
@@ -109,17 +108,17 @@ export default function PortfolioSection() {
                     <div className="absolute top-6 left-6 z-20 rounded-full shadow px-4 py-1.5 bg-black/60 text-[10px] font-mono text-zinc-400 uppercase tracking-[0.2em] backdrop-blur-md border border-white/5">
                       Raw Concept
                     </div>
-                    <div className="absolute top-6 right-6 z-20 rounded-full shadow px-4 py-1.5 bg-primary-accent text-[10px] font-mono text-white font-black uppercase tracking-[0.2em]">
+                    <div className="absolute top-6 right-6 z-20 rounded-full shadow px-4 py-1.5 bg-primary-accent text-[10px] font-mono text-white font-black uppercase tracking-[0.2em] hover:bg-white hover:text-primary-accent transition-all duration-300">
                       AI Final Master
                     </div>
                     
                     {/* Control Handle */}
                     <div 
                       className="absolute top-0 bottom-0 z-30 w-[2px] flex items-center justify-center pointer-events-none group-hover:scale-110 transition-transform" 
-                      style={{ left: `${sliderPos}%` }}
+                      style={{ left: `${sliderPos}}%` }}
                     >
-                      <div className="h-10 w-10 flex items-center justify-center rounded-full bg-primary-accent text-white shadow-[0_0_20px_var(--glow)]">
-                         <MoveRight size={20} className="rotate-0" />
+                      <div className="h-10 w-10 flex items-center justify-center rounded-full bg-transparent border-2 border-primary-accent text-white shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
+                         <MoveRight size={20} className="rotate-0 transition-colors duration-300 group-hover:text-primary-accent" />
                       </div>
                     </div>
                   </div>
@@ -131,37 +130,35 @@ export default function PortfolioSection() {
               {/* Project Details */}
               <div className="lg:col-span-5 flex flex-col gap-10 lg:ltr text-left">
                  <div>
-                    <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-4 block">Case Study {" // "} 0{idx + 1}</span>
+                    <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-4 block transition-colors duration-300 group-hover:text-primary-accent">Case Study {" // "} 0{idx + 1}</span>
                     <h3 className="text-4xl font-bold text-white mb-6 tracking-tight">{project.title}</h3>
                     <p className="text-zinc-400 leading-relaxed text-lg font-light">{project.desc}</p>
                  </div>
 
                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 group">
-                       <Workflow size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110" />
-                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1">Architecture</span>
-                       <span className="text-xs font-bold text-white uppercase tracking-wider">{project.workflow}</span>
+                    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border border-white/20 backdrop-blur-sm transition-colors hover:bg-white group hover:text-primary-accent transition-all duration-300">
+                       <Workflow size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110 transition-colors duration-300 group-hover:text-primary-accent" />
+                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">Architecture</span>
+                       <span className="text-xs font-bold text-white uppercase tracking-wider transition-colors duration-300 group-hover:text-primary-accent">{project.workflow}</span>
                     </div>
-                    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 group">
-                       <Clock size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110" />
-                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1">Velocity</span>
-                       <span className="text-xs font-bold text-white uppercase tracking-wider">{project.ttm}</span>
+                    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border border-white/20 backdrop-blur-sm transition-colors hover:bg-white group hover:text-primary-accent transition-all duration-300">
+                       <Clock size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110 transition-colors duration-300 group-hover:text-primary-accent" />
+                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">Velocity</span>
+                       <span className="text-xs font-bold text-white uppercase tracking-wider transition-colors duration-300 group-hover:text-primary-accent">{project.ttm}</span>
                     </div>
-                    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 group">
-                       <BarChart3 size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110" />
-                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1">Impact Agent</span>
-                       <span className="text-xs font-bold text-white uppercase tracking-wider">{project.roi}</span>
+                    <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border border-white/20 backdrop-blur-sm transition-colors hover:bg-white group hover:text-primary-accent transition-all duration-300">
+                       <BarChart3 size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110 transition-colors duration-300 group-hover:text-primary-accent" />
+                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">Impact Agent</span>
+                       <span className="text-xs font-bold text-white uppercase tracking-wider transition-colors duration-300 group-hover:text-primary-accent">{project.roi}</span>
                     </div>
                  </div>
                  
-                 <motion.button 
-                   whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.08)" }}
-                   whileTap={{ scale: 0.98 }}
-                   onClick={() => window.location.href = `/portfolio?id=${project.id}`}
-                   className="h-16 w-full rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center gap-4 text-[10px] font-black tracking-[0.2em] uppercase text-white hover:border-primary-accent/30 transition-all shadow-xl"
+                 <button
+onClick={() => window.location.href = `/portfolio?id=${project.id}`}
+                   className="h-16 w-full rounded-2xl bg-transparent border border-white/20 flex items-center justify-center gap-4 text-[10px] font-black tracking-[0.2em] uppercase text-white/30 transition-all shadow-xl hover:text-primary-accent transition-all duration-300"
                  >
-                    Unlock Full Metrics <MoveRight size={18} className="text-primary-accent" />
-                 </motion.button>
+                    Unlock Full Metrics <MoveRight size={18} className="text-primary-accent transition-colors duration-300 group-hover:text-primary-accent" />
+                 </button>
               </div>
             </motion.div>
           ))}

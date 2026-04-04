@@ -47,9 +47,8 @@ export default function PhotoCaseStudy({ params }: { params: Promise<{ id: strin
       {/* 1. Full-Bleed Hero Image */}
       <section className="relative h-[100vh] w-full overflow-hidden">
         <motion.div
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          
+transition={{ duration: 1.5, ease: "easeOut" }}
           className="h-full w-full"
         >
           <Image 
@@ -65,9 +64,8 @@ export default function PhotoCaseStudy({ params }: { params: Promise<{ id: strin
         
         <div className="absolute bottom-20 left-6 md:left-24 max-w-4xl">
            <motion.div
-             initial={{ opacity: 0, y: 30 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ delay: 0.5 }}
+             
+transition={{ delay: 0.5 }}
            >
               <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block">Case Study {" // "} Photography</span>
               <h1 className="text-4xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.85]">
@@ -94,8 +92,8 @@ export default function PhotoCaseStudy({ params }: { params: Promise<{ id: strin
             </div>
             <div className="lg:col-span-4 lg:col-start-9 space-y-12">
                {project.technical.map(t => (
-                 <div key={t.id} className="flex items-center gap-6 p-8 rounded-3xl bg-white/5 border border-white/5 group hover:bg-white/10 transition-all">
-                    <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
+                 <div key={t.id} className="flex items-center gap-6 p-8 rounded-3xl bg-transparent border border-white/20 group hover:bg-white transition-all hover:text-primary-accent transition-all duration-300">
+                    <div className="h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                        <t.icon size={24} />
                     </div>
                     <div>
@@ -127,7 +125,7 @@ export default function PhotoCaseStudy({ params }: { params: Promise<{ id: strin
          </div>
 
          {/* 4. Final Conversion CTA */}
-         <section className="p-16 md:p-32 rounded-[4rem] border border-white/5 bg-gradient-to-br from-white/5 to-primary-accent/10 text-center relative overflow-hidden group">
+         <section className="p-16 md:p-32 rounded-[4rem] border border-white/5 bg-white/5 text-center relative overflow-hidden group">
            <div className="relative z-10">
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tight text-white mb-12 leading-[0.9]">
                Ready for your <br /><span className="text-primary-accent">Exclusive Shoot?</span>
@@ -138,13 +136,13 @@ export default function PhotoCaseStudy({ params }: { params: Promise<{ id: strin
              <div className="flex flex-wrap justify-center gap-8">
                <button 
                  onClick={() => window.location.href = '/contact'}
-                 className="h-20 px-16 rounded-3xl bg-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-2xl"
+                 className="h-20 px-16 rounded-3xl bg-transparent border-2 border-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
                >
                  Inquire Now
                </button>
                <button 
                  onClick={() => window.location.href = '/portfolio?view=photo'}
-                 className="h-20 px-16 rounded-3xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all flex items-center gap-4"
+                 className="h-20 px-16 rounded-3xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all flex items-center gap-4 hover:text-primary-accent transition-all duration-300"
                >
                  Back to Portfolio <ArrowLeft size={18} />
                </button>

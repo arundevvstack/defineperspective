@@ -53,17 +53,16 @@ export default function AIServicesPage() {
       
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0 opacity-20 transition-colors duration-1000">
-        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-primary-accent/20 blur-[150px] rounded-full animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-primary-accent/10 blur-[180px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-transparent border-2 border-primary-accent/20 blur-[150px] rounded-full animate-pulse hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
+        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-transparent border-2 border-primary-accent/10 blur-[180px] rounded-full animate-pulse hover:bg-transparent hover:text-primary-accent   transition-all duration-300" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container mx-auto relative z-10">
         <header className="mb-32 text-center max-w-5xl mx-auto">
           
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-6xl font-black md:text-9xl tracking-tight uppercase mb-10 leading-[0.85]"
+            
+className="text-6xl font-black md:text-9xl tracking-tight uppercase mb-10 leading-[0.85]"
           >
             Future-Proof <br /><span className="text-primary-accent">Intelligence.</span>
           </motion.h1>
@@ -77,13 +76,13 @@ export default function AIServicesPage() {
           {aiServices.map((service, idx) => (
             <motion.div 
               key={service.id}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="group grid grid-cols-1 lg:grid-cols-12 gap-12 p-12 lg:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl hover:bg-white/10 transition-all outline outline-1 outline-white/5 hover:outline-primary-accent/20"
+              
+whileInView={{ opacity: 1, x: 0 }}
+              className="group grid grid-cols-1 lg:grid-cols-12 gap-12 p-12 lg:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl hover:bg-white transition-all outline outline-1 outline-white/5 hover:outline-primary-accent/20 hover:text-primary-accent transition-all duration-300"
             >
               <div className="lg:col-span-7 flex flex-col justify-center">
                  <div className="flex items-center gap-6 mb-10">
-                    <div className={cn("h-16 w-16 rounded-2xl bg-white/5 flex items-center justify-center transition-all group-hover:scale-110 shadow-2xl", service.color)}>
+                    <div className={cn("h-16 w-16 rounded-2xl bg-white/5 flex items-center justify-center transition-all group-hover:scale-110 shadow-xl", service.color)}>
                        <service.icon size={36} />
                     </div>
                     <span className="text-4xl font-bold uppercase tracking-tighter">{service.title}</span>
@@ -93,7 +92,7 @@ export default function AIServicesPage() {
                  </p>
                  <button 
                    onClick={() => window.location.href = `/contact?subject=AI Studio Intake: ${service.title}`}
-                   className="h-20 px-12 rounded-3xl bg-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-[0_0_30px_var(--glow)] flex items-center gap-4 w-fit"
+                   className="h-20 px-12 rounded-3xl bg-transparent border-2 border-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center gap-4 w-fit hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
                  >
                    Initialize Project <ArrowRight size={20} />
                  </button>
@@ -109,7 +108,7 @@ export default function AIServicesPage() {
                     <ul className="space-y-8">
                        {service.features.map(f => (
                          <li key={f} className="flex items-center gap-5 text-sm font-medium text-zinc-400">
-                           <div className="h-2 w-2 rounded-full bg-primary-accent shadow-[0_0_10px_var(--glow)]" /> {f}
+                           <div className="h-2 w-2 rounded-full bg-transparent border-2 border-primary-accent shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300" /> {f}
                          </li>
                        ))}
                     </ul>

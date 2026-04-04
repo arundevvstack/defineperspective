@@ -91,19 +91,18 @@ export default function ServicesContent() {
       <GlassNavbar />
       
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-primary-accent/10 blur-[150px] rounded-full animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-primary-accent/10 blur-[180px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-transparent border-2 border-primary-accent/10 blur-[150px] rounded-full animate-pulse hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
+        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-transparent border-2 border-primary-accent/10 blur-[180px] rounded-full animate-pulse hover:bg-transparent hover:text-primary-accent   transition-all duration-300" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container mx-auto relative z-10 pt-40">
         <header className="mb-40 text-center max-w-4xl mx-auto">
           <motion.h1 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-6xl font-black md:text-[10rem] tracking-tighter uppercase mb-20 leading-[0.8]"
+            
+className="text-6xl font-black md:text-[10rem] tracking-tighter uppercase mb-20 leading-[0.8]"
           >
             Capabilities <br />
-            <span className="text-primary-accent italic font-black shadow-glow underline decoration-white/5">Matrix_</span>
+            <span className="text-primary-accent italic font-black underline decoration-white/5">Matrix_</span>
           </motion.h1>
           <p className="text-xl md:text-3xl text-zinc-500 font-light max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
             "Eliminating mediocrity. High-end human filmmaking fused with 2026 AI-augmented production for brands in India."
@@ -123,7 +122,7 @@ export default function ServicesContent() {
                     {section.subtitle}
                   </p>
                 </div>
-                <div className="h-24 w-24 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-zinc-600 mt-12 md:mt-0 hover:rotate-12 transition-transform shadow-2xl">
+                <div className="h-24 w-24 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-zinc-600 mt-12 md:mt-0 hover:rotate-12 transition-transform shadow-xl hover:text-primary-accent transition-all duration-300">
                    <section.icon size={42} className="text-primary-accent" />
                 </div>
               </div>
@@ -132,15 +131,15 @@ export default function ServicesContent() {
                 {section.items.map((service, idx) => (
                   <motion.div 
                     key={service.id}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    
+whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1, duration: 0.8 }}
-                    className="group relative h-full flex flex-col p-12 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl hover:bg-white/10 hover:border-primary-accent/30 transition-all duration-700 shadow-[0_0_40px_rgba(var(--accent-rgb),0.5)]"
+                    className="group relative h-full flex flex-col p-12 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl hover:bg-white/30 transition-all duration-700 shadow-xl hover:text-primary-accent transition-all duration-300"
                   >
-                     <div className="absolute top-0 right-0 h-40 w-40 bg-gradient-to-br from-primary-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                     <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
                      
-                     <div className="mb-12 h-20 w-20 rounded-[1.5rem] bg-primary-accent/10 transition-all group-hover:scale-110 shadow-2xl flex items-center justify-center">
+                     <div className="mb-12 h-20 w-20 rounded-[1.5rem] bg-transparent border-2 border-primary-accent/10 transition-all group-hover:scale-110 shadow-xl flex items-center justify-center hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                         <service.icon size={36} className="text-primary-accent" />
                      </div>
 
@@ -154,13 +153,13 @@ export default function ServicesContent() {
                      <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-12 group-hover:border-primary-accent /20 transition-colors">
                         <Link 
                           href={service.href}
-                          className="text-[12px] font-mono tracking-widest text-zinc-400 group-hover:text-white uppercase transition-colors flex items-center gap-4"
+                          className="text-[12px] font-mono tracking-widest text-zinc-400 group-hover:text-primary-accent uppercase transition-colors flex items-center gap-4"
                         >
                            Explore Interface <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
                         </Link>
                         <Link 
                           href={`/contact?subject=Service Intake: ${service.title}`}
-                          className="h-14 px-8 rounded-2xl bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest text-white hover:bg-primary-accent hover:text-white hover:border-primary-accent transition-all shadow-[0_0_20px_var(--glow)]"
+                          className="h-14 px-8 rounded-2xl bg-transparent border border-white/20 text-[10px] font-black uppercase tracking-widest text-white  hover:text-primary-accent transition-all shadow-xl hover:bg-white hover:text-primary-accent transition-all duration-300"
                         >
                            Get a Quote
                         </Link>

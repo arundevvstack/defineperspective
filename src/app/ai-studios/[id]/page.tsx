@@ -60,9 +60,8 @@ export default function AICaseStudy({
       <section className="relative h-[100vh] w-full overflow-hidden">
         {" "}
         <motion.img
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          
+transition={{ duration: 1.5, ease: "easeOut" }}
           src={project.hero}
           alt={project.title}
           className="h-full w-full object-cover scale-105"
@@ -71,9 +70,8 @@ export default function AICaseStudy({
         <div className="absolute bottom-20 left-6 md:left-24 max-w-4xl">
           {" "}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            
+transition={{ delay: 0.5 }}
           >
             {" "}
             <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block">
@@ -83,7 +81,7 @@ export default function AICaseStudy({
               {" "}
               {project.title}{" "}
             </h1>{" "}
-            <div className="flex gap-12 text-sm font-bold uppercase tracking-widest text-primary-accent shadow-glow">
+            <div className="flex gap-12 text-sm font-bold uppercase tracking-widest text-primary-accent">
               {" "}
               <div>
                 Client: <span className="text-white">{project.client}</span>
@@ -118,10 +116,10 @@ export default function AICaseStudy({
             {project.technical.map((t) => (
               <div
                 key={t.id}
-                className="flex items-center gap-6 p-8 rounded-3xl bg-white/5 border border-white/5 group hover:bg-primary-accent/10 hover:border-primary-accent/30 transition-all border-l-[3px] border-l-primary-accent"
+                className="flex items-center gap-6 p-8 rounded-3xl bg-transparent border border-white/20 group /30 transition-all border-l-[3px] border-l-primary-accent hover:bg-white hover:text-primary-accent transition-all duration-300"
               >
                 {" "}
-                <div className="h-14 w-14 rounded-2xl bg-primary-accent/20 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform shadow-[0_0_20px_var(--glow)]">
+                <div className="h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent/20 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                   {" "}
                   <t.icon size={24} />{" "}
                 </div>{" "}
@@ -148,7 +146,7 @@ export default function AICaseStudy({
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               alt="Detail 1"
             />{" "}
-            <div className="absolute inset-0 bg-primary-accent/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xl">
+            <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
               {" "}
               <Maximize2 className="text-white" size={40} />{" "}
             </div>{" "}
@@ -181,13 +179,13 @@ export default function AICaseStudy({
         {/* 4. Final Conversion CTA */}{" "}
         <section className="p-16 md:p-32 rounded-[4rem] border border-primary-accent/20 bg-gradient-to-br from-white/5 to-primary-accent/5 text-center relative overflow-hidden group">
           {" "}
-          <div className="absolute inset-0 bg-primary-accent/5 animate-pulse rounded-[4rem]" />{" "}
+          <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/5 animate-pulse rounded-[4rem] hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
           <div className="relative z-10">
             {" "}
             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tight text-white mb-12 leading-[0.9]">
               {" "}
               Deploy the <br />
-              <span className="text-primary-accent drop-shadow-[0_0_20px_var(--glow)]">
+              <span className="text-primary-accent drop-shadow-xl">
                 Future of Design.
               </span>{" "}
             </h2>{" "}
@@ -200,14 +198,14 @@ export default function AICaseStudy({
               {" "}
               <Link
                 href="/contact?subject=AI Studio Intake: General Inquire"
-                className="h-20 px-16 rounded-3xl bg-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-[0_0_40px_var(--glow)]"
+                className="h-20 px-16 rounded-3xl bg-transparent border-2 border-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
               >
                 {" "}
                 Inquire for AI{" "}
               </Link>{" "}
               <Link
                 href="/portfolio?view=ai"
-                className="h-20 px-16 rounded-3xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all flex items-center gap-4"
+                className="h-20 px-16 rounded-3xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all flex items-center gap-4 hover:text-primary-accent transition-all duration-300"
               >
                 {" "}
                 Back to AI Studios <ArrowLeft size={18} />{" "}

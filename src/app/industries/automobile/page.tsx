@@ -54,7 +54,7 @@ export default function AutomobileIndustryPage() {
           {" "}
           <div className="relative z-10 text-left">
             {" "}
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic shadow-glow">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
               Cinematic{" "}
               <span className="text-zinc-400 font-black italic">Velocity.</span>
             </h2>{" "}
@@ -70,20 +70,20 @@ export default function AutomobileIndustryPage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?subject=Automobile Project enquiry"
-                className="h-16 px-10 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_var(--glow)] flex items-center justify-center gap-3"
+                className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
               >
                 Get a Quote <ArrowRight size={18} />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20Vehicle Shoot."
                 target="_blank"
-                className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 hover:border-primary-accent/50 transition-all flex items-center justify-center gap-3"
+                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white/50 transition-all flex items-center justify-center gap-3 hover:text-primary-accent transition-all duration-300"
               >
                 Chat on WhatsApp
               </Link>
             </div>{" "}
           </div>{" "}
-          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             {" "}
             <Image
               src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop"
@@ -94,7 +94,7 @@ export default function AutomobileIndustryPage() {
             <div className="absolute inset-0 bg-zinc-400/10" />{" "}
           </div>{" "}
         </section>{" "}
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/5 text-left">
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
           {" "}
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-zinc-400 font-black italic">
             Automotive Visibility FAQ

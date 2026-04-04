@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  MapPin, Mail, Phone 
+  MapPin, Mail, Phone, Activity 
 } from "lucide-react";
 
 const Instagram = ({ size = 20 }) => (
@@ -36,7 +36,7 @@ export default function GlassFooter() {
   return (
     <footer className="py-32 px-6 md:px-12 border-t border-[var(--border-subtle)] bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-20">
           <div className="lg:col-span-1">
              <div className="flex items-center m-0 p-0 mb-10">
                  <Image 
@@ -64,6 +64,18 @@ export default function GlassFooter() {
              <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest italic leading-relaxed">
                 "Define your brand. Define your future. Define Perspective."
              </p>
+          </div>
+
+          <div className="lg:col-span-1">
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Intelligence</h4>
+             <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
+                <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs & Insights</Link></li>
+                <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Traffic Analysis</Link></li>
+                <li><Link href="/portfolio" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Client Portfolio</Link></li>
+                <li><Link href="/lab" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Production Lab</Link></li>
+                <li><Link href="/about" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">About Studio</Link></li>
+                <li><Link href="/contact" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Get Started</Link></li>
+             </ul>
           </div>
 
           <div className="lg:col-span-1">
@@ -95,7 +107,7 @@ export default function GlassFooter() {
                   href="https://www.instagram.com/defineperspective/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
                    <Instagram size={20} />
                 </a>
@@ -103,7 +115,7 @@ export default function GlassFooter() {
                   href="https://www.youtube.com/@DefinePerspective" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
                    <Youtube size={20} />
                 </a>
@@ -111,7 +123,7 @@ export default function GlassFooter() {
                   href="https://www.linkedin.com/company/define-perspective" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
                    <Linkedin size={20} />
                 </a>
@@ -119,7 +131,7 @@ export default function GlassFooter() {
                   href="https://wa.me/919496191684" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
                    <Whatsapp size={20} />
                 </a>
@@ -127,17 +139,22 @@ export default function GlassFooter() {
                   href="https://www.facebook.com/defineperspectiveofficial/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/5 hover:border-primary-accent/30"
+                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
                    <Facebook size={20} />
                 </a>
              </div>
           </div>
-
         </div>
 
         <div className="mt-40 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-10 text-[10px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
-           <span>Defining the Perspective © 2026. All rights reserved.</span>
+           <div className="flex flex-col md:flex-row gap-8 items-center">
+              <span>Defining the Perspective © 2026. All rights reserved.</span>
+              <span className="flex items-center gap-2">
+                 <Activity size={10} className="text-primary-accent animate-pulse" />
+                 Traffic: 14,528+ Total Visits
+              </span>
+           </div>
            <span className="hidden md:inline">Nodes: TRV • COK • MAA {" // "} Latency: 1ms</span>
         </div>
       </div>

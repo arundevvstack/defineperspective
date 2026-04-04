@@ -7,7 +7,6 @@ import { Search, Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import Magnetic from "@/components/magnetic";
 
 function NavbarContent() {
   const pathname = usePathname();
@@ -104,7 +103,7 @@ function NavbarContent() {
           categories.some(cat => pathname.startsWith(cat.href)) ? "text-primary-accent" : "text-foreground/80 group-hover:text-primary-accent"
         )}>
           {title}
-          <motion.span animate={{ rotate: isOpen ? 180 : 0 }} className="text-[10px]">▼</motion.span>
+          <motion.span className="text-[10px]">▼</motion.span>
         </Link>
         <AnimatePresence>
           {isOpen && (
@@ -113,9 +112,8 @@ function NavbarContent() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-1/2 -translate-x-1/2 w-[800px] bg-obsidian/95 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] p-10 shadow-2xl mt-4 grid grid-cols-2 gap-x-16 gap-y-10 z-[110] overflow-hidden"
+              className="absolute top-full left-1/2 -translate-x-1/2 w-[800px] bg-obsidian/95 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] p-10 shadow-xl mt-4 grid grid-cols-2 gap-x-16 gap-y-10 z-[110] overflow-hidden"
             >
-               <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-transparent pointer-events-none" />
               {categories.map((cat) => (
                 <div key={cat.name} className="space-y-6 relative z-10 group/cat">
                   <Link href={cat.href} className="block border-b border-white/5 pb-4 transition-all">
@@ -131,10 +129,10 @@ function NavbarContent() {
                         href={sub.href}
                         className={cn(
                           "text-[10px] font-medium uppercase tracking-tighter transition-all flex items-center gap-2",
-                          pathname === sub.href ? "text-primary-accent" : "text-zinc-500 hover:text-white"
+                          pathname === sub.href ? "text-primary-accent" : "text-zinc-500 hover:text-primary-accent"
                         )}
                       >
-                         <span className="h-1 w-1 rounded-full bg-zinc-800 transition-colors group-hover:bg-primary-accent" />
+                        <span className="h-1 w-1 rounded-full bg-zinc-800 transition-colors group-hover:bg-primary-accent hover:bg-white hover:text-primary-accent transition-all duration-300" />
                         {sub.name}
                       </Link>
                     ))}
@@ -172,45 +170,24 @@ function NavbarContent() {
           <NavDropdown title="DP AI Studios" categories={aiStudioCategories} />
 
           <Link href="/portfolio" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Portfolio</Link>
+          <Link href="/blogs" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/blogs" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Blogs</Link>
+          <Link href="/analysis" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/analysis" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Analysis</Link>
           <Link href="/contact" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Contact</Link>
           
           <div className="h-6 w-[1px] bg-white/10 mx-1" />
           
-          <Magnetic intensity={1.5}>
-            <motion.button 
-              whileHover="hover"
-              whileTap="tap"
-              onClick={() => window.location.href = '/contact'}
-              className="group relative h-9 px-5 rounded-full bg-primary-accent text-white font-semibold uppercase tracking-widest text-[11px] flex items-center gap-2 overflow-hidden transition-all shadow-[0_0_15px_rgba(var(--primary-accent-rgb),0.3)]"
-            >
-              {/* Subtle Shimmer Effect */}
-              <motion.div
-                variants={{
-                  hover: { x: ["-100%", "200%"] }
-                }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg]"
-              />
-              
-              <span className="relative z-10">Get Started</span>
-              
-              <motion.span 
-                variants={{
-                  hover: { x: 0, opacity: 1 },
-                  initial: { x: -5, opacity: 0 }
-                }}
-                initial="initial"
-                className="relative z-10"
-              >
-                <ArrowRight size={12} />
-              </motion.span>
-            </motion.button>
-          </Magnetic>
+          <button 
+            onClick={() => window.location.href = '/contact'}
+            className="group relative h-9 px-5 rounded-full bg-primary-accent text-white font-semibold uppercase tracking-widest text-[11px] flex items-center gap-2 shadow-lg transition-all duration-300 hover:bg-white hover:text-primary-accent"
+          >
+            <span className="relative z-10">Get Started</span>
+            <ArrowRight size={12} className="relative z-10" />
+          </button>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden h-10 w-10 flex items-center justify-center text-zinc-400 hover:text-white relative z-50"
+          className="md:hidden h-10 w-10 flex items-center justify-center text-zinc-400 hover:text-primary-accent relative z-50"
           onClick={() => setMobileMenu(!mobileMenu)}
         >
           {mobileMenu ? <X size={28} /> : <Menu size={28} />}
@@ -246,26 +223,22 @@ function NavbarContent() {
               </div>
 
               <Link href="/portfolio" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Portfolio</Link>
+              <Link href="/blogs" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Blogs</Link>
+              <Link href="/analysis" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Analysis</Link>
               <Link href="/contact" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Contact</Link>
             </div>
 
             <div className="mt-auto pb-12 flex flex-col gap-6">
-                <motion.button 
-                  whileTap={{ scale: 0.95 }}
+                <button 
                   onClick={() => {
                     setMobileMenu(false);
                     window.location.href = '/contact';
                   }}
-                  className="group relative h-20 w-full rounded-2xl bg-primary-accent font-black text-white text-xl flex items-center justify-center gap-4 shadow-[0_0_40px_rgba(var(--primary-accent-rgb),0.4)] overflow-hidden"
+                  className="group relative h-20 w-full rounded-2xl bg-primary-accent font-black text-white text-xl flex items-center justify-center gap-4 shadow-xl transition-all duration-300 hover:bg-white hover:text-primary-accent"
                 >
-                  <motion.div 
-                    animate={{ x: ["-100%", "200%"] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-25deg]"
-                  />
                   <span className="relative z-10 uppercase tracking-widest">Book Strategy</span> 
                   <ArrowRight size={24} className="relative z-10 group-hover:translate-x-2 transition-transform" />
-                </motion.button>
+                </button>
                 <div className="flex justify-between items-center text-[10px] font-mono text-zinc-600 uppercase tracking-widest px-2">
                    <span>Nodes: TRV • COK</span>
                    <span>Latency: 1ms</span>

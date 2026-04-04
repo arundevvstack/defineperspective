@@ -45,9 +45,9 @@ export default function FAQSection() {
               </p>
            </div>
            
-           <div className="p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl flex items-center gap-4 group hover:bg-white/10 transition-all cursor-pointer">
+           <div className="p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl flex items-center gap-4 group hover:bg-white transition-all cursor-pointer hover:text-primary-accent transition-all duration-300">
               <Search className="text-zinc-600 group-hover:text-primary-accent" />
-              <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-white transition">Search for answers</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-primary-accent transition">Search for answers</span>
            </div>
         </div>
 
@@ -55,7 +55,7 @@ export default function FAQSection() {
           {faqs.map((faq, idx) => (
             <div 
               key={idx}
-              className="group rounded-3xl border border-white/5 bg-white/5 overflow-hidden transition-all hover:bg-white/10"
+              className="group rounded-3xl border border-white/5 bg-white/5 overflow-hidden transition-all hover:bg-white hover:text-primary-accent transition-all duration-300"
             >
               <button 
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
@@ -66,9 +66,9 @@ export default function FAQSection() {
                  </h3>
                  <div className={cn(
                    "h-12 w-12 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all",
-                   openIdx === idx ? "bg-primary-accent border-primary-accent text-white rotate-180" : "text-zinc-600"
+                   openIdx === idx ? "bg-transparent border-2 border-primary-accent border-primary-accent text-white rotate-180" : "text-zinc-600"
                  )}>
-                    {openIdx === idx ? <Minus size={20} /> : <Plus size={20} />}
+                    {openIdx === idx ? <Minus size={20} className="transition-colors duration-300 group-hover:text-primary-accent" /> : <Plus size={20} className="transition-colors duration-300 group-hover:text-primary-accent" />}
                  </div>
               </button>
               

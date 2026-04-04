@@ -25,23 +25,22 @@ export default function TerminalHero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
       {/* Background Fluid Motion (Simulated) */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] animate-pulse rounded-full bg-primary-accent/20 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-[400px] w-[400px] animate-pulse rounded-full bg-primary-accent/10 blur-[100px]" />
+        <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] animate-pulse rounded-full bg-primary-accent/20 blur-[120px] hover:bg-white hover:text-primary-accent transition-all duration-300" />
+        <div className="absolute bottom-1/4 right-1/4 h-[400px] w-[400px] animate-pulse rounded-full bg-primary-accent/10 blur-[100px] hover:bg-white hover:text-primary-accent transition-all duration-300" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="mx-auto max-w-5xl rounded-3xl border border-[var(--border-subtle)] bg-[var(--glass-white)] backdrop-blur-2xl shadow-2xl overflow-hidden"
+          
+transition={{ duration: 0.8 }}
+          className="mx-auto max-w-5xl rounded-3xl border border-[var(--border-subtle)] bg-[var(--glass-white)] backdrop-blur-2xl shadow-xl overflow-hidden"
         >
           {/* Terminal Toolbar */}
           <div className="flex items-center gap-3 border-b border-white/10 bg-white/5 px-6 py-4">
             <div className="flex gap-2">
-              <div className="h-3 w-3 rounded-full bg-primary-accent/60" />
-              <div className="h-3 w-3 rounded-full bg-primary-accent/60" />
-              <div className="h-3 w-3 rounded-full bg-primary-accent/60" />
+              <div className="h-3 w-3 rounded-full bg-primary-accent/60 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+              <div className="h-3 w-3 rounded-full bg-primary-accent/60 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+              <div className="h-3 w-3 rounded-full bg-primary-accent/60 hover:bg-white hover:text-primary-accent transition-all duration-300" />
             </div>
             <div className="flex-1 text-center text-[10px] font-mono text-zinc-500 tracking-[0.2em] uppercase opacity-60">
               defineperspective.in — AI Media & CGI Studio — Trivandrum · Kochi · India
@@ -54,7 +53,7 @@ export default function TerminalHero() {
                 <Terminal size={24} className="md:w-8 md:h-8" />
               </span>
               <div className="flex-1">
-                <span className="text-white drop-shadow-[0_0_15px_var(--glow)]">
+                <span className="text-white ">
                   {displayText}
                 </span>
                 <span className="terminal-cursor inline-block h-[24px] w-[8px] md:h-[48px] md:w-[16px] translate-y-1 md:translate-y-2" />
@@ -62,9 +61,8 @@ export default function TerminalHero() {
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.5, duration: 1 }}
+              
+transition={{ delay: 2.5, duration: 1 }}
               className="mt-12 flex flex-col gap-10"
             >
               <div className="text-xl text-zinc-400 md:text-2xl lg:max-w-4xl font-light leading-relaxed">
@@ -81,7 +79,7 @@ export default function TerminalHero() {
                       { title: "Performance Ads", text: "Conversion-focused video ads optimized for maximum visibility on AI search agents." }
                     ].map((item, idx) => (
                       <div key={idx} className="group relative">
-                        <div className="h-0.5 w-8 bg-primary-accent mb-4 transition-all group-hover:w-full" />
+                        <div className="h-0.5 w-8 bg-primary-accent mb-4 transition-all group-hover:w-full hover:bg-white hover:text-primary-accent transition-all duration-300" />
                         <h3 className="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-3">{item.title}</h3>
                         <p className="text-sm text-zinc-500 leading-relaxed font-light">{item.text}</p>
                       </div>
@@ -91,42 +89,20 @@ export default function TerminalHero() {
               </div>
 
               <div className="flex flex-wrap gap-6 items-center">
-                <motion.button 
-                  whileHover="hover"
-                  whileTap="tap"
-                  onClick={() => {
-                    window.location.href = '/contact?subject=AI Video Ad Strategy Session';
-                  }}
-                  className="group relative h-14 px-10 rounded-full bg-primary-accent text-white font-black uppercase tracking-[0.2em] text-[11px] flex items-center gap-3 overflow-hidden shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.4)]"
+                <button 
+                  onClick={() => window.location.href = '/contact?subject=AI Video Ad Strategy Session'}
+                  className="group relative h-14 px-10 rounded-full bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-[0.2em] text-[11px] flex items-center gap-3 shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
                 >
-                  <motion.div
-                    variants={{
-                      hover: { x: ["-100%", "100%"] }
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
-                  />
-                  <span className="relative z-10 transition-transform group-hover:-translate-x-1">Get High-Converting Video Ads</span>
-                  <motion.div
-                    variants={{
-                      hover: { x: 0, opacity: 1 },
-                      initial: { x: -10, opacity: 0 }
-                    }}
-                    initial="initial"
-                    className="relative z-10"
-                  >
-                    <ArrowRight size={18} />
-                  </motion.div>
-                </motion.button>
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-accent">Get High-Converting Video Ads</span>
+                  <ArrowRight size={18} className="relative z-10 transition-colors duration-300 group-hover:text-primary-accent" />
+                </button>
 
-                <motion.button 
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-                  whileTap={{ scale: 0.95 }}
+                <button 
                   onClick={() => window.location.href = '/portfolio'}
-                  className="h-14 px-10 rounded-full border border-white/10 bg-white/5 text-[11px] font-black tracking-[0.2em] text-white backdrop-blur-sm transition-all uppercase"
+                  className="h-14 px-10 rounded-full border border-white/10 bg-white/5 text-[11px] font-black tracking-[0.2em] text-white backdrop-blur-sm uppercase hover:bg-white transition-colors hover:text-primary-accent transition-all duration-300"
                 >
                   Get AI Video Demo
-                </motion.button>
+                </button>
               </div>
             </motion.div>
           </div>

@@ -11,24 +11,22 @@ export default function AboutContent() {
       <GlassNavbar />
       
       <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-primary-accent/10 blur-[150px]" />
-        <div className="absolute top-0 right-0 h-[600px] w-[600px] animate-pulse rounded-full bg-primary-accent/10 blur-[130px]" />
+        <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-primary-accent/10 blur-[150px] hover:bg-white hover:text-primary-accent transition-all duration-300" />
+        <div className="absolute top-0 right-0 h-[600px] w-[600px] animate-pulse rounded-full bg-primary-accent/10 blur-[130px] hover:bg-white hover:text-primary-accent transition-all duration-300" />
       </div>
 
       <div className="container relative z-10 mx-auto">
         <header className="mb-40 flex flex-col items-center text-center max-w-5xl mx-auto py-24">
            <motion.h1 
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             className="text-6xl font-black md:text-[11rem] tracking-tighter uppercase mb-12 leading-[0.8]"
+             
+className="text-6xl font-black md:text-[11rem] tracking-tighter uppercase mb-12 leading-[0.8]"
            >
              The Future <br /> 
-             <span className="text-primary-accent italic shadow-glow">of Vision_</span>
+             <span className="text-primary-accent italic">of Vision_</span>
            </motion.h1>
            <motion.p 
-             initial={{ opacity: 0 }}
-             animate={{ opacity: 1 }}
-             transition={{ delay: 0.2 }}
+             
+transition={{ delay: 0.2 }}
              className="text-2xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-widest"
            >
              Define Perspective is a 2026-era media laboratory where human cinematic excellence meets high-velocity neural workflows.
@@ -60,10 +58,10 @@ export default function AboutContent() {
               ].map((stat, idx) => (
                 <motion.div 
                   key={stat.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  
+whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="p-10 rounded-[2.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-6 group hover:border-primary-accent/30 transition-all"
+                  className="p-10 rounded-[2.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-6 group/30 transition-all hover:text-primary-accent transition-all duration-300"
                 >
                    <stat.icon size={32} className="text-primary-accent group-hover:scale-110 transition-transform" />
                    <h4 className="text-xl font-bold uppercase tracking-widest">{stat.title}</h4>
@@ -100,21 +98,21 @@ export default function AboutContent() {
         </section>
 
         <section className="py-32 mb-20">
-           <div className="p-16 md:p-32 rounded-[4rem] bg-white/5 border border-white/5 text-center flex flex-col items-center backdrop-blur-3xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+           <div className="p-16 md:p-32 rounded-[4rem] bg-transparent border border-white/20 text-center flex flex-col items-center backdrop-blur-3xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
               <h3 className="text-4xl md:text-7xl font-black uppercase mb-12 tracking-widest leading-tight">
-                Defining the <br /> <span className="text-primary-accent shadow-glow italic">Perspective.</span>
+                Defining the <br /> <span className="text-primary-accent italic">Perspective.</span>
               </h3>
               <div className="flex flex-col sm:flex-row gap-6">
                 <button 
                   onClick={() => window.location.href = '/contact'}
-                  className="h-20 px-16 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-2xl flex items-center justify-center gap-4"
+                  className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
                 >
                   Inquire for Project <ArrowRight size={20} />
                 </button>
                 <button 
                   onClick={() => window.location.href = 'https://wa.me/919496191684'}
-                  className="h-20 px-16 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-4"
+                  className="h-20 px-16 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-4 hover:text-primary-accent transition-all duration-300"
                 >
                   Direct WhatsApp
                 </button>

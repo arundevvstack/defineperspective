@@ -27,13 +27,13 @@ export default function AIStudiosPage() {
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden">
       {" "}
       <GlassNavbar /> {/* Cinematic Backgrounds */}{" "}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-accent/10 blur-[200px] rounded-full pointer-events-none" />{" "}
-      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-primary-accent/10 blur-[180px] rounded-full pointer-events-none" />{" "}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-transparent border-2 border-primary-accent/10 blur-[200px] rounded-full pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-transparent border-2 border-primary-accent/10 blur-[180px] rounded-full pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
       <div className="container mx-auto max-w-6xl relative z-10">
         {" "}
         <header className="mb-40 text-center flex flex-col items-center">
           {" "}
-          <div className="h-16 w-16 rounded-2xl bg-primary-accent flex items-center justify-center text-primary-accent-fg mb-12 shadow-[0_0_40px_var(--glow)]">
+          <div className="h-16 w-16 rounded-2xl bg-transparent border-2 border-primary-accent flex items-center justify-center text-primary-accent-fg mb-12 shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
             {" "}
             <Cpu size={36} />{" "}
           </div>{" "}
@@ -70,7 +70,7 @@ export default function AIStudiosPage() {
             <Link
               key={pillar.title}
               href={pillar.href}
-              className="group cursor-pointer relative p-12 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden hover:border-primary-accent/30 transition-all transition-shadow hover:shadow-[0_0_50px_rgba(var(--accent-rgb),0.15)]"
+              className="group cursor-pointer relative p-12 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden/30 transition-all transition-shadow hover:shadow-[0_0_50px_rgba(var(--accent-rgb),0.15)] hover:text-primary-accent transition-all duration-300"
             >
               {" "}
               <div
@@ -85,7 +85,7 @@ export default function AIStudiosPage() {
               <p className="text-lg text-zinc-500 font-light leading-relaxed mb-10">
                 {pillar.desc}
               </p>{" "}
-              <div className="flex items-center gap-4 text-xs font-mono tracking-widest uppercase text-zinc-600 group-hover:text-white transition-colors">
+              <div className="flex items-center gap-4 text-xs font-mono tracking-widest uppercase text-zinc-600 group-hover:text-primary-accent transition-colors">
                 {" "}
                 Enter Node{" "}
                 <ArrowRight
@@ -128,9 +128,9 @@ export default function AIStudiosPage() {
               ].map((item) => (
                 <li key={item.t} className="flex gap-8 group">
                   {" "}
-                  <div className="h-4 w-4 rounded-full bg-primary-accent/40 flex items-center justify-center shrink-0 mt-2">
+                  <div className="h-4 w-4 rounded-full bg-transparent border-2 border-primary-accent/40 flex items-center justify-center shrink-0 mt-2 hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                     {" "}
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />{" "}
+                    <div className="h-1.5 w-1.5 rounded-full bg-transparent border-2 border-primary-accent hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
                   </div>{" "}
                   <div>
                     {" "}
@@ -145,7 +145,7 @@ export default function AIStudiosPage() {
               ))}{" "}
             </ul>{" "}
           </div>{" "}
-          <div className="relative aspect-square rounded-[4rem] overflow-hidden border border-white/5 shadow-2xl">
+          <div className="relative aspect-square rounded-[4rem] overflow-hidden border border-white/5 shadow-xl">
             {" "}
             <Image
               src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop"
@@ -153,7 +153,7 @@ export default function AIStudiosPage() {
               fill
               className="object-cover transition-transform duration-700 hover:scale-110"
             />{" "}
-            <div className="absolute inset-0 bg-primary-accent/10" />{" "}
+            <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/10 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
           </div>{" "}
         </section>{" "}
         {/* High-Conversion CTA */}{" "}
@@ -166,7 +166,7 @@ export default function AIStudiosPage() {
           </h2>{" "}
           <Link
             href="/contact?subject=AI Studio Project enquity"
-            className="h-24 px-20 rounded-full bg-primary-accent text-zinc-100 font-black uppercase tracking-widest text-lg hover:scale-110 active:scale-95 transition-all shadow-[0_0_50px_var(--glow)]"
+            className="h-24 px-20 rounded-full bg-transparent border-2 border-primary-accent text-zinc-100 font-black uppercase tracking-widest text-lg hover:scale-110 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
           >
             {" "}
             Initialize Strategy{" "}

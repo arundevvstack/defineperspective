@@ -50,3 +50,6 @@ next-env.d.ts
 # Large temporary files
 *.zip
 /defineperspective_deploy/
+
+# local temp
+tmp/

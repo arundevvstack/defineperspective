@@ -275,27 +275,28 @@ function TiltCard({ children, className, onClick }: { children: React.ReactNode;
     </motion.div>
   );
 }
-
 export default function ServiceGrid() {
   return (
     <section id="services" className="py-40 px-6 md:px-12 bg-background relative">
       <div className="container mx-auto">
         <div className="mb-32 flex flex-col items-center text-center max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            
+whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="h-14 w-14 rounded-2xl bg-primary-accent flex items-center justify-center text-primary-accent-fg mb-10 shadow-[0_0_30px_var(--glow)]"
+            className="h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent flex items-center justify-center text-primary-accent-fg mb-10 shadow-lg hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
           >
              <Sparkles size={32} />
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            
+whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="text-5xl font-black md:text-8xl text-foreground tracking-widest uppercase leading-[0.85]"
           >
-            Media <span className="text-primary-accent font-black italic shadow-glow">Production</span>
+            Media <span className="text-primary-accent font-black italic">Production</span>
           </motion.h2>
           <p className="mt-16 text-xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
             "Eliminating mediocrity. High-end human filmmaking fused with 2026 AI-augmented production for brands in India."
@@ -305,7 +306,7 @@ export default function ServiceGrid() {
         <div className="space-y-40">
            {serviceSections.map((section, sIdx) => (
              <div key={section.title} className={cn("relative", section.theme)}>
-                <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary-accent/50 via-white/5 to-transparent hidden lg:block" />
+                <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-transparent border-2 border-primary-accent/10 hidden lg:block hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
                 
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
                    <div className="max-w-2xl">
@@ -331,15 +332,15 @@ export default function ServiceGrid() {
                       className="group cursor-pointer"
                     >
                       <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        
+whileInView={{ opacity: 1, y: 0 }}viewport={{ once: true }}
                         transition={{ delay: idx * 0.05, duration: 0.8 }}
                         className="relative flex flex-col h-full rounded-[2.5rem] border border-[var(--border-subtle)] bg-[var(--glass-white)] p-10 transition-shadow hover:shadow-[0_20px_50px_rgba(var(--accent-rgb),0.2)] duration-500 overflow-hidden"
                       >
-                         {/* Dynamic Background */}
-                        <div className="absolute top-0 right-0 h-40 w-40 bg-gradient-to-br from-primary-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
                         
-                        <div className="mb-10 h-16 w-16 flex items-center justify-center rounded-2xl bg-primary-accent/10 transition-all group-hover:scale-110 shadow-2xl">
+                        <div className="mb-10 h-16 w-16 flex items-center justify-center rounded-2xl bg-transparent border-2 border-primary-accent/10 transition-all group-hover:scale-110 shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                           <service.icon size={30} className="text-primary-accent" />
                         </div>
  

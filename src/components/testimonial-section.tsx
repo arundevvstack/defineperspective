@@ -30,19 +30,19 @@ export default function TestimonialSection() {
             <h2 className="text-4xl font-black md:text-7xl text-white tracking-widest uppercase">
               Trust in Every Frame
             </h2>
-            <div className="mt-8 h-1 w-24 rounded-full bg-primary-accent/20" />
+            <div className="mt-8 h-1 w-24 rounded-full bg-transparent border-2 border-primary-accent/20 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {testimonials.map((testimonial, idx) => (
             <motion.div
               key={testimonial.author}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              
+whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 1 }}
-              className="group relative p-12 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm transition-all hover:bg-white/10"
+              className="group relative p-12 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm transition-all hover:bg-white hover:text-primary-accent transition-all duration-300"
             >
-              <div className="absolute -top-6 -left-6 h-12 w-12 rounded-full bg-primary-accent flex items-center justify-center text-white shadow-2xl transition-transform group-hover:scale-110">
+              <div className="absolute -top-6 -left-6 h-12 w-12 rounded-full bg-transparent border-2 border-primary-accent flex items-center justify-center text-white shadow-xl transition-transform group-hover:scale-110 hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                  <Quote size={20} />
               </div>
 
@@ -57,7 +57,7 @@ export default function TestimonialSection() {
               </blockquote>
 
               <div className="flex items-center gap-6 mt-auto">
-                 <div className="h-12 w-12 rounded-full bg-gradient-to-tr from-primary-accent to-primary-accent flex items-center justify-center font-black text-black text-sm uppercase">
+                 <div className="h-12 w-12 rounded-full bg-transparent border-2 border-primary-accent flex items-center justify-center font-black text-black text-sm uppercase hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                     {testimonial.author.split(' ').map(n => n[0]).join('')}
                  </div>
                  <div className="flex flex-col">

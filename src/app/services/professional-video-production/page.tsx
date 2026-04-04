@@ -15,7 +15,7 @@ export default function ProfessionalVideoProductionPage() {
       <GlassNavbar /> {/* Background Fluid Motion (Simulated) */}{" "}
       <div className="absolute inset-0 z-0 opacity-20">
         {" "}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] animate-pulse rounded-full bg-primary-accent/5 blur-[150px]" />{" "}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] animate-pulse rounded-full bg-transparent border-2 border-primary-accent/5 blur-[150px] hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
       </div>{" "}
       <div className="container relative z-10 mx-auto max-w-5xl">
         {" "}
@@ -33,9 +33,8 @@ export default function ProfessionalVideoProductionPage() {
         <header className="mb-24">
           {" "}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-black md:text-8xl tracking-tighter uppercase mb-12"
+            
+className="text-5xl font-black md:text-8xl tracking-tighter uppercase mb-12"
           >
             {" "}
             Professional Video <br />{" "}
@@ -99,14 +98,14 @@ export default function ProfessionalVideoProductionPage() {
             {" "}
             <Link
               href="/portfolio"
-              className="h-16 px-12 rounded-full border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:scale-110 hover:bg-white/5 active:scale-95 transition-all shadow-xl"
+              className="h-16 px-12 rounded-full border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:scale-110 hover:bg-white active:scale-95 transition-all shadow-xl hover:text-primary-accent transition-all duration-300"
             >
               {" "}
               View Related Portfolio{" "}
             </Link>{" "}
             <Link
               href="/contact?subject=Portfolio Inquiry: Professional Video Production"
-              className="h-16 px-12 rounded-full bg-white text-white font-black uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-2xl"
+              className="h-16 px-12 rounded-full bg-white text-white font-black uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-xl"
             >
               {" "}
               Request a Quote{" "}

@@ -31,8 +31,8 @@ export default function PricingCalculator() {
     <section className="py-32 px-6 md:px-12 bg-black/60 relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-transparent via-primary-accent to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary-accent to-transparent" />
+        <div className="absolute top-0 right-0 h-full w-[1px] bg-primary-accent opacity-20 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-primary-accent opacity-20 hover:bg-white hover:text-primary-accent transition-all duration-300" />
       </div>
 
       <div className="container mx-auto relative z-10">
@@ -99,9 +99,7 @@ export default function PricingCalculator() {
           <div className="lg:col-span-8">
              <motion.div 
                key={selectedTier}
-               initial={{ opacity: 0, x: 20 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ duration: 0.5 }}
+transition={{ duration: 0.5 }}
                className="h-full rounded-[2.5rem] border border-white/10 bg-white/5 p-12 lg:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden backdrop-blur-xl"
              >
                 <div className="absolute top-8 right-8 text-[10px] font-mono tracking-[0.3em] text-zinc-600 uppercase">
@@ -110,7 +108,7 @@ export default function PricingCalculator() {
 
                 <span className="text-zinc-500 text-lg uppercase tracking-[0.4em] font-light mb-4">Estimated Investment_</span>
                 <div className="flex items-start gap-4">
-                   <h3 className="text-7xl font-black md:text-9xl text-white tracking-tighter shadow-glow">
+                   <h3 className="text-7xl font-black md:text-9xl text-white tracking-tighter">
                      ${calculatedCost.toLocaleString()}
                    </h3>
                    <span className="mt-4 text-primary-accent font-black text-2xl uppercase tracking-widest italic">USD</span>
@@ -128,11 +126,11 @@ export default function PricingCalculator() {
                          detail: `${tierName} (Quote: $${calculatedCost.toLocaleString()})` 
                        }));
                      }}
-                     className="h-16 flex-1 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform active:scale-95 shadow-[0_0_30px_var(--glow)]"
+                     className="h-16 flex-1 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform active:scale-95 shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
                    >
                      Request a Quote
                    </button>
-                   <button className="h-16 flex-1 rounded-2xl border border-white/10 bg-white/5 text-white font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition">
+                   <button className="h-16 flex-1 rounded-2xl border border-white/10 bg-white/5 text-white font-bold uppercase tracking-widest text-sm hover:bg-white transition hover:text-primary-accent transition-all duration-300">
                      Download Prices
                    </button>
                 </div>

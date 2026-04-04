@@ -48,18 +48,18 @@ export default function PerformanceMarketingLandingPage() {
       <GlassNavbar />
 
       {/* Background Graphic */}
-      <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8">
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full border border-primary-accent/50 text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md hover:bg-white hover:text-primary-accent transition-all duration-300">
               Division: Performance Intelligence
             </div>
           </div>
           <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
             Performance <br />{" "}
-            <span className="text-primary-accent italic font-blackitalic shadow-glow">
+            <span className="text-primary-accent italic font-blackitalic">
               Marketing_
             </span>
           </h1>
@@ -75,9 +75,9 @@ export default function PerformanceMarketingLandingPage() {
             <Link
               key={service.title}
               href={service.href}
-              className="group cursor-pointer p-10 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary-accent/30 transition-all flex flex-col gap-8"
+              className="group cursor-pointer p-10 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/30 transition-all flex flex-col gap-8 hover:text-primary-accent transition-all duration-300"
             >
-              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
+              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform hover:bg-white hover:text-primary-accent transition-all duration-300">
                 <Target size={28} />
               </div>
               <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">
@@ -86,7 +86,7 @@ export default function PerformanceMarketingLandingPage() {
               <p className="text-sm text-zinc-500 font-light leading-relaxed">
                 {service.desc}
               </p>
-              <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group-hover:text-white transition-colors">
+              <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group-hover:text-primary-accent transition-colors">
                 View Node{" "}
                 <ArrowRight
                   size={14}
@@ -113,19 +113,19 @@ export default function PerformanceMarketingLandingPage() {
             </p>
             <Link
               href="/contact?service=performance-marketing"
-              className="inline-flex h-20 px-12 rounded-full bg-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-2xl"
+              className="inline-flex h-20 px-12 rounded-full bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
             >
               Start Scaling Now
             </Link>
           </div>
-          <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl opacity-70">
+          <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl opacity-70">
             <Image
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop"
               alt="Performance Marketing Data Analysis"
               fill
               className="object-cover transition-transform duration-700 hover:scale-110"
             />
-            <div className="absolute inset-0 bg-primary-accent/10" />
+            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />
           </div>
         </section>
       </div>

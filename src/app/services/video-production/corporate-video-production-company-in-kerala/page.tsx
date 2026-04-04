@@ -25,14 +25,14 @@ export default function CorporateVideoPage() {
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden">
       {" "}
       <GlassNavbar /> {/* Background Graphic */}{" "}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[150px] rounded-full pointer-events-none" />{" "}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[150px] rounded-full pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />{" "}
       <div className="container mx-auto max-w-6xl relative z-10">
         {" "}
         <header className="mb-32 flex flex-col gap-8 text-center md:text-left">
           {" "}
           <div className="flex items-center gap-4 justify-center md:justify-start">
             {" "}
-            <div className="px-4 py-1.5 rounded-full border border-primary-accent/50 text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300">
               {" "}
               Division: Specialized Video{" "}
             </div>{" "}
@@ -99,7 +99,7 @@ export default function CorporateVideoPage() {
                 fill
                 className="object-cover"
               />{" "}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />{" "}
+              <div className="absolute inset-0 bg-black/40" />{" "}
             </div>{" "}
           </div>{" "}
         </section>{" "}
@@ -130,10 +130,10 @@ export default function CorporateVideoPage() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className="p-10 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-primary-accent/30 transition-all flex flex-col gap-8 group"
+              className="p-10 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/30 transition-all flex flex-col gap-8 group hover:text-primary-accent transition-all duration-300"
             >
               {" "}
-              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-all">
+              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-all hover:bg-white hover:text-primary-accent transition-all duration-300">
                 {" "}
                 <item.icon size={28} />{" "}
               </div>{" "}
@@ -147,7 +147,7 @@ export default function CorporateVideoPage() {
           ))}{" "}
         </div>{" "}
         {/* Global CTA */}{" "}
-        <div className="py-40 text-center border-y border-white/5 bg-primary-accent/5 rounded-[4rem]">
+        <div className="py-40 text-center bg-primary-accent/5 rounded-[4rem] hover:bg-white hover:text-primary-accent transition-all duration-300">
           {" "}
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16 text-white max-w-4xl mx-auto">
             {" "}
@@ -156,7 +156,7 @@ export default function CorporateVideoPage() {
           </h2>{" "}
           <Link
             href="/contact?service=corporate-video-kerala"
-            className="h-20 px-16 rounded-full bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-[0_0_30px_var(--glow)]"
+            className="h-20 px-16 rounded-full bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
           >
             {" "}
             Initialize Strategy Call{" "}

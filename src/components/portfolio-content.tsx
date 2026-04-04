@@ -83,22 +83,20 @@ export default function PortfolioContent() {
       <GlassNavbar />
       
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 left-1/4 h-[800px] w-[800px] bg-primary-accent/10 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute top-0 left-1/4 h-[800px] w-[800px] bg-primary-accent/10 blur-[150px] rounded-full animate-pulse hover:bg-white hover:text-primary-accent transition-all duration-300" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <section className="py-32 text-center max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
           >
             <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Project Archives {" // "} v2026 Core</span>
             <h1 className="text-4xl md:text-9xl font-black tracking-[0.02em] uppercase mb-10 leading-[0.85]">
-              Cinematic <br /><span className="text-primary-accent italic shadow-glow">Execution.</span>
+              Cinematic <br /><span className="text-primary-accent italic">Execution.</span>
             </h1>
             
             <div className="mt-20 flex justify-center w-full">
-              <div className="flex p-2 rounded-full bg-white/5 border border-white/5 backdrop-blur-3xl overflow-hidden">
+              <div className="flex p-2 rounded-full bg-transparent border border-white/20 backdrop-blur-3xl overflow-hidden">
                  <div className="flex">
                     {tabs.map((tab) => (
                       <button
@@ -106,13 +104,13 @@ export default function PortfolioContent() {
                         onClick={() => handleNavigate(tab.id)}
                         className={cn(
                           "relative px-10 py-5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-500 flex items-center gap-3 outline-none",
-                          activeTab === tab.id ? "text-white" : "text-zinc-600 hover:text-white"
+                          activeTab === tab.id ? "text-white" : "text-zinc-600 hover:text-primary-accent"
                         )}
                       >
                         {activeTab === tab.id && (
                           <motion.div 
                             layoutId="activePortfolioTab"
-                            className="absolute inset-0 bg-primary-accent rounded-full shadow-[0_0_30px_var(--glow)]"
+                            className="absolute inset-0 bg-primary-accent rounded-full shadow-lg hover:bg-white hover:text-primary-accent transition-all duration-300"
                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                           />
                         )}
@@ -130,9 +128,7 @@ export default function PortfolioContent() {
           {currentData.map((section, sectionIdx) => (
             <motion.section 
               key={activeTab + section.category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+transition={{ duration: 0.5 }}
             >
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-12 border-b border-white/5 pb-16 group">
                 <div className="max-w-4xl">
@@ -150,15 +146,15 @@ export default function PortfolioContent() {
                 {section.projects.map((project: any, projectIdx) => (
                   <motion.div 
                     key={project.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    
+whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: projectIdx * 0.1 }}
                     className="group"
                   >
                     <div 
                       className={cn(
-                        "relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-2xl mb-10 transition-all duration-700",
+                        "relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-10 transition-all duration-700",
                         activeTab === "photo" ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
                       )}
                     >
@@ -182,7 +178,7 @@ export default function PortfolioContent() {
                          />
                        )}
                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                          <div className="h-16 w-16 rounded-full bg-primary-accent text-white flex items-center justify-center scale-75 group-hover:scale-100 transition-transform shadow-[0_0_40px_var(--glow)]">
+                          <div className="h-16 w-16 rounded-full bg-transparent border-2 border-primary-accent text-white flex items-center justify-center scale-75 group-hover:scale-100 transition-transform shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                              {activeTab === "video" ? <Play size={24} fill="currentColor" /> : <MoveRight size={24} />}
                           </div>
                        </div>
@@ -211,21 +207,21 @@ export default function PortfolioContent() {
         </div>
 
         <section className="mt-80 p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group">
-          <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
           <div className="relative z-10">
             <h2 className="text-5xl md:text-[9rem] font-black uppercase tracking-tighter text-white mb-16 leading-[0.8]">
-              Ready for <br /><span className="text-primary-accent italic shadow-glow">Impact?</span>
+              Ready for <br /><span className="text-primary-accent italic">Impact?</span>
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-8">
               <button 
                 onClick={() => window.location.href = '/contact'}
-                className="h-20 px-16 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-[0_0_40px_var(--glow)] flex items-center justify-center gap-4"
+                className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
               >
                 Start New Project <ArrowRight size={20} />
               </button>
               <button 
                 onClick={() => window.location.href = 'https://wa.me/919496191684'}
-                className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-4"
+                className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-4 hover:text-primary-accent transition-all duration-300"
               >
                 Chat on WhatsApp
               </button>

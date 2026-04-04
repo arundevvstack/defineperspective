@@ -27,14 +27,14 @@ export default function EducationIndustryPage() {
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
       {" "}
       <GlassNavbar />{" "}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />{" "}
+      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-transparent border-2 border-primary-accent/5 blur-[200px] rounded-full pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
       <div className="container mx-auto max-w-6xl relative z-10">
         {" "}
         <header className="mb-40 flex flex-col gap-8">
           {" "}
           <div className="flex items-center gap-4 justify-center md:justify-start">
             {" "}
-            <div className="px-4 py-1.5 rounded-full border border-primary-accent/50 text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full border border-primary-accent/50 text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-transparent border-2 border-primary-accent/10 backdrop-blur-md hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
               {" "}
               Vertical: Education & EdTech{" "}
             </div>{" "}
@@ -54,7 +54,7 @@ export default function EducationIndustryPage() {
           {" "}
           <div className="relative z-10 text-left">
             {" "}
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic shadow-glow">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
               Future-Ready{" "}
               <span className="text-primary-accent font-black italic">
                 Learning.
@@ -71,13 +71,13 @@ export default function EducationIndustryPage() {
             </p>{" "}
             <Link
               href="/contact?subject=Education Project enquiry"
-              className="h-16 px-10 rounded-2xl bg-primary-accent text-zinc-100 font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_var(--glow)]"
+              className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-zinc-100 font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
             >
               {" "}
               Launch Learning campaign{" "}
             </Link>{" "}
           </div>{" "}
-          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
+          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             {" "}
             <Image
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
@@ -85,10 +85,10 @@ export default function EducationIndustryPage() {
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
             />{" "}
-            <div className="absolute inset-0 bg-primary-accent/10" />{" "}
+            <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/10 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
           </div>{" "}
         </section>{" "}
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/5 text-left">
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
           {" "}
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent font-black">
             Education Visibility FAQ
