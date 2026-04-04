@@ -69,7 +69,7 @@ function NavbarContent() {
     {
       name: "AI Media Production",
       href: "/services/ai-media-production",
-      desc: "Generative Video & Neural Workflows",
+      desc: "Advanced AI Video Production",
       subItems: [
         { name: "AI Video Services", href: "/services/ai-media-production/ai-video-production-services" },
         { name: "AI Ad Creative Gen", href: "/services/ai-media-production/ai-ad-creative-generation" },
@@ -80,7 +80,7 @@ function NavbarContent() {
     {
       name: "AI CGI & Virtual Production",
       href: "/services/cgi-virtual-production",
-      desc: "3D Visuals & Virtual Studios",
+      desc: "3D Animation & Virtual Studios",
       subItems: [
         { name: "AI CGI Product Videos", href: "/services/cgi-virtual-production/ai-cgi-product-videos" },
         { name: "3D Visual Analysis", href: "/services/cgi-virtual-production/3d-product-visualization" },
@@ -238,8 +238,7 @@ function NavbarContent() {
                   <ArrowRight size={24} className="relative z-10 group-hover:translate-x-2 transition-transform" />
                 </button>
                 <div className="flex justify-between items-center text-[10px] font-mono text-zinc-600 uppercase tracking-widest px-2">
-                   <span>Nodes: TRV • COK</span>
-                   <span>Latency: 1ms</span>
+                   <span>Creative Team: Trivandrum • Kochi</span>
                 </div>
             </div>
           </motion.div>

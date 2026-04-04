@@ -95,10 +95,10 @@ export default function AIMediaProductionLandingPage() {
           </div>
           <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
             AI Video <br />{" "}
-            <span className="text-primary-accent italic">Agency India_</span>
+            <span className="text-primary-accent italic">Service Hub_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed uppercase tracking-widest leading-loose">
-            "The legacy of high-end cinema meets the speed of silicon. We build the high-velocity generative architecture for India's high-stakes brands."
+            "Combining high-end film quality with AI speed. We build fast, AI-powered video systems for India's most ambitious brands."
           </p>
         </header>
 
@@ -107,15 +107,15 @@ export default function AIMediaProductionLandingPage() {
            <div className="flex gap-6">
               <SearchCode className="text-primary-accent shrink-0" size={32} />
               <div>
-                 <h3 className="text-lg font-black uppercase tracking-widest mb-4">AEO Optimized_</h3>
-                 <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">Structured for artificial intelligence response engines like ChatGPT, Google Gemini, and Perplexity for instant brand discovery.</p>
+                 <h3 className="text-lg font-black uppercase tracking-widest mb-4">Search Ready_</h3>
+                 <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">Built for search engines and AI to instantly find your brand.</p>
               </div>
            </div>
            <div className="flex gap-6">
               <LineChart className="text-primary-accent shrink-0" size={32} />
               <div>
-                 <h3 className="text-lg font-black uppercase tracking-widest mb-4">Rank Hub_</h3>
-                 <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">Proprietary location-based content strategy ensuring top visibility in India, Kerala, and Trivandrum search nodes.</p>
+                 <h3 className="text-lg font-black uppercase tracking-widest mb-4">Top Rankings_</h3>
+                 <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">Designed to help your business stand out in India, Kerala, and Trivandrum search results.</p>
               </div>
            </div>
         </section>
@@ -138,7 +138,7 @@ export default function AIMediaProductionLandingPage() {
                 {service.desc}
               </p>
               <div className="flex items-center gap-4 text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 group-hover:text-primary-accent transition-colors">
-                Initialize Node {" // "}
+                Project Details {" // "}
                 <ArrowRight
                   size={14}
                   className="group-hover:translate-x-3 transition-transform"
@@ -148,24 +148,24 @@ export default function AIMediaProductionLandingPage() {
           ))}
         </div>
 
-        {/* Final Strategic Node */}
+        {/* Final Strategic Section */}
         <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-12">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none italic">
-              Silicon <br />
+              AI-Powered <br />
               <span className="text-primary-accent italic font-black underline decoration-primary-accent/30">
                 Storytelling_
               </span>
             </h2>
             <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
-              DP AI Studios is our flagship generative media division. We deliver <strong>AI video production services in India</strong> that provide infinite creative scale. For brands in Kerala and national metros, our AI media company offers visual perfection that responds to the speed of the 2026 market.
+              DP AI Studios is our main AI media division. We deliver <strong>AI video production services in India</strong> that offer unlimited creative options. For brands in Kerala and national cities, our AI media company provides high-quality video that works for the modern market.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
                <Link href="/contact?service=ai-video-hub" className="h-20 px-12 rounded-full bg-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 transition-all shadow-2xl flex items-center gap-4" >
-                  Deploy Project Node <ArrowRight size={18} />
+                  Start Your Project <ArrowRight size={18} />
                </Link>
                <div className="h-20 px-10 rounded-full border border-white/10 flex items-center justify-center text-[10px] font-mono tracking-[0.5em] uppercase opacity-40">
-                  Authoritative AI Production
+                  Trusted AI Production
                </div>
             </div>
           </div>

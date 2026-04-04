@@ -67,10 +67,10 @@ export default function GlassFooter() {
           </div>
 
           <div className="lg:col-span-1">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Intelligence</h4>
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Resources</h4>
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
                 <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs & Insights</Link></li>
-                <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Traffic Analysis</Link></li>
+                <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Website Analysis</Link></li>
                 <li><Link href="/portfolio" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Client Portfolio</Link></li>
                 <li><Link href="/lab" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Production Lab</Link></li>
                 <li><Link href="/about" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">About Studio</Link></li>
@@ -83,25 +83,25 @@ export default function GlassFooter() {
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
                 <li><Link href="/services/video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Video Production</Link></li>
                 <li><Link href="/services/ai-media-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Media Production</Link></li>
-                <li><Link href="/services/cgi-virtual-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI CGI & Virtual Prod</Link></li>
+                <li><Link href="/services/cgi-virtual-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI CGI & Virtual Production</Link></li>
                 <li><Link href="/services/product-content" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product Content</Link></li>
                 <li><Link href="/services/performance-marketing" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Performance Video Ads</Link></li>
-                <li><Link href="/services/video-strategy" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Video Strategy & Consulting</Link></li>
+                <li><Link href="/services/video-strategy" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Video Strategy</Link></li>
              </ul>
           </div>
 
           <div className="lg:col-span-1">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Strategic Locations</h4>
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Our Locations</h4>
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
                 <li><Link href="/locations/trivandrum" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Trivandrum • HQ</Link></li>
-                <li><Link href="/locations/kochi" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Kochi • AI Lab</Link></li>
-                <li><Link href="/locations/kerala" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Kerala • Full Coverage</Link></li>
-                <li><Link href="/locations/india" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">India • Remote Nodes</Link></li>
+                <li><Link href="/locations/kochi" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Kochi Office</Link></li>
+                <li><Link href="/locations/kerala" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Kerala Team</Link></li>
+                <li><Link href="/locations/india" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">India • National Presence</Link></li>
              </ul>
           </div>
 
           <div className="lg:col-span-1 flex flex-col">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Social Ecosystem</h4>
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Social Accounts</h4>
              <div className="grid grid-cols-3 gap-4">
                 <a 
                   href="https://www.instagram.com/defineperspective/" 
@@ -149,13 +149,12 @@ export default function GlassFooter() {
 
         <div className="mt-40 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-10 text-[10px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <span>Defining the Perspective © 2026. All rights reserved.</span>
+              <span>Define Perspective © 2026. All rights reserved.</span>
               <span className="flex items-center gap-2">
                  <Activity size={10} className="text-primary-accent animate-pulse" />
-                 Traffic: 14,528+ Total Visits
+                 Total Visitors: 14,528+
               </span>
            </div>
-           <span className="hidden md:inline">Nodes: TRV • COK • MAA {" // "} Latency: 1ms</span>
         </div>
       </div>
     </footer>

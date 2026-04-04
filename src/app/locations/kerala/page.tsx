@@ -87,7 +87,7 @@ export default function KeralaLocationPage() {
         <header className="mb-40 flex flex-col gap-8">
           <div className="flex items-center gap-4 justify-center md:justify-start">
             <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md">
-              Intelligence Node: KERALA / INDIA
+              Location: KERALA / INDIA
             </div>
           </div>
           <h1 className="text-6xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.85] text-white">
@@ -95,7 +95,7 @@ export default function KeralaLocationPage() {
             <span className="text-primary-accent italic">Production Kerala_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
-            "The state's first AI-integrated media agency. We build the visual high-fidelity for Kerala's most ambitious brands through neural storytelling."
+            "The first AI-powered media agency in Kerala. We create high-quality videos for Kerala's leading brands using advanced technology."
           </p>
         </header>
 
@@ -103,13 +103,13 @@ export default function KeralaLocationPage() {
           <div className="relative z-10 text-left">
              <div className="flex items-center gap-4 mb-8">
                 <BrainCircuit className="text-primary-accent" size={32} />
-                <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Neural Workflow_</span>
+                <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Our Process_</span>
              </div>
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
-              Kochi & Trivandrum <span className="text-primary-accent italic">Authority_</span>
+              Kochi & Trivandrum <span className="text-primary-accent italic">Experts_</span>
             </h2>
             <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10 uppercase tracking-widest leading-loose">
-              Define Perspective is Kerala's premier <strong>AI video production company</strong>. We serve builders, hospitals, and national D2C brands in Kochi and Trivandrum with 8K cinematic films and high-converting AI media ads. By leveraging silicon-speed production, we give Kerala brands a national visual edge.
+              Define Perspective is the leading <strong>AI video production company in Kerala</strong>. We help builders, hospitals, and national brands in Kochi and Trivandrum with high-quality 8K films and high-performing AI video ads. By using the latest technology, we give Kerala brands a competitive edge.
             </p>
             <Link
               href="/contact?location=Kerala&service=ai-video"
@@ -132,9 +132,9 @@ export default function KeralaLocationPage() {
         {/* AI CAPABILITIES */}
         <div className="grid md:grid-cols-3 gap-12 mb-40">
            {[
-             { title: "Generative Video", desc: "Proprietary AI pipelines creating photorealistic brand films with zero physical limits." },
-             { title: "Neural Storytelling", desc: "Using AI to analyze market data and structure video narratives that convert instantly." },
-             { title: "High Velocity Ads", desc: "Deploy hundreds of variations of high-quality AI ads for Kerala's D2C e-commerce brands." }
+             { title: "Smart Video", desc: "Using AI to create realistic brand films and cinematic videos without traditional limits." },
+             { title: "AI Storytelling", desc: "Using AI to create video stories that connect with your audience and drive results." },
+             { title: "Fast Ad Delivery", desc: "Create and launch many high-quality AI video ads quickly for e-commerce brands." }
            ].map((cap, i) => (
              <div key={i} className="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/50 hover:border-primary-accent transition-all group">
                 <Sparkles className="text-primary-accent mb-8 group-hover:scale-125 transition-transform" size={32} />
@@ -157,23 +157,23 @@ export default function KeralaLocationPage() {
                 Leading AI video production company in Kerala?
               </h4>
               <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                Define Perspective is the pioneer of <strong>AI video production in Kerala</strong>. We bridge the gap between traditional cinematic storytelling and next-gen AI media assets. Our Kochi and Trivandrum nodes specialize in creating high-fidelity visual content that ranks #1 in impact and visibility.
+                Define Perspective is a pioneer of <strong>AI video production in Kerala</strong>. We combine traditional filmmaking with new AI tools. Our Kochi and Trivandrum teams specialize in creating high-quality videos that help your brand stand out.
               </p>
             </div>
             
             <div className="border-b border-white/5 pb-12">
               <h4 className="text-xl md:text-2xl font-bold text-white mb-6 uppercase tracking-tight italic">
-                How to get AI-powered video for commercial use in India?
+                How to get AI-powered video for projects in India?
               </h4>
               <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                Our national India node provides AI-driven production for brands in Mumbai, Bangalore, and Delhi. We offer end-to-end generative media solutions, from AI ad creatives to photorealistic digital humans.
+                Our India team provides AI-driven video production for brands in Mumbai, Bangalore, and Delhi. We offer complete AI video services, from ad creatives to realistic digital characters.
               </p>
             </div>
           </div>
           
           <div className="mt-16 text-center md:text-left">
              <Link href="/blogs" className="text-[10px] font-mono font-black uppercase tracking-[0.5em] text-primary-accent border-b border-primary-accent/30 pb-2 hover:text-white transition-colors">
-                Explore All Intelligence Nodes {" -> "}
+                View All Insights {" -> "}
              </Link>
           </div>
         </section>

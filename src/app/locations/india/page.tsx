@@ -87,10 +87,10 @@ export default function IndiaLocationPage() {
           </div>
           <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
             India's <br />{" "}
-            <span className="text-primary-accent italic">AI_Media_Leader_</span>
+            <span className="text-primary-accent italic">Top AI Agency_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
-            "National scope with silicone speed. We build the visual infrastructure for India's most ambitious national and global brands through AI production."
+            "National reach with digital speed. We build the high-quality assets for India's most ambitious brands using AI-driven production."
           </p>
         </header>
 
@@ -98,13 +98,13 @@ export default function IndiaLocationPage() {
           <div className="relative z-10 text-left">
              <div className="flex items-center gap-4 mb-8">
                 <Globe className="text-primary-accent" size={32} />
-                <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">National Core_</span>
+                <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">National Team_</span>
              </div>
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic font-black italic">
-              Pan-India <span className="text-primary-accent italic font-black">Velocity_</span>
+              Pan-India <span className="text-primary-accent italic font-black">High-Speed_</span>
             </h2>
             <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10 uppercase tracking-widest leading-loose">
-              Define Perspective is India's leading <strong>AI-first video production agency</strong>. Our decentralized model allows us to handle high-fidelity 8K cinematic films and high-conversions AI ads for clients in Mumbai, Bangalore, Delhi, and beyond, all powered by proprietary neural production pipelines.
+              Define Perspective is India's leading <strong>AI-first video production agency</strong>. Our team handles high-quality 8K films and high-performing AI video ads for clients in Mumbai, Bangalore, Delhi, and beyond, all powered by advanced AI tools.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
@@ -145,7 +145,7 @@ export default function IndiaLocationPage() {
                 Leading AI video production agency in India?
               </h4>
               <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                Define Perspective is a pioneer of <strong>AI-integrated filmmaking in India</strong>. We specialize in creating high-quality cinematic brand films and performance ads for top-tier Indian companies, merging high-resolution cinematography with generative AI pipelines.
+                Define Perspective is a leader in <strong>AI-powered filmmaking in India</strong>. We specialize in creating high-quality brand films and ads for top Indian companies, merging beautiful cinematography with modern AI tools.
               </p>
             </div>
             <div>
@@ -153,7 +153,7 @@ export default function IndiaLocationPage() {
                 How can brands in Mumbai or Bangalore work with Define Perspective?
               </h4>
               <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose font-light uppercase tracking-widest">
-                Our India node handles national campaigns through a decentralized strategic core. We execute creative briefs for Mumbai fashion brands, Bangalore tech giants, and Delhi lifestyle companies with infinite creative scale.
+                Our India team handles national campaigns across major cities. We create video projects for Mumbai fashion brands, Bangalore tech companies, and Delhi lifestyle brands with unlimited creative possibilities.
               </p>
             </div>
           </div>

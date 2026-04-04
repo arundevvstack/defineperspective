@@ -93,11 +93,11 @@ export default function TrivandrumLocationPage() {
           <h1 className="text-6xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.85] text-white italic">
             Capital <br />{" "}
             <span className="text-primary-accent font-black italic underline decoration-primary-accent/30">
-              AI Excellence_
+              AI Technology_
             </span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
-            "The pulse of innovation. We build visual high-fidelity for Trivandrum's most ambitious tech and policy brands through silicon-powered production."
+            "The pulse of innovation. We build high-quality videos for Trivandrum's most ambitious tech and brand films through advanced AI-powered production."
           </p>
         </header>
 
@@ -105,13 +105,13 @@ export default function TrivandrumLocationPage() {
           <div className="relative z-10 text-left">
              <div className="flex items-center gap-4 mb-8">
                 <Building2 className="text-primary-accent" size={32} />
-                <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Technopark Division_</span>
+                <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Technopark Team_</span>
              </div>
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
-              Thiruvananthapuram <span className="text-primary-accent italic">Authority_</span>
+              Thiruvananthapuram <span className="text-primary-accent italic">Leading Experts_</span>
             </h2>
             <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10 uppercase tracking-widest leading-loose">
-              Define Perspective is the leading <strong>AI video production agency in Trivandrum</strong>. We bridge the gap between Technopark's tech ecosystem and high-end cinematic media. Our capital city division delivers 8K storytelling for heritage and government brands using advanced neural production pipelines.
+              Define Perspective is the leading <strong>AI video production agency in Trivandrum</strong>. We bridge the gap between Technopark's tech ecosystem and high-end media. Our capital city team delivers 8K storytelling for heritage and government brands using advanced AI production tools.
             </p>
             <Link
               href="/contact?location=trivandrum&service=ai-video"
@@ -134,7 +134,7 @@ export default function TrivandrumLocationPage() {
         {/* TRIVANDRUM FAQ SYSTEM */}
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-zinc-900 border border-white/20 text-left">
           <h2 className="text-2xl md:text-4xl font-black uppercase tracking-widest mb-10 text-primary-accent font-black italic">
-            Trivandrum Visibility_ Engine
+            Trivandrum Visibility_ Center
           </h2>
           <div className="space-y-12">
             <div className="border-b border-white/5 pb-12">
@@ -142,7 +142,7 @@ export default function TrivandrumLocationPage() {
                 Why choose an AI video agency in Thiruvananthapuram?
               </h4>
               <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                As the capital's premier <strong>AI video company</strong>, we provide localized market intelligence combined with global cinematic standards. Our AI nodes allow for rapid iteration on brand films, crucial for the high-velocity tech and SaaS startups in Trivandrum.
+                As the capital's leading <strong>AI video company</strong>, we provide local expertise combined with global standards. Our AI tools allow for fast results on brand films, which is perfect for the growing tech and startup scene in Trivandrum.
               </p>
             </div>
             <div>
