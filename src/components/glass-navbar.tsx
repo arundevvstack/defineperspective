@@ -170,8 +170,7 @@ function NavbarContent() {
           <NavDropdown title="DP AI Studios" categories={aiStudioCategories} />
 
           <Link href="/portfolio" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Portfolio</Link>
-          <Link href="/blogs" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/blogs" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Blogs</Link>
-          <Link href="/analysis" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/analysis" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Analysis</Link>
+
           <Link href="/contact" className={cn("text-sm font-semibold uppercase tracking-widest transition-colors", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80 hover:text-primary-accent")}>Contact</Link>
           
           <div className="h-6 w-[1px] bg-white/10 mx-1" />
@@ -223,8 +222,7 @@ function NavbarContent() {
               </div>
 
               <Link href="/portfolio" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Portfolio</Link>
-              <Link href="/blogs" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Blogs</Link>
-              <Link href="/analysis" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Analysis</Link>
+
               <Link href="/contact" className="text-3xl font-black uppercase text-white" onClick={() => setMobileMenu(false)}>Contact</Link>
             </div>
 
