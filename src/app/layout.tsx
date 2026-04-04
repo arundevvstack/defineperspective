@@ -39,6 +39,10 @@ export const metadata: Metadata = {
     title: "Define Perspective | AI Media Evolution",
     description: "Elite cinematic production for 2026 brands.",
   },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  }
 };
 
 export default function RootLayout({
