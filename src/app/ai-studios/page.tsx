@@ -37,7 +37,7 @@ export default function AIStudiosPage() {
             {" "}
             <Cpu size={36} />{" "}
           </div>{" "}
-          <h1 className="text-7xl md:text-[12rem] font-black tracking-tighter uppercase mb-12 leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[9.6rem] font-black tracking-tighter uppercase mb-12 leading-[0.8] text-white">
             {" "}
             DP AI{" "}
             <span className="text-primary-accent italic">Studios_</span>{" "}

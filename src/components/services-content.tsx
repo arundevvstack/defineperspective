@@ -99,7 +99,7 @@ export default function ServicesContent() {
         <header className="mb-40 text-center max-w-4xl mx-auto">
           <motion.h1 
             
-className="text-6xl font-black md:text-[10rem] tracking-tighter uppercase mb-20 leading-[0.8]"
+className="text-5xl font-black md:text-[8rem] tracking-tighter uppercase mb-20 leading-[0.8]"
           >
             Capabilities <br />
             <span className="text-primary-accent italic font-black underline decoration-white/5">Matrix_</span>
@@ -115,7 +115,7 @@ className="text-6xl font-black md:text-[10rem] tracking-tighter uppercase mb-20 
               <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-20 group">
                 <div className="max-w-3xl">
                   <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-8 block">Division 0{sIdx + 1} // Capability Node</span>
-                  <h2 className="text-5xl md:text-[7.5rem] font-black uppercase tracking-tighter text-white mb-8 group-hover:text-primary-accent transition-colors leading-[0.9]">
+                  <h2 className="text-4xl md:text-[6rem] font-black uppercase tracking-tighter text-white mb-8 group-hover:text-primary-accent transition-colors leading-[0.9]">
                     {section.title}
                   </h2>
                   <p className="text-xl md:text-2xl font-light tracking-widest text-zinc-500 uppercase leading-relaxed">
@@ -143,7 +143,7 @@ whileInView={{ opacity: 1, y: 0 }}
                         <service.icon size={36} className="text-primary-accent" />
                      </div>
 
-                     <h3 className="text-3xl font-black uppercase tracking-tight text-white mb-8 leading-none min-h-[4rem] group-hover:text-primary-accent transition-colors">
+                     <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-8 leading-none min-h-[4rem] group-hover:text-primary-accent transition-colors">
                        {service.title}
                      </h3>
                      <p className="text-zinc-500 font-light leading-relaxed mb-16 uppercase tracking-tight text-[11px] max-w-sm">

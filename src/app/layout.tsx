@@ -54,6 +54,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} ${firaCode.variable} antialiased font-sans theme-red`}
+        suppressHydrationWarning
       >
         <ThemeWrapper>
           {children}

@@ -6,7 +6,8 @@ import {
   BarChart3, Zap, Star, ArrowRight, Calendar, MessageCircle
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
-import TerminalHero from "@/components/terminal-hero";
+import VideoHero from "@/components/video-hero";
+import CinematicHero from "@/components/cinematic-hero";
 import ServiceGrid from "@/components/service-grid";
 import Link from "next/link";
 
@@ -25,7 +26,8 @@ export default function HomeContent() {
       <GlassNavbar />
       
       {/* Section 0: Hero Section */}
-      <TerminalHero />
+      <VideoHero />
+      <CinematicHero />
 
       {/* Section 1: Services Matrix */}
       <section id="services" className="relative z-10">
@@ -52,7 +54,7 @@ export default function HomeContent() {
                  <div className="h-16 w-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white flex items-center justify-center mb-10 group-hover:scale-110 transition-transform hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                     <benefit.icon size={32} />
                  </div>
-                 <h3 className="text-2xl font-black uppercase tracking-widest text-white mb-6 leading-none">{benefit.title}</h3>
+                 <h3 className="text-xl sm:text-2xl font-black uppercase tracking-widest text-white mb-6 leading-none">{benefit.title}</h3>
                  <p className="text-zinc-600 font-light leading-relaxed uppercase text-[10px] tracking-widest">{benefit.text}</p>
                </motion.div>
              ))}
@@ -74,7 +76,7 @@ export default function HomeContent() {
         <div className="container mx-auto max-w-6xl">
           <div className="mb-32 flex flex-col items-center text-center max-w-4xl mx-auto">
             <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Project Inquiry {" // "} Start Today</span>
-            <h2 className="text-5xl md:text-[8rem] font-black text-white tracking-tighter uppercase leading-[0.8]">
+            <h2 className="text-3xl sm:text-5xl md:text-[6.4rem] font-black text-white tracking-tighter uppercase leading-[0.8]">
               Ready for <br /><span className="text-primary-accent italic">Impact?</span>
             </h2>
           </div>
@@ -149,7 +151,7 @@ export default function HomeContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
             <div>
               <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block">Our Location {" // "} India & Kerala</span>
-              <h2 className="text-5xl font-black text-white mb-10 tracking-tighter leading-none uppercase">
+              <h2 className="text-3xl sm:text-5xl font-black text-white mb-10 tracking-tighter leading-none uppercase">
                 AI filmmaking for <br /><span className="text-primary-accent">Visionary Brands.</span>
               </h2>
             </div>

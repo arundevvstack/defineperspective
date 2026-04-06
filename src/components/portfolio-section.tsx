@@ -11,7 +11,7 @@ const projects = [
     id: "tfj-jewellery",
     title: "Trichur Fashion Jewellers",
     desc: "Merging regional heritage with modern CGI. A high-production brand film that elevated a traditional narrative into a visual landmark.",
-    beforeUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
+    beforeUrl: "https://images.unsplash.com/photo-1515562141511-6cbd47a619ff?auto=format&fit=crop&q=80&w=1200",
     afterUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200",
     ttm: "12 days",
     workflow: "Heritage + CGI",
@@ -21,7 +21,7 @@ const projects = [
     id: "kumbayah-kombucha",
     title: "Kumbayah Kombucha",
     desc: "D2C growth through high-velocity social ads. One shoot transformed into 100+ platform-optimized, viral assets.",
-    beforeUrl: "https://images.unsplash.com/photo-1549490349-8643362247b2?auto=format&fit=crop&q=80&w=1200",
+    beforeUrl: "https://images.unsplash.com/photo-1594498653385-60177217cce3?auto=format&fit=crop&q=80&w=1200",
     afterUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200",
     ttm: "48 hours",
     workflow: "D2C + Modular AI",
@@ -54,7 +54,7 @@ export default function PortfolioSection() {
             </p>
           </div>
           <button
-onClick={() => window.location.href = '/portfolio'}
+            onClick={() => window.location.href = '/portfolio'}
             className="mt-12 flex items-center gap-4 text-primary-accent font-black tracking-[0.2em] text-[10px] uppercase hover:text-primary-accent transition-colors duration-300 group"
           >
             Explore All Project Nodes <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -65,8 +65,8 @@ onClick={() => window.location.href = '/portfolio'}
           {projects.map((project, idx) => (
             <motion.div 
               key={project.id} 
-              
-whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className={cn(
                 "grid grid-cols-1 lg:grid-cols-12 gap-16 items-center",
@@ -83,7 +83,7 @@ whileInView={{ opacity: 1, y: 0 }}
                     {/* After Image */}
                     <Image 
                       src={project.afterUrl} 
-                      alt={`${project.title} - Final`}
+                      alt={`${project.title} - Final Production Result by Define Perspective Kerala Studio`}
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
@@ -92,12 +92,12 @@ whileInView={{ opacity: 1, y: 0 }}
                     <div 
                       className="absolute inset-0 z-10 h-full w-full overflow-hidden border-r-[3px] border-primary-accent/50 backdrop-blur-sm" 
                       style={{ 
-                        clipPath: `inset(0 ${100 - sliderPos}}% 0 0)`
+                        clipPath: `inset(0 ${100 - sliderPos}% 0 0)`
                       }}
                     >
                        <Image 
                         src={project.beforeUrl} 
-                        alt={`${project.title} - Draft`}
+                        alt={`${project.title} - Raw Concept / Draft Media Assets`}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
@@ -115,7 +115,7 @@ whileInView={{ opacity: 1, y: 0 }}
                     {/* Control Handle */}
                     <div 
                       className="absolute top-0 bottom-0 z-30 w-[2px] flex items-center justify-center pointer-events-none group-hover:scale-110 transition-transform" 
-                      style={{ left: `${sliderPos}}%` }}
+                      style={{ left: `${sliderPos}%` }}
                     >
                       <div className="h-10 w-10 flex items-center justify-center rounded-full bg-transparent border-2 border-primary-accent text-white shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
                          <MoveRight size={20} className="rotate-0 transition-colors duration-300 group-hover:text-primary-accent" />
@@ -154,7 +154,7 @@ whileInView={{ opacity: 1, y: 0 }}
                  </div>
                  
                  <button
-onClick={() => window.location.href = `/portfolio?id=${project.id}`}
+                   onClick={() => window.location.href = `/portfolio?id=${project.id}`}
                    className="h-16 w-full rounded-2xl bg-transparent border border-white/20 flex items-center justify-center gap-4 text-[10px] font-black tracking-[0.2em] uppercase text-white/30 transition-all shadow-xl hover:text-primary-accent transition-all duration-300"
                  >
                     Unlock Full Metrics <MoveRight size={18} className="text-primary-accent transition-colors duration-300 group-hover:text-primary-accent" />

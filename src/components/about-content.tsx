@@ -11,32 +11,34 @@ export default function AboutContent() {
       <GlassNavbar />
       
       <div className="absolute inset-0 z-0 opacity-20">
-        <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-primary-accent/10 blur-[150px] hover:bg-white hover:text-primary-accent transition-all duration-300" />
-        <div className="absolute top-0 right-0 h-[600px] w-[600px] animate-pulse rounded-full bg-primary-accent/10 blur-[130px] hover:bg-white hover:text-primary-accent transition-all duration-300" />
+        <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-primary-accent/10 blur-[150px]" />
+        <div className="absolute top-0 right-0 h-[600px] w-[600px] animate-pulse rounded-full bg-primary-accent/10 blur-[130px]" />
       </div>
 
       <div className="container relative z-10 mx-auto">
         <header className="mb-40 flex flex-col items-center text-center max-w-5xl mx-auto py-24">
            <motion.h1 
-             
-className="text-6xl font-black md:text-[11rem] tracking-tighter uppercase mb-12 leading-[0.8]"
+             initial={{ opacity: 0, scale: 0.9 }}
+             animate={{ opacity: 1, scale: 1 }}
+             className="text-4xl sm:text-7xl md:text-[8rem] lg:text-[10rem] font-black tracking-tighter uppercase mb-12 leading-[0.8]"
            >
              The Future <br /> 
-             <span className="text-primary-accent italic">of Vision_</span>
+             <span className="text-primary-accent italic">of Vision.</span>
            </motion.h1>
            <motion.p 
-             
-transition={{ delay: 0.2 }}
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.2 }}
              className="text-2xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-widest"
            >
-             Define Perspective is a 2026-era media laboratory where human cinematic excellence meets high-velocity neural workflows.
+             Define Perspective is a modern media studio where human cinematic excellence meets advanced AI technology.
            </motion.p>
         </header>
 
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-32 mb-40 items-center">
            <div className="space-y-12">
-              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent block">Division Origins {" // "} Node 01</span>
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent block">Our Mission {" // "} Kerala & India</span>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none">
                 Our <br /><span className="text-primary-accent">Manifesto.</span>
               </h2>
               <div className="space-y-8 text-xl font-light text-zinc-400 leading-relaxed uppercase tracking-tight">
@@ -44,22 +46,23 @@ transition={{ delay: 0.2 }}
                     In 2026, the barrier between physical and digital media has dissolved. Brands that thrive are those that can scale their vision at the speed of thought.
                  </p>
                  <p>
-                    We built Define Perspective to lead this transition. By integrating custom neural VFX pipelines and high-end cinematography, we reduce the latency between concept and global impact.
+                    We built Define Perspective to lead this transition. By combining custom AI workflows and high-end cinematography, we deliver high-impact results for global brands.
                  </p>
               </div>
            </div>
            
            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
-                { title: "AI Velocity", icon: Sparkles, desc: "Production scaled at autonomous speeds across India and global markets." },
+                { title: "AI Speed", icon: Sparkles, desc: "Production scaled at high speeds across India and global markets." },
                 { title: "Human Craft", icon: Wand2, desc: "Cinematic direction and artistic soul that machines cannot replicate." },
-                { title: "Regional Depth", icon: Globe, desc: "Localized media intelligence optimized for AI-driven search visibility." },
-                { title: "Future-Ready", icon: Clock, desc: "Architected for the next decade of spatial and generative media." },
+                { title: "Regional Depth", icon: Globe, desc: "Localized media expertise optimized for maximum search visibility." },
+                { title: "Future-Ready", icon: Clock, desc: "Built for the next decade of modern and interactive media." },
               ].map((stat, idx) => (
                 <motion.div 
                   key={stat.title}
-                  
-whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   className="p-10 rounded-[2.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-6 group/30 transition-all hover:text-primary-accent transition-all duration-300"
                 >
@@ -71,20 +74,20 @@ whileInView={{ opacity: 1, y: 0 }}
            </div>
         </section>
 
-        {/* New methodology block for AI Search/SEO */}
+        {/* methodology block */}
         <section className="mb-40 py-32 border-y border-white/5">
            <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
               <div className="md:col-span-1">
-                 <h3 className="text-3xl font-black uppercase tracking-widest mb-6">Autonomous <br /> Production.</h3>
+                 <h3 className="text-3xl font-black uppercase tracking-widest mb-6">Modern <br /> Production.</h3>
                  <p className="text-zinc-500 text-sm font-light uppercase tracking-widest leading-relaxed">
-                   How we leverage AI to outpace traditional agencies.
+                   How we use AI to outpace traditional creative agencies.
                  </p>
               </div>
               <div className="md:col-span-2 space-y-12">
                  {[
-                   { t: "Generative Environments", d: "Creating photorealistic 3D locations without travel logistics, powered by our proprietary virtual production nodes in Kerala." },
-                   { t: "Neural Color Grading", d: "Next-gen color science that adapts to multiple platform color spaces (HDR, Rec.709) for consistent brand identity." },
-                   { t: "AEO Optimization", d: "Structuring every piece of content to be discoverable by AI Search agents and LLMs, ensuring your brand stays visible in the post-Google era." }
+                   { t: "Generative Environments", d: "Creating photorealistic 3D locations without travel, powered by our custom virtual production setups in Kerala." },
+                   { t: "AI Color Grading", d: "Next-gen color science that adapts across all platforms for a consistent brand identity." },
+                   { t: "Search Optimization", d: "Structuring every piece of content to be found by search engines and modern AI tools, ensuring your brand stays visible." }
                  ].map((item, i) => (
                    <div key={i} className="flex gap-10 items-start border-l border-primary-accent/30 pl-8">
                      <div>
@@ -99,8 +102,8 @@ whileInView={{ opacity: 1, y: 0 }}
 
         <section className="py-32 mb-20">
            <div className="p-16 md:p-32 rounded-[4rem] bg-transparent border border-white/20 text-center flex flex-col items-center backdrop-blur-3xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
-              <h3 className="text-4xl md:text-7xl font-black uppercase mb-12 tracking-widest leading-tight">
+              <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              <h3 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase mb-12 tracking-widest leading-tight">
                 Defining the <br /> <span className="text-primary-accent italic">Perspective.</span>
               </h3>
               <div className="flex flex-col sm:flex-row gap-6">

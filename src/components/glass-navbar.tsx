@@ -151,14 +151,16 @@ function NavbarContent() {
       <div className="container mx-auto flex h-12 items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="group flex cursor-pointer items-center transition-all duration-500 hover:scale-105 p-0 m-0 leading-none">
-            <Image 
-              src={isAiServices ? "/images/ai-logo.png" : "/images/main-logo.png"} 
-              alt="Define Perspective" 
-              width={240} 
-              height={76} 
-              className="object-contain m-0 p-0"
-              priority
-            />
+            <div className="w-[160px] md:w-[240px]">
+              <Image 
+                src={isAiServices ? "/images/ai-logo.png" : "/images/main-logo.png"} 
+                alt="Define Perspective - Premier AI Media Production & Elite Video Agency India" 
+                width={240} 
+                height={76} 
+                className="object-contain m-0 p-0"
+                priority={true}
+              />
+            </div>
         </Link>
 
         {/* Desktop Links */}
@@ -188,6 +190,7 @@ function NavbarContent() {
         <button
           className="md:hidden h-10 w-10 flex items-center justify-center text-zinc-400 hover:text-primary-accent relative z-50"
           onClick={() => setMobileMenu(!mobileMenu)}
+          aria-label={mobileMenu ? "Close Menu" : "Open Menu"}
         >
           {mobileMenu ? <X size={28} /> : <Menu size={28} />}
         </button>

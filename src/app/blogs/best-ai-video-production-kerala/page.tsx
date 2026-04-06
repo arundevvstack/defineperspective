@@ -92,7 +92,7 @@ export default function BlogPage() {
              <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-8 block font-black underline decoration-2 underline-offset-8">
                Intelligence Hub {" // "} Pillar Guide 2026
              </span>
-             <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-black uppercase tracking-tighter mb-10 leading-[0.85] text-white">
+             <h1 className="text-4xl md:text-[6.4rem] lg:text-[8rem] font-black uppercase tracking-tighter mb-10 leading-[0.85] text-white">
                #1 AI Video <br />
                <span className="text-primary-accent italic">Production</span> <br />
                In Kerala_
@@ -127,11 +127,11 @@ export default function BlogPage() {
               className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-[2000ms] ease-out"
               priority
             />
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-               <div className="h-32 w-32 rounded-full border border-white/10 flex items-center justify-center backdrop-blur-md bg-white/5 animate-pulse">
-                  <div className="h-0 w-0 border-t-[12px] border-t-transparent border-l-[18px] border-l-white border-b-[12px] border-b-transparent ml-2" />
-               </div>
-            </div>
+             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                <div className="h-16 w-16 md:h-32 md:w-32 rounded-full border border-white/10 flex items-center justify-center backdrop-blur-md bg-white/5 animate-pulse">
+                   <div className="h-0 w-0 border-t-[8px] md:border-t-[12px] border-t-transparent border-l-[12px] md:border-l-[18px] border-l-white border-b-[8px] md:border-b-[12px] border-b-transparent ml-1 md:ml-2" />
+                </div>
+             </div>
          </motion.div>
       </section>
 
@@ -141,7 +141,7 @@ export default function BlogPage() {
           <article className="flex-1 max-w-5xl">
             {/* Abstract/Hook Section */}
             <div className="mb-32">
-              <p className="text-2xl md:text-4xl text-zinc-300 font-light leading-snug mb-12 first-letter:text-7xl first-letter:font-black first-letter:text-primary-accent first-letter:mr-3 first-letter:float-left">
+              <p className="text-xl md:text-4xl text-zinc-300 font-light leading-snug mb-12 first-letter:text-5xl md:first-letter:text-7xl first-letter:font-black first-letter:text-primary-accent first-letter:mr-3 first-letter:float-left">
                 Kerala's media landscape is shifting at an unprecedented scale. As we enter 2026, the demand for cinematic content has outpaced traditional production capacities. Whether you're a startup in the heart of <Link href="/services/ai-media-production" className="text-white underline decoration-primary-accent hover:text-primary-accent transition-colors">Kochi</Link> or an enterprise giant in <Link href="/portfolio" className="text-white underline decoration-primary-accent hover:text-primary-accent transition-colors">Trivandrum</Link>, AI video production has become the essential bridge between high-fidelity storytelling and scalable growth.
               </p>
 

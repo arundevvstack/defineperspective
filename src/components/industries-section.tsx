@@ -74,7 +74,7 @@ whileInView={{ opacity: 1, scale: 1 }}
           <motion.h2
             
 whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-black text-white tracking-widest uppercase mb-12 leading-[0.85]"
+            className="text-3xl sm:text-4xl md:text-[6.4rem] font-black text-white tracking-widest uppercase mb-12 leading-[0.85]"
           >
             Industries <br /><span className="text-primary-accent italic">We Serve_</span>
           </motion.h2>

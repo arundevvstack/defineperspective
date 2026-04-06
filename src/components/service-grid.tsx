@@ -275,14 +275,15 @@ function TiltCard({ children, className, onClick }: { children: React.ReactNode;
     </motion.div>
   );
 }
+
 export default function ServiceGrid() {
   return (
     <section id="services" className="py-40 px-6 md:px-12 bg-background relative">
       <div className="container mx-auto">
         <div className="mb-32 flex flex-col items-center text-center max-w-4xl mx-auto">
           <motion.div
-            
-whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
             className="h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent flex items-center justify-center text-primary-accent-fg mb-10 shadow-lg hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
@@ -290,11 +291,11 @@ whileInView={{ opacity: 1, scale: 1 }}
              <Sparkles size={32} />
           </motion.div>
           <motion.h2
-            
-whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-5xl font-black md:text-8xl text-foreground tracking-widest uppercase leading-[0.85]"
+            className="text-3xl sm:text-5xl font-black md:text-8xl text-foreground tracking-widest uppercase leading-[0.85]"
           >
             Media <span className="text-primary-accent font-black italic">Production</span>
           </motion.h2>
@@ -311,7 +312,7 @@ whileInView={{ opacity: 1, y: 0 }}
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
                    <div className="max-w-2xl">
                       <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-6 block">Division 0{sIdx + 1} // Strategic Node</span>
-                      <h2 className="text-3xl md:text-5xl font-black text-foreground uppercase tracking-widest group leading-none">
+                      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-foreground uppercase tracking-widest group leading-none">
                          {section.title}
                       </h2>
                       <p className="mt-6 text-lg text-zinc-500 font-light uppercase tracking-[0.2em]">
@@ -332,8 +333,9 @@ whileInView={{ opacity: 1, y: 0 }}
                       className="group cursor-pointer"
                     >
                       <motion.div
-                        
-whileInView={{ opacity: 1, y: 0 }}viewport={{ once: true }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ delay: idx * 0.05, duration: 0.8 }}
                         className="relative flex flex-col h-full rounded-[2.5rem] border border-[var(--border-subtle)] bg-[var(--glass-white)] p-10 transition-shadow hover:shadow-[0_20px_50px_rgba(var(--accent-rgb),0.2)] duration-500 overflow-hidden"
                       >

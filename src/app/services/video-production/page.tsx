@@ -57,7 +57,7 @@ export default function VideoProductionLandingPage() {
               Division: Elite Media Production
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-5xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
             Video <br />{" "}
             <span className="text-primary-accent italic">Production_</span>
           </h1>

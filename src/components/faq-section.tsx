@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, Search, HelpCircle } from "lucide-react";
+import { Plus, Minus, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const faqs = [
+const faqData = [
   {
     question: "What is AI video production and how does it benefit my brand?",
     answer: "AI video production uses generative artificial intelligence to create or enhance cinematic content. For brands in Kerala and India, this means we can produce high-end commercials with 10x speed, reducing lead times from weeks to days while maintaining elite cinematic quality.",
@@ -31,6 +31,10 @@ const faqs = [
 export default function FAQSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
+  const toggleFaq = (idx: number) => {
+    setOpenIdx(openIdx === idx ? null : idx);
+  };
+
   return (
     <section className="py-40 px-6 md:px-12 bg-black/40 relative">
       <div className="container mx-auto">
@@ -45,51 +49,62 @@ export default function FAQSection() {
               </p>
            </div>
            
-           <div className="p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl flex items-center gap-4 group hover:bg-white transition-all cursor-pointer hover:text-primary-accent transition-all duration-300">
+           <button 
+             aria-label="Search for answers" 
+             className="p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl flex items-center gap-4 group hover:bg-white transition-all cursor-pointer hover:text-primary-accent"
+           >
               <Search className="text-zinc-600 group-hover:text-primary-accent" />
               <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-primary-accent transition">Search for answers</span>
-           </div>
+           </button>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-6">
-          {faqs.map((faq, idx) => (
-            <div 
-              key={idx}
-              className="group rounded-3xl border border-white/5 bg-white/5 overflow-hidden transition-all hover:bg-white hover:text-primary-accent transition-all duration-300"
-            >
-              <button 
-                onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-                className="w-full p-10 flex items-center justify-between text-left gap-8"
+          {faqData.map((faq, idx) => {
+            const isOpen = openIdx === idx;
+            return (
+              <div 
+                key={idx}
+                className="group rounded-3xl border border-white/5 bg-white/5 overflow-hidden transition-all hover:bg-white hover:text-primary-accent"
               >
-                 <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-primary-accent transition">
-                    {faq.question}
-                 </h3>
-                 <div className={cn(
-                   "h-12 w-12 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all",
-                   openIdx === idx ? "bg-transparent border-2 border-primary-accent border-primary-accent text-white rotate-180" : "text-zinc-600"
-                 )}>
-                    {openIdx === idx ? <Minus size={20} className="transition-colors duration-300 group-hover:text-primary-accent" /> : <Plus size={20} className="transition-colors duration-300 group-hover:text-primary-accent" />}
-                 </div>
-              </button>
-              
-              <AnimatePresence>
-                {openIdx === idx && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <div className="px-10 pb-10 border-t border-white/5 pt-8">
-                       <p className="text-lg text-zinc-400 font-light leading-relaxed">
-                         {faq.answer}
-                       </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                <button 
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full p-10 flex items-center justify-between text-left gap-8"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
+                >
+                   <h3 id={`faq-question-${idx}`} className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-primary-accent">
+                      {faq.question}
+                   </h3>
+                   <div className={cn(
+                     "h-12 w-12 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all",
+                     isOpen ? "bg-transparent border-2 border-primary-accent text-white rotate-180" : "text-zinc-600"
+                   )}>
+                      {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                   </div>
+                </button>
+                
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      id={`faq-answer-${idx}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${idx}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      <div className="px-10 pb-10 border-t border-white/5 pt-8">
+                         <p className="text-lg text-zinc-400 font-light leading-relaxed">
+                           {faq.answer}
+                         </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

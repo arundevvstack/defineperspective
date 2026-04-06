@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
   title: "AI Video Production Agency | Elite AI Media & Ads India | Define Perspective",
@@ -93,7 +94,7 @@ export default function AIMediaProductionLandingPage() {
               Core Division: DP AI Studios
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-[8rem] font-black tracking-tighter uppercase mb-12 leading-[0.8] text-white">
             AI Video <br />{" "}
             <span className="text-primary-accent italic">Service Hub_</span>
           </h1>
@@ -148,36 +149,7 @@ export default function AIMediaProductionLandingPage() {
           ))}
         </div>
 
-        {/* Final Strategic Section */}
-        <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-12">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none italic">
-              AI-Powered <br />
-              <span className="text-primary-accent italic font-black underline decoration-primary-accent/30">
-                Storytelling_
-              </span>
-            </h2>
-            <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
-              DP AI Studios is our main AI media division. We deliver <strong>AI video production services in India</strong> that offer unlimited creative options. For brands in Kerala and national cities, our AI media company provides high-quality video that works for the modern market.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6">
-               <Link href="/contact?service=ai-video-hub" className="h-20 px-12 rounded-full bg-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 transition-all shadow-2xl flex items-center gap-4" >
-                  Start Your Project <ArrowRight size={18} />
-               </Link>
-               <div className="h-20 px-10 rounded-full border border-white/10 flex items-center justify-center text-[10px] font-mono tracking-[0.5em] uppercase opacity-40">
-                  Trusted AI Production
-               </div>
-            </div>
-          </div>
-          <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl grayscale hover:grayscale-0 transition-all duration-1000">
-            <Image
-              src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200"
-              alt="Define Perspective AI Cinema Engine"
-              fill
-              className="object-cover transition-transform duration-1000 hover:scale-110"
-            />
-          </div>
-        </section>
+        <CinematicHero />
       </div>
     </main>
   );
