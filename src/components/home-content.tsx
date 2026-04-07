@@ -39,9 +39,9 @@ export default function HomeContent() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
              {[
-               { title: "Fast Delivery with AI", text: "Production cycles reduced from weeks to days with high-speed AI systems.", icon: Zap },
-               { title: "Premium Visual Quality", text: "High-end filmmaking combined with modern AI to outshine the competition.", icon: Star },
-               { title: "Cost-Effective Results", text: "Efficient video creation at lower budgets for startups and brands across India.", icon: BarChart3 }
+               { title: "Scalable Production", text: "From multi-cam traditional live-action shoots to rapid AI generative pipelines.", icon: Zap },
+               { title: "Premium Visual Quality", text: "High-end cinematic filmmaking combined with modern technology to outshine the competition.", icon: Star },
+               { title: "Cost-Effective Results", text: "Efficient asset creation mapping traditional budgets to smarter tools globally.", icon: BarChart3 }
              ].map((benefit, bIdx) => (
                <motion.div 
                  key={bIdx}
@@ -152,12 +152,12 @@ export default function HomeContent() {
             <div>
               <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block">Our Location {" // "} India & Kerala</span>
               <h2 className="text-3xl sm:text-5xl font-black text-white mb-10 tracking-tighter leading-none uppercase">
-                AI filmmaking for <br /><span className="text-primary-accent">Visionary Brands.</span>
+                Cinematic Filmmaking <br /><span className="text-primary-accent">& Next-Gen AI.</span>
               </h2>
             </div>
             <div className="space-y-10 text-xl font-light text-zinc-500 leading-relaxed uppercase tracking-tight">
               <p>
-                Based in <span className="text-white font-bold">Trivandrum & Kochi</span>, we deliver high-quality media. By combining beautiful filmmaking with our custom AI systems, we provide <span className="text-white font-bold italic">10x faster production</span> without compromising quality.
+                Based in <span className="text-white font-bold">Trivandrum & Kochi</span>, we deliver premium visual narratives. Whether orchestrating full-scale live-action traditional productions or leveraging our cutting-edge AI systems, we provide <span className="text-white font-bold italic">uncompromised quality</span> tailored for visionary brands globally.
               </p>
               <p>
                 Everything we build is <span className="text-primary-accent font-bold">Search Ready</span> — optimized for easy discovery by search engines and the newest AI tools used by customers globally.
