@@ -294,7 +294,7 @@ export default function ServiceGrid({ mode }: { mode: string }) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent flex items-center justify-center text-primary-accent-fg mb-10 shadow-lg hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+            className="h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent flex items-center justify-center text-primary-accent-fg mb-10 shadow-lg"
           >
              <Sparkles size={32} />
           </motion.div>
@@ -315,7 +315,7 @@ export default function ServiceGrid({ mode }: { mode: string }) {
         <div className="space-y-40">
            {filteredSections.map((section, sIdx) => (
              <div key={section.title} className={cn("relative", section.theme)}>
-                <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-transparent border-2 border-primary-accent/10 hidden lg:block hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
+                <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-transparent border-2 border-primary-accent/10 hidden lg:block" />
                 
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
                    <div className="max-w-2xl">
@@ -328,7 +328,7 @@ export default function ServiceGrid({ mode }: { mode: string }) {
                       </p>
                    </div>
                    
-                   <div className="h-16 w-16 rounded-full border border-[var(--border-subtle)] bg-[var(--glass-white)] flex items-center justify-center text-zinc-600 hover:text-primary-accent transition cursor-help group">
+                   <div className="h-16 w-16 rounded-full border border-[var(--border-subtle)] bg-[var(--glass-white)] flex items-center justify-center text-zinc-600 transition group">
                       <section.icon size={24} className="group-hover:scale-110 transition-all text-primary-accent" />
                    </div>
                 </div>
@@ -348,19 +348,19 @@ export default function ServiceGrid({ mode }: { mode: string }) {
                         className="relative flex flex-col h-full rounded-[2.5rem] border border-[var(--border-subtle)] bg-[var(--glass-white)] p-10 transition-shadow hover:shadow-[0_20px_50px_rgba(var(--accent-rgb),0.2)] duration-500 overflow-hidden"
                       >
                         {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
+                        <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                         
-                        <div className="mb-10 h-16 w-16 flex items-center justify-center rounded-2xl bg-transparent border-2 border-primary-accent/10 transition-all group-hover:scale-110 shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
+                        <div className="mb-10 h-16 w-16 flex items-center justify-center rounded-2xl bg-transparent border-2 border-primary-accent/10 transition-all group-hover:scale-110 shadow-xl">
                           <service.icon size={30} className="text-primary-accent" />
                         </div>
- 
+
                         <h4 className="mb-6 text-xl font-bold text-foreground tracking-widest uppercase leading-tight min-h-[3.5rem] group-hover:text-primary-accent transition-colors">
                           {service.title}
                         </h4>
                         <p className="mb-10 text-zinc-500 font-light leading-relaxed text-xs uppercase tracking-tighter">
                           {service.desc}
                         </p>
- 
+
                         <div className="mt-auto flex items-center justify-between border-t border-[var(--border-subtle)] pt-8 group-hover:border-primary-accent/30">
                           <span className="text-[10px] font-mono tracking-widest text-zinc-600 group-hover:text-primary-accent uppercase transition-colors">
                              Explore Node
