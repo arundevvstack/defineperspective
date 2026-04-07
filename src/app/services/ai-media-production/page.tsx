@@ -149,7 +149,7 @@ export default function AIMediaProductionLandingPage() {
           ))}
         </div>
 
-        <CinematicHero />
+        <CinematicHero mode="ai-studio" />
       </div>
     </main>
   );
