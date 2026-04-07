@@ -11,6 +11,7 @@ import VideoHero from "@/components/video-hero";
 import CinematicHero from "@/components/cinematic-hero";
 import ServiceGrid from "@/components/service-grid";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 // Dynamic imports for performance optimization
 const IndustriesSection = dynamic(() => import("@/components/industries-section"));
