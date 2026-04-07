@@ -80,18 +80,18 @@ export default function VideoStrategySubPage() {
               >
                 Chat on WhatsApp
               </Link>
-            </div>{" "}
-          </div>{" "}
+            </div>
+          </div>
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
-            {" "}
             <Image
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
               alt="Strategic Video Marketing Consulting"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />{" "}
-            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />{" "}
-          </div>{" "}
+              priority
+            />
+            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+          </div>
         </section>{" "}
         {/* AI Discovery FAQ Segment */}{" "}
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20">

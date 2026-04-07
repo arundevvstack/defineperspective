@@ -92,16 +92,16 @@ export default function CorporateVideoPage() {
               </div>{" "}
             </div>{" "}
             <div className="relative aspect-square md:w-[400px] rounded-3xl overflow-hidden border border-white/10 shrink-0">
-              {" "}
               <Image
                 src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1974&auto=format&fit=crop"
                 alt="Corporate Filming Scene Kerala"
                 fill
                 className="object-cover"
-              />{" "}
-              <div className="absolute inset-0 bg-black/40" />{" "}
-            </div>{" "}
-          </div>{" "}
+                priority
+              />
+              <div className="absolute inset-0 bg-black/40" />
+            </div>
+          </div>
         </section>{" "}
         {/* Industry Specific Positioning */}{" "}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-40">
