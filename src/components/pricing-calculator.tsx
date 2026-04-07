@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Calculator, Zap, Cpu, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -26,6 +26,14 @@ export default function PricingCalculator() {
     const tier = tiers.find(t => t.id === selectedTier);
     return baseCost * (tier?.multiplier || 1);
   }, [baseCost, selectedTier]);
+
+  const handleBaseCostChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setBaseCost(parseInt(e.target.value));
+  }, []);
+
+  const handleTierSelect = useCallback((tierId: Tier) => {
+    setSelectedTier(tierId);
+  }, []);
 
   return (
     <section className="py-32 px-6 md:px-12 bg-black/60 relative overflow-hidden">
@@ -60,7 +68,7 @@ export default function PricingCalculator() {
                      max="50000" 
                      step="1000" 
                      value={baseCost} 
-                     onChange={(e) => setBaseCost(parseInt(e.target.value))}
+                     onChange={handleBaseCostChange}
                      className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary-accent"
                    />
                    <div className="flex justify-between text-[10px] font-mono text-zinc-500 tracking-widest uppercase">
@@ -76,7 +84,7 @@ export default function PricingCalculator() {
                   {tiers.map((tier) => (
                     <button
                       key={tier.id}
-                      onClick={() => setSelectedTier(tier.id as Tier)}
+                      onClick={() => handleTierSelect(tier.id as Tier)}
                       className={cn(
                         "flex items-center gap-4 p-6 rounded-2xl border transition-all text-left",
                         selectedTier === tier.id 

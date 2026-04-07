@@ -113,19 +113,20 @@ export default function PerformanceMarketingLandingPage() {
             </p>
             <Link
               href="/contact?service=performance-marketing"
-              className="inline-flex h-20 px-12 rounded-full bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+              className="inline-flex h-20 px-12 rounded-full bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent transition-all duration-300"
             >
               Start Scaling Now
             </Link>
           </div>
           <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl opacity-70">
             <Image
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop"
-              alt="Performance Marketing Data Analysis"
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+              alt="Strategy Data Charts for Video Funnel Systems"
               fill
-              className="object-cover transition-transform duration-700 hover:scale-110"
+              className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
+              priority
             />
-            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+            <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/10 hover:bg-transparent hover:text-primary-accent transition-all duration-300" />
           </div>
         </section>
       </div>
