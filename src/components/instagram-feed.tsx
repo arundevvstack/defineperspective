@@ -43,7 +43,7 @@ export default function InstagramFeed() {
         {igPosts.map((post, idx) => (
           <motion.a
             key={post.id}
-            href="https://www.instagram.com/defineperspective/"
+            href={post.link}
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -59,11 +59,14 @@ export default function InstagramFeed() {
               className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
             />
             {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 backdrop-blur-sm">
-              <Instagram size={32} className="text-primary-accent" />
-              <div className="flex gap-8 text-xs font-black uppercase tracking-widest text-white">
-                <span className="flex items-center gap-2"><Heart size={14} className="text-red-500 fill-red-500" /> {post.likes}</span>
-                <span className="flex items-center gap-2"><MessageCircle size={14} className="text-primary-accent fill-primary-accent" /> {post.comments}</span>
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6 backdrop-blur-sm">
+              <div className="flex items-center gap-2 text-white font-bold">
+                <Heart size={20} fill="white" />
+                <span>Live</span>
+              </div>
+              <div className="flex items-center gap-2 text-white font-bold">
+                <MessageCircle size={20} fill="white" />
+                <span>View</span>
               </div>
             </div>
           </motion.a>

@@ -95,8 +95,8 @@ whileInView={{ opacity: 1, scale: 1 }}
                className="group relative cursor-pointer"
              >
                 
-                <div className="relative flex flex-col h-full rounded-[2.5rem] border border-white/5 bg-white/5 p-10 hover:bg-white transition-all duration-500 overflow-hidden hover:text-primary-accent transition-all duration-300">
-                   <div className="mb-10 h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent/10 flex items-center justify-center text-primary-accent shadow-lg transition-all group-hover:scale-110 hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
+                <div className="relative flex flex-col h-full rounded-[2.5rem] border border-white/5 bg-white/5 p-10 hover:bg-primary-accent/5 hover:border-primary-accent/20 transition-all duration-500 overflow-hidden text-left">
+                   <div className="mb-10 h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent shadow-lg transition-all group-hover:scale-110">
                       <item.icon size={28} />
                    </div>
                    
