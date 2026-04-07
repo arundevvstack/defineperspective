@@ -21,14 +21,17 @@ const projects = [
     roi: "AI Fashion/Luxury",
   },
   {
-    id: "kumbayah-kombucha",
-    title: "Kumbayah Kombucha",
-    desc: "D2C growth through high-velocity social ads. One shoot transformed into 100+ platform-optimized, viral assets.",
+    id: "bb-serum-tvc",
+    title: "BB Serum TVC",
+    desc: "A premium, high-fidelity traditional television commercial designed to elevate the brand's visual identity. Executed with cinematic lighting, expert live-action direction, and high-end color grading to deliver a flawless, broadcast-ready aesthetic.",
     beforeUrl: "https://images.unsplash.com/photo-1594498653385-60177217cce3?auto=format&fit=crop&q=80&w=1200",
     afterUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200",
-    ttm: "48 hours",
-    workflow: "D2C + Modular AI",
-    roi: "185% Engagement Up",
+    workflowLabel: "Pipeline",
+    workflow: "Live-Action Production",
+    ttmLabel: "Format",
+    ttm: "Broadcast TVC",
+    roiLabel: "Industry",
+    roi: "Cosmetics & Beauty",
   }
 ];
 
