@@ -10,7 +10,7 @@ const projects = [
   {
     id: "desert-queen-west-vogue",
     title: "Desert Queen | West Vogue Series",
-    desc: "Enter a realm of power, elegance, and haute couture with Desert Queen, a cinematic AI fashion film from the West Vogue series. Shot in sweeping desert landscapes and sculpted light, this editorial-style campaign blends regal silhouettes, flowing fabrics, bold styling, and futuristic AI-driven visuals to create a striking luxury narrative. Designed for global fashion audiences, Desert Queen explores strength, beauty, and modern royalty through next-generation storytelling and cutting-edge artificial intelligence production techniques.",
+    desc: "Enter a realm of power, elegance, and haute couture with Desert Queen, a cinematic AI fashion film from the West Vogue series.",
     beforeUrl: "https://images.unsplash.com/photo-1515562141511-6cbd47a619ff?auto=format&fit=crop&q=80&w=1200",
     afterUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200",
     workflowLabel: "Campaign",
