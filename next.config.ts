@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://www.youtube.com https://s.ytimg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://defineperspective.in https://i.ytimg.com; font-src 'self' data:; connect-src 'self' https://vitals.vercel-insight.com https://www.youtube.com; media-src 'self' https://player.vimeo.com https://vimeo.com *.vimeo.com https://www.youtube.com; frame-src 'self' https://www.youtube.com https://youtube.com; frame-ancestors 'none'; upgrade-insecure-requests;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://www.youtube.com https://s.ytimg.com https://api.mapbox.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com; img-src 'self' data: https://images.unsplash.com https://defineperspective.in https://i.ytimg.com https://api.mapbox.com; font-src 'self' data:; connect-src 'self' https://vitals.vercel-insight.com https://www.youtube.com https://api.mapbox.com *.mapbox.com; media-src 'self' https://player.vimeo.com https://vimeo.com *.vimeo.com https://www.youtube.com; frame-src 'self' https://www.youtube.com https://youtube.com; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests;",
           },
         ],
       },

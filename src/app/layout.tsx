@@ -14,6 +14,8 @@ const firaCode = Fira_Code({
 
 import ThemeWrapper from "@/components/theme-wrapper";
 import GlassFooter from "@/components/glass-footer";
+import GlobalMetricsHUD from "@/components/global-metrics-hud";
+import GlobalTacticalHUD from "@/components/global-tactical-hud";
 
 export const metadata: Metadata = {
   title: "Define Perspective | Elite AI Media & Video Production India",
@@ -57,6 +59,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeWrapper>
+          <GlobalTacticalHUD />
+          <GlobalMetricsHUD />
           {children}
           <GlassFooter />
         </ThemeWrapper>
