@@ -83,14 +83,14 @@ export default function HomeContent() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-32 text-left">
              <motion.div 
-               className="p-16 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-10/30 transition-all group shadow-xl hover:text-primary-accent transition-all duration-300"
+               className="p-10 md:p-12 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-8 transition-all group shadow-xl hover:text-primary-accent transition-all duration-300"
              >
-                <div className="h-20 w-20 rounded-3xl bg-transparent border-2 border-primary-accent text-white flex items-center justify-center transition-transform group-hover:scale-110 hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
-                   <Calendar size={36} />
+                <div className="h-16 w-16 rounded-3xl bg-transparent border-2 border-primary-accent text-white flex items-center justify-center transition-transform group-hover:scale-110 hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
+                   <Calendar size={32} />
                 </div>
                 <div>
-                   <h3 className="text-4xl font-black uppercase tracking-widest mb-6 leading-tight">Business <br />Consultation</h3>
-                   <p className="text-lg text-zinc-500 font-light leading-relaxed mb-10 uppercase tracking-widest text-[11px]">
+                   <h3 className="text-3xl lg:text-4xl font-black uppercase tracking-widest mb-4 leading-tight">Business <br />Consultation</h3>
+                   <p className="text-base text-zinc-500 font-light leading-relaxed mb-6 uppercase tracking-widest text-[11px]">
                      "Plan your high-impact visual strategy for the new year."
                    </p>
                 </div>
@@ -113,14 +113,14 @@ export default function HomeContent() {
              </motion.div>
 
              <motion.div 
-               className="p-16 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-10/30 transition-all group shadow-xl hover:text-primary-accent transition-all duration-300"
+               className="p-10 md:p-12 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-8 transition-all group shadow-xl hover:text-primary-accent transition-all duration-300"
              >
-                <div className="h-20 w-20 rounded-3xl bg-transparent border border-white/20 text-primary-accent flex items-center justify-center transition-transform group-hover:scale-110 hover:text-primary-accent transition-all duration-300">
-                   <Zap size={36} />
+                <div className="h-16 w-16 rounded-3xl bg-transparent border border-white/20 text-primary-accent flex items-center justify-center transition-transform group-hover:scale-110 hover:text-primary-accent transition-all duration-300">
+                   <Zap size={32} />
                 </div>
                 <div>
-                   <h3 className="text-4xl font-black uppercase tracking-widest mb-6 leading-tight">AI Product <br />Production</h3>
-                   <p className="text-lg text-zinc-500 font-light leading-relaxed mb-10 uppercase tracking-widest text-[11px]">
+                   <h3 className="text-3xl lg:text-4xl font-black uppercase tracking-widest mb-4 leading-tight">AI Product <br />Production</h3>
+                   <p className="text-base text-zinc-500 font-light leading-relaxed mb-6 uppercase tracking-widest text-[11px]">
                      "Scale your brand identity with realistic AI videos and assets."
                    </p>
                 </div>
