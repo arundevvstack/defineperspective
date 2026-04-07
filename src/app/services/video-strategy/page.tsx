@@ -54,17 +54,18 @@ export default function VideoStrategyLandingPage() {
       <GlassNavbar />
 
       {/* Background Graphic */}
-      <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
+      {/* Background Graphic */}
+      <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8">
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md hover:bg-white hover:text-primary-accent transition-all duration-300">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md">
               Division: Lifecycle Strategy
             </div>
           </div>
           <h1 className="text-6xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
-            Video <br />{" "}
+            Video <br />
             <span className="text-primary-accent italic">Strategy_Hub_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed">
@@ -79,9 +80,9 @@ export default function VideoStrategyLandingPage() {
             <Link
               key={service.title}
               href={service.href}
-              className="group cursor-pointer p-8 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/30 transition-all flex flex-col gap-8 hover:text-primary-accent transition-all duration-300"
+              className="group cursor-pointer p-8 rounded-3xl border border-white/5 bg-white/5 transition-all flex flex-col gap-8 hover:bg-white/10 hover:border-primary-accent/20"
             >
-              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform hover:bg-white hover:text-primary-accent transition-all duration-300">
+              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <Target size={28} />
               </div>
               <h3 className="text-xl font-black uppercase tracking-tight text-white mb-2">
@@ -102,7 +103,7 @@ export default function VideoStrategyLandingPage() {
         </div>
 
         {/* Strategic Section */}
-        <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center">
+        <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center text-left">
           <div className="space-y-12">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none">
               Architect Your <br />
@@ -117,7 +118,21 @@ export default function VideoStrategyLandingPage() {
               media calendars to high-impact campaign launches, we ensure your
               execution is backed by architectural depth.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6"> <Link href="/contact?service=video-strategy" className="inline-flex h-20 px-12 rounded-full bg-transparent border-2 border-primary-accent text-white font-black font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-xl shadow-primary-accent/20 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" > Get a Quote <ArrowRight size={18} /> </Link> <Link href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project." target="_blank" className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 [var(--glass-white)] text-white font-black uppercase tracking-widest text-sm hover:bg-white/50 transition-all flex items-center justify-center gap-3 hover:text-primary-accent transition-all duration-300" > Chat on WhatsApp </Link> </div>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link
+                href="/contact?service=video-strategy"
+                className="inline-flex h-20 px-12 rounded-full border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary-accent/20 group hover:bg-primary-accent/10"
+              >
+                Get a Quote <ArrowRight size={18} className="ml-4 group-hover:translate-x-2 transition-transform" />
+              </Link>
+              <Link
+                href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
+                target="_blank"
+                className="h-16 px-10 rounded-2xl border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-3 hover:text-primary-accent"
+              >
+                Chat on WhatsApp
+              </Link>
+            </div>
           </div>
           <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl opacity-70">
             <Image
@@ -127,7 +142,7 @@ export default function VideoStrategyLandingPage() {
               className="object-cover transition-transform duration-700 hover:scale-110"
               priority
             />
-            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+            <div className="absolute inset-0 bg-primary-accent/10" />
           </div>
         </section>
       </div>
