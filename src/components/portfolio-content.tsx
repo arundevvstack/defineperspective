@@ -7,13 +7,15 @@ import {
   Camera, 
   MoveRight,
   Cpu,
-  ArrowRight
+  ArrowRight,
+  ExternalLink
 } from "lucide-react";
 import Image from "next/image";
 import GlassNavbar from "@/components/glass-navbar";
 import WhatsAppChat from "@/components/whatsapp-chat";
 import { cn } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
+import LiteYouTube from "@/components/lite-youtube";
 
 const videoData = [
   {
@@ -185,22 +187,18 @@ whileInView={{ opacity: 1, y: 0 }}
                              fill
                              className="object-cover"
                              loading="lazy"
+                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                            />
                          </div>
                        ) : (
-                         <iframe 
-                           src={`https://www.youtube.com/embed/${project.videoId}`} 
+                         <LiteYouTube 
+                           videoId={project.videoId}
                            title={project.title}
-                           className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-1000 border-0"
-                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                           allowFullScreen
+                           aspectRatio={section.category === "AI Vertical Ads" ? "vertical" : "video"}
+                           className="grayscale hover:grayscale-0 transition-all duration-1000"
+                           priority={sectionIdx === 0 && projectIdx < 3}
                          />
                        )}
-                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                          <div className="h-16 w-16 rounded-full bg-transparent border-2 border-primary-accent text-white flex items-center justify-center scale-75 group-hover:scale-100 transition-transform shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
-                             {project.videoId ? <Play size={24} fill="currentColor" /> : <MoveRight size={24} />}
-                          </div>
-                       </div>
                     </div>
                     <div className="px-4">
                       <h4 className="text-lg font-bold uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">{project.title}</h4>
