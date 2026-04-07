@@ -97,16 +97,16 @@ export default function ContactContent() {
       <GlassNavbar />
       
       <div className="container relative z-10 mx-auto max-w-6xl">
-        <header className="mb-24 text-center py-12">
+        <header className="mb-24 py-12 text-left">
            <motion.h1 
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1 }}
-             className="text-6xl font-black md:text-[11rem] tracking-tighter uppercase mb-8 leading-none"
+             className="text-3xl md:text-[5.5rem] font-black tracking-tighter uppercase mb-8 leading-none"
            >
              Define <br /> <span className="text-primary-accent italic">Perspective_</span>
            </motion.h1>
-           <p className="text-xl text-zinc-500 font-light leading-relaxed max-w-3xl mx-auto uppercase tracking-widest">
+           <p className="text-xl text-zinc-500 font-light leading-relaxed max-w-3xl uppercase tracking-widest">
              "Our creative team is ready to scale your vision. Response guaranteed within 24 node hours."
            </p>
         </header>
