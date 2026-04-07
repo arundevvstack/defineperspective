@@ -72,6 +72,7 @@ export default function YouTubeAdsPage() {
               alt="High Quality YouTube Production Workflow India"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              priority
             />
           </div>
         </section>

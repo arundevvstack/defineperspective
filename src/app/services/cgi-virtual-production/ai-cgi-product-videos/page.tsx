@@ -71,22 +71,21 @@ export default function CGISubPage() {
             </div>{" "}
             <Link
               href="/contact?subject=CGI Project enquiry"
-              className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+              className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
             >
-              {" "}
-              Create Your CGI Ad{" "}
-            </Link>{" "}
-          </div>{" "}
+              Create Your CGI Ad
+            </Link>
+          </div>
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
-            {" "}
             <Image
               src="https://images.unsplash.com/photo-1626379953822-baec19c3bbcd?q=80&w=2070&auto=format&fit=crop"
               alt="AI CGI Product Rendering Environment"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />{" "}
-            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />{" "}
-          </div>{" "}
+              priority
+            />
+            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+          </div>
         </section>{" "}
         {/* Section 2: Use Cases for AI Discovery */}{" "}
         <div className="mb-40 space-y-12">

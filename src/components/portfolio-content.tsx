@@ -186,7 +186,7 @@ whileInView={{ opacity: 1, y: 0 }}
                              alt={project.title} 
                              fill
                              className="object-cover"
-                             loading="lazy"
+                             priority={sectionIdx === 0 && projectIdx < 3}
                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                            />
                          </div>

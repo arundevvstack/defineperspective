@@ -68,22 +68,21 @@ export default function PerformanceAdsSubPage() {
             </p>{" "}
             <Link
               href="/contact?subject=Performance Ads enquiry"
-              className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-zinc-100 font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+              className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-zinc-100 font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
             >
-              {" "}
-              Start Scaling Now{" "}
-            </Link>{" "}
-          </div>{" "}
+              Start Scaling Now
+            </Link>
+          </div>
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
-            {" "}
             <Image
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop"
               alt="Performance Marketing ROI Metrics"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
-            />{" "}
-            <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/10 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
-          </div>{" "}
+              priority
+            />
+            <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/10 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
+          </div>
         </section>{" "}
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
           {" "}

@@ -72,6 +72,7 @@ export default function CGIProductPage() {
               alt="High-fidelity 3D CGI and Product Visualization Hub India"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              priority
             />
           </div>
         </section>
