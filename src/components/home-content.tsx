@@ -25,7 +25,10 @@ export default function HomeContent() {
   const [activeTab, setActiveTab] = useState("ai-studio");
 
   return (
-    <main className="min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden">
+    <main className={cn(
+      "min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden",
+      activeTab === "ai-studio" ? "theme-blue" : "theme-red"
+    )}>
       <GlassNavbar />
       
       {/* Section 0: Hero Section */}
