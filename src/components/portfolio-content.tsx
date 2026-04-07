@@ -16,6 +16,7 @@ import WhatsAppChat from "@/components/whatsapp-chat";
 import { cn } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import LiteYouTube from "@/components/lite-youtube";
+import Link from "next/link";
 
 const videoData = [
   {
@@ -70,7 +71,7 @@ const photoData = [
     category: "Commercial Photography",
     description: "High-impact advertisement photography for billboards, luxury catalogs, and product advertising in India.",
     projects: [
-      { id: "photo1", title: "Luxury Timepiece", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1200" },
+      { id: "photo1", title: "Luxury Timepiece", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1200", href: "/portfolio/luxury-timepiece" },
       { id: "photo2", title: "Fashion Editorial", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200" },
     ]
   }
@@ -172,51 +173,62 @@ whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: projectIdx * 0.1 }}
                     className="group"
                   >
-                    <div 
+                    <Link
+                      href={project.href || "#"}
                       className={cn(
-                        "relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-10 transition-all duration-700",
-                        section.category === "AI Vertical Ads" ? "aspect-[9/16] w-full" : "aspect-video",
-                        activeTab === "photo" || activeTab === "clients" ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
+                        "block h-full w-full",
+                        !project.href && "pointer-events-none"
                       )}
                     >
-                       {!project.videoId ? (
-                         <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105">
-                           <Image 
-                             src={project.img || ""} 
-                             alt={project.title} 
-                             fill
-                             className="object-cover"
-                             priority={sectionIdx === 0 && projectIdx < 3}
-                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                           />
-                         </div>
-                       ) : (
-                         <LiteYouTube 
-                           videoId={project.videoId}
-                           title={project.title}
-                           aspectRatio={section.category === "AI Vertical Ads" ? "vertical" : "video"}
-                           className="grayscale hover:grayscale-0 transition-all duration-1000"
-                           priority={sectionIdx === 0 && projectIdx < 3}
-                         />
-                       )}
-                    </div>
-                    <div className="px-4">
-                      <h4 className="text-lg font-bold uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">{project.title}</h4>
-                      <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest leading-loose">
-                         {project.service ? (
-                           <>
-                             {project.client && <>Client: {project.client} <br /></>}
-                             Service: {project.service} <br />
-                             Industry: {project.industry}
-                           </>
+                      <div 
+                        className={cn(
+                          "relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-10 transition-all duration-700",
+                          section.category === "AI Vertical Ads" ? "aspect-[9/16] w-full" : "aspect-video",
+                          (project.href || activeTab === "photo" || activeTab === "clients") ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
+                        )}
+                      >
+                         {!project.videoId ? (
+                           <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105">
+                             <Image 
+                               src={project.img || ""} 
+                               alt={project.title} 
+                               fill
+                               className="object-cover"
+                               priority={sectionIdx === 0 && projectIdx < 3}
+                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                             />
+                           </div>
                          ) : (
-                           <>
-                             Pipeline: {activeTab === "ai" ? "Neural Render" : "Optic Sensors"} <br />
-                             Status: Release v2.0
-                           </>
+                           <LiteYouTube 
+                             videoId={project.videoId}
+                             title={project.title}
+                             aspectRatio={section.category === "AI Vertical Ads" ? "vertical" : "video"}
+                             className="grayscale hover:grayscale-0 transition-all duration-1000"
+                             priority={sectionIdx === 0 && projectIdx < 3}
+                           />
                          )}
-                      </p>
-                    </div>
+                      </div>
+                      <div className="px-4">
+                        <h4 className="text-lg font-bold uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">
+                          {project.title}
+                          {project.href && <ExternalLink size={14} className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />}
+                        </h4>
+                        <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest leading-loose">
+                           {project.service ? (
+                             <>
+                               {project.client && <>Client: {project.client} <br /></>}
+                               Service: {project.service} <br />
+                               Industry: {project.industry}
+                             </>
+                           ) : (
+                             <>
+                               Pipeline: {activeTab === "ai" ? "Neural Render" : "Optic Sensors"} <br />
+                               Status: Release v2.0
+                             </>
+                           )}
+                        </p>
+                      </div>
+                    </Link>
                   </motion.div>
                 ))}
               </div>
