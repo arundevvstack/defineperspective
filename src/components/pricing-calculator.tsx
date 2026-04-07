@@ -39,8 +39,8 @@ export default function PricingCalculator() {
     <section className="py-32 px-6 md:px-12 bg-black/60 relative overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 right-0 h-full w-[1px] bg-primary-accent opacity-20 hover:bg-white hover:text-primary-accent transition-all duration-300" />
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-primary-accent opacity-20 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+        <div className="absolute top-0 right-0 h-full w-[1px] bg-primary-accent opacity-20" />
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-primary-accent opacity-20" />
       </div>
 
       <div className="container mx-auto relative z-10">
@@ -107,7 +107,9 @@ export default function PricingCalculator() {
           <div className="lg:col-span-8">
              <motion.div 
                key={selectedTier}
-transition={{ duration: 0.5 }}
+               initial={{ opacity: 0, scale: 0.95 }}
+               animate={{ opacity: 1, scale: 1 }}
+               transition={{ duration: 0.5 }}
                className="h-full rounded-[2.5rem] border border-white/10 bg-white/5 p-12 lg:p-24 flex flex-col items-center justify-center text-center relative overflow-hidden backdrop-blur-xl"
              >
                 <div className="absolute top-8 right-8 text-[10px] font-mono tracking-[0.3em] text-zinc-600 uppercase">
@@ -134,11 +136,11 @@ transition={{ duration: 0.5 }}
                          detail: `${tierName} (Quote: $${calculatedCost.toLocaleString()})` 
                        }));
                      }}
-                     className="h-16 flex-1 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform active:scale-95 shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+                     className="h-16 flex-1 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent"
                    >
                      Request a Quote
                    </button>
-                   <button className="h-16 flex-1 rounded-2xl border border-white/10 bg-white/5 text-white font-bold uppercase tracking-widest text-sm hover:bg-white transition hover:text-primary-accent transition-all duration-300">
+                   <button className="h-16 flex-1 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all hover:text-primary-accent">
                      Download Prices
                    </button>
                 </div>
