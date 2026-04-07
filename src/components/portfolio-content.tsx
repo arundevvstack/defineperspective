@@ -63,9 +63,9 @@ export default function PortfolioContent() {
   const activeTab = searchParams.get("view") || "video";
 
   const tabs = [
-    { id: "video", label: "Video Production", icon: Video },
+    { id: "video", label: "Production", icon: Video },
     { id: "ai", label: "AI Studios", icon: Cpu },
-    { id: "photo", label: "Photography", icon: Camera },
+    { id: "photo", label: "Clients", icon: Camera },
   ];
 
   const handleNavigate = (pathOrId: string) => {
