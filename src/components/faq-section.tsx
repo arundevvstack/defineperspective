@@ -51,10 +51,10 @@ export default function FAQSection() {
            
            <button 
              aria-label="Search for answers" 
-             className="p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl flex items-center gap-4 group hover:bg-white transition-all cursor-pointer hover:text-primary-accent"
+             className="p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-xl flex items-center gap-4 group transition-all cursor-pointer hover:border-primary-accent/30"
            >
-              <Search className="text-zinc-600 group-hover:text-primary-accent" />
-              <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-primary-accent transition">Search for answers</span>
+              <Search className="text-zinc-600 group-hover:text-primary-accent transition-colors" />
+              <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 group-hover:text-primary-accent transition-colors">Search for answers</span>
            </button>
         </div>
 
@@ -64,7 +64,7 @@ export default function FAQSection() {
             return (
               <div 
                 key={idx}
-                className="group rounded-3xl border border-white/5 bg-white/5 overflow-hidden transition-all hover:bg-white hover:text-primary-accent"
+                className="group rounded-3xl border border-white/5 bg-white/5 overflow-hidden transition-all hover:bg-white/10 hover:border-primary-accent/20"
               >
                 <button 
                   onClick={() => toggleFaq(idx)}
