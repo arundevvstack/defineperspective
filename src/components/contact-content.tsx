@@ -80,7 +80,7 @@ function ContactForm() {
           />
       </div>
 
-      <button type="submit" className="w-full h-16 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm transition-all duration-300 shadow-xl flex items-center justify-center gap-4 hover:bg-white hover:text-primary-accent">
+      <button type="submit" className="w-full h-16 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm transition-all shadow-xl flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
           Request a Quote <ArrowRight size={18} />
       </button>
       
@@ -116,28 +116,28 @@ export default function ContactContent() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
                  <div className="space-y-16">
                     <div className="space-y-12">
-                       <div className="flex gap-8 group">
-                          <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary-accent group-hover:text-white transition-all duration-300">
+                       <div className="flex gap-8 group cursor-pointer">
+                          <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary-accent group-hover:text-white transition-all">
                              <Mail size={24} />
                           </div>
                           <div>
                              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-1">Direct Logic</span>
-                             <h4 className="text-xl font-bold uppercase tracking-widest text-zinc-200">mail@defineperspective.in</h4>
+                             <h4 className="text-xl font-bold uppercase tracking-widest text-zinc-200 group-hover:text-primary-accent transition-colors">mail@defineperspective.in</h4>
                           </div>
                        </div>
 
-                       <div className="flex gap-8 group">
-                          <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary-accent group-hover:text-white transition-all duration-300">
+                       <div className="flex gap-8 group cursor-pointer">
+                          <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary-accent group-hover:text-white transition-all">
                              <Phone size={24} />
                           </div>
                           <div>
                              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-1">Inbound Voice</span>
-                             <h4 className="text-xl font-bold uppercase tracking-widest text-zinc-200">+91 949 619 1684</h4>
+                             <h4 className="text-xl font-bold uppercase tracking-widest text-zinc-200 group-hover:text-primary-accent transition-colors">+91 949 619 1684</h4>
                           </div>
                        </div>
 
-                       <div className="flex gap-8 group">
-                          <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary-accent group-hover:text-white transition-all duration-300">
+                       <div className="flex gap-8 group cursor-pointer">
+                          <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary-accent group-hover:text-white transition-all">
                              <MapPin size={24} />
                           </div>
                           <div>
