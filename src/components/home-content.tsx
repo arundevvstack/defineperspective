@@ -30,10 +30,11 @@ export default function HomeContent() {
       
       {/* Section 0: Hero Section */}
       <VideoHero />
-      <CinematicHero />
 
       {/* Section 0.1: AI & Media Switcher */}
       <ServicesSwitcher activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      <CinematicHero mode={activeTab} />
 
       {/* Section 1: Services Matrix */}
       <section id="services" className="relative z-10">
