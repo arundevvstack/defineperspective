@@ -26,9 +26,7 @@ const EXPERT_SERVICES = [
   }
 ];
 
-export default function ServicesSwitcher() {
-  const [activeTab, setActiveTab] = useState(EXPERT_SERVICES[0].id);
-
+export default function ServicesSwitcher({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (id: string) => void }) {
   const activeContent = EXPERT_SERVICES.find(s => s.id === activeTab);
 
   return (

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { 
@@ -21,6 +22,8 @@ const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat"), { ssr: 
 const ServicesSwitcher = dynamic(() => import("@/components/services-switcher"), { ssr: false });
 
 export default function HomeContent() {
+  const [activeTab, setActiveTab] = useState("ai-studio");
+
   return (
     <main className="min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden">
       <GlassNavbar />
@@ -30,22 +33,26 @@ export default function HomeContent() {
       <CinematicHero />
 
       {/* Section 0.1: AI & Media Switcher */}
-      <ServicesSwitcher />
+      <ServicesSwitcher activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Section 1: Services Matrix */}
       <section id="services" className="relative z-10">
-        <ServiceGrid />
+        <ServiceGrid mode={activeTab} />
       </section>
 
       {/* Section 2: Why Choose Us (Benefits) */}
       <section className="py-32 px-6 md:px-12 bg-black relative border-y border-white/5">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-             {[
-               { title: "Scalable Production", text: "From multi-cam traditional live-action shoots to rapid AI generative pipelines.", icon: Zap },
-               { title: "Premium Visual Quality", text: "High-end cinematic filmmaking combined with modern technology to outshine the competition.", icon: Star },
-               { title: "Cost-Effective Results", text: "Efficient asset creation mapping traditional budgets to smarter tools globally.", icon: BarChart3 }
-             ].map((benefit, bIdx) => (
+             {(activeTab === "ai-studio" ? [
+               { title: "Rapid AI Systems", text: "Production cycles reduced from weeks to hours with high-speed autonomous AI pipelines.", icon: Zap },
+               { title: "Virtual Art Direction", text: "Hyper-realistic environments and world-building that eliminates the need for travel.", icon: Star },
+               { title: "AI Cost Efficiency", text: "Superior visual quality at a fraction of traditional production budgets.", icon: BarChart3 }
+             ] : [
+               { title: "Elite Cinematographers", text: "World-class camera crews and meticulous lighting for a true broadcast look.", icon: Zap },
+               { title: "Premium Production Sets", text: "Full on-location production management in Kerala with elite equipment.", icon: Star },
+               { title: "Maximum Brand ROI", text: "Scientific ad structures built to deliver high-retention cinematic authority.", icon: BarChart3 }
+             ]).map((benefit, bIdx) => (
                <motion.div 
                  key={bIdx}
                  initial={{ opacity: 0, y: 20 }}
@@ -72,7 +79,7 @@ export default function HomeContent() {
       <MetricsSection />
 
       {/* Section 6: Our Work (Portfolio) */}
-      <PortfolioSection />
+      <PortfolioSection mode={activeTab} />
 
       {/* Section 7: Conversion Hub (Call to Action) */}
       <section className="py-48 px-6 md:px-12 bg-black relative">
@@ -155,12 +162,12 @@ export default function HomeContent() {
             <div>
               <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block">Our Location {" // "} India & Kerala</span>
               <h2 className="text-3xl sm:text-5xl font-black text-white mb-10 tracking-tighter leading-none uppercase">
-                Cinematic Filmmaking <br /><span className="text-primary-accent">& Next-Gen AI.</span>
+                {activeTab === "ai-studio" ? "Generative Cinema" : "Elite Production"} <br /><span className="text-primary-accent">& Global Logic.</span>
               </h2>
             </div>
             <div className="space-y-10 text-xl font-light text-zinc-500 leading-relaxed uppercase tracking-tight">
               <p>
-                Based in <span className="text-white font-bold">Trivandrum & Kochi</span>, we deliver premium visual narratives. Whether orchestrating full-scale live-action traditional productions or leveraging our cutting-edge AI systems, we provide <span className="text-white font-bold italic">uncompromised quality</span> tailored for visionary brands globally.
+                Based in <span className="text-white font-bold">Trivandrum & Kochi</span>, we deliver premium visual narratives. {activeTab === "ai-studio" ? "Leveraging our cutting-edge AI systems, we provide 10x faster production cycles for visionary digital brands globally." : "By orchestrating full-scale live-action traditional productions, we deliver the highest level of cinematic authority for legacy-minded companies."}
               </p>
               <p>
                 Everything we build is <span className="text-primary-accent font-bold">Search Ready</span> — optimized for easy discovery by search engines and the newest AI tools used by customers globally.

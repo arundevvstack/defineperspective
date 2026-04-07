@@ -276,7 +276,15 @@ function TiltCard({ children, className, onClick }: { children: React.ReactNode;
   );
 }
 
-export default function ServiceGrid() {
+export default function ServiceGrid({ mode }: { mode: string }) {
+  const filteredSections = serviceSections.filter(section => {
+    if (mode === "ai-studio") {
+      return section.theme === "theme-blue" || section.title === "Video Strategy & Consulting";
+    } else {
+      return section.theme === "theme-red" || section.title === "Video Strategy & Consulting";
+    }
+  });
+
   return (
     <section id="services" className="py-40 px-6 md:px-12 bg-background relative">
       <div className="container mx-auto">
@@ -305,7 +313,7 @@ export default function ServiceGrid() {
         </div>
 
         <div className="space-y-40">
-           {serviceSections.map((section, sIdx) => (
+           {filteredSections.map((section, sIdx) => (
              <div key={section.title} className={cn("relative", section.theme)}>
                 <div className="absolute -left-12 top-0 bottom-0 w-[1px] bg-transparent border-2 border-primary-accent/10 hidden lg:block hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
                 

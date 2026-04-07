@@ -37,9 +37,14 @@ const projects = [
   }
 ];
 
-export default function PortfolioSection() {
+export default function PortfolioSection({ mode }: { mode: string }) {
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const filteredProjects = projects.filter(p => {
+    if (mode === "ai-studio") return p.id.includes("desert") || p.id.includes("ai");
+    return p.id.includes("bb-serum") || !p.id.includes("ai");
+  });
 
   const handleSlider = (e: React.MouseEvent | React.TouchEvent) => {
     if (!containerRef.current) return;
@@ -70,7 +75,7 @@ export default function PortfolioSection() {
         </div>
 
         <div className="space-y-40">
-          {projects.map((project, idx) => (
+          {filteredProjects.map((project, idx) => (
             <motion.div 
               key={project.id} 
               initial={{ opacity: 0, y: 20 }}
