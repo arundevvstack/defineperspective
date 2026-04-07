@@ -595,11 +595,45 @@ const SidebarAnimatedMetrics = () => {
 
 // Main Page
 export default function CybersecurityDashboard() {
+  const [isBooted, setIsBooted] = useState(false);
+
+  // Auto-boot effect option (if user doesn't want click-to-start)
+  // But requestFullscreen requires user gesture. So we force a click.
+  const handleBoot = () => {
+    setIsBooted(true);
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    }
+  };
+
+  if (!isBooted) {
+    return (
+      <div 
+        onClick={handleBoot}
+        className="fixed inset-0 z-50 bg-[#000d00] flex flex-col items-center justify-center font-mono text-primary-accent cursor-pointer selection:bg-transparent"
+      >
+        <div className="laser-scanner opacity-30" />
+        <Terminal size={48} className="mb-6 animate-pulse" />
+        <h1 className="text-2xl md:text-5xl font-black mb-2 tracking-widest uppercase">System Offline</h1>
+        <p className="text-sm md:text-md opacity-60 mb-8 animate-pulse text-center px-4">CONNECTION_STANDBY // CLICK_ANYWHERE_TO_INITIALIZE_FULLSCREEN</p>
+        
+        <div className="w-64 h-1 border border-primary-accent/30 relative overflow-hidden">
+          <motion.div 
+            initial={{ x: "-100%" }}
+            animate={{ x: "100%" }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+            className="absolute top-0 bottom-0 w-1/2 bg-primary-accent" 
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="theme-hacker bg-[#000d00] text-white flex flex-col overflow-hidden font-mono selection:bg-primary-accent selection:text-black" style={{ height: '100dvh', background: '#000d00' }}>
+    <div className="theme-hacker bg-[#000d00] text-white flex flex-col overflow-x-hidden lg:overflow-hidden font-mono selection:bg-primary-accent selection:text-black" style={{ height: '100dvh', background: '#000d00' }}>
       {/* CSS Injection to hide global footer on this page */}
       <style dangerouslySetInnerHTML={{ __html: `
-        footer { display: none !important; }
+        footer { border: none !important; margin: 0 !important; opacity: 0; pointer-events: none; height: 0 !important; }
         #glass-footer { display: none !important; }
       ` }} />
       
@@ -634,12 +668,13 @@ export default function CybersecurityDashboard() {
           </div>
       </div>
 
-      <main className="flex-1 flex overflow-hidden">
+      <main className="flex-1 flex flex-col xl:flex-row overflow-y-auto xl:overflow-hidden">
 
-        <aside className="w-80 hidden lg:flex flex-col border-r border-primary-accent/10">
+        {/* Left Side: Intel & Activity */}
+        <aside className="w-full xl:w-80 flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10">
           <TerminalLogs />
           
-          <div className="flex-1 flex flex-col p-4 glass bg-black/20 overflow-y-auto">
+          <div className="flex-none xl:flex-1 flex flex-col p-4 glass bg-black/20 overflow-y-auto">
             {/* Search Keywords */}
             <div className="mb-6">
               <h3 className="text-xs font-bold text-primary-accent mb-4 uppercase tracking-widest flex items-center gap-2">
@@ -707,13 +742,13 @@ export default function CybersecurityDashboard() {
         </aside>
 
         {/* Center: Map */}
-        <section className="flex-1 flex flex-col border-r border-primary-accent/10">
+        <section className="flex-none xl:flex-1 h-[60vh] xl:h-auto flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10 relative min-h-[400px]">
           <MapVisualizer />
           <DecodingConsole />
         </section>
 
         {/* Right Side: Stats & Threats */}
-        <aside className="w-96 hidden xl:flex flex-col p-4 glass bg-[#000d00]/80 overflow-y-auto border-l border-primary-accent/10">
+        <aside className="w-full xl:w-96 flex flex-col p-4 glass bg-[#000d00]/80 overflow-y-visible xl:overflow-y-auto border-l-0 xl:border-l border-primary-accent/10 relative">
           {/* Scrolling Number Stream — matches screenshot right panel */}
           <div className="mb-4 border border-primary-accent/10 bg-black/60 p-3 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-[1px] bg-primary-accent/20 animate-scan" />
