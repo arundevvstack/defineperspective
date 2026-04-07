@@ -37,7 +37,7 @@ const videoData = [
 
 const aiData = [
   {
-    category: "AI Video Production & Core",
+    category: "AI Video Production",
     description: "Photorealistic generative video and motion for brands. Visual velocity refined.",
     projects: [
       { id: "ai1", title: "Neural Horizons", img: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200" },
