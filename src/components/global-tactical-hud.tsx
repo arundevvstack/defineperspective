@@ -1,8 +1,13 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 
 export default function GlobalTacticalHUD() {
+  const pathname = usePathname();
+  
+  if (pathname !== "/cybersecurity") return null;
+
   return (
     <>
       {/* Global Scanline Overlay */}

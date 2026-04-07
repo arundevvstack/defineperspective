@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export default function MatrixRain() {
+  const pathname = usePathname();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -69,6 +71,8 @@ export default function MatrixRain() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  if (pathname !== "/cybersecurity") return null;
 
   return (
     <canvas

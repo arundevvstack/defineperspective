@@ -13,8 +13,8 @@ export default function GlobalMetricsHUD() {
     status: "SECURE"
   });
 
-  // Don't show on the home page or specific cybersecurity page since it has its own HUD
-  if (pathname === "/" || pathname === "/cybersecurity") return null;
+  // Only show on cybersecurity page
+  if (pathname !== "/cybersecurity") return null;
 
   useEffect(() => {
     const interval = setInterval(() => {
