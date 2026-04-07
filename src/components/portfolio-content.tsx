@@ -107,10 +107,11 @@ export default function PortfolioContent() {
         <section className="py-16 text-center max-w-5xl mx-auto">
           <motion.div
           >
-            <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Project Archives {" // "} v2026 Core</span>
+            <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Global Portfolio {" // "} AI Video Production & Brand Films</span>
             <h1 className="text-4xl md:text-9xl font-black tracking-[0.02em] uppercase mb-10 leading-[0.85]">
-              Cinematic <br /><span className="text-primary-accent italic">Execution.</span>
+              Cinematic <br /><span className="text-primary-accent italic">AI Video Studio.</span>
             </h1>
+            <p className="sr-only">Explore Define Perspective's best cinematic TV commercials, AI short-form vertical ads, and premium corporate brand films produced globally and in India.</p>
             
             <div className="mt-20 flex justify-center w-full">
               <div className="flex p-2 rounded-full bg-transparent border border-white/20 backdrop-blur-3xl overflow-hidden">
