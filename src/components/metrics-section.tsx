@@ -12,13 +12,13 @@ const metrics = [
   },
   {
     icon: BarChart3,
-    value: "10,000",
+    value: "1100+",
     label: "Minutes of Film Produced",
   },
   {
     icon: Globe,
-    value: "5",
-    label: "Countries Worked In",
+    value: "100+",
+    label: "Happy Clients",
   },
   {
     icon: Users,
@@ -32,7 +32,7 @@ const metrics = [
   },
   {
     icon: Building2,
-    value: "20",
+    value: "55+",
     label: "Industries Served",
   },
 ];
