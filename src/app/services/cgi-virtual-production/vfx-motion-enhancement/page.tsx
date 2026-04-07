@@ -73,21 +73,20 @@ export default function AIVFXSubPage() {
               >
                 Chat on WhatsApp
               </Link>
-            </div>{" "}
-          </div>{" "}
+            </div>
+          </div>
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
-            {" "}
             <Image
               src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
               alt="Cinematic AI-Enhanced VFX Environment"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />{" "}
-            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />{" "}
-          </div>{" "}
-        </section>{" "}
+              priority
+            />
+            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+          </div>
+        </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          {" "}
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
             VFX Innovation FAQ
           </h2>{" "}
