@@ -109,7 +109,7 @@ export default function PortfolioContent() {
           >
             <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Global Portfolio {" // "} AI Video Production & Brand Films</span>
             <h1 className="text-4xl md:text-9xl font-black tracking-[0.02em] uppercase mb-10 leading-[0.85]">
-              Cinematic <br /><span className="text-primary-accent italic">AI Video Studio.</span>
+              Cinematic Production <br /><span className="text-primary-accent italic">& AI Studio.</span>
             </h1>
             <p className="sr-only">Explore Define Perspective's best cinematic TV commercials, AI short-form vertical ads, and premium corporate brand films produced globally and in India.</p>
             
