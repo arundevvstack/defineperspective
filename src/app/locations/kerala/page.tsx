@@ -91,7 +91,7 @@ export default function KeralaLocationPage() {
             </div>
           </div>
           <h1 className="text-6xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.85] text-white">
-            AI Video <br />{" "}
+            AI Video <br />
             <span className="text-primary-accent italic">Production Kerala_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
@@ -99,8 +99,8 @@ export default function KeralaLocationPage() {
           </p>
         </header>
 
-        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group">
-          <div className="relative z-10 text-left">
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
+          <div className="relative z-10">
              <div className="flex items-center gap-4 mb-8">
                 <BrainCircuit className="text-primary-accent" size={32} />
                 <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Our Process_</span>
@@ -113,9 +113,9 @@ export default function KeralaLocationPage() {
             </p>
             <Link
               href="/contact?location=Kerala&service=ai-video"
-              className="inline-flex h-16 px-12 rounded-2xl bg-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-2xl font-black uppercase tracking-widest"
+              className="inline-flex h-16 px-12 rounded-2xl bg-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-2xl"
             >
-              Start Kerala AI Project <ArrowRight size={18} className="ml-4 font-black uppercase tracking-widest items-center" />
+              Start Kerala AI Project <ArrowRight size={18} className="ml-4" />
             </Link>
           </div>
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
@@ -123,7 +123,7 @@ export default function KeralaLocationPage() {
               src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1932&auto=format&fit=crop"
               alt="Define Perspective Kerala AI Cinema"
               fill
-              className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale hover:grayscale-0"
+              className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
               priority
             />
             <div className="absolute inset-0 bg-primary-accent/5 backdrop-blur-[2px] pointer-events-none" />
@@ -137,9 +137,9 @@ export default function KeralaLocationPage() {
              { title: "AI Storytelling", desc: "Using AI to create video stories that connect with your audience and drive results." },
              { title: "Fast Ad Delivery", desc: "Create and launch many high-quality AI video ads quickly for e-commerce brands." }
            ].map((cap, i) => (
-             <div key={i} className="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/50 hover:border-primary-accent transition-all group">
+             <div key={i} className="p-10 rounded-[3rem] border border-white/5 bg-zinc-900/50 hover:bg-primary-accent/5 hover:border-primary-accent/20 transition-all group text-left">
                 <Sparkles className="text-primary-accent mb-8 group-hover:scale-125 transition-transform" size={32} />
-                <h3 className="text-xl font-black uppercase tracking-widest mb-4">{cap.title}</h3>
+                <h3 className="text-xl font-black uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">{cap.title}</h3>
                 <p className="text-sm text-zinc-500 font-light leading-relaxed uppercase tracking-widest">{cap.desc}</p>
              </div>
            ))}
@@ -174,7 +174,7 @@ export default function KeralaLocationPage() {
           
           <div className="mt-16 text-center md:text-left">
              <Link href="/blogs" className="text-[10px] font-mono font-black uppercase tracking-[0.5em] text-primary-accent border-b border-primary-accent/30 pb-2 hover:text-white transition-colors">
-                View All Insights {" -> "}
+                View All Insights
              </Link>
           </div>
         </section>
