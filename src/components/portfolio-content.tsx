@@ -40,7 +40,7 @@ const aiData = [
     category: "AI Video Production",
     description: "Photorealistic generative video and motion for brands. Visual velocity refined.",
     projects: [
-      { id: "ai1", title: "Neural Horizons", img: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=1200" },
+      { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue" },
       { id: "ai2", title: "Synthetic Flow", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200" },
     ]
   }
@@ -158,7 +158,7 @@ whileInView={{ opacity: 1, y: 0 }}
                         activeTab === "photo" ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
                       )}
                     >
-                       {activeTab !== "video" ? (
+                       {!project.videoId ? (
                          <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105">
                            <Image 
                              src={project.img || ""} 
@@ -179,7 +179,7 @@ whileInView={{ opacity: 1, y: 0 }}
                        )}
                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
                           <div className="h-16 w-16 rounded-full bg-transparent border-2 border-primary-accent text-white flex items-center justify-center scale-75 group-hover:scale-100 transition-transform shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
-                             {activeTab === "video" ? <Play size={24} fill="currentColor" /> : <MoveRight size={24} />}
+                             {project.videoId ? <Play size={24} fill="currentColor" /> : <MoveRight size={24} />}
                           </div>
                        </div>
                     </div>
@@ -188,6 +188,7 @@ whileInView={{ opacity: 1, y: 0 }}
                       <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest leading-loose">
                          {project.service ? (
                            <>
+                             {project.client && <>Client: {project.client} <br /></>}
                              Service: {project.service} <br />
                              Industry: {project.industry}
                            </>
