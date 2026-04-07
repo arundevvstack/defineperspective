@@ -29,6 +29,9 @@ export default function HomeContent() {
       <VideoHero />
       <CinematicHero />
 
+      {/* Section 0.1: AI & Media Switcher */}
+      <ServicesSwitcher />
+
       {/* Section 1: Services Matrix */}
       <section id="services" className="relative z-10">
         <ServiceGrid />
@@ -67,9 +70,6 @@ export default function HomeContent() {
 
       {/* Section 4: Results & Metrics */}
       <MetricsSection />
-
-      {/* Section 5: Dynamic Service Switcher */}
-      <ServicesSwitcher />
 
       {/* Section 6: Our Work (Portfolio) */}
       <PortfolioSection />
