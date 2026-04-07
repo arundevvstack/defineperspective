@@ -87,7 +87,7 @@ export default function PortfolioContent() {
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
-        <section className="py-32 text-center max-w-5xl mx-auto">
+        <section className="py-24 text-center max-w-5xl mx-auto">
           <motion.div
           >
             <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Project Archives {" // "} v2026 Core</span>
