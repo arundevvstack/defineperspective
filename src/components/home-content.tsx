@@ -99,7 +99,7 @@ export default function HomeContent() {
                     onClick={() => window.location.href = '/contact?subject=Priority Strategy Session Request'}
                     className="group relative h-20 w-full rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-xl transition-all hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
                   >
-                    <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-accent">Get a Quote</span> 
+                    <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-accent">Free Consultation</span> 
                     <ArrowRight size={22} className="relative z-10 group-hover:translate-x-2 transition-transform transition-colors duration-300 group-hover:text-primary-accent" />
                   </button>
                   <Link 
