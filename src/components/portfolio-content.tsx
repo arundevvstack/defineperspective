@@ -46,6 +46,11 @@ const aiData = [
       { id: "ai4", title: "Swarna Kosa | Heritage Silk Sarees", videoId: "-CYvl4ytIFY", service: "AI TVC", industry: "Fashion & Lifestyle", client: "WestVogue" },
       { id: "ai5", title: "SHE Diamond | Cinematic AI Luxury Jewelry Advertisement", videoId: "ZKsTHF772K0", service: "AI TVC", industry: "Fashion & Lifestyle", client: "SHE" },
     ]
+  },
+  {
+    category: "AI Vertical Ads",
+    description: "High-conversion, AI-generated short-form vertical assets calibrated for algorithmic delivery.",
+    projects: []
   }
 ];
 
