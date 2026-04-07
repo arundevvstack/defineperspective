@@ -36,7 +36,7 @@ export default function VideoHero() {
           <Link 
             href="https://youtu.be/sNp1a5I6WsI"
             target="_blank"
-            className="group h-14 px-8 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-white hover:text-primary-accent transition-all duration-500 shadow-2xl shadow-primary-accent/20"
+            className="group h-14 px-8 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:border-primary-accent hover:text-primary-accent transition-all duration-500 backdrop-blur-md"
           >
             Watch Showreel <Play size={16} className="fill-current" />
           </Link>
