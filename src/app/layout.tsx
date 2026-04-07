@@ -54,6 +54,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://s.ytimg.com" />
+      </head>
       <body
         className={`${inter.variable} ${firaCode.variable} antialiased font-sans theme-red`}
         suppressHydrationWarning

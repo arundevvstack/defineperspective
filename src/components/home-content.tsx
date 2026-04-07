@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { 
@@ -8,8 +8,6 @@ import {
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import VideoHero from "@/components/video-hero";
-import CinematicHero from "@/components/cinematic-hero";
-import ServiceGrid from "@/components/service-grid";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +19,8 @@ const TestimonialSection = dynamic(() => import("@/components/testimonial-sectio
 const FAQSection = dynamic(() => import("@/components/faq-section"));
 const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat"), { ssr: false });
 const ServicesSwitcher = dynamic(() => import("@/components/services-switcher"), { ssr: false });
+const CinematicHero = dynamic(() => import("@/components/cinematic-hero"));
+const ServiceGrid = dynamic(() => import("@/components/service-grid"));
 
 export default function HomeContent() {
   const [activeTab, setActiveTab] = useState("media-production");
@@ -36,13 +36,19 @@ export default function HomeContent() {
       <VideoHero />
 
       {/* Section 0.1: AI & Media Switcher */}
-      <ServicesSwitcher activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Suspense fallback={<div className="h-96 bg-black" />}>
+        <ServicesSwitcher activeTab={activeTab} setActiveTab={setActiveTab} />
+      </Suspense>
 
-      <CinematicHero mode={activeTab} />
+      <Suspense fallback={<div className="h-screen bg-black" />}>
+        <CinematicHero mode={activeTab} />
+      </Suspense>
 
       {/* Section 1: Services Matrix */}
       <section id="services" className="relative z-10">
-        <ServiceGrid mode={activeTab} />
+        <Suspense fallback={<div className="h-screen bg-black" />}>
+          <ServiceGrid mode={activeTab} />
+        </Suspense>
       </section>
 
       {/* Section 2: Why Choose Us (Benefits) */}
@@ -78,13 +84,19 @@ export default function HomeContent() {
       </section>
 
       {/* Section 3: Strategic Verticals (Industries) */}
-      <IndustriesSection />
+      <Suspense fallback={<div className="h-96 bg-black" />}>
+        <IndustriesSection />
+      </Suspense>
 
       {/* Section 4: Results & Metrics */}
-      <MetricsSection />
+      <Suspense fallback={<div className="h-80 bg-black" />}>
+        <MetricsSection />
+      </Suspense>
 
       {/* Section 6: Our Work (Portfolio) */}
-      <PortfolioSection mode={activeTab} />
+      <Suspense fallback={<div className="h-screen bg-black" />}>
+        <PortfolioSection mode={activeTab} />
+      </Suspense>
 
       {/* Section 7: Conversion Hub (Call to Action) */}
       <section className="py-48 px-6 md:px-12 bg-black relative">
