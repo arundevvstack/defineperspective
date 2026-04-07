@@ -14,7 +14,6 @@ const firaCode = Fira_Code({
 
 import ThemeWrapper from "@/components/theme-wrapper";
 import GlassFooter from "@/components/glass-footer";
-import GlobalMetricsHUD from "@/components/global-metrics-hud";
 import GlobalTacticalHUD from "@/components/global-tactical-hud";
 import MatrixRain from "@/components/matrix-rain";
 
@@ -62,7 +61,6 @@ export default function RootLayout({
         <ThemeWrapper>
           <MatrixRain />
           <GlobalTacticalHUD />
-          <GlobalMetricsHUD />
           {children}
           <GlassFooter />
         </ThemeWrapper>
