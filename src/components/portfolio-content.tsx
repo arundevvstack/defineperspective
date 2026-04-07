@@ -203,7 +203,7 @@ whileInView={{ opacity: 1, y: 0 }}
                        </div>
                     </div>
                     <div className="px-4">
-                      <h4 className="text-2xl font-black uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">{project.title}</h4>
+                      <h4 className="text-lg font-bold uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">{project.title}</h4>
                       <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest leading-loose">
                          {project.service ? (
                            <>
