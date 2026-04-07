@@ -21,7 +21,7 @@ const videoData = [
     description: "Premium brand storytelling and corporate video production in Kerala, designed to build trust and authority.",
     projects: [
       { id: "corp1", title: "To U Commercial", videoId: "NEqjeiDThcY", service: "TVC", industry: "Fashion/ Apparal" },
-      { id: "corp2", title: "BB App Commercial", videoId: "INpn97C16yM", service: "TVC", industry: "Tech Driven App" },
+      { id: "corp2", title: "BB Serum TVC", videoId: "8TntXDekuE8", service: "TVC", industry: "Cosmetics & Beauty" },
       { id: "corp3", title: "Dotspace Commercial", videoId: "HuX40LSwF7M", service: "TVC", industry: "Co-working Space" },
     ]
   },

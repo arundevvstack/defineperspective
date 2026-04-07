@@ -32,6 +32,8 @@ const projects = [
     ttm: "Broadcast TVC",
     roiLabel: "Industry",
     roi: "Cosmetics & Beauty",
+    actionUrl: "https://youtu.be/8TntXDekuE8",
+    actionLabel: "Watch Campaign Film"
   }
 ];
 
@@ -160,10 +162,10 @@ export default function PortfolioSection() {
                  </div>
                  
                  <button
-                   onClick={() => window.location.href = `/portfolio?id=${project.id}`}
-                   className="h-16 w-full rounded-2xl bg-transparent border border-white/20 flex items-center justify-center gap-4 text-[10px] font-black tracking-[0.2em] uppercase text-white/30 transition-all shadow-xl hover:text-primary-accent transition-all duration-300"
+                   onClick={() => project.actionUrl ? window.open(project.actionUrl, '_blank') : window.location.href = `/portfolio?id=${project.id}`}
+                   className="h-16 w-full rounded-2xl bg-transparent border border-white/20 flex items-center justify-center gap-4 text-[10px] font-black tracking-[0.2em] uppercase text-white/40 transition-all shadow-xl hover:text-primary-accent hover:border-primary-accent/40 transition-all duration-300"
                  >
-                    Unlock Full Metrics <MoveRight size={18} className="text-primary-accent transition-colors duration-300 group-hover:text-primary-accent" />
+                    {project.actionLabel || "Unlock Full Metrics"} <MoveRight size={18} className="text-primary-accent transition-colors duration-300 group-hover:text-primary-accent" />
                  </button>
               </div>
             </motion.div>
