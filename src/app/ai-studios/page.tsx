@@ -152,6 +152,7 @@ export default function AIStudiosPage() {
               alt="AI Neural Processing Laboratory"
               fill
               className="object-cover transition-transform duration-700 hover:scale-110"
+              priority
             />{" "}
             <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/10 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
           </div>{" "}

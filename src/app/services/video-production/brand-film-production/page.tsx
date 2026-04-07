@@ -71,6 +71,7 @@ export default function BrandFilmSubPage() {
               alt="Cinematic Brand Film Production Scene"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
+              priority
             />
             <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />
           </div>
