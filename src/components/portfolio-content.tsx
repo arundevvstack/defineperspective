@@ -42,6 +42,7 @@ const aiData = [
     projects: [
       { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue" },
       { id: "ai2", title: "SHE Luxury Body Lotion", videoId: "5kOnWP-dZZY", service: "AI TV Commercial", industry: "Fashion & Lifestyle", client: "She" },
+      { id: "ai3", title: "Banaras Silk | Fabrics of India", videoId: "ic0skwrzA5M", service: "AI Documentary", industry: "Fashion & Lifestyle", client: "WestVogue" },
     ]
   }
 ];
