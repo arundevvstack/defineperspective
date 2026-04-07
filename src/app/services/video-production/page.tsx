@@ -48,12 +48,12 @@ export default function VideoProductionLandingPage() {
       <GlassNavbar />
 
       {/* Background Graphic */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8">
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md hover:bg-white hover:text-primary-accent transition-all duration-300">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md">
               Division: Elite Media Production
             </div>
           </div>
@@ -73,9 +73,9 @@ export default function VideoProductionLandingPage() {
             <Link
               key={service.title}
               href={service.href}
-              className="group cursor-pointer p-10 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/30 transition-all flex flex-col gap-8 hover:text-primary-accent transition-all duration-300"
+              className="group cursor-pointer p-10 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/30 transition-all flex flex-col gap-8"
             >
-              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform hover:bg-white hover:text-primary-accent transition-all duration-300">
+              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <Video size={28} />
               </div>
               <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">
@@ -111,7 +111,22 @@ export default function VideoProductionLandingPage() {
               don't just 'make videos'; we engineer growth engines for your
               brand.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6"> <Link href="/contact?service=video-production" className="inline-flex h-20 px-12 rounded-full bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300" > Get a Quote <ArrowRight size={18} /> </Link> <Link href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project." target="_blank" className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 [var(--glass-white)] text-white font-black uppercase tracking-widest text-sm hover:bg-white/50 transition-all flex items-center justify-center gap-3 hover:text-primary-accent transition-all duration-300" > Chat on WhatsApp </Link> </div>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link
+                href="/contact?service=video-production"
+                className="inline-flex h-20 px-12 rounded-full bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-110 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+              >
+                {" "}
+                Get a Quote <ArrowRight size={18} />{" "}
+              </Link>
+              <Link
+                href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
+                target="_blank"
+                className="h-20 px-10 rounded-full border border-white/20 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-3 hover:text-primary-accent transition-all duration-300"
+              >
+                Chat on WhatsApp
+              </Link>
+            </div>
           </div>
           <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl">
             <Image
@@ -121,7 +136,7 @@ export default function VideoProductionLandingPage() {
               className="object-cover transition-transform duration-700 hover:scale-110"
               priority
             />
-            <div className="absolute inset-0 bg-primary-accent/10 hover:bg-white hover:text-primary-accent transition-all duration-300" />
+            <div className="absolute inset-0 bg-primary-accent/10" />
           </div>
         </section>
       </div>
