@@ -128,6 +128,7 @@ export default function IndiaLocationPage() {
               alt="Define Perspective India AI Branding"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              priority
             />
             <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
           </div>
