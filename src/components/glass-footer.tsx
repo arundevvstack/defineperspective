@@ -34,11 +34,11 @@ const Whatsapp = ({ size = 20 }) => (
 
 export default function GlassFooter() {
   return (
-    <footer className="py-32 px-6 md:px-12 border-t border-[var(--border-subtle)] bg-background relative overflow-hidden">
+    <footer className="py-16 px-6 md:px-12 border-t border-[var(--border-subtle)] bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-16">
           <div className="lg:col-span-1">
-             <div className="flex items-center m-0 p-0 mb-10">
+             <div className="flex items-center m-0 p-0 mb-6">
                  <Image 
                    src="/images/main-logo.png" 
                    alt="Define Perspective Logo" 
@@ -47,7 +47,7 @@ export default function GlassFooter() {
                    className="object-contain m-0 p-0"
                  />
              </div>
-             <div className="space-y-6 text-sm text-zinc-500 font-light leading-relaxed mb-10">
+             <div className="space-y-4 text-sm text-zinc-500 font-light leading-relaxed mb-6">
                 <div className="flex items-start gap-4">
                    <MapPin size={18} className="text-primary-accent shrink-0" />
                    <span>Define Perspective, Second Floor, TC.4/1224/4, Kuravankonam, Kowdiar, Thrivandrum, Pin: 695003</span>
@@ -147,7 +147,7 @@ export default function GlassFooter() {
           </div>
         </div>
 
-        <div className="mt-40 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-10 text-[10px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
+        <div className="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-8 text-[10px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
            <div className="flex flex-col md:flex-row gap-8 items-center">
               <span>Define Perspective © 2026. All rights reserved.</span>
               <span className="flex items-center gap-2">
