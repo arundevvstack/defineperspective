@@ -41,7 +41,7 @@ const aiData = [
     description: "Photorealistic generative video and motion for brands. Visual velocity refined.",
     projects: [
       { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue" },
-      { id: "ai2", title: "Synthetic Flow", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200" },
+      { id: "ai2", title: "SHE Luxury Body Lotion", videoId: "5kOnWP-dZZY", service: "AI TV Commercial", industry: "Fashion & Lifestyle", client: "She" },
     ]
   }
 ];
