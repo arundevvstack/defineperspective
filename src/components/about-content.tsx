@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Sparkles, Wand2, Globe, Clock, ArrowRight } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import WhatsAppChat from "@/components/whatsapp-chat";
+import Link from "next/link";
 
 export default function AboutContent() {
   return (
@@ -106,22 +107,23 @@ export default function AboutContent() {
               <h3 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase mb-12 tracking-widest leading-tight">
                 Defining the <br /> <span className="text-primary-accent italic">Perspective.</span>
               </h3>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button 
-                  onClick={() => window.location.href = '/contact'}
-                  className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+               <div className="flex flex-col sm:flex-row gap-6">
+                <Link 
+                  href="/contact"
+                  className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-primary-accent/10 hover:border-primary-accent/30"
                 >
                   Inquire for Project <ArrowRight size={20} />
-                </button>
-                <button 
-                  onClick={() => window.location.href = 'https://wa.me/919496191684'}
-                  className="h-20 px-16 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-4 hover:text-primary-accent transition-all duration-300"
+                </Link>
+                <Link 
+                  href="https://wa.me/919496191684"
+                  target="_blank"
+                  className="h-20 px-16 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-primary-accent/10 hover:text-primary-accent transition-all flex items-center justify-center gap-4 hover:border-primary-accent/30"
                 >
                   Direct WhatsApp
-                </button>
+                </Link>
               </div>
-           </div>
-        </section>
+            </div>
+          </section>
       </div>
 
       <WhatsAppChat />
