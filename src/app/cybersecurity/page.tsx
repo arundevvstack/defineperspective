@@ -367,12 +367,13 @@ const MapVisualizer = () => {
 
         {/* Static city nodes for all fetched locations */}
         {locations.map((loc, i) => {
+          if (typeof loc.lat !== "number" || typeof loc.lng !== "number") return null;
           const pos = latLngToPercent(loc.lat, loc.lng);
           return (
             <g key={i}>
               <circle cx={pos.x} cy={pos.y} r="0.4" fill="#00ff41" opacity="0.7" />
               <text x={pos.x + 0.6} y={pos.y + 0.4} fontSize="1.2" fill="#00ff41" opacity="0.5" fontFamily="monospace">
-                {loc.city.split(",")[0].toUpperCase()}
+                {(loc.city || "UNKNOWN").split(",")[0].toUpperCase()}
               </text>
             </g>
           );
@@ -411,14 +412,15 @@ const MapVisualizer = () => {
               />
           </div>
           <div className="glass border-primary-accent/40 backdrop-blur-md p-3 rounded-none">
-              <h3 className="text-[10px] font-mono font-black text-primary-accent mb-2 uppercase tracking-tighter">TRACKED_NODES ({locations.length})</h3>
+              <h3 className="text-[10px] font-mono font-black text-primary-accent mb-2 uppercase tracking-tighter">TRACKED_NODES ({locations.filter(l => typeof l.lat === "number").length})</h3>
               <div className="space-y-1 max-h-20 overflow-y-auto">
                 {locations
-                  .filter(l => !search || l.city.toLowerCase().includes(search.toLowerCase()))
+                  .filter(l => typeof l.lat === "number" && typeof l.lng === "number")
+                  .filter(l => !search || (l.city && l.city.toLowerCase().includes(search.toLowerCase())))
                   .map((loc, i) => (
                     <div key={i} className="text-[8px] text-primary-accent/70 font-mono flex justify-between">
-                      <span>{loc.city.split(",")[0]}</span>
-                      <span className="text-zinc-600">{loc.lat.toFixed(2)}, {loc.lng.toFixed(2)}</span>
+                      <span>{(loc.city || "UNKNOWN").split(",")[0]}</span>
+                      <span className="text-zinc-600">{loc.lat?.toFixed(2) || "0.00"}, {loc.lng?.toFixed(2) || "0.00"}</span>
                     </div>
                   ))}
               </div>
