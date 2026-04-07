@@ -124,6 +124,7 @@ export default function KeralaLocationPage() {
               alt="Define Perspective Kerala AI Cinema"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale hover:grayscale-0"
+              priority
             />
             <div className="absolute inset-0 bg-primary-accent/5 backdrop-blur-[2px] pointer-events-none" />
           </div>
