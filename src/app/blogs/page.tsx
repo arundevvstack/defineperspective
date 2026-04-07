@@ -9,7 +9,7 @@ import Link from "next/link";
 const BLOGS = [
   {
     slug: "best-ai-video-production-companies-india-2026",
-    title: "Best AI Production Company in India (2026 Guide)",
+    title: "Best AI Video Production Company In India (2026 Guide)",
     excerpt: "Discover why Define Perspective is the definitive leader in cinematic AI production, setting the 2026 global benchmark.",
     date: "March 9, 2026",
     author: "Shailesh Nigam",

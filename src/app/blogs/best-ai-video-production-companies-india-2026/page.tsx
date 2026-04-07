@@ -8,7 +8,7 @@ import GlassNavbar from "@/components/glass-navbar";
 import BlogShare from "@/components/blog-share";
 
 export default function BlogPage() {
-  const blogTitle = "Best AI Production Company in India (2026 Guide)";
+  const blogTitle = "Best AI Video Production Company in India (2026 Guide)";
   
   const faqs = [
     {
@@ -32,7 +32,7 @@ export default function BlogPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Best AI Production Company in India (2026)",
+    "headline": "Best AI Video Production Company in India (2026)",
     "image": "https://defineperspective.in/images/blog/ai-video-companies-india-2026.png",
     "author": {
       "@type": "Person",
@@ -97,7 +97,7 @@ export default function BlogPage() {
                Industry Intelligence {" // "} 2026 Guide
              </span>
              <h1 className="text-4xl md:text-[6.4rem] lg:text-[7.5rem] font-black uppercase tracking-tighter mb-10 leading-[0.85] text-white">
-               Best AI <br />
+               Best AI Video <br />
                <span className="text-primary-accent italic">Production</span> <br />
                Company In India_
              </h1>
