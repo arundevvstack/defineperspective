@@ -18,7 +18,7 @@ const PortfolioSection = dynamic(() => import("@/components/portfolio-section"))
 const TestimonialSection = dynamic(() => import("@/components/testimonial-section"));
 const FAQSection = dynamic(() => import("@/components/faq-section"));
 const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat"), { ssr: false });
-
+const ServicesSwitcher = dynamic(() => import("@/components/services-switcher"), { ssr: false });
 
 export default function HomeContent() {
   return (
@@ -67,6 +67,9 @@ export default function HomeContent() {
 
       {/* Section 4: Results & Metrics */}
       <MetricsSection />
+
+      {/* Section 5: Dynamic Service Switcher */}
+      <ServicesSwitcher />
 
       {/* Section 6: Our Work (Portfolio) */}
       <PortfolioSection />
