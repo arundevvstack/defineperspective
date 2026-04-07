@@ -95,7 +95,7 @@ export default function AIMediaProductionLandingPage() {
             </div>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-[8rem] font-black tracking-tighter uppercase mb-12 leading-[0.8] text-white">
-            AI Video <br />{" "}
+            AI Video <br />
             <span className="text-primary-accent italic">Service Hub_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed uppercase tracking-widest leading-loose">
@@ -127,7 +127,7 @@ export default function AIMediaProductionLandingPage() {
             <Link
               key={service.title}
               href={service.href}
-              className="group cursor-pointer p-10 rounded-3xl border border-white/5 bg-white/5 hover:border-primary-accent transition-all flex flex-col gap-8 shadow-2xl"
+              className="group cursor-pointer p-10 rounded-3xl border border-white/5 bg-white/5 hover:bg-primary-accent/5 hover:border-primary-accent/20 transition-all flex flex-col gap-8 shadow-2xl"
             >
               <div className="h-14 w-14 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <BrainCircuit size={28} />
@@ -139,7 +139,7 @@ export default function AIMediaProductionLandingPage() {
                 {service.desc}
               </p>
               <div className="flex items-center gap-4 text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 group-hover:text-primary-accent transition-colors">
-                Project Details {" // "}
+                Project Details
                 <ArrowRight
                   size={14}
                   className="group-hover:translate-x-3 transition-transform"
