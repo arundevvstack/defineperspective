@@ -91,8 +91,8 @@ export default function ServicesContent() {
       <GlassNavbar />
       
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-transparent border-2 border-primary-accent/10 blur-[150px] rounded-full animate-pulse hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
-        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-transparent border-2 border-primary-accent/10 blur-[180px] rounded-full animate-pulse hover:bg-transparent hover:text-primary-accent   transition-all duration-300" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-primary-accent/10 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-primary-accent/10 blur-[180px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container mx-auto relative z-10 pt-40">
@@ -150,20 +150,20 @@ whileInView={{ opacity: 1, y: 0 }}
                        {service.desc}
                      </p>
 
-                     <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-12 group-hover:border-primary-accent /20 transition-colors">
+                      <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-12 group-hover:border-primary-accent/20 transition-colors">
                         <Link 
                           href={service.href}
-                          className="text-[12px] font-mono tracking-widest text-zinc-400 group-hover:text-primary-accent uppercase transition-colors flex items-center gap-4"
+                          className="text-[12px] font-mono tracking-widest text-zinc-400 group-hover:text-primary-accent uppercase transition-colors flex items-center gap-4 py-2"
                         >
                            Explore Interface <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
                         </Link>
                         <Link 
                           href={`/contact?subject=Service Intake: ${service.title}`}
-                          className="h-14 px-8 rounded-2xl bg-transparent border border-white/20 text-[10px] font-black uppercase tracking-widest text-white  hover:text-primary-accent transition-all shadow-xl hover:bg-white hover:text-primary-accent transition-all duration-300"
+                          className="h-14 px-8 rounded-2xl border border-white/20 text-[10px] font-black uppercase tracking-widest text-white hover:bg-primary-accent/10 hover:border-primary-accent/30 hover:text-primary-accent transition-all shadow-xl flex items-center justify-center hover:scale-105 active:scale-95"
                         >
                            Get a Quote
                         </Link>
-                     </div>
+                      </div>
                   </motion.div>
                 ))}
               </div>
