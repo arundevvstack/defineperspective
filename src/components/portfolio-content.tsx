@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
+import InstagramFeed from "@/components/instagram-feed";
 
 const videoData = [
   {
@@ -237,8 +238,10 @@ whileInView={{ opacity: 1, y: 0 }}
           ))}
         </div>
 
+        <InstagramFeed />
+
         <section className="mt-80 p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group">
-          <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
+          <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           <div className="relative z-10">
             <h2 className="text-5xl md:text-[9rem] font-black uppercase tracking-tighter text-white mb-16 leading-[0.8]">
               Ready for <br /><span className="text-primary-accent italic">Impact?</span>
@@ -246,13 +249,13 @@ whileInView={{ opacity: 1, y: 0 }}
             <div className="flex flex-col sm:flex-row justify-center gap-8">
               <button 
                 onClick={() => window.location.href = '/contact'}
-                className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+                className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent hover:text-primary-accent"
               >
                 Start New Project <ArrowRight size={20} />
               </button>
               <button 
                 onClick={() => window.location.href = 'https://wa.me/919496191684'}
-                className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-4 hover:text-primary-accent transition-all duration-300"
+                className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-4 hover:text-primary-accent"
               >
                 Chat on WhatsApp
               </button>
