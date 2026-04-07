@@ -70,13 +70,13 @@ export default function HomeContent() {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: bIdx * 0.1 }}
-                 className="p-12 rounded-[3rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col items-center group/30 transition-all shadow-xl hover:text-primary-accent transition-all duration-300"
+                 className="p-12 rounded-[3rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col items-center group transition-all shadow-xl hover:bg-primary-accent/5 hover:border-primary-accent/20"
                >
-                 <div className="h-16 w-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white flex items-center justify-center mb-10 group-hover:scale-110 transition-transform hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
+                 <div className="h-16 w-16 rounded-2xl bg-primary-accent/10 text-primary-accent flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                     <benefit.icon size={32} />
                  </div>
-                 <h3 className="text-xl sm:text-2xl font-black uppercase tracking-widest text-white mb-6 leading-none">{benefit.title}</h3>
-                 <p className="text-zinc-600 font-light leading-relaxed uppercase text-[10px] tracking-widest">{benefit.text}</p>
+                 <h3 className="text-xl sm:text-2xl font-black uppercase tracking-widest text-white mb-6 leading-none text-center">{benefit.title}</h3>
+                 <p className="text-zinc-600 font-light leading-relaxed uppercase text-[10px] tracking-[0.2em] text-center">{benefit.text}</p>
                </motion.div>
              ))}
           </div>
@@ -102,7 +102,7 @@ export default function HomeContent() {
       <section className="py-48 px-6 md:px-12 bg-black relative">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-32 flex flex-col items-center text-center max-w-4xl mx-auto">
-            <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Project Inquiry {" // "} Start Today</span>
+            <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-8 block">Project Inquiry // Start Today</span>
             <h2 className="text-3xl sm:text-5xl md:text-[6.4rem] font-black text-white tracking-tighter uppercase leading-[0.8]">
               Ready for <br /><span className="text-primary-accent italic">Impact?</span>
             </h2>
@@ -110,9 +110,9 @@ export default function HomeContent() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-32 text-left">
              <motion.div 
-               className="p-10 md:p-12 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-8 transition-all group shadow-xl hover:text-primary-accent transition-all duration-300"
+               className="p-10 md:p-12 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-8 transition-all group shadow-xl hover:bg-primary-accent/5 hover:border-primary-accent/20"
              >
-                <div className="h-16 w-16 rounded-3xl bg-transparent border-2 border-primary-accent text-white flex items-center justify-center transition-transform group-hover:scale-110 hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
+                <div className="h-16 w-16 rounded-3xl bg-transparent border-2 border-primary-accent text-white flex items-center justify-center transition-transform group-hover:scale-110">
                    <Calendar size={32} />
                 </div>
                 <div>
@@ -122,17 +122,17 @@ export default function HomeContent() {
                    </p>
                 </div>
                 <div className="flex flex-col gap-6 mt-auto">
-                  <button
-                    onClick={() => window.location.href = '/contact?subject=Priority Strategy Session Request'}
-                    className="group relative h-20 w-full rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-xl transition-all hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+                  <Link
+                    href="/contact?subject=Priority Strategy Session Request"
+                    className="group relative h-20 w-full rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-xl hover:scale-105 active:scale-95 transition-all hover:bg-primary-accent/10"
                   >
-                    <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-accent">Free Consultation</span> 
-                    <ArrowRight size={22} className="relative z-10 group-hover:translate-x-2 transition-transform transition-colors duration-300 group-hover:text-primary-accent" />
-                  </button>
+                    <span className="relative z-10 transition-colors duration-300">Free Consultation</span> 
+                    <ArrowRight size={22} className="relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
+                  </Link>
                   <Link 
                     href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20a%20Consultation."
                     target="_blank"
-                    className="group h-20 w-full rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white/50 transition-all flex items-center justify-center gap-4 hover:text-primary-accent transition-all duration-300"
+                    className="group h-20 w-full rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all flex items-center justify-center gap-4 hover:text-primary-accent hover:border-primary-accent/30"
                   >
                     Chat on WhatsApp <MessageCircle size={22} className="text-[#25D366] group-hover:scale-110 transition-transform" />
                   </Link>
@@ -140,7 +140,7 @@ export default function HomeContent() {
              </motion.div>
 
              <motion.div 
-               className="p-10 md:p-12 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-8 transition-all group shadow-xl hover:text-primary-accent transition-all duration-300"
+               className="p-10 md:p-12 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col gap-8 transition-all group shadow-xl hover:bg-primary-accent/5 hover:border-primary-accent/20"
              >
                 <div className="h-16 w-16 rounded-3xl bg-transparent border border-white/20 text-primary-accent flex items-center justify-center transition-transform group-hover:scale-110 hover:text-primary-accent transition-all duration-300">
                    <Zap size={32} />
@@ -152,16 +152,16 @@ export default function HomeContent() {
                    </p>
                 </div>
                 <div className="flex flex-col gap-6 mt-auto">
-                  <motion.button 
-                    onClick={() => window.location.href = '/contact?subject=AI Content Production Inquiry'}
-                    className="h-20 w-full rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white/50 transition-all flex items-center justify-center gap-4 hover:text-primary-accent transition-all duration-300"
+                  <Link 
+                    href="/contact?subject=AI Content Production Inquiry"
+                    className="h-20 w-full rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all flex items-center justify-center gap-4 hover:text-primary-accent hover:border-primary-accent/30"
                   >
                     Request AI Demo <ArrowRight size={22} />
-                  </motion.button>
+                  </Link>
                   <Link 
                     href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20AI%20Content%20Production."
                     target="_blank"
-                    className="group relative h-20 w-full rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-xl transition-all hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+                    className="group relative h-20 w-full rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-xl hover:scale-105 active:scale-95 transition-all hover:bg-primary-accent/10"
                   >
                     <span className="relative z-10">Discuss on WhatsApp</span> 
                     <MessageCircle size={22} className="relative z-10 group-hover:scale-110 transition-transform" />
@@ -177,7 +177,7 @@ export default function HomeContent() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
             <div>
-              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block">Our Location {" // "} India & Kerala</span>
+              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block">Our Location // India & Kerala</span>
               <h2 className="text-3xl sm:text-5xl font-black text-white mb-10 tracking-tighter leading-none uppercase">
                 {activeTab === "ai-studio" ? "Generative Cinema" : "Elite Production"} <br /><span className="text-primary-accent">& Global Logic.</span>
               </h2>
