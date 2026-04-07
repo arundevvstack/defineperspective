@@ -50,7 +50,16 @@ const aiData = [
   {
     category: "AI Vertical Ads",
     description: "High-conversion, AI-generated short-form vertical assets calibrated for algorithmic delivery.",
-    projects: []
+    projects: [
+      { 
+        id: "ai-vert1", 
+        title: "Leelama Restaurant | Next-Gen AI Food AI Shortfom AD", 
+        videoId: "doApkqt7zDU", 
+        service: "AI Shortfom AD", 
+        industry: "Food & Beverages", 
+        client: "Leelamma Since 1980 Restaurant Chain" 
+      }
+    ]
   }
 ];
 
@@ -162,8 +171,9 @@ whileInView={{ opacity: 1, y: 0 }}
                   >
                     <div 
                       className={cn(
-                        "relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-10 transition-all duration-700",
-                        activeTab === "photo" ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
+                        "relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-10 transition-all duration-700",
+                        section.category === "AI Vertical Ads" ? "aspect-[9/16] w-full" : "aspect-video",
+                        activeTab === "photo" || activeTab === "clients" ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
                       )}
                     >
                        {!project.videoId ? (
