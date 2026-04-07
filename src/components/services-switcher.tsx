@@ -7,15 +7,6 @@ import { cn } from "@/lib/utils";
 
 const EXPERT_SERVICES = [
   {
-    id: "ai-studio",
-    label: "AI Studios",
-    icon: Cpu,
-    heading: "Future-Ready AI Filmmaking.",
-    description: "We merge cutting-edge generative AI with high-end art direction to build photorealistic world-class visual assets. From cinematic fashion films to rapid vertical ad pipelines, our AI studio delivers the impossible at lightning speed.",
-    features: ["Cinematic AI Video", "AI Product Visuals", "Vertical Ad Pipelines", "Generative Brand Worlds"],
-    mediaUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200"
-  },
-  {
     id: "media-production",
     label: "Media Production",
     icon: Play,
@@ -23,6 +14,15 @@ const EXPERT_SERVICES = [
     description: "Our high-fidelity production house handles full-scale live-action sets, expert cinematography, and meticulous post-production. We deliver premium TVCs, brand films, and corporate narratives that demand authority.",
     features: ["Broadcast TVCs", "Brand Documentaries", "Corporate Filming", "High-End Commercials"],
     mediaUrl: "https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=1200"
+  },
+  {
+    id: "ai-studio",
+    label: "AI Studios",
+    icon: Cpu,
+    heading: "Future-Ready AI Filmmaking.",
+    description: "We merge cutting-edge generative AI with high-end art direction to build photorealistic world-class visual assets. From cinematic fashion films to rapid vertical ad pipelines, our AI studio delivers the impossible at lightning speed.",
+    features: ["Cinematic AI Video", "AI Product Visuals", "Vertical Ad Pipelines", "Generative Brand Worlds"],
+    mediaUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200"
   }
 ];
 

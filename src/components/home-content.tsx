@@ -23,7 +23,7 @@ const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat"), { ssr: 
 const ServicesSwitcher = dynamic(() => import("@/components/services-switcher"), { ssr: false });
 
 export default function HomeContent() {
-  const [activeTab, setActiveTab] = useState("ai-studio");
+  const [activeTab, setActiveTab] = useState("media-production");
 
   return (
     <main className={cn(
