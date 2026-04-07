@@ -23,9 +23,9 @@ const videoData = [
     category: "Corporate & Brand Films",
     description: "Premium brand storytelling and corporate video production in Kerala, designed to build trust and authority.",
     projects: [
-      { id: "corp1", title: "To U Commercial", videoId: "NEqjeiDThcY", service: "TVC", industry: "Fashion/ Apparal" },
-      { id: "corp2", title: "BB Serum TVC", videoId: "8TntXDekuE8", service: "TVC", industry: "Cosmetics & Beauty" },
-      { id: "corp3", title: "Dotspace Commercial", videoId: "HuX40LSwF7M", service: "TVC", industry: "Co-working Space" },
+      { id: "corp1", title: "To U Commercial", videoId: "NEqjeiDThcY", service: "TVC", industry: "Fashion/ Apparal", href: "/portfolio/to-u-commercial" },
+      { id: "corp2", title: "BB Serum TVC", videoId: "8TntXDekuE8", service: "TVC", industry: "Cosmetics & Beauty", href: "/portfolio/bb-serum-tvc" },
+      { id: "corp3", title: "Dotspace Commercial", videoId: "HuX40LSwF7M", service: "TVC", industry: "Co-working Space", href: "/portfolio/dotspace-commercial" },
     ]
   },
   {
@@ -43,11 +43,11 @@ const aiData = [
     category: "AI Video Production",
     description: "Photorealistic generative video and motion for brands. Visual velocity refined.",
     projects: [
-      { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue" },
-      { id: "ai2", title: "SHE Luxury Body Lotion", videoId: "5kOnWP-dZZY", service: "AI TV Commercial", industry: "Fashion & Lifestyle", client: "She" },
-      { id: "ai3", title: "Banaras Silk | Fabrics of India", videoId: "ic0skwrzA5M", service: "AI Documentary", industry: "Fashion & Lifestyle", client: "WestVogue" },
-      { id: "ai4", title: "Swarna Kosa | Heritage Silk Sarees", videoId: "-CYvl4ytIFY", service: "AI TVC", industry: "Fashion & Lifestyle", client: "WestVogue" },
-      { id: "ai5", title: "SHE Diamond | Cinematic AI Luxury Jewelry Advertisement", videoId: "ZKsTHF772K0", service: "AI TVC", industry: "Fashion & Lifestyle", client: "SHE" },
+      { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue", href: "/portfolio/desert-queen" },
+      { id: "ai2", title: "SHE Luxury Body Lotion", videoId: "5kOnWP-dZZY", service: "AI TV Commercial", industry: "Fashion & Lifestyle", client: "She", href: "/portfolio/she-body-lotion" },
+      { id: "ai3", title: "Banaras Silk | Fabrics of India", videoId: "ic0skwrzA5M", service: "AI Documentary", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/portfolio/banaras-silk" },
+      { id: "ai4", title: "Swarna Kosa | Heritage Silk Sarees", videoId: "-CYvl4ytIFY", service: "AI TVC", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/portfolio/swarna-kosa" },
+      { id: "ai5", title: "SHE Diamond | Cinematic AI Luxury Jewelry Advertisement", videoId: "ZKsTHF772K0", service: "AI TVC", industry: "Fashion & Lifestyle", client: "SHE", href: "/portfolio/she-diamond" },
     ]
   },
   {
@@ -60,7 +60,8 @@ const aiData = [
         videoId: "doApkqt7zDU", 
         service: "AI Shortfom AD", 
         industry: "Food & Beverages", 
-        client: "Leelamma Since 1980 Restaurant Chain" 
+        client: "Leelamma Since 1980 Restaurant Chain",
+        href: "/portfolio/leelama-restaurant"
       }
     ]
   }
@@ -72,7 +73,7 @@ const photoData = [
     description: "High-impact advertisement photography for billboards, luxury catalogs, and product advertising in India.",
     projects: [
       { id: "photo1", title: "Luxury Timepiece", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1200", href: "/portfolio/luxury-timepiece" },
-      { id: "photo2", title: "Fashion Editorial", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200" },
+      { id: "photo2", title: "Fashion Editorial", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200", href: "/portfolio/fashion-editorial" },
     ]
   }
 ];
