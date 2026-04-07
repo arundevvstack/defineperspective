@@ -133,7 +133,7 @@ transition={{ duration: 0.5 }}
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-12 border-b border-white/5 pb-16 group">
                 <div className="max-w-4xl">
                   <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 block">Capability node {" // "} {activeTab}</span>
-                  <h2 className="text-4xl md:text-8xl font-black uppercase tracking-tighter text-white mb-6 group-hover:text-primary-accent transition-colors leading-none">
+                  <h2 className="text-2xl md:text-5xl font-black uppercase tracking-tighter text-white mb-6 group-hover:text-primary-accent transition-colors leading-none">
                     {section.category}
                   </h2>
                   <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest">
