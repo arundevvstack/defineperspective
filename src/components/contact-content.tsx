@@ -102,7 +102,7 @@ export default function ContactContent() {
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1 }}
-             className="text-3xl md:text-[5.5rem] font-black tracking-tighter uppercase mb-8 leading-none"
+             className="text-4xl md:text-[6.6rem] font-black tracking-tighter uppercase mb-8 leading-none"
            >
              Define <br /> <span className="text-primary-accent italic">Perspective_</span>
            </motion.h1>
