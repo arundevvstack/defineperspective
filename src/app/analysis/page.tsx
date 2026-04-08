@@ -82,7 +82,7 @@ export default function AnalysisDashboard() {
       className={`group relative flex items-center justify-start gap-4 w-full p-5 rounded-2xl transition-all duration-300 border mb-2 ${
         activeTab === tab 
         ? "bg-primary-accent text-white border-primary-accent shadow-[0_0_20px_rgba(var(--primary-accent-rgb),0.3)]" 
-        : "bg-white/5 text-zinc-500 border-white/5 hover:bg-white/10 hover:text-white"
+        : "bg-white/5 text-zinc-500 border-white/5 /10 hover:text-white"
       }`}
     >
        <Icon size={20} className={activeTab === tab ? "animate-pulse" : ""} />
@@ -179,14 +179,14 @@ export default function AnalysisDashboard() {
               <div className="flex items-center gap-4">
                  <button 
                   onClick={handleSaveReport}
-                  className="h-12 w-12 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all group active:scale-95"
+                  className="h-12 w-12 rounded-2xl bg-white/5 /10 border border-white/10 flex items-center justify-center transition-all group active:scale-95"
                  >
                     <Download size={18} className={isSaving ? "animate-bounce" : "group-hover:translate-y-0.5 transition-transform"} />
                  </button>
                  <button 
                   onClick={handleSaveReport}
                   disabled={isSaving}
-                  className="h-12 w-40 rounded-2xl bg-primary-accent text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-white hover:text-primary-accent transition-all shadow-xl disabled:opacity-50 active:scale-95"
+                  className="h-12 w-40 rounded-2xl bg-primary-accent text-[11px] font-black uppercase tracking-widest flex items-center justify-center gap-3   transition-all shadow-xl disabled:opacity-50 active:scale-95"
                  >
                     {isSaving ? "Saving..." : "Save Report"} <ChevronRight size={14} className={isSaving ? "animate-ping" : ""} />
                  </button>
@@ -223,13 +223,13 @@ export default function AnalysisDashboard() {
                              <div className="flex gap-4">
                                 <button 
                                   onClick={() => toggleChartMode("daily")}
-                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'daily' ? 'bg-white text-black border-white' : 'bg-white/5 text-zinc-500 border-white/10 hover:text-primary-accent'}`}
+                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'daily' ? 'bg-white text-black border-white' : 'bg-white/5 text-zinc-500 border-white/10 '}`}
                                 >
                                   Daily
                                 </button>
                                 <button 
                                   onClick={() => toggleChartMode("live")}
-                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'live' ? 'bg-primary-accent text-white border-primary-accent' : 'bg-white/5 text-zinc-500 border-white/10 hover:text-primary-accent'}`}
+                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'live' ? 'bg-primary-accent text-white border-primary-accent' : 'bg-white/5 text-zinc-500 border-white/10 '}`}
                                 >
                                   Live
                                 </button>

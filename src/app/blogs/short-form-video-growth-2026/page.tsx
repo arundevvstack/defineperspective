@@ -173,7 +173,7 @@ export default function BlogPage() {
                  <div key={i} className="flex gap-10 group">
                     <div className="h-2 w-2 rounded-full bg-primary-accent mt-4 shrink-0 group-hover:scale-[3] transition-transform duration-500" />
                     <div>
-                       <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">{item.title}</h4>
+                       <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4 group- transition-colors">{item.title}</h4>
                        <p className="text-zinc-500 text-sm">{item.desc}</p>
                     </div>
                  </div>
@@ -243,7 +243,7 @@ export default function BlogPage() {
               
               <Link 
                 href="/contact"
-                className="inline-flex h-24 px-16 rounded-[2.5rem] bg-primary-accent text-white font-black uppercase tracking-[0.4em] text-sm items-center gap-8 shadow-2xl transition-all duration-300 hover:bg-white hover:text-obsidian"
+                className="inline-flex h-24 px-16 rounded-[2.5rem] bg-primary-accent text-white font-black uppercase tracking-[0.4em] text-sm items-center gap-8 shadow-2xl transition-all duration-300  hover:text-obsidian"
               >
                  <span>Talk to us</span>
                  <ArrowRight size={24} className="group-hover:translate-x-3 transition-transform" />

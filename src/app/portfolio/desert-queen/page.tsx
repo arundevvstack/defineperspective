@@ -94,7 +94,7 @@ export default function DesertQueenAICaseStudy() {
            <div className="flex flex-col sm:flex-row justify-center gap-8">
               <Link 
                 href="/contact?subject=Portfolio Inquiry: AI Fashion Film like Desert Queen"
-                className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+                className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent    transition-all duration-300"
               >
                 Inquire for AI Studio <ArrowRight size={20} />
               </Link>

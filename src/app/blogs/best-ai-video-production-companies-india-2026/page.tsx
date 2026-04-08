@@ -140,7 +140,7 @@ export default function BlogPage() {
             {/* Hook */}
             <div className="mb-32">
               <p className="text-xl md:text-4xl text-zinc-300 font-light leading-snug mb-12 first-letter:text-5xl md:first-letter:text-7xl first-letter:font-black first-letter:text-primary-accent first-letter:mr-3 first-letter:float-left">
-                The visual landscape in India has shifted. In 2026, the "Kerala model" of high-end aesthetics has merged with global AI efficiency. Brands no longer choose between cinematic quality and rapid scale—they demand both. As a leading <Link href="/services/ai-media-production" className="text-white underline decoration-primary-accent hover:text-primary-accent transition-colors">AI video production company in Kerala</Link>, Define Perspective is at the forefront of this revolution.
+                The visual landscape in India has shifted. In 2026, the "Kerala model" of high-end aesthetics has merged with global AI efficiency. Brands no longer choose between cinematic quality and rapid scale—they demand both. As a leading <Link href="/services/ai-media-production" className="text-white underline decoration-primary-accent  transition-colors">AI video production company in Kerala</Link>, Define Perspective is at the forefront of this revolution.
               </p>
             </div>
 
@@ -174,7 +174,7 @@ export default function BlogPage() {
                           <CheckCircle className="text-primary-accent shrink-0 mt-1" size={20} />
                           <div>
                             <strong className="text-white block uppercase tracking-widest text-sm mb-1">Virtual Sets</strong>
-                            <p className="text-base text-zinc-500">Utilizing <Link href="/services/cgi-virtual-production" className="hover:text-primary-accent transition-colors">CGI & virtual production</Link> to film in "Paris" from a studio in Kochi.</p>
+                            <p className="text-base text-zinc-500">Utilizing <Link href="/services/cgi-virtual-production" className=" transition-colors">CGI & virtual production</Link> to film in "Paris" from a studio in Kochi.</p>
                           </div>
                         </li>
                      </ul>

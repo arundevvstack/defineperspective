@@ -89,7 +89,7 @@ export default function LabPage() {
                     draggable
                     onDragStart={() => setDraggedItem(module)}
                     onClick={() => addToPipeline(module)}
-                    className="group p-6 rounded-3xl bg-white/5 border border-white/5 hover:bg-white transition-all cursor-grab active:cursor-grabbing flex items-center justify-between hover:text-primary-accent transition-all duration-300"
+                    className="group p-6 rounded-3xl bg-white/5 border border-white/5  transition-all cursor-grab active:cursor-grabbing flex items-center justify-between  transition-all duration-300"
                   >
                     <div className="flex items-center gap-5">
                       <div className={cn("h-14 w-14 rounded-2xl flex items-center justify-center text-white shadow-xl transition-all duration-300", module.color)}>
@@ -134,7 +134,7 @@ export default function LabPage() {
                        <h3 className="text-xs font-mono tracking-[0.4em] uppercase text-zinc-500 font-black underline">Live Project Plan</h3>
                        <button 
                          onClick={() => setPipeline([])}
-                         className="text-[10px] font-mono text-zinc-500 hover:text-primary-accent uppercase tracking-widest flex items-center gap-2 transition-colors font-black underline"
+                         className="text-[10px] font-mono text-zinc-500  uppercase tracking-widest flex items-center gap-2 transition-colors font-black underline"
                        >
                          <Trash2 size={12} /> Clear Plan
                        </button>
@@ -161,7 +161,7 @@ export default function LabPage() {
                             </div>
                             <button 
                               onClick={() => removeFromPipeline(item.uniqueId)}
-                              className="h-10 w-10 rounded-xl bg-white/5 hover:bg-white text-zinc-600 hover:text-primary-accent opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center transition-all duration-300"
+                              className="h-10 w-10 rounded-xl bg-white/5  text-zinc-600  opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center transition-all duration-300"
                             >
                               <Trash2 size={16} />
                             </button>
@@ -202,7 +202,7 @@ export default function LabPage() {
                      }}
                      disabled={pipeline.length === 0}
                      className={cn(
-                       "h-14 px-10 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-[0.2em] text-[10px] transition-all flex items-center gap-4 shadow-xl disabled:opacity-20 transition-all duration-300 hover:bg-white hover:text-primary-accent",
+                       "h-14 px-10 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-[0.2em] text-[10px] transition-all flex items-center gap-4 shadow-xl disabled:opacity-20 transition-all duration-300  ",
                        pipeline.length > 0 ? "" : "cursor-not-allowed"
                      )}
                    >

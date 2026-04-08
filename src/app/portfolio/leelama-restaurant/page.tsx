@@ -34,7 +34,7 @@ export default function LeelamaRestaurantAICaseStudy() {
         </section>
         <section className="p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl">
            <h4 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-16 italic">Ready for <br /><span className="text-primary-accent">Neural Taste?</span></h4>
-           <Link href="/contact" className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl inline-flex items-center justify-center gap-4 hover:bg-transparent hover:text-primary-accent   transition-all duration-300">Launch AI Food Ad <ArrowRight size={20} /></Link>
+           <Link href="/contact" className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl inline-flex items-center justify-center gap-4 hover:bg-transparent    transition-all duration-300">Launch AI Food Ad <ArrowRight size={20} /></Link>
         </section>
       </div>
     </main>

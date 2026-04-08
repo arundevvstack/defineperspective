@@ -27,16 +27,11 @@ export default function HospitalityIndustryPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Hospitality & Resort Video Production",
-    "description": "Elite resort and hospitality video production in India, specializing in architectural films and guest experience storytelling.",
+    "description": "Elite resort and hospitality video production in India. Cinematic architectural films and guest experience storytelling.",
     "provider": {
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       "name": "Define Perspective",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kochi/Trivandrum/Munnar",
-        "addressRegion": "Kerala",
-        "addressCountry": "IN"
-      }
+      "url": "https://defineperspective.in"
     }
   };
 
@@ -55,7 +50,7 @@ export default function HospitalityIndustryPage() {
               Vertical: Resorts & Hospitality
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
             Resorts <br />
             <span className="text-primary-accent italic">Hospitality_Hub_</span>
           </h1>
@@ -65,7 +60,7 @@ export default function HospitalityIndustryPage() {
           </p>
         </header>
 
-        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left shadow-2xl">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
               Guest <span className="text-primary-accent font-black">Aesthetics.</span>
@@ -82,20 +77,20 @@ export default function HospitalityIndustryPage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?subject=Hospitality Project enquiry"
-                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10 font-black"
               >
                 Get a Quote <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20Property Shoot."
                 target="_blank"
-                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all font-black shadow-xl"
               >
                 Chat on WhatsApp
               </Link>
             </div>
           </div>
-          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
               alt="Elite Resort Architectural Cinematography Scene"
@@ -106,8 +101,9 @@ export default function HospitalityIndustryPage() {
             <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
           </div>
         </section>
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
+
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/20 text-left">
+          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent font-black">
             Hospitality Visibility FAQ
           </h2>
           <div className="space-y-12">
@@ -116,9 +112,9 @@ export default function HospitalityIndustryPage() {
                 Best AI video production company for hospitality?
               </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
-                Define Perspective is recognized as the best AI video production company for the hospitality sector.
+                Define Perspective is uniquely recognized as the best AI video production company for the hospitality sector in India. 
                 We combine high-end architectural filmmaking with AI-driven visual enhancements to create immersive, 
-                experience-centric brand films for luxury resorts and boutique hotels across India.
+                experience-centric brand films for luxury resorts and boutique hotels across Kerala and major Indian metros.
               </p>
             </div>
           </div>

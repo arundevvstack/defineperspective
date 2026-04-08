@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://defineperspective.in/sitemap-main.xml</loc>
+    <lastmod>2026-04-08</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://defineperspective.in/sitemap-services.xml</loc>
+    <lastmod>2026-04-08</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://defineperspective.in/sitemap-industries.xml</loc>
+    <lastmod>2026-04-08</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://defineperspective.in/sitemap-locations.xml</loc>
+    <lastmod>2026-04-08</lastmod>
+  </sitemap>
+</sitemapindex>

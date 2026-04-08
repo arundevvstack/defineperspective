@@ -170,7 +170,7 @@ export default function BlogPage() {
            
            <Link 
              href="/contact"
-             className="inline-flex h-20 px-12 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm items-center gap-6 shadow-xl transition-all duration-300 hover:bg-white hover:text-obsidian"
+             className="inline-flex h-20 px-12 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm items-center gap-6 shadow-xl transition-all duration-300  hover:text-obsidian"
            >
               <span>Talk to us</span>
               <ArrowRight size={20} className="group-hover:translate-x-3 transition-transform" />

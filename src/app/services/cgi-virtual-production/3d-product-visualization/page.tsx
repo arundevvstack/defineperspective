@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function AI3DProductVisualizationSubPage() {
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
-      {" "}
+      
       <GlassNavbar />
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[180px] rounded-full pointer-events-none" />
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -50,7 +50,7 @@ export default function AI3DProductVisualizationSubPage() {
         <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">
-              Elite{" "}
+              Elite
               <span className="text-primary-accent italic">Optic Craft.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
@@ -64,14 +64,14 @@ export default function AI3DProductVisualizationSubPage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?subject=AI 3D Visualization enquiry"
-                className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent hover:text-primary-accent"
+                className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent "
               >
                 Get a Quote <ArrowRight size={18} />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
                 target="_blank"
-                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-3 hover:text-primary-accent"
+                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm  transition-all flex items-center justify-center gap-3 "
               >
                 Chat on WhatsApp
               </Link>
@@ -89,28 +89,28 @@ export default function AI3DProductVisualizationSubPage() {
           </div>
         </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          {" "}
+          
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
             AI 3D Strategy FAQ
-          </h2>{" "}
+          </h2>
           <div className="space-y-12">
-            {" "}
+            
             <div>
-              {" "}
+              
               <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-tight italic">
                 Best CGI studio for e-commerce in India?
-              </h4>{" "}
+              </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
                 Define Perspective is a leader in e-commerce 3D visualization.
                 We provide specialized CGI services for high-end fashion,
                 jewelry, and luxury goods in Kerala and across India, focusing
                 on pixel-perfect detail and world-class visual aesthetics that
                 out-perform traditional photography.
-              </p>{" "}
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

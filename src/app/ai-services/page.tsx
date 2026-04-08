@@ -53,8 +53,8 @@ export default function AIServicesPage() {
       
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0 opacity-20 transition-colors duration-1000">
-        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-transparent border-2 border-primary-accent/20 blur-[150px] rounded-full animate-pulse hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
-        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-transparent border-2 border-primary-accent/10 blur-[180px] rounded-full animate-pulse hover:bg-transparent hover:text-primary-accent   transition-all duration-300" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] bg-transparent border-2 border-primary-accent/20 blur-[150px] rounded-full animate-pulse hover:bg-transparent    transition-all duration-300" />
+        <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] bg-transparent border-2 border-primary-accent/10 blur-[180px] rounded-full animate-pulse hover:bg-transparent    transition-all duration-300" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="container mx-auto relative z-10">
@@ -78,7 +78,7 @@ className="text-6xl font-black md:text-9xl tracking-tight uppercase mb-10 leadin
               key={service.id}
               
 whileInView={{ opacity: 1, x: 0 }}
-              className="group grid grid-cols-1 lg:grid-cols-12 gap-12 p-12 lg:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl hover:bg-white transition-all outline outline-1 outline-white/5 hover:outline-primary-accent/20 hover:text-primary-accent transition-all duration-300"
+              className="group grid grid-cols-1 lg:grid-cols-12 gap-12 p-12 lg:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl  transition-all outline outline-1 outline-white/5 hover:outline-primary-accent/20  transition-all duration-300"
             >
               <div className="lg:col-span-7 flex flex-col justify-center">
                  <div className="flex items-center gap-6 mb-10">
@@ -92,7 +92,7 @@ whileInView={{ opacity: 1, x: 0 }}
                  </p>
                  <button 
                    onClick={() => window.location.href = `/contact?subject=AI Studio Intake: ${service.title}`}
-                   className="h-20 px-12 rounded-3xl bg-transparent border-2 border-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center gap-4 w-fit hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+                   className="h-20 px-12 rounded-3xl bg-transparent border-2 border-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center gap-4 w-fit hover:bg-transparent    transition-all duration-300"
                  >
                    Initialize Project <ArrowRight size={20} />
                  </button>
@@ -108,7 +108,7 @@ whileInView={{ opacity: 1, x: 0 }}
                     <ul className="space-y-8">
                        {service.features.map(f => (
                          <li key={f} className="flex items-center gap-5 text-sm font-medium text-zinc-400">
-                           <div className="h-2 w-2 rounded-full bg-transparent border-2 border-primary-accent shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300" /> {f}
+                           <div className="h-2 w-2 rounded-full bg-transparent border-2 border-primary-accent shadow-xl hover:bg-transparent    transition-all duration-300" /> {f}
                          </li>
                        ))}
                     </ul>

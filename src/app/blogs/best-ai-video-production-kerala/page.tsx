@@ -142,7 +142,7 @@ export default function BlogPage() {
             {/* Abstract/Hook Section */}
             <div className="mb-32">
               <p className="text-xl md:text-4xl text-zinc-300 font-light leading-snug mb-12 first-letter:text-5xl md:first-letter:text-7xl first-letter:font-black first-letter:text-primary-accent first-letter:mr-3 first-letter:float-left">
-                Kerala's media landscape is shifting at an unprecedented scale. As we enter 2026, the demand for cinematic content has outpaced traditional production capacities. Whether you're a startup in the heart of <Link href="/services/ai-media-production" className="text-white underline decoration-primary-accent hover:text-primary-accent transition-colors">Kochi</Link> or an enterprise giant in <Link href="/portfolio" className="text-white underline decoration-primary-accent hover:text-primary-accent transition-colors">Trivandrum</Link>, AI video production has become the essential bridge between high-fidelity storytelling and scalable growth.
+                Kerala's media landscape is shifting at an unprecedented scale. As we enter 2026, the demand for cinematic content has outpaced traditional production capacities. Whether you're a startup in the heart of <Link href="/services/ai-media-production" className="text-white underline decoration-primary-accent  transition-colors">Kochi</Link> or an enterprise giant in <Link href="/portfolio" className="text-white underline decoration-primary-accent  transition-colors">Trivandrum</Link>, AI video production has become the essential bridge between high-fidelity storytelling and scalable growth.
               </p>
 
               <motion.div 

@@ -284,7 +284,7 @@ export default function BlogPage() {
               
               <Link 
                 href="/contact"
-                className="inline-flex h-24 px-16 rounded-[2rem] bg-primary-accent text-white font-black uppercase tracking-[0.4em] text-sm items-center gap-8 shadow-2xl transition-all duration-300 hover:bg-white hover:text-obsidian"
+                className="inline-flex h-24 px-16 rounded-[2rem] bg-primary-accent text-white font-black uppercase tracking-[0.4em] text-sm items-center gap-8 shadow-2xl transition-all duration-300  hover:text-obsidian"
               >
                  <span>Initialize Build</span>
                  <ArrowRight size={24} className="group-hover:translate-x-3 transition-transform" />

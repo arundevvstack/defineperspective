@@ -142,13 +142,13 @@ export default function LuxuryTimepieceCaseStudy() {
               <div className="flex flex-col sm:flex-row justify-center gap-8">
                  <Link 
                    href="/contact?subject=Portfolio Inquiry: Luxury Timepiece-style Shoot"
-                   className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+                   className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent    transition-all duration-300"
                  >
                    Launch New Shoot <ArrowRight size={20} />
                  </Link>
                  <Link 
                    href="/portfolio"
-                   className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-4 hover:text-primary-accent transition-all duration-300"
+                   className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm  transition-all flex items-center justify-center gap-4  transition-all duration-300"
                  >
                    Return to Portfolio
                  </Link>

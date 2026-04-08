@@ -195,22 +195,22 @@ export default function BlogPage() {
                       </tr>
                    </thead>
                    <tbody className="text-zinc-500 border-t border-white/5">
-                      <tr className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                      <tr className="border-b border-white/5 /[0.02] transition-colors">
                          <td className="p-8 border-r border-white/5 text-white">Production Cycle</td>
                          <td className="p-8 border-r border-white/5">60–90 Days</td>
                          <td className="p-8 text-white font-bold">48–72 Hours</td>
                       </tr>
-                      <tr className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                      <tr className="border-b border-white/5 /[0.02] transition-colors">
                          <td className="p-8 border-r border-white/5 text-white">Creative Variations</td>
                          <td className="p-8 border-r border-white/5">1–2 Assets</td>
                          <td className="p-8 text-white font-bold">100+ Iterations</td>
                       </tr>
-                      <tr className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                      <tr className="border-b border-white/5 /[0.02] transition-colors">
                          <td className="p-8 border-r border-white/5 text-white">VFX Overhead</td>
                          <td className="p-8 border-r border-white/5">$10k–$100k</td>
                          <td className="p-8 text-white font-bold">Integrated AI VFX</td>
                       </tr>
-                      <tr className="hover:bg-white/[0.02] transition-colors">
+                      <tr className="/[0.02] transition-colors">
                          <td className="p-8 border-r border-white/5 text-white">Scaling Potential</td>
                          <td className="p-8 border-r border-white/5">Linear/Manual</td>
                          <td className="p-8 text-white font-bold italic">Exponential/Auto</td>
@@ -233,7 +233,7 @@ export default function BlogPage() {
                  { step: "04", title: "Iterative Scaling", desc: "Deploying automated variations to different audience clusters and doubling down on winners within hours." }
                ].map((box, i) => (
                  <div key={i} className="p-12 rounded-[2.5rem] bg-zinc-900 border border-white/5 group hover:border-primary-accent transition-all duration-500">
-                    <span className="text-4xl font-black text-primary-accent/20 group-hover:text-primary-accent transition-colors block mb-6">{box.step}</span>
+                    <span className="text-4xl font-black text-primary-accent/20 group- transition-colors block mb-6">{box.step}</span>
                     <h4 className="text-xl font-black text-white uppercase tracking-tight mb-4">{box.title}</h4>
                     <p className="text-sm text-zinc-500">{box.desc}</p>
                  </div>
@@ -303,7 +303,7 @@ export default function BlogPage() {
               
               <Link 
                 href="/contact"
-                className="inline-flex h-24 px-16 rounded-[2rem] bg-primary-accent text-white font-black uppercase tracking-[0.4em] text-sm items-center gap-8 shadow-2xl transition-all duration-300 hover:bg-white hover:text-obsidian"
+                className="inline-flex h-24 px-16 rounded-[2rem] bg-primary-accent text-white font-black uppercase tracking-[0.4em] text-sm items-center gap-8 shadow-2xl transition-all duration-300  hover:text-obsidian"
               >
                  <span>Talk to us</span>
                  <ArrowRight size={24} className="group-hover:translate-x-3 transition-transform" />

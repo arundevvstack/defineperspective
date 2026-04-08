@@ -92,8 +92,8 @@ transition={{ delay: 0.5 }}
             </div>
             <div className="lg:col-span-4 lg:col-start-9 space-y-12">
                {project.technical.map(t => (
-                 <div key={t.id} className="flex items-center gap-6 p-8 rounded-3xl bg-transparent border border-white/20 group hover:bg-white transition-all hover:text-primary-accent transition-all duration-300">
-                    <div className="h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
+                 <div key={t.id} className="flex items-center gap-6 p-8 rounded-3xl bg-transparent border border-white/20 group  transition-all  transition-all duration-300">
+                    <div className="h-14 w-14 rounded-2xl bg-transparent border-2 border-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform hover:bg-transparent    transition-all duration-300">
                        <t.icon size={24} />
                     </div>
                     <div>
@@ -136,13 +136,13 @@ transition={{ delay: 0.5 }}
              <div className="flex flex-wrap justify-center gap-8">
                <button 
                  onClick={() => window.location.href = '/contact'}
-                 className="h-20 px-16 rounded-3xl bg-transparent border-2 border-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+                 className="h-20 px-16 rounded-3xl bg-transparent border-2 border-primary-accent text-primary-accent-fg font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl hover:bg-transparent    transition-all duration-300"
                >
                  Inquire Now
                </button>
                <button 
                  onClick={() => window.location.href = '/portfolio?view=photo'}
-                 className="h-20 px-16 rounded-3xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all flex items-center gap-4 hover:text-primary-accent transition-all duration-300"
+                 className="h-20 px-16 rounded-3xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm  hover:text-black transition-all flex items-center gap-4  transition-all duration-300"
                >
                  Back to Portfolio <ArrowLeft size={18} />
                </button>

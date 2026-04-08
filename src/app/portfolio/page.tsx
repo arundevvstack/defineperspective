@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center"><div className="h-1 w-24 bg-transparent border-2 border-primary-accent animate-pulse rounded-full hover:bg-transparent hover:text-primary-accent   transition-all duration-300" /></div>}>
+    <Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center"><div className="h-1 w-24 bg-transparent border-2 border-primary-accent animate-pulse rounded-full hover:bg-transparent    transition-all duration-300" /></div>}>
       <PortfolioContent />
     </Suspense>
   );

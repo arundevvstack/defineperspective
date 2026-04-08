@@ -46,7 +46,7 @@ export default function CampaignExecutionSubPage() {
         <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">
-              Master Your{" "}
+              Master Your
               <span className="text-primary-accent italic">Market Debut.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
@@ -67,7 +67,7 @@ export default function CampaignExecutionSubPage() {
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
                 target="_blank"
-                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all "
               >
                 Chat on WhatsApp
               </Link>

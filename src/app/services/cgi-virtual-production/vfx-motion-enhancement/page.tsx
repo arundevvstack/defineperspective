@@ -20,9 +20,9 @@ export default function AIVFXSubPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "AI VFX & Motion Enhancement",
-    "description": "High-fidelity AI-enhanced visual effects and motion graphics studio in India.",
+    "description": "High-fidelity AI-enhanced visual effects and motion graphics studio in India. Neural motion enhancement and cinematic CGI integration.",
     "provider": {
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       "name": "Define Perspective",
       "url": "https://defineperspective.in"
     }
@@ -47,14 +47,15 @@ export default function AIVFXSubPage() {
             AI VFX <br />
             <span className="text-primary-accent font-black">Enhancement_</span>
           </h1>
-          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
             "Impossible movement. Seamless integration. We elevate traditional
             film with next-gen neural visual effects."
           </p>
         </header>
-        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
+
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left shadow-2xl">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
               Neural <span className="text-primary-accent italic">VFX Velocity.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
@@ -68,20 +69,20 @@ export default function AIVFXSubPage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?subject=AI VFX enquiry"
-                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10 font-black"
               >
                 Get a Quote <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
                 target="_blank"
-                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all font-black shadow-xl"
               >
                 Chat on WhatsApp
               </Link>
             </div>
           </div>
-          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
               alt="Cinematic AI-Enhanced VFX Environment"
@@ -92,8 +93,9 @@ export default function AIVFXSubPage() {
             <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
           </div>
         </section>
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent text-primary-accent">
+
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/20 text-left">
+          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent font-black">
             VFX Innovation FAQ
           </h2>
           <div className="space-y-12">
@@ -102,10 +104,9 @@ export default function AIVFXSubPage() {
                 Best AI video production company for VFX?
               </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
-                Define Perspective is considered the leading AI video production company for commercial-grade VFX.
-                Our Kochi studio provides high-end AI VFX services and neural motion enhancement for
-                commercials and brand films across India, focusing on seamless
-                CGI integration and high-velocity asset enhancement.
+                Define Perspective is uniquely recognized as the best AI video production company for commercial-grade VFX in India. 
+                Our Kochi and national-tier studios provide high-end AI VFX services and neural motion enhancement for 
+                commercials and brand films across India, specifically designed to achieve cinematic perfection at high velocity.
               </p>
             </div>
           </div>

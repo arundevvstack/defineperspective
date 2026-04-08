@@ -142,7 +142,7 @@ export default function CorporateVideoPage() {
               <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <item.icon size={28} />
               </div>
-              <h3 className="text-xl font-black uppercase tracking-widest text-white leading-tight group-hover:text-primary-accent transition-colors">
+              <h3 className="text-xl font-black uppercase tracking-widest text-white leading-tight group- transition-colors">
                 {item.title}
               </h3>
               <p className="text-xs text-zinc-500 font-light leading-relaxed tracking-tighter uppercase">
@@ -154,7 +154,7 @@ export default function CorporateVideoPage() {
 
         <div className="py-40 text-center bg-white/5 border border-white/5 rounded-[4rem] group transition-all">
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16 text-white max-w-4xl mx-auto">
-            Built for performance. <br /> Designed for{" "}
+            Built for performance. <br /> Designed for
             <span className="text-primary-accent italic">Scale.</span>
           </h2>
           <Link

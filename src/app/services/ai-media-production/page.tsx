@@ -145,13 +145,13 @@ export default function AIMediaProductionLandingPage() {
               <div className="h-14 w-14 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <BrainCircuit size={28} />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group-hover:text-primary-accent transition-colors">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group- transition-colors">
                 {service.title}
               </h3>
               <p className="text-sm text-zinc-500 font-light leading-loose uppercase tracking-widest leading-relaxed">
                 {service.desc}
               </p>
-              <div className="flex items-center gap-4 text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 group-hover:text-primary-accent transition-colors">
+              <div className="flex items-center gap-4 text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 group- transition-colors">
                 Project Details
                 <ArrowRight
                   size={14}

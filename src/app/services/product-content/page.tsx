@@ -95,13 +95,13 @@ export default function ProductContentLandingPage() {
               <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <Package size={28} />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group-hover:text-primary-accent transition-colors">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group- transition-colors">
                 {service.title}
               </h3>
               <p className="text-[11px] text-zinc-500 font-light leading-relaxed uppercase tracking-widest">
                 {service.desc}
               </p>
-              <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group-hover:text-primary-accent transition-colors">
+              <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group- transition-colors">
                 View Node
                 <ArrowRight
                   size={14}

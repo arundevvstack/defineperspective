@@ -121,7 +121,7 @@ export default function CGISubPage() {
                   <Sparkles size={24} />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold uppercase tracking-widest text-white mb-2 group-hover:text-primary-accent transition-colors">
+                  <h4 className="text-xl font-bold uppercase tracking-widest text-white mb-2 group- transition-colors">
                     {item.t}
                   </h4>
                   <p className="text-zinc-500 font-light leading-relaxed uppercase tracking-widest text-[11px]">

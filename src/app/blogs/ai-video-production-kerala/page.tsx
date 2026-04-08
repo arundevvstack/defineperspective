@@ -141,7 +141,7 @@ export default function BlogPage() {
             {/* Abstract/Hook Section */}
             <div className="mb-32">
               <p className="text-xl md:text-4xl text-zinc-300 font-light leading-snug mb-12 first-letter:text-5xl md:first-letter:text-7xl first-letter:font-black first-letter:text-primary-accent first-letter:mr-3 first-letter:float-left">
-                In 2026, the traditional landscape of media production is undergoing a seismic shift. Kerala, a region historically celebrated for its high-fidelity storytelling, is now at the forefront of a neural revolution. From the startup ecosystems of <Link href="/services/ai-media-production" className="text-white underline decoration-primary-accent hover:text-primary-accent transition-colors">Kochi</Link> to the enterprise tech-hubs of <Link href="/portfolio" className="text-white underline decoration-primary-accent hover:text-primary-accent transition-colors">Trivandrum</Link>, brands are rapidly adopting AI video production to stay competitive.
+                In 2026, the traditional landscape of media production is undergoing a seismic shift. Kerala, a region historically celebrated for its high-fidelity storytelling, is now at the forefront of a neural revolution. From the startup ecosystems of <Link href="/services/ai-media-production" className="text-white underline decoration-primary-accent  transition-colors">Kochi</Link> to the enterprise tech-hubs of <Link href="/portfolio" className="text-white underline decoration-primary-accent  transition-colors">Trivandrum</Link>, brands are rapidly adopting AI video production to stay competitive.
               </p>
 
               <motion.div 

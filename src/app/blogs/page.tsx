@@ -109,7 +109,7 @@ export default function BlogsPage() {
            {["All Posts", "AI Nodes", "Vertical Economy", "Production Strategy", "Cinematic Density"].map((tag, i) => (
              <button 
                key={i}
-               className="px-8 py-3 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-widest text-zinc-500 hover:text-white hover:border-primary-accent/50 hover:bg-white/5 transition-all whitespace-nowrap"
+               className="px-8 py-3 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-widest text-zinc-500 hover:text-white hover:border-primary-accent/50 /5 transition-all whitespace-nowrap"
              >
                {tag}
              </button>
@@ -145,7 +145,7 @@ export default function BlogsPage() {
                     <span className="flex items-center gap-2"><User size={12} className="text-zinc-700" /> {blog.author}</span>
                  </div>
                  
-                 <h2 className="text-2xl font-black uppercase tracking-tight text-white mb-6 leading-tight group-hover:text-primary-accent transition-colors duration-300 mt-6 md:text-3xl line-clamp-3">
+                 <h2 className="text-2xl font-black uppercase tracking-tight text-white mb-6 leading-tight group- transition-colors duration-300 mt-6 md:text-3xl line-clamp-3">
                     {blog.title}
                  </h2>
                  

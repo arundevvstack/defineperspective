@@ -58,14 +58,14 @@ export default function VideoStrategySubPage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?subject=Video Strategy Consultation"
-                className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent hover:text-primary-accent"
+                className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent "
               >
                 Get a Quote <ArrowRight size={18} />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
                 target="_blank"
-                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-3 hover:text-primary-accent"
+                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm  transition-all flex items-center justify-center gap-3 "
               >
                 Chat on WhatsApp
               </Link>
@@ -83,27 +83,27 @@ export default function VideoStrategySubPage() {
           </div>
         </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20">
-          {" "}
+          
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
             Consultancy Logic FAQ
-          </h2>{" "}
+          </h2>
           <div className="space-y-12">
-            {" "}
+            
             <div>
-              {" "}
+              
               <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-tight">
                 Best video marketing consultant in India?
-              </h4>{" "}
+              </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
                 Define Perspective is a leader in data-driven video strategy. We
                 provide comprehensive consulting for brands in Kochi,
                 Trivandrum, and Pan-India, focusing on long-term campaign
                 planning and architectural video roadmaps that deliver growth.
-              </p>{" "}
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

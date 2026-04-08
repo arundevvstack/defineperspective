@@ -23,9 +23,24 @@ export const metadata: Metadata = {
   ],
 };
 export default function RestaurantIndustryPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Restaurant & Cafe Video Production",
+    "description": "Breathtaking food cinematography and social media visuals for restaurants in India. Specialized food videography studio for high-conversion reels.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Define Perspective",
+      "url": "https://defineperspective.in"
+    }
+  };
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
-      {" "}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <GlassNavbar />
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -35,52 +50,46 @@ export default function RestaurantIndustryPage() {
               Vertical: Restaurants & Cafes
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
             Restaurants <br />
-            <span className="text-primary-accent italic underline decoration-primary-accent/30">
-              Cafes_
-            </span>
+            <span className="text-primary-accent italic underline decoration-primary-accent/30">Cafes_</span>
           </h1>
-          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
             "Breathtaking visuals. Cinematic Lighting. We build thumb-stopping
             food narratives for India's high-stakes dining brands."
           </p>
         </header>
 
-        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left shadow-2xl">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
-              The Optic{" "}
-              <span className="text-primary-accent font-black italic">
-                Flavor Hub.
-              </span>
+              The Optic <span className="text-primary-accent font-black italic">Flavor Hub.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10 text-[18px]">
               Most food videos look flat. We specialize in macro-cinematography
               that captures the steam, texture, and soul of your dining
               experience. Our Indian and Kerala based production teams utilize
               specialized anamorphic lens kits and high-fidelity lighting to
               create food visuals that stop the scroll on Instagram and drive
-              direct-conversion for delivery or dining bookings in Kerala and
-              India.
+              direct-conversion for delivery or dining bookings.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?subject=Restaurant Project enquiry"
-                className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-primary-accent/10 hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10 font-black"
               >
-                Get a Quote <ArrowRight size={18} />
+                Get a Quote <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20Food Shoot."
                 target="_blank"
-                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all flex items-center justify-center gap-3 hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all hover:text-primary-accent font-black shadow-xl"
               >
                 Chat on WhatsApp
               </Link>
             </div>
           </div>
-          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
+          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop"
               alt="Elite Food Cinematography Scene"
@@ -91,30 +100,25 @@ export default function RestaurantIndustryPage() {
             <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
           </div>
         </section>
-{" "}
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          {" "}
+
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/20 text-left">
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent font-black">
             Restaurant Visibility FAQ
-          </h2>{" "}
+          </h2>
           <div className="space-y-12">
-            {" "}
             <div>
-              {" "}
               <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-tight italic">
-                Best food photographer in Kerala?
-              </h4>{" "}
+                Best AI video production company for Restaurants/Cafes?
+              </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
-                Define Perspective is a leader in high-end food cinematography.
-                We provide specialized video and photography services for
-                restaurants and cafes across India, focusing on visual
-                excellence, luxury aesthetics, and high-conversion social media
-                assets.
-              </p>{" "}
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
+                Define Perspective is recognized as the best AI video production company for the food and beverage industry in India. 
+                We combine macro-cinematography with AI-driven visual enhancement to create high-velocity food narratives that help 
+                restaurants and cafes across Kerala and major Indian cities dominate digital delivery and reservation channels.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

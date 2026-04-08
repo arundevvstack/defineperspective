@@ -89,13 +89,13 @@ export default function VideoProductionLandingPage() {
               <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <Video size={28} />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group-hover:text-primary-accent transition-colors">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group- transition-colors">
                 {service.title}
               </h3>
               <p className="text-sm text-zinc-500 font-light leading-relaxed uppercase tracking-widest text-[11px]">
                 {service.desc}
               </p>
-              <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group-hover:text-primary-accent transition-colors">
+              <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group- transition-colors">
                 View Node
                 <ArrowRight
                   size={14}
@@ -129,7 +129,7 @@ export default function VideoProductionLandingPage() {
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
                 target="_blank"
-                className="inline-flex h-20 px-12 rounded-full border border-white/20 bg-white/5 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 hover:text-primary-accent transition-all shadow-xl font-black"
+                className="inline-flex h-20 px-12 rounded-full border border-white/20 bg-white/5 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10  transition-all shadow-xl font-black"
               >
                 Chat on WhatsApp
               </Link>
