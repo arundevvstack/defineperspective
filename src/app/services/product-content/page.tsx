@@ -48,12 +48,26 @@ const subServices = [
 ];
 
 export default function ProductContentLandingPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Product & E-commerce Content Production",
+    "description": "High-impact AI-enhanced product photography and e-commerce video production for D2C brands in India.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Define Perspective",
+      "url": "https://defineperspective.in"
+    }
+  };
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <GlassNavbar />
-
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
-
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8">
           <div className="flex items-center gap-4">
@@ -65,13 +79,12 @@ export default function ProductContentLandingPage() {
             Product <br />
             <span className="text-primary-accent italic">Content_Hub_</span>
           </h1>
-          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed uppercase tracking-widest leading-loose">
             "Texture meet technology. We build the photorealistic visual hub for
             India's high-stakes consumer brands."
           </p>
         </header>
 
-        {/* Sub-Service Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
           {subServices.map((service, idx) => (
             <Link
@@ -82,7 +95,7 @@ export default function ProductContentLandingPage() {
               <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <Package size={28} />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group-hover:text-primary-accent transition-colors">
                 {service.title}
               </h3>
               <p className="text-[11px] text-zinc-500 font-light leading-relaxed uppercase tracking-widest">
@@ -99,7 +112,6 @@ export default function ProductContentLandingPage() {
           ))}
         </div>
 
-        {/* Strategic Section */}
         <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center text-left">
           <div className="space-y-12">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none">
