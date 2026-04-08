@@ -3,12 +3,20 @@ import PortfolioContent from "@/components/portfolio-content";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Cinematic Video & AI Media Production Gallery",
-  description: "Browse our elite portfolio of TVCs, Brand Films, and AI-augmented media. High-performance visual storytelling for premium brands in Kerala and India.",
-  keywords: ["Video production portfolio Kerala", "AI video production examples", "commercial photography gallery India", "Define Perspective showcase", "brand film samples"],
+  title: "AI Ad Film Portfolio | Top AI Video Creators Kochi | Define Perspective",
+  description: "Explore the work of a leading AI ad film production company in Kochi. We deliver cinematic AI video production for brands in Kerala and across India. Recognized as the Best AI Video Production Agency India.",
+  keywords: [
+    "AI ad film production company Kochi",
+    "AI video production for brands in Kerala",
+    "who is the best ai video production company",
+    "top ai video creators for brands",
+    "Best AI Video Production Agency India",
+    "Video production portfolio Kerala",
+    "AI video production company India"
+  ],
   openGraph: {
-    title: "Portfolio | Visions in Execution",
-    description: "Archives of the future. Cinematic video and neural media production.",
+    title: "AI & Cinematic Portfolio | Define Perspective",
+    description: "Cinematic AI video production for brands in Kerala. Top AI video creators in India.",
     url: "https://defineperspective.in/portfolio",
   },
 };

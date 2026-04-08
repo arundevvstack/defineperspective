@@ -5,12 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Luxury Timepiece Case Study | Premium Product Photography | Define Perspective",
-  description: "Explore the visual engineering behind our Luxury Timepiece campaign. Cinematic lighting and precision photography for high-end horology brands.",
-  keywords: ["luxury watch photography", "product case study India", "premium commercial photography Kerala", "watch branding visuals"],
+  title: "Kumbayah Kombucha Case Study | Luxury Product Photography | Define Perspective",
+  description: "Explore the visual narrative behind the Kumbayah Kombucha campaign. Organic tropical aesthetics and cinematic product storytelling.",
+  keywords: ["kombucha photography", "product case study India", "premium commercial photography Kerala", "beverage branding visuals"],
 };
 
-export default function LuxuryTimepieceCaseStudy() {
+export default function KumbayahKombuchaCaseStudy() {
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 pb-40 px-6 md:px-12 relative overflow-hidden">
       <GlassNavbar />
@@ -22,18 +22,18 @@ export default function LuxuryTimepieceCaseStudy() {
         <header className="mb-40 space-y-12">
           <div className="flex items-center gap-4">
             <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
-              Case Study: Node 01 // Luxury Product
+              Case Study: Node 01 // Organic Beverage
             </div>
           </div>
           <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
-            Luxury <br />
-            <span className="text-primary-accent">Timepiece_</span>
+            Kumbayah <br />
+            <span className="text-primary-accent">Kombucha_</span>
           </h1>
           <div className="flex flex-col md:flex-row gap-12 border-y border-white/5 py-20">
              <div className="flex-1 space-y-6">
                 <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest leading-loose">Mission_</h3>
                 <p className="text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                  "Capture the engineering precision and heritage of a premium timepiece for international billboards and luxury catalogs."
+                  "Synthesize the refreshing, organic essence of high-end kombucha with a cinematic tropical backdrop to drive mid-summer engagement."
                 </p>
              </div>
              <div className="flex-1 flex flex-wrap gap-8 items-center justify-end">
@@ -43,11 +43,11 @@ export default function LuxuryTimepieceCaseStudy() {
                 </div>
                 <div className="text-right">
                    <p className="text-[10px] font-mono text-zinc-600 uppercase mb-2">Sector</p>
-                   <p className="text-sm font-black text-white uppercase tracking-widest">Luxury Goods</p>
+                   <p className="text-sm font-black text-white uppercase tracking-widest">FMCG / Health</p>
                 </div>
                 <div className="text-right">
                    <p className="text-[10px] font-mono text-zinc-600 uppercase mb-2">Deliverable</p>
-                   <p className="text-sm font-black text-white uppercase tracking-widest">8K Master Plates</p>
+                   <p className="text-sm font-black text-white uppercase tracking-widest">Cinema Grade Plates</p>
                 </div>
              </div>
           </div>
@@ -57,8 +57,8 @@ export default function LuxuryTimepieceCaseStudy() {
         <section className="mb-40 relative group">
            <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
               <Image 
-                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2099&auto=format&fit=crop"
-                alt="Luxury Timepiece Master Plate"
+                src="/images/clients/kumbayah-kombucha.png"
+                alt="Kumbayah Kombucha Master Plate"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 priority
@@ -72,37 +72,37 @@ export default function LuxuryTimepieceCaseStudy() {
            <div className="space-y-12">
               <div className="flex items-center gap-4">
                  <Camera className="text-primary-accent" size={32} />
-                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Optic Precision_</h2>
+                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Tropical Narrative_</h2>
               </div>
               <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                Every dial, every screw, and every reflection was engineered in-studio. We utilized specialized macro lenses and a custom lighting rig to eliminate unwanted glares while highlighting the hand-brushed steel texture. This approach creates a sense of high-fidelity realism that standard photography cannot achieve.
+                Capturing condensation, sunlight refraction, and the natural fizz required precise timing and high-speed optics. By utilizing natural coastal lighting supplemented by high-CRI panels, we preserved the authentic colors of the fermented botanicals while emphasizing the premium glass bottle craft.
               </p>
               <div className="grid grid-cols-2 gap-8 pt-8">
                  <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
                     <Zap className="text-primary-accent mb-4" size={24} />
-                    <h4 className="text-sm font-black uppercase tracking-widest mb-2">Macro Rig</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Extreme detail capture at 8K resolution.</p>
+                    <h4 className="text-sm font-black uppercase tracking-widest mb-2">Sun Sync</h4>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Perfectly timed natural flare integration.</p>
                  </div>
                  <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
                     <Sparkles className="text-primary-accent mb-4" size={24} />
-                    <h4 className="text-sm font-black uppercase tracking-widest mb-2">Glow Logic</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Custom light diffusion for luxury feel.</p>
+                    <h4 className="text-sm font-black uppercase tracking-widest mb-2">Dew Logic</h4>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Engineered condensation for ultra-fresh feel.</p>
                  </div>
               </div>
            </div>
            <div className="grid gap-8">
               <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group">
                  <Image 
-                   src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=2070&auto=format&fit=crop"
-                   alt="Watch Gear Detail"
+                   src="https://images.unsplash.com/photo-1621263764490-344432bd44f2?auto=format&fit=crop&q=80&w=1200"
+                   alt="Organic Ingredients"
                    fill
                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                  />
               </div>
               <div className="relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group">
                  <Image 
-                    src="https://images.unsplash.com/photo-1508685096489-7aac2914b268?q=80&w=2102&auto=format&fit=crop"
-                    alt="Luxury Watch Aesthetics"
+                    src="https://images.unsplash.com/photo-1596525649030-5bb5fbab21ec?auto=format&fit=crop&q=80&w=1200"
+                    alt="Product Lineup"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                  />
@@ -114,20 +114,20 @@ export default function LuxuryTimepieceCaseStudy() {
         <section className="mb-40 py-24 border-y border-white/5">
            <div className="grid grid-cols-2 md:grid-cols-4 gap-20">
               <div className="text-center md:text-left">
-                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">98%</p>
-                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Detail Integrity</p>
+                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">125%</p>
+                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Engagement Lift</p>
               </div>
               <div className="text-center md:text-left">
-                 <p className="text-4xl md:text-6xl font-black text-primary-accent italic tracking-tighter mb-2">8K</p>
-                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Master Output</p>
+                 <p className="text-4xl md:text-6xl font-black text-primary-accent italic tracking-tighter mb-2">Zero</p>
+                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Post-Renders Required</p>
               </div>
               <div className="text-center md:text-left">
-                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">12+</p>
-                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Lighting Nodes</p>
+                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">Prime</p>
+                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Billboard Ready</p>
               </div>
               <div className="text-center md:text-left">
-                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">Zero</p>
-                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Unwanted Glares</p>
+                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">4K</p>
+                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Master Delivery</p>
               </div>
            </div>
         </section>
@@ -137,18 +137,18 @@ export default function LuxuryTimepieceCaseStudy() {
            <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
            <div className="relative z-10">
               <h2 className="text-5xl md:text-[8rem] font-black uppercase tracking-tighter text-white mb-16 leading-[0.8] italic">
-                Ready for <br /><span className="text-primary-accent italic font-blackitalic font-black italic">Precision?</span>
+                Ready for <br /><span className="text-primary-accent italic font-black">Impact?</span>
               </h2>
               <div className="flex flex-col sm:flex-row justify-center gap-8">
                  <Link 
-                   href="/contact?subject=Portfolio Inquiry: Luxury Timepiece-style Shoot"
-                   className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent    transition-all duration-300"
+                   href="/contact?subject=Portfolio Inquiry: Kumbayah-style Shoot"
+                   className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent transition-all duration-300"
                  >
                    Launch New Shoot <ArrowRight size={20} />
                  </Link>
                  <Link 
                    href="/portfolio"
-                   className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm  transition-all flex items-center justify-center gap-4  transition-all duration-300"
+                   className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-4 transition-all duration-300"
                  >
                    Return to Portfolio
                  </Link>

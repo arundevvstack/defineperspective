@@ -15,9 +15,7 @@ interface LiteYouTubeProps {
 
 export default function LiteYouTube({ videoId, title, className, aspectRatio = "video", priority = false }: LiteYouTubeProps) {
   const [isLoaded, setIsLoaded] = useState(false);
-
-  // Using hqdefault or maxresdefault for thumbnails
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  const [thumbUrl, setThumbUrl] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
 
   if (isLoaded) {
     return (
@@ -41,16 +39,16 @@ export default function LiteYouTube({ videoId, title, className, aspectRatio = "
       onClick={() => setIsLoaded(true)}
     >
       <Image
-        src={thumbnailUrl}
+        src={thumbUrl}
         alt={title}
         fill
-        className="object-cover transition-transform duration-700 group-hover/yt:scale-110 grayscale group-hover/yt:grayscale-0"
+        className="object-cover transition-transform duration-700 group-hover/yt:scale-110"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         loading={priority ? undefined : "lazy"}
         priority={priority}
-        onError={(e: any) => {
+        onError={() => {
           // Fallback if maxresdefault doesn't exist
-          e.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+          setThumbUrl(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
         }}
       />
       

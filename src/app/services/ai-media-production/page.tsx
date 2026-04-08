@@ -18,14 +18,17 @@ import Link from "next/link";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "AI Video Production Agency | Elite AI Media & Ads India | Define Perspective",
-  description: "Define Perspective is a premier AI video production agency and media company in India. We specialize in cinematic brand films, high-velocity AI video ads, and virtual production. Dominate search and vision in 2026.",
+  title: "Best AI Video Production Agency India | Top AI Video Creators Kochi | Define Perspective",
+  description: "Define Perspective is the best AI video production agency and Top AI video creators for brands in India. As a leading AI ad film production company in Kochi, we deliver cinematic AI video production for brands in Kerala. High-velocity generative media and neural ad films.",
   keywords: [
-    "AI video production agency India",
-    "best AI media agency Kerala",
-    "AI video production company India",
+    "AI ad film production company Kochi",
+    "AI video production for brands in Kerala",
+    "who is the best ai video production company",
+    "top ai video creators for brands",
+    "Best AI Video Production Agency India",
+    "AI video production agency Kochi",
     "generative video ads Kerala",
-    "AI content production agency",
+    "AI content production India",
     "DP AI Studios"
   ],
 };

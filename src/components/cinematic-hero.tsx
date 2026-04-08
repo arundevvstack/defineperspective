@@ -82,37 +82,42 @@ export default function CinematicHero({ mode }: { mode: string }) {
           </motion.div>
 
           {/* Metric Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 w-full max-w-4xl">
-            {(isAI ? [
-              { label: "Velocity", value: "10X", desc: "Faster production cycles using AI pipelines", icon: Zap },
-              { label: "Mastering", value: "4K+", desc: "Ultra-HD cinematic output optimized for all platforms", icon: Target }
-            ] : [
-              { label: "Experience", value: "9+ Yrs", desc: "Proven track record in national broadcast films", icon: ShieldCheck },
-              { label: "Authority", value: "8K Raw", desc: "RED/ARRI grade cinema quality as standard", icon: Cpu }
-            ]).map((metric, idx) => (
-              <motion.div
-                key={mode + idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 + idx * 0.1 }}
-                viewport={{ once: true }}
-                className="group p-8 rounded-3xl border border-white/5 bg-white/[0.03] hover:border-primary-accent/30 transition-all duration-500 text-left relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity">
-                  <metric.icon size={48} className="text-primary-accent" />
-                </div>
-                <div className="text-4xl md:text-6xl font-black text-white mb-2 leading-none">
-                  {metric.value}
-                </div>
-                <div className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.4em] mb-4">
-                  {metric.label}
-                </div>
-                <p className="text-xs text-zinc-500 font-light uppercase tracking-widest leading-relaxed">
-                  {metric.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          {(isAI ? [
+            { label: "Velocity", value: "10X", desc: "Faster production cycles using AI pipelines", icon: Zap },
+            { label: "Mastering", value: "4K+", desc: "Ultra-HD cinematic output optimized for all platforms", icon: Target }
+          ] : []).length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 w-full max-w-4xl">
+              {(isAI ? [
+                { label: "Velocity", value: "10X", desc: "Faster production cycles using AI pipelines", icon: Zap },
+                { label: "Mastering", value: "4K+", desc: "Ultra-HD cinematic output optimized for all platforms", icon: Target }
+              ] : []).map((metric: any, idx) => {
+                const Icon = metric.icon;
+                return (
+                  <motion.div
+                    key={mode + idx}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 + idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group p-8 rounded-3xl border border-white/5 bg-white/[0.03] hover:border-primary-accent/30 transition-all duration-500 text-left relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-30 transition-opacity">
+                      <Icon size={48} className="text-primary-accent" />
+                    </div>
+                    <div className="text-4xl md:text-6xl font-black text-white mb-2 leading-none">
+                      {metric.value}
+                    </div>
+                    <div className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.4em] mb-4">
+                      {metric.label}
+                    </div>
+                    <p className="text-xs text-zinc-500 font-light uppercase tracking-widest leading-relaxed">
+                      {metric.desc}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          )}
 
           {/* Action Zone */}
           <motion.div
