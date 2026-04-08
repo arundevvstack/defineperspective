@@ -43,13 +43,26 @@ const subServices = [
 ];
 
 export default function PerformanceMarketingLandingPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Performance Marketing Video Ads",
+    "description": "High-performance AI-driven video ad creatives designed for conversion, low CPA, and high ROAS for D2C brands.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Define Perspective",
+      "url": "https://defineperspective.in"
+    }
+  };
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <GlassNavbar />
-
-      {/* Background Graphic */}
       <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
-
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8">
           <div className="flex items-center gap-4">
@@ -58,18 +71,15 @@ export default function PerformanceMarketingLandingPage() {
             </div>
           </div>
           <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
-            Performance <br />{" "}
-            <span className="text-primary-accent italic font-black">
-              Marketing_
-            </span>
+            Performance <br />
+            <span className="text-primary-accent italic">Marketing_</span>
           </h1>
-          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed uppercase tracking-widest leading-loose">
             "Creativity is the new targeting. We build the data-driven visual
             engines for India's high-growth D2C brands."
           </p>
         </header>
 
-        {/* Sub-Service Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
           {subServices.map((service, idx) => (
             <Link
@@ -80,14 +90,14 @@ export default function PerformanceMarketingLandingPage() {
               <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <Target size={28} />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group-hover:text-primary-accent transition-colors">
                 {service.title}
               </h3>
               <p className="text-sm text-zinc-500 font-light leading-relaxed uppercase tracking-widest text-[11px]">
                 {service.desc}
               </p>
               <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group-hover:text-primary-accent transition-colors">
-                View Node{" "}
+                View Node
                 <ArrowRight
                   size={14}
                   className="group-hover:translate-x-2 transition-transform"
@@ -97,7 +107,6 @@ export default function PerformanceMarketingLandingPage() {
           ))}
         </div>
 
-        {/* Strategic Section */}
         <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center text-left">
           <div className="space-y-12">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none">
