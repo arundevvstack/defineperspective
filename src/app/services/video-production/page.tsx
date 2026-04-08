@@ -12,15 +12,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "Video Production Services India | Cinematic Brand Storytelling | Define Perspective",
-  description:
-    "Elite video production services in Kerala and India. From high-stakes TV commercials to cinematic brand films and corporate video production for global enterprises.",
+  title: "AI Video Production Company India | Professional Brand Filmmaking | Define Perspective",
+  description: "Define Perspective is a premier AI video production company in India. We specialize in high-stakes TV commercials, cinematic brand films, and corporate video production with AI-accelerated workflows.",
   keywords: [
-    "video production services India",
-    "best videographer Kerala",
-    "brand film production Kochi",
-    "TVC production company India",
+    "AI video production company",
+    "best video production services India",
+    "professional videography Kerala",
+    "AI brand films Kochi",
+    "commercial video production agency"
   ],
 };
 
