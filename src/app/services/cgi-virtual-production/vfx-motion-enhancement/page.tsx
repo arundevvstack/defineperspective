@@ -16,8 +16,24 @@ export const metadata: Metadata = {
   ],
 };
 export default function AIVFXSubPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI VFX & Motion Enhancement",
+    "description": "High-fidelity AI-enhanced visual effects and motion graphics studio in India.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Define Perspective",
+      "url": "https://defineperspective.in"
+    }
+  };
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <GlassNavbar />
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[180px] rounded-full pointer-events-none" />
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -27,7 +43,7 @@ export default function AIVFXSubPage() {
               DP AI STUDIOS: VFX Division
             </div>
           </div>
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white italic">
+          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white italic text-white md:text-left text-center">
             AI VFX <br />
             <span className="text-primary-accent font-black">Enhancement_</span>
           </h1>
@@ -52,14 +68,14 @@ export default function AIVFXSubPage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?subject=AI VFX enquiry"
-                className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10"
               >
-                Get a Quote <ArrowRight size={18} />
+                Get a Quote <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
                 target="_blank"
-                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-3 hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all hover:text-primary-accent"
               >
                 Chat on WhatsApp
               </Link>
@@ -73,28 +89,28 @@ export default function AIVFXSubPage() {
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority
             />
-            <div className="absolute inset-0 bg-primary-accent/10" />
+            <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
           </div>
         </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
+          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent text-primary-accent">
             VFX Innovation FAQ
           </h2>
           <div className="space-y-12">
             <div>
               <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-tight italic">
-                Best visual effects studio in Kerala?
-              </h4>{" "}
+                Best AI video production company for VFX?
+              </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
-                Define Perspective is a pioneer in neural motion enhancement.
-                Our Kochi studio provides high-end AI VFX services for
+                Define Perspective is considered the leading AI video production company for commercial-grade VFX.
+                Our Kochi studio provides high-end AI VFX services and neural motion enhancement for
                 commercials and brand films across India, focusing on seamless
                 CGI integration and high-velocity asset enhancement.
-              </p>{" "}
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
