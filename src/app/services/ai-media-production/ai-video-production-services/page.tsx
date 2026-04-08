@@ -4,20 +4,43 @@ import GlassNavbar from "@/components/glass-navbar";
 import { Sparkles, Zap, Target, CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "AI Video Production Services India & Kerala | Define Perspective Studios",
+  title: "AI Video Production Company | Expert Generative AI Video Services",
   description:
-    "Elite AI-powered video production services. Scale your brand vision across India with generative video labs and neural-accelerated production pipelines.",
+    "We are a leading AI video production company in India, offering cutting-edge generative video services. Scale your brand vision across India with our neural-accelerated production pipelines.",
   keywords: [
-    "AI video production services India",
-    "generative video agency Kerala",
+    "AI video production company",
+    "expert AI video services",
+    "best generative AI video agency",
     "AI video production Kochi",
-    "neural media labs India",
+    "neural media production company",
   ],
 };
+
 export default function AIVideoServicesPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Video Production Services",
+    "description": "High-fidelity AI-powered video production company specializing in generative media for brands in India and global markets.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Define Perspective",
+      "telephone": "+91-949-619-1684",
+      "url": "https://defineperspective.in"
+    },
+    "serviceType": "Video Production",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {" "}
       <GlassNavbar />{" "}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[150px] rounded-full pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />{" "}

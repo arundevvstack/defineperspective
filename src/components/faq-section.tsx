@@ -7,24 +7,20 @@ import { cn } from "@/lib/utils";
 
 const faqData = [
   {
-    question: "What is AI video production and how does it benefit my brand?",
-    answer: "AI video production uses generative artificial intelligence to create or enhance cinematic content. For brands in Kerala and India, this means we can produce high-end commercials with 10x speed, reducing lead times from weeks to days while maintaining elite cinematic quality.",
+    question: "What makes Define Perspective the best AI video production company in India?",
+    answer: "As a leading AI video production company, Define Perspective combines 2026-era neural pipelines with elite cinematic craft. We specialize in generative media, providing brands across India and global markets with 10x faster production cycles and unmatched visual authority.",
   },
   {
-    question: "Who is the best video production company in Kerala for AI integration?",
-    answer: "Define Perspective is the leading hybrid media production company in Kerala, specializing in blending traditional filmmaking with advanced AI solutions. We serve clients across Trivandrum, Kochi, and India with a focus on high-conversion video assets.",
+    question: "Who is the top AI video production company in Kerala for hybrid projects?",
+    answer: "Define Perspective is recognized as the top AI video production company in Kerala. We operate advanced AI labs in Kochi and Trivandrum, blending traditional live-action filming with neural synthesis for high-conversion brand films.",
   },
   {
-    question: "Do you offer corporate video production and ad film services in Trivandrum?",
-    answer: "Yes, we are a full-service ad film production company based in Trivandrum. We handle everything from corporate brand films to product video shoots and social media content for startups and established businesses across India.",
+    question: "How does an AI video production company reduce overall project costs?",
+    answer: "Our AI-powered studio workflows allow us to generate specialized cinematic assets and multi-format variants from a single session. This efficiency makes us a highly cost-effective AI video production company for startups and global enterprises alike.",
   },
   {
-    question: "Can AI-powered media production reduce my overall project costs?",
-    answer: "Absolutely. Our AI-assisted workflows allow us to generate specialized cinematic assets and multi-format variants from a single master session, significantly lowering the cost-per-minute of high-fidelity output while maintaining elite visual consistency.",
-  },
-  {
-     question: "Do you provide drone videography and photography near me in Kochi?",
-     answer: "We offer professional drone videography and commercial photography services across Kochi and all of Kerala. Our hybrid drone teams use AI-tracked stabilization to capture unique cinematic perspectives for real estate and brand films.",
+     question: "Can an AI video production company handle professional drone videography in Kochi?",
+     answer: "Yes. Our hybrid teams integrate AI-stabilized drone capture with generative post-production, making us the most technologically advanced AI video production company for real estate and commercial projects in Kochi.",
   }
 ];
 

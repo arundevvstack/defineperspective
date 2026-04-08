@@ -12,19 +12,63 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title: "DP AI Studios | High-Velocity AI Media & CGI Production India",
+  title: "DP AI Studios | Leading AI Video Production Company in India",
   description:
-    "The next generation of media production. DP AI Studios provides generative AI video, photorealistic avatars, and AI-CGI virtual production for global brands.",
+    "DP AI Studios is a premier AI video production company. We specialize in generative AI video, photorealistic avatars, and high-velocity CGI virtual production for ambitious global brands.",
   keywords: [
-    "AI video production company India",
+    "AI video production company",
+    "best AI video production company India",
+    "AI video production agency Kerala",
     "DP AI Studios",
-    "generative AI media Kerala",
-    "AI CGI virtual production India",
+    "generative AI media production",
   ],
 };
+
 export default function AIStudiosPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Video Production Services",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Define Perspective",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kochi/Trivandrum",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      }
+    },
+    "description": "Professional AI video production services including generative video, AI avatars, and virtual production for high-growth brands.",
+    "areaServed": ["India", "USA", "UK", "UAE"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Media Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Generative AI Video Production"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI CGI & Virtual Production"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {" "}
       <GlassNavbar /> {/* Cinematic Backgrounds */}{" "}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-transparent border-2 border-primary-accent/10 blur-[200px] rounded-full pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
