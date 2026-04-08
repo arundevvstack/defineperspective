@@ -100,8 +100,8 @@ export default function KumbayahKombuchaCaseStudy() {
         <section className="mb-60 relative group">
            <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl transition-all duration-700 hover:border-primary-accent/30">
               <Image 
-                src="/images/clients/kumbayah-kombucha.png"
-                alt="Kumbayah Kombucha Premium Ad Photography"
+                src="/images/clients/kumbayah/product-splash.jpg"
+                alt="Kumbayah Kombucha Premium Ad Photography Master"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 priority
