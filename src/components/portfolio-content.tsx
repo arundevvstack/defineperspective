@@ -161,7 +161,7 @@ export default function PortfolioContent() {
                         key={tab.id}
                         onClick={() => handleNavigate(tab.id)}
                         className={cn(
-                          "relative px-12 py-6 rounded-2xl text-[11px] font-black uppercase tracking-[0.3em] transition-all duration-500 flex items-center gap-4 outline-none",
+                          "relative px-4 py-3 md:px-12 md:py-6 rounded-2xl text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all duration-500 flex items-center gap-2 md:gap-4 outline-none",
                           activeTab === tab.id ? "text-obsidian" : "text-zinc-500 hover:text-white"
                         )}
                       >
@@ -202,8 +202,8 @@ export default function PortfolioContent() {
                   </p>
                 </div>
 
-                {/* Local View Switcher */}
-                <div className="flex p-1 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-3xl shrink-0">
+                {/* Local View Switcher - Hidden on Mobile */}
+                <div className="hidden md:flex p-1 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-3xl shrink-0">
                    {[
                      { id: "grid", icon: LayoutGrid, label: "Grid View" },
                      { id: "list", icon: List, label: "List View" },
