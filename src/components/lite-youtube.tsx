@@ -11,13 +11,22 @@ interface LiteYouTubeProps {
   className?: string;
   aspectRatio?: "video" | "vertical";
   priority?: boolean;
+  isPlaying?: boolean;
+  onTogglePlay?: (playing: boolean) => void;
 }
 
-export default function LiteYouTube({ videoId, title, className, aspectRatio = "video", priority = false }: LiteYouTubeProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+export default function LiteYouTube({ 
+  videoId, 
+  title, 
+  className, 
+  aspectRatio = "video", 
+  priority = false,
+  isPlaying = false,
+  onTogglePlay
+}: LiteYouTubeProps) {
   const [thumbUrl, setThumbUrl] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
 
-  if (isLoaded) {
+  if (isPlaying) {
     return (
       <iframe
         src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
@@ -36,7 +45,7 @@ export default function LiteYouTube({ videoId, title, className, aspectRatio = "
         aspectRatio === "vertical" ? "aspect-[9/16]" : "aspect-video",
         className
       )}
-      onClick={() => setIsLoaded(true)}
+      onClick={() => onTogglePlay?.(true)}
     >
       <Image
         src={thumbUrl}

@@ -102,6 +102,7 @@ export default function PortfolioContent() {
   const searchParams = useSearchParams();
   const activeTab = searchParams.get("view") || "video";
   const [viewMode, setViewMode] = useState<"grid" | "list" | "masonry">("grid");
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   const tabs = [
     { id: "video", label: "Production", icon: Video },
@@ -223,12 +224,11 @@ export default function PortfolioContent() {
                 </div>
               </div>
 
-              {/* Grid View */}
-              {viewMode === "grid" && (
+              {/* Grid View */}              {viewMode === "grid" && (
                 <div className={cn(
                   "grid gap-12 md:gap-16",
                   (section.category === "AI Vertical Ads" || section.category === "Vertical Ads") 
-                    ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-5" 
+                    ? "grid-cols-1 md:grid-cols-3 lg:grid-cols-5" 
                     : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                 )}>
                   {section.projects.map((project: any, projectIdx: number) => {
@@ -247,14 +247,20 @@ export default function PortfolioContent() {
                       >
                         <ContentWrapper {...wrapperProps} className="block h-full w-full">
                           <div className={cn(
-                            "relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-10 transition-all duration-700",
+                            "relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-4 transition-all duration-700",
                             isVertical ? "aspect-[9/16] w-full" : "aspect-video",
                             project.href ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
                           )}>
                              {!project.videoId ? (
                                <Image src={project.img || ""} alt={project.title} fill className="object-cover transition-transform group-hover:scale-105 duration-700" />
                              ) : (
-                               <LiteYouTube videoId={project.videoId} title={project.title} aspectRatio={isVertical ? "vertical" : "video"} />
+                               <LiteYouTube 
+                                 videoId={project.videoId} 
+                                 title={project.title} 
+                                 aspectRatio={isVertical ? "vertical" : "video"} 
+                                 isPlaying={activeVideoId === project.id}
+                                 onTogglePlay={(playing) => setActiveVideoId(playing ? project.id : null)}
+                               />
                              )}
                           </div>
                           <div className="px-4">
@@ -297,7 +303,13 @@ export default function PortfolioContent() {
                              {!project.videoId ? (
                                <Image src={project.img || ""} alt={project.title} fill className="object-cover" />
                              ) : (
-                               <LiteYouTube videoId={project.videoId} title={project.title} aspectRatio={isVertical ? "vertical" : "video"} />
+                               <LiteYouTube 
+                                 videoId={project.videoId} 
+                                 title={project.title} 
+                                 aspectRatio={isVertical ? "vertical" : "video"} 
+                                 isPlaying={activeVideoId === project.id}
+                                 onTogglePlay={(playing) => setActiveVideoId(playing ? project.id : null)}
+                               />
                              )}
                           </div>
                           <div className="flex-1 text-left">
