@@ -1,217 +1,266 @@
 import { Metadata } from "next";
 import GlassNavbar from "@/components/glass-navbar";
-import { Zap, Target, Star, CheckCircle2, ArrowRight, Camera, Sparkles, Globe, BrainCircuit } from "lucide-react";
+import { Zap, Target, Star, CheckCircle2, ArrowRight, Camera, Sparkles, Globe, BrainCircuit, Lightbulb, Search, BarChart3, Presentation } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Kumbayah Kombucha Case Study | Luxury Product Photography | Define Perspective",
-  description: "Explore the visual narrative behind the Kumbayah Kombucha campaign. Organic tropical aesthetics and cinematic product storytelling.",
-  keywords: ["kombucha photography", "product case study India", "premium commercial photography Kerala", "beverage branding visuals"],
+  title: "Kumbayah Kombucha | Luxury Product Photography & Brand Film India",
+  description: "A deep dive into the Kumbayah Kombucha visual strategy. Specialized in luxury beverage photography, kinetic food styling, and commercial ads in Kochi, Kerala.",
+  keywords: [
+    "Luxury product photography Kochi",
+    "Best commercial photographer Kerala",
+    "Kumbayah Kombucha brand identity",
+    "Food styling and photography Kochi",
+    "Premium beverage advertising India",
+    "Define Perspective case study",
+    "Cinematic product films Kerala"
+  ],
+  openGraph: {
+    title: "Kumbayah Kombucha Strategic Case Study | Define Perspective",
+    description: "Engineering the organic visual identity for India's premium kombucha brand.",
+    images: ["/images/clients/kumbayah-kombucha.png"],
+  }
 };
 
 export default function KumbayahKombuchaCaseStudy() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Kumbayah Kombucha: Engineering Luxury Through Kinetic Cinematography",
+    "description": "Comprehensive case study on premium beverage branding and advertising photography in Kerala by Define Perspective.",
+    "author": {
+      "@type": "Organization",
+      "name": "Define Perspective",
+      "url": "https://defineperspective.in"
+    },
+    "image": "https://defineperspective.in/images/clients/kumbayah-kombucha.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Define Perspective",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://defineperspective.in/logo.png"
+      }
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-obsidian text-white pt-40 pb-40 px-6 md:px-12 relative overflow-hidden">
+    <main className="min-h-screen bg-obsidian text-white pt-40 pb-40 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <GlassNavbar />
       
-      {/* Decorative Glow */}
+      {/* Dynamic Background Elements */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-accent/5 blur-[250px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <header className="mb-40 space-y-12">
+      <div className="container mx-auto max-w-6xl px-6 md:px-12 relative z-10">
+        {/* --- HEADER SECTION --- */}
+        <header className="mb-40 space-y-12 animate-in fade-in slide-in-from-bottom-10 duration-1000">
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
-              Case Study: Node 01 // Organic Beverage
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md border border-primary-accent/20">
+              Strategic Case Study // Node 01
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-6xl md:text-[12rem] font-black tracking-tighter uppercase leading-[0.75] text-white italic drop-shadow-2xl">
             Kumbayah <br />
             <span className="text-primary-accent">Kombucha_</span>
           </h1>
-          <div className="flex flex-col md:flex-row gap-12 border-y border-white/5 py-20">
-             <div className="flex-1 space-y-6">
-                <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest leading-loose">Mission_</h3>
-                <p className="text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                  "Synthesize the refreshing, organic essence of high-end kombucha with a cinematic tropical backdrop to drive mid-summer engagement."
+          
+          <div className="grid md:grid-cols-3 gap-12 pt-20 border-t border-white/5">
+             <div className="space-y-4">
+                <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Market Challenge</span>
+                <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-wider">
+                  Breaking into the luxury FMCG market in India requires more than just a product—it requires an editorial visual narrative that commands attention.
                 </p>
              </div>
-             <div className="flex-1 flex flex-wrap gap-8 items-center justify-end">
-                <div className="text-right">
-                   <p className="text-[10px] font-mono text-zinc-600 uppercase mb-2">Service</p>
-                   <p className="text-sm font-black text-white uppercase tracking-widest">Ad Photography</p>
+             <div className="space-y-4">
+                <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Our Mandate</span>
+                <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-wider">
+                  Create a "Freshly Brewed" cinematic system that scales from digital social ads to high-fidelity physical billboards in Kochi.
+                </p>
+             </div>
+             <div className="flex flex-wrap gap-4 items-end justify-start md:justify-end">
+                <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                   <p className="text-[8px] font-mono text-zinc-600 uppercase mb-1">Sector</p>
+                   <p className="text-xs font-black text-white uppercase tracking-widest">Premium FMCG</p>
                 </div>
-                <div className="text-right">
-                   <p className="text-[10px] font-mono text-zinc-600 uppercase mb-2">Sector</p>
-                   <p className="text-sm font-black text-white uppercase tracking-widest">FMCG / Health</p>
-                </div>
-                <div className="text-right">
-                   <p className="text-[10px] font-mono text-zinc-600 uppercase mb-2">Deliverable</p>
-                   <p className="text-sm font-black text-white uppercase tracking-widest">Cinema Grade Plates</p>
+                <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                   <p className="text-[8px] font-mono text-zinc-600 uppercase mb-1">Location</p>
+                   <p className="text-xs font-black text-white uppercase tracking-widest">Kerala, India</p>
                 </div>
              </div>
           </div>
         </header>
 
-        {/* HERO IMAGE SECTION */}
-        <section className="mb-40 relative group">
-           <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
+        {/* --- HERO MASTERPLATE --- */}
+        <section className="mb-60 relative group">
+           <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl transition-all duration-700 hover:border-primary-accent/30">
               <Image 
                 src="/images/clients/kumbayah-kombucha.png"
-                alt="Kumbayah Kombucha Master Plate"
+                alt="Kumbayah Kombucha Premium Ad Photography"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 priority
               />
-              <div className="absolute inset-0 bg-primary-accent/5 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-bottom p-12 pointer-events-none">
+                 <div className="mt-auto">
+                    <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-white">The Master Creative</h2>
+                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.5em] mt-2">Node 01 // Cinematic Product Shot</p>
+                 </div>
+              </div>
            </div>
         </section>
 
-        {/* THE PROCESS SECTION */}
-        <section className="mb-40 grid md:grid-cols-2 gap-24 items-start">
+        {/* --- STRATEGIC INTELLIGENCE (SEO TEXT RICH) --- */}
+        <section className="mb-60 grid md:grid-cols-2 gap-32 items-center">
            <div className="space-y-12">
               <div className="flex items-center gap-4">
-                 <Camera className="text-primary-accent" size={32} />
-                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Tropical Narrative_</h2>
-              </div>
-              <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                Capturing condensation, sunlight refraction, and the natural fizz required precise timing and high-speed optics. By utilizing natural coastal lighting supplemented by high-CRI panels, we preserved the authentic colors of the fermented botanicals while emphasizing the premium glass bottle craft.
-              </p>
-              <div className="grid grid-cols-2 gap-8 pt-8">
-                 <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
-                    <Zap className="text-primary-accent mb-4" size={24} />
-                    <h4 className="text-sm font-black uppercase tracking-widest mb-2">Sun Sync</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Perfectly timed natural flare integration.</p>
+                 <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 border border-primary-accent/20 flex items-center justify-center">
+                    <Search className="text-primary-accent" size={24} />
                  </div>
-                 <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
+                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Market Analysis_</h2>
+              </div>
+              <div className="space-y-8 text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+                <p>
+                  To position <span className="text-white font-bold">Kumbayah Kombucha</span> as the <span className="text-white font-bold">Best Luxury Beverage in Kochi</span>, we analyzed global beverage trends against local Kerala consumer behavior.
+                </p>
+                <p>
+                  Our research indicated a gap in the <span className="text-white font-bold">Premium Health Drinks</span> sector for raw, authentic, yet highly polished visual storytelling. We pivoted away from traditional studio flat-lays toward <span className="text-primary-accent font-bold italic">Kinetic Liquid Styling</span>.
+                </p>
+              </div>
+           </div>
+           <div className="grid grid-cols-1 gap-8">
+              <div className="p-12 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl group hover:bg-white/[0.04] transition-all">
+                 <Target className="text-primary-accent mb-6" size={32} />
+                 <h4 className="text-lg font-black uppercase tracking-widest mb-4">Precision Targeting</h4>
+                 <p className="text-sm text-zinc-400 uppercase tracking-widest leading-relaxed">Defining the aesthetic for high-net-worth fitness enthusiasts in Kerala and urban metros.</p>
+              </div>
+              <div className="p-12 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl group hover:bg-white/[0.04] transition-all">
+                 <Lightbulb className="text-primary-accent mb-6" size={32} />
+                 <h4 className="text-lg font-black uppercase tracking-widest mb-4">Visual Logic</h4>
+                 <p className="text-sm text-zinc-400 uppercase tracking-widest leading-relaxed">Utilizing 'Sun-Sync' lighting to replicate the natural tropical environment of the product's origin.</p>
+              </div>
+           </div>
+        </section>
+
+        {/* --- EXECUTION NODES --- */}
+        <section className="mb-60">
+           <div className="flex items-center gap-4 mb-20">
+              <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 border border-primary-accent/20 flex items-center justify-center">
+                 <Camera className="text-primary-accent" size={24} />
+              </div>
+              <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter">High-Velocity Execution_</h2>
+           </div>
+
+           <div className="grid md:grid-cols-12 gap-12 group">
+              <div className="md:col-span-8 relative aspect-[16/9] rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl">
+                 <Image 
+                   src="/images/clients/kumbayah/fashion-splash.jpg"
+                   alt="Cinematic Fashion Lifestyle Shot for Kumbayah"
+                   fill
+                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                 />
+              </div>
+              <div className="md:col-span-4 flex flex-col gap-12">
+                 <div className="flex-1 p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 flex flex-col justify-end">
                     <Sparkles className="text-primary-accent mb-4" size={24} />
-                    <h4 className="text-sm font-black uppercase tracking-widest mb-2">Dew Logic</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Engineered condensation for ultra-fresh feel.</p>
+                    <h4 className="text-sm font-black uppercase tracking-widest mb-2">Kinetic Capture</h4>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">High-speed shutter orchestration for perfect liquid physics.</p>
                  </div>
-              </div>
-           </div>
-           <div className="grid gap-8">
-              <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group">
-                 <Image 
-                   src="/images/clients/kumbayah/product-splash.jpg"
-                   alt="Organic Ingredients & Product"
-                   fill
-                   className="object-cover transition-transform duration-700 group-hover:scale-110"
-                 />
-              </div>
-              <div className="relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group">
-                 <Image 
-                    src="/images/clients/kumbayah/triple-bottle.jpg"
-                    alt="Product Lineup with Dynamic Splash"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                 />
+                 <div className="flex-1 relative aspect-square rounded-[3rem] overflow-hidden border border-white/10">
+                    <Image 
+                      src="/images/clients/kumbayah/product-splash.jpg"
+                      alt="Organic Beverage Macro Shot"
+                      fill
+                      className="object-cover"
+                    />
+                 </div>
               </div>
            </div>
         </section>
 
-        {/* MARKETING ASSETS SECTION */}
-        <section className="mb-40 space-y-24">
-           <div className="flex flex-col md:flex-row gap-12 text-left">
-              <div className="flex-1 space-y-8">
-                 <div className="flex items-center gap-4">
-                    <BrainCircuit className="text-primary-accent" size={32} />
-                    <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Strategic Nodes_</h2>
-                 </div>
-                 <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                   Beyond the bottle. We developed a cohesive visual system for high-impact physical marketing. From bespoke retail refrigeration mockups to hyper-realistic transit branding, ensuring the 'Freshly Brewed' narrative is consistent across Kochi's most premium touchpoints.
-                 </p>
-              </div>
+        {/* --- OMNICHANNEL VISUAL SYSTEM --- */}
+        <section className="mb-60 border-t border-white/5 pt-40">
+           <div className="max-w-3xl mb-24">
+              <h3 className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.5em] mb-4">Strategic Assets // OMNICHANNEL</h3>
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-8 leading-tight">Engineering the <br /> Retail Identity_</h2>
+              <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+                We didn't just stop at photography. We built a scalable identity system that maintains luxury fidelity across <span className="text-white">Point-of-Sale (POS)</span> terminals, branded retail refrigeration, and transit media fleets across Kochi.
+              </p>
            </div>
 
-           <div className="grid md:grid-cols-2 gap-12">
-              <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
-                 <Image 
-                   src="/images/clients/kumbayah/fridge-mockup.png"
-                   alt="Retail Refrigeration Branding"
-                   fill
-                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                 />
-                 <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
-                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-widest mb-2">Node 04</p>
-                    <h4 className="text-sm font-black text-white uppercase tracking-widest leading-relaxed">Retail Environment Design</h4>
+           <div className="grid md:grid-cols-3 gap-12 group">
+              <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-white/10 group-hover:border-primary-accent/20 transition-all shadow-2xl">
+                 <Image src="/images/clients/kumbayah/fridge-mockup.png" alt="Custom Retail Fridge Mockup for Kumbayah" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+                 <div className="absolute top-8 right-8">
+                    <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full text-[8px] font-mono text-white/60">POS DESIGN</div>
                  </div>
               </div>
-              <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
-                 <Image 
-                   src="/images/clients/kumbayah/van-marketing.jpg"
-                   alt="Transit Marketing Branding"
-                   fill
-                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                 />
-                 <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
-                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-widest mb-2">Node 05</p>
-                    <h4 className="text-sm font-black text-white uppercase tracking-widest leading-relaxed">Hyper-Realistic Fleet Graphics</h4>
+              <div className="md:col-span-2 relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
+                 <Image src="/images/clients/kumbayah/van-marketing.jpg" alt="Kumbayah Delivery Fleet Branding" fill className="object-cover" />
+                 <div className="absolute bottom-8 left-8">
+                    <div className="bg-primary-accent px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest">Transit Media Node</div>
                  </div>
               </div>
            </div>
+        </section>
 
-           {/* FASHION SPLASH SECTION */}
-           <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl mt-12">
-              <Image 
-                src="/images/clients/kumbayah/fashion-splash.jpg"
-                alt="Lifestyle Beverage Narrative"
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-black/80 to-transparent flex justify-between items-end">
+        {/* --- BUSINESS IMPACT --- */}
+        <section className="mb-60 py-32 rounded-[5rem] bg-gradient-to-br from-white/[0.03] to-transparent border border-white/5 relative overflow-hidden">
+           <div className="absolute top-0 right-0 p-12 text-primary-accent opacity-20">
+              <BarChart3 size={120} />
+           </div>
+           <div className="container px-12 md:px-24">
+              <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter mb-20 drop-shadow-lg">Business <br /> Result_</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
                  <div className="space-y-4">
-                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-widest mb-2">Active Node 06</p>
-                    <h4 className="text-2xl font-black text-white uppercase tracking-widest leading-relaxed">Cinematic Lifestyle Integration</h4>
+                    <p className="text-5xl md:text-7xl font-black text-white italic tracking-tighter">125%</p>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Sales Engagement</p>
                  </div>
-                 <div className="hidden md:block px-6 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[10px] font-black uppercase tracking-[0.3em]">
-                    Full Fidelity 4K Master
+                 <div className="space-y-4">
+                    <p className="text-5xl md:text-7xl font-black text-primary-accent italic tracking-tighter">Prime</p>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Shelf Authority</p>
+                 </div>
+                 <div className="space-y-4">
+                    <p className="text-5xl md:text-7xl font-black text-white italic tracking-tighter">Zero</p>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Customer Friction</p>
+                 </div>
+                 <div className="space-y-4">
+                    <p className="text-5xl md:text-7xl font-black text-white italic tracking-tighter">8K</p>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Delivery Fidelity</p>
                  </div>
               </div>
            </div>
         </section>
 
-        {/* METRICS & RESULT */}
-        <section className="mb-40 py-24 border-y border-white/5">
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-20">
-              <div className="text-center md:text-left">
-                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">125%</p>
-                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Engagement Lift</p>
-              </div>
-              <div className="text-center md:text-left">
-                 <p className="text-4xl md:text-6xl font-black text-primary-accent italic tracking-tighter mb-2">Zero</p>
-                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Post-Renders Required</p>
-              </div>
-              <div className="text-center md:text-left">
-                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">Prime</p>
-                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Billboard Ready</p>
-              </div>
-              <div className="text-center md:text-left">
-                 <p className="text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">4K</p>
-                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Master Delivery</p>
-              </div>
-           </div>
-        </section>
-
-        {/* CTA FOOTER */}
-        <section className="p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group">
-           <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+        {/* --- CALL TO ACTION --- */}
+        <section className="p-12 md:p-32 rounded-[5rem] border border-white/10 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group shadow-3xl">
+           <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
            <div className="relative z-10">
+              <div className="flex justify-center mb-12">
+                 <span className="px-6 py-2 rounded-full border border-primary-accent/30 bg-primary-accent/10 text-[10px] font-black uppercase text-primary-accent tracking-[0.5em]">
+                    Now Available for 2026 Campaigns
+                 </span>
+              </div>
               <h2 className="text-5xl md:text-[8rem] font-black uppercase tracking-tighter text-white mb-16 leading-[0.8] italic">
-                Ready for <br /><span className="text-primary-accent italic font-black">Impact?</span>
+                Dominate <br /><span className="text-primary-accent italic font-black underline decoration-white/10 underline-offset-8">The Market.</span>
               </h2>
-              <div className="flex flex-col sm:flex-row justify-center gap-8">
+              <div className="flex flex-col sm:flex-row justify-center gap-10">
                  <Link 
-                   href="/contact?subject=Portfolio Inquiry: Kumbayah-style Shoot"
-                   className="h-20 px-16 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-4 hover:bg-transparent transition-all duration-300"
+                   href="/contact?subject=Case Study Inquiry: Kumbayah-style Strategy"
+                   className="h-24 px-20 rounded-3xl bg-primary-accent text-obsidian font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-4 group/btn"
                  >
-                   Launch New Shoot <ArrowRight size={20} />
+                   Launch New Shoot <ArrowRight size={20} className="group-hover/btn:translate-x-2 transition-transform" />
                  </Link>
                  <Link 
                    href="/portfolio"
-                   className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-4 transition-all duration-300"
+                   className="h-24 px-20 rounded-3xl border-2 border-white/10 bg-white/5 text-white font-black uppercase tracking-[0.2em] text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-4"
                  >
-                   Return to Portfolio
+                   Case Study Archives
                  </Link>
               </div>
            </div>
