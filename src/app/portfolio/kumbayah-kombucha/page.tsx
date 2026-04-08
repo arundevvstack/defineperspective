@@ -93,19 +93,80 @@ export default function KumbayahKombuchaCaseStudy() {
            <div className="grid gap-8">
               <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group">
                  <Image 
-                   src="https://images.unsplash.com/photo-1621263764490-344432bd44f2?auto=format&fit=crop&q=80&w=1200"
-                   alt="Organic Ingredients"
+                   src="/images/clients/kumbayah/product-splash.jpg"
+                   alt="Organic Ingredients & Product"
                    fill
                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                  />
               </div>
               <div className="relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group">
                  <Image 
-                    src="https://images.unsplash.com/photo-1596525649030-5bb5fbab21ec?auto=format&fit=crop&q=80&w=1200"
-                    alt="Product Lineup"
+                    src="/images/clients/kumbayah/triple-bottle.jpg"
+                    alt="Product Lineup with Dynamic Splash"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                  />
+              </div>
+           </div>
+        </section>
+
+        {/* MARKETING ASSETS SECTION */}
+        <section className="mb-40 space-y-24">
+           <div className="flex flex-col md:flex-row gap-12 text-left">
+              <div className="flex-1 space-y-8">
+                 <div className="flex items-center gap-4">
+                    <BrainCircuit className="text-primary-accent" size={32} />
+                    <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Strategic Nodes_</h2>
+                 </div>
+                 <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+                   Beyond the bottle. We developed a cohesive visual system for high-impact physical marketing. From bespoke retail refrigeration mockups to hyper-realistic transit branding, ensuring the 'Freshly Brewed' narrative is consistent across Kochi's most premium touchpoints.
+                 </p>
+              </div>
+           </div>
+
+           <div className="grid md:grid-cols-2 gap-12">
+              <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
+                 <Image 
+                   src="/images/clients/kumbayah/fridge-mockup.png"
+                   alt="Retail Refrigeration Branding"
+                   fill
+                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                 />
+                 <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-widest mb-2">Node 04</p>
+                    <h4 className="text-sm font-black text-white uppercase tracking-widest leading-relaxed">Retail Environment Design</h4>
+                 </div>
+              </div>
+              <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
+                 <Image 
+                   src="/images/clients/kumbayah/van-marketing.jpg"
+                   alt="Transit Marketing Branding"
+                   fill
+                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                 />
+                 <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-widest mb-2">Node 05</p>
+                    <h4 className="text-sm font-black text-white uppercase tracking-widest leading-relaxed">Hyper-Realistic Fleet Graphics</h4>
+                 </div>
+              </div>
+           </div>
+
+           {/* FASHION SPLASH SECTION */}
+           <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl mt-12">
+              <Image 
+                src="/images/clients/kumbayah/fashion-splash.jpg"
+                alt="Lifestyle Beverage Narrative"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-black/80 to-transparent flex justify-between items-end">
+                 <div className="space-y-4">
+                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-widest mb-2">Active Node 06</p>
+                    <h4 className="text-2xl font-black text-white uppercase tracking-widest leading-relaxed">Cinematic Lifestyle Integration</h4>
+                 </div>
+                 <div className="hidden md:block px-6 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[10px] font-black uppercase tracking-[0.3em]">
+                    Full Fidelity 4K Master
+                 </div>
               </div>
            </div>
         </section>
