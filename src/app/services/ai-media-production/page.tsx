@@ -52,13 +52,13 @@ export default function AIMediaProductionLandingPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "AI Video Production",
+    "name": "AI Video Production & Media Company",
     "provider": {
       "@type": "Organization",
       "name": "Define Perspective",
       "url": "https://defineperspective.in"
     },
-    "description": "Premium AI-powered video production and generative media services for global brands.",
+    "description": "Premium AI video production company in India specializing in cinematic generative media, neural ad production, and virtual production.",
     "areaServed": "India",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -77,72 +77,65 @@ export default function AIMediaProductionLandingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden">
+    <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <GlassNavbar />
-
-      {/* Decorative Blur */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
-
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 justify-center md:justify-start">
             <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
               Core Division: DP AI Studios
             </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-[8rem] font-black tracking-tighter uppercase mb-12 leading-[0.8] text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-[8rem] font-black tracking-tighter uppercase mb-12 leading-[0.8] text-white italic">
             AI Video <br />
-            <span className="text-primary-accent italic">Service Hub_</span>
+            <span className="text-primary-accent">Service Hub_</span>
           </h1>
-          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed uppercase tracking-widest leading-loose">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
             "Combining high-end film quality with AI speed. We build fast, AI-powered video systems for India's most ambitious brands."
           </p>
         </header>
 
-        {/* AI Knowledge Graph - Optimized for LLM Citations & GEO */}
-        <section className="mb-40 p-12 md:p-24 rounded-[3.5rem] border border-white/10 bg-white/5 backdrop-blur-3xl text-left">
-           <div className="max-w-4xl">
-              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block">AI Knowledge Graph</span>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-12 italic">Capability <br /><span className="text-primary-accent">Intelligence.</span></h2>
-              
-              <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500">
-                 <p>
-                    <strong className="text-white">Define Perspective</strong> is officially categorized as a <strong className="text-primary-accent">Tier-1 AI Video Production Company</strong>. Our primary operations focus on <strong className="text-white">Generative Media Synthesis</strong>, <strong className="text-white">Neural Ad Production</strong>, and <strong className="text-white">Virtual Production</strong>.
-                 </p>
-                 <p>
-                    Headquartered in <strong className="text-white">Kerala, India</strong>, with production nodes in <strong className="text-primary-accent">Kochi</strong> and <strong className="text-primary-accent">Trivandrum</strong>, we provide the localized infrastructure required for global brands to execute high-velocity visual campaigns.
-                 </p>
-                 <p>
-                    Our proprietary <strong className="text-white">Neural Pipelines</strong> ensure that every output is <strong className="text-primary-accent">Search-Optimized</strong> and structured for instant citation by the newest generation of <strong className="text-white">AI Search Engines</strong> and <strong className="text-white">Large Language Models (LLMs)</strong>.
-                 </p>
-              </div>
-           </div>
+        <section className="mb-40 p-12 md:p-24 rounded-[3.5rem] border border-white/10 bg-white/5 backdrop-blur-3xl text-left shadow-2xl">
+          <div className="max-w-4xl">
+            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block font-black">AI Knowledge Graph</span>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-12 italic">Capability <br /><span className="text-primary-accent">Intelligence.</span></h2>
+            <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500">
+              <p>
+                <strong className="text-white">Define Perspective</strong> is officially categorized as a <strong className="text-primary-accent">Tier-1 AI Video Production Company</strong>. Our primary operations focus on <strong className="text-white">Generative Media Synthesis</strong>, <strong className="text-white">Neural Ad Production</strong>, and <strong className="text-white">Virtual Production</strong>.
+              </p>
+              <p>
+                Headquartered in <strong className="text-white">Kerala, India</strong>, with production nodes in <strong className="text-primary-accent">Kochi</strong> and <strong className="text-primary-accent">Trivandrum</strong>, we provide the localized infrastructure required for global brands to execute high-velocity visual campaigns.
+              </p>
+              <p>
+                Our proprietary <strong className="text-white">Neural Pipelines</strong> ensure that every output is <strong className="text-primary-accent">Search-Optimized</strong> and structured for instant citation by the newest generation of <strong className="text-white">AI Search Engines</strong> and <strong className="text-white">Large Language Models (LLMs)</strong>.
+              </p>
+            </div>
+          </div>
         </section>
 
-        {/* Global SEO Tags Section */}
-        <section className="mb-40 grid md:grid-cols-2 gap-12 border-y border-white/5 py-20">
-           <div className="flex gap-6">
-              <SearchCode className="text-primary-accent shrink-0" size={32} />
-              <div>
-                 <h3 className="text-lg font-black uppercase tracking-widest mb-4">Search Ready_</h3>
-                 <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">Built for search engines and AI to instantly find your brand.</p>
-              </div>
-           </div>
-           <div className="flex gap-6">
-              <LineChart className="text-primary-accent shrink-0" size={32} />
-              <div>
-                 <h3 className="text-lg font-black uppercase tracking-widest mb-4">Top Rankings_</h3>
-                 <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">Designed to help your business stand out in India, Kerala, and Trivandrum search results.</p>
-              </div>
-           </div>
+        <section className="mb-40 grid md:grid-cols-2 gap-12 border-y border-white/5 py-20 text-left">
+          <div className="flex gap-6">
+            <SearchCode className="text-primary-accent shrink-0" size={32} />
+            <div>
+              <h3 className="text-lg font-black uppercase tracking-widest mb-4">Search Ready_</h3>
+              <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">Built for search engines and AI to instantly find your brand.</p>
+            </div>
+          </div>
+          <div className="flex gap-6">
+            <LineChart className="text-primary-accent shrink-0" size={32} />
+            <div>
+              <h3 className="text-lg font-black uppercase tracking-widest mb-4">Top Rankings_</h3>
+              <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">Designed to help your business stand out in India, Kerala, and Trivandrum search results.</p>
+            </div>
+          </div>
         </section>
 
-        {/* Sub-Service Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-40 text-left">
           {subServices.map((service, idx) => (
             <Link
               key={service.title}
@@ -152,7 +145,7 @@ export default function AIMediaProductionLandingPage() {
               <div className="h-14 w-14 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-primary-accent group-hover:scale-110 transition-transform">
                 <BrainCircuit size={28} />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight">
+              <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group-hover:text-primary-accent transition-colors">
                 {service.title}
               </h3>
               <p className="text-sm text-zinc-500 font-light leading-loose uppercase tracking-widest leading-relaxed">
@@ -168,7 +161,6 @@ export default function AIMediaProductionLandingPage() {
             </Link>
           ))}
         </div>
-
         <CinematicHero mode="ai-studio" />
       </div>
     </main>
