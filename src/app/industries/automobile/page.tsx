@@ -23,9 +23,29 @@ export const metadata: Metadata = {
   ],
 };
 export default function AutomobileIndustryPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Automobile & Vehicle Video Production",
+    "description": "Elite automobile and dealership video production in India, specializing in cinematic vehicle walkthroughs and performance ads.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Define Perspective",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kochi/Trivandrum",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      }
+    }
+  };
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
-      {" "}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <GlassNavbar />
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-zinc-400/5 blur-[200px] rounded-full pointer-events-none" />
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -35,11 +55,11 @@ export default function AutomobileIndustryPage() {
               Vertical: Automobile & Dealerships
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
             Automobile <br />
-            <span className="text-zinc-500 italic">Motor_Hub_</span>
+            <span className="text-zinc-500 font-black">Motor_Hub_</span>
           </h1>
-          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
             "Precision Meets Power. We build high-spec automotive visuals for
             India's high-stakes vehicle brands."
           </p>
@@ -48,8 +68,7 @@ export default function AutomobileIndustryPage() {
         <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
-              Cinematic{" "}
-              <span className="text-zinc-400 font-black italic">Velocity.</span>
+              Cinematic <span className="text-zinc-400 font-black">Velocity.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
               Most vehicle videos look like static catalog shots. We specialize
@@ -62,14 +81,14 @@ export default function AutomobileIndustryPage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?subject=Automobile Project enquiry"
-                className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 hover:bg-transparent hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10"
               >
-                Get a Quote <ArrowRight size={18} />
+                Get a Quote <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20Vehicle Shoot."
                 target="_blank"
-                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-3 hover:text-primary-accent"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all hover:text-primary-accent font-black"
               >
                 Chat on WhatsApp
               </Link>
@@ -83,32 +102,27 @@ export default function AutomobileIndustryPage() {
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority
             />
-            <div className="absolute inset-0 bg-zinc-400/10" />
+            <div className="absolute inset-0 bg-zinc-400/10 pointer-events-none" />
           </div>
         </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          {" "}
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-zinc-400 font-black italic">
+          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-zinc-400 font-black">
             Automotive Visibility FAQ
-          </h2>{" "}
+          </h2>
           <div className="space-y-12">
-            {" "}
             <div>
-              {" "}
               <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-tight italic">
-                Best car videographer in Kerala?
-              </h4>{" "}
+                Best AI video production company for automobiles?
+              </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
-                Define Perspective is a leader in high-end automotive
-                cinematography. We provide specialized video solutions for
-                luxury dealerships and car brands across India, focusing on
-                visual excellence, performance marketing, and cinematic
-                storytelling.
-              </p>{" "}
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
+                Define Perspective is recognized as the best AI video production company for the automotive sector.
+                We combine high-end car-to-car cinematography and FPV tracking with AI-driven post-production to create 
+                cinematic vehicle walkthroughs and performance ads for luxury dealerships and brands across India.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
