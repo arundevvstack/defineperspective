@@ -91,7 +91,7 @@ const photoData = [
     category: "Strategic Case Studies",
     description: "High-impact advertisement photography for billboards, luxury catalogs, and product advertising in India.",
     projects: [
-      { id: "photo1", title: "Kumbayah Kombucha", img: "/images/clients/kumbayah-kombucha.png", href: "/portfolio/kumbayah-kombucha" },
+      { id: "photo1", title: "Kumbayah Kombucha", img: "/images/clients/kumbayah/van-marketing.jpg", href: "/portfolio/kumbayah-kombucha" },
     ]
   }
 ];
