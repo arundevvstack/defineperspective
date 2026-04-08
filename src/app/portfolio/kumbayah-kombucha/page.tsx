@@ -5,19 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Kumbayah Kombucha | Luxury Product Photography & Brand Film India",
-  description: "A deep dive into the Kumbayah Kombucha visual strategy. Specialized in luxury beverage photography, kinetic food styling, and commercial ads in Kochi, Kerala.",
+  title: "Kumbayah | Fashion Editorial & Luxury Cinematic Product Branding",
+  description: "A deep dive into the Kumbayah Kombucha visual strategy. Specialized in luxury beverage photography, kinetic food styling, and fashion editorial in Kochi, Kerala.",
   keywords: [
+    "Fashion Editorial Kochi",
     "Luxury product photography Kochi",
     "Best commercial photographer Kerala",
     "Kumbayah Kombucha brand identity",
     "Food styling and photography Kochi",
     "Premium beverage advertising India",
-    "Define Perspective case study",
+    "Define Perspective editorial",
     "Cinematic product films Kerala"
   ],
   openGraph: {
-    title: "Kumbayah Kombucha Strategic Case Study | Define Perspective",
+    title: "Kumbayah Fashion Editorial | Define Perspective",
     description: "Engineering the organic visual identity for India's premium kombucha brand.",
     images: ["/images/clients/kumbayah-kombucha.png"],
   }
@@ -27,8 +28,8 @@ export default function KumbayahKombuchaCaseStudy() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Kumbayah Kombucha: Engineering Luxury Through Kinetic Cinematography",
-    "description": "Comprehensive case study on premium beverage branding and advertising photography in Kerala by Define Perspective.",
+    "headline": "Kumbayah: Engineering Luxury Through Fashion Editorial Cinematography",
+    "description": "Comprehensive fashion editorial on premium beverage branding and advertising photography in Kerala by Define Perspective.",
     "author": {
       "@type": "Organization",
       "name": "Define Perspective",
@@ -62,7 +63,7 @@ export default function KumbayahKombuchaCaseStudy() {
         <header className="mb-40 space-y-12 animate-in fade-in slide-in-from-bottom-10 duration-1000">
           <div className="flex items-center gap-4">
             <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md border border-primary-accent/20">
-              Strategic Case Study // Node 01
+              Fashion Editorial // Node 01
             </div>
           </div>
           <h1 className="text-6xl md:text-[12rem] font-black tracking-tighter uppercase leading-[0.75] text-white italic drop-shadow-2xl">
@@ -262,7 +263,7 @@ export default function KumbayahKombuchaCaseStudy() {
               </h2>
               <div className="flex flex-col sm:flex-row justify-center gap-10">
                  <Link 
-                   href="/contact?subject=Case Study Inquiry: Kumbayah-style Strategy"
+                   href="/contact?subject=Editorial Inquiry: Kumbayah-style Strategy"
                    className="h-24 px-20 rounded-3xl bg-primary-accent text-obsidian font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-4 group/btn"
                  >
                    Launch New Shoot <ArrowRight size={20} className="group-hover/btn:translate-x-2 transition-transform" />
@@ -271,7 +272,7 @@ export default function KumbayahKombuchaCaseStudy() {
                    href="/portfolio"
                    className="h-24 px-20 rounded-3xl border-2 border-white/10 bg-white/5 text-white font-black uppercase tracking-[0.2em] text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-4"
                  >
-                   Case Study Archives
+                   Editorial Archives
                  </Link>
               </div>
            </div>
