@@ -157,12 +157,12 @@ export default function KumbayahKombuchaCaseStudy() {
            </div>
 
            <div className="grid md:grid-cols-12 gap-12 group">
-              <div className="md:col-span-8 relative aspect-[16/9] rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl">
+              <div className="md:col-span-8 relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl bg-black max-w-2xl mx-auto w-full">
                  <Image 
                    src="/images/clients/kumbayah/fashion-splash.jpg"
                    alt="Cinematic Fashion Lifestyle Shot for Kumbayah"
                    fill
-                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                   className="object-contain md:object-cover transition-transform duration-1000 group-hover:scale-105"
                  />
               </div>
               <div className="md:col-span-4 flex flex-col gap-12">
