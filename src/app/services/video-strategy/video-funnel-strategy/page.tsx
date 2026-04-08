@@ -25,58 +25,46 @@ export const metadata: Metadata = {
 export default function VideoFunnelSubPage() {
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
-      {" "}
-      <GlassNavbar />{" "}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-transparent border-2 border-primary-accent/5 blur-[180px] rounded-full pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />{" "}
+      <GlassNavbar />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[180px] rounded-full pointer-events-none" />
       <div className="container mx-auto max-w-6xl relative z-10">
-        {" "}
         <header className="mb-40 flex flex-col gap-8">
-          {" "}
           <div className="flex items-center gap-4 justify-center md:justify-start">
-            {" "}
-            <div className="px-4 py-1.5 rounded-full border border-primary-accent/50 text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-transparent border-2 border-primary-accent/10 backdrop-blur-md hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
-              {" "}
-              Division: Funnel Architecture{" "}
-            </div>{" "}
-          </div>{" "}
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white font-black italic">
-            {" "}
-            Video Funnel <br />{" "}
-            <span className="text-primary-accent font-black">Strategy_</span>{" "}
-          </h1>{" "}
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-widest bg-primary-accent/10 backdrop-blur-md">
+              Division: Funnel Architecture
+            </div>
+          </div>
+          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white italic">
+            Video Funnel <br />
+            <span className="text-primary-accent font-black">Strategy_</span>
+          </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0">
-            {" "}
             "Content without a funnel is just expense. We build visual
-            architecture that drives measurable growth across India."{" "}
-          </p>{" "}
-        </header>{" "}
-        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group">
-          {" "}
-          <div className="relative z-10 text-left">
-            {" "}
+            architecture that drives measurable growth across India."
+          </p>
+        </header>
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
+          <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">
               Architect Your{" "}
               <span className="text-primary-accent italic">Growth Hub.</span>
-            </h2>{" "}
+            </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
-              {" "}
               Most agencies focus on making a single video. We focus on building
               a multi-channel video ecosystem. Our video funnel strategy in
               Kerala and India aligns your visual content with every stage of
               the customer journey — from high-impact top-of-funnel awareness to
               high-converting bottom-of-funnel direct-response. We help Indian
-              brands build profitable long-term media roadmaps.{" "}
-            </p>{" "}
+              brands build profitable long-term media roadmaps.
+            </p>
             <Link
               href="/contact?subject=Video Funnel Strategy enquiry"
-              className="h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-zinc-100 font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300"
+              className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10"
             >
-              {" "}
-              Draft My Funnel roadmap{" "}
-            </Link>{" "}
-          </div>{" "}
+              Draft My Funnel roadmap
+            </Link>
+          </div>
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
-            {" "}
             <Image
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
               alt="Strategy Data Charts for Video Funnel Systems"
@@ -84,31 +72,28 @@ export default function VideoFunnelSubPage() {
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority
             />
-            <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/10 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
+            <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
           </div>
-        </section>{" "}
+        </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          {" "}
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
-            Funnel Visibility FAQ
-          </h2>{" "}
+            Strategy Hub FAQ
+          </h2>
           <div className="space-y-12">
-            {" "}
             <div>
-              {" "}
               <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-tight italic">
-                Best video marketing strategy consultant in India?
-              </h4>{" "}
+                Best AI video production company for funnel strategy?
+              </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
                 Define Perspective is a leader in data-driven visual strategy.
                 We provide specialized video funnel consulting for high-growth
                 brands in Kerala and across India, focusing on architectural
                 media planning and ROI-based campaign execution.
-              </p>{" "}
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
