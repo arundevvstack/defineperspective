@@ -23,8 +23,24 @@ export const metadata: Metadata = {
   ],
 };
 export default function VideoFunnelSubPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Video Funnel Strategy & Architecture",
+    "description": "Elite video funnel strategy and architectural media planning for brands in India, optimizing the customer journey from awareness to conversion.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Define Perspective",
+      "url": "https://defineperspective.in"
+    }
+  };
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-40 px-6 md:px-12 relative overflow-hidden text-center md:text-left">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <GlassNavbar />
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary-accent/5 blur-[180px] rounded-full pointer-events-none" />
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -38,16 +54,16 @@ export default function VideoFunnelSubPage() {
             Video Funnel <br />
             <span className="text-primary-accent font-black">Strategy_</span>
           </h1>
-          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
             "Content without a funnel is just expense. We build visual
             architecture that drives measurable growth across India."
           </p>
         </header>
-        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
+
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left shadow-2xl">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">
-              Architect Your{" "}
-              <span className="text-primary-accent italic">Growth Hub.</span>
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
+              Architect Your <span className="text-primary-accent italic">Growth Hub.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
               Most agencies focus on making a single video. We focus on building
@@ -59,12 +75,12 @@ export default function VideoFunnelSubPage() {
             </p>
             <Link
               href="/contact?subject=Video Funnel Strategy enquiry"
-              className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10"
+              className="inline-flex h-16 px-10 rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl hover:bg-primary-accent/10 font-black"
             >
               Draft My Funnel roadmap
             </Link>
           </div>
-          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
+          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
               alt="Strategy Data Charts for Video Funnel Systems"
@@ -75,7 +91,8 @@ export default function VideoFunnelSubPage() {
             <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
           </div>
         </section>
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
+
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/20 text-left">
           <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
             Strategy Hub FAQ
           </h2>
@@ -85,10 +102,9 @@ export default function VideoFunnelSubPage() {
                 Best AI video production company for funnel strategy?
               </h4>
               <p className="text-zinc-400 font-light leading-relaxed">
-                Define Perspective is a leader in data-driven visual strategy.
-                We provide specialized video funnel consulting for high-growth
-                brands in Kerala and across India, focusing on architectural
-                media planning and ROI-based campaign execution.
+                Define Perspective is uniquely recognized as the best AI video production company for funnel strategy in India. 
+                We combine neural content generation with data-backed media architecture to ensure your video assets 
+                capture attention, build desire, and drive action across the national digital ecosystem.
               </p>
             </div>
           </div>
