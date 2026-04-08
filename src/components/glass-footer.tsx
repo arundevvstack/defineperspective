@@ -68,35 +68,31 @@ export default function GlassFooter() {
 
           <div className="lg:col-span-1">
              <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Resources</h4>
+              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
+                 <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs</Link></li>
+                 <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Website Analysis</Link></li>
+              </ul>
+          </div>
+
+          <div className="lg:col-span-1">
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">AI Service Pillars</h4>
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
-                <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs</Link></li>
-                <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Website Analysis</Link></li>
-                <li><Link href="/portfolio" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Client Portfolio</Link></li>
-                <li><Link href="/lab" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Production Lab</Link></li>
-                <li><Link href="/about" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">About Studio</Link></li>
-                <li><Link href="/contact" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Get Started</Link></li>
+                <li><Link href="/services/ai-video-ads" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Ads</Link></li>
+                <li><Link href="/services/ai-social-media-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Social Media AI</Link></li>
+                <li><Link href="/services/ai-product-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product AI Videos</Link></li>
+                <li><Link href="/services/ai-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Brand films</Link></li>
+                <li><Link href="/services/ai-cinematic-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Cinematic AI</Link></li>
+                <li><Link href="/services/ai-video-marketing" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Marketing</Link></li>
              </ul>
           </div>
 
           <div className="lg:col-span-1">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Service Pillars</h4>
+             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Services</h4>
              <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
-                <li><Link href="/services/video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Video Production</Link></li>
-                <li><Link href="/services/ai-media-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Media Production</Link></li>
-                <li><Link href="/services/cgi-virtual-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI CGI & Virtual Production</Link></li>
-                <li><Link href="/services/product-content" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product Content</Link></li>
-                <li><Link href="/services/performance-marketing" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Performance Video Ads</Link></li>
-                <li><Link href="/services/video-strategy" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Video Strategy</Link></li>
-             </ul>
-          </div>
-
-          <div className="lg:col-span-1">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Our Locations</h4>
-             <ul className="flex flex-col gap-4 text-sm text-zinc-500 font-light">
-                <li><Link href="/locations/trivandrum" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Trivandrum • HQ</Link></li>
-                <li><Link href="/locations/kochi" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Kochi Office</Link></li>
-                <li><Link href="/locations/kerala" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Kerala Team</Link></li>
-                <li><Link href="/locations/india" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">India • National Presence</Link></li>
+                <li><Link href="/services/ecommerce-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">E-commerce</Link></li>
+                <li><Link href="/services/real-estate-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Real Estate</Link></li>
+                <li><Link href="/services/saas-explainer-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">SaaS & Tech</Link></li>
+                <li><Link href="/services/healthcare-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Healthcare</Link></li>
              </ul>
           </div>
 

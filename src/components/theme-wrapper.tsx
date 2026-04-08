@@ -8,9 +8,8 @@ function ThemeController({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams();
   
   const isAiPath = 
-    pathname.startsWith("/services/ai-media-production") || 
-    pathname.startsWith("/services/cgi-virtual-production") || 
-    pathname.startsWith("/ai-studios") ||
+    pathname.includes("/services/ai-") || 
+    pathname.includes("/ai-studios") ||
     pathname === "/ai-services";
     
   const isAiTabOnPortfolio = pathname === "/portfolio" && searchParams.get("view") === "ai";

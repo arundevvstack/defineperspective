@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { 
   Workflow, Sparkles, Wand2, ArrowRight,
-  Cpu, PlayCircle, Image, Star
+  Cpu, PlayCircle, Image, Star,
+  Zap, Smartphone, BarChart3, Video, ShoppingCart, Camera, Film, MessageSquare, Building2, Scissors, LayoutList, MonitorPlay, Activity
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import WhatsAppChat from "@/components/whatsapp-chat";
@@ -12,74 +13,124 @@ import Link from "next/link";
 
 const serviceSections = [
   {
-    title: "Video Production",
-    subtitle: "Elite Ad Films & Corporate Brand Storytelling in Kerala",
-    icon: PlayCircle,
-    theme: "theme-red",
-    items: [
-      {
-        id: "corp-video",
-        title: "Corporate Video Production Company in Kerala",
-        desc: "Professional brand stories and heritage films for global enterprises in Thrivandrum & Kochi.",
-        icon: Workflow,
-        href: "/services/video-production/corporate-video-production-company-in-kerala"
-      },
-      {
-        id: "brand-film",
-        title: "Brand Film Production",
-        desc: "Premium cinematic films that define your company's visionary identity and legacy.",
-        icon: Star,
-        href: "/services/video-production/brand-film-production"
-      },
-      {
-        id: "ad-film",
-        title: "Ad Film / Commercial Video Production",
-        desc: "High-impact television commercials (TVC) and premium digital video ads for national reach.",
-        icon: PlayCircle,
-        href: "/services/video-production/ad-film-commercial-video-production"
-      },
-      {
-        id: "promo-video",
-        title: "Promotional Video Production",
-        desc: "High-energy videos designed to launch products and ignite rapid growth in Indian markets.",
-        icon: Sparkles,
-        href: "/services/video-production/promotional-video-production"
-      }
-    ]
-  },
-  {
-    title: "AI Media Production",
-    subtitle: "2026-Era Generative Video & Post-Production Labs India",
+    title: "AI Video Strategy & Performance",
+    subtitle: "2026-Era Performance Marketing & Visual Velocity",
     icon: Cpu,
     theme: "theme-blue",
     items: [
       {
-        id: "ai-video-services",
+        id: "ai-video-ads",
+        title: "AI Video Ads (Performance)",
+        desc: "High-ROAS Meta & YouTube ad creatives with neural variation testing.",
+        icon: Zap,
+        href: "/services/ai-video-ads"
+      },
+      {
+        id: "ai-social-videos",
+        title: "AI Social Media Video Production",
+        desc: "Neural Reels, Shorts, and TikTok sequences for daily social dominance.",
+        icon: Smartphone,
+        href: "/services/ai-social-media-videos"
+      },
+      {
+        id: "ai-video-marketing",
+        title: "AI Video Marketing & Strategy",
+        desc: "Data-driven visual funnel design and campaign distribution planning.",
+        icon: BarChart3,
+        href: "/services/ai-video-marketing"
+      }
+    ]
+  },
+  {
+    title: "AI Production & Narrative Studio",
+    subtitle: "Cinematic Excellence Powered by Neural Synthesis",
+    icon: Sparkles,
+    theme: "theme-red",
+    items: [
+      {
+        id: "ai-video-prod",
         title: "AI Video Production Services",
-        desc: "Full-scale generative video production utilizing proprietary neural workflows and AI pipelines.",
-        icon: Sparkles,
-        href: "/services/ai-media-production/ai-video-production-services"
+        desc: "Bespoke AI brand films and commercial video production at high-fidelity.",
+        icon: Video,
+        href: "/services/ai-video-production"
       },
       {
-        id: "ai-ad-gen",
-        title: "AI Ad Creative Generation",
-        desc: "High-velocity ad creative testing with thousands of AI-generated visual variants in hours.",
-        icon: Cpu,
-        href: "/services/ai-media-production/ai-ad-creative-generation"
+        id: "ai-product-videos",
+        title: "AI Product Video Production",
+        desc: "Zero-shoot neural product movies for Amazon, Shopify, and E-comm.",
+        icon: ShoppingCart,
+        href: "/services/ai-product-videos"
       },
       {
-        id: "ai-no-shoot",
-        title: "AI Product Videos (No Shoot Required)",
-        desc: "Render hyper-realistic product commercials entirely from static images or CAD models.",
-        icon: Image,
-        href: "/services/ai-media-production/ai-product-videos-no-shoot-required"
+        id: "ai-cinematic",
+        title: "Cinematic AI Video Production",
+        desc: "High-end luxury storytelling and premium neural brand films.",
+        icon: Camera,
+        href: "/services/ai-cinematic-production"
       },
       {
-        id: "ai-avatars",
-        title: "AI Avatar Videos & AI Presenters",
-        desc: "Photorealistic AI characters for multilingual training, explainers, and brand ambassadors.",
-        icon: Star,
-        href: "/services/ai-media-production/ai-avatar-videos-ai-presenters"
+        id: "ai-film-prod",
+        title: "AI Film & Narrative Production",
+        desc: "Neural short films, music videos, and cinematic narrative content.",
+        icon: Film,
+        href: "/services/ai-film-production"
+      },
+      {
+        id: "ai-explainer",
+        title: "AI Explainer Video Production",
+        desc: "SaaS walkthroughs and educational content with AI avatar presenters.",
+        icon: MessageSquare,
+        href: "/services/ai-explainer-videos"
+      },
+      {
+        id: "ai-corporate",
+        title: "AI Corporate Video Production",
+        desc: "Company profiles and employer branding through AI-powered systems.",
+        icon: Building2,
+        href: "/services/ai-corporate-videos"
+      },
+      {
+        id: "ai-editing",
+        title: "AI Video Editing & Post Production",
+        desc: "Neural VFX, automated color grading, and video enhancement.",
+        icon: Scissors,
+        href: "/services/ai-video-editing"
+      }
+    ]
+  },
+  {
+    title: "Industry Specific Solutions",
+    subtitle: "Domain Mastery for High-Impact Sectors",
+    icon: LayoutList,
+    theme: "theme-red",
+    items: [
+      {
+        id: "ecommerce-solutions",
+        title: "E-commerce Video Production",
+        desc: "High-conversion product videos and lifestyle visuals for global marketplaces.",
+        icon: ShoppingCart,
+        href: "/services/ecommerce-video-production"
+      },
+      {
+        id: "real-estate-solutions",
+        title: "Real Estate Video Production",
+        desc: "Cinematic property films and architectural walkthroughs for elite developers.",
+        icon: Building2,
+        href: "/services/real-estate-video"
+      },
+      {
+        id: "saas-solutions",
+        title: "SaaS & Tech Video Production",
+        desc: "Software explainers, product demos, and feature launch narratives for tech giants.",
+        icon: MonitorPlay,
+        href: "/services/saas-explainer-video"
+      },
+      {
+        id: "healthcare-solutions",
+        title: "Healthcare Video Production",
+        desc: "Hospital branding and trust-centric medical narratives for elite healthcare.",
+        icon: Activity,
+        href: "/services/healthcare-video"
       }
     ]
   }

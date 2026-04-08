@@ -4,224 +4,102 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { 
   Video, Target, Share2, Camera, Eye, Zap, Layers, BarChart3, 
   Database, Workflow, CheckCircle2, Package, Sparkles, Wand2, ArrowUpRight,
-  Cpu, Users, Globe, PlayCircle, Image, Star
+  Cpu, Users, Globe, PlayCircle, Image, Star, Smartphone, Film, MessageSquare, Building2, Briefcase, Scissors
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const serviceSections = [
   {
-    title: "Video Production",
-    subtitle: "Elite Ad Films & Corporate Brand Storytelling in Kerala",
-    icon: PlayCircle,
-    theme: "theme-red",
-    items: [
-      {
-        id: "corp-video",
-        title: "Corporate Video Production Company in Kerala",
-        desc: "Professional brand stories and heritage films for global enterprises in Thrivandrum & Kochi.",
-        icon: Workflow,
-        href: "/services/video-production/corporate-video-production-company-in-kerala"
-      },
-      {
-        id: "brand-film",
-        title: "Brand Film Production",
-        desc: "Premium cinematic films that define your company's visionary identity.",
-        icon: Star,
-        href: "/services/video-production/brand-film-production"
-      },
-      {
-        id: "ad-film",
-        title: "Ad Film / Commercial Video Production",
-        desc: "High-impact television commercials (TVC) and premium digital video ads.",
-        icon: Video,
-        href: "/services/video-production/ad-film-commercial-video-production"
-      },
-      {
-        id: "promo-video",
-        title: "Promotional Video Production",
-        desc: "High-energy videos designed to launch products and ignite growth.",
-        icon: Zap,
-        href: "/services/video-production/promotional-video-production"
-      }
-    ]
-  },
-  {
-    title: "AI Media Production",
-    subtitle: "2026-Era Generative Video & Post-Production Labs India",
-    icon: Cpu,
-    theme: "theme-blue",
-    items: [
-      {
-        id: "ai-video-services",
-        title: "AI Video Production Services",
-        desc: "Full-scale generative video production utilizing proprietary neural workflows.",
-        icon: Sparkles,
-        href: "/services/ai-media-production/ai-video-production-services"
-      },
-      {
-        id: "ai-ad-gen",
-        title: "AI Ad Creative Generation",
-        desc: "High-velocity ad creative testing with AI-generated visual variants.",
-        icon: Zap,
-        href: "/services/ai-media-production/ai-ad-creative-generation"
-      },
-      {
-        id: "ai-no-shoot",
-        title: "AI Product Videos (No Shoot Required)",
-        desc: "Render hyper-realistic product commercials entirely from static images/models.",
-        icon: Image,
-        href: "/services/ai-media-production/ai-product-videos-no-shoot-required"
-      },
-      {
-        id: "ai-avatars",
-        title: "AI Avatar Videos & AI Presenters",
-        desc: "Photorealistic AI characters for training, explainers, and brand ambassadors.",
-        icon: Users,
-        href: "/services/ai-media-production/ai-avatar-videos-ai-presenters"
-      }
-    ]
-  },
-  {
-    title: "AI CGI & Virtual Production",
-    subtitle: "Premium 3D Visualization & Virtual Environments India",
-    icon: Wand2,
-    theme: "theme-blue",
-    items: [
-      {
-        id: "cgi-prod-video",
-        title: "AI CGI Product Videos",
-        desc: "Impossible product shots and surreal 3D environments rendered via AI.",
-        icon: Sparkles,
-        href: "/services/cgi-virtual-production/ai-cgi-product-videos"
-      },
-      {
-        id: "virtual-prod-env",
-        title: "Virtual Production AI Environments",
-        desc: "Shoot against high-res AI digital backgrounds for global locations-on-demand.",
-        icon: Globe,
-        href: "/services/cgi-virtual-production/virtual-production-services"
-      },
-      {
-        id: "3d-vis-ai",
-        title: "AI-Generated 3D Product Visualization",
-        desc: "Photorealistic 3D renders that eliminate the need for physical studio time.",
-        icon: Layers,
-        href: "/services/cgi-virtual-production/3d-product-visualization"
-      },
-      {
-        id: "vfx-ai-enhance",
-        title: "AI VFX & Motion Enhancement",
-        desc: "Elevating traditional footage with high-end neural visual effects.",
-        icon: Zap,
-        href: "/services/cgi-virtual-production/vfx-motion-enhancement"
-      }
-    ]
-  },
-  {
-    title: "Product & E-commerce Content",
-    subtitle: "Billboard-Ready Visuals for Amazon, Flipkart & D2C Brands",
-    icon: Package,
-    theme: "theme-red",
-    items: [
-      {
-        id: "prod-video",
-        title: "Product Video Production",
-        desc: "Cinematic product close-ups and lifestyle films for premium retail.",
-        icon: Camera,
-        href: "/services/product-content/product-video-production"
-      },
-      {
-        id: "ecomm-photo",
-        title: "E-commerce Product Photography",
-        desc: "High-precision studio photography for catalogs and digital storefronts.",
-        icon: Image,
-        href: "/services/product-content/e-commerce-product-photography"
-      },
-      {
-        id: "marketplace-video",
-        title: "Amazon / Flipkart Product Videos",
-        desc: "Conversion-optimized product videos compliant with marketplace standards.",
-        icon: Globe,
-        href: "/services/product-content/amazon-flipkart-product-videos"
-      },
-      {
-        id: "prod-demo",
-        title: "Product Demo Videos",
-        desc: "Clear, engaging walkthroughs showcasing your product's core utility.",
-        icon: PlayCircle,
-        href: "/services/product-content/product-demo-videos"
-      }
-    ]
-  },
-  {
-    title: "Performance Marketing Video Ads",
-    subtitle: "Conversion-Centric Ad Creatives for FB, IG & YouTube",
+    title: "AI Performance & Strategy",
+    subtitle: "High-ROAS Video Ads & Social Velocity",
     icon: Target,
-    theme: "theme-red",
+    theme: "theme-blue",
     items: [
       {
-        id: "perf-ads",
-        title: "Performance Marketing Video Ads",
-        desc: "ROI-driven ad creatives designed to lower CPA and boost conversion.",
-        icon: BarChart3,
-        href: "/services/performance-marketing/performance-marketing-video-ads"
-      },
-      {
-        id: "fb-ig-ads",
-        title: "Facebook & Instagram Ad Creatives",
-        desc: "Thumb-stopping visuals specifically for Meta's high-stakes feed.",
-        icon: Share2,
-        href: "/services/performance-marketing/facebook-instagram-ad-creatives"
-      },
-      {
-        id: "yt-ads",
-        title: "YouTube Ads Production",
-        desc: "High-retention skippable and unskippable ads for YouTube campaigns.",
-        icon: Video,
-        href: "/services/performance-marketing/youtube-ads-production"
-      },
-      {
-        id: "conv-ads",
-        title: "Conversion-Focused Video Ads",
-        desc: "Scientific ad structures built to guide viewers toward immediate action.",
+        id: "ai-video-ads",
+        title: "AI Video Ads (Performance)",
+        desc: "Neural Meta & YouTube ad creatives engineered for conversion.",
         icon: Zap,
-        href: "/services/performance-marketing/conversion-focused-video-ads"
+        href: "/services/ai-video-ads"
+      },
+      {
+        id: "ai-social-videos",
+        title: "AI Social Media Video Production",
+        desc: "Reels, Shorts, and TikTok sequences at neural speed.",
+        icon: Smartphone,
+        href: "/services/ai-social-media-videos"
+      },
+      {
+        id: "ai-video-marketing",
+        title: "AI Video Marketing & Strategy",
+        desc: "Data-driven visual funnels and distribution roadmaps.",
+        icon: BarChart3,
+        href: "/services/ai-video-marketing"
       }
     ]
   },
   {
-    title: "Video Strategy & Consulting",
-    subtitle: "Data-Driven Planning & Content Funnel Architecture",
-    icon: BarChart3,
-    theme: "theme-red",
+    title: "AI Production Mastery",
+    subtitle: "Cinematic Excellence & Narrative Synthesis",
+    icon: Sparkles,
+    theme: "theme-blue",
     items: [
       {
-        id: "vid-strat",
-        title: "Video Marketing Strategy",
-        desc: "Multi-channel media roadmaps for sustainable brand growth.",
-        icon: Target,
-        href: "/services/video-strategy/video-marketing-strategy"
+        id: "ai-video-prod",
+        title: "AI Video Production Services",
+        desc: "Bespoke AI brand films and photorealistic commercial production.",
+        icon: Video,
+        href: "/services/ai-video-production"
       },
       {
-        id: "cont-plan",
-        title: "Content Strategy & Planning",
-        desc: "Holistic content calendars engineered for maximum audience retention.",
-        icon: Workflow,
-        href: "/services/video-strategy/content-strategy-planning"
+        id: "ai-cinematic",
+        title: "Cinematic AI Video Production",
+        desc: "High-end luxury storytelling and premium neural brand films.",
+        icon: Camera,
+        href: "/services/ai-cinematic-production"
       },
       {
-        id: "camp-exec",
-        title: "Campaign Planning & Execution",
-        desc: "End-to-end management of high-stakes visual marketing campaigns.",
-        icon: Globe,
-        href: "/services/video-strategy/campaign-planning-execution"
+        id: "ai-film-prod",
+        title: "AI Film & Narrative Production",
+        desc: "Neural short films and cinematic narrative content.",
+        icon: Film,
+        href: "/services/ai-film-production"
       },
       {
-        id: "vid-funnel",
-        title: "Video Funnel Strategy",
-        desc: "Architecting video sequences that move users from awareness to sale.",
-        icon: Layers,
-        href: "/services/video-strategy/video-funnel-strategy"
+        id: "ai-editing",
+        title: "AI Video Editing & Post Production",
+        desc: "Neural VFX and automated high-end color grading.",
+        icon: Scissors,
+        href: "/services/ai-video-editing"
+      }
+    ]
+  },
+  {
+    title: "Enterprise AI Solutions",
+    subtitle: "Scalable Visual Systems for Global Brands",
+    icon: Building2,
+    theme: "theme-blue",
+    items: [
+      {
+        id: "ai-product-videos",
+        title: "AI Product Video Production",
+        desc: "Zero-shoot neural product movies for global e-commerce.",
+        icon: Package,
+        href: "/services/ai-product-videos"
+      },
+      {
+        id: "ai-explainer",
+        title: "AI Explainer Video Production",
+        desc: "SaaS walkthroughs featuring neural AI avatar presenters.",
+        icon: MessageSquare,
+        href: "/services/ai-explainer-videos"
+      },
+      {
+        id: "ai-corporate",
+        title: "AI Corporate Video Production",
+        desc: "Company profiles and employer branding through AI systems.",
+        icon: Briefcase,
+        href: "/services/ai-corporate-videos"
       }
     ]
   }
