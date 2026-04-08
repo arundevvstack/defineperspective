@@ -85,23 +85,23 @@ export default function IndiaLocationPage() {
               Presence: PAN-INDIA NODE
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
-            India's <br />{" "}
-            <span className="text-primary-accent italic">Top AI Agency_</span>
+          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+            India's <br />
+            <span className="text-primary-accent font-black">Top AI Agency_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
             "National reach with digital speed. We build the high-quality assets for India's most ambitious brands using AI-driven production."
           </p>
         </header>
 
-        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group">
-          <div className="relative z-10 text-left">
-             <div className="flex items-center gap-4 mb-8">
-                <Globe className="text-primary-accent" size={32} />
-                <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">National Team_</span>
-             </div>
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic font-black italic">
-              Pan-India <span className="text-primary-accent italic font-black">High-Speed_</span>
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left shadow-2xl">
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-8">
+              <Globe className="text-primary-accent" size={32} />
+              <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">National Team_</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic font-black">
+              Pan-India <span className="text-primary-accent italic">High-Speed_</span>
             </h2>
             <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10 uppercase tracking-widest leading-loose">
               Define Perspective is India's leading <strong>AI-first video production agency</strong>. Our team handles high-quality 8K films and high-performing AI video ads for clients in Mumbai, Bangalore, Delhi, and beyond, all powered by advanced AI tools.
@@ -109,14 +109,14 @@ export default function IndiaLocationPage() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link
                 href="/contact?location=India&service=ai-video"
-                className="h-16 px-10 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3"
+                className="inline-flex h-16 px-10 rounded-2xl bg-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-xl font-black"
               >
-                Start National Project <ArrowRight size={18} />
+                Start National Project <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link
                 href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20National AI Project."
                 target="_blank"
-                className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-white/5 transition-all flex items-center justify-center gap-3"
+                className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all hover:text-primary-accent font-black shadow-xl"
               >
                 Chat on WhatsApp
               </Link>
@@ -130,15 +130,14 @@ export default function IndiaLocationPage() {
               className="object-cover transition-transform duration-1000 group-hover:scale-110"
               priority
             />
-            <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none hover:bg-white hover:text-primary-accent transition-all duration-300" />
+            <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
           </div>
         </section>
 
-        {/* NATIONAL FAQ FOR TOP RANKING */}
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-zinc-900 border border-white/20 text-left">
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/20 text-left">
           <div className="flex items-center gap-6 mb-12">
-             <Star className="text-primary-accent" size={32} />
-             <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">India National Visibility_</h2>
+            <Star className="text-primary-accent" size={32} />
+            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter italic">India National Visibility_</h2>
           </div>
           <div className="space-y-12">
             <div className="border-b border-white/5 pb-12">
@@ -153,7 +152,7 @@ export default function IndiaLocationPage() {
               <h4 className="text-xl font-bold text-white mb-6 uppercase tracking-tight italic font-black">
                 How can brands in Mumbai or Bangalore work with Define Perspective?
               </h4>
-              <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose font-light uppercase tracking-widest">
+              <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 Our India team handles national campaigns across major cities. We create video projects for Mumbai fashion brands, Bangalore tech companies, and Delhi lifestyle brands with unlimited creative possibilities.
               </p>
             </div>
