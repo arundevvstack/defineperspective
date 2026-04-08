@@ -171,7 +171,7 @@ export default function KumbayahKombuchaCaseStudy() {
                     <h4 className="text-sm font-black uppercase tracking-widest mb-2">Kinetic Capture</h4>
                     <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">High-speed shutter orchestration for perfect liquid physics.</p>
                  </div>
-                 <div className="flex-1 relative aspect-square rounded-[3rem] overflow-hidden border border-white/10">
+                 <div className="flex-1 relative aspect-video rounded-[3rem] overflow-hidden border border-white/10">
                     <Image 
                       src="/images/clients/kumbayah/product-splash.jpg"
                       alt="Organic Beverage Macro Shot"
@@ -179,6 +179,17 @@ export default function KumbayahKombuchaCaseStudy() {
                       className="object-cover"
                     />
                  </div>
+              </div>
+           </div>
+
+           <div className="grid gap-12 mt-12">
+              <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group max-w-4xl mx-auto w-full bg-black">
+                 <Image 
+                    src="/images/clients/kumbayah/triple-bottle.jpg"
+                    alt="Product Lineup with Dynamic Splash"
+                    fill
+                    className="object-contain md:object-cover transition-transform duration-700 group-hover:scale-105"
+                 />
               </div>
            </div>
         </section>
@@ -194,8 +205,8 @@ export default function KumbayahKombuchaCaseStudy() {
            </div>
 
            <div className="grid md:grid-cols-3 gap-12 group">
-              <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-white/10 group-hover:border-primary-accent/20 transition-all shadow-2xl">
-                 <Image src="/images/clients/kumbayah/fridge-mockup.png" alt="Custom Retail Fridge Mockup for Kumbayah" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+              <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-white/10 group-hover:border-primary-accent/20 transition-all shadow-2xl bg-black">
+                 <Image src="/images/clients/kumbayah/fridge-mockup.png" alt="Custom Retail Fridge Mockup for Kumbayah" fill className="object-contain md:object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
                  <div className="absolute top-8 right-8">
                     <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full text-[8px] font-mono text-white/60">POS DESIGN</div>
                  </div>
