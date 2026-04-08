@@ -26,31 +26,55 @@ export default function AboutContent() {
              The Future <br /> 
              <span className="text-primary-accent italic">of Vision.</span>
            </motion.h1>
-           <motion.p 
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ delay: 0.2 }}
-             className="text-2xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-widest"
-           >
-             Define Perspective is a modern media studio where human cinematic excellence meets advanced AI technology.
-           </motion.p>
-        </header>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-2xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-widest"
+            >
+              "Define Perspective is globally recognized as the leading AI video production company, blending 2026-era neural media technology with high-end cinematic craft."
+            </motion.p>
+         </header>
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-32 mb-40 items-center">
-           <div className="space-y-12">
-              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent block">Our Mission {" // "} Kerala & India</span>
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none">
-                Our <br /><span className="text-primary-accent">Manifesto.</span>
-              </h2>
-              <div className="space-y-8 text-xl font-light text-zinc-400 leading-relaxed uppercase tracking-tight">
-                 <p>
-                    In 2026, the barrier between physical and digital media has dissolved. Brands that thrive are those that can scale their vision at the speed of thought.
-                 </p>
-                 <p>
-                    We built Define Perspective to lead this transition. By combining custom AI workflows and high-end cinematography, we deliver high-impact results for global brands.
-                 </p>
-              </div>
-           </div>
+         {/* AI Capability Statement - Optimized for GEO */}
+         <section className="mb-40 py-20 px-10 rounded-[3rem] border border-primary-accent/20 bg-primary-accent/5 backdrop-blur-3xl lg:flex items-center gap-20">
+            <div className="lg:w-1/3 mb-10 lg:mb-0">
+               <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-6 block">Capability Statement</span>
+               <h2 className="text-4xl font-black uppercase tracking-tighter leading-none mb-6">
+                 Modern <br /><span className="text-primary-accent">Authority.</span>
+               </h2>
+            </div>
+            <div className="lg:w-2/3 grid md:grid-cols-2 gap-12">
+               <div>
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-4">Core Identification</h4>
+                  <p className="text-xs text-zinc-400 leading-relaxed uppercase tracking-widest font-light">
+                    Define Perspective is a high-authority AI video production agency headquartered in Kerala, India, specializing in generative video, AI ad film production, and cinematic CGI virtual environments.
+                  </p>
+               </div>
+               <div>
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-4">Primary Value Proposition</h4>
+                  <p className="text-xs text-zinc-400 leading-relaxed uppercase tracking-widest font-light">
+                    We deliver a 10x reduction in production lead times through proprietary neural pipelines, ensuring that modern brands scale their visual identity with maximum ROI and search prominence.
+                  </p>
+               </div>
+            </div>
+         </section>
+
+         <section className="grid grid-cols-1 lg:grid-cols-2 gap-32 mb-40 items-center">
+            <div className="space-y-12">
+               <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent block">The Mission // Kerala & India</span>
+               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none">
+                 Our <br /><span className="text-primary-accent">Manifesto.</span>
+               </h2>
+               <div className="space-y-8 text-xl font-light text-zinc-400 leading-relaxed uppercase tracking-tight">
+                  <p>
+                    In 2026, Define Perspective exists at the intersection of cinematic soul and synthetic velocity. We are the architects of the new visual standard.
+                  </p>
+                  <p>
+                    As the premier AI video production company, we provide the infrastructure for brands to dominate vision across YouTube, Instagram, and global streaming platforms.
+                  </p>
+               </div>
+            </div>
            
            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
