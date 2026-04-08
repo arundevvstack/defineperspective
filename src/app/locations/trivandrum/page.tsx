@@ -80,9 +80,7 @@ export default function TrivandrumLocationPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqs) }}
       />
       <GlassNavbar />
-
       <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
-
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8">
           <div className="flex items-center gap-4 justify-center md:justify-start">
@@ -91,22 +89,20 @@ export default function TrivandrumLocationPage() {
             </div>
           </div>
           <h1 className="text-6xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.85] text-white italic">
-            Capital <br />{" "}
-            <span className="text-primary-accent font-black italic underline decoration-primary-accent/30">
-              AI Technology_
-            </span>
+            Capital <br />
+            <span className="text-primary-accent font-black">AI Technology_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
             "The pulse of innovation. We build high-quality videos for Trivandrum's most ambitious tech and brand films through advanced AI-powered production."
           </p>
         </header>
 
-        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group">
-          <div className="relative z-10 text-left">
-             <div className="flex items-center gap-4 mb-8">
-                <Building2 className="text-primary-accent" size={32} />
-                <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Technopark Team_</span>
-             </div>
+        <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-8">
+              <Building2 className="text-primary-accent" size={32} />
+              <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Technopark Team_</span>
+            </div>
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
               Thiruvananthapuram <span className="text-primary-accent italic">Leading Experts_</span>
             </h2>
@@ -115,9 +111,9 @@ export default function TrivandrumLocationPage() {
             </p>
             <Link
               href="/contact?location=trivandrum&service=ai-video"
-              className="inline-flex h-16 px-12 rounded-2xl bg-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-2xl font-black uppercase tracking-widest"
+              className="inline-flex h-16 px-12 rounded-2xl bg-primary-accent text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all shadow-2xl font-black"
             >
-              Launch Trivandrum Project <ArrowRight size={18} className="ml-4 font-black uppercase tracking-widest items-center" />
+              Launch Trivandrum Project <ArrowRight size={18} className="ml-4" />
             </Link>
           </div>
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
@@ -132,8 +128,7 @@ export default function TrivandrumLocationPage() {
           </div>
         </section>
 
-        {/* TRIVANDRUM FAQ SYSTEM */}
-        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-zinc-900 border border-white/20 text-left">
+        <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/20 text-left">
           <h2 className="text-2xl md:text-4xl font-black uppercase tracking-widest mb-10 text-primary-accent font-black italic">
             Trivandrum Visibility_ Center
           </h2>
