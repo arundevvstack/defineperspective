@@ -165,7 +165,7 @@ export default function ServiceGrid({ mode }: { mode: string }) {
 
   return (
     <section id="services" className="py-40 px-6 md:px-12 bg-background relative">
-      <div className="container mx-auto">
+      <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12">
         <div className="mb-32 flex flex-col items-center text-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

@@ -16,7 +16,7 @@ export default function CinematicHero({ mode }: { mode: string }) {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(20,20,20,0.8),transparent)]" />
       </div>
 
-      <div className="container relative z-10 mx-auto max-w-6xl">
+      <div className="w-full relative z-10 mx-auto max-w-[1700px] px-6 md:px-12">
         <div className="flex flex-col items-center text-center">
           
           {/* Status Badge */}
@@ -46,7 +46,7 @@ export default function CinematicHero({ mode }: { mode: string }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter uppercase leading-[0.9] text-white"
+              className="text-5xl md:text-7xl lg:text-[8.5vw] font-black tracking-tighter uppercase leading-[0.8] text-white"
             >
               {isAI ? "AI-Powered" : "Elite Cinematic Excellence"} <br />
               <span className="text-primary-accent italic">{isAI ? "Production Studio" : "Master Brand Storytelling"}</span>

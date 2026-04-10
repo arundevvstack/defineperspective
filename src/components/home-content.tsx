@@ -56,7 +56,7 @@ export default function HomeContent() {
           </span>
         </div>
 
-        <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="w-full max-w-[1700px] mx-auto relative z-10 px-6">
           <div className="flex flex-col items-center text-center mb-24 max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
               <div className="h-[1px] w-12 bg-primary-accent" />
@@ -106,7 +106,7 @@ export default function HomeContent() {
 
       {/* Section 2: WHY BRANDS CHOOSE US (New Split-Metric Layout) */}
       <section className="py-40 px-6 md:px-12 bg-black relative border-y border-white/5">
-        <div className="container mx-auto">
+        <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
             
             {/* Left: Metric & Heading */}
@@ -192,7 +192,7 @@ export default function HomeContent() {
 
       {/* Section 7: Conversion Hub (Call to Action) - Refined UI Aligned Center */}
       <section className="py-48 px-6 md:px-12 bg-black relative">
-        <div className="container mx-auto max-w-7xl">
+        <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12">
           <div className="mb-32 flex flex-col items-center text-center max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
               <div className="h-[1px] w-12 bg-primary-accent" />

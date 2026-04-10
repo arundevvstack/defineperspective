@@ -8,10 +8,10 @@ export default function VideoHero() {
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
       {/* YouTube Background Video Overlay */}
-      <div className="absolute inset-0 z-0 h-[100%] w-[100%] overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 z-0 h-full w-full overflow-hidden pointer-events-none">
         <iframe
           src="https://www.youtube.com/embed/sNp1a5I6WsI?autoplay=1&mute=1&loop=1&playlist=sNp1a5I6WsI&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&vq=hd1080"
-          className="absolute top-1/2 left-1/2 h-[120%] w-[120%] min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 scale-125 object-cover opacity-60"
+          className="absolute top-1/2 left-1/2 h-[115%] w-[115%] min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 scale-110 object-cover opacity-60"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           title="Background Video"
