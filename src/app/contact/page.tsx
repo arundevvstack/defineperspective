@@ -2,12 +2,23 @@ import type { Metadata } from "next";
 import ContactContent from "@/components/contact-content";
 
 export const metadata: Metadata = {
-  title: "Contact Define Perspective | Project Intake Node India",
-  description: "Get a custom quote within 24 hours. Contact our team in Thrivandrum & Kochi for elite video production and AI media labs across India.",
-  keywords: ["Contact video production Kerala", "hire AI video agency", "get video production quote", "Define Perspective phone number", "Trivandrum studio contact"],
+  title: "Contact Best AI Video Production Company in Kerala & India | Media Studio",
+  description: "Work with the best AI video production company in Kerala. Delivering cinematic brand videos, AI-powered marketing content, and commercial film production in Kochi, Trivandrum, and UAE for brands across the Globe.",
+  keywords: [
+    "AI video production company in Kerala India",
+    "Best Video Marketing Agency for Brands",
+    "Corporate Film Production Services",
+    "Commercial ad film production Kerala",
+    "AI content creation services Kochi",
+    "Cinematic brand video production India",
+    "Social media video content creation",
+    "AI video generator services India",
+    "Digital video marketing services UAE",
+    "Professional video editing & post production"
+  ],
   openGraph: {
-    title: "Contact Define Perspective | Start Your Project",
-    description: "Our creative team is ready to scale your vision. Connect with our strategic hubs.",
+    title: "Contact Define Perspective | Elite AI Media & Film Production Hub",
+    description: "Leading AI video production company in Kerala and India, delivering services in Kochi, Trivandrum, and Dubai for global brands.",
     url: "https://defineperspective.in/contact",
   },
 };
