@@ -165,8 +165,8 @@ className="text-5xl font-black md:text-[8rem] tracking-tighter uppercase mb-20 l
             <div key={section.title} className={cn("relative", section.theme)}>
               <div className="mb-32 flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-20 group">
                 <div className="max-w-3xl">
-                  <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-8 block">Division 0{sIdx + 1} // Capability Node</span>
-                  <h2 className="text-4xl md:text-[6rem] font-black uppercase tracking-tighter text-white mb-8 group-hover:text-primary-accent transition-colors leading-[0.9]">
+                  <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-zinc-600 mb-8 block">Division 0{sIdx + 1} // Capability Node</span>
+                  <h2 className="text-4xl md:text-[6rem] font-black uppercaseer text-white mb-8 group-hover:text-primary-accent transition-colors leading-[0.9]">
                     {section.title}
                   </h2>
                   <p className="text-xl md:text-2xl font-light tracking-widest text-zinc-500 uppercase leading-relaxed">

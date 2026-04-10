@@ -26,8 +26,8 @@ export default function TestimonialSection() {
     <section className="py-40 px-6 md:px-12 bg-obsidian relative overflow-hidden">
       <div className="container mx-auto">
         <div className="mb-24 flex flex-col items-center text-center">
-            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-6 block">Global Perspectives {" // "} v2.0</span>
-            <h2 className="text-4xl font-black md:text-7xl text-white tracking-widest uppercase">
+            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-6 block">Global Perspectives {" // "} v2.0</span>
+            <h2 className="text-4xl font-black md:text-7xl text-white uppercase">
               Trust in Every Frame
             </h2>
             <div className="mt-8 h-1 w-24 rounded-full bg-transparent border-2 border-primary-accent/20 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />

@@ -21,11 +21,11 @@ export default function ToUCommercialCaseStudy() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 space-y-12">
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               Case Study: Node 03 // Cinematic TVC
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white">
             To U <br />
             <span className="text-primary-accent italic">Commercial_</span>
           </h1>
@@ -70,7 +70,7 @@ export default function ToUCommercialCaseStudy() {
            <div className="relative z-10 space-y-12">
               <div className="flex items-center gap-4">
                  <Zap className="text-primary-accent" size={32} />
-                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Kinetic Flow_</h2>
+                 <h2 className="text-3xl md:text-5xl font-black uppercaseer">Kinetic Flow_</h2>
               </div>
               <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 For 'To U', we opted for a high-velocity editing style paired with shallow depth-of-field cinematography. The goal was to evoke sensory luxury—making the fabric feel almost tactile through the screen. Shot on high-speed sensors to allow for fluid time-ramping, the commercial balances intensity with elegance to resonate with a young, fashion-conscious audience in India.
@@ -96,7 +96,7 @@ export default function ToUCommercialCaseStudy() {
 
         {/* FOOTER CTA */}
         <section className="text-center">
-           <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white mb-16 leading-[0.8] italic">
+           <h2 className="text-4xl md:text-7xl font-black uppercaseer text-white mb-16 leading-[0.8] italic">
              Ready to <br /><span className="text-primary-accent italic font-blackitalic font-black italic">Move Markets?</span>
            </h2>
            <div className="flex flex-col sm:flex-row justify-center gap-8">

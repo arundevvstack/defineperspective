@@ -21,11 +21,11 @@ export default function DotspaceCommercialCaseStudy() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 space-y-12">
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               Case Study: Node 05 // Architecture & Lifestyle
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white italic">
             Dotspace <br />
             <span className="text-primary-accent">Commercial_</span>
           </h1>
@@ -69,7 +69,7 @@ export default function DotspaceCommercialCaseStudy() {
            <div className="space-y-12">
               <div className="flex items-center gap-4">
                  <Globe className="text-primary-accent" size={32} />
-                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Space Narrative_</h2>
+                 <h2 className="text-3xl md:text-5xl font-black uppercaseer">Space Narrative_</h2>
               </div>
               <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 Architecture video production requires a balance of wide-angle precision and intimate lifestyle storytelling. For Dotspace, we utilized cinematic gimbal movements and high-dynamic-range sensors to capture the interplay of natural light and modern industrial design within their Kerala locations. The goal was to make the workspace feel aspirational—a hub for innovation and visionary growth.
@@ -91,7 +91,7 @@ export default function DotspaceCommercialCaseStudy() {
 
         {/* FOOTER CTA */}
         <section className="text-center group">
-           <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white mb-16 leading-[0.8] italic">
+           <h2 className="text-4xl md:text-7xl font-black uppercaseer text-white mb-16 leading-[0.8] italic">
              Ready to <br /><span className="text-primary-accent italic font-blackitalic font-black italic">Claim Space?</span>
            </h2>
            <div className="flex flex-col sm:flex-row justify-center gap-8">

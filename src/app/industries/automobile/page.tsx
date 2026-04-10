@@ -55,7 +55,7 @@ export default function AutomobileIndustryPage() {
               Vertical: Automobile & Dealerships
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white italic">
             Automobile <br />
             <span className="text-zinc-500 font-black">Motor_Hub_</span>
           </h1>
@@ -67,7 +67,7 @@ export default function AutomobileIndustryPage() {
 
         <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Cinematic <span className="text-zinc-400 font-black">Velocity.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
@@ -86,7 +86,7 @@ export default function AutomobileIndustryPage() {
                 Get a Quote <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link
-                href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20Vehicle Shoot."
+                href="https://wa.me/917012941696?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20Vehicle Shoot."
                 target="_blank"
                 className="inline-flex h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10 transition-all  font-black"
               >
@@ -106,7 +106,7 @@ export default function AutomobileIndustryPage() {
           </div>
         </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-zinc-400 font-black">
+          <h2 className="text-2xl font-black uppercase mb-10 text-zinc-400 font-black">
             Automotive Visibility FAQ
           </h2>
           <div className="space-y-12">

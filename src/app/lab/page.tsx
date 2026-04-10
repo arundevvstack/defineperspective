@@ -65,8 +65,8 @@ export default function LabPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block font-black underline">DP Lab {" // "} Production Tool</span>
-            <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.85]">
+            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-6 block font-black underline">DP Lab {" // "} Production Tool</span>
+            <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-8 leading-[0.85]">
               Modular <br /><span className="text-primary-accent">Production.</span>
             </h1>
             <p className="text-xl text-zinc-500 font-light leading-relaxed max-w-2xl">
@@ -79,7 +79,7 @@ export default function LabPage() {
           {/* Palette (Left Panel) */}
           <section className="lg:col-span-4 space-y-12">
             <div>
-              <h3 className="text-xs font-mono tracking-[0.4em] uppercase text-zinc-600 mb-8 flex items-center gap-3 font-black underline">
+              <h3 className="text-xs font-mono tracking-[0.3em] uppercase text-zinc-600 mb-8 flex items-center gap-3 font-black underline">
                 <Layers size={14} className="text-primary-accent" /> Available Services
               </h3>
               <div className="grid grid-cols-1 gap-4">
@@ -131,7 +131,7 @@ export default function LabPage() {
                 ) : (
                   <div className="w-full flex-1 p-12 flex flex-col gap-6 custom-scrollbar overflow-y-auto max-h-[600px]">
                     <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-6">
-                       <h3 className="text-xs font-mono tracking-[0.4em] uppercase text-zinc-500 font-black underline">Live Project Plan</h3>
+                       <h3 className="text-xs font-mono tracking-[0.3em] uppercase text-zinc-500 font-black underline">Live Project Plan</h3>
                        <button 
                          onClick={() => setPipeline([])}
                          className="text-[10px] font-mono text-zinc-500  uppercase tracking-widest flex items-center gap-2 transition-colors font-black underline"

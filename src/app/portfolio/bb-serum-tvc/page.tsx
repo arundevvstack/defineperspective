@@ -21,11 +21,11 @@ export default function BBSerumTVCCaseStudy() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 space-y-12">
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               Case Study: Node 04 // Cosmetics & Beauty
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white italic">
             BB Serum <br />
             <span className="text-primary-accent">TV Commercial_</span>
           </h1>
@@ -69,7 +69,7 @@ export default function BBSerumTVCCaseStudy() {
            <div className="space-y-12">
               <div className="flex items-center gap-4">
                  <Sparkles className="text-primary-accent" size={32} />
-                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Liquid Optics_</h2>
+                 <h2 className="text-3xl md:text-5xl font-black uppercaseer">Liquid Optics_</h2>
               </div>
               <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 Beauty advertising is about trust. For BB Serum, we focused on high-magnification liquid photography—capturing the viscosity and light-refraction properties of the serum itself. By using clinical lighting setups and ultra-shallow depth of field, we emphasized the product's premium quality, making it stand out in the crowded Indian skincare landscape.
@@ -95,7 +95,7 @@ export default function BBSerumTVCCaseStudy() {
 
         {/* FOOTER CTA */}
         <section className="text-center group">
-           <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white mb-16 leading-[0.8] italic">
+           <h2 className="text-4xl md:text-7xl font-black uppercaseer text-white mb-16 leading-[0.8] italic">
              Ready for <br /><span className="text-primary-accent italic font-blackitalic font-black italic">Pure Glow?</span>
            </h2>
            <div className="flex flex-col sm:flex-row justify-center gap-8">

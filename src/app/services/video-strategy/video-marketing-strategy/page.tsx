@@ -33,7 +33,7 @@ export default function VideoStrategySubPage() {
               Node: Strategic Consulting
             </div>
           </div>
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white">
+          <h1 className="text-6xl md:text-9xl font-blacker uppercase leading-[0.85] text-white">
             Video <br />
             <span className="text-primary-accent">Marketing Strategy</span>
           </h1>
@@ -45,7 +45,7 @@ export default function VideoStrategySubPage() {
         </header>
         <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight">
               Beyond <span className="text-primary-accent italic">Production.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
@@ -63,7 +63,7 @@ export default function VideoStrategySubPage() {
                 Get a Quote <ArrowRight size={18} />
               </Link>
               <Link
-                href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
+                href="https://wa.me/917012941696?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
                 target="_blank"
                 className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm  transition-all flex items-center justify-center gap-3 "
               >
@@ -84,7 +84,7 @@ export default function VideoStrategySubPage() {
         </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20">
           
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
+          <h2 className="text-2xl font-black uppercase mb-10 text-primary-accent">
             Consultancy Logic FAQ
           </h2>
           <div className="space-y-12">

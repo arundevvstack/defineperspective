@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MoveRight, Play, Cpu, Briefcase } from "lucide-react";
+import { MoveRight, Play, Cpu, Briefcase, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const EXPERT_SERVICES = [
@@ -10,18 +10,18 @@ const EXPERT_SERVICES = [
     id: "media-production",
     label: "Media Production",
     icon: Play,
-    heading: "Professional Cinematic Execution.",
-    description: "Our high-fidelity production house handles full-scale live-action sets, expert cinematography, and meticulous post-production. We deliver premium TVCs, brand films, and corporate narratives that demand authority.",
-    features: ["Broadcast TVCs", "Brand Documentaries", "Corporate Filming", "High-End Commercials"],
+    heading: "Elite Media Production & Video Production Studio",
+    description: "Our full-service media production and AI studio delivers high-end video production, expert cinematography, and advanced post-production. We specialize in premium TV commercial production, brand films, and corporate video production engineered for global impact and search visibility.",
+    features: ["Broadcast TV Commercial Production", "Cinematic Brand Film Production", "Corporate Video Production Services", "Premium Commercial Media Production"],
     mediaUrl: "https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=1200"
   },
   {
     id: "ai-studio",
-    label: "AI Studios",
+    label: "DP AI Studios",
     icon: Cpu,
-    heading: "Future-Ready AI Filmmaking.",
-    description: "We merge cutting-edge generative AI with high-end art direction to build photorealistic world-class visual assets. From cinematic fashion films to rapid vertical ad pipelines, our AI studio delivers the impossible at lightning speed.",
-    features: ["Cinematic AI Video", "AI Product Visuals", "Vertical Ad Pipelines", "Generative Brand Worlds"],
+    heading: "Premier DP AI Studios & Generative Video Production",
+    description: "We combine cutting-edge generative AI with cinematic art direction to engineer photorealistic, high-performance visual assets. From AI-powered product videos to rapid vertical ad pipelines, our AI studio delivers world-class content with unmatched velocity and scale.",
+    features: ["Generative AI Video Production", "AI-Powered Product Visuals", "Vertical Ad Pipeline Engineering", "Cinematic AI Brand Storytelling"],
     mediaUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200"
   }
 ];
@@ -35,10 +35,15 @@ export default function ServicesSwitcher({ activeTab, setActiveTab }: { activeTa
         
         {/* Header */}
         <div className="mb-20 text-center">
-            <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-6 block">Our Capabilities {" // "} 2026 Core</span>
-            <h2 className="text-4xl md:text-7xl font-black text-white tracking-widest uppercase">
-              Production <span className="text-primary-accent italic">Ecosystem_</span>
-            </h2>
+            <span className="text-base font-mono tracking-[0.3em] uppercase text-primary-accent mb-6 block">Choose Your Media Production Solution</span>
+            <motion.h2 
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-7xl font-black text-white uppercase"
+            >
+              {activeTab === "media-production" ? "Media" : "DP AI"} <span className="text-primary-accent italic">{activeTab === "media-production" ? "Production_" : "Studios_"}</span>
+            </motion.h2>
         </div>
 
         {/* Tab Switcher - Horizontal scroll on mobile */}
@@ -105,12 +110,22 @@ export default function ServicesSwitcher({ activeTab, setActiveTab }: { activeTa
                         ))}
                      </div>
                      
-                     <button
-                       onClick={() => window.location.href = '/contact'}
-                       className="group flex w-max items-center gap-4 text-[10px] font-black tracking-[0.2em] uppercase text-white hover:text-primary-accent transition-colors duration-300"
-                     >
-                        Initiate Protocol <MoveRight size={18} className="text-primary-accent group-hover:translate-x-2 transition-transform" />
-                     </button>
+                     <div className="flex flex-wrap items-center gap-8">
+                        <a
+                          href="tel:+917012941696"
+                          className="group flex w-max items-center gap-4 text-[10px] font-black tracking-[0.3em] uppercase text-white hover:text-primary-accent transition-colors duration-300"
+                        >
+                           Speak with us <MoveRight size={18} className="text-primary-accent group-hover:translate-x-2 transition-transform" />
+                        </a>
+                        <a
+                          href="https://wa.me/917012941696"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex w-max items-center gap-4 text-[10px] font-black tracking-[0.3em] uppercase text-white hover:text-primary-accent transition-all duration-300"
+                        >
+                           WhatsApp Now <MessageCircle size={18} className="text-[#25D366] group-hover:scale-110 transition-transform" />
+                        </a>
+                     </div>
                   </div>
 
                   {/* Image Half */}

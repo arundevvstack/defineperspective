@@ -57,7 +57,7 @@ export default function CreativeCampaignDesignPage() {
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-40 text-left">
           <div className="space-y-12">
-            <h2 className="text-3xl font-bold uppercase tracking-widest text-zinc-100 italic">
+            <h2 className="text-3xl font-bold uppercase text-zinc-100 italic">
               Strategic Movement
             </h2>
             <div className="space-y-8 text-lg font-light text-zinc-400 leading-relaxed uppercase tracking-widest">

@@ -75,7 +75,7 @@ export default function ProductContentLandingPage() {
               Division: Product Precision
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white">
             Product <br />
             <span className="text-primary-accent italic">Content_Hub_</span>
           </h1>
@@ -114,7 +114,7 @@ export default function ProductContentLandingPage() {
 
         <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center text-left">
           <div className="space-y-12">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none">
+            <h2 className="text-4xl md:text-6xl font-black uppercase leading-none">
               The Optic <br />
               <span className="text-primary-accent italic font-black">
                 Success Hub.

@@ -61,7 +61,7 @@ export default function KumbayahKombuchaCaseStudy() {
         {/* --- HEADER SECTION --- */}
         <header className="mb-40 animate-in fade-in slide-in-from-bottom-10 duration-1000">
           <div className="space-y-12">
-            <h1 className="text-6xl md:text-[12rem] font-black tracking-tighter uppercase leading-[0.75] text-white italic drop-shadow-2xl">
+            <h1 className="text-6xl md:text-[12rem] font-blacker uppercase leading-[0.75] text-white italic drop-shadow-2xl">
               Kumbayah <br />
               <span className="text-primary-accent">Kombucha_</span>
             </h1>
@@ -105,8 +105,8 @@ export default function KumbayahKombuchaCaseStudy() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-bottom p-12 pointer-events-none">
                  <div className="mt-auto">
-                    <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-white">The Master Creative</h2>
-                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.5em] mt-2">Node 01 // Cinematic Product Shot</p>
+                    <h2 className="text-2xl md:text-4xl font-black uppercaseer text-white">The Master Creative</h2>
+                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mt-2">Node 01 // Cinematic Product Shot</p>
                  </div>
               </div>
            </div>
@@ -119,7 +119,7 @@ export default function KumbayahKombuchaCaseStudy() {
                  <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 border border-primary-accent/20 flex items-center justify-center">
                     <Search className="text-primary-accent" size={24} />
                  </div>
-                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Market Analysis_</h2>
+                 <h2 className="text-3xl md:text-5xl font-black uppercaseer">Market Analysis_</h2>
               </div>
               <div className="space-y-8 text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 <p>
@@ -150,7 +150,7 @@ export default function KumbayahKombuchaCaseStudy() {
               <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 border border-primary-accent/20 flex items-center justify-center">
                  <Camera className="text-primary-accent" size={24} />
               </div>
-              <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter">High-Velocity Execution_</h2>
+              <h2 className="text-3xl md:text-6xl font-black uppercaseer">High-Velocity Execution_</h2>
            </div>
 
            <div className="grid md:grid-cols-12 gap-12 group">
@@ -194,8 +194,8 @@ export default function KumbayahKombuchaCaseStudy() {
         {/* --- OMNICHANNEL VISUAL SYSTEM --- */}
         <section className="mb-60 border-t border-white/5 pt-40">
            <div className="max-w-3xl mb-24">
-              <h3 className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.5em] mb-4">Strategic Assets // OMNICHANNEL</h3>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-8 leading-tight">Engineering the <br /> Retail Identity_</h2>
+              <h3 className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mb-4">Strategic Assets // OMNICHANNEL</h3>
+              <h2 className="text-3xl md:text-5xl font-black uppercaseer mb-8 leading-tight">Engineering the <br /> Retail Identity_</h2>
               <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 We didn't just stop at photography. We built a scalable identity system that maintains luxury fidelity across <span className="text-white">Point-of-Sale (POS)</span> terminals, branded retail refrigeration, and transit media fleets across Kochi.
               </p>
@@ -223,23 +223,23 @@ export default function KumbayahKombuchaCaseStudy() {
               <BarChart3 size={120} />
            </div>
            <div className="container px-12 md:px-24">
-              <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter mb-20 drop-shadow-lg">Business <br /> Result_</h2>
+              <h2 className="text-3xl md:text-6xl font-black uppercaseer mb-20 drop-shadow-lg">Business <br /> Result_</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
                  <div className="space-y-4">
                     <p className="text-5xl md:text-7xl font-black text-white italic tracking-tighter">125%</p>
-                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Sales Engagement</p>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.3em]">Sales Engagement</p>
                  </div>
                  <div className="space-y-4">
                     <p className="text-5xl md:text-7xl font-black text-primary-accent italic tracking-tighter">Prime</p>
-                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Shelf Authority</p>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.3em]">Shelf Authority</p>
                  </div>
                  <div className="space-y-4">
                     <p className="text-5xl md:text-7xl font-black text-white italic tracking-tighter">Zero</p>
-                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Customer Friction</p>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.3em]">Customer Friction</p>
                  </div>
                  <div className="space-y-4">
                     <p className="text-5xl md:text-7xl font-black text-white italic tracking-tighter">8K</p>
-                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Delivery Fidelity</p>
+                    <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.3em]">Delivery Fidelity</p>
                  </div>
               </div>
            </div>
@@ -250,11 +250,11 @@ export default function KumbayahKombuchaCaseStudy() {
            <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
            <div className="relative z-10">
               <div className="flex justify-center mb-12">
-                 <span className="px-6 py-2 rounded-full border border-primary-accent/30 bg-primary-accent/10 text-[10px] font-black uppercase text-primary-accent tracking-[0.5em]">
+                 <span className="px-6 py-2 rounded-full border border-primary-accent/30 bg-primary-accent/10 text-[10px] font-black uppercase text-primary-accent tracking-[0.3em]">
                     Now Available for 2026 Campaigns
                  </span>
               </div>
-              <h2 className="text-5xl md:text-[8rem] font-black uppercase tracking-tighter text-white mb-16 leading-[0.8] italic">
+              <h2 className="text-5xl md:text-[8rem] font-black uppercaseer text-white mb-16 leading-[0.8] italic">
                 Dominate <br /><span className="text-primary-accent italic font-black underline decoration-white/10 underline-offset-8">The Market.</span>
               </h2>
               <div className="flex flex-col sm:flex-row justify-center gap-10">

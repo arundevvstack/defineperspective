@@ -49,7 +49,7 @@ export default function PhotoProductSubPage() {
               Node: Optic Precision
             </div>
           </div>
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white italic">
+          <h1 className="text-6xl md:text-9xl font-blacker uppercase leading-[0.85] text-white italic">
             Market-Leading <br />
             <span className="text-primary-accent font-black">Photography</span>
           </h1>
@@ -62,7 +62,7 @@ export default function PhotoProductSubPage() {
 
         <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Elite <span className="text-primary-accent italic">Optic Craft.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
@@ -93,7 +93,7 @@ export default function PhotoProductSubPage() {
         </section>
 
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
+          <h2 className="text-2xl font-black uppercase mb-10 text-primary-accent">
             Optic Logic FAQ
           </h2>
           <div className="space-y-12">

@@ -53,11 +53,11 @@ export default function AIVideoProductionPage() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8 text-center md:text-left">
           <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               AI Services // 01 High-End Production
             </div>
           </div>
-          <h1 className="text-5xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.8] italic">
+          <h1 className="text-5xl md:text-[8rem] font-blacker uppercase leading-[0.8] italic">
             AI Video <br />
             <span className="text-primary-accent">Production_</span>
           </h1>
@@ -86,8 +86,8 @@ export default function AIVideoProductionPage() {
               <BrainCircuit size={400} />
            </div>
            <div className="max-w-4xl relative z-10">
-              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block font-black">Performance Audit</span>
-              <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter mb-16 italic text-white leading-[0.8]">
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Performance Audit</span>
+              <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-16 italic text-white leading-[0.8]">
                  Neural <br /><span className="text-primary-accent">Cinematography_</span>
               </h2>
               <div className="space-y-12 text-zinc-500 uppercase tracking-widest leading-loose text-sm italic">

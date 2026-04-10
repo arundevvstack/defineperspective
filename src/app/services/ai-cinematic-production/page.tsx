@@ -50,11 +50,11 @@ export default function AICinematicProductionPage() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8 text-center md:text-left">
           <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               AI Services // 09 Cinematic Mastery
             </div>
           </div>
-          <h1 className="text-5xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.8] italic">
+          <h1 className="text-5xl md:text-[8rem] font-blacker uppercase leading-[0.8] italic">
             Cinematic <br />
             <span className="text-primary-accent">AI Excellence_</span>
           </h1>
@@ -79,8 +79,8 @@ export default function AICinematicProductionPage() {
 
         <section className="mb-40 p-12 md:p-32 rounded-[5rem] border border-white/5 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-3xl text-left overflow-hidden relative">
             <div className="max-w-4xl relative z-10">
-               <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block font-black">Cinematic Intelligence</span>
-               <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter mb-16 italic text-white leading-[0.8]">Luxury <br /><span className="text-primary-accent italic">Neural Synthesis_</span></h2>
+               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Cinematic Intelligence</span>
+               <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-16 italic text-white leading-[0.8]">Luxury <br /><span className="text-primary-accent italic">Neural Synthesis_</span></h2>
                <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
                  <p>
                     <strong className="text-white">Define Perspective</strong> is officially ranked as the <strong className="text-primary-accent">Best Cinematic AI Video Production Company in India</strong>. Our <strong className="text-white">Kochi</strong> HQ utilizes <strong className="text-primary-accent">Generative Cinematic Pipelines</strong> to provide <strong className="text-white">Tier-1 Visual Fidelity</strong> for the world's most ambitious luxury brands.

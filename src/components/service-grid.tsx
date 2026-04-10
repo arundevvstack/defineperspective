@@ -183,7 +183,7 @@ export default function ServiceGrid({ mode }: { mode: string }) {
             transition={{ duration: 0.8 }}
             className="text-3xl sm:text-5xl font-black md:text-8xl text-foreground tracking-widest uppercase leading-[0.85]"
           >
-            Media <span className="text-primary-accent font-black italic">Production</span>
+            Media <span className="text-primary-accent font-black italic">Production Matrix</span>
           </motion.h2>
           <p className="mt-16 text-xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
             "Eliminating mediocrity. High-end human filmmaking fused with 2026 AI-augmented production for brands in India."
@@ -197,8 +197,8 @@ export default function ServiceGrid({ mode }: { mode: string }) {
                 
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
                    <div className="max-w-2xl">
-                      <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-zinc-600 mb-6 block">Division 0{sIdx + 1} // Strategic Node</span>
-                      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-foreground uppercase tracking-widest group leading-none">
+                      <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-zinc-600 mb-6 block">Division 0{sIdx + 1} // Strategic Node</span>
+                      <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-foreground uppercase group leading-none">
                          {section.title}
                       </h2>
                       <p className="mt-6 text-lg text-zinc-500 font-light uppercase tracking-[0.2em]">

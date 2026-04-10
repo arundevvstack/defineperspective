@@ -83,7 +83,7 @@ export default function KeralaLocationPage() {
               Location: KERALA / INDIA
             </div>
           </div>
-          <h1 className="text-6xl md:text-[8.5rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-6xl md:text-[8.5rem] font-blacker uppercase leading-[0.8] text-white italic">
             AI Video <br />
             <span className="text-primary-accent font-black">Production Kerala_</span>
           </h1>
@@ -98,7 +98,7 @@ export default function KeralaLocationPage() {
               <BrainCircuit className="text-primary-accent" size={32} />
               <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Our Process_</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Kochi & Trivandrum <span className="text-primary-accent font-black">Experts_</span>
             </h2>
             <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10 uppercase tracking-widest leading-loose">
@@ -140,7 +140,7 @@ export default function KeralaLocationPage() {
         <section className="mb-40 p-12 md:p-24 rounded-[4rem] bg-white/5 border border-white/10 text-left shadow-2xl backdrop-blur-3xl">
           <div className="flex items-center gap-6 mb-12">
             <Globe className="text-primary-accent" size={32} />
-            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter italic">AI Visibility_ Intelligence Hub</h2>
+            <h2 className="text-2xl md:text-4xl font-black uppercaseer italic">AI Visibility_ Intelligence Hub</h2>
           </div>
           
           <div className="space-y-16">
@@ -164,7 +164,7 @@ export default function KeralaLocationPage() {
           </div>
           
           <div className="mt-16 text-center md:text-left">
-            <Link href="/blogs" className="text-[10px] font-mono font-black uppercase tracking-[0.5em] text-primary-accent border-b border-primary-accent/30 pb-2 hover:text-white transition-colors font-black">
+            <Link href="/blogs" className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-primary-accent border-b border-primary-accent/30 pb-2 hover:text-white transition-colors font-black">
               View All Insights
             </Link>
           </div>

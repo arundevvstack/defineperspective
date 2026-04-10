@@ -81,6 +81,15 @@ const aiData = [
         industry: "Food & Beverages", 
         client: "Leelamma Since 1980 Restaurant Chain",
         href: "/portfolio/leelama-restaurant"
+      },
+      { 
+        id: "ai-vert2", 
+        title: "Real Estate AI Ad | Smart Property Showcase", 
+        videoId: "Fxa-1wIQIjw", 
+        service: "AI Vertical Ad", 
+        industry: "Real Estate", 
+        client: "Real Estate AI",
+        href: "/portfolio/real-estate-ai-ad"
       }
     ]
   }
@@ -105,7 +114,7 @@ export default function PortfolioContent() {
 
   const tabs = [
     { id: "video", label: "Production", icon: Video },
-    { id: "ai", label: "AI Studios", icon: Cpu },
+    { id: "ai", label: "DP AI Studios", icon: Cpu },
     { id: "photo", label: "Case Study", icon: Camera },
   ];
 
@@ -138,7 +147,7 @@ export default function PortfolioContent() {
             transition={{ duration: 1 }}
           >
 
-            <h1 className="text-4xl md:text-8xl font-black tracking-[-0.04em] uppercase mb-6 leading-tight drop-shadow-2xl">
+            <h1 className="text-4xl md:text-8xl font-black uppercase mb-6 leading-tight drop-shadow-2xl">
               {activeTab === "video" && <>Cinematic <span className="text-primary-accent italic">& Brand.</span></>}
               {activeTab === "ai" && <>AI <span className="text-primary-accent italic">& Neural Studios.</span></>}
               {activeTab === "photo" && <>Case <span className="text-primary-accent italic">Study.</span></>}
@@ -194,7 +203,7 @@ export default function PortfolioContent() {
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-12 border-b border-white/5 pb-12 group">
                 <div className="max-w-4xl">
                   <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 block">Strategic Node {" // "} 0{sectionIdx + 1}</span>
-                  <h2 className="text-2xl md:text-5xl font-black uppercase tracking-tighter text-white mb-6 group-hover:text-primary-accent transition-colors leading-none">
+                  <h2 className="text-2xl md:text-5xl font-black uppercaseer text-white mb-6 group-hover:text-primary-accent transition-colors leading-none">
                     {section.category}
                   </h2>
                   <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest">
@@ -343,7 +352,7 @@ export default function PortfolioContent() {
         <section className="mt-40 p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group">
           <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           <div className="relative z-10">
-            <h2 className="text-5xl md:text-[9rem] font-black uppercase tracking-tighter text-white mb-16 leading-[0.8]">
+            <h2 className="text-5xl md:text-[9rem] font-black uppercaseer text-white mb-16 leading-[0.8]">
               Ready for <br /><span className="text-primary-accent italic">Impact?</span>
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-8">
@@ -354,10 +363,10 @@ export default function PortfolioContent() {
                 Start New Project <ArrowRight size={20} />
               </button>
               <button 
-                onClick={() => window.location.href = 'https://wa.me/919496191684'}
+                onClick={() => window.location.href = 'https://wa.me/917012941696'}
                 className="h-20 px-16 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm hover:bg-white transition-all flex items-center justify-center gap-4 hover:text-primary-accent"
               >
-                Chat on WhatsApp
+                WhatsApp Now
               </button>
             </div>
           </div>

@@ -32,7 +32,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="py-40 px-6 md:px-12 bg-black/80 relative overflow-hidden">
+    <section className="pt-40 pb-20 px-6 md:px-12 bg-black/80 relative overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
       

@@ -13,6 +13,7 @@ const projects = [
     desc: "Enter a realm of power, elegance, and haute couture with Desert Queen, a cinematic AI fashion film from the West Vogue series.",
     beforeUrl: "https://images.unsplash.com/photo-1515562141511-6cbd47a619ff?auto=format&fit=crop&q=80&w=1200",
     afterUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200",
+    videoId: "HtomLPOzkCU",
     workflowLabel: "Campaign",
     workflow: "Desert Queen",
     ttmLabel: "Series",
@@ -26,6 +27,7 @@ const projects = [
     desc: "A premium, high-fidelity traditional television commercial designed to elevate the brand's visual identity. Executed with cinematic lighting, expert live-action direction, and high-end color grading to deliver a flawless, broadcast-ready aesthetic.",
     beforeUrl: "https://images.unsplash.com/photo-1594498653385-60177217cce3?auto=format&fit=crop&q=80&w=1200",
     afterUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200",
+    videoId: "8TntXDekuE8",
     workflowLabel: "Pipeline",
     workflow: "Live-Action Production",
     ttmLabel: "Format",
@@ -59,7 +61,7 @@ export default function PortfolioSection({ mode }: { mode: string }) {
       <div className="container mx-auto">
         <div className="mb-32 flex flex-col md:flex-row md:items-end md:justify-between max-w-6xl mx-auto">
           <div className="flex-1">
-            <h2 className="text-4xl font-black md:text-7xl text-white tracking-widest uppercase">
+            <h2 className="text-4xl font-black md:text-7xl text-white uppercase">
               Intelligent Success Stories
             </h2>
             <p className="mt-8 text-xl text-zinc-500 font-light max-w-2xl leading-relaxed">
@@ -87,57 +89,71 @@ export default function PortfolioSection({ mode }: { mode: string }) {
               )}
             >
               <div className="lg:col-span-7 relative group select-none lg:ltr">
-                  <div 
-                    ref={containerRef}
-                    className="relative aspect-video w-full rounded-3xl overflow-hidden cursor-ew-resize border border-white/5 shadow-xl"
-                    onMouseMove={handleSlider}
-                    onTouchMove={handleSlider}
-                  >
-                    {/* After Image */}
-                    <Image 
-                      src={project.afterUrl} 
-                      alt={`${project.title} - Final Production Result by Define Perspective Kerala Studio`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
-                    />
-                    {/* Before Image Overlay */}
-                    <div 
-                      className="absolute inset-0 z-10 h-full w-full overflow-hidden border-r-[3px] border-primary-accent/50 backdrop-blur-sm" 
-                      style={{ 
-                        clipPath: `inset(0 ${100 - sliderPos}% 0 0)`
-                      }}
-                    >
-                       <Image 
-                        src={project.beforeUrl} 
-                        alt={`${project.title} - Raw Concept / Draft Media Assets`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
+                  {project.videoId ? (
+                    <div className="relative aspect-video w-full rounded-3xl overflow-hidden border border-white/5 shadow-2xl bg-black">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${project.videoId}?autoplay=0&rel=0&modestbranding=1`}
+                        title={project.title}
+                        className="absolute inset-0 w-full h-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
                       />
                     </div>
+                  ) : (
+                    <>
+                      <div 
+                        ref={containerRef}
+                        className="relative aspect-video w-full rounded-3xl overflow-hidden cursor-ew-resize border border-white/5 shadow-xl"
+                        onMouseMove={handleSlider}
+                        onTouchMove={handleSlider}
+                      >
+                        {/* After Image */}
+                        <Image 
+                          src={project.afterUrl} 
+                          alt={`${project.title} - Final Production Result by Define Perspective Kerala Studio`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
+                        />
+                        {/* Before Image Overlay */}
+                        <div 
+                          className="absolute inset-0 z-10 h-full w-full overflow-hidden border-r-[3px] border-primary-accent/50 backdrop-blur-sm" 
+                          style={{ 
+                            clipPath: `inset(0 ${100 - sliderPos}% 0 0)`
+                          }}
+                        >
+                           <Image 
+                            src={project.beforeUrl} 
+                            alt={`${project.title} - Raw Concept / Draft Media Assets`}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
+                          />
+                        </div>
 
-                    {/* Labels */}
-                    <div className="absolute top-6 left-6 z-20 rounded-full shadow px-4 py-1.5 bg-black/60 text-[10px] font-mono text-zinc-400 uppercase tracking-[0.2em] backdrop-blur-md border border-white/5">
-                      Raw Concept
-                    </div>
-                    <div className="absolute top-6 right-6 z-20 rounded-full shadow px-4 py-1.5 bg-primary-accent text-[10px] font-mono text-white font-black uppercase tracking-[0.2em] hover:bg-white hover:text-primary-accent transition-all duration-300">
-                      AI Final Master
-                    </div>
-                    
-                    {/* Control Handle */}
-                    <div 
-                      className="absolute top-0 bottom-0 z-30 w-[2px] flex items-center justify-center pointer-events-none group-hover:scale-110 transition-transform" 
-                      style={{ left: `${sliderPos}%` }}
-                    >
-                      <div className="h-10 w-10 flex items-center justify-center rounded-full bg-transparent border-2 border-primary-accent text-white shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
-                         <MoveRight size={20} className="rotate-0 transition-colors duration-300 group-hover:text-primary-accent" />
+                        {/* Labels */}
+                        <div className="absolute top-6 left-6 z-20 rounded-full shadow px-4 py-1.5 bg-black/60 text-[10px] font-mono text-zinc-400 uppercase tracking-[0.2em] backdrop-blur-md border border-white/5">
+                          Raw Concept
+                        </div>
+                        <div className="absolute top-6 right-6 z-20 rounded-full shadow px-4 py-1.5 bg-primary-accent text-[10px] font-mono text-white font-black uppercase tracking-[0.2em] hover:bg-white hover:text-primary-accent transition-all duration-300">
+                          AI Final Master
+                        </div>
+                        
+                        {/* Control Handle */}
+                        <div 
+                          className="absolute top-0 bottom-0 z-30 w-[2px] flex items-center justify-center pointer-events-none group-hover:scale-110 transition-transform" 
+                          style={{ left: `${sliderPos}%` }}
+                        >
+                          <div className="h-10 w-10 flex items-center justify-center rounded-full bg-transparent border-2 border-primary-accent text-white shadow-xl hover:bg-transparent hover:text-primary-accent   transition-all duration-300">
+                             <MoveRight size={20} className="rotate-0 transition-colors duration-300 group-hover:text-primary-accent" />
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="mt-6 text-[10px] font-mono text-zinc-600 text-center tracking-[0.3em] uppercase opacity-60">
-                     DRAG TO VISUALIZE TRANSFORMATION v2.0
-                  </div>
+                      <div className="mt-6 text-[10px] font-mono text-zinc-600 text-center tracking-[0.3em] uppercase opacity-60">
+                         DRAG TO VISUALIZE TRANSFORMATION v2.0
+                      </div>
+                    </>
+                  )}
               </div>
 
               {/* Project Details */}

@@ -88,10 +88,10 @@ export default function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-8 block font-black underline decoration-2 underline-offset-8">
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black underline decoration-2 underline-offset-8">
                Intelligence Hub {" // "} Pillar Guide 2026
              </span>
-             <h1 className="text-4xl md:text-[6.4rem] lg:text-[8rem] font-black uppercase tracking-tighter mb-10 leading-[0.85] text-white">
+             <h1 className="text-4xl md:text-[6.4rem] lg:text-[8rem] font-black uppercaseer mb-10 leading-[0.85] text-white">
                #1 AI Video <br />
                <span className="text-primary-accent italic">Production</span> <br />
                In Kerala_
@@ -162,7 +162,7 @@ export default function BlogPage() {
             {/* Content Flow */}
             <div className="space-y-40 text-zinc-400 font-light leading-relaxed text-xl pb-32">
               <section id="ai-definition" className="scroll-mt-32">
-                <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-10 leading-[0.9]">
+                <h2 className="text-4xl md:text-7xl font-black text-white uppercaseer mb-10 leading-[0.9]">
                    01. What is <span className="text-primary-accent">AI Video Production?</span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -178,7 +178,7 @@ export default function BlogPage() {
                     </ul>
                   </div>
                   <div className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] relative group overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 text-[8px] font-mono uppercase tracking-[0.5em] opacity-20">SGE Optimized</div>
+                    <div className="absolute top-0 right-0 p-4 text-[8px] font-mono uppercase tracking-[0.3em] opacity-20">SGE Optimized</div>
                     <h3 className="text-white font-black uppercase mb-6 flex items-center gap-3">
                       <Target size={20} className="text-primary-accent" /> Featured Snippet_
                     </h3>
@@ -207,7 +207,7 @@ export default function BlogPage() {
               </motion.div>
 
               <section id="regional-hubs">
-                <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-12 leading-[0.9]">
+                <h2 className="text-4xl md:text-7xl font-black text-white uppercaseer mb-12 leading-[0.9]">
                    02. Kerala's Media <span className="text-primary-accent italic">Hubs_</span>
                 </h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -231,7 +231,7 @@ export default function BlogPage() {
         {/* FAQ & Final Sections */}
         <div className="border-t border-white/10 pt-40 mb-40">
            <div className="max-w-4xl mx-auto text-center mb-24">
-             <h2 className="text-5xl md:text-[6rem] font-black text-white uppercase tracking-tighter mb-8 leading-none">
+             <h2 className="text-5xl md:text-[6rem] font-black text-white uppercaseer mb-8 leading-none">
                 Analysis & <span className="text-primary-accent">Intelligence_</span>
              </h2>
              <p className="text-zinc-500 uppercase tracking-widest text-sm font-mono">Expert answers on AI Video Production in Kerala</p>
@@ -250,7 +250,7 @@ export default function BlogPage() {
         </div>
 
         <div className="relative p-16 md:p-32 rounded-[6rem] bg-primary-accent text-white text-center overflow-hidden mb-40">
-           <h2 className="text-5xl md:text-9xl font-black uppercase tracking-tighter mb-12 leading-[0.8]">
+           <h2 className="text-5xl md:text-9xl font-black uppercaseer mb-12 leading-[0.8]">
               Ready to <br /> Scale <span className="italic underline decoration-white/30">Kerala?</span>
            </h2>
            <Link href="/contact" className="inline-flex h-24 px-16 rounded-[2rem] bg-white text-primary-accent font-black uppercase tracking-[0.3em] text-sm items-center gap-8 shadow-2xl hover:scale-105 transition-all">

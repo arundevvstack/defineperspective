@@ -39,7 +39,7 @@ export default function ContentStrategySubPage() {
               Division: Lifecycle Strategy
             </div>
           </div>
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white">
+          <h1 className="text-6xl md:text-9xl font-blacker uppercase leading-[0.85] text-white">
             
             Content <br />
             <span className="text-primary-accent font-black italic">
@@ -57,7 +57,7 @@ export default function ContentStrategySubPage() {
           
           <div className="relative z-10 text-left">
             
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight">
               Scale Your
               <span className="text-primary-accent italic">Visual Hub.</span>
             </h2>
@@ -78,7 +78,7 @@ export default function ContentStrategySubPage() {
                 Get a Quote <ArrowRight size={18} />
               </Link>
               <Link
-                href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20a%20Content%20Strategy%20plan."
+                href="https://wa.me/917012941696?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20a%20Content%20Strategy%20plan."
                 target="_blank"
                 className="h-16 px-10 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm /50 transition-all flex items-center justify-center gap-3  transition-all duration-300"
               >
@@ -99,7 +99,7 @@ export default function ContentStrategySubPage() {
         </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
           
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
+          <h2 className="text-2xl font-black uppercase mb-10 text-primary-accent">
             Content Logic FAQ
           </h2>
           <div className="space-y-12">

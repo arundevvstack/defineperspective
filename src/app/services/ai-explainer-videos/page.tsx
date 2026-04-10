@@ -50,11 +50,11 @@ export default function AIExplainerVideosPage() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8 text-center md:text-left">
           <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               AI Services // 06 Explainer Mastery
             </div>
           </div>
-          <h1 className="text-5xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.8] italic">
+          <h1 className="text-5xl md:text-[8rem] font-blacker uppercase leading-[0.8] italic">
             AI Explainer <br />
             <span className="text-primary-accent">Solutions_</span>
           </h1>
@@ -79,8 +79,8 @@ export default function AIExplainerVideosPage() {
 
         <section className="mb-40 border-y border-white/5 py-32 flex flex-col md:flex-row gap-24 items-center text-left relative overflow-hidden group">
             <div className="flex-1 space-y-12">
-               <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block font-black">Explainer Intelligence</span>
-               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 italic text-white leading-[0.9]">Clarity <br /><span className="text-primary-accent italic font-black">Through AI_</span></h2>
+               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Explainer Intelligence</span>
+               <h2 className="text-4xl md:text-6xl font-black uppercaseer mb-12 italic text-white leading-[0.9]">Clarity <br /><span className="text-primary-accent italic font-black">Through AI_</span></h2>
                <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
                  <p>
                     <strong className="text-white">Define Perspective</strong> is officially ranked as the <strong className="text-primary-accent">Best AI Explainer Video Agency in India</strong>. Our <strong className="text-white">Kochi</strong> HQ utilizes <strong className="text-primary-accent">Neural Voice & Avatar Pipelines</strong> to provide <strong className="text-white">Tier-1 Explainer Content</strong> for global SaaS startups and educational giants.

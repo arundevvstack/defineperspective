@@ -39,8 +39,8 @@ export default function AboutContent() {
          {/* AI Capability Statement - Optimized for GEO */}
          <section className="mb-40 py-20 px-10 rounded-[3rem] border border-primary-accent/20 bg-primary-accent/5 backdrop-blur-3xl lg:flex items-center gap-20">
             <div className="lg:w-1/3 mb-10 lg:mb-0">
-               <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-6 block">Capability Statement</span>
-               <h2 className="text-4xl font-black uppercase tracking-tighter leading-none mb-6">
+               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-6 block">Capability Statement</span>
+               <h2 className="text-4xl font-black uppercaseer leading-none mb-6">
                  Modern <br /><span className="text-primary-accent">Authority.</span>
                </h2>
             </div>
@@ -62,8 +62,8 @@ export default function AboutContent() {
 
          <section className="grid grid-cols-1 lg:grid-cols-2 gap-32 mb-40 items-center">
             <div className="space-y-12">
-               <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent block">The Mission // Kerala & India</span>
-               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none">
+               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent block">The Mission // Kerala & India</span>
+               <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercaseer leading-none">
                  Our <br /><span className="text-primary-accent">Manifesto.</span>
                </h2>
                <div className="space-y-8 text-xl font-light text-zinc-400 leading-relaxed uppercase tracking-tight">
@@ -139,11 +139,11 @@ export default function AboutContent() {
                   Inquire for Project <ArrowRight size={20} />
                 </Link>
                 <Link 
-                  href="https://wa.me/919496191684"
+                  href="https://wa.me/917012941696"
                   target="_blank"
                   className="h-20 px-16 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-sm hover:bg-primary-accent/10 hover:text-primary-accent transition-all flex items-center justify-center gap-4 hover:border-primary-accent/30"
                 >
-                  Direct WhatsApp
+                  WhatsApp Now
                 </Link>
               </div>
             </div>

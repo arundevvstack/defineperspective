@@ -71,7 +71,7 @@ const NavDropdown = ({ title, categories, pathname, onActiveChange }: { title: s
   );
 };
 
-function NavbarContent() {
+function NavbarContent({ isAiModeOverride }: { isAiModeOverride?: boolean }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -84,7 +84,7 @@ function NavbarContent() {
     pathname === "/ai-services" || 
     (pathname === "/portfolio" && activeView === "ai");
 
-  const isAiActive = isAiPath || aiHovered;
+  const isAiActive = isAiModeOverride ?? (isAiPath || aiHovered);
 
   const serviceCategories = [
     {
@@ -289,10 +289,10 @@ function NavbarContent() {
   );
 }
 
-export default function GlassNavbar() {
+export default function GlassNavbar({ isAiModeOverride }: { isAiModeOverride?: boolean }) {
   return (
     <Suspense fallback={<div className="h-20 w-screen bg-black/20 animate-pulse" />}>
-      <NavbarContent />
+      <NavbarContent isAiModeOverride={isAiModeOverride} />
     </Suspense>
   );
 }

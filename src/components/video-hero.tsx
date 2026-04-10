@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, ArrowRight } from "lucide-react";
+import { Play, ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function VideoHero() {
@@ -40,12 +40,20 @@ export default function VideoHero() {
           >
             Watch Showreel <Play size={16} className="fill-current" />
           </Link>
-          <Link 
-            href="/contact"
+          <a 
+            href="tel:+917012941696"
             className="group h-14 px-8 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:border-primary-accent hover:text-primary-accent transition-all duration-500 backdrop-blur-md"
           >
-            Start Project <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-          </Link>
+            Speak with us <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+          </a>
+          <a 
+            href="https://wa.me/917012941696"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group h-14 px-8 rounded-2xl bg-transparent border border-white/20 text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:border-[#25D366]/50 hover:text-primary-accent transition-all duration-500 backdrop-blur-md"
+          >
+            WhatsApp Now <MessageCircle size={16} className="text-[#25D366] group-hover:scale-110 transition-transform" />
+          </a>
         </motion.div>
 
         {/* Scroll Indicator (Bottom of stack) */}

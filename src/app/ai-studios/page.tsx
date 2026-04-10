@@ -81,7 +81,7 @@ export default function AIStudiosPage() {
             
             <Cpu size={36} />
           </div>
-          <h1 className="text-6xl md:text-[9.6rem] font-black tracking-tighter uppercase mb-12 leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[9.6rem] font-blacker uppercase mb-12 leading-[0.8] text-white">
             
             DP AI
             <span className="text-primary-accent italic">Studios_</span>
@@ -150,7 +150,7 @@ export default function AIStudiosPage() {
           
           <div className="space-y-12">
             
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none">
+            <h2 className="text-4xl md:text-6xl font-black uppercase leading-none">
               Why Choose <br />
               <span className="text-primary-accent italic">AI Velocity?</span>
             </h2>
@@ -204,7 +204,7 @@ export default function AIStudiosPage() {
         {/* High-Conversion CTA */}
         <div className="py-40 text-center border-t border-white/5 mt-40">
           
-          <h2 className="text-5xl md:text-[10rem] font-black uppercase tracking-tighter mb-16 text-white leading-none">
+          <h2 className="text-5xl md:text-[10rem] font-black uppercaseer mb-16 text-white leading-none">
             
             Future-proof <br />
             <span className="text-primary-accent italic">your brand.</span>

@@ -45,7 +45,7 @@ export default function PricingCalculator() {
 
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center text-center mb-24 max-w-4xl mx-auto">
-          <h2 className="text-4xl font-extrabold md:text-6xl text-white tracking-widest uppercase mb-8 leading-none">
+          <h2 className="text-4xl font-extrabold md:text-6xl text-white uppercase mb-8 leading-none">
             Estimate <span className="text-primary-accent italic">Costing_</span>
           </h2>
           <p className="text-xl text-zinc-500 font-light max-w-2xl uppercase tracking-widest leading-relaxed">
@@ -116,7 +116,7 @@ export default function PricingCalculator() {
                   Quote Node: {quoteId}
                 </div>
 
-                <span className="text-zinc-500 text-lg uppercase tracking-[0.4em] font-light mb-4">Estimated Investment_</span>
+                <span className="text-zinc-500 text-lg uppercase tracking-[0.3em] font-light mb-4">Estimated Investment_</span>
                 <div className="flex items-start gap-4">
                    <h3 className="text-7xl font-black md:text-9xl text-white tracking-tighter">
                      ${calculatedCost.toLocaleString()}

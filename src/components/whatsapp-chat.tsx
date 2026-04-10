@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function WhatsAppChat() {
-  const whatsappNumber = "919496191684";
+  const whatsappNumber = "917012941696";
   const message = "Hi Define Perspective, I'm interested in discussing a project.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 

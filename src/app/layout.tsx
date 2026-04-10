@@ -96,7 +96,7 @@ export default function RootLayout({
                 "@type": "ContactPoint",
                 "telephone": "+91-949-619-1684",
                 "contactType": "customer service",
-                "email": "mail@defineperspective.in"
+                "email": "defineperspective.in@gmail.com"
               },
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",

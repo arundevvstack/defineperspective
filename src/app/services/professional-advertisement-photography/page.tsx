@@ -53,7 +53,7 @@ className="text-5xl font-black md:text-8xl tracking-tighter uppercase mb-12"
           
           <div className="space-y-12">
             
-            <h2 className="text-3xl font-bold uppercase tracking-widest text-zinc-100 italic">
+            <h2 className="text-3xl font-bold uppercase text-zinc-100 italic">
               Capturing Your Brand’s Essence
             </h2>
             <div className="space-y-8 text-lg font-light text-zinc-400 leading-relaxed">

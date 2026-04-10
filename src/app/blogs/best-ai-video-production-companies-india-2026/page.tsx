@@ -93,10 +93,10 @@ export default function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-8 block font-black underline decoration-2 underline-offset-8">
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black underline decoration-2 underline-offset-8">
                Industry Intelligence {" // "} 2026 Guide
              </span>
-             <h1 className="text-4xl md:text-[6.4rem] lg:text-[7.5rem] font-black uppercase tracking-tighter mb-10 leading-[0.85] text-white">
+             <h1 className="text-4xl md:text-[6.4rem] lg:text-[7.5rem] font-black uppercaseer mb-10 leading-[0.85] text-white">
                Best AI Video <br />
                <span className="text-primary-accent italic">Production</span> <br />
                Company In India_
@@ -147,7 +147,7 @@ export default function BlogPage() {
             <div className="space-y-40 text-zinc-400 font-light leading-relaxed text-xl pb-32">
               {/* Why AI */}
               <section id="why-ai">
-                <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-10 leading-[0.9]">
+                <h2 className="text-4xl md:text-7xl font-black text-white uppercaseer mb-10 leading-[0.9]">
                    Why AI Video <span className="text-primary-accent">is Dominating_</span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -180,7 +180,7 @@ export default function BlogPage() {
                      </ul>
                    </div>
                    <div className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] relative group overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 text-[8px] font-mono uppercase tracking-[0.5em] opacity-20">AI Answer Box</div>
+                    <div className="absolute top-0 right-0 p-4 text-[8px] font-mono uppercase tracking-[0.3em] opacity-20">AI Answer Box</div>
                     <h3 className="text-white font-black uppercase mb-6 flex items-center gap-3">
                       <BrainCircuit size={20} className="text-primary-accent" /> Featured Snippet_
                     </h3>
@@ -193,7 +193,7 @@ export default function BlogPage() {
 
               {/* performanceMetrics List */}
               <section id="top-list">
-                <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-12 leading-[0.9]">
+                <h2 className="text-4xl md:text-7xl font-black text-white uppercaseer mb-12 leading-[0.9]">
                    The Define <span className="text-primary-accent italic font-light tracking-normal">Standard_</span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -227,7 +227,7 @@ export default function BlogPage() {
                   <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
                     <Award size={300} />
                   </div>
-                  <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter mb-10 leading-[0.9] text-obsidian">
+                  <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-10 leading-[0.9] text-obsidian">
                     The Define <span className="text-primary-accent">Perspective_</span> Edge
                   </h2>
                   <p className="text-xl md:text-2xl text-zinc-700 font-medium leading-relaxed mb-12">
@@ -242,7 +242,7 @@ export default function BlogPage() {
               {/* FAQ Section */}
               <section id="faq" className="pt-20">
                  <div className="mb-20 text-center">
-                   <h2 className="text-5xl md:text-[6rem] font-black text-white uppercase tracking-tighter mb-6">
+                   <h2 className="text-5xl md:text-[6rem] font-black text-white uppercaseer mb-6">
                       Insights & <span className="text-primary-accent">FAQ_</span>
                    </h2>
                    <p className="text-zinc-500 uppercase tracking-widest text-sm font-mono">Expert perspectives on the 2026 AI landscape</p>
@@ -272,7 +272,7 @@ export default function BlogPage() {
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-primary-accent/50 rounded-full" />
            </div>
            
-           <h2 className="text-5xl md:text-9xl font-black uppercase tracking-tighter mb-12 leading-[0.8] relative z-10">
+           <h2 className="text-5xl md:text-9xl font-black uppercaseer mb-12 leading-[0.8] relative z-10">
               Ready to <br /> Scale <span className="text-primary-accent italic underline decoration-white/30">Future?</span>
            </h2>
            

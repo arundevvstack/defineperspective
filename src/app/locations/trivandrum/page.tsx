@@ -88,7 +88,7 @@ export default function TrivandrumLocationPage() {
               Presence: TRIVANDRUM / KERALA
             </div>
           </div>
-          <h1 className="text-6xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.85] text-white italic">
+          <h1 className="text-6xl md:text-[8rem] font-blacker uppercase leading-[0.85] text-white italic">
             Capital <br />
             <span className="text-primary-accent font-black">AI Technology_</span>
           </h1>
@@ -103,7 +103,7 @@ export default function TrivandrumLocationPage() {
               <Building2 className="text-primary-accent" size={32} />
               <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Technopark Team_</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Thiruvananthapuram <span className="text-primary-accent italic">Leading Experts_</span>
             </h2>
             <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10 uppercase tracking-widest leading-loose">
@@ -129,7 +129,7 @@ export default function TrivandrumLocationPage() {
         </section>
 
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/20 text-left">
-          <h2 className="text-2xl md:text-4xl font-black uppercase tracking-widest mb-10 text-primary-accent font-black italic">
+          <h2 className="text-2xl md:text-4xl font-black uppercase mb-10 text-primary-accent font-black italic">
             Trivandrum Visibility_ Center
           </h2>
           <div className="space-y-12">

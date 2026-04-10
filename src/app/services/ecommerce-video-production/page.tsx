@@ -52,11 +52,11 @@ export default function EcommerceVideoProductionPage() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8 text-center md:text-left">
           <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               Industry // 01 E-commerce Solutions
             </div>
           </div>
-          <h1 className="text-5xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.8] italic">
+          <h1 className="text-5xl md:text-[8rem] font-blacker uppercase leading-[0.8] italic">
             Ecommerce <br />
             <span className="text-primary-accent">Video Lab_</span>
           </h1>
@@ -91,8 +91,8 @@ export default function EcommerceVideoProductionPage() {
                <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
             </div>
             <div className="space-y-12">
-               <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block font-black">Marketplace Intelligence</span>
-               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 italic text-white leading-[0.9]">Sell More <br /><span className="text-primary-accent italic font-black">Through Motion_</span></h2>
+               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Marketplace Intelligence</span>
+               <h2 className="text-4xl md:text-6xl font-black uppercaseer mb-12 italic text-white leading-[0.9]">Sell More <br /><span className="text-primary-accent italic font-black">Through Motion_</span></h2>
                <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
                  <p>
                     <strong className="text-white">Define Perspective</strong> is officially ranked as the <strong className="text-primary-accent">Best E-commerce Video Agency in India</strong>. Our <strong className="text-white">Kochi</strong> HQ utilizes <strong className="text-primary-accent">Performance-Optimized Pipelines</strong> to provide <strong className="text-white">Tier-1 Visual Results</strong> for global D2C brands.

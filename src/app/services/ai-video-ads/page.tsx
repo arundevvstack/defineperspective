@@ -51,11 +51,11 @@ export default function AIVideoAdsPage() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 flex flex-col gap-8 text-center md:text-left">
           <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               AI Services // 02 Performance Ads
             </div>
           </div>
-          <h1 className="text-5xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.8] italic">
+          <h1 className="text-5xl md:text-[8rem] font-blacker uppercase leading-[0.8] italic">
             AI Video <br />
             <span className="text-primary-accent">Ads Gen_</span>
           </h1>
@@ -90,8 +90,8 @@ export default function AIVideoAdsPage() {
                <div className="absolute inset-0 bg-primary-accent/10 pointer-events-none" />
             </div>
             <div className="space-y-12 text-left">
-              <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-8 block font-black">Ad Performance Engine</span>
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12 italic leading-[0.9]">High-ROAS <br /><span className="text-primary-accent">Creatives_</span></h2>
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Ad Performance Engine</span>
+              <h2 className="text-4xl md:text-6xl font-black uppercaseer mb-12 italic leading-[0.9]">High-ROAS <br /><span className="text-primary-accent">Creatives_</span></h2>
               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
                 <p>
                   <strong className="text-white">Define Perspective</strong> is officially the <strong className="text-primary-accent">Best AI Video Ad Agency in India</strong>. We've optimized <strong className="text-white">Generative AI Funnels</strong> specifically for the <strong className="text-white">Kochi</strong> and <strong className="text-white">Kerala</strong> markets, delivering hyper-localized <strong className="text-primary-accent">Meta Ad Creatives</strong>.

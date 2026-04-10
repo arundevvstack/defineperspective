@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, Sparkles, ArrowRight, Activity, ShieldCheck, Zap } from "lucide-react";
+import { Terminal, Sparkles, ArrowRight, Activity, ShieldCheck, Zap, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function TerminalHero() {
@@ -55,7 +55,7 @@ export default function TerminalHero() {
               <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/40" />
               <div className="h-2.5 w-2.5 rounded-full bg-green-500/40" />
             </div>
-            <div className="flex-1 text-center font-mono text-[9px] text-zinc-500 uppercase tracking-[0.4em] opacity-40">
+            <div className="flex-1 text-center font-mono text-[9px] text-zinc-500 uppercase tracking-[0.3em] opacity-40">
               System.Process.Initialize("Video_Scale_Engine")
             </div>
             <div className="flex items-center gap-2 text-[9px] font-mono text-primary-accent/60">
@@ -87,7 +87,7 @@ export default function TerminalHero() {
             >
               <div className="flex flex-col md:flex-row gap-12 items-start justify-between">
                 <div className="space-y-6 max-w-2xl">
-                   <p className="font-mono text-primary-accent/80 text-xs tracking-[.4em] uppercase flex items-center gap-3">
+                   <p className="font-mono text-primary-accent/80 text-xs tracking-[0.3em] uppercase flex items-center gap-3">
                       <Zap size={14} /> Optimization Protocol Active
                    </p>
                    <p className="text-xl md:text-3xl text-zinc-300 font-light leading-tight">
@@ -109,12 +109,21 @@ export default function TerminalHero() {
 
               {/* Action Zone */}
               <div className="flex flex-wrap gap-6 items-center border-t border-white/5 pt-12">
-                <button 
-                  onClick={() => window.location.href = '/contact'}
+                <a 
+                  href="tel:+917012941696"
                   className="h-16 px-12 rounded-2xl bg-primary-accent text-white font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:bg-white hover:text-primary-accent transition-all duration-500 group shadow-2xl shadow-primary-accent/20"
                 >
-                  Initiate Project <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                </button>
+                  Speak with us <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+                </a>
+
+                <a 
+                  href="https://wa.me/917012941696"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-16 px-12 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:bg-[#25D366]/20 hover:border-[#25D366]/30 transition-all duration-500 group shadow-2xl"
+                >
+                  WhatsApp Now <MessageCircle size={18} className="text-[#25D366] group-hover:scale-110 transition-transform" />
+                </a>
 
                 <button 
                   onClick={() => window.location.href = '/portfolio'}

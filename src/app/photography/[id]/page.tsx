@@ -67,7 +67,7 @@ transition={{ duration: 1.5, ease: "easeOut" }}
              
 transition={{ delay: 0.5 }}
            >
-              <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block">Case Study {" // "} Photography</span>
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-6 block">Case Study {" // "} Photography</span>
               <h1 className="text-4xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.85]">
                 {project.title}
               </h1>
@@ -83,7 +83,7 @@ transition={{ delay: 0.5 }}
          {/* 2. Project Vision & Technical */}
          <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 mb-48">
             <div className="lg:col-span-12">
-               <h2 className="text-xs font-mono tracking-[0.5em] uppercase text-zinc-600 mb-12">The Manifest Perspective</h2>
+               <h2 className="text-xs font-mono tracking-[0.3em] uppercase text-zinc-600 mb-12">The Manifest Perspective</h2>
             </div>
             <div className="lg:col-span-7">
                <p className="text-3xl md:text-5xl font-light leading-snug text-zinc-300">

@@ -30,7 +30,7 @@ export default function YouTubeAdsPage() {
               Vertical: Performance Ads // Node 03
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white">
             YouTube <br />
             <span className="text-primary-accent italic">Production_</span>
           </h1>
@@ -42,7 +42,7 @@ export default function YouTubeAdsPage() {
         <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl relative group overflow-hidden">
            <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none   transition-all duration-300" />
            <div className="relative z-10">
-            <h2 className="text-3xl md:text-6xl font-black mb-10 uppercase tracking-tighter leading-none italic">
+            <h2 className="text-3xl md:text-6xl font-black mb-10 uppercaseer leading-none italic">
               Attention. <br />
               <span className="text-primary-accent font-black">Retention.</span>
             </h2>
@@ -58,7 +58,7 @@ export default function YouTubeAdsPage() {
                 Inquire for Ads <ArrowRight size={20} />
               </Link>
               <Link
-                href="https://wa.me/919496191684"
+                href="https://wa.me/917012941696"
                 target="_blank"
                 className="h-20 px-12 rounded-2xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm  transition-all flex items-center justify-center gap-4  transition-all duration-300"
               >

@@ -53,7 +53,7 @@ export default function CorporateVideoPage() {
               Division: Specialized Video
             </div>
           </div>
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white">
+          <h1 className="text-6xl md:text-9xl font-blacker uppercase leading-[0.85] text-white">
             Corporate Video <br />
             <span className="text-primary-accent italic">Production_</span>
           </h1>
@@ -67,7 +67,7 @@ export default function CorporateVideoPage() {
         <section className="mb-40 p-12 md:p-24 rounded-[3.5rem] border border-white/5 bg-white/5 backdrop-blur-3xl">
           <div className="flex flex-col md:flex-row gap-20">
             <div className="flex-1">
-              <h2 className="text-3xl font-black mb-10 uppercase tracking-widest leading-tight">
+              <h2 className="text-3xl font-black mb-10 uppercase leading-tight">
                 Elevating Brand Legacy in Kerala
               </h2>
               <p className="text-lg text-zinc-400 font-light leading-relaxed mb-12">
@@ -153,7 +153,7 @@ export default function CorporateVideoPage() {
         </div>
 
         <div className="py-40 text-center bg-white/5 border border-white/5 rounded-[4rem] group transition-all">
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16 text-white max-w-4xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-black uppercaseer mb-16 text-white max-w-4xl mx-auto">
             Built for performance. <br /> Designed for
             <span className="text-primary-accent italic">Scale.</span>
           </h2>

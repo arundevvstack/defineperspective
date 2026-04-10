@@ -70,7 +70,7 @@ export default function PerformanceMarketingLandingPage() {
               Division: Performance Intelligence
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white">
             Performance <br />
             <span className="text-primary-accent italic">Marketing_</span>
           </h1>
@@ -109,7 +109,7 @@ export default function PerformanceMarketingLandingPage() {
 
         <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center text-left">
           <div className="space-y-12">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none">
+            <h2 className="text-4xl md:text-6xl font-black uppercase leading-none">
               Scale Your <br />
               <span className="text-primary-accent italic">ROI Engine.</span>
             </h2>

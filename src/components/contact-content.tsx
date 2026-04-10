@@ -1,38 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, Mail, Phone, MapPin, MessageCircle, Globe, Zap, 
-  Activity, Star, Shield, Trophy, Layout, ChevronRight
+  Activity, Star, Shield, Trophy, Layout, ChevronRight, CheckCircle, Loader2
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import GlassNavbar from "@/components/glass-navbar";
 import AICharacter from "@/components/ai-character";
+import { cn } from "@/lib/utils";
 
 // Dynamic import for the FAQ section to optimize initial load
 const FAQSection = dynamic(() => import("@/components/faq-section"), { ssr: false });
-
-const Instagram = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-  </svg>
-);
-const Youtube = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 2-2h15a2 2 0 0 1 2 2 10.15 10.15 0 0 1 0 10 2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2z"/><path d="m10 15 5-3-5-3z"/>
-  </svg>
-);
-const Linkedin = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>
-  </svg>
-);
-const Facebook = ({ size = 20 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-  </svg>
-);
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -44,29 +24,82 @@ function ContactForm() {
     budget: "Strategic: ₹5 Lakhs+",
     vision: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    const subject = encodeURIComponent(`Project Intake: ${formData.projectType} - ${formData.brand}`);
+    // Using Formspree for automatic "Success Mail Notification" to Admin
+    // And background delivery so user doesn't have to manually 'Send' in a client.
+    try {
+      const response = await fetch("https://formspree.io/f/defineperspective.in@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `INTAKE_NOTIFICATION: ${formData.projectType} from ${formData.brand}`,
+          _replyto: formData.email
+        })
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setIsSubmitting(false);
+        return;
+      }
+    } catch (err) {
+      console.error("Submission failed, fallback to mailto");
+    }
+
+    // Direct Fallback if Background Submission fails
+    const subject = encodeURIComponent(`Project: ${formData.projectType} - ${formData.brand}`);
     const body = encodeURIComponent(
-      `Project Intake Details:\n\n` +
+      `Project Details:\n` +
       `Name: ${formData.name}\n` +
       `Brand: ${formData.brand}\n` +
-      `Email: ${formData.email}\n` +
       `WhatsApp: ${formData.whatsapp}\n` +
-      `Project Type: ${formData.projectType}\n` +
-      `Budget: ${formData.budget}\n\n` +
-      `Vision / Requirements:\n${formData.vision}`
+      `Type: ${formData.projectType}\n` +
+      `Budget: ${formData.budget}\n` +
+      `Vision: ${formData.vision}`
     );
-    
     window.location.href = `mailto:defineperspective.in@gmail.com?subject=${subject}&body=${body}`;
+    setIsSubmitting(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+
+  if (isSuccess) {
+    return (
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="p-16 rounded-[4rem] bg-white/[0.05] border border-primary-accent/30 backdrop-blur-3xl flex flex-col items-center justify-center text-center gap-10 min-h-[600px] relative overflow-hidden"
+      >
+         <div className="absolute top-0 left-0 w-full h-[2px] bg-primary-accent shadow-[0_0_20px_rgba(var(--primary-accent-rgb),1)]" />
+         <div className="h-24 w-24 rounded-full bg-primary-accent flex items-center justify-center shadow-[0_0_50px_rgba(var(--primary-accent-rgb),0.3)]">
+            <CheckCircle size={48} className="text-black" strokeWidth={3} />
+         </div>
+         <div className="space-y-4">
+            <h3 className="text-4xl font-black uppercase tracking-tighter text-white">Notification Sent</h3>
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-zinc-500 max-w-sm mx-auto leading-relaxed">
+               Project intake synchronized. <br />
+               <span className="text-primary-accent">Success Mail Notification</span> triggered to the strategy hub.
+            </p>
+         </div>
+         <button 
+           onClick={() => setIsSuccess(false)}
+           className="h-16 px-12 bg-white text-black rounded-2xl text-[10px] uppercase font-black tracking-widest hover:bg-primary-accent hover:scale-105 transition-all shadow-xl"
+         >
+            New Transmission
+         </button>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div 
@@ -93,7 +126,8 @@ function ContactForm() {
                  onChange={handleChange}
                  placeholder="Enter Name" 
                  required
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white" 
+                 disabled={isSubmitting}
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
                />
             </div>
             <div className="space-y-4">
@@ -105,7 +139,8 @@ function ContactForm() {
                  onChange={handleChange}
                  placeholder="Brand Name" 
                  required
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white" 
+                 disabled={isSubmitting}
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
                />
             </div>
         </div>
@@ -120,7 +155,8 @@ function ContactForm() {
                  onChange={handleChange}
                  placeholder="hq@yourbrand.com" 
                  required
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white" 
+                 disabled={isSubmitting}
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
                />
             </div>
             <div className="space-y-4">
@@ -132,7 +168,8 @@ function ContactForm() {
                  onChange={handleChange}
                  placeholder="+91 000 000 0000" 
                  required
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white" 
+                 disabled={isSubmitting}
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
                />
             </div>
         </div>
@@ -144,7 +181,8 @@ function ContactForm() {
                  name="projectType"
                  value={formData.projectType}
                  onChange={handleChange}
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all text-zinc-400 appearance-none cursor-pointer"
+                 disabled={isSubmitting}
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all text-zinc-400 appearance-none cursor-pointer disabled:opacity-50"
                >
                   <option className="bg-obsidian">Media & AI Video Production</option>
                   <option className="bg-obsidian">TV Commercial / Ad Film</option>
@@ -157,7 +195,8 @@ function ContactForm() {
                  name="budget"
                  value={formData.budget}
                  onChange={handleChange}
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all text-zinc-400 appearance-none cursor-pointer"
+                 disabled={isSubmitting}
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all text-zinc-400 appearance-none cursor-pointer disabled:opacity-50"
                >
                   <option className="bg-obsidian">Strategic: ₹5 Lakhs+</option>
                   <option className="bg-obsidian">Standard: ₹2 - 5 Lakhs</option>
@@ -174,12 +213,24 @@ function ContactForm() {
               onChange={handleChange}
               rows={4}
               placeholder="Detail your requirements for global Media Production or AI Video Production services."
-              className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 resize-none text-white lg:min-h-[160px]" 
+              disabled={isSubmitting}
+              className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 resize-none text-white lg:min-h-[160px] disabled:opacity-50" 
             />
         </div>
 
-        <button type="submit" className="group w-full h-24 rounded-3xl bg-primary-accent text-white font-black uppercase tracking-normal text-sm transition-all shadow-2xl flex items-center justify-center gap-6 hover:scale-[1.03] active:scale-95 hover:shadow-primary-accent/20">
-            Get Proposal Within 24 Hours <ArrowRight size={24} className="group-hover:translate-x-3 transition-transform" />
+        <button 
+          type="submit" 
+          disabled={isSubmitting}
+          className={cn(
+            "group w-full h-24 rounded-3xl bg-primary-accent text-white font-black uppercase tracking-normal text-sm transition-all shadow-2xl flex items-center justify-center gap-6 hover:shadow-primary-accent/20 active:scale-95 disabled:opacity-100",
+            !isSubmitting && "hover:scale-[1.03]"
+          )}
+        >
+            {isSubmitting ? (
+              <>INITIALIZING Bio-Sync... <Loader2 className="animate-spin" size={24} /></>
+            ) : (
+              <>Get Proposal Within 24 Hours <ArrowRight size={24} className="group-hover:translate-x-3 transition-transform" /></>
+            )}
         </button>
       </form>
     </motion.div>
@@ -188,7 +239,7 @@ function ContactForm() {
 
 export default function ContactContent() {
   return (
-    <main className="min-h-screen bg-obsidian text-white relative overflow-hidden font-sans selection:bg-primary-accent selection:text-white pb-32">
+    <main className="min-h-screen bg-obsidian text-white relative overflow-hidden font-sans selection:bg-primary-accent selection:text-white">
       {/* AI Readiness Context Hub (SEO & AI READABLE) */}
       <section className="py-8 px-6 md:px-12 bg-white/[0.03] border-b border-white/5 relative z-20">
          <div className="container mx-auto">

@@ -74,7 +74,7 @@ transition={{ duration: 1.5, ease: "easeOut" }}
 transition={{ delay: 0.5 }}
           >
             
-            <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-6 block">
+            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-6 block">
               Case Study {" // "} AI Design
             </span>
             <h1 className="text-4xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-[0.85] text-white">
@@ -100,7 +100,7 @@ transition={{ delay: 0.5 }}
           
           <div className="lg:col-span-12">
             
-            <h2 className="text-xs font-mono tracking-[0.5em] uppercase text-zinc-600 mb-12 border-b border-white/5 pb-4">
+            <h2 className="text-xs font-mono tracking-[0.3em] uppercase text-zinc-600 mb-12 border-b border-white/5 pb-4">
               Neural Architecture Context
             </h2>
           </div>
@@ -208,7 +208,7 @@ transition={{ delay: 0.5 }}
                 className="h-20 px-16 rounded-3xl border border-white/10 bg-white/5 text-white font-black uppercase tracking-widest text-sm  hover:text-black transition-all flex items-center gap-4  transition-all duration-300"
               >
                 
-                Back to AI Studios <ArrowLeft size={18} />
+                Back to DP AI Studios <ArrowLeft size={18} />
               </Link>
             </div>
           </div>

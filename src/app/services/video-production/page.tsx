@@ -69,7 +69,7 @@ export default function VideoProductionLandingPage() {
               Division: Elite Media Production
             </div>
           </div>
-          <h1 className="text-5xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-5xl md:text-[8rem] font-blacker uppercase leading-[0.8] text-white italic">
             Video <br />
             <span className="text-primary-accent">Production_</span>
           </h1>
@@ -108,7 +108,7 @@ export default function VideoProductionLandingPage() {
 
         <section className="mb-40 grid lg:grid-cols-2 gap-20 items-center text-left">
           <div className="space-y-12">
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-widest leading-none italic">
+            <h2 className="text-4xl md:text-6xl font-black uppercase leading-none italic">
               Crafted for <br />
               <span className="text-primary-accent font-black">Market Impact.</span>
             </h2>
@@ -127,7 +127,7 @@ export default function VideoProductionLandingPage() {
                 Get a Quote <ArrowRight size={18} className="ml-4" />
               </Link>
               <Link
-                href="https://wa.me/919496191684?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
+                href="https://wa.me/917012941696?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20discussing%20a%20project."
                 target="_blank"
                 className="inline-flex h-20 px-12 rounded-full border border-white/20 bg-white/5 text-white font-black items-center justify-center uppercase tracking-widest text-sm hover:bg-primary-accent/10  transition-all shadow-xl font-black"
               >

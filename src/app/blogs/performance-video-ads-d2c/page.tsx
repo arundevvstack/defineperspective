@@ -34,8 +34,8 @@ export default function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-8 block font-black underline">Market Intelligence {" // "} Conversion Node</span>
-             <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-10 leading-[0.9]">
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black underline">Market Intelligence {" // "} Conversion Node</span>
+             <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-10 leading-[0.9]">
                Mastering <span className="text-primary-accent italic">Performance</span> <br />Video Ads for D2C Brands
              </h1>
              <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest">
@@ -92,7 +92,7 @@ export default function BlogPage() {
         <div className="space-y-32 text-zinc-400 font-light leading-relaxed text-lg pb-32">
           
           <section>
-            <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-8 leading-none">
+            <h2 className="text-3xl md:text-5xl font-black text-white uppercaseer mb-8 leading-none">
                The Psychology of the "Hook"
             </h2>
             <p className="mb-6">
@@ -101,7 +101,7 @@ export default function BlogPage() {
           </section>
 
           <section>
-            <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-8 leading-none text-primary-accent">
+            <h2 className="text-3xl md:text-5xl font-black text-white uppercaseer mb-8 leading-none text-primary-accent">
                Iterative Creative Scaling
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-12">
@@ -119,7 +119,7 @@ export default function BlogPage() {
           </section>
 
           <section className="p-12 md:p-20 rounded-[3rem] bg-primary-accent/10 border border-primary-accent/20">
-            <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-8 leading-none">
+            <h2 className="text-3xl md:text-5xl font-black text-white uppercaseer mb-8 leading-none">
                The Define Perspective Edge
             </h2>
             <p className="mb-10 text-xl font-medium text-white italic">
@@ -133,7 +133,7 @@ export default function BlogPage() {
 
         {/* FAQ Section */}
         <section className="border-t border-white/10 pt-32 mb-32">
-           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-20 text-center">
+           <h2 className="text-4xl md:text-6xl font-black text-white uppercaseer mb-20 text-center">
               Market <span className="text-primary-accent italic">Intelligence_</span>
            </h2>
            <div className="space-y-6">
@@ -161,7 +161,7 @@ export default function BlogPage() {
               <Zap size={120} />
            </div>
 
-           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight">
+           <h2 className="text-4xl md:text-6xl font-black uppercaseer mb-8 leading-tight">
               Ready to scale your D2C <br /> <span className="text-primary-accent italic underline">Growth Engine?</span>
            </h2>
            <p className="text-xl font-light text-zinc-500 mb-12 uppercase tracking-widest max-w-2xl mx-auto">

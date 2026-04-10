@@ -39,7 +39,7 @@ export default function PerformanceAdsSubPage() {
               Division: Performance Intelligence
             </div>
           </div>
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white font-black italic">
+          <h1 className="text-6xl md:text-9xl font-blacker uppercase leading-[0.85] text-white font-black italic">
             
             Performance <br />
             <span className="text-primary-accent font-black">Video Ads_</span>
@@ -54,7 +54,7 @@ export default function PerformanceAdsSubPage() {
           
           <div className="relative z-10 text-left">
             
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight">
               Scale Your
               <span className="text-primary-accent italic">ROI Engine.</span>
             </h2>
@@ -86,7 +86,7 @@ export default function PerformanceAdsSubPage() {
         </section>
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-transparent border border-white/20 text-left">
           
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent">
+          <h2 className="text-2xl font-black uppercase mb-10 text-primary-accent">
             ROAS Visibility FAQ
           </h2>
           <div className="space-y-12">

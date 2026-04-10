@@ -21,11 +21,11 @@ export default function FashionEditorialCaseStudy() {
       <div className="container mx-auto max-w-6xl relative z-10">
         <header className="mb-40 space-y-12">
           <div className="flex items-center gap-4">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               Case Study: Node 02 // Fashion Editorial
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white italic">
             Fashion <br />
             <span className="text-primary-accent">Editorial_</span>
           </h1>
@@ -72,7 +72,7 @@ export default function FashionEditorialCaseStudy() {
            <div className="space-y-12">
               <div className="flex items-center gap-4">
                  <Camera className="text-primary-accent" size={32} />
-                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Vogue Standard_</h2>
+                 <h2 className="text-3xl md:text-5xl font-black uppercaseer">Vogue Standard_</h2>
               </div>
               <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 We engineered a high-velocity production workflow that prioritized skin-tone accuracy and textile texture. Utilizing a combination of natural light diffusion and high-end studio strobes, we achieved a look that feels both effortless and luxury. Our retouching pipeline focused on preserving natural skin texture while elevating the overall color grading to a global 'Vogue' standard.
@@ -106,7 +106,7 @@ export default function FashionEditorialCaseStudy() {
         <section className="p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group">
            <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
            <div className="relative z-10">
-              <h2 className="text-5xl md:text-[8rem] font-black uppercase tracking-tighter text-white mb-16 leading-[0.8] italic">
+              <h2 className="text-5xl md:text-[8rem] font-black uppercaseer text-white mb-16 leading-[0.8] italic">
                 Ready for <br /><span className="text-primary-accent italic font-blackitalic font-black italic">Vogue Look?</span>
               </h2>
               <div className="flex flex-col sm:flex-row justify-center gap-8">

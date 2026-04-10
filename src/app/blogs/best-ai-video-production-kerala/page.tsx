@@ -89,10 +89,10 @@ export default function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-8 block font-black underline decoration-2 underline-offset-8">
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black underline decoration-2 underline-offset-8">
                Intelligence Hub {" // "} Pillar Guide 2026
              </span>
-             <h1 className="text-4xl md:text-[6.4rem] lg:text-[8rem] font-black uppercase tracking-tighter mb-10 leading-[0.85] text-white">
+             <h1 className="text-4xl md:text-[6.4rem] lg:text-[8rem] font-black uppercaseer mb-10 leading-[0.85] text-white">
                #1 AI Video <br />
                <span className="text-primary-accent italic">Production</span> <br />
                In Kerala_
@@ -164,7 +164,7 @@ export default function BlogPage() {
             <div className="space-y-40 text-zinc-400 font-light leading-relaxed text-xl pb-32">
               
               <section id="ai-video-definition" className="scroll-mt-32">
-                <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-10 leading-[0.9]">
+                <h2 className="text-4xl md:text-7xl font-black text-white uppercaseer mb-10 leading-[0.9]">
                    01. Defining <span className="text-primary-accent">AI Video Production_</span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -177,7 +177,7 @@ export default function BlogPage() {
                     </p>
                   </div>
                   <div className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] relative group overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 text-[8px] font-mono uppercase tracking-[0.5em] opacity-20">SGE Featured Snippet</div>
+                    <div className="absolute top-0 right-0 p-4 text-[8px] font-mono uppercase tracking-[0.3em] opacity-20">SGE Featured Snippet</div>
                     <h3 className="text-white font-black uppercase mb-6 flex items-center gap-3">
                       <Target size={20} className="text-primary-accent" /> Direct Answer_
                     </h3>
@@ -207,7 +207,7 @@ export default function BlogPage() {
 
               {/* Section 2: Regional Focus */}
               <section id="regional-dominance">
-                <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-12 leading-[0.9]">
+                <h2 className="text-4xl md:text-7xl font-black text-white uppercaseer mb-12 leading-[0.9]">
                    02. Regional <span className="text-primary-accent italic">Dominance_</span>
                 </h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -254,7 +254,7 @@ export default function BlogPage() {
 
               {/* Section 3: Authority Boosting */}
               <section id="authority">
-                <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-16 leading-[0.9]">
+                <h2 className="text-4xl md:text-7xl font-black text-white uppercaseer mb-16 leading-[0.9]">
                    03. Why Kerala Prefers <br /> <span className="text-primary-accent">Define Perspective_</span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -290,10 +290,10 @@ export default function BlogPage() {
         {/* FAQ Section */}
         <div className="border-t border-white/10 pt-40 mb-40 lg:mb-60">
            <div className="text-center mb-24">
-             <h2 className="text-5xl md:text-[8rem] font-black text-white uppercase tracking-tighter mb-8 leading-none">
+             <h2 className="text-5xl md:text-[8rem] font-black text-white uppercaseer mb-8 leading-none">
                 Analysis & <span className="text-primary-accent">Intelligence_</span>
              </h2>
-             <p className="text-zinc-500 font-mono tracking-[0.5em] uppercase">Answers to your cinematic AI questions</p>
+             <p className="text-zinc-500 font-mono tracking-[0.3em] uppercase">Answers to your cinematic AI questions</p>
            </div>
            
            <div className="max-w-4xl mx-auto space-y-6">
@@ -320,7 +320,7 @@ export default function BlogPage() {
            <div className="absolute top-0 right-0 p-12 text-black opacity-10 transition-transform duration-[3000ms] group-hover:rotate-[30deg] group-hover:scale-150 pointer-events-none">
               <Zap size={300} />
            </div>
-           <h2 className="text-5xl md:text-9xl font-black uppercase tracking-tighter mb-12 leading-[0.8] drop-shadow-2xl">
+           <h2 className="text-5xl md:text-9xl font-black uppercaseer mb-12 leading-[0.8] drop-shadow-2xl">
               Scale Your <span className="text-primary-accent italic">Dominance_</span>
            </h2>
            <p className="text-xl md:text-3xl font-light opacity-60 mb-20 uppercase tracking-widest max-w-4xl mx-auto">

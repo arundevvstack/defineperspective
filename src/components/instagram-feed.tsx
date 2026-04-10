@@ -24,8 +24,8 @@ export default function InstagramFeed() {
     <section className="py-40">
       <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
         <div className="max-w-2xl">
-          <span className="text-[10px] font-mono tracking-[0.6em] uppercase text-primary-accent mb-6 block">Visual Stream {" // "} Studio Access</span>
-          <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-white leading-none">
+          <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-6 block">Visual Stream {" // "} Studio Access</span>
+          <h2 className="text-3xl md:text-6xl font-black uppercaseer text-white leading-none">
             Live from <br /><span className="text-primary-accent italic">Instagram_</span>
           </h2>
         </div>

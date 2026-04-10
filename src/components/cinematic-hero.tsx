@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Target, Cpu, ShieldCheck } from "lucide-react";
+import { ArrowRight, Zap, Target, Cpu, ShieldCheck, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -26,14 +26,15 @@ export default function CinematicHero({ mode }: { mode: string }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12"
+            className="group flex items-center gap-4 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-2xl mb-12 hover:border-primary-accent/40 hover:bg-white/10 transition-all cursor-default shadow-2xl shadow-primary-accent/5"
           >
-            <div className="relative flex h-2 w-2">
+            <div className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-accent opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-accent"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-accent shadow-[0_0_10px_rgba(var(--primary-accent-rgb),0.8)]"></span>
             </div>
-            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-zinc-400">
-              {isAI ? "Best AI Production " : "Best Video Production "} <span className="text-white">{isAI ? "Studio in India" : "Company in Kerala"}</span>
+            <span className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 group-hover:text-white transition-colors">
+              {isAI ? "Best AI Production " : "Best Video Production "} 
+              <span className="text-primary-accent font-bold ml-1">{isAI ? "Studio in India" : "Company in Kerala"}</span>
             </span>
           </motion.div>
 
@@ -47,8 +48,8 @@ export default function CinematicHero({ mode }: { mode: string }) {
               viewport={{ once: true }}
               className="text-5xl md:text-7xl lg:text-[6rem] font-black tracking-tighter uppercase leading-[0.9] text-white"
             >
-              {isAI ? "AI-Powered" : "Elite Cinematic"} <br />
-              <span className="text-primary-accent italic">{isAI ? "Production Studio" : "Brand Storytelling"}</span>
+              {isAI ? "AI-Powered" : "Elite Cinematic Excellence"} <br />
+              <span className="text-primary-accent italic">{isAI ? "Production Studio" : "Master Brand Storytelling"}</span>
             </motion.h1>
 
             <motion.p
@@ -61,7 +62,7 @@ export default function CinematicHero({ mode }: { mode: string }) {
             >
               {isAI 
                 ? "Scale your brand in Kerala & beyond with proprietary AI cinematic workflows"
-                : "High-fidelity practical production and broadcast-ready filmmaking excellence."}
+                : "High-fidelity film production Kerala and broadcast filmmaking excellence."}
             </motion.p>
           </div>
 
@@ -77,7 +78,7 @@ export default function CinematicHero({ mode }: { mode: string }) {
             <p className="text-zinc-500 text-sm md:text-base font-light leading-relaxed uppercase tracking-[0.2em]">
               {isAI 
                 ? <>Deploying <span className="text-white font-bold tracking-normal">neural cinematic systems</span> to accelerate brand growth by reducing production cycles and maximizing visual impact.</>
-                : <>Orchestrating <span className="text-white font-bold tracking-normal">high-stakes productions</span> with meticulous attention to lighting, sound, and cinematic narrative structure.</>}
+                : <>Orchestrating <span className="text-white font-bold tracking-normal">elite cinematic video production</span> through meticulous lighting, sound engineering, and sophisticated narrative structure.</>}
             </p>
           </motion.div>
 
@@ -107,7 +108,7 @@ export default function CinematicHero({ mode }: { mode: string }) {
                     <div className="text-4xl md:text-6xl font-black text-white mb-2 leading-none">
                       {metric.value}
                     </div>
-                    <div className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.4em] mb-4">
+                    <div className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mb-4">
                       {metric.label}
                     </div>
                     <p className="text-xs text-zinc-500 font-light uppercase tracking-widest leading-relaxed">
@@ -127,20 +128,22 @@ export default function CinematicHero({ mode }: { mode: string }) {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-6 w-full max-w-xl justify-center"
           >
-            <button
-              onClick={() => window.location.href = '/contact'}
+            <a
+              href="tel:+917012941696"
               className="group h-20 px-8 md:px-12 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-4 hover:bg-primary-accent hover:text-white transition-all duration-500 shadow-2xl"
             >
-              Start Project 
+              Speak with us
               <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-            </button>
-            <button
-              onClick={() => window.location.href = '/portfolio'}
+            </a>
+            <a
+              href="https://wa.me/917012941696"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group h-20 px-8 md:px-12 rounded-2xl bg-transparent border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-4 hover:bg-white/5 transition-all duration-500"
             >
-              View Portfolio
-              <Cpu size={18} className="opacity-50 group-hover:rotate-90 transition-transform duration-700" />
-            </button>
+              WhatsApp Now
+              <MessageCircle size={18} className="text-[#25D366] group-hover:scale-110 transition-transform" />
+            </a>
           </motion.div>
 
         </div>

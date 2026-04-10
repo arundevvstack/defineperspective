@@ -50,7 +50,7 @@ export default function HealthcareIndustryPage() {
               Vertical: Healthcare & Hospitals
             </div>
           </div>
-          <h1 className="text-6xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white italic">
             Healthcare <br />
             <span className="text-primary-accent font-black">Trust_Hub_</span>
           </h1>
@@ -62,7 +62,7 @@ export default function HealthcareIndustryPage() {
 
         <section className="mb-40 grid md:grid-cols-2 gap-20 items-center p-12 md:p-24 rounded-[4rem] border border-white/5 bg-white/5 backdrop-blur-3xl overflow-hidden relative group text-left shadow-2xl">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase tracking-widest leading-tight italic">
+            <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Empathetic <span className="text-primary-accent font-black">Aesthetics.</span>
             </h2>
             <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
@@ -93,7 +93,7 @@ export default function HealthcareIndustryPage() {
         </section>
 
         <div className="mb-40 p-12 md:p-24 rounded-[3rem] bg-white/5 border border-white/20 text-left">
-          <h2 className="text-2xl font-black uppercase tracking-widest mb-10 text-primary-accent font-black">
+          <h2 className="text-2xl font-black uppercase mb-10 text-primary-accent font-black">
             Healthcare Visibility FAQ
           </h2>
           <div className="space-y-12">

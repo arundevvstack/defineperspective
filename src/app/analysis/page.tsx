@@ -128,7 +128,7 @@ export default function AnalysisDashboard() {
         <aside className="w-full xl:w-72 flex flex-col gap-6">
            <div className="p-8 bg-zinc-900/50 backdrop-blur-3xl border border-white/5 rounded-[3rem] h-full flex flex-col">
               <div className="mb-12">
-                 <h2 className="text-sm font-black uppercase tracking-[0.5em] text-primary-accent mb-2">Management Center_</h2>
+                 <h2 className="text-sm font-black uppercase text-primary-accent mb-2">Management Center_</h2>
                  <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Active Systems: {activeSystems}</p>
               </div>
 
@@ -168,7 +168,7 @@ export default function AnalysisDashboard() {
               <div className="flex items-center gap-10 flex-wrap">
                  <div className="flex items-center gap-4">
                     <div className="h-3 w-3 rounded-full bg-primary-accent shadow-[0_0_15px_var(--primary-accent)] animate-pulse" />
-                    <h1 className="text-lg font-black uppercase tracking-[0.4em] text-white">Analytics_Dashboard</h1>
+                    <h1 className="text-lg font-black uppercase text-white">Analytics_Dashboard</h1>
                  </div>
                  <div className="h-10 w-px bg-white/10 hidden md:block" />
                  <div className="flex items-center gap-8 text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
@@ -217,8 +217,8 @@ export default function AnalysisDashboard() {
                       <div className="lg:col-span-2 p-12 bg-zinc-900 border border-white/5 rounded-[4rem] flex flex-col h-[500px]">
                          <div className="flex justify-between items-end mb-10 border-b border-white/5 pb-8">
                             <div>
-                               <h3 className="text-[11px] font-black uppercase tracking-[0.5em] text-primary-accent mb-2">Growth Charts_</h3>
-                               <h2 className="text-4xl font-black uppercase tracking-tighter">Visitor_Traffic</h2>
+                               <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-primary-accent mb-2">Growth Charts_</h3>
+                               <h2 className="text-4xl font-black uppercaseer">Visitor_Traffic</h2>
                             </div>
                              <div className="flex gap-4">
                                 <button 
@@ -263,7 +263,7 @@ export default function AnalysisDashboard() {
 
                       {/* DEVICE SEGMENTATION */}
                       <div className="p-12 bg-zinc-900 border border-white/5 rounded-[4rem] flex flex-col justify-between">
-                         <h3 className="text-[11px] font-black uppercase tracking-[0.5em] text-zinc-500 mb-10">Device Type_</h3>
+                         <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-10">Device Type_</h3>
                          
                          <div className="space-y-10">
                             {[
@@ -314,7 +314,7 @@ export default function AnalysisDashboard() {
                             <SearchCode size={28} />
                          </div>
                          <div>
-                            <h2 className="text-3xl font-black uppercase tracking-tighter">SEO Health_Report</h2>
+                            <h2 className="text-3xl font-black uppercaseer">SEO Health_Report</h2>
                             <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Last scan: {currentTime?.toLocaleTimeString() || "Initializing..."}</p>
                          </div>
                       </div>
@@ -348,8 +348,8 @@ export default function AnalysisDashboard() {
                    {/* OPPORTUNITY & VISIBILITY ACTION */}
                    <div className="space-y-10">
                       <div className="p-10 bg-primary-accent text-white rounded-[4rem] relative overflow-hidden group">
-                         <h3 className="text-[11px] font-black uppercase tracking-[0.5em] text-white/50 mb-6">Strategic Tip_</h3>
-                         <h2 className="text-4xl font-black uppercase tracking-tighter mb-8 leading-tight">Improve AI <br />Visibility</h2>
+                         <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-white/50 mb-6">Strategic Tip_</h3>
+                         <h2 className="text-4xl font-black uppercaseer mb-8 leading-tight">Improve AI <br />Visibility</h2>
                          <p className="text-base font-light text-white/80 leading-relaxed uppercase tracking-widest mb-10">
                             "Modern search tools and AI are now 40% more likely to find businesses with structured website data in 2026."
                          </p>
@@ -366,7 +366,7 @@ export default function AnalysisDashboard() {
                       </div>
 
                       <div className="p-10 bg-zinc-900 border border-white/5 rounded-[4rem]">
-                         <h3 className="text-[11px] font-black uppercase tracking-[0.5em] text-zinc-500 mb-8 flex items-center gap-3">
+                         <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-8 flex items-center gap-3">
                             <Lightbulb size={16} className="text-primary-accent" /> Improve Rankings_
                          </h3>
                          <div className="space-y-6">
@@ -397,7 +397,7 @@ export default function AnalysisDashboard() {
                    {/* MARKET INTENT INDEX */}
                    <div className="p-12 bg-zinc-900 border border-white/5 rounded-[4rem]">
                       <div className="flex justify-between items-center mb-16 px-4">
-                         <h2 className="text-5xl font-black uppercase tracking-tighter">Market_Trend Report</h2>
+                         <h2 className="text-5xl font-black uppercaseer">Market_Trend Report</h2>
                          <div className="flex items-center gap-10 text-[11px] font-mono tracking-widest text-zinc-600 uppercase">
                             <span className="flex items-center gap-3"><Gauge size={14} /> Global Demand</span>
                             <span className="flex items-center gap-3"><LineChart size={14} /> Peak Season</span>
@@ -455,7 +455,7 @@ export default function AnalysisDashboard() {
                 >
                    {/* GLOBAL REACH */}
                    <div className="lg:col-span-2 p-12 bg-zinc-900 border border-white/5 rounded-[4rem] h-[600px] flex flex-col">
-                      <h2 className="text-3xl font-black uppercase tracking-tighter mb-10">Global_Reach Map_</h2>
+                      <h2 className="text-3xl font-black uppercaseer mb-10">Global_Reach Map_</h2>
                       <div className="flex-1 border border-white/5 rounded-[3rem] bg-black/50 relative overflow-hidden group">
                          {/* SIMULATED GRID */}
                          <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 pointer-events-none">
@@ -514,7 +514,7 @@ export default function AnalysisDashboard() {
       </div>
 
       {/* FOOTER METADATA */}
-      <footer className="container-fluid mx-auto px-12 mt-20 pt-12 border-t border-white/5 flex flex-wrap justify-between items-center gap-12 font-mono text-[10px] text-zinc-700 uppercase tracking-[0.5em] relative z-10">
+      <footer className="container-fluid mx-auto px-12 mt-20 pt-12 border-t border-white/5 flex flex-wrap justify-between items-center gap-12 font-mono text-[10px] text-zinc-700 uppercase tracking-[0.3em] relative z-10">
          <div className="flex gap-16">
             <span className="flex items-center gap-3"><Activity size={12} className="text-primary-accent" /> PERFORMANCE: STABLE</span>
             <span className="flex items-center gap-3"><Database size={12} /> STATUS: SECURE</span>

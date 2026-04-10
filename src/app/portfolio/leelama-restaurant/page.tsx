@@ -18,11 +18,11 @@ export default function LeelamaRestaurantAICaseStudy() {
       <div className="container mx-auto max-w-6xl relative z-10 text-center">
         <header className="mb-40 space-y-12">
           <div className="flex items-center gap-4 justify-center">
-            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.5em] bg-primary-accent/10 backdrop-blur-md">
+            <div className="px-4 py-1.5 rounded-full text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.3em] bg-primary-accent/10 backdrop-blur-md">
               Case Study: Node 11 // AI Food Hub
             </div>
           </div>
-          <h1 className="text-6xl md:text-[6rem] font-black tracking-tighter uppercase leading-[0.8] text-white italic">
+          <h1 className="text-6xl md:text-[6rem] font-blacker uppercase leading-[0.8] text-white italic">
             Leelama <br />
             <span className="text-primary-accent">Restaurant AI_</span>
           </h1>

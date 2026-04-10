@@ -55,8 +55,8 @@ export default function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-primary-accent mb-8 block font-black underline">Growth Engine {" // "} Market Analysis 2026</span>
-             <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-10 leading-[0.9]">
+             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black underline">Growth Engine {" // "} Market Analysis 2026</span>
+             <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-10 leading-[0.9]">
                Why <span className="text-primary-accent">Short-Form</span> Video is the #1 Growth Engine in 2026
              </h1>
              <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
@@ -116,7 +116,7 @@ export default function BlogPage() {
         <div className="space-y-40 text-zinc-400 font-light leading-relaxed text-lg pb-32">
           
           <section>
-            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-10 leading-none">
+            <h2 className="text-4xl md:text-6xl font-black text-white uppercaseer mb-10 leading-none">
                The <span className="text-primary-accent italic">Velocity</span> of Attention
             </h2>
             <p className="mb-8">
@@ -141,7 +141,7 @@ export default function BlogPage() {
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
                 <Smartphone size={400} className="text-primary-accent" />
              </div>
-             <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-16 text-center">
+             <h2 className="text-3xl md:text-5xl font-black text-white uppercaseer mb-16 text-center">
                 The Vertical <span className="text-primary-accent italic">Snapshot_</span>
              </h2>
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-center">
@@ -161,7 +161,7 @@ export default function BlogPage() {
           </section>
 
           <section>
-            <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-12 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black text-white uppercaseer mb-12 leading-tight">
                How to win the <span className="text-primary-accent underline underline-offset-8">9:16 Economy?</span>
             </h2>
             <div className="space-y-12">
@@ -186,20 +186,20 @@ export default function BlogPage() {
              <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none group-hover:rotate-12 transition-transform duration-1000">
                 <Target size={220} className="text-primary-accent" />
              </div>
-             <h2 className="text-3xl md:text-6xl font-black text-white uppercase tracking-tighter mb-12">
+             <h2 className="text-3xl md:text-6xl font-black text-white uppercaseer mb-12">
                 Kerala's Vertical <span className="text-primary-accent">Ascension_</span>
              </h2>
              <p className="mb-10 text-xl font-light text-zinc-400">
                 Kerala is leading the Indian charge in the 9:16 economy. Kochi's startup ecosystem and premium lifestyle brands are already using <strong>Short-Form Video Pipelines</strong> to reach global Malayali communities and international investors. The cultural density of Kerala makes it the perfect backdrop for cinematic micro-storytelling.
              </p>
-             <p className="text-[10px] font-mono uppercase tracking-[0.5em] text-zinc-600">
+             <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600">
                 Define Perspective: The High-Fidelity Node for Kerala's Digital Brands.
              </p>
           </section>
 
           {/* AEO FAQ SECTION */}
           <section className="border-t border-white/10 pt-32">
-             <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-20 text-center">
+             <h2 className="text-4xl md:text-6xl font-black text-white uppercaseer mb-20 text-center">
                Micro-Insights <span className="text-primary-accent italic">Directory_</span>
              </h2>
              <div className="space-y-6 max-w-3xl mx-auto text-center md:text-left">
@@ -234,7 +234,7 @@ export default function BlogPage() {
            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,0,0.08)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
            
            <div className="relative z-10">
-              <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter mb-10 leading-tight">
+              <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-10 leading-tight">
                  Ready to <span className="text-primary-accent italic">Scale</span> Your <br /><span className="underline">Vertical Engine?</span>
               </h2>
               <p className="text-xl font-light text-zinc-500 mb-16 uppercase tracking-[0.3em] max-w-2xl mx-auto">
@@ -243,7 +243,7 @@ export default function BlogPage() {
               
               <Link 
                 href="/contact"
-                className="inline-flex h-24 px-16 rounded-[2.5rem] bg-primary-accent text-white font-black uppercase tracking-[0.4em] text-sm items-center gap-8 shadow-2xl transition-all duration-300  hover:text-obsidian"
+                className="inline-flex h-24 px-16 rounded-[2.5rem] bg-primary-accent text-white font-black uppercase tracking-[0.3em] text-sm items-center gap-8 shadow-2xl transition-all duration-300  hover:text-obsidian"
               >
                  <span>Talk to us</span>
                  <ArrowRight size={24} className="group-hover:translate-x-3 transition-transform" />

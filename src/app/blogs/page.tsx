@@ -98,7 +98,7 @@ export default function BlogsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-6xl md:text-[8rem] font-black uppercase tracking-tighter leading-none mb-12">
+            <h1 className="text-6xl md:text-[8rem] font-black uppercaseer leading-none mb-12">
                BLOGS_
             </h1>
           </motion.div>
@@ -145,7 +145,7 @@ export default function BlogsPage() {
                     <span className="flex items-center gap-2"><User size={12} className="text-zinc-700" /> {blog.author}</span>
                  </div>
                  
-                 <h2 className="text-2xl font-black uppercase tracking-tight text-white mb-6 leading-tight group- transition-colors duration-300 mt-6 md:text-3xl line-clamp-3">
+                 <h2 className="text-2xl font-black uppercase text-white mb-6 leading-tight group- transition-colors duration-300 mt-6 md:text-3xl line-clamp-3">
                     {blog.title}
                  </h2>
                  

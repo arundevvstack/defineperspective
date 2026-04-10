@@ -54,11 +54,11 @@ export default function GlassFooter() {
                 </div>
                 <div className="flex items-center gap-4">
                    <Mail size={18} className="text-primary-accent shrink-0" />
-                   <span>mail@defineperspective.in</span>
+                   <span>defineperspective.in@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-4">
                    <Phone size={18} className="text-primary-accent shrink-0" />
-                   <span>+91 949 619 1684</span>
+                   <span>+91 701 294 1696</span>
                 </div>
              </div>
              <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest italic leading-relaxed">
@@ -98,7 +98,7 @@ export default function GlassFooter() {
 
           <div className="lg:col-span-1 flex flex-col">
              <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Social Accounts</h4>
-             <div className="grid grid-cols-3 gap-4">
+             <div className="flex flex-wrap gap-4 items-center justify-start">
                 <a 
                   href="https://www.instagram.com/defineperspective/" 
                   target="_blank"
@@ -124,7 +124,7 @@ export default function GlassFooter() {
                    <Linkedin size={20} />
                 </a>
                 <a 
-                  href="https://wa.me/919496191684" 
+                  href="https://wa.me/917012941696" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"

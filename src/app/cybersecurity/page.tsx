@@ -147,7 +147,7 @@ const Header = () => {
           <Shield size={24} />
         </motion.div>
         <div>
-          <h1 className="text-xl font-bold tracking-tighter text-primary-accent">DEFENSE_STATION_CORE</h1>
+          <h1 className="text-xl font-bolder text-primary-accent">DEFENSE_STATION_CORE</h1>
           <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">NETWORK_MONITORING_ACTIVE</p>
         </div>
       </div>
@@ -616,7 +616,7 @@ export default function CybersecurityDashboard() {
       >
         <div className="laser-scanner opacity-30" />
         <Terminal size={48} className="mb-6 animate-pulse" />
-        <h1 className="text-2xl md:text-5xl font-black mb-2 tracking-widest uppercase">System Offline</h1>
+        <h1 className="text-2xl md:text-5xl font-black mb-2 uppercase">System Offline</h1>
         <p className="text-sm md:text-md opacity-60 mb-8 animate-pulse text-center px-4">CONNECTION_STANDBY // CLICK_ANYWHERE_TO_INITIALIZE_FULLSCREEN</p>
         
         <div className="w-64 h-1 border border-primary-accent/30 relative overflow-hidden">
