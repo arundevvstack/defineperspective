@@ -444,15 +444,15 @@ export default function GlassNavbar() {
             >
                <button onClick={() => setMobileMenu(false)} className="absolute top-6 right-6 text-zinc-400 hover:text-white"><X size={28} /></button>
                
-               <div className="flex flex-col gap-8 flex-1 overflow-y-auto hide-scrollbar">
-                  <Link href="/" className="text-xl font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Home_</Link>
-                  <Link href="/about" className="text-xl font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>About_</Link>
+               <div className="flex flex-col gap-6 flex-1 overflow-y-auto hide-scrollbar">
+                  <Link href="/" className="text-base font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Home_</Link>
+                  <Link href="/about" className="text-base font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>About_</Link>
                   
                   {/* Mobile Services Accordion */}
                   <div className="space-y-4">
                      <button 
                        onClick={() => setExpandedSection(expandedSection === "services" ? null : "services")}
-                       className="flex items-center justify-between w-full text-xl font-bold uppercase tracking-tighter text-white"
+                       className="flex items-center justify-between w-full text-base font-bold uppercase tracking-tighter text-white"
                      >
                         VIDEO PRODUCTION SERVICES {expandedSection === "services" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                      </button>
@@ -487,7 +487,7 @@ export default function GlassNavbar() {
                   <div className="space-y-4">
                      <button 
                        onClick={() => setExpandedSection(expandedSection === "ai" ? null : "ai")}
-                       className="flex items-center justify-between w-full text-xl font-bold uppercase tracking-tighter text-white"
+                       className="flex items-center justify-between w-full text-base font-bold uppercase tracking-tighter text-white"
                      >
                         AI VIDEO PRODUCTION {expandedSection === "ai" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                      </button>
@@ -518,8 +518,8 @@ export default function GlassNavbar() {
                      </AnimatePresence>
                   </div>
 
-                  <Link href="/portfolio" className="text-xl font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Portfolio_</Link>
-                  <Link href="/contact" className="text-xl font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Contact_</Link>
+                  <Link href="/portfolio" className="text-base font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Portfolio_</Link>
+                  <Link href="/contact" className="text-base font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Contact_</Link>
                </div>
 
                <div className="mt-12 pt-12 border-t border-white/10 space-y-6">
