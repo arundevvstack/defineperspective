@@ -14,8 +14,10 @@ const firaCode = Fira_Code({
 
 import ThemeWrapper from "@/components/theme-wrapper";
 import GlassFooter from "@/components/glass-footer";
-import GlobalTacticalHUD from "@/components/global-tactical-hud";
-import MatrixRain from "@/components/matrix-rain";
+import dynamic from "next/dynamic";
+
+const GlobalTacticalHUD = dynamic(() => import("@/components/global-tactical-hud"), { ssr: false });
+const MatrixRain = dynamic(() => import("@/components/matrix-rain"), { ssr: false });
 
 export const metadata: Metadata = {
   title: "AI Video Production Company in Kerala | Media Production Studio India",

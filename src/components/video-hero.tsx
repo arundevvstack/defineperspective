@@ -17,6 +17,7 @@ export default function VideoHero() {
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           title="Background Video"
+          loading="lazy"
         />
         {/* Cinematic Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-transparent to-obsidian" />

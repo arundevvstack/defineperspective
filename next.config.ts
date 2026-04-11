@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: "https",
@@ -17,6 +18,11 @@ const nextConfig: NextConfig = {
         hostname: "i.ytimg.com",
       },
     ],
+  },
+  compress: true,
+  poweredByHeader: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   // Allow development origins for HMR when accessing via network IP or localhost
   allowedDevOrigins: ["localhost", "127.0.0.1", "172.20.10.3"],
