@@ -454,7 +454,7 @@ export default function GlassNavbar() {
                        onClick={() => setExpandedSection(expandedSection === "services" ? null : "services")}
                        className="flex items-center justify-between w-full text-xl font-bold uppercase tracking-tighter text-white"
                      >
-                        Video Silos {expandedSection === "services" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
+                        VIDEO PRODUCTION SERVICES {expandedSection === "services" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                      </button>
                      <AnimatePresence>
                         {expandedSection === "services" && (
@@ -489,7 +489,7 @@ export default function GlassNavbar() {
                        onClick={() => setExpandedSection(expandedSection === "ai" ? null : "ai")}
                        className="flex items-center justify-between w-full text-xl font-bold uppercase tracking-tighter text-white"
                      >
-                        AI Studios {expandedSection === "ai" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
+                        AI VIDEO PRODUCTION {expandedSection === "ai" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                      </button>
                      <AnimatePresence>
                         {expandedSection === "ai" && (
