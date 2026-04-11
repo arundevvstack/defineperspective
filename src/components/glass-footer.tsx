@@ -37,8 +37,8 @@ export default function GlassFooter() {
     <footer className="py-16 px-6 md:px-12 border-t border-[var(--border-subtle)] bg-background relative overflow-hidden">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 lg:grid-cols-6 gap-y-12 gap-x-6 lg:gap-16">
-          <div className="col-span-2 flex flex-col items-center lg:items-start text-center lg:text-left">
-             <div className="flex items-center justify-center lg:justify-start m-0 p-0 mb-8">
+          <div className="col-span-2 flex flex-col items-start text-left">
+             <div className="flex items-center justify-start m-0 p-0 mb-8">
                  <Image 
                    src="/images/main-logo.png" 
                    alt="Define Perspective Logo" 
@@ -48,15 +48,15 @@ export default function GlassFooter() {
                  />
              </div>
              <div className="space-y-5 text-sm text-zinc-500 font-light leading-relaxed mb-8 w-full max-w-sm">
-                <div className="flex items-start justify-center lg:justify-start gap-4">
+                <div className="flex items-start justify-start gap-4">
                    <MapPin size={18} className="text-primary-accent shrink-0 mt-1" />
                    <span>Define Perspective, Second Floor, TC.4/1224/4, Kuravankonam, Kowdiar, Thrivandrum, Pin: 695003</span>
                 </div>
-                <div className="flex items-center justify-center lg:justify-start gap-4">
+                <div className="flex items-center justify-start gap-4">
                    <Mail size={18} className="text-primary-accent shrink-0" />
                    <span>defineperspective.in@gmail.com</span>
                 </div>
-                <div className="flex items-center justify-center lg:justify-start gap-4">
+                <div className="flex items-center justify-start gap-4">
                    <Phone size={18} className="text-primary-accent shrink-0" />
                    <span>+91 701 294 1696</span>
                 </div>
