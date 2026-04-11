@@ -163,31 +163,63 @@ export default function HomeContent() {
       </section>
 
       {/* 4. AUTHORITY BLOCK (H2: Best Video Production Company in Kerala) */}
-      <section className="py-24 md:py-40 px-4 md:px-12 bg-obsidian relative border-b border-white/5">
-        <div className="container mx-auto max-w-7xl text-center">
-           <SectionHeader h2 tag="Market Dominance" title={<>Best Video Production <br /><span className="text-primary-accent italic">Company in Kerala_</span></>} />
-           <div className="max-w-4xl mx-auto p-8 md:p-20 rounded-[3rem] md:rounded-[4rem] bg-white/[0.01] border border-white/5 backdrop-blur-3xl">
-              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-8">Authoritative Production Studio in Kochi & Trivandrum</h3>
-              <p className="text-zinc-400 font-normal leading-relaxed text-sm md:text-lg mb-12">
-                 We are the architects of visual engagement. Based in Kochi, we provide professional TV commercial production and AI video services that scale your brand across India. Our content is designed to increase engagement, conversions, and brand authority.
-              </p>
-              <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-                 <div className="flex items-center gap-3">
-                    <Shield size={20} className="text-primary-accent" />
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Verified Authority</span>
+      <section className="py-24 md:py-40 px-4 md:px-12 bg-obsidian relative border-b border-white/5 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-accent/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
+        
+        <div className="container mx-auto max-w-7xl relative z-10">
+           <div className="grid grid-cols-1 xl:grid-cols-12 gap-16 xl:gap-20 items-center">
+              
+              <div className="xl:col-span-7">
+                 <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-primary-accent/20 bg-primary-accent/5 mb-8">
+                    <Activity size={12} className="text-primary-accent animate-pulse" />
+                    <span className="text-[10px] font-mono text-primary-accent uppercase tracking-widest">Market Dominance</span>
                  </div>
-                 <div className="flex items-center gap-3">
-                    <Globe size={20} className="text-primary-accent" />
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Kochi & Trivandrum</span>
-                 </div>
-                 <div className="flex items-center gap-3">
-                    <Target size={20} className="text-primary-accent" />
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">National Delivery</span>
+                 
+                 <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold uppercase tracking-tighter leading-[0.9] text-white flex flex-col gap-2">
+                    Leading Video 
+                    <span className="text-primary-accent italic">Production Company</span> 
+                    in Kerala_
+                 </h2>
+                 
+                 <div className="mt-12 space-y-8">
+                    <p className="text-xl md:text-3xl font-light leading-snug text-white/90 tracking-tight max-w-3xl border-l-2 border-primary-accent pl-6">
+                       We offer <strong className="font-normal text-white">end-to-end media production services</strong>, including TV commercial production, brand film production, and corporate video production.
+                    </p>
+                    <p className="text-base md:text-lg font-light leading-relaxed text-zinc-400 max-w-2xl pl-6">
+                       Our AI-powered video production studio in Kochi combines <span className="text-white">cinematic storytelling</span> with <span className="text-white">generative AI workflows</span> to deliver scalable, high-performance content for brands across India.
+                    </p>
                  </div>
               </div>
-              <div className="flex justify-center pt-16">
-                 <Link href="/contact?subject=Book a Production Consultation" className="h-16 px-10 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-[10px] flex items-center gap-4 hover:scale-105 transition-all">Book a Production Consultation <ArrowRight size={16} /></Link>
+
+              <div className="xl:col-span-5 w-full">
+                 <div className="p-10 md:p-14 rounded-[3rem] bg-white/[0.02] border border-white/10 backdrop-blur-3xl relative overflow-hidden group hover:border-primary-accent/30 transition-all w-full shadow-2xl">
+                    <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-100 transition-opacity"><Zap size={48} className="text-primary-accent" /></div>
+                    
+                    <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-10 w-3/4">Scalable Brand Architecture</h3>
+                    
+                    <div className="flex flex-col gap-8 mb-12">
+                       <div className="flex items-start gap-5">
+                          <div className="mt-1 h-3 w-3 rounded-full bg-primary-accent shadow-[0_0_15px_rgba(var(--primary-accent-rgb),0.5)] flex-shrink-0" />
+                          <div>
+                             <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-1">Cinematic Standard</h4>
+                             <p className="text-[11px] text-zinc-500 uppercase tracking-widest leading-relaxed">Hollywood-grade camera systems & mastery.</p>
+                          </div>
+                       </div>
+                       <div className="flex items-start gap-5">
+                          <div className="mt-1 h-3 w-3 rounded-full bg-primary-accent shadow-[0_0_15px_rgba(var(--primary-accent-rgb),0.5)] flex-shrink-0" />
+                          <div>
+                             <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-1">Generative Acceleration</h4>
+                             <p className="text-[11px] text-zinc-500 uppercase tracking-widest leading-relaxed">AI computing for hyper-realistic visual scaling.</p>
+                          </div>
+                       </div>
+                    </div>
+
+                    <Link href="/contact?subject=Book a Production Consultation" className="w-full h-16 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                       Deploy Campaign <ArrowRight size={16} />
+                    </Link>
+                 </div>
               </div>
+              
            </div>
         </div>
       </section>
