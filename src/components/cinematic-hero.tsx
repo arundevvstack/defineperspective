@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Target, Cpu, ShieldCheck, MessageCircle } from "lucide-react";
+import { ArrowRight, Zap, Target, Cpu, Shield, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 

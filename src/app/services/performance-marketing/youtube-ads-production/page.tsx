@@ -6,7 +6,7 @@ import {
   Zap,
   Target,
   ArrowRight,
-  ShieldCheck,
+  Shield,
   Globe
 } from "lucide-react";
 import Image from "next/image";

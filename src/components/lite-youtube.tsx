@@ -21,20 +21,42 @@ export default function LiteYouTube({
   className, 
   aspectRatio = "video", 
   priority = false,
-  isPlaying = false,
+  isPlaying: externalIsPlaying,
   onTogglePlay
 }: LiteYouTubeProps) {
+  const [internalIsPlaying, setInternalIsPlaying] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [thumbUrl, setThumbUrl] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
+
+  const isPlaying = externalIsPlaying !== undefined ? externalIsPlaying : internalIsPlaying;
+
+  const handlePlay = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onTogglePlay) {
+      onTogglePlay(true);
+    } else {
+      setInternalIsPlaying(true);
+    }
+  };
 
   if (isPlaying) {
     return (
-      <iframe
-        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-        title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        className={cn("absolute inset-0 w-full h-full border-0", className)}
-      />
+      <div className={cn("absolute inset-0 w-full h-full bg-black flex items-center justify-center", className)}>
+        {!isLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="w-10 h-10 border-4 border-primary-accent border-t-transparent rounded-full animate-spin" />
+          </div>
+        )}
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          onLoad={() => setIsLoaded(true)}
+          className={cn("w-full h-full border-0 relative z-0", !isLoaded && "opacity-0")}
+        />
+      </div>
     );
   }
 
@@ -45,7 +67,7 @@ export default function LiteYouTube({
         aspectRatio === "vertical" ? "aspect-[9/16]" : "aspect-video",
         className
       )}
-      onClick={() => onTogglePlay?.(true)}
+      onClick={handlePlay}
     >
       <Image
         src={thumbUrl}

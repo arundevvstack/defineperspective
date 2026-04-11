@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, Sparkles, ArrowRight, Activity, ShieldCheck, Zap, MessageCircle } from "lucide-react";
+import { Terminal, Sparkles, ArrowRight, Activity, Shield, Zap, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function TerminalHero() {

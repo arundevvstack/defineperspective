@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { 
   ArrowRight, Activity, Globe, Zap, Users, TrendingUp, Monitor, Smartphone, 
-  Search, ShieldCheck, Layers, BarChart, Server, Cpu, Navigation, Terminal,
-  Clock, Wifi, Shield, Database, Layout, Eye, MousePointer2, MapPin, SearchCode,
+  Search, Shield, Layers, BarChart, Server, Cpu, Navigation, Terminal,
+  Clock, Wifi, Database, Layout, Eye, MousePointer2, MapPin, SearchCode,
   Radio, Share2, MoreHorizontal, Maximize2, RefreshCw, CheckCircle2, AlertTriangle,
   Lightbulb, Gauge, Target, FileSearch, LineChart, Globe2, PieChart, Tablet, 
   ChevronRight, Settings, Bell, Download, Filter

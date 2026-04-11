@@ -27,7 +27,7 @@ export default function HealthcareIndustryPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Healthcare & Hospital Video Production",
-    "description": "Trust-centric healthcare video production and hospital brand storytelling in India. Cinematic patient stories and istitutional films.",
+    "description": "Trust-centric healthcare video production and hospital brand storytelling in India. Cinematic patient stories and institutional films.",
     "provider": {
       "@type": "Organization",
       "name": "Define Perspective",

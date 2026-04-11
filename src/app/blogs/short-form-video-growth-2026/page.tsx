@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Calendar, User, Clock, CheckCircle, BrainCircuit, Rocket, Zap, BarChart, ShieldCheck, Layers, Bot, Target, Smartphone, TrendingUp, Eye } from "lucide-react";
+import { ArrowRight, Calendar, User, Clock, CheckCircle, BrainCircuit, Rocket, Zap, BarChart, Shield, Layers, Bot, Target, Smartphone, TrendingUp, Eye } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 
 export default function BlogPage() {
