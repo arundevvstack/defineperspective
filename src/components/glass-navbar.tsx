@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, MessageCircle, Play, Sparkles, Target, Zap, Shield, Cpu, BarChart3, Star, Award, Search, Clapperboard, MonitorPlay, BrainCircuit, Globe } from "lucide-react";
+import { Menu, X, ArrowRight, MessageCircle, Play, Sparkles, Target, Zap, Shield, Cpu, BarChart3, Star, Award, Search, Clapperboard, MonitorPlay, BrainCircuit, Globe, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SERVICE_CATEGORIES = [
@@ -335,6 +335,7 @@ export default function GlassNavbar() {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState<"video" | "ai" | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleOpen = (menu: "video" | "ai") => {
@@ -426,39 +427,120 @@ export default function GlassNavbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenu && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            className="fixed inset-0 z-[1400] bg-black p-10 md:hidden overflow-y-auto"
-          >
-            <div className="flex justify-between items-center mb-12">
-               <Image src="/images/main-logo.png" alt="Define Perspective" width={140} height={40} />
-               <button onClick={() => setMobileMenu(false)} className="text-zinc-400"><X size={28} /></button>
-            </div>
-            
-            <div className="space-y-8">
-               <Link href="/" className="block text-2xl font-black uppercase italic tracking-tighter">Home_</Link>
-               <Link href="/about" className="block text-2xl font-black uppercase italic tracking-tighter">About_</Link>
+          <>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenu(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-md z-[101]"
+            />
+            <motion.div 
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-[320px] bg-zinc-950 border-l border-white/10 z-[6001] p-8 pt-24 shadow-2xl flex flex-col"
+            >
+               <button onClick={() => setMobileMenu(false)} className="absolute top-6 right-6 text-zinc-400 hover:text-white"><X size={28} /></button>
                
-               <div className="space-y-4">
-                  <p className="text-[10px] font-mono text-primary-accent uppercase tracking-widest">Video Silos</p>
-                  {SERVICE_CATEGORIES.map(cat => (
-                    <Link key={cat.name} href={cat.href} className="block text-lg font-bold uppercase text-zinc-400">{cat.name}</Link>
-                  ))}
+               <div className="flex flex-col gap-8 flex-1 overflow-y-auto hide-scrollbar">
+                  <Link href="/" className="text-xl font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Home_</Link>
+                  <Link href="/about" className="text-xl font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>About_</Link>
+                  
+                  {/* Mobile Services Accordion */}
+                  <div className="space-y-4">
+                     <button 
+                       onClick={() => setExpandedSection(expandedSection === "services" ? null : "services")}
+                       className="flex items-center justify-between w-full text-xl font-bold uppercase tracking-tighter text-white"
+                     >
+                        Video Silos {expandedSection === "services" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
+                     </button>
+                     <AnimatePresence>
+                        {expandedSection === "services" && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="pl-4 space-y-6 overflow-hidden pt-4 border-l border-white/5"
+                          >
+                             {SERVICE_CATEGORIES.map(cat => (
+                               <div key={cat.name} className="space-y-3">
+                                  <span className="text-[10px] font-black uppercase tracking-widest text-primary-accent">{cat.name}</span>
+                                  <ul className="space-y-3 pl-2">
+                                     {cat.subItems.map(sub => (
+                                       <li key={sub.name}>
+                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-tight" onClick={() => setMobileMenu(false)}>
+                                             {sub.name}
+                                          </Link>
+                                       </li>
+                                     ))}
+                                  </ul>
+                               </div>
+                             ))}
+                          </motion.div>
+                        )}
+                     </AnimatePresence>
+                  </div>
+
+                  {/* Mobile AI Studios Accordion */}
+                  <div className="space-y-4">
+                     <button 
+                       onClick={() => setExpandedSection(expandedSection === "ai" ? null : "ai")}
+                       className="flex items-center justify-between w-full text-xl font-bold uppercase tracking-tighter text-white"
+                     >
+                        AI Studios {expandedSection === "ai" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
+                     </button>
+                     <AnimatePresence>
+                        {expandedSection === "ai" && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="pl-4 space-y-6 overflow-hidden pt-4 border-l border-white/5"
+                          >
+                             {AI_STUDIO_CATEGORIES.map(cat => (
+                               <div key={cat.name} className="space-y-3">
+                                  <span className="text-[10px] font-black uppercase tracking-widest text-primary-accent">{cat.name}</span>
+                                  <ul className="space-y-3 pl-2">
+                                     {cat.subItems.map(sub => (
+                                       <li key={sub.name}>
+                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-tight" onClick={() => setMobileMenu(false)}>
+                                             {sub.name}
+                                          </Link>
+                                       </li>
+                                     ))}
+                                  </ul>
+                               </div>
+                             ))}
+                          </motion.div>
+                        )}
+                     </AnimatePresence>
+                  </div>
+
+                  <Link href="/portfolio" className="text-xl font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Portfolio_</Link>
+                  <Link href="/contact" className="text-xl font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Contact_</Link>
                </div>
 
-               <div className="space-y-4">
-                  <p className="text-[10px] font-mono text-primary-accent uppercase tracking-widest">AI Studios</p>
-                  {AI_STUDIO_CATEGORIES.map(cat => (
-                    <Link key={cat.name} href={cat.href} className="block text-lg font-bold uppercase text-zinc-400">{cat.name}</Link>
-                  ))}
+               <div className="mt-12 pt-12 border-t border-white/10 space-y-6">
+                  <Link 
+                    href="https://wa.me/917012941696"
+                    className="flex items-center gap-4 text-zinc-500 hover:text-white group transition-all"
+                  >
+                     <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#25D366]">
+                        <MessageCircle size={18} className="text-[#25D366]" />
+                     </div>
+                     <span className="text-[10px] font-black uppercase tracking-widest">Live Support</span>
+                  </Link>
+                  <Link 
+                    href="/contact"
+                    className="w-full h-16 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 active:scale-95 transition-all"
+                  >
+                    Start Project <ArrowRight size={18} />
+                  </Link>
                </div>
-               
-               <Link href="/portfolio" className="block text-2xl font-black uppercase italic tracking-tighter">Portfolio_</Link>
-               <Link href="/contact" className="block text-2xl font-black uppercase italic tracking-tighter">Contact_</Link>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

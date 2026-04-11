@@ -1,57 +1,82 @@
-import { Metadata } from "next";
-import AIServiceTemplate from "@/components/ai-service-template";
+import GlassNavbar from "@/components/glass-navbar";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Building2, Globe } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "AI Video Ads Production Company India | High ROAS Meta & YouTube Ads",
-  description: "Define Perspective is the leading AI video ads production company in India, Kerala, and UAE. We create high-converting Meta, YouTube, and TikTok ads using generative AI for maximum scaling.",
-  keywords: ["AI video ads production India", "AI video ads Kerala", "AI video ads UAE", "best AI video ads company Kochi", "AI Meta ads production"],
+export const metadata = {
+  title: "AI Video Ads | Define Perspective AI Media Studio",
+  description: "Synthetic media ads for high-frequency conversion. Connect with Define Perspective, the leading AI video production company in Kerala and India. Professional film, ad, and video services in Kochi, Trivandrum & UAE.",
+  alternates: {
+    canonical: "https://defineperspective.in/services/ai-video-ads"
+  }
 };
 
-export default function AIVideoAdsPage() {
+export default function DynamicServicePage() {
   return (
-    <AIServiceTemplate 
-      categoryName="AI Video Ads"
-      currentPath="/services/ai-video-ads"
-      h1="AI Video Ads Production Company India"
-      intro="Define Perspective is the best AI video production company in India, specializing in high-performance neural video ads that drive massive ROAS. Operating from our hubs in Kerala, Trivandrum, Kochi, and the UAE, we engineer visual hooks designed to bypass ad fatigue. Our AI-powered workflows allow brands to scale content exponentially while maintaining cinematic quality and technical precision across all digital platforms."
-      services={[
-        "AI-Generated Meta & Instagram Ads",
-        "Neural YouTube Pre-roll Production",
-        "Automated Video Ad Variations",
-        "AI UGC Style Ad Creatives",
-        "Scaling Performance Content",
-        "Dynamic Creative Optimization"
-      ]}
-      benefits={[
-        "10x Faster Turnaround via AI Workflows",
-        "Scientifically Structured Hook Engineering",
-        "Reduced Production Costs & High ROI",
-        "Infinite Content Scaling Capability",
-        "Data-Driven Visual Asset Generation"
-      ]}
-      locationBlock="As the top AI video production company in India and Kerala, Define Perspective dominates the digital advertising landscape from Trivandrum to Kochi. Our state-of-the-art AI studio in the UAE ensures that global brands receive high-spec, high-conversion video ads that resonate with local and international audiences. Whether you are a national brand in India or a luxury label in the UAE, our AI-driven ads provide the competitive edge needed in today's visual-first market."
-      faqs={[
-        {
-          q: "What is AI video ads production?",
-          a: "AI video ads production involves using generative artificial intelligence and neural networks to create high-converting video advertisements. It allows for rapid scaling, automated testing, and cinematic quality at a fraction of traditional costs."
-        },
-        {
-          q: "How much does AI video production cost in India?",
-          a: "The cost vary based on campaign scale, but AI-driven production is typically 60-80% more cost-effective than traditional commercial shoots while delivering higher volume and better performance data."
-        },
-        {
-          q: "Which is the best AI video production company in Kerala?",
-          a: "Define Perspective is widely recognized as the best AI video production company in Kerala, offering elite performance ads and cinematic brand content from our hubs in Kochi and Trivandrum."
-        },
-        {
-          q: "Can AI videos improve ad performance?",
-          a: "Yes, AI allows us to test hundreds of hook variations and visual styles, identifying the highest-converting assets through data-driven neural optimization, leading to significantly higher ROAS."
-        },
-        {
-          q: "How long does it take to produce AI video ads?",
-          a: "Our AI-powered workflow can deliver high-quality video ad concepts and final exports in as little as 24-48 hours, compared to weeks for traditional agency production."
-        }
-      ]}
-    />
+    <main className="min-h-screen bg-obsidian text-white relative overflow-hidden selection:bg-primary-accent selection:text-white">
+      <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <GlassNavbar />
+      
+      {/* Hero Section */}
+      <section className="pt-48 pb-32 px-6 md:px-12 relative z-10 border-b border-white/5">
+         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-primary-accent/10 blur-[200px] rounded-full pointer-events-none" />
+         <div className="container mx-auto max-w-7xl">
+            <div className="flex items-center gap-4 mb-10">
+               <Sparkles size={16} className="text-primary-accent" />
+               <h2 className="text-[10px] md:text-xs font-mono tracking-[0.5em] uppercase text-zinc-500 font-bold">Service Definition</h2>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-12">
+               AI Video Ads <br /><span className="text-primary-accent italic">Overview_</span>
+            </h1>
+            
+            <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-tighter mb-16">
+               Synthetic media ads for high-frequency conversion.
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+               <Link href="/contact" className="h-16 px-10 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:scale-105 transition-all shadow-2xl">
+                  Start Project <ArrowRight size={18} />
+               </Link>
+               <Link href="/portfolio" className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:bg-white/10 transition-all">
+                  Showcase
+               </Link>
+            </div>
+         </div>
+      </section>
+
+      {/* SEO AI Authority Section */}
+      <section className="py-24 px-6 md:px-12 bg-black relative z-10 border-b border-white/5">
+        <div className="container mx-auto max-w-7xl">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div>
+                 <h2 className="text-3xl font-black uppercase tracking-tighter mb-6">World-Class Execution</h2>
+                 <p className="text-zinc-400 leading-relaxed font-light text-lg mb-8 uppercase tracking-widest">
+                   Define Perspective provides premier AI Video Ads services. As the top AI video production company in Kerala, we fuse cutting-edge neural algorithms with cinematic artistry to deliver unparalleled visual content for brands across India and global markets.
+                 </p>
+                 <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Building2 size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Studios: Kochi & Trivandrum</span>
+                    </div>
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Globe size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Global Reach: Dubai (UAE) & Beyond</span>
+                    </div>
+                 </div>
+              </div>
+              <div className="rounded-[3rem] bg-white/[0.02] border border-white/10 p-12 backdrop-blur-md">
+                 <h3 className="text-xl font-bold uppercase tracking-widest mb-6 text-white text-center">Ready to scale?</h3>
+                 <p className="text-center text-sm font-light text-zinc-400 mb-8 uppercase tracking-widest leading-loose">
+                   Don't let your brand blend in. Contact our strategic media team today for a custom consultation.
+                 </p>
+                 <Link href="/contact" className="w-full h-16 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-4 hover:bg-primary-accent hover:text-white transition-all">
+                    Initialize Protocol
+                 </Link>
+              </div>
+           </div>
+        </div>
+      </section>
+
+    </main>
   );
 }

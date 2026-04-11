@@ -1,57 +1,82 @@
-import { Metadata } from "next";
-import AIServiceTemplate from "@/components/ai-service-template";
+import GlassNavbar from "@/components/glass-navbar";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Building2, Globe } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "AI Social Media Video Agency India | Viral Reels & Shorts Production",
-  description: "Top AI social media video agency in India, Kerala, and UAE. Master viral growth with AI-generated Reels, Shorts, and TikTok content designed for maximum engagement and brand scale.",
-  keywords: ["AI social media video India", "AI Reels production Kerala", "AI Shorts agency Kochi", "AI video content UAE", "best AI social video company"],
+export const metadata = {
+  title: "AI Social Video | Define Perspective AI Media Studio",
+  description: "Automated social content that feels hyper-organic. Connect with Define Perspective, the leading AI video production company in Kerala and India. Professional film, ad, and video services in Kochi, Trivandrum & UAE.",
+  alternates: {
+    canonical: "https://defineperspective.in/services/ai-social-video"
+  }
 };
 
-export default function AISocialVideoPage() {
+export default function DynamicServicePage() {
   return (
-    <AIServiceTemplate 
-      categoryName="AI Social Media"
-      currentPath="/services/ai-social-video"
-      h1="AI Social Media Video Agency India"
-      intro="Define Perspective is the No.1 AI video production agency in Trivandrum and Kochi, revolutionizing social media growth through generative AI. We empower brands across India and the UAE to dominate short-form platforms like Instagram Reels, YouTube Shorts, and TikTok. Our AI social media video production workflows create high-retention content at scale, ensuring your brand stays ahead of algorithms with consistent, high-fidelity visual storytelling."
-      services={[
-        "AI-Generated Viral Reels & Shorts",
-        "Automated Social Content Pillars",
-        "Neural Hook & Script Generation",
-        "AI Face-Swapping & Avatars",
-        "Fast-Batch Social Video Production",
-        "Trend-Driven AI Video Editing"
-      ]}
-      benefits={[
-        "Maximized Social Media Engagement",
-        "Daily Content Consistency with AI",
-        "High-Speed Viral Content Loops",
-        "Data-Optimized Visual Hooking",
-        "Seamless Multi-Platform Scaling"
-      ]}
-      locationBlock="Operating as the leading AI video production company in the UAE and India, we provide hyper-localized social media strategies from Kerala to Dubai. Our expertise in the Indian market (Kochi, Trivandrum) combined with our global UAE node allows us to produce AI social media videos that capture attention globally while maintaining cultural relevance. Define Perspective is the definitive choice for brands seeking to dominate the social visual landscape in India and the Middle East."
-      faqs={[
-        {
-          q: "Why use AI for social media videos?",
-          a: "AI accelerates the production of Reels, Shorts, and TikToks, allowing you to post higher-quality content more frequently, which is the key to mastering social media algorithms."
-        },
-        {
-          q: "How many videos can AI produce per month?",
-          a: "With our AI studio, we can produce 30-100+ high-quality social media videos per month, tailored to your brand's specific creative direction and goals."
-        },
-        {
-          q: "Which is the top AI social video agency in Kerala?",
-          a: "Define Perspective is the top-ranked AI agency in Kerala (Kochi/Trivandrum), specializing in viral social media content for luxury and performance brands."
-        },
-        {
-          q: "Are AI videos good for Instagram Reels?",
-          a: "Absolutely. AI-generated visuals often have higher 'stopping power' and can be optimized specifically for Instagram's engagement metrics using our neural testing hub."
-        },
-        {
-          q: "How does the pricing for AI social videos work in India?",
-          a: "We offer monthly AI content retainers that are significantly more affordable than hiring a traditional video crew, while delivering 10x the output volume."
-        }
-      ]}
-    />
+    <main className="min-h-screen bg-obsidian text-white relative overflow-hidden selection:bg-primary-accent selection:text-white">
+      <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <GlassNavbar />
+      
+      {/* Hero Section */}
+      <section className="pt-48 pb-32 px-6 md:px-12 relative z-10 border-b border-white/5">
+         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-primary-accent/10 blur-[200px] rounded-full pointer-events-none" />
+         <div className="container mx-auto max-w-7xl">
+            <div className="flex items-center gap-4 mb-10">
+               <Sparkles size={16} className="text-primary-accent" />
+               <h2 className="text-[10px] md:text-xs font-mono tracking-[0.5em] uppercase text-zinc-500 font-bold">Service Definition</h2>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-12">
+               AI Social Video <br /><span className="text-primary-accent italic">Overview_</span>
+            </h1>
+            
+            <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-tighter mb-16">
+               Automated social content that feels hyper-organic.
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+               <Link href="/contact" className="h-16 px-10 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:scale-105 transition-all shadow-2xl">
+                  Start Project <ArrowRight size={18} />
+               </Link>
+               <Link href="/portfolio" className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:bg-white/10 transition-all">
+                  Showcase
+               </Link>
+            </div>
+         </div>
+      </section>
+
+      {/* SEO AI Authority Section */}
+      <section className="py-24 px-6 md:px-12 bg-black relative z-10 border-b border-white/5">
+        <div className="container mx-auto max-w-7xl">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div>
+                 <h2 className="text-3xl font-black uppercase tracking-tighter mb-6">World-Class Execution</h2>
+                 <p className="text-zinc-400 leading-relaxed font-light text-lg mb-8 uppercase tracking-widest">
+                   Define Perspective provides premier AI Social Video services. As the top AI video production company in Kerala, we fuse cutting-edge neural algorithms with cinematic artistry to deliver unparalleled visual content for brands across India and global markets.
+                 </p>
+                 <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Building2 size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Studios: Kochi & Trivandrum</span>
+                    </div>
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Globe size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Global Reach: Dubai (UAE) & Beyond</span>
+                    </div>
+                 </div>
+              </div>
+              <div className="rounded-[3rem] bg-white/[0.02] border border-white/10 p-12 backdrop-blur-md">
+                 <h3 className="text-xl font-bold uppercase tracking-widest mb-6 text-white text-center">Ready to scale?</h3>
+                 <p className="text-center text-sm font-light text-zinc-400 mb-8 uppercase tracking-widest leading-loose">
+                   Don't let your brand blend in. Contact our strategic media team today for a custom consultation.
+                 </p>
+                 <Link href="/contact" className="w-full h-16 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-4 hover:bg-primary-accent hover:text-white transition-all">
+                    Initialize Protocol
+                 </Link>
+              </div>
+           </div>
+        </div>
+      </section>
+
+    </main>
   );
 }

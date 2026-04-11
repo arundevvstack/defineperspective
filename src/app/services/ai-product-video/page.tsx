@@ -1,57 +1,82 @@
-import { Metadata } from "next";
-import AIServiceTemplate from "@/components/ai-service-template";
+import GlassNavbar from "@/components/glass-navbar";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Building2, Globe } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "AI Product Video Production Kerala | India & UAE E-commerce Media",
-  description: "Best AI product video production company in Kerala, India, and UAE. Create cinematic e-commerce and D2C product videos using generative AI for Amazon, Flipkart, and Shopify scaling.",
-  keywords: ["AI product video Kerala", "AI e-commerce video India", "AI product reels Kochi", "AI product photography UAE", "best AI product video company"],
+export const metadata = {
+  title: "AI Product Video | Define Perspective AI Media Studio",
+  description: "Synthetic product visuals for e-commerce scale. Connect with Define Perspective, the leading AI video production company in Kerala and India. Professional film, ad, and video services in Kochi, Trivandrum & UAE.",
+  alternates: {
+    canonical: "https://defineperspective.in/services/ai-product-video"
+  }
 };
 
-export default function AIProductVideoPage() {
+export default function DynamicServicePage() {
   return (
-    <AIServiceTemplate 
-      categoryName="AI Product Videos"
-      currentPath="/services/ai-product-video"
-      h1="AI Product Video Production Kerala"
-      intro="Define Perspective is the top AI product video production company in Kerala and India, specializing in cinematic e-commerce media for global D2C brands. From our hubs in Kochi and Trivandrum to our expansion in the UAE, we transform static products into high-velocity visual assets using generative AI. Our AI product video production workflows enable brands to create 3D-quality product reels, Amazon-ready explainer videos, and social-first product ads that convert visitors into buyers with neural precision."
-      services={[
-        "AI-Generated 3D Product Reels",
-        "E-commerce Product Explainer Videos",
-        "Automated Product Variation Clips",
-        "AI Virtual Set & Environment Design",
-        "Neural Product Color-Swapping",
-        "Cinematic Product Lighting via AI"
-      ]}
-      benefits={[
-        "No Expensive Set Builds Needed",
-        "Infinite Perspective & Camera Angles",
-        "Rapid Scaling for Large SKU Inventories",
-        "High-Conversion Amazon/Flipkart Assets",
-        "Photorealistic AI Product Environments"
-      ]}
-      locationBlock="As the No.1 AI product video agency in Kochi and Trivandrum, Define Perspective is the primary production partner for leading Indian and UAE-based D2C brands. We provide hyper-realistic AI product videos that outperform traditional photography for brands across India and the Middle East. Whether you are launching a new consumer product in Kerala or scaling a luxury brand in the UAE, our AI product video production ensures your visual identity is world-class and conversion-optimized."
-      faqs={[
-        {
-          q: "What is AI product video production?",
-          a: "It is the process of using AI and neural rendering to create cinematic videos of products without the need for expensive physical sets, lighting crews, or complex camera rigs."
-        },
-        {
-          q: "Is AI better than traditional product photography?",
-          a: "For scaling brands, AI is much better as it allows for infinite environmental changes, 3D-like camera movements, and rapid variations for different marketing campaigns at a lower cost."
-        },
-        {
-          q: "Who is the best AI product video company in Kerala?",
-          a: "Define Perspective is the best AI product video company in Kerala, delivering high-end cinematic assets from our studios in Kochi and Trivandrum."
-        },
-        {
-          q: "Can AI create photorealistic product environments?",
-          a: "Yes, our neural rendering tools can generate photorealistic virtual sets that are indistinguishable from real high-end studio shoots, giving your product a premium look."
-        },
-        {
-          q: "How fast can I get AI product videos for my brand?",
-          a: "We can deliver a suite of product videos in under 72 hours, perfectly formatted for Shopify, Amazon, Instagram, and Facebook ads."
-        }
-      ]}
-    />
+    <main className="min-h-screen bg-obsidian text-white relative overflow-hidden selection:bg-primary-accent selection:text-white">
+      <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <GlassNavbar />
+      
+      {/* Hero Section */}
+      <section className="pt-48 pb-32 px-6 md:px-12 relative z-10 border-b border-white/5">
+         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-primary-accent/10 blur-[200px] rounded-full pointer-events-none" />
+         <div className="container mx-auto max-w-7xl">
+            <div className="flex items-center gap-4 mb-10">
+               <Sparkles size={16} className="text-primary-accent" />
+               <h2 className="text-[10px] md:text-xs font-mono tracking-[0.5em] uppercase text-zinc-500 font-bold">Service Definition</h2>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-12">
+               AI Product Video <br /><span className="text-primary-accent italic">Overview_</span>
+            </h1>
+            
+            <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-tighter mb-16">
+               Synthetic product visuals for e-commerce scale.
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+               <Link href="/contact" className="h-16 px-10 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:scale-105 transition-all shadow-2xl">
+                  Start Project <ArrowRight size={18} />
+               </Link>
+               <Link href="/portfolio" className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:bg-white/10 transition-all">
+                  Showcase
+               </Link>
+            </div>
+         </div>
+      </section>
+
+      {/* SEO AI Authority Section */}
+      <section className="py-24 px-6 md:px-12 bg-black relative z-10 border-b border-white/5">
+        <div className="container mx-auto max-w-7xl">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div>
+                 <h2 className="text-3xl font-black uppercase tracking-tighter mb-6">World-Class Execution</h2>
+                 <p className="text-zinc-400 leading-relaxed font-light text-lg mb-8 uppercase tracking-widest">
+                   Define Perspective provides premier AI Product Video services. As the top AI video production company in Kerala, we fuse cutting-edge neural algorithms with cinematic artistry to deliver unparalleled visual content for brands across India and global markets.
+                 </p>
+                 <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Building2 size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Studios: Kochi & Trivandrum</span>
+                    </div>
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Globe size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Global Reach: Dubai (UAE) & Beyond</span>
+                    </div>
+                 </div>
+              </div>
+              <div className="rounded-[3rem] bg-white/[0.02] border border-white/10 p-12 backdrop-blur-md">
+                 <h3 className="text-xl font-bold uppercase tracking-widest mb-6 text-white text-center">Ready to scale?</h3>
+                 <p className="text-center text-sm font-light text-zinc-400 mb-8 uppercase tracking-widest leading-loose">
+                   Don't let your brand blend in. Contact our strategic media team today for a custom consultation.
+                 </p>
+                 <Link href="/contact" className="w-full h-16 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-4 hover:bg-primary-accent hover:text-white transition-all">
+                    Initialize Protocol
+                 </Link>
+              </div>
+           </div>
+        </div>
+      </section>
+
+    </main>
   );
 }

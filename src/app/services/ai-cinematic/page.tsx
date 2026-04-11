@@ -1,57 +1,82 @@
-import { Metadata } from "next";
-import AIServiceTemplate from "@/components/ai-service-template";
+import GlassNavbar from "@/components/glass-navbar";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Building2, Globe } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Cinematic AI Video Production Kerala | Premium Brand Films India",
-  description: "Best cinematic AI video production company in Kerala, India, and UAE. Create elite brand films and cinematic visual narratives using high-end neural production pipelines.",
-  keywords: ["cinematic AI video Kerala", "premium AI brand films India", "high-end AI video Kochi", "cinematic AI UAE", "best AI cinematography company"],
+export const metadata = {
+  title: "Cinematic AI | Define Perspective AI Media Studio",
+  description: "Fusing legacy optics with neural vision. Connect with Define Perspective, the leading AI video production company in Kerala and India. Professional film, ad, and video services in Kochi, Trivandrum & UAE.",
+  alternates: {
+    canonical: "https://defineperspective.in/services/ai-cinematic"
+  }
 };
 
-export default function AICinematicPage() {
+export default function DynamicServicePage() {
   return (
-    <AIServiceTemplate 
-      categoryName="Cinematic AI"
-      currentPath="/services/ai-cinematic"
-      h1="Cinematic AI Video Production Kerala"
-      intro="Define Perspective is the top cinematic AI video production company in Kerala and India, redefining luxury brand storytelling through advanced neural rendering. From our creative studios in Kochi and Trivandrum to our global presence in the UAE, we craft elite brand films that blend traditional cinematic artistry with futuristic AI capabilities. Our Cinematic AI video production services are designed for brands that require world-class visual narratives, high-fidelity mastery, and a disruptive presence in the global luxury market."
-      services={[
-        "High-End AI Brand Masterpieces",
-        "Cinematic Neural Visual Narratives",
-        "AI-Driven Luxury Brand Documentaries",
-        "Neural Color-Science & Mastering",
-        "Advanced AI Cinematography FX",
-        "Director-Level AI Creative Control"
-      ]}
-      benefits={[
-        "Elite Cinematic Visual Excellence",
-        "Disruptive Visual Storytelling",
-        "Ultra-High Production Value via AI",
-        "Faster Delivery of Masterful Content",
-        "Scalable Global Narrative Loops"
-      ]}
-      locationBlock="As the No.1 cinematic AI video agency in Kochi and Trivandrum, Define Perspective is the primary choice for premium brands across Kerala, India, and the UAE. We deliver the highest tier of AI-driven cinematography from our specialized labs in Kochi, ensuring that your brand story is told with unprecedented visual fidelity. Whether you're a designer label in the UAE or a luxury estate in Kerala, our cinematic AI films provide a standard of excellence that ranks as the best in the industry."
-      faqs={[
-        {
-          q: "What is cinematic AI video production?",
-          a: "It is the use of high-end neural networks and AI rendering tools to create cinematic visuals that were previously only possible with multi-million dollar film budgets and massive crews."
-        },
-        {
-          q: "Is AI better than traditional high-end cinematography?",
-          a: "AI acts as a force multiplier, allowing directors to achieve impossible shots, perfect lighting, and cinematic environments that enhance the storytelling beyond traditional physical limitations."
-        },
-        {
-          q: "Who is the top cinematic AI agency in Kerala?",
-          a: "Define Perspective is the top-ranked agency in Kerala (Kochi/Trivandrum) for cinematic AI brand films and elite visual narratives."
-        },
-        {
-          q: "Can AI create brand films for luxury products?",
-          a: "Yes, cinematic AI is particularly effective for luxury brands as it allows for the precise control of visual aesthetics, textures, and atmospheres that resonate with high-end audiences."
-        },
-        {
-          q: "How long does a cinematic AI film take to produce?",
-          a: "A high-end cinematic AI brand film can be fully produced, scored, and mastered in 7-14 days through our specialized neural pipeline."
-        }
-      ]}
-    />
+    <main className="min-h-screen bg-obsidian text-white relative overflow-hidden selection:bg-primary-accent selection:text-white">
+      <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <GlassNavbar />
+      
+      {/* Hero Section */}
+      <section className="pt-48 pb-32 px-6 md:px-12 relative z-10 border-b border-white/5">
+         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-primary-accent/10 blur-[200px] rounded-full pointer-events-none" />
+         <div className="container mx-auto max-w-7xl">
+            <div className="flex items-center gap-4 mb-10">
+               <Sparkles size={16} className="text-primary-accent" />
+               <h2 className="text-[10px] md:text-xs font-mono tracking-[0.5em] uppercase text-zinc-500 font-bold">Service Definition</h2>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-12">
+               Cinematic AI <br /><span className="text-primary-accent italic">Overview_</span>
+            </h1>
+            
+            <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-tighter mb-16">
+               Fusing legacy optics with neural vision.
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+               <Link href="/contact" className="h-16 px-10 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:scale-105 transition-all shadow-2xl">
+                  Start Project <ArrowRight size={18} />
+               </Link>
+               <Link href="/portfolio" className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:bg-white/10 transition-all">
+                  Showcase
+               </Link>
+            </div>
+         </div>
+      </section>
+
+      {/* SEO AI Authority Section */}
+      <section className="py-24 px-6 md:px-12 bg-black relative z-10 border-b border-white/5">
+        <div className="container mx-auto max-w-7xl">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div>
+                 <h2 className="text-3xl font-black uppercase tracking-tighter mb-6">World-Class Execution</h2>
+                 <p className="text-zinc-400 leading-relaxed font-light text-lg mb-8 uppercase tracking-widest">
+                   Define Perspective provides premier Cinematic AI services. As the top AI video production company in Kerala, we fuse cutting-edge neural algorithms with cinematic artistry to deliver unparalleled visual content for brands across India and global markets.
+                 </p>
+                 <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Building2 size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Studios: Kochi & Trivandrum</span>
+                    </div>
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Globe size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Global Reach: Dubai (UAE) & Beyond</span>
+                    </div>
+                 </div>
+              </div>
+              <div className="rounded-[3rem] bg-white/[0.02] border border-white/10 p-12 backdrop-blur-md">
+                 <h3 className="text-xl font-bold uppercase tracking-widest mb-6 text-white text-center">Ready to scale?</h3>
+                 <p className="text-center text-sm font-light text-zinc-400 mb-8 uppercase tracking-widest leading-loose">
+                   Don't let your brand blend in. Contact our strategic media team today for a custom consultation.
+                 </p>
+                 <Link href="/contact" className="w-full h-16 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-4 hover:bg-primary-accent hover:text-white transition-all">
+                    Initialize Protocol
+                 </Link>
+              </div>
+           </div>
+        </div>
+      </section>
+
+    </main>
   );
 }

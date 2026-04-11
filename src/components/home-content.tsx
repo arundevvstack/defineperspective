@@ -1,284 +1,271 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { 
-  BarChart3, Zap, Star, ArrowRight, Calendar, MessageCircle, Activity
+  Plus, Users, Globe, BarChart3, Star, Building2, Zap, Target, Activity, MessageCircle, ArrowRight, Shield, Cpu, Play, CheckCircle2
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import VideoHero from "@/components/video-hero";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-// Dynamic imports for performance optimization
+// Dynamic imports for performance
 const IndustriesSection = dynamic(() => import("@/components/industries-section"));
-const MetricsSection = dynamic(() => import("@/components/metrics-section"));
 const PortfolioSection = dynamic(() => import("@/components/portfolio-section"));
 const TestimonialSection = dynamic(() => import("@/components/testimonial-section"));
 const FAQSection = dynamic(() => import("@/components/faq-section"));
 const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat"), { ssr: false });
-const ServicesSwitcher = dynamic(() => import("@/components/services-switcher"), { ssr: false });
-const CinematicHero = dynamic(() => import("@/components/cinematic-hero"));
-const ServiceGrid = dynamic(() => import("@/components/service-grid"));
-const AICharacter = dynamic(() => import("@/components/ai-character"), { ssr: false });
+
+const SectionHeader = ({ tag, title, subtitle, align = "center", h2 = false }: any) => {
+  const TitleTag = h2 ? "h2" : "h3";
+  return (
+    <div className={cn("mb-16 md:mb-20", align === "center" ? "text-center" : "text-left")}>
+      <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-6 block font-bold">{tag}</span>
+      <TitleTag className="text-3xl md:text-6xl lg:text-[5.5rem] font-black text-white uppercase leading-tight md:leading-[0.9] tracking-tighter">
+        {title}
+      </TitleTag>
+      {subtitle && <p className="mt-8 text-zinc-400 font-normal text-sm md:text-base max-w-2xl mx-auto leading-relaxed">{subtitle}</p>}
+    </div>
+  );
+};
 
 export default function HomeContent() {
-  const [activeTab, setActiveTab] = useState("media-production");
-
   return (
-    <main className={cn(
-      "min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden relative",
-      activeTab === "ai-studio" ? "theme-blue" : "theme-red"
-    )}>
-      {/* Visual Grain Texture */}
+    <main className="min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden relative selection:bg-primary-accent selection:text-white theme-red">
       <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <GlassNavbar />
       
-      <GlassNavbar isAiModeOverride={activeTab === "ai-studio"} />
-      
-      {/* Section 0: Hero Section */}
+      {/* 1. HERO SECTION (With H1 in components/video-hero.tsx) */}
       <VideoHero />
 
-      {/* Section 0.1: AI & Media Switcher */}
-      <Suspense fallback={<div className="h-96 bg-black" />}>
-        <ServicesSwitcher activeTab={activeTab} setActiveTab={setActiveTab} />
-      </Suspense>
-
-      <Suspense fallback={<div className="h-screen bg-black" />}>
-        <CinematicHero mode={activeTab} />
-      </Suspense>
-
-      {/* Strategic Positioning Authority: Moved Higher for UX Flow */}
-      <section className="relative py-32 px-6 md:px-12 bg-black overflow-hidden border-b border-white/5">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] select-none pointer-events-none hidden lg:block">
-          <span className="text-[20rem] font-black leading-none uppercase tracking-tighter">
-            Authority
-          </span>
+      {/* High-Ranking SEO Block (Crucial for AI Search & Authority) */}
+      <section className="py-20 px-6 md:px-12 bg-zinc-950 border-b border-white/5 relative z-10 text-center">
+        <div className="container mx-auto max-w-4xl">
+           <p className="text-zinc-500 font-normal italic text-xs md:text-sm leading-relaxed uppercase tracking-widest">
+              We are a leading <span className="text-white font-bold">video production company in Kerala</span> offering end-to-end media production services, including TV commercial production, brand film production, and corporate video production. Our <span className="text-white font-bold">AI-powered video production studio in Kochi</span> combines cinematic storytelling with generative AI workflows to deliver scalable, high-performance content for brands across India.
+           </p>
         </div>
+      </section>
 
-        <div className="w-full max-w-[1700px] mx-auto relative z-10 px-6">
-          <div className="flex flex-col items-center text-center mb-24 max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-[1px] w-12 bg-primary-accent" />
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent">Market Directive v1.0</span>
-              <div className="h-[1px] w-12 bg-primary-accent" />
-            </div>
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-whiteer leading-[0.85] uppercase mb-12">
-              Best AI <br />
-              <span className="text-primary-accent">Production</span> <br />
-              Studio in India
-            </h2>
-            <div className="p-10 lg:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/10 backdrop-blur-3xl relative group hover:bg-white/[0.04] transition-all duration-500 max-w-3xl">
-              <div className="space-y-10 relative z-10">
-                <p className="text-xl md:text-2xl font-light text-white leading-tight uppercase tracking-tight">
-                  Based in <span className="text-primary-accent font-bold">Kochi & Trivandrum</span>, we orchestrate the most advanced AI video pipelines in India.
+      {/* 1. CORE CAPABILITIES (H2: Media Production & AI Studio Services) */}
+      <section id="capabilities" className="py-24 md:py-40 px-4 md:px-12 bg-black border-b border-white/5 relative z-10">
+        <div className="container mx-auto max-w-7xl">
+          <SectionHeader 
+            h2
+            tag="Strategic Identity"
+            title={<>Media Production & <br />AI Studio <span className="text-primary-accent italic">Services_</span></>}
+            subtitle="We are a video production company in Kerala specializing in AI-powered video production and cinematic brand films."
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+             <div className="space-y-10">
+                <h3 className="text-2xl md:text-4xl font-bold uppercase tracking-tight leading-tight">Unified Production Excellence</h3>
+                <p className="text-lg text-zinc-400 font-normal leading-relaxed">
+                   Based in <span className="text-white font-bold">Kochi and Trivandrum</span>, we serve brands across India. We provide TV commercial production, corporate video production, and AI-generated content designed to increase engagement, conversions, and brand authority.
                 </p>
-                <div className="space-y-6">
-                  <p className="text-zinc-500 text-sm md:text-base font-light leading-relaxed uppercase tracking-widest">
-                    We are the <span className="text-white font-bold">architects of visual velocity</span>. 
-                    Everything we build is strictly performance-optimized for the 2026 search landscape.
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-8 pt-6 border-t border-white/10">
-                    {[
-                      { v: "10X", l: "Velocity" },
-                      { v: "ROI", l: "Growth" },
-                      { v: "4K+", l: "Mastering" }
-                    ].map((m, mi) => (
-                      <div key={mi} className="flex flex-col">
-                        <span className="text-2xl font-black text-white leading-none">{m.v}</span>
-                        <span className="text-[10px] uppercase tracking-widest text-zinc-600 mt-2">{m.l}</span>
-                      </div>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-3 md:gap-4 pt-4">
+                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-500">Kochi & Trivandrum</div>
+                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-500">National Reach</div>
+                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-500">AI Innovation</div>
                 </div>
-              </div>
-            </div>
+             </div>
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                {[
+                  { t: "TV Commercial Production", d: "H3: Broadcast-quality ad films", i: Play },
+                  { t: "AI Video Production", d: "H3: High-speed AI content", i: Cpu },
+                  { t: "Corporate Brand Films", d: "H3: Professional storytelling", i: Star },
+                  { t: "Digital Ad Creatives", d: "H3: Performance-driven ads", i: Zap }
+                ].map(item => (
+                  <div key={item.t} className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-col gap-4 group hover:bg-primary-accent/5 transition-all">
+                     <item.i size={20} className="text-primary-accent" />
+                     <div className="space-y-1">
+                        <h4 className="text-sm font-bold uppercase tracking-widest block text-white">{item.t}</h4>
+                        <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">{item.d}</span>
+                     </div>
+                  </div>
+                ))}
+             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 1: Services Matrix */}
-      <section id="services" className="relative z-10">
-        <Suspense fallback={<div className="h-screen bg-black" />}>
-          <ServiceGrid mode={activeTab} />
+      {/* 2. PRODUCTION SERVICES (H2: Cinematic Video Production & Brand Films) */}
+      <section className="py-24 md:py-40 px-4 md:px-12 bg-obsidian relative border-b border-white/5">
+        <div className="container mx-auto max-w-7xl">
+           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+              <div className="lg:col-span-5">
+                 <SectionHeader 
+                   h2 
+                   tag="Cinematic Focus" 
+                   title={<>Cinematic Video <br />Production & <span className="text-primary-accent italic">Brand Films_</span></>} 
+                   align="left" 
+                 />
+                 <p className="text-zinc-400 text-sm md:text-base font-normal leading-relaxed mb-12">
+                    As the best video production company in Kerala, we deliver TV commercial production and corporate video production that defines brand authority. Our cinematic approach ensures every frame resonates with your target audience.
+                 </p>
+                 <div className="space-y-6">
+                    {[
+                      "TV Commercial Production",
+                      "Corporate Video Production",
+                      "Brand Film Production",
+                      "Cinematic Social Content"
+                    ].map(bullet => (
+                      <h3 key={bullet} className="flex items-center gap-4 text-[10px] md:text-[11px] font-mono uppercase tracking-widest text-white font-bold">
+                         <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />
+                         {bullet}
+                      </h3>
+                    ))}
+                 </div>
+              </div>
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+                 <div className="rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/10 aspect-[4/5] relative group">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200" className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-1000" alt="AI Video Production Company in Kerala" />
+                    <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
+                       <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] block mb-2">Service Excellence</span>
+                       <h4 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">AI Content Lab</h4>
+                    </div>
+                 </div>
+                 <div className="rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/10 aspect-[4/5] relative group lg:mt-24">
+                    <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=1200" className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-1000" alt="Best Video Production Company in Kerala" />
+                    <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
+                       <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] block mb-2">Cinematic Art</span>
+                       <h4 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">Brand Film Hub</h4>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* 3. AI STUDIO (H2: AI Video Production & Content Creation) */}
+      <section className="py-24 md:py-40 px-4 md:px-12 bg-black relative border-b border-white/5">
+        <div className="container mx-auto max-w-7xl">
+           <SectionHeader 
+             h2 
+             tag="Future Tech" 
+             title={<>AI Video <br />Production & <span className="text-primary-accent italic">Content Creation_</span></>} 
+           />
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { t: "AI Product Videos", d: "High-end product visuals using neural rendering.", i: Zap },
+                { t: "Social Media Video Production", d: "Optimized for Instagram, TikTok, and YouTube Shorts.", i: Cpu },
+                { t: "Generative AI Content", d: "Creating photorealistic AI assets for your brand.", i: Activity }
+              ].map(adv => (
+                <div key={adv.t} className="p-8 md:p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-primary-accent/30 transition-all group">
+                   <adv.i size={24} className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" />
+                   <h3 className="text-lg font-bold uppercase tracking-widest text-white mb-4 group-hover:text-primary-accent transition-colors">{adv.t}</h3>
+                   <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed font-normal">{adv.d}</p>
+                </div>
+              ))}
+           </div>
+        </div>
+      </section>
+
+      {/* 4. AUTHORITY BLOCK (H2: Best Video Production Company in Kerala) */}
+      <section className="py-24 md:py-40 px-4 md:px-12 bg-obsidian relative border-b border-white/5">
+        <div className="container mx-auto max-w-7xl text-center">
+           <SectionHeader h2 tag="Market Dominance" title={<>Best Video Production <br /><span className="text-primary-accent italic">Company in Kerala_</span></>} />
+           <div className="max-w-4xl mx-auto p-8 md:p-20 rounded-[3rem] md:rounded-[4rem] bg-white/[0.01] border border-white/5 backdrop-blur-3xl">
+              <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-8">Authoritative Production Studio in Kochi & Trivandrum</h3>
+              <p className="text-zinc-400 font-normal leading-relaxed text-sm md:text-lg mb-12">
+                 We are the architects of visual engagement. Based in Kochi, we provide professional TV commercial production and AI video services that scale your brand across India. Our content is designed to increase engagement, conversions, and brand authority.
+              </p>
+              <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+                 <div className="flex items-center gap-3">
+                    <Shield size={20} className="text-primary-accent" />
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Verified Authority</span>
+                 </div>
+                 <div className="flex items-center gap-3">
+                    <Globe size={20} className="text-primary-accent" />
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Kochi & Trivandrum</span>
+                 </div>
+                 <div className="flex items-center gap-3">
+                    <Target size={20} className="text-primary-accent" />
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">National Delivery</span>
+                 </div>
+              </div>
+              <div className="flex justify-center pt-16">
+                 <Link href="/contact?subject=Book a Production Consultation" className="h-16 px-10 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-[10px] flex items-center gap-4 hover:scale-105 transition-all">Book a Production Consultation <ArrowRight size={16} /></Link>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* 5. INDUSTRIES (H2: Industries We Serve) */}
+      <section id="industries">
+        <Suspense fallback={<div className="h-96 bg-black" />}>
+           <IndustriesSection />
         </Suspense>
       </section>
 
-      {/* Section 2: WHY BRANDS CHOOSE US (New Split-Metric Layout) */}
-      <section className="py-40 px-6 md:px-12 bg-black relative border-y border-white/5">
-        <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-            
-            {/* Left: Metric & Heading */}
-            <div className="lg:col-span-5 flex flex-col gap-10">
-              <div className="flex flex-col gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="h-[1px] w-12 bg-primary-accent" />
-                  <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent">The Studio Advantage</span>
-                </div>
-                <h2 className="text-5xl md:text-7xl font-black text-whiteer uppercase leading-[0.85]">
-                  Why Brands <br />
-                  <span className="text-primary-accent italic">Choose Us_</span>
-                </h2>
-              </div>
-
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-primary-accent/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative flex items-center gap-8 py-10 border-y border-white/10">
-                  <span className="text-8xl md:text-[9rem] font-black text-white tracking-tighter transition-transform group-hover:scale-110 duration-500">55+</span>
-                  <div className="flex flex-col">
-                    <span className="text-sm font-bold text-primary-accent uppercase tracking-[0.3em] mb-2">Specialized</span>
-                    <span className="text-xl md:text-2xl font-light text-zinc-400 uppercase tracking-widest leading-none">Industries <br />Served</span>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-zinc-500 font-light leading-relaxed uppercase text-[11px] tracking-[0.2em] max-w-md">
-                "We don't just produce videos; we build high-converting visual ecosystems for market leaders across the Indian subcontinent."
-              </p>
-            </div>
-
-            {/* Right: Benefits Grid */}
-            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
-               {(activeTab === "ai-studio" ? [
-                 { title: "Rapid AI Systems", text: "Production cycles reduced from weeks to hours with high-speed autonomous AI pipelines.", icon: Zap },
-                 { title: "Virtual Art Direction", text: "Hyper-realistic environments and world-building that eliminates the need for travel.", icon: Star },
-                 { title: "AI Cost Efficiency", text: "Superior visual quality at a fraction of traditional production budgets.", icon: BarChart3 },
-                 { title: "Performance Nodes", text: "Strictly ROI-focused visual assets built for high-retention performance.", icon: Activity }
-               ] : [
-                 { title: "Elite Cinematographers", text: "World-class camera crews and meticulous lighting for a true broadcast look.", icon: Zap },
-                 { title: "Premium Set Mastery", text: "Full on-location production management in Kerala with elite equipment.", icon: Star },
-                 { title: "Maximum Brand ROI", text: "Scientific ad structures built to deliver high-retention cinematic authority.", icon: BarChart3 },
-                 { title: "Broadcast Systems", text: "End-to-end post-production workflows for national television networks.", icon: Activity }
-               ]).map((benefit, bIdx) => (
-                 <motion.div 
-                   key={bIdx}
-                   initial={{ opacity: 0, y: 20 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ delay: bIdx * 0.1 }}
-                   className={cn(
-                     "p-10 rounded-[2.5rem] border border-white/5 bg-white/[0.02] backdrop-blur-3xl flex flex-col items-start group transition-all shadow-xl hover:bg-primary-accent/[0.03] hover:border-primary-accent/20",
-                     bIdx % 2 === 1 && "md:mt-12" // Staggered Effect
-                   )}
-                 >
-                   <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 text-primary-accent flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(var(--primary-accent-rgb),0.2)]">
-                      <benefit.icon size={28} />
-                   </div>
-                   <h3 className="text-lg font-black uppercase tracking-widest text-white mb-4 leading-tight text-left group-hover:text-primary-accent transition-colors">{benefit.title}</h3>
-                   <p className="text-zinc-500 font-light leading-relaxed uppercase text-[9px] tracking-[0.2em] text-left">{benefit.text}</p>
-                 </motion.div>
+      {/* 6. STUDIO ADVANTAGE (H2: Why Brands Choose Our Production Studio) */}
+      <section className="py-24 md:py-40 px-4 md:px-12 bg-black relative border-b border-white/5">
+         <div className="container mx-auto max-w-7xl">
+            <SectionHeader h2 tag="Success Factors" title={<>Why Brands Choose Our <br />Production <span className="text-primary-accent italic">Studio_</span></>} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+               {[
+                 { t: "Expert Cinematography", d: "Professional camera crews and meticulous lighting design.", i: Zap },
+                 { t: "AI Integration", d: "Modern neural rendering for high-velocity output.", i: Cpu },
+                 { t: "Growth ROI", d: "Strategically crafted content built for high conversions.", i: BarChart3 },
+                 { t: "Global Mastering", d: "Industry-standard post-production for all platforms.", i: Activity }
+               ].map(adv => (
+                 <div key={adv.t} className="p-8 md:p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-primary-accent/30 transition-all group hover:bg-white/[0.04]">
+                    <adv.i size={24} className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" />
+                    <h4 className="text-base md:text-lg font-bold uppercase tracking-widest text-white mb-4 group-hover:text-primary-accent transition-colors">{adv.t}</h4>
+                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed font-normal">{adv.d}</p>
+                 </div>
                ))}
             </div>
+         </div>
+      </section>
 
+      {/* 7. SOCIAL PROOF (Experience, Clients, Stats) */}
+      <section className="py-24 md:py-40 px-4 md:px-12 bg-obsidian border-y border-white/5">
+        <div className="container mx-auto">
+          <SectionHeader tag="Market Reach" title={<>Proven <span className="text-primary-accent italic">Authority_</span></>} />
+          <div className="grid grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
+            {[
+              { l: "Years Active", v: "9+", i: Plus },
+              { l: "Film Minutes", v: "1100+", i: BarChart3 },
+              { l: "Global Clients", v: "100+", i: Globe },
+              { l: "Success Rate", v: "99%", i: CheckCircle2 },
+              { l: "Review Score", v: "4.9/5", i: Star },
+              { l: "Industries", v: "55+", i: Building2 }
+            ].map(m => (
+              <div key={m.l} className="flex flex-col items-center p-8 md:p-10 rounded-3xl bg-white/[0.01] border border-white/5 group hover:bg-white hover:text-black transition-all duration-300">
+                <m.i size={20} className="text-primary-accent mb-6" />
+                <span className="text-2xl md:text-3xl font-black mb-2">{m.v}</span>
+                <span className="text-[8px] font-mono uppercase tracking-[0.2em] text-zinc-600 group-hover:text-zinc-500">{m.l}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Section 3: Strategic Verticals (Industries) */}
-      <Suspense fallback={<div className="h-96 bg-black" />}>
-        <IndustriesSection />
-      </Suspense>
-
-      {/* Section 4: Results & Metrics */}
-      <Suspense fallback={<div className="h-80 bg-black" />}>
-        <MetricsSection />
-      </Suspense>
-
-      {/* Section 6: Our Work (Portfolio) */}
-      <Suspense fallback={<div className="h-screen bg-black" />}>
-        <PortfolioSection mode={activeTab} />
-      </Suspense>
-
-      {/* Section 7: Conversion Hub (Call to Action) - Refined UI Aligned Center */}
-      <section className="py-48 px-6 md:px-12 bg-black relative">
-        <div className="w-full max-w-[1700px] mx-auto px-6 md:px-12">
-          <div className="mb-32 flex flex-col items-center text-center max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-[1px] w-12 bg-primary-accent" />
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent">Project Inquiry // Start Today</span>
-              <div className="h-[1px] w-12 bg-primary-accent" />
-            </div>
-            <h2 className="text-5xl md:text-7xl lg:text-[7rem] font-black text-whiteer uppercase leading-[0.85]">
-              Ready for <br /><span className="text-primary-accent italic">Impact?</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-32">
-             <motion.div 
-               className="p-10 md:p-14 rounded-[3.5rem] border border-white/10 bg-white/[0.02] backdrop-blur-3xl flex flex-col gap-10 transition-all group shadow-2xl hover:bg-primary-accent/[0.04] hover:border-primary-accent/30"
-             >
-                <div className="h-16 w-16 rounded-3xl bg-transparent border-2 border-primary-accent text-white flex items-center justify-center transition-transform group-hover:scale-110 shadow-[0_0_20px_rgba(var(--primary-accent-rgb),0.3)]">
-                   <Calendar size={32} />
-                 </div>
-                <div>
-                   <h3 className="text-3xl lg:text-5xl font-black uppercase tracking-tighter mb-6 leading-tight">Business <br />Consultation</h3>
-                   <p className="text-sm text-zinc-500 font-light leading-relaxed uppercase tracking-[0.2em]">
-                     Plan your high-impact visual strategy with our lead creative directors.
-                   </p>
-                </div>
-                <div className="flex flex-col gap-5 mt-auto">
-                  <Link
-                    href="/contact?subject=Priority Strategy Session Request"
-                    className="group relative h-20 w-full rounded-2xl bg-primary-accent text-black font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-xl hover:scale-[1.02] active:scale-95 transition-all"
-                  >
-                    <span className="relative z-10 transition-colors duration-300">Free Consultation</span> 
-                    <ArrowRight size={22} className="relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
-                  </Link>
-                  <Link 
-                    href="https://wa.me/917012941696?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20a%20Consultation."
-                    target="_blank"
-                    className="group h-20 w-full rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-4"
-                  >
-                    WhatsApp Now <MessageCircle size={22} className="text-[#25D366] group-hover:scale-110 transition-transform" />
-                  </Link>
-                </div>
-             </motion.div>
-
-             <motion.div 
-               className="p-10 md:p-14 rounded-[3.5rem] border border-white/10 bg-white/[0.02] backdrop-blur-3xl flex flex-col gap-10 transition-all group shadow-2xl hover:bg-primary-accent/[0.04] hover:border-primary-accent/30"
-             >
-                <div className="h-16 w-16 rounded-3xl bg-transparent border-2 border-primary-accent text-primary-accent flex items-center justify-center transition-transform group-hover:scale-110 shadow-[0_0_20px_rgba(var(--primary-accent-rgb),0.3)]">
-                   <Zap size={32} />
-                </div>
-                <div>
-                   <h3 className="text-3xl lg:text-5xl font-black uppercase tracking-tighter mb-6 leading-tight">AI Product <br />Production</h3>
-                   <p className="text-sm text-zinc-500 font-light leading-relaxed uppercase tracking-[0.2em]">
-                     Scale your brand identity with photorealistic AI videos and assets.
-                   </p>
-                </div>
-                <div className="flex flex-col gap-5 mt-auto">
-                  <Link 
-                    href="/contact?subject=AI Content Production Inquiry"
-                    className="h-20 w-full rounded-2xl bg-white text-black font-black uppercase tracking-widest text-sm hover:bg-primary-accent hover:text-white transition-all flex items-center justify-center gap-4"
-                  >
-                    Request AI Demo <ArrowRight size={22} />
-                  </Link>
-                  <Link 
-                    href="https://wa.me/917012941696?text=Hi%20Define%20Perspective,%20I'm%20interested%20in%20AI%20Content%20Production."
-                    target="_blank"
-                    className="group relative h-20 w-full rounded-2xl bg-transparent border-2 border-primary-accent text-white font-black uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-4 shadow-xl hover:scale-[1.02] active:scale-95 transition-all hover:bg-primary-accent/10"
-                  >
-                    <span className="relative z-10">WhatsApp Now</span> 
-                    <MessageCircle size={22} className="relative z-10 group-hover:scale-110 transition-transform" />
-                  </Link>
-                </div>
-             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Feedback */}
       <TestimonialSection />
-
-      {/* Intelligent FAQ */}
+      
+      {/* 8. FAQ SECTION (Voice Search Optimization) */}
       <FAQSection />
 
-      {/* Floating AI Agent */}
-      <WhatsAppChat />
+      {/* 9. CASE STUDIES / PROJECT CTA */}
+      <section className="py-32 md:py-48 px-6 md:px-12 bg-black relative border-t border-white/5">
+        <div className="container mx-auto max-w-4xl text-center">
+            <SectionHeader 
+              tag="Initialize Mission" 
+              title={<>Start Your <br /><span className="text-primary-accent italic">Project Now_</span></>}
+            />
+            <p className="text-zinc-500 font-normal uppercase text-sm tracking-[0.2em] md:tracking-[0.4em] mb-16 md:mb-20 max-w-2xl mx-auto">
+              Are you ready for national-level brand films and high-speed AI content? Partner with the best video production company in Kerala.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+               <Link href="/portfolio" className="h-20 md:h-24 rounded-2xl md:rounded-3xl bg-white text-black font-black uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl">See Our Portfolio <ArrowRight size={18} /></Link>
+               <Link href="/contact" className="h-20 md:h-24 rounded-2xl md:rounded-3xl bg-primary-accent text-black font-black uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl shadow-primary-accent/20">Get a Quote <MessageCircle size={18} /></Link>
+            </div>
+        </div>
+      </section>
 
-      {/* Persistent AI Mascot */}
-      <AICharacter />
+      <WhatsAppChat />
     </main>
   );
 }

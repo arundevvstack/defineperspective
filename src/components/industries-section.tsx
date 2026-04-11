@@ -58,7 +58,7 @@ const industries = [
 
 export default function IndustriesSection() {
   return (
-    <section id="industries" className="py-40 px-6 md:px-12 bg-obsidian relative overflow-hidden">
+    <section id="industries" className="py-24 md:py-40 px-4 md:px-12 bg-obsidian relative overflow-hidden">
       {/* Background Graphic Elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-transparent border-2 border-primary-accent/5 blur-[200px] rounded-full pointer-events-none hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
 
@@ -72,14 +72,13 @@ whileInView={{ opacity: 1, scale: 1 }}
              <Cpu size={32} />
           </motion.div>
           <motion.h2
-            
-whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-4xl md:text-[6.4rem] font-black text-white tracking-widest uppercase mb-12 leading-[0.85]"
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-[6.4rem] font-black text-white tracking-widest uppercase mb-12 leading-tight md:leading-[0.85]"
           >
             Industries <br /><span className="text-primary-accent italic">We Serve_</span>
           </motion.h2>
-          <p className="text-xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
-            We don't create generic videos. We build AI-powered video solutions tailored for high-growth industries across Kerala & India.
+          <p className="text-base md:text-xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
+            As a <span className="text-white font-bold">video production company in Kerala</span> based in Kochi and Trivandrum, we build AI-powered video solutions tailored for high-growth sectors across India.
           </p>
         </div>
 

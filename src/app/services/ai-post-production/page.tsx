@@ -1,57 +1,82 @@
-import { Metadata } from "next";
-import AIServiceTemplate from "@/components/ai-service-template";
+import GlassNavbar from "@/components/glass-navbar";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Building2, Globe } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "AI Video Editing Services India | Virtual Post-Production Agency",
-  description: "Elite AI video editing and post-production services in India, Kerala, and UAE. Modernize your workflow with neural color grading, AI-automated cuts, and cinematic mastering.",
-  keywords: ["AI video editing India", "AI post production Kerala", "best AI video editor Kochi", "AI video editing UAE", "automated video editing services"],
+export const metadata = {
+  title: "AI Post-Production | Define Perspective AI Media Studio",
+  description: "Neural enhancement for traditional film footage. Connect with Define Perspective, the leading AI video production company in Kerala and India. Professional film, ad, and video services in Kochi, Trivandrum & UAE.",
+  alternates: {
+    canonical: "https://defineperspective.in/services/ai-post-production"
+  }
 };
 
-export default function AIPostProductionPage() {
+export default function DynamicServicePage() {
   return (
-    <AIServiceTemplate 
-      categoryName="AI Post-Production"
-      currentPath="/services/ai-post-production"
-      h1="AI Video Editing Services India"
-      intro="Define Perspective is the leading AI video editing company in India, offering high-end virtual post-production for brands that demand perfection and speed. From our technical hubs in Kerala, Kochi, and Trivandrum to our global studio in UAE, we utilize proprietary AI workflows to automate the tedious aspects of editing while enhancing cinematic quality. Our AI post-production services include neural color grading, intelligent pacing, and automated visual effects that set your content apart."
-      services={[
-        "AI-Automated Video Editing",
-        "Neural Color Grading & Matching",
-        "AI-Powered Audio Mastering",
-        "Intelligent Scene Detection & Cuts",
-        "AI Visual Effects (VFX) & Cleanup",
-        "Batch Processing & Format Sizing"
-      ]}
-      benefits={[
-        "70% Faster Editing Turnaround",
-        "Cinematic Mastery via Neural Nets",
-        "Consistency Across Large Content Batches",
-        "Advanced AI Noise & Artifact Removal",
-        "Optimized for AI Search & Indexing"
-      ]}
-      locationBlock="As the No.1 AI video editing agency in Kerala and India, Define Perspective serves as the central hub for virtual post-production across the UAE and beyond. Our Kochi and Trivandrum teams leverage the latest neural editing tools to deliver world-class content for international clients. Whether you are producing a feature film in India or a high-end commercial in the UAE, our AI video editing services ensure your final output is optimized for maximum impact."
-      faqs={[
-        {
-          q: "What is AI video editing?",
-          a: "AI video editing uses machine learning algorithms to automate and enhance tasks like cutting, color grading, tracking, and sound design, resulting in faster and more precise workflows."
-        },
-        {
-          q: "Is AI video editing as good as manual editing?",
-          a: "AI editing actually enhances human creativity by taking over repetitive tasks, allowing our expert editors in India to focus on the high-level storytelling and cinematic artistry."
-        },
-        {
-          q: "Who provides the best AI video editing in Kerala?",
-          a: "Define Perspective is the top-rated AI post-production house in Kerala, providing elite editing services for agencies and brands in Kochi and Trivandrum."
-        },
-        {
-          q: "Can AI edit videos for YouTube and TikTok automatically?",
-          a: "Yes, our AI systems can intelligently identify the most engaging moments in your footage and automatically reformat them for YouTube Shorts, Reels, and TikTok."
-        },
-        {
-          q: "How much can I save with AI video editing?",
-          a: "Clients typically save significant time and money by utilizing our AI workflows, which can reduce post-production schedules by over 50% without sacrificing quality."
-        }
-      ]}
-    />
+    <main className="min-h-screen bg-obsidian text-white relative overflow-hidden selection:bg-primary-accent selection:text-white">
+      <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <GlassNavbar />
+      
+      {/* Hero Section */}
+      <section className="pt-48 pb-32 px-6 md:px-12 relative z-10 border-b border-white/5">
+         <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-primary-accent/10 blur-[200px] rounded-full pointer-events-none" />
+         <div className="container mx-auto max-w-7xl">
+            <div className="flex items-center gap-4 mb-10">
+               <Sparkles size={16} className="text-primary-accent" />
+               <h2 className="text-[10px] md:text-xs font-mono tracking-[0.5em] uppercase text-zinc-500 font-bold">Service Definition</h2>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-12">
+               AI Post-Production <br /><span className="text-primary-accent italic">Overview_</span>
+            </h1>
+            
+            <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed max-w-3xl uppercase tracking-tighter mb-16">
+               Neural enhancement for traditional film footage.
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+               <Link href="/contact" className="h-16 px-10 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:scale-105 transition-all shadow-2xl">
+                  Start Project <ArrowRight size={18} />
+               </Link>
+               <Link href="/portfolio" className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs flex items-center gap-4 hover:bg-white/10 transition-all">
+                  Showcase
+               </Link>
+            </div>
+         </div>
+      </section>
+
+      {/* SEO AI Authority Section */}
+      <section className="py-24 px-6 md:px-12 bg-black relative z-10 border-b border-white/5">
+        <div className="container mx-auto max-w-7xl">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              <div>
+                 <h2 className="text-3xl font-black uppercase tracking-tighter mb-6">World-Class Execution</h2>
+                 <p className="text-zinc-400 leading-relaxed font-light text-lg mb-8 uppercase tracking-widest">
+                   Define Perspective provides premier AI Post-Production services. As the top AI video production company in Kerala, we fuse cutting-edge neural algorithms with cinematic artistry to deliver unparalleled visual content for brands across India and global markets.
+                 </p>
+                 <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Building2 size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Studios: Kochi & Trivandrum</span>
+                    </div>
+                    <div className="flex items-center gap-4 text-zinc-500">
+                       <Globe size={20} className="text-primary-accent" />
+                       <span className="font-mono text-xs uppercase tracking-widest">Global Reach: Dubai (UAE) & Beyond</span>
+                    </div>
+                 </div>
+              </div>
+              <div className="rounded-[3rem] bg-white/[0.02] border border-white/10 p-12 backdrop-blur-md">
+                 <h3 className="text-xl font-bold uppercase tracking-widest mb-6 text-white text-center">Ready to scale?</h3>
+                 <p className="text-center text-sm font-light text-zinc-400 mb-8 uppercase tracking-widest leading-loose">
+                   Don't let your brand blend in. Contact our strategic media team today for a custom consultation.
+                 </p>
+                 <Link href="/contact" className="w-full h-16 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-4 hover:bg-primary-accent hover:text-white transition-all">
+                    Initialize Protocol
+                 </Link>
+              </div>
+           </div>
+        </div>
+      </section>
+
+    </main>
   );
 }

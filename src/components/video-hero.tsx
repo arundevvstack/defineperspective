@@ -7,6 +7,8 @@ import Link from "next/link";
 export default function VideoHero() {
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
+      {/* Visual Primary SEO Heading - Hidden but and accessible to search engines */}
+      <h1 className="sr-only">AI-Powered Media Production Company in Kerala</h1>
       {/* YouTube Background Video Overlay */}
       <div className="absolute inset-0 z-0 h-full w-full overflow-hidden pointer-events-none">
         <iframe

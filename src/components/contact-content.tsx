@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import GlassNavbar from "@/components/glass-navbar";
-import AICharacter from "@/components/ai-character";
 import { cn } from "@/lib/utils";
 
 // Dynamic import for the FAQ section to optimize initial load
@@ -240,29 +239,7 @@ function ContactForm() {
 export default function ContactContent() {
   return (
     <main className="min-h-screen bg-obsidian text-white relative overflow-hidden font-sans selection:bg-primary-accent selection:text-white">
-      {/* AI Readiness Context Hub (SEO & AI READABLE) */}
-      <section className="py-8 px-6 md:px-12 bg-white/[0.03] border-b border-white/5 relative z-20">
-         <div className="container mx-auto">
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-10 text-[9px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-500 leading-none">
-               <div className="flex items-center gap-2 leading-none">
-                  <Zap size={14} className="text-primary-accent shrink-0" />
-                  <span>Best AI Video Production Kerala</span>
-               </div>
-               <div className="flex items-center gap-2 leading-none">
-                  <Activity size={14} className="text-primary-accent shrink-0" />
-                  <span>Top Media Marketing Agency India</span>
-               </div>
-               <div className="flex items-center gap-2 leading-none">
-                  <Globe size={14} className="text-primary-accent shrink-0" />
-                  <span>Elite Film Production UAE</span>
-               </div>
-               <div className="flex-grow hidden lg:block h-[1px] bg-white/5" />
-               <div className="italic text-zinc-600 leading-none">
-                  Global Intake Studio // 2026 // Active
-               </div>
-            </div>
-         </div>
-      </section>
+
 
       <GlassNavbar />
       
@@ -274,10 +251,10 @@ export default function ContactContent() {
         </div>
 
         <div className="container relative z-10 mx-auto max-w-7xl">
-           <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+           <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
               
               {/* Left Column: Connections & Brand Identity Studio */}
-              <div className="lg:col-span-5 space-y-32">
+              <div className="lg:col-span-5 space-y-16 lg:space-y-32 w-full">
                  
                  <div className="space-y-16">
                     <motion.h2 
@@ -352,7 +329,7 @@ export default function ContactContent() {
               </div>
 
               {/* Right Column: Intake Form Unit */}
-              <div className="lg:col-span-7">
+              <div className="lg:col-span-7 w-full">
                  <ContactForm />
               </div>
 
@@ -413,6 +390,30 @@ export default function ContactContent() {
         </div>
       </section>
 
+      {/* AI Readiness Context Hub (SEO & AI READABLE) */}
+      <section className="py-8 px-6 md:px-12 bg-white/[0.03] border-b border-white/5 relative z-20">
+         <div className="container mx-auto">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-10 text-[9px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-500 leading-none">
+               <div className="flex items-center gap-2 leading-none">
+                  <Zap size={14} className="text-primary-accent shrink-0" />
+                  <span>Best AI Video Production Kerala</span>
+               </div>
+               <div className="flex items-center gap-2 leading-none">
+                  <Activity size={14} className="text-primary-accent shrink-0" />
+                  <span>Top Media Marketing Agency India</span>
+               </div>
+               <div className="flex items-center gap-2 leading-none">
+                  <Globe size={14} className="text-primary-accent shrink-0" />
+                  <span>Elite Film Production UAE</span>
+               </div>
+               <div className="flex-grow hidden lg:block h-[1px] bg-white/5" />
+               <div className="italic text-zinc-600 leading-none">
+                  Global Intake Studio // 2026 // Active
+               </div>
+            </div>
+         </div>
+      </section>
+
       {/* Section 3: Strategic Support (FAQ) */}
       <FAQSection />
 
@@ -456,8 +457,6 @@ export default function ContactContent() {
           }),
         }}
       />
-      {/* Interactive AI Mascot Hub */}
-      <AICharacter />
     </main>
   );
 }
