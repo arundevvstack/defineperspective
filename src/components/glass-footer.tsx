@@ -36,9 +36,9 @@ export default function GlassFooter() {
   return (
     <footer className="py-16 px-6 md:px-12 border-t border-[var(--border-subtle)] bg-background relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-16">
-          <div className="lg:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-             <div className="flex items-center justify-center md:justify-start m-0 p-0 mb-6">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-y-12 gap-x-6 lg:gap-16">
+          <div className="col-span-2 flex flex-col items-center lg:items-start text-center lg:text-left">
+             <div className="flex items-center justify-center lg:justify-start m-0 p-0 mb-8">
                  <Image 
                    src="/images/main-logo.png" 
                    alt="Define Perspective Logo" 
@@ -47,16 +47,16 @@ export default function GlassFooter() {
                    className="object-contain m-0 p-0"
                  />
              </div>
-             <div className="space-y-4 text-sm text-zinc-500 font-light leading-relaxed mb-6 w-full">
-                <div className="flex items-start justify-center md:justify-start gap-4">
-                   <MapPin size={18} className="text-primary-accent shrink-0" />
+             <div className="space-y-5 text-sm text-zinc-500 font-light leading-relaxed mb-8 w-full max-w-sm">
+                <div className="flex items-start justify-center lg:justify-start gap-4">
+                   <MapPin size={18} className="text-primary-accent shrink-0 mt-1" />
                    <span>Define Perspective, Second Floor, TC.4/1224/4, Kuravankonam, Kowdiar, Thrivandrum, Pin: 695003</span>
                 </div>
-                <div className="flex items-center justify-center md:justify-start gap-4">
+                <div className="flex items-center justify-center lg:justify-start gap-4">
                    <Mail size={18} className="text-primary-accent shrink-0" />
                    <span>defineperspective.in@gmail.com</span>
                 </div>
-                <div className="flex items-center justify-center md:justify-start gap-4">
+                <div className="flex items-center justify-center lg:justify-start gap-4">
                    <Phone size={18} className="text-primary-accent shrink-0" />
                    <span>+91 701 294 1696</span>
                 </div>
@@ -66,17 +66,17 @@ export default function GlassFooter() {
              </p>
           </div>
 
-          <div className="lg:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Resources</h4>
-              <ul className="flex flex-col items-center md:items-start gap-4 text-sm text-zinc-500 font-light">
+          <div className="col-span-1 flex flex-col items-start text-left">
+             <h4 className="text-[10px] font-black text-white uppercase tracking-widest mb-6 text-primary-accent">Resources</h4>
+              <ul className="flex flex-col items-start gap-4 text-sm text-zinc-500 font-light">
                  <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs</Link></li>
                  <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Website Analysis</Link></li>
               </ul>
           </div>
 
-          <div className="lg:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">AI Service Pillars</h4>
-             <ul className="flex flex-col items-center md:items-start gap-4 text-sm text-zinc-500 font-light">
+          <div className="col-span-1 flex flex-col items-start text-left">
+             <h4 className="text-[10px] font-black text-white uppercase tracking-widest mb-6 text-primary-accent">AI Pillars</h4>
+             <ul className="flex flex-col items-start gap-4 text-sm text-zinc-500 font-light">
                 <li><Link href="/services/ai-video-ads" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Ads</Link></li>
                 <li><Link href="/services/ai-social-media-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Social Media AI</Link></li>
                 <li><Link href="/services/ai-product-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product AI Videos</Link></li>
@@ -86,9 +86,9 @@ export default function GlassFooter() {
              </ul>
           </div>
 
-          <div className="lg:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8 text-primary-accent">Services</h4>
-             <ul className="flex flex-col items-center md:items-start gap-4 text-sm text-zinc-500 font-light">
+          <div className="col-span-1 flex flex-col items-start text-left">
+             <h4 className="text-[10px] font-black text-white uppercase tracking-widest mb-6 text-primary-accent">Services</h4>
+             <ul className="flex flex-col items-start gap-4 text-sm text-zinc-500 font-light">
                 <li><Link href="/services/ecommerce-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">E-commerce</Link></li>
                 <li><Link href="/services/real-estate-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Real Estate</Link></li>
                 <li><Link href="/services/saas-explainer-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">SaaS & Tech</Link></li>
@@ -96,48 +96,40 @@ export default function GlassFooter() {
              </ul>
           </div>
 
-          <div className="lg:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Social Accounts</h4>
-             <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
+          <div className="col-span-1 flex flex-col items-start text-left">
+             <h4 className="text-[10px] font-black text-white uppercase tracking-widest mb-6">Socials</h4>
+             <div className="flex flex-wrap gap-3 items-start justify-start">
                 <a 
                   href="https://www.instagram.com/defineperspective/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
+                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
-                   <Instagram size={20} />
+                   <Instagram size={16} />
                 </a>
                 <a 
                   href="https://www.youtube.com/@DefinePerspective" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
+                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
-                   <Youtube size={20} />
+                   <Youtube size={16} />
                 </a>
                 <a 
                   href="https://www.linkedin.com/company/define-perspective" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
+                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
-                   <Linkedin size={20} />
+                   <Linkedin size={16} />
                 </a>
                 <a 
                   href="https://wa.me/917012941696" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
+                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
                 >
-                   <Whatsapp size={20} />
-                </a>
-                <a 
-                  href="https://www.facebook.com/defineperspectiveofficial/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
-                >
-                   <Facebook size={20} />
+                   <Whatsapp size={16} />
                 </a>
              </div>
           </div>
