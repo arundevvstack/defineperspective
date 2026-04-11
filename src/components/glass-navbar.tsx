@@ -440,7 +440,7 @@ export default function GlassNavbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[320px] bg-zinc-950 border-l border-white/10 z-[6001] p-8 pt-24 shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 h-full w-[85vw] max-w-[400px] bg-zinc-950 border-l border-white/10 z-[6001] p-8 pt-24 shadow-2xl flex flex-col"
             >
                <button onClick={() => setMobileMenu(false)} className="absolute top-6 right-6 text-zinc-400 hover:text-white"><X size={28} /></button>
                
