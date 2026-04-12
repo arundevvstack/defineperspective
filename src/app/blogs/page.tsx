@@ -8,6 +8,15 @@ import Link from "next/link";
 
 const BLOGS = [
   {
+    slug: "ai-video-production-future-india-2026",
+    title: "Why AI Video Production is the Future of Indian Advertising: A 2026 Deep Dive (Featuring the Jeep Wrangler AI Ad)",
+    excerpt: "Explore how DP AI Studios created the viral Jeep Wrangler AI ad and what it means for brands in India...",
+    date: "April 12, 2026",
+    author: "Arun Devv",
+    category: "Case Study",
+    image: "/images/blog/jeep-ai-blog.jpg"
+  },
+  {
     slug: "best-ai-video-production-companies-india-2026",
     title: "Best AI Video Production Company In India (2026 Guide)",
     excerpt: "Discover why Define Perspective is the definitive leader in cinematic AI production, setting the 2026 global benchmark.",
