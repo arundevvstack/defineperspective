@@ -298,7 +298,7 @@ const DropdownPanel = ({
                             key={sub.name}
                             href={sub.href}
                             className={cn(
-                              "text-[10px] text-zinc-500 hover:text-primary-accent uppercase tracking-widest leading-loose transition-colors font-mono py-0.5",
+                              "text-[12px] text-zinc-500 hover:text-primary-accent uppercase tracking-normal leading-tight transition-colors font-mono py-1.5 block",
                               pathname === sub.href && "text-primary-accent"
                             )}
                           >
