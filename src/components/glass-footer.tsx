@@ -136,12 +136,13 @@ export default function GlassFooter() {
         </div>
 
         <div className="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-8 text-[10px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
-           <div className="flex flex-col md:flex-row gap-8 items-center">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
               <span>Define Perspective © 2026. All rights reserved.</span>
               <span className="flex items-center gap-2">
                  <Activity size={10} className="text-primary-accent animate-pulse" />
                  Total Visitors: 14,528+
               </span>
+              <span className="px-3 py-1 rounded bg-white/5 border border-white/10 text-[8px] font-black text-zinc-500">DP-2 V.6 BUILD</span>
            </div>
         </div>
       </div>

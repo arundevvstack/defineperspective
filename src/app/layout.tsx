@@ -5,11 +5,13 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const firaCode = Fira_Code({
   variable: "--font-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 import ThemeWrapper from "@/components/theme-wrapper";
@@ -63,8 +65,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preload" href="/images/main-logo.png" as="image" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://www.youtube-nocookie.com" />
         <link rel="preconnect" href="https://img.youtube.com" />
         <link rel="preconnect" href="https://s.ytimg.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />

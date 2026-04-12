@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import VideoHero from "@/components/video-hero";
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -120,14 +121,26 @@ export default function HomeContent() {
               </div>
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                  <div className="rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/10 aspect-[4/5] relative group">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200" className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-1000" alt="AI Video Production Company in Kerala" />
+                    <Image 
+                      src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200" 
+                      fill
+                      className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
+                      alt="AI Video Production Company in Kerala"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                     <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
                        <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] block mb-2">Service Excellence</span>
                        <h4 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">AI Content Lab</h4>
                     </div>
                  </div>
                  <div className="rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/10 aspect-[4/5] relative group lg:mt-24">
-                    <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=1200" className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-1000" alt="Best Video Production Company in Kerala" />
+                    <Image 
+                      src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=1200" 
+                      fill
+                      className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
+                      alt="Best Video Production Company in Kerala"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                     <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
                        <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] block mb-2">Cinematic Art</span>
                        <h4 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">Brand Film Hub</h4>
