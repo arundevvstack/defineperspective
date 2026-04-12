@@ -250,7 +250,7 @@ const DropdownPanel = ({
                 <div className="space-y-12">
                   <div>
                     <div className="h-0.5 w-12 bg-primary-accent mb-10" />
-                    <h3 className="text-[24px] font-bold text-white uppercase leading-[0.85] tracking-tighter mb-8">
+                    <h3 className="text-[24px] font-bold text-white uppercase leading-[0.75] tracking-tighter mb-8">
                       {title}
                     </h3>
                     <p className="text-[11px] text-zinc-500 mb-12 leading-[1.8] font-normal max-w-[240px] uppercase tracking-[0.2em] italic">
@@ -292,7 +292,7 @@ const DropdownPanel = ({
                           {getIcon(cat.name)}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <span className="block text-[14px] font-bold uppercase tracking-tight leading-none text-white group-hover/cat:text-primary-accent transition-colors">
+                          <span className="block text-[14px] font-bold uppercase tracking-tight leading-[0.85] text-white group-hover/cat:text-primary-accent transition-colors">
                             {cat.name}
                           </span>
                         </div>
@@ -303,7 +303,7 @@ const DropdownPanel = ({
                             key={sub.name}
                             href={sub.href}
                             className={cn(
-                              "text-[12px] text-zinc-500 hover:text-white uppercase tracking-normal leading-[0.8] transition-colors font-semibold py-0.5 block relative group/sub",
+                              "text-[12px] text-zinc-500 hover:text-white uppercase tracking-normal leading-[0.7] transition-colors font-semibold py-0.5 block relative group/sub",
                               pathname === sub.href && "text-primary-accent"
                             )}
                           >
@@ -517,7 +517,7 @@ export default function GlassNavbar() {
                                   <ul className="space-y-3 pl-2">
                                      {cat.subItems.map(sub => (
                                        <li key={sub.name}>
-                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.8] font-medium" onClick={() => setMobileMenu(false)}>
+                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.7] font-medium" onClick={() => setMobileMenu(false)}>
                                              {sub.name}
                                           </Link>
                                        </li>
@@ -552,7 +552,7 @@ export default function GlassNavbar() {
                                   <ul className="space-y-3 pl-2">
                                      {cat.subItems.map(sub => (
                                        <li key={sub.name}>
-                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.8] font-medium" onClick={() => setMobileMenu(false)}>
+                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.7] font-medium" onClick={() => setMobileMenu(false)}>
                                              {sub.name}
                                           </Link>
                                        </li>
