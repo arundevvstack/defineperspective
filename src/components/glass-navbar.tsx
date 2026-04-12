@@ -250,7 +250,7 @@ const DropdownPanel = ({
                 <div className="space-y-12">
                   <div>
                     <div className="h-0.5 w-12 bg-primary-accent mb-10" />
-                    <h3 className="text-[42px] font-black text-white uppercase leading-[0.85] tracking-tighter mb-8">
+                    <h3 className="text-[32px] font-black text-white uppercase leading-[0.85] tracking-tighter mb-8">
                       {title}
                     </h3>
                     <p className="text-[11px] text-zinc-500 mb-12 leading-[1.8] font-normal max-w-[240px] uppercase tracking-[0.2em] italic">
@@ -292,7 +292,7 @@ const DropdownPanel = ({
                           {getIcon(cat.name)}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <span className="block text-[22px] font-black uppercase tracking-tight leading-none text-white group-hover/cat:text-primary-accent transition-colors">
+                          <span className="block text-[18px] font-black uppercase tracking-tight leading-none text-white group-hover/cat:text-primary-accent transition-colors">
                             {cat.name}
                           </span>
                         </div>
@@ -360,7 +360,7 @@ const DropdownBackdrop = ({ isOpen }: { isOpen: boolean }) => (
 const NavTrigger = ({ title, isOpen, categories, pathname, href, onOpen, onClose }: any) => {
   const isActive = categories.some((cat: any) => pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href));
   return (
-    <Link href={href} className={cn("h-full flex items-center text-[13px] font-medium transition-all gap-1.5 py-4 uppercase outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} onMouseEnter={onOpen} onMouseLeave={onClose}>
+    <Link href={href} className={cn("h-full flex items-center text-[11px] font-medium transition-all gap-1.5 py-4 uppercase tracking-widest outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} onMouseEnter={onOpen} onMouseLeave={onClose}>
       {title} <motion.span animate={{ rotate: isOpen ? 180 : 0 }} className="text-[7px] opacity-40 ml-0.5 block">▼</motion.span>
     </Link>
   );
@@ -416,8 +416,8 @@ export default function GlassNavbar() {
           </Link>
 
           <div className="hidden items-center gap-10 lg:gap-14 md:flex h-full">
-            <Link href="/" className={cn("text-[13px] font-light uppercase", pathname === "/" ? "text-primary-accent" : "text-foreground/80")}>Home</Link>
-            <Link href="/about" className={cn("text-[13px] font-light uppercase", pathname === "/about" ? "text-primary-accent" : "text-foreground/80")}>About Us</Link>
+            <Link href="/" className={cn("text-[11px] font-light uppercase tracking-widest", pathname === "/" ? "text-primary-accent" : "text-foreground/80")}>Home</Link>
+            <Link href="/about" className={cn("text-[11px] font-light uppercase tracking-widest", pathname === "/about" ? "text-primary-accent" : "text-foreground/80")}>About Us</Link>
             
             <NavTrigger 
               title="VIDEO PRODUCTION SERVICES" 
@@ -439,8 +439,8 @@ export default function GlassNavbar() {
               onClose={handleClose} 
             />
 
-            <Link href="/portfolio" className={cn("text-[13px] font-light uppercase", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80")}>Portfolio</Link>
-            <Link href="/contact" className={cn("text-[13px] font-light uppercase", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80")}>Contact</Link>
+            <Link href="/portfolio" className={cn("text-[11px] font-light uppercase tracking-widest", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80")}>Portfolio</Link>
+            <Link href="/contact" className={cn("text-[11px] font-light uppercase tracking-widest", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80")}>Contact</Link>
           </div>
 
           <button className="md:hidden h-10 w-10 flex items-center justify-center text-zinc-400" onClick={() => setMobileMenu(!mobileMenu)}>
