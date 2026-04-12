@@ -303,7 +303,7 @@ const DropdownPanel = ({
                             key={sub.name}
                             href={sub.href}
                             className={cn(
-                              "text-[12px] text-zinc-500 hover:text-white uppercase tracking-normal leading-none transition-colors font-semibold py-1 block relative group/sub",
+                              "text-[12px] text-zinc-500 hover:text-white uppercase tracking-normal leading-[0.8] transition-colors font-semibold py-0.5 block relative group/sub",
                               pathname === sub.href && "text-primary-accent"
                             )}
                           >
@@ -517,7 +517,7 @@ export default function GlassNavbar() {
                                   <ul className="space-y-3 pl-2">
                                      {cat.subItems.map(sub => (
                                        <li key={sub.name}>
-                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[1.2] font-medium" onClick={() => setMobileMenu(false)}>
+                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.8] font-medium" onClick={() => setMobileMenu(false)}>
                                              {sub.name}
                                           </Link>
                                        </li>
@@ -552,7 +552,7 @@ export default function GlassNavbar() {
                                   <ul className="space-y-3 pl-2">
                                      {cat.subItems.map(sub => (
                                        <li key={sub.name}>
-                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[1.2] font-medium" onClick={() => setMobileMenu(false)}>
+                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.8] font-medium" onClick={() => setMobileMenu(false)}>
                                              {sub.name}
                                           </Link>
                                        </li>
