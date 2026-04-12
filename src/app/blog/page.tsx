@@ -164,7 +164,7 @@ export default function BlogsPage() {
 
                  <div className="pt-8 border-t border-white/5 mt-auto">
                     <Link 
-                      href={`/blogs/${blog.slug}`}
+                      href={`/blog/${blog.slug}`}
                       className="inline-flex items-center gap-4 text-[11px] font-black uppercase tracking-widest text-primary-accent group/btn"
                     >
                       Read more <ArrowRight size={14} className="group-hover/btn:translate-x-3 transition-transform" />

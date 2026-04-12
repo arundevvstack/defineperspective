@@ -257,18 +257,18 @@ const DropdownPanel = ({
                     </p>
 
                     <div className="space-y-4">
-                      <Link 
-                        href="/contact"
-                        className="h-16 px-10 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/btn hover:bg-primary-accent transition-all shadow-2xl"
-                      >
-                        Deploy Campaign <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" />
-                      </Link>
-                      <Link 
-                        href="https://wa.me/917012941696"
-                        className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/wa hover:border-[#25D366]/50 transition-all"
-                      >
-                        Direct Protocol <MessageCircle size={16} className="text-[#25D366] group-hover/wa:scale-125 transition-transform" />
-                      </Link>
+                        <Link 
+                          href="/contact"
+                          className="h-16 px-10 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/btn hover:bg-primary-accent transition-all shadow-2xl"
+                        >
+                          Get A Quote <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" />
+                        </Link>
+                        <Link 
+                          href="https://wa.me/917012941696"
+                          className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/wa hover:border-[#25D366]/50 transition-all"
+                        >
+                          Whatsapp Now <MessageCircle size={16} className="text-[#25D366] group-hover/wa:scale-125 transition-transform" />
+                        </Link>
                     </div>
                   </div>
                 </div>
@@ -331,7 +331,7 @@ const DropdownBackdrop = ({ isOpen }: { isOpen: boolean }) => (
 const NavTrigger = ({ title, isOpen, categories, pathname, href, onOpen, onClose }: any) => {
   const isActive = categories.some((cat: any) => pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href));
   return (
-    <Link href={href} className={cn("h-full flex items-center text-[10px] font-medium transition-all gap-1.5 py-2 uppercase tracking-[0.2em] outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} onMouseEnter={onOpen} onMouseLeave={onClose}>
+    <Link href={href} className={cn("h-full flex items-center text-[12px] font-normal transition-all gap-1.5 py-2 uppercase tracking-normal outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} onMouseEnter={onOpen} onMouseLeave={onClose}>
       {title} <motion.span animate={{ rotate: isOpen ? 180 : 0 }} className="text-[7px] opacity-40 ml-0.5 block">▼</motion.span>
     </Link>
   );
@@ -387,8 +387,8 @@ export default function GlassNavbar() {
           </Link>
 
           <div className="hidden items-center gap-10 lg:gap-14 md:flex h-full">
-            <Link href="/" className={cn("text-[10px] font-light uppercase tracking-[0.2em]", pathname === "/" ? "text-primary-accent" : "text-foreground/80")}>Home</Link>
-            <Link href="/about" className={cn("text-[10px] font-light uppercase tracking-[0.2em]", pathname === "/about" ? "text-primary-accent" : "text-foreground/80")}>About Us</Link>
+            <Link href="/" className={cn("text-[12px] font-normal uppercase tracking-normal", pathname === "/" ? "text-primary-accent" : "text-foreground/80")}>Home</Link>
+            <Link href="/about" className={cn("text-[12px] font-normal uppercase tracking-normal", pathname === "/about" ? "text-primary-accent" : "text-foreground/80")}>About Us</Link>
             
             <NavTrigger 
               title="VIDEO PRODUCTION SERVICES" 
@@ -410,8 +410,8 @@ export default function GlassNavbar() {
               onClose={handleClose} 
             />
 
-            <Link href="/portfolio" className={cn("text-[10px] font-light uppercase tracking-[0.2em]", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80")}>Portfolio</Link>
-            <Link href="/contact" className={cn("text-[10px] font-light uppercase tracking-[0.2em]", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80")}>Contact</Link>
+            <Link href="/portfolio" className={cn("text-[12px] font-normal uppercase tracking-normal", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80")}>Portfolio</Link>
+            <Link href="/contact" className={cn("text-[12px] font-normal uppercase tracking-normal", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80")}>Contact</Link>
           </div>
 
           <button className="md:hidden h-10 w-10 flex items-center justify-center text-zinc-400" onClick={() => setMobileMenu(!mobileMenu)}>
@@ -423,7 +423,7 @@ export default function GlassNavbar() {
       {/* Mega Menu Dropdowns - Moved outside nav for clean stacking context */}
       <DropdownPanel 
         isOpen={openMenu === "video"} 
-        title="Video Production Hub" 
+        title="Video Production" 
         description="Dominating the visual web with high-velocity media networks."
         categories={SERVICE_CATEGORIES} 
         pathname={pathname} 

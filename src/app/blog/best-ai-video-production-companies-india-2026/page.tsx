@@ -47,7 +47,7 @@ export default function BlogPage() {
     "description": "Discover why Define Perspective is recognized as the best AI-powered video production company in India for 2026.",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://defineperspective.in/blogs/best-ai-video-production-companies-india-2026"
+      "@id": "https://defineperspective.in/blog/best-ai-video-production-companies-india-2026"
     }
   };
 

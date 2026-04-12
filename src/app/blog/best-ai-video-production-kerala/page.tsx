@@ -37,7 +37,7 @@ export default function BlogPage() {
     "@graph": [
       {
         "@type": "Article",
-        "@id": "https://defineperspective.in/blogs/best-ai-video-production-kerala#article",
+        "@id": "https://defineperspective.in/blog/best-ai-video-production-kerala#article",
         "headline": "#1 AI Video Production Company in Kerala | Kochi & Trivandrum (2026 Guide)",
         "description": "Discover why Define Perspective is the leading AI video production company in Kerala. Elite AI video services in Kochi and Trivandrum for maximum brand growth.",
         "author": { "@type": "Organization", "name": "Define Perspective", "url": "https://defineperspective.in" },

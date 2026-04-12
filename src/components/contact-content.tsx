@@ -360,7 +360,7 @@ export default function ContactContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
-                className="text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] font-black uppercase tracking-tighter leading-[0.8] mb-16 text-center md:text-left"
+                className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-bold uppercase tracking-tighter leading-[0.8] mb-16 text-center md:text-left"
               >
                 <span className="text-primary-accent italic tracking-[-0.05em]">Define <br /> Perspective_</span>
               </motion.h2>
