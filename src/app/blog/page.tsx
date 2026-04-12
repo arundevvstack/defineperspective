@@ -8,6 +8,15 @@ import Link from "next/link";
 
 const BLOGS = [
   {
+    slug: "arun-devv-ai-media-consultant-india",
+    title: "Arun Devv: The Best AI Media Consultant in India for Scalable Brand Growth (2026)",
+    excerpt: "Discover how senior strategist Arun Devv builds scalable AI systems for brands in Kerala, Kochi and across India...",
+    date: "April 12, 2026",
+    author: "Define Editorial",
+    category: "Industry Profile",
+    image: "/images/arun-devv/arun-1.png"
+  },
+  {
     slug: "ai-video-production-future-india-2026",
     title: "Why AI Video Production is the Future of Indian Advertising: A 2026 Deep Dive (Featuring the Jeep Wrangler AI Ad)",
     excerpt: "Explore how DP AI Studios created the viral Jeep Wrangler AI ad and what it means for brands in India...",
@@ -107,7 +116,7 @@ export default function BlogsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-6xl md:text-[8rem] font-black uppercaseer leading-none mb-12">
+            <h1 className="text-6xl md:text-[8rem] font-black uppercase leading-none mb-12">
                BLOGS_
             </h1>
           </motion.div>
