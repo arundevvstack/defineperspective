@@ -352,7 +352,7 @@ export default function GlassNavbar() {
   const handleClose = () => {
     timerRef.current = setTimeout(() => {
       setOpenMenu(null);
-    }, 160);
+    }, 500); // Increased buffer to 500ms for more stable transitions
   };
 
   const keepOpen = () => {
@@ -378,7 +378,7 @@ export default function GlassNavbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[6000] border-b border-white/5 px-6 md:px-12 py-4 bg-obsidian/90 backdrop-blur-3xl transition-all duration-500">
+      <nav className="fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 bg-obsidian/90 backdrop-blur-3xl transition-all duration-500">
         <div className="w-full max-w-none flex h-12 items-center justify-between px-2 md:px-8">
           <Link href="/" className="group flex cursor-pointer items-center transition-all duration-500 hover:scale-105">
             <div className="w-[160px] md:w-[240px]">
@@ -420,25 +420,54 @@ export default function GlassNavbar() {
         </div>
       </nav>
       
-      {/* Mega Menu Dropdowns - Moved outside nav for clean stacking context */}
-      <DropdownPanel 
-        isOpen={openMenu === "video"} 
-        title="Video Production" 
-        description="Dominating the visual web with high-velocity media networks."
-        categories={SERVICE_CATEGORIES} 
-        pathname={pathname} 
-        onMouseEnter={keepOpen}
-        onMouseLeave={handleClose} 
-      />
-      <DropdownPanel 
-        isOpen={openMenu === "ai"} 
-        title="AI Studio Node" 
-        description="Neural-velocity production for high-stakes digital assets."
-        categories={AI_STUDIO_CATEGORIES} 
-        pathname={pathname} 
-        onMouseEnter={keepOpen}
-        onMouseLeave={handleClose} 
-      />
+      {/* Mega Menu Dropdowns - Integrated with AnimatePresence for robust mounting */}
+      <AnimatePresence>
+        {openMenu === "video" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed top-[76px] left-0 right-0 bottom-0 z-[9999]"
+            onMouseEnter={keepOpen}
+            onMouseLeave={handleClose}
+          >
+            <DropdownPanel 
+              isOpen={true} 
+              title="Video Production" 
+              description="Dominating the visual web with high-velocity media networks."
+              categories={SERVICE_CATEGORIES} 
+              pathname={pathname} 
+              onMouseEnter={keepOpen}
+              onMouseLeave={handleClose} 
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {openMenu === "ai" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed top-[76px] left-0 right-0 bottom-0 z-[9999]"
+            onMouseEnter={keepOpen}
+            onMouseLeave={handleClose}
+          >
+            <DropdownPanel 
+              isOpen={true} 
+              title="AI Studio Node" 
+              description="Neural-velocity production for high-stakes digital assets."
+              categories={AI_STUDIO_CATEGORIES} 
+              pathname={pathname} 
+              onMouseEnter={keepOpen}
+              onMouseLeave={handleClose} 
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <DropdownBackdrop isOpen={openMenu !== null} />
       
