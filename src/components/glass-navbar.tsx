@@ -246,7 +246,7 @@ const DropdownPanel = ({
           <div className="h-full grid grid-cols-1 lg:grid-cols-[340px_1fr]">
             {/* Col 1: Brand Identity */}
             <div className="hidden lg:flex flex-col h-full border-r border-white/5 bg-white/[0.01]">
-              <div className="flex flex-col justify-between h-full px-12 py-16 overflow-y-auto">
+              <div className="flex flex-col justify-between h-full px-12 py-16 overflow-y-auto no-scrollbar">
                 <div className="space-y-12">
                   <div>
                     <div className="h-0.5 w-12 bg-primary-accent mb-10" />
@@ -281,7 +281,7 @@ const DropdownPanel = ({
             </div>
 
             {/* Col 2: High-Density Links Grid */}
-            <div className="h-full overflow-y-auto px-8 lg:px-20 py-16 custom-scrollbar lg:col-span-1">
+            <div className="h-full overflow-y-auto px-8 lg:px-20 py-16 no-scrollbar lg:col-span-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-16">
                 {categories.map((cat) => {
                   const isActive = pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href);
@@ -393,6 +393,18 @@ export default function GlassNavbar() {
     setOpenMenu(null);
   }, [pathname]);
 
+  // Body lock Logic
+  useEffect(() => {
+    if (openMenu || mobileMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [openMenu, mobileMenu]);
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-[6000] border-b border-white/5 px-6 md:px-12 py-4 bg-obsidian/90 backdrop-blur-3xl transition-all duration-500">
@@ -479,7 +491,7 @@ export default function GlassNavbar() {
             >
                <button onClick={() => setMobileMenu(false)} className="absolute top-6 right-6 text-zinc-400 hover:text-white"><X size={28} /></button>
                
-               <div className="flex flex-col gap-6 flex-1 overflow-y-auto hide-scrollbar">
+               <div className="flex flex-col gap-6 flex-1 overflow-y-auto no-scrollbar">
                   <Link href="/" className="text-base font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Home_</Link>
                   <Link href="/about" className="text-base font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>About_</Link>
                   
