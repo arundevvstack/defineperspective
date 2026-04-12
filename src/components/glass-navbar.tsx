@@ -244,63 +244,70 @@ const DropdownPanel = ({
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary-accent/80 to-transparent z-10 pointer-events-none" />
         <div className="flex-1 overflow-hidden">
           <div className="h-full grid grid-cols-1 lg:grid-cols-[340px_1fr]">
-            {/* Col 1 */}
-            <div className="hidden lg:flex flex-col h-full border-r border-white/5">
-              <div className="flex flex-col justify-between h-full px-14 py-16 overflow-y-auto">
+            {/* Col 1: Brand Identity */}
+            <div className="hidden lg:flex flex-col h-full border-r border-white/5 bg-white/[0.01]">
+              <div className="flex flex-col justify-between h-full px-12 py-16 overflow-y-auto">
                 <div className="space-y-12">
                   <div>
-                    <h3 className="text-[34px] font-black text-white uppercase leading-[0.88] tracking-tight mb-6">
+                    <div className="h-0.5 w-12 bg-primary-accent mb-10" />
+                    <h3 className="text-[42px] font-black text-white uppercase leading-[0.85] tracking-tighter mb-8">
                       {title}
                     </h3>
-                    <p className="text-[13px] text-zinc-500 mb-10 leading-[1.7] font-normal max-w-[220px] uppercase italic tracking-widest text-[10px]">
+                    <p className="text-[11px] text-zinc-500 mb-12 leading-[1.8] font-normal max-w-[240px] uppercase tracking-[0.2em] italic">
                       {description}
                     </p>
 
                     <div className="space-y-4">
                       <Link 
                         href="/contact"
-                        className="h-14 px-8 rounded-xl bg-primary-accent text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:scale-105 transition-all shadow-lg"
+                        className="h-16 px-10 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/btn hover:bg-primary-accent transition-all shadow-2xl"
                       >
-                        Scale Your Brand Now <ArrowRight size={14} />
+                        Deploy Campaign <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" />
                       </Link>
                       <Link 
                         href="https://wa.me/917012941696"
-                        className="h-14 px-8 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:bg-white/10 transition-all"
+                        className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/wa hover:border-[#25D366]/50 transition-all"
                       >
-                        Protocol Start <MessageCircle size={14} className="text-[#25D366]" />
+                        Direct Protocol <MessageCircle size={16} className="text-[#25D366] group-hover/wa:scale-125 transition-transform" />
                       </Link>
                     </div>
                   </div>
                 </div>
+                
+                <div className="pt-12 border-t border-white/5">
+                   <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Define Perspective © 2026</span>
+                </div>
               </div>
             </div>
 
-            <div className="h-full overflow-y-auto px-8 lg:px-16 py-16 custom-scrollbar">
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-20 gap-y-16">
+            {/* Col 2: High-Density Links Grid */}
+            <div className="h-full overflow-y-auto px-8 lg:px-20 py-16 custom-scrollbar lg:col-span-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-16">
                 {categories.map((cat) => {
                   const isActive = pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href);
                   return (
                     <div key={cat.name} className="group/cat transition-all">
-                      <Link href={cat.href} className="flex items-start gap-4 mb-6 group/link">
-                        <div className={cn("shrink-0 p-2.5 rounded-xl mt-0.5", isActive ? "bg-primary-accent/20 text-primary-accent" : "bg-white/[0.04] text-zinc-500 group-hover/cat:text-primary-accent")}>
+                      <Link href={cat.href} className="flex items-center gap-5 mb-8 group/link">
+                        <div className={cn("shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500", isActive ? "bg-primary-accent text-black scale-110 shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.4)]" : "bg-white/[0.03] text-zinc-500 group-hover/cat:bg-white group-hover/cat:text-black")}>
                           {getIcon(cat.name)}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <span className="block text-[19px] font-black uppercase tracking-[0.06em] leading-tight text-white group-hover/cat:text-primary-accent transition-colors">
+                          <span className="block text-[22px] font-black uppercase tracking-tight leading-none text-white group-hover/cat:text-primary-accent transition-colors">
                             {cat.name}
                           </span>
                         </div>
                       </Link>
-                      <div className="grid gap-x-6 gap-y-2 pl-14">
+                      <div className="grid gap-y-3 pl-[68px]">
                         {cat.subItems.map((sub: any) => (
                           <Link
                             key={sub.name}
                             href={sub.href}
                             className={cn(
-                              "text-[12px] text-zinc-500 hover:text-primary-accent uppercase tracking-normal leading-[1.2] transition-colors font-medium py-1 block",
+                              "text-[12px] text-zinc-500 hover:text-white uppercase tracking-normal leading-none transition-colors font-semibold py-1 block relative group/sub",
                               pathname === sub.href && "text-primary-accent"
                             )}
                           >
+                            <span className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-px bg-primary-accent scale-x-0 group-hover/sub:scale-x-100 transition-transform origin-left" />
                             {sub.name}
                           </Link>
                         ))}
@@ -309,6 +316,35 @@ const DropdownPanel = ({
                   );
                 })}
               </div>
+            </div>
+
+            {/* Col 3: Advantage Sidebar (Hidden on smaller LG) */}
+            <div className="hidden xl:flex flex-col h-full border-l border-white/5 bg-black/40 p-16 w-[340px]">
+               <h4 className="text-[10px] font-black text-primary-accent uppercase tracking-[0.3em] mb-12">The Studio Advantage_</h4>
+               <div className="space-y-10">
+                  {[
+                    { t: "Neural Mastery", d: "Proprietary AI pipelines for hyper-realistic brands.", i: Cpu },
+                    { t: "Cinematic Core", d: "Hollywood-standard lighting and camera mastery.", i: Play },
+                    { t: "High Velocity", d: "4x faster delivery cycles with AI-assisted post.", i: Zap }
+                  ].map(item => (
+                    <div key={item.t} className="space-y-3 group/adv">
+                       <div className="flex items-center gap-3">
+                          <item.i size={14} className="text-white group-hover/adv:text-primary-accent transition-colors" />
+                          <h5 className="text-[11px] font-bold text-white uppercase tracking-widest">{item.t}</h5>
+                       </div>
+                       <p className="text-[10px] text-zinc-600 leading-relaxed uppercase tracking-tighter">
+                          {item.d}
+                       </p>
+                    </div>
+                  ))}
+               </div>
+               
+               <div className="mt-auto pt-12 border-t border-white/5">
+                  <div className="p-6 rounded-2xl bg-primary-accent/5 border border-primary-accent/10">
+                     <p className="text-[9px] text-zinc-400 uppercase tracking-widest leading-relaxed mb-4">Ready to pioneer the future of vision?</p>
+                     <Link href="/contact" className="text-[10px] font-black text-primary-accent uppercase tracking-widest hover:underline flex items-center gap-2">Initiate Phase 1 <ArrowRight size={12} /></Link>
+                  </div>
+               </div>
             </div>
           </div>
         </div>
