@@ -244,16 +244,15 @@ const DropdownPanel = ({
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary-accent/80 to-transparent z-10 pointer-events-none" />
         <div className="flex-1 overflow-hidden">
           <div className="h-full grid grid-cols-1 lg:grid-cols-[340px_1fr]">
-            {/* Col 1: Brand Identity */}
             <div className="hidden lg:flex flex-col h-full border-r border-white/5 bg-white/[0.01]">
-              <div className="flex flex-col justify-between h-full px-12 py-16 overflow-y-auto no-scrollbar">
+              <div className="flex flex-col justify-between h-full px-12 py-8 overflow-y-auto no-scrollbar">
                 <div className="space-y-12">
                   <div>
-                    <div className="h-0.5 w-12 bg-primary-accent mb-10" />
-                    <h3 className="text-[24px] font-bold text-white uppercase leading-[0.75] tracking-tighter mb-8">
+                    <div className="h-0.5 w-12 bg-primary-accent mb-5" />
+                    <h3 className="text-[24px] font-bold text-white uppercase leading-[0.75] tracking-tighter mb-4">
                       {title}
                     </h3>
-                    <p className="text-[11px] text-zinc-500 mb-12 leading-[1.8] font-normal max-w-[240px] uppercase tracking-[0.2em] italic">
+                    <p className="text-[11px] text-zinc-500 mb-6 leading-[1.8] font-normal max-w-[240px] uppercase tracking-[0.2em] italic">
                       {description}
                     </p>
 
@@ -281,13 +280,13 @@ const DropdownPanel = ({
             </div>
 
             {/* Col 2: High-Density Links Grid */}
-            <div className="h-full overflow-y-auto px-8 lg:px-20 py-16 no-scrollbar lg:col-span-1">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+            <div className="h-full overflow-y-auto px-8 lg:px-20 py-8 no-scrollbar lg:col-span-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
                 {categories.map((cat) => {
                   const isActive = pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href);
                   return (
                     <div key={cat.name} className="group/cat transition-all">
-                      <Link href={cat.href} className="flex items-center gap-5 mb-8 group/link">
+                      <Link href={cat.href} className="flex items-center gap-5 mb-4 group/link">
                         <div className={cn("shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500", isActive ? "bg-primary-accent text-black scale-110 shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.4)]" : "bg-white/[0.03] text-zinc-500 group-hover/cat:bg-white group-hover/cat:text-black")}>
                           {getIcon(cat.name)}
                         </div>
@@ -318,34 +317,6 @@ const DropdownPanel = ({
               </div>
             </div>
 
-            {/* Col 3: Advantage Sidebar (Hidden on smaller LG) */}
-            <div className="hidden xl:flex flex-col h-full border-l border-white/5 bg-black/40 p-16 w-[340px]">
-               <h4 className="text-[10px] font-black text-primary-accent uppercase tracking-[0.3em] mb-12">The Studio Advantage_</h4>
-               <div className="space-y-10">
-                  {[
-                    { t: "Neural Mastery", d: "Proprietary AI pipelines for hyper-realistic brands.", i: Cpu },
-                    { t: "Cinematic Core", d: "Hollywood-standard lighting and camera mastery.", i: Play },
-                    { t: "High Velocity", d: "4x faster delivery cycles with AI-assisted post.", i: Zap }
-                  ].map(item => (
-                    <div key={item.t} className="space-y-3 group/adv">
-                       <div className="flex items-center gap-3">
-                          <item.i size={14} className="text-white group-hover/adv:text-primary-accent transition-colors" />
-                          <h5 className="text-[11px] font-bold text-white uppercase tracking-widest">{item.t}</h5>
-                       </div>
-                       <p className="text-[10px] text-zinc-600 leading-relaxed uppercase tracking-tighter">
-                          {item.d}
-                       </p>
-                    </div>
-                  ))}
-               </div>
-               
-               <div className="mt-auto pt-12 border-t border-white/5">
-                  <div className="p-6 rounded-2xl bg-primary-accent/5 border border-primary-accent/10">
-                     <p className="text-[9px] text-zinc-400 uppercase tracking-widest leading-relaxed mb-4">Ready to pioneer the future of vision?</p>
-                     <Link href="/contact" className="text-[10px] font-black text-primary-accent uppercase tracking-widest hover:underline flex items-center gap-2">Initiate Phase 1 <ArrowRight size={12} /></Link>
-                  </div>
-               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -360,7 +331,7 @@ const DropdownBackdrop = ({ isOpen }: { isOpen: boolean }) => (
 const NavTrigger = ({ title, isOpen, categories, pathname, href, onOpen, onClose }: any) => {
   const isActive = categories.some((cat: any) => pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href));
   return (
-    <Link href={href} className={cn("h-full flex items-center text-[10px] font-medium transition-all gap-1.5 py-4 uppercase tracking-[0.2em] outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} onMouseEnter={onOpen} onMouseLeave={onClose}>
+    <Link href={href} className={cn("h-full flex items-center text-[10px] font-medium transition-all gap-1.5 py-2 uppercase tracking-[0.2em] outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} onMouseEnter={onOpen} onMouseLeave={onClose}>
       {title} <motion.span animate={{ rotate: isOpen ? 180 : 0 }} className="text-[7px] opacity-40 ml-0.5 block">▼</motion.span>
     </Link>
   );
@@ -487,7 +458,7 @@ export default function GlassNavbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[85vw] max-w-[400px] bg-zinc-950 border-l border-white/10 z-[6001] p-8 pt-24 shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 h-full w-[85vw] max-w-[400px] bg-zinc-950 border-l border-white/10 z-[6001] p-8 pt-12 shadow-2xl flex flex-col"
             >
                <button onClick={() => setMobileMenu(false)} className="absolute top-6 right-6 text-zinc-400 hover:text-white"><X size={28} /></button>
                
@@ -509,12 +480,12 @@ export default function GlassNavbar() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="pl-4 space-y-6 overflow-hidden pt-4 border-l border-white/5"
+                            className="pl-4 space-y-3 overflow-hidden pt-4 border-l border-white/5"
                           >
                              {SERVICE_CATEGORIES.map(cat => (
-                               <div key={cat.name} className="space-y-3">
+                               <div key={cat.name} className="space-y-1.5">
                                   <span className="text-[10px] font-black uppercase tracking-widest text-primary-accent">{cat.name}</span>
-                                  <ul className="space-y-3 pl-2">
+                                  <ul className="space-y-1.5 pl-2">
                                      {cat.subItems.map(sub => (
                                        <li key={sub.name}>
                                           <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.7] font-medium" onClick={() => setMobileMenu(false)}>
@@ -544,12 +515,12 @@ export default function GlassNavbar() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="pl-4 space-y-6 overflow-hidden pt-4 border-l border-white/5"
+                            className="pl-4 space-y-3 overflow-hidden pt-4 border-l border-white/5"
                           >
                              {AI_STUDIO_CATEGORIES.map(cat => (
-                               <div key={cat.name} className="space-y-3">
+                               <div key={cat.name} className="space-y-1.5">
                                   <span className="text-[10px] font-black uppercase tracking-widest text-primary-accent">{cat.name}</span>
-                                  <ul className="space-y-3 pl-2">
+                                  <ul className="space-y-1.5 pl-2">
                                      {cat.subItems.map(sub => (
                                        <li key={sub.name}>
                                           <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.7] font-medium" onClick={() => setMobileMenu(false)}>
@@ -569,7 +540,7 @@ export default function GlassNavbar() {
                   <Link href="/contact" className="text-base font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Contact_</Link>
                </div>
 
-               <div className="mt-12 pt-12 border-t border-white/10 space-y-6">
+               <div className="mt-6 pt-6 border-t border-white/10 space-y-3">
                   <Link 
                     href="https://wa.me/917012941696"
                     className="flex items-center gap-4 text-zinc-500 hover:text-white group transition-all"
