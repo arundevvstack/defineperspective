@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, MessageCircle, Play, Sparkles, Target, Zap, Shield, Cpu, BarChart3, Star, Award, Search, Clapperboard, MonitorPlay, BrainCircuit, Globe, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -339,10 +339,14 @@ const NavTrigger = ({ title, isOpen, categories, pathname, href, onOpen, onClose
 
 export default function GlassNavbar() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [openMenu, setOpenMenu] = useState<"video" | "ai" | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // AI Mode Logic: Trigger when on AI pages OR when AI menu is open
+  const isAiMode = pathname.includes("/ai-") || openMenu === "ai" || (pathname === "/portfolio" && searchParams.get("view") === "ai");
 
   const handleOpen = (menu: "video" | "ai") => {
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -352,7 +356,7 @@ export default function GlassNavbar() {
   const handleClose = () => {
     timerRef.current = setTimeout(() => {
       setOpenMenu(null);
-    }, 500); // Increased buffer to 500ms for more stable transitions
+    }, 500); 
   };
 
   const keepOpen = () => {
@@ -364,8 +368,12 @@ export default function GlassNavbar() {
     setOpenMenu(null);
   }, [pathname]);
 
-  // Body lock Logic
+  // Handle Dynamic Theme Switching based on Interaction + Path
   useEffect(() => {
+    const themeClass = isAiMode ? "theme-blue" : "theme-red";
+    document.body.classList.remove("theme-red", "theme-blue");
+    document.body.classList.add(themeClass);
+    
     if (openMenu || mobileMenu) {
       document.body.style.overflow = "hidden";
     } else {
@@ -374,21 +382,31 @@ export default function GlassNavbar() {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [openMenu, mobileMenu]);
+  }, [openMenu, mobileMenu, isAiMode]);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 bg-obsidian/90 backdrop-blur-3xl transition-all duration-500">
+      <nav className={cn(
+        "fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 backdrop-blur-3xl transition-all duration-500",
+        isAiMode ? "bg-blue-900/10" : "bg-obsidian/90"
+      )}>
         <div className="w-full max-w-none flex h-12 items-center justify-between px-2 md:px-8">
           <Link href="/" className="group flex cursor-pointer items-center transition-all duration-500 hover:scale-105">
             <div className="w-[160px] md:w-[240px]">
-              <Image src="/images/main-logo.png" alt="Define Perspective" width={240} height={76} className="object-contain" priority />
+              <Image 
+                src={isAiMode ? "/images/ai-logo.png" : "/images/main-logo.png"} 
+                alt="Define Perspective" 
+                width={240} 
+                height={76} 
+                className="object-contain" 
+                priority 
+              />
             </div>
           </Link>
 
           <div className="hidden items-center gap-10 lg:gap-14 md:flex h-full">
-            <Link href="/" className={cn("text-[12px] font-normal uppercase tracking-normal", pathname === "/" ? "text-primary-accent" : "text-foreground/80")}>Home</Link>
-            <Link href="/about" className={cn("text-[12px] font-normal uppercase tracking-normal", pathname === "/about" ? "text-primary-accent" : "text-foreground/80")}>About Us</Link>
+            <Link href="/" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/" ? "text-primary-accent" : "text-foreground/80")}>Home</Link>
+            <Link href="/about" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/about" ? "text-primary-accent" : "text-foreground/80")}>About Us</Link>
             
             <NavTrigger 
               title="VIDEO PRODUCTION SERVICES" 
@@ -410,8 +428,8 @@ export default function GlassNavbar() {
               onClose={handleClose} 
             />
 
-            <Link href="/portfolio" className={cn("text-[12px] font-normal uppercase tracking-normal", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80")}>Portfolio</Link>
-            <Link href="/contact" className={cn("text-[12px] font-normal uppercase tracking-normal", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80")}>Contact</Link>
+            <Link href="/portfolio" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80")}>Portfolio</Link>
+            <Link href="/contact" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80")}>Contact</Link>
           </div>
 
           <button className="md:hidden h-10 w-10 flex items-center justify-center text-zinc-400" onClick={() => setMobileMenu(!mobileMenu)}>
