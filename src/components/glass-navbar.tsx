@@ -275,14 +275,13 @@ const DropdownPanel = ({
               </div>
             </div>
 
-            {/* Col 2 */}
-            <div className="h-full overflow-y-auto px-8 lg:px-12 py-12 custom-scrollbar">
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-4">
+            <div className="h-full overflow-y-auto px-8 lg:px-16 py-16 custom-scrollbar">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-20 gap-y-16">
                 {categories.map((cat) => {
                   const isActive = pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href);
                   return (
-                    <div key={cat.name} className="group/cat border-b border-white/[0.05] py-6 last:border-0 transition-all">
-                      <Link href={cat.href} className="flex items-start gap-4 mb-4 group/link">
+                    <div key={cat.name} className="group/cat transition-all">
+                      <Link href={cat.href} className="flex items-start gap-4 mb-6 group/link">
                         <div className={cn("shrink-0 p-2.5 rounded-xl mt-0.5", isActive ? "bg-primary-accent/20 text-primary-accent" : "bg-white/[0.04] text-zinc-500 group-hover/cat:text-primary-accent")}>
                           {getIcon(cat.name)}
                         </div>
@@ -368,7 +367,7 @@ export default function GlassNavbar() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-6 lg:gap-8 md:flex h-full">
+          <div className="hidden items-center gap-10 lg:gap-14 md:flex h-full">
             <Link href="/" className={cn("text-[13px] font-light uppercase", pathname === "/" ? "text-primary-accent" : "text-foreground/80")}>Home</Link>
             <Link href="/about" className={cn("text-[13px] font-light uppercase", pathname === "/about" ? "text-primary-accent" : "text-foreground/80")}>About Us</Link>
             
