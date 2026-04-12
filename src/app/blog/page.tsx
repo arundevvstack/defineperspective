@@ -14,7 +14,7 @@ const BLOGS = [
     date: "April 12, 2026",
     author: "Define Editorial",
     category: "Industry Profile",
-    image: "/images/arun-devv/arun-1.png"
+    image: "/images/arun-devv/arun-4.jpg"
   },
   {
     slug: "ai-video-production-future-india-2026",

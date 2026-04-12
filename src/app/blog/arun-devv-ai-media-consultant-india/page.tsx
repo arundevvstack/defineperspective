@@ -32,7 +32,7 @@ export default function ArunDevvConsultantBlog() {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": blogTitle,
-    "image": "https://defineperspective.in/images/arun-devv/arun-1.png",
+    "image": "https://defineperspective.in/images/arun-devv/arun-4.jpg",
     "author": {
       "@type": "Person",
       "name": "Arun Devv",
@@ -90,7 +90,7 @@ export default function ArunDevvConsultantBlog() {
            className="relative aspect-[16/7] rounded-[4rem] overflow-hidden border border-white/10 bg-zinc-900 group shadow-[0_0_100px_-20px_rgba(255,255,255,0.05)]"
          >
             <Image 
-              src="/images/arun-devv/arun-1.png" 
+              src="/images/arun-devv/arun-4.jpg" 
               alt="Arun Devv - India's Best AI Media Consultant"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-[2s]"
