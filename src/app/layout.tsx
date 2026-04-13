@@ -18,6 +18,8 @@ import ThemeWrapper from "@/components/theme-wrapper";
 import GlassFooter from "@/components/glass-footer";
 import GlobalTacticalHUD from "@/components/global-tactical-hud";
 import MatrixRain from "@/components/matrix-rain";
+import ThemeInitializer from "@/components/theme-initializer";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "AI Video Production Company in Kerala | Media Production Studio India",
@@ -63,9 +65,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preload" href="/images/main-logo.png" as="image" />
+
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://www.youtube-nocookie.com" />
@@ -77,9 +80,12 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://s.ytimg.com" />
       </head>
       <body
-        className={`${inter.variable} ${firaCode.variable} antialiased font-sans theme-red overflow-x-hidden`}
+        className={`${inter.variable} ${firaCode.variable} antialiased font-sans overflow-x-hidden`}
         suppressHydrationWarning
       >
+        <Suspense fallback={null}>
+          <ThemeInitializer />
+        </Suspense>
         <ThemeWrapper>
           <MatrixRain />
           <GlobalTacticalHUD />

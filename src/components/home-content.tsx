@@ -44,7 +44,7 @@ export default function HomeContent() {
       {/* High-Ranking SEO Block (Crucial for AI Search & Authority) */}
       <section className="py-20 px-6 md:px-12 bg-zinc-950 border-b border-white/5 relative z-10 text-center">
         <div className="container mx-auto max-w-4xl">
-           <p className="text-zinc-500 font-normal italic text-xs md:text-sm leading-relaxed uppercase tracking-widest">
+           <p className="text-zinc-400 font-normal italic text-xs md:text-sm leading-relaxed uppercase tracking-widest">
               We are a leading <span className="text-white font-bold">video production company in Kerala</span> offering end-to-end media production services, including TV commercial production, brand film production, and corporate video production. Our <span className="text-white font-bold">AI-powered video production studio in Kochi</span> combines cinematic storytelling with generative AI workflows to deliver scalable, high-performance content for brands across India.
            </p>
         </div>
@@ -66,23 +66,23 @@ export default function HomeContent() {
                    Based in <span className="text-white font-bold">Kochi and Trivandrum</span>, we serve brands across India. We provide TV commercial production, corporate video production, and AI-generated content designed to increase engagement, conversions, and brand authority.
                 </p>
                 <div className="flex flex-wrap gap-3 md:gap-4 pt-4">
-                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-500">Kochi & Trivandrum</div>
-                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-500">National Reach</div>
-                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-500">AI Innovation</div>
+                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-400">Kochi & Trivandrum</div>
+                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-400">National Reach</div>
+                   <div className="px-5 py-2 rounded-xl border border-white/10 bg-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-400">AI Innovation</div>
                 </div>
              </div>
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                 {[
-                  { t: "TV Commercial Production", d: "H3: Broadcast-quality ad films", i: Play },
-                  { t: "AI Video Production", d: "H3: High-speed AI content", i: Cpu },
-                  { t: "Corporate Brand Films", d: "H3: Professional storytelling", i: Star },
-                  { t: "Digital Ad Creatives", d: "H3: Performance-driven ads", i: Zap }
+                  { t: "TV Commercial Production", d: "Broadcast-quality ad films", i: Play },
+                  { t: "AI Video Production", d: "High-speed AI content", i: Cpu },
+                  { t: "Corporate Brand Films", d: "Professional storytelling", i: Star },
+                  { t: "Digital Ad Creatives", d: "Performance-driven ads", i: Zap }
                 ].map(item => (
                   <div key={item.t} className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-col gap-4 group hover:bg-primary-accent/5 transition-all">
-                     <item.i size={20} className="text-primary-accent" />
+                     <item.i size={20} className="text-primary-accent" aria-hidden="true" />
                      <div className="space-y-1">
-                        <h4 className="text-sm font-bold uppercase tracking-widest block text-white">{item.t}</h4>
-                        <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">{item.d}</span>
+                        <h3 className="text-sm font-bold uppercase tracking-widest block text-white">{item.t}</h3>
+                        <p className="text-[10px] text-zinc-400 uppercase tracking-widest font-mono">{item.d}</p>
                      </div>
                   </div>
                 ))}
@@ -122,28 +122,28 @@ export default function HomeContent() {
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                  <div className="rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/10 aspect-[4/5] relative group">
                     <Image 
-                      src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200" 
+                      src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=75&w=800" 
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
-                      alt="AI Video Production Company in Kerala"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      alt="Professional working on AI video production in Kochi studio"
+                      sizes="(max-width: 768px) 100vw, 30vw"
                     />
                     <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
                        <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] block mb-2">Service Excellence</span>
-                       <h4 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">AI Content Lab</h4>
+                       <h3 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">AI Content Lab</h3>
                     </div>
                  </div>
                  <div className="rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/10 aspect-[4/5] relative group lg:mt-24">
                     <Image 
-                      src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=1200" 
+                      src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=75&w=800" 
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
-                      alt="Best Video Production Company in Kerala"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      alt="High-end cinematic camera setup for brand film production Kerala"
+                      sizes="(max-width: 768px) 100vw, 30vw"
                     />
                     <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
                        <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] block mb-2">Cinematic Art</span>
-                       <h4 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">Brand Film Hub</h4>
+                       <h3 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">Brand Film Hub</h3>
                     </div>
                  </div>
               </div>
@@ -168,7 +168,7 @@ export default function HomeContent() {
                 <div key={adv.t} className="p-8 md:p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-primary-accent/30 transition-all group">
                    <adv.i size={24} className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" />
                    <h3 className="text-lg font-bold uppercase tracking-widest text-white mb-4 group-hover:text-primary-accent transition-colors">{adv.t}</h3>
-                   <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed font-normal">{adv.d}</p>
+                   <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed font-normal">{adv.d}</p>
                 </div>
               ))}
            </div>
@@ -213,26 +213,26 @@ export default function HomeContent() {
             {/* Right: Technical Stats / Feature Cards */}
             <div className="lg:col-span-4 lg:pt-12">
               <div className="grid grid-cols-1 gap-6">
-                <div className="group p-8 rounded-3xl bg-zinc-900/40 border border-white/5 backdrop-blur-md hover:border-primary-accent/20 transition-all duration-500">
+                 <div className="group p-8 rounded-3xl bg-zinc-900/40 border border-white/5 backdrop-blur-md hover:border-primary-accent/20 transition-all duration-500">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-10 h-10 rounded-full bg-primary-accent/10 flex items-center justify-center text-primary-accent">
-                      <Cpu size={18} />
+                      <Cpu size={18} aria-hidden="true" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Neural Engine</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Neural Engine</span>
                   </div>
-                  <h4 className="text-white font-bold uppercase tracking-wider mb-2">AI-Powered Studio</h4>
-                  <p className="text-xs text-zinc-500 leading-relaxed uppercase tracking-tighter">Proprietary generative workflows for visual scaling.</p>
+                  <h3 className="text-white font-bold uppercase tracking-wider mb-2">AI-Powered Studio</h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed uppercase tracking-tighter">Proprietary generative workflows for visual scaling.</p>
                 </div>
 
                 <div className="group p-8 rounded-3xl bg-zinc-900/40 border border-white/5 backdrop-blur-md hover:border-primary-accent/20 transition-all duration-500">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-10 h-10 rounded-full bg-primary-accent/10 flex items-center justify-center text-primary-accent">
-                      <Zap size={18} />
+                      <Zap size={18} aria-hidden="true" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Cinematic Mesh</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Cinematic Mesh</span>
                   </div>
-                  <h4 className="text-white font-bold uppercase tracking-wider mb-2">End-to-End Media</h4>
-                  <p className="text-xs text-zinc-500 leading-relaxed uppercase tracking-tighter">Full-spectrum TVC & Brand Film production cycle.</p>
+                  <h3 className="text-white font-bold uppercase tracking-wider mb-2">End-to-End Media</h3>
+                  <p className="text-xs text-zinc-400 leading-relaxed uppercase tracking-tighter">Full-spectrum TVC & Brand Film production cycle.</p>
                 </div>
                 
                 <Link 
@@ -268,7 +268,7 @@ export default function HomeContent() {
                  <div key={adv.t} className="p-8 md:p-10 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-primary-accent/30 transition-all group hover:bg-white/[0.04]">
                     <adv.i size={24} className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" />
                     <h4 className="text-base md:text-lg font-bold uppercase tracking-widest text-white mb-4 group-hover:text-primary-accent transition-colors">{adv.t}</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed font-normal">{adv.d}</p>
+                    <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed font-normal">{adv.d}</p>
                  </div>
                ))}
             </div>
@@ -289,9 +289,9 @@ export default function HomeContent() {
               { l: "Industries", v: "55+", i: Building2 }
             ].map(m => (
               <div key={m.l} className="flex flex-col items-center p-8 md:p-10 rounded-3xl bg-white/[0.01] border border-white/5 group hover:bg-white hover:text-black transition-all duration-300">
-                <m.i size={20} className="text-primary-accent mb-6" />
+                <m.i size={20} className="text-primary-accent mb-6" aria-hidden="true" />
                 <span className="text-2xl md:text-3xl font-black mb-2">{m.v}</span>
-                <span className="text-[8px] font-mono uppercase tracking-[0.2em] text-zinc-600 group-hover:text-zinc-500">{m.l}</span>
+                <span className="text-[8px] font-mono uppercase tracking-[0.2em] text-zinc-400 group-hover:text-zinc-600">{m.l}</span>
               </div>
             ))}
           </div>
@@ -310,12 +310,12 @@ export default function HomeContent() {
               tag="Initialize Mission" 
               title={<>Start Your <br /><span className="text-primary-accent italic">Project Now_</span></>}
             />
-            <p className="text-zinc-500 font-normal uppercase text-sm tracking-[0.2em] md:tracking-[0.4em] mb-16 md:mb-20 max-w-2xl mx-auto">
+            <p className="text-zinc-400 font-normal uppercase text-sm tracking-[0.2em] md:tracking-[0.4em] mb-16 md:mb-20 max-w-2xl mx-auto">
               Are you ready for national-level brand films and high-speed AI content? Partner with the best video production company in Kerala.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-               <Link href="/portfolio" className="h-20 md:h-24 rounded-2xl md:rounded-3xl bg-white text-black font-black uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl">See Our Portfolio <ArrowRight size={18} /></Link>
-               <Link href="/contact" className="h-20 md:h-24 rounded-2xl md:rounded-3xl bg-primary-accent text-black font-black uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl shadow-primary-accent/20">Get a Quote <MessageCircle size={18} /></Link>
+               <Link href="/portfolio" className="h-20 md:h-24 rounded-2xl md:rounded-3xl bg-white text-black font-black uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl" aria-label="View our portfolio of cinematic and AI films">See Our Portfolio <ArrowRight size={18} aria-hidden="true" /></Link>
+               <Link href="/contact" className="h-20 md:h-24 rounded-2xl md:rounded-3xl bg-primary-accent text-black font-black uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl shadow-primary-accent/20" aria-label="Get a custom quote for your video project">Get a Quote <MessageCircle size={18} aria-hidden="true" /></Link>
             </div>
         </div>
       </section>

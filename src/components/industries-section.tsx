@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Building2, ShoppingCart, UtensilsCrossed, HeartPulse, GraduationCap, CarFront, Hotel, ArrowUpRight, Cpu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const industries = [
   {
@@ -77,7 +78,7 @@ whileInView={{ opacity: 1, scale: 1 }}
           >
             Industries <br /><span className="text-primary-accent italic">We Serve_</span>
           </motion.h2>
-          <p className="text-base md:text-xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
+          <p className="text-base md:text-xl text-zinc-400 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
             As a <span className="text-white font-bold">video production company in Kerala</span> based in Kochi and Trivandrum, we build AI-powered video solutions tailored for high-growth sectors across India.
           </p>
         </div>
@@ -86,36 +87,37 @@ whileInView={{ opacity: 1, scale: 1 }}
            {industries.map((item, idx) => (
              <motion.div
                key={item.id}
-               
-whileInView={{ opacity: 1, scale: 1 }}
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true }}
                transition={{ delay: idx * 0.05 }}
-               onClick={() => window.location.href = item.href}
-               className="group relative cursor-pointer"
+               className="group relative"
              >
-                
-                <div className="relative flex flex-col h-full rounded-[2.5rem] border border-white/5 bg-white/5 p-10 hover:bg-primary-accent/5 hover:border-primary-accent/20 transition-all duration-500 overflow-hidden text-left">
+                <Link 
+                  href={item.href}
+                  className="flex flex-col h-full rounded-[2.5rem] border border-white/5 bg-white/5 p-10 hover:bg-primary-accent/5 hover:border-primary-accent/20 transition-all duration-500 overflow-hidden text-left outline-none focus:ring-2 focus:ring-primary-accent"
+                  aria-label={`View solutions for ${item.title}`}
+                >
                    <div className="mb-10 h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent shadow-lg transition-all group-hover:scale-110">
-                      <item.icon size={28} />
+                      <item.icon size={28} aria-hidden="true" />
                    </div>
                    
                    <h3 className="text-xl font-bold uppercase tracking-widest text-white mb-6 leading-tight group-hover:text-primary-accent transition-colors">
                       {item.title}
                    </h3>
-                   <p className="text-xs text-zinc-500 font-light leading-relaxed uppercase tracking-tighter mb-10">
+                   <p className="text-xs text-zinc-400 font-light leading-relaxed uppercase tracking-tighter mb-10">
                       {item.desc}
                    </p>
                    
                    <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-8 group-hover:border-white/20 transition-colors">
-                      <span className="text-[10px] font-mono tracking-widest text-zinc-600 uppercase group-hover:text-primary-accent transition-colors">View Solutions</span>
-                      <ArrowUpRight size={18} className="text-zinc-600 group-hover:text-primary-accent transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      <span className="text-[10px] font-mono tracking-widest text-zinc-400 uppercase group-hover:text-primary-accent transition-colors">View Solutions</span>
+                      <ArrowUpRight size={18} className="text-zinc-400 group-hover:text-primary-accent transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
                    </div>
                    
-                   {/* Background Node Number */}
                    <span className="absolute -right-4 -bottom-6 text-[10rem] font-black text-white/5 pointer-events-none select-none tracking-tighter italic">
                       0{idx + 1}
                    </span>
-                </div>
+                </Link>
              </motion.div>
            ))}
         </div>

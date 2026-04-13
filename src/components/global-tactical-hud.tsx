@@ -10,6 +10,27 @@ export default function GlobalTacticalHUD() {
 
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .scanlines {
+          position: relative;
+          overflow: hidden;
+        }
+        .scanlines::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.1) 50%
+          );
+          background-size: 100% 4px;
+          z-index: 10;
+          pointer-events: none;
+        }
+      `}} />
       {/* Global Scanline Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[1000] opacity-[0.03] scanlines" />
       

@@ -4,7 +4,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 31536000, 
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     remotePatterns: [
       {
@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "i.ytimg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "grainy-gradients.vercel.app",
       },
     ],
   },
@@ -52,7 +56,16 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://www.youtube.com https://s.ytimg.com https://api.mapbox.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com; img-src 'self' data: https://images.unsplash.com https://defineperspective.in https://i.ytimg.com https://img.youtube.com https://api.mapbox.com; font-src 'self' data:; connect-src 'self' https://vitals.vercel-insight.com https://www.youtube.com https://api.mapbox.com *.mapbox.com; media-src 'self' https://player.vimeo.com https://vimeo.com *.vimeo.com https://www.youtube.com; frame-src 'self' https://www.youtube.com https://youtube.com; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://www.youtube.com https://s.ytimg.com https://api.mapbox.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com; img-src 'self' data: https://images.unsplash.com https://defineperspective.in https://i.ytimg.com https://img.youtube.com https://api.mapbox.com https://grainy-gradients.vercel.app; font-src 'self' data:; connect-src 'self' https://vitals.vercel-insight.com https://www.youtube.com https://api.mapbox.com *.mapbox.com; media-src 'self' https://player.vimeo.com https://vimeo.com *.vimeo.com https://www.youtube.com; frame-src 'self' https://www.youtube.com https://youtube.com; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests;",
+          },
+        ],
+      },
+      {
+        source: "/(fonts|images|icons)/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },

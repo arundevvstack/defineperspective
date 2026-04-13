@@ -47,21 +47,21 @@ export default function GlassFooter() {
                    className="object-contain m-0 p-0"
                  />
              </div>
-             <div className="space-y-5 text-sm text-zinc-500 font-light leading-relaxed mb-8 w-full max-w-sm">
+             <div className="space-y-5 text-sm text-zinc-400 font-light leading-relaxed mb-8 w-full max-w-sm">
                 <div className="flex items-start justify-start gap-4">
-                   <MapPin size={18} className="text-primary-accent shrink-0 mt-1" />
+                   <MapPin size={18} className="text-primary-accent shrink-0 mt-1" aria-hidden="true" />
                    <span>Define Perspective, Second Floor, TC.4/1224/4, Kuravankonam, Kowdiar, Thrivandrum, Pin: 695003</span>
                 </div>
                 <div className="flex items-center justify-start gap-4">
-                   <Mail size={18} className="text-primary-accent shrink-0" />
+                   <Mail size={18} className="text-primary-accent shrink-0" aria-hidden="true" />
                    <span>defineperspective.in@gmail.com</span>
                 </div>
                 <div className="flex items-center justify-start gap-4">
-                   <Phone size={18} className="text-primary-accent shrink-0" />
+                   <Phone size={18} className="text-primary-accent shrink-0" aria-hidden="true" />
                    <span>+91 701 294 1696</span>
                 </div>
              </div>
-             <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest italic leading-relaxed">
+             <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest italic leading-relaxed">
                 "Define your brand. Define your future. Define Perspective."
              </p>
           </div>
@@ -103,7 +103,8 @@ export default function GlassFooter() {
                   href="https://www.instagram.com/defineperspective/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
+                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-400 hover:text-primary-accent transition-all border border-white/10"
+                  aria-label="Follow Define Perspective on Instagram"
                 >
                    <Instagram size={16} />
                 </a>
@@ -111,7 +112,8 @@ export default function GlassFooter() {
                   href="https://www.youtube.com/@DefinePerspective" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
+                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-400 hover:text-primary-accent transition-all border border-white/10"
+                  aria-label="Subscribe to Define Perspective on YouTube"
                 >
                    <Youtube size={16} />
                 </a>
@@ -119,7 +121,8 @@ export default function GlassFooter() {
                   href="https://www.linkedin.com/company/define-perspective" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
+                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-400 hover:text-primary-accent transition-all border border-white/10"
+                  aria-label="Connect with Define Perspective on LinkedIn"
                 >
                    <Linkedin size={16} />
                 </a>
@@ -127,7 +130,8 @@ export default function GlassFooter() {
                   href="https://wa.me/917012941696" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-500 hover:text-primary-accent transition-all border border-white/10"
+                  className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-zinc-400 hover:text-primary-accent transition-all border border-white/10"
+                  aria-label="Chat with Define Perspective on WhatsApp"
                 >
                    <Whatsapp size={16} />
                 </a>
@@ -135,14 +139,14 @@ export default function GlassFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-8 text-[10px] font-mono text-zinc-600 tracking-[0.3em] uppercase">
+        <div className="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-8 text-[10px] font-mono text-zinc-400 tracking-[0.3em] uppercase">
           <div className="flex flex-col md:flex-row gap-8 items-center">
               <span>Define Perspective © 2026. All rights reserved.</span>
               <span className="flex items-center gap-2">
-                 <Activity size={10} className="text-primary-accent animate-pulse" />
+                 <Activity size={10} className="text-primary-accent animate-pulse" aria-hidden="true" />
                  Total Visitors: 14,528+
               </span>
-              <span className="px-3 py-1 rounded bg-white/5 border border-white/10 text-[8px] font-black text-zinc-500">DP-2 V.6 BUILD</span>
+              <span className="px-3 py-1 rounded bg-white/5 border border-white/10 text-[8px] font-black text-zinc-400">DP-2 V.6 BUILD</span>
            </div>
         </div>
       </div>

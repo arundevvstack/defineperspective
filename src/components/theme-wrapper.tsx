@@ -18,8 +18,8 @@ function ThemeController({ children }: { children: React.ReactNode }) {
     // 1. Handle Divisional Themes (Red/Blue)
     const isBlue = isAiPath || isAiTabOnPortfolio;
     const themeClass = isBlue ? "theme-blue" : "theme-red";
-    document.body.classList.remove("theme-red", "theme-blue");
-    document.body.classList.add(themeClass);
+    document.documentElement.classList.remove("theme-red", "theme-blue");
+    document.documentElement.classList.add(themeClass);
   }, [isAiPath, isAiTabOnPortfolio, pathname]);
 
   return <>{children}</>;

@@ -259,15 +259,19 @@ const DropdownPanel = ({
                     <div className="space-y-4">
                         <Link 
                           href="/contact"
-                          className="h-16 px-10 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/btn hover:bg-primary-accent transition-all shadow-2xl"
+                          className="h-16 px-10 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/btn hover:bg-primary-accent transition-all shadow-2xl outline-none focus:ring-2 focus:ring-primary-accent"
+                          aria-label="Get a project quote"
                         >
-                          Get A Quote <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" />
+                          Get A Quote <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" aria-hidden="true" />
                         </Link>
                         <Link 
                           href="https://wa.me/917012941696"
-                          className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/wa hover:border-[#25D366]/50 transition-all"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/wa hover:border-[#25D366]/50 transition-all outline-none focus:ring-2 focus:ring-[#25D366]"
+                          aria-label="Contact us on WhatsApp"
                         >
-                          Whatsapp Now <MessageCircle size={16} className="text-[#25D366] group-hover/wa:scale-125 transition-transform" />
+                          Whatsapp Now <MessageCircle size={16} className="text-[#25D366] group-hover/wa:scale-125 transition-transform" aria-hidden="true" />
                         </Link>
                     </div>
                   </div>
@@ -331,7 +335,16 @@ const DropdownBackdrop = ({ isOpen }: { isOpen: boolean }) => (
 const NavTrigger = ({ title, isOpen, categories, pathname, href, onOpen, onClose }: any) => {
   const isActive = categories.some((cat: any) => pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href));
   return (
-    <Link href={href} className={cn("h-full flex items-center text-[12px] font-normal transition-all gap-1.5 py-2 uppercase tracking-normal outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} onMouseEnter={onOpen} onMouseLeave={onClose}>
+    <Link 
+      href={href} 
+      className={cn("h-full flex items-center text-[12px] font-normal transition-all gap-1.5 py-2 uppercase tracking-normal outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} 
+      onMouseEnter={onOpen} 
+      onMouseLeave={onClose}
+      onFocus={onOpen}
+      aria-haspopup="true"
+      aria-expanded={isOpen}
+      aria-label={`${title} menu`}
+    >
       {title} <motion.span animate={{ rotate: isOpen ? 180 : 0 }} className="text-[7px] opacity-40 ml-0.5 block">▼</motion.span>
     </Link>
   );
@@ -400,6 +413,7 @@ export default function GlassNavbar() {
                 height={76} 
                 className="object-contain" 
                 priority 
+                {...({ fetchPriority: "high" } as any)}
               />
             </div>
           </Link>
@@ -432,8 +446,13 @@ export default function GlassNavbar() {
             <Link href="/contact" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80")}>Contact</Link>
           </div>
 
-          <button className="md:hidden h-10 w-10 flex items-center justify-center text-zinc-400" onClick={() => setMobileMenu(!mobileMenu)}>
-            {mobileMenu ? <X size={24} /> : <Menu size={24} />}
+          <button 
+            className="md:hidden h-10 w-10 flex items-center justify-center text-zinc-400 focus:outline-none focus:ring-2 focus:ring-primary-accent rounded-lg" 
+            onClick={() => setMobileMenu(!mobileMenu)}
+            aria-label={mobileMenu ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenu}
+          >
+            {mobileMenu ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
       </nav>
@@ -507,7 +526,13 @@ export default function GlassNavbar() {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed top-0 right-0 h-full w-[85vw] max-w-[400px] bg-zinc-950 border-l border-white/10 z-[6001] p-8 pt-12 shadow-2xl flex flex-col"
             >
-               <button onClick={() => setMobileMenu(false)} className="absolute top-6 right-6 text-zinc-400 hover:text-white"><X size={28} /></button>
+               <button 
+                 onClick={() => setMobileMenu(false)} 
+                 className="absolute top-6 right-6 text-zinc-400 hover:text-white outline-none focus:ring-2 focus:ring-primary-accent rounded-full p-2"
+                 aria-label="Close menu"
+               >
+                 <X size={28} aria-hidden="true" />
+               </button>
                
                <div className="flex flex-col gap-6 flex-1 overflow-y-auto no-scrollbar">
                   <Link href="/" className="text-base font-bold uppercase tracking-tighter text-white hover:text-primary-accent" onClick={() => setMobileMenu(false)}>Home_</Link>
@@ -517,14 +542,16 @@ export default function GlassNavbar() {
                   <div className="space-y-4">
                      <button 
                        onClick={() => setExpandedSection(expandedSection === "services" ? null : "services")}
-                       className="flex items-center justify-between w-full text-base font-bold uppercase tracking-tighter text-white"
+                       className="flex items-center justify-between w-full text-base font-bold uppercase tracking-tighter text-white focus:text-primary-accent outline-none"
+                       aria-expanded={expandedSection === "services"}
+                       aria-controls="mobile-video-services"
                      >
                         VIDEO PRODUCTION SERVICES {expandedSection === "services" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                      </button>
                      <AnimatePresence>
                         {expandedSection === "services" && (
                           <motion.div 
-                            initial={{ height: 0, opacity: 0 }}
+                            id="mobile-video-services"
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             className="pl-4 space-y-3 overflow-hidden pt-4 border-l border-white/5"
@@ -552,14 +579,16 @@ export default function GlassNavbar() {
                   <div className="space-y-4">
                      <button 
                        onClick={() => setExpandedSection(expandedSection === "ai" ? null : "ai")}
-                       className="flex items-center justify-between w-full text-base font-bold uppercase tracking-tighter text-white"
+                       className="flex items-center justify-between w-full text-base font-bold uppercase tracking-tighter text-white focus:text-primary-accent outline-none"
+                       aria-expanded={expandedSection === "ai"}
+                       aria-controls="mobile-ai-services"
                      >
                         AI VIDEO PRODUCTION {expandedSection === "ai" ? <ChevronDown size={20} /> : <ChevronRight size={20} />}
                      </button>
                      <AnimatePresence>
                         {expandedSection === "ai" && (
                           <motion.div 
-                            initial={{ height: 0, opacity: 0 }}
+                            id="mobile-ai-services"
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             className="pl-4 space-y-3 overflow-hidden pt-4 border-l border-white/5"
@@ -590,7 +619,10 @@ export default function GlassNavbar() {
                <div className="mt-6 pt-6 border-t border-white/10 space-y-3">
                   <Link 
                     href="https://wa.me/917012941696"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-4 text-zinc-500 hover:text-white group transition-all"
+                    aria-label="Contact us on WhatsApp"
                   >
                      <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#25D366]">
                         <MessageCircle size={18} className="text-[#25D366]" />
@@ -600,6 +632,8 @@ export default function GlassNavbar() {
                   <Link 
                     href="/contact"
                     className="w-full h-16 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 active:scale-95 transition-all"
+                    onClick={() => setMobileMenu(false)}
+                    aria-label="Start your project"
                   >
                     Start Project <ArrowRight size={18} />
                   </Link>

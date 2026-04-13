@@ -113,7 +113,7 @@ export default function PortfolioContent() {
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   const tabs = [
-    { id: "video", label: "Production", icon: Video },
+    { id: "video", label: "Portfolio", icon: Video },
     { id: "ai", label: "DP AI Studios", icon: Cpu },
     { id: "photo", label: "Case Study", icon: Camera },
   ];
@@ -148,8 +148,8 @@ export default function PortfolioContent() {
           >
 
             <h1 className="text-4xl md:text-8xl font-black uppercase mb-6 leading-tight drop-shadow-2xl">
-              {activeTab === "video" && <>Cinematic <span className="text-primary-accent italic">& Brand.</span></>}
-              {activeTab === "ai" && <>AI <span className="text-primary-accent italic">& Neural Studios.</span></>}
+              {activeTab === "video" && <>Cinematic <span className="text-primary-accent italic">Portfolio.</span></>}
+              {activeTab === "ai" && <>DP <span className="text-primary-accent italic">AI Studios.</span></>}
               {activeTab === "photo" && <>Case <span className="text-primary-accent italic">Study.</span></>}
             </h1>
             
