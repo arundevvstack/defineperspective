@@ -10,14 +10,25 @@ import { cn } from "@/lib/utils";
 
 const SERVICE_CATEGORIES = [
   {
+    name: "Professional Production",
+    href: "/services/video-production",
+    description: "Cinematic brand films and high-end commercial narratives.",
+    subItems: [
+      { name: "Brand Film Production", href: "/services/video-production/brand-film-production" },
+      { name: "Ad Film Commercials", href: "/services/video-production/ad-film-commercial-video-production" },
+      { name: "Corporate Video Kerala", href: "/services/video-production/corporate-video-production-company-in-kerala" },
+      { name: "Promotional Video", href: "/services/video-production/promotional-video-production" },
+    ]
+  },
+  {
     name: "Performance Video",
     href: "/services/performance-video",
     description: "High ROAS video assets for Meta, YT, and Google ads.",
     subItems: [
       { name: "Video Ads (Meta/YT/Google)", href: "/services/performance-video/video-ads-meta-yt-google-production" },
-      { name: "UGC Video Ads", href: "/services/performance-video/ugc-video-ads-production-india" },
-      { name: "Short-form Ad Creatives", href: "/services/performance-video/short-form-video-ad-creatives-india-uae" },
-      { name: "Conversion Videos", href: "/services/performance-video/conversion-video-vsl-landing-page-production" },
+      { name: "UGC Video Ads", href: "/services/performance-video/ugc-video-ads-production-company" },
+      { name: "Short-form Ad Creatives", href: "/services/performance-video/short-form-ad-creatives-agency" },
+      { name: "Conversion Videos (VSL)", href: "/services/performance-video/vsl-landing-page-video-production" },
     ]
   },
   {
@@ -25,9 +36,9 @@ const SERVICE_CATEGORIES = [
     href: "/services/ad-film-production",
     description: "Big screen aesthetics for global digital campaigns.",
     subItems: [
-      { name: "TV Commercials", href: "/services/ad-film-production/tv-commercial-ad-film-production-india" },
-      { name: "Digital Ad Films", href: "/services/ad-film-production/digital-ad-film-production-company-india-uae" },
-      { name: "Brand Campaigns", href: "/services/ad-film-production/creative-brand-campaign-production" },
+      { name: "TV Commercials (TVC)", href: "/services/ad-film-production/tv-commercial-tvc-production" },
+      { name: "Digital Ad Films", href: "/services/ad-film-production/digital-ad-film-production-company" },
+      { name: "Brand Campaign Films", href: "/services/ad-film-production/brand-campaign-film-production" },
     ]
   },
   {
@@ -35,10 +46,10 @@ const SERVICE_CATEGORIES = [
     href: "/services/social-video",
     description: "Viral short-form content to dominate social landscapes.",
     subItems: [
-      { name: "Instagram Reels", href: "/services/social-video/instagram-reels-production-agency-india" },
-      { name: "YouTube Shorts", href: "/services/social-video/youtube-shorts-production-company-india" },
-      { name: "Trend-based Content", href: "/services/social-video/trend-based-video-content-production" },
-      { name: "Monthly Content Packages", href: "/services/social-video/monthly-social-media-video-content-packages" },
+      { name: "Instagram Reels", href: "/services/social-video/instagram-reels-production-company" },
+      { name: "YouTube Shorts", href: "/services/social-video/youtube-shorts-production-india" },
+      { name: "Trend-based Content", href: "/services/social-video/trend-based-video-content-agency" },
+      { name: "Monthly Content Packages", href: "/services/social-video/monthly-social-content-packages" },
     ]
   },
   {
@@ -46,10 +57,10 @@ const SERVICE_CATEGORIES = [
     href: "/services/product-video",
     description: "Cinematic product storytelling for Amazon and D2C brands.",
     subItems: [
-      { name: "Product Demo Videos", href: "/services/product-video/product-demo-video-production-services" },
-      { name: "Amazon/Flipkart Videos", href: "/services/product-video/amazon-flipkart-product-video-production" },
-      { name: "Product Ad Creatives", href: "/services/product-video/product-video-ads-production-india" },
-      { name: "Photography + Video Bundles", href: "/services/product-video/product-photography-video-bundle-services" },
+      { name: "Product Demo Videos", href: "/services/product-video/product-demo-video-production" },
+      { name: "Amazon/Flipkart Videos", href: "/services/product-video/amazon-flipkart-product-video-services" },
+      { name: "Product Ad Creatives", href: "/services/product-video/product-ad-creatives-agency" },
+      { name: "Photography + Video Bundles", href: "/services/product-video/photography-video-content-bundles" },
     ]
   },
   {
@@ -57,10 +68,10 @@ const SERVICE_CATEGORIES = [
     href: "/services/corporate-video",
     description: "Professional brand narratives for industry leaders.",
     subItems: [
-      { name: "Company Profile Videos", href: "/services/corporate-video/company-profile-video-production-india" },
-      { name: "Branding Films", href: "/services/corporate-video/corporate-branding-film-production" },
-      { name: "CEO & Recruitment Videos", href: "/services/corporate-video/ceo-recruitment-video-production-services" },
-      { name: "Internal Communications", href: "/services/corporate-video/internal-corporate-communication-video-production" },
+      { name: "Company Profile Videos", href: "/services/corporate-video/company-profile-video-production" },
+      { name: "Branding Films", href: "/services/corporate-video/corporate-branding-films-india" },
+      { name: "CEO & Leadership Videos", href: "/services/corporate-video/ceo-leadership-video-production" },
+      { name: "Internal Communications", href: "/services/corporate-video/internal-communications-video-agency" },
     ]
   },
   {
@@ -68,9 +79,9 @@ const SERVICE_CATEGORIES = [
     href: "/services/explainer-video",
     description: "Simplifying complex ideas through visual intelligence.",
     subItems: [
-      { name: "Animated Explainers", href: "/services/explainer-video/animated-explainer-video-production-services" },
-      { name: "SaaS & App Demos", href: "/services/explainer-video/saas-app-demo-video-production-company" },
-      { name: "Training & Webinars", href: "/services/explainer-video/corporate-training-webinar-video-production" },
+      { name: "Animated Explainers", href: "/services/explainer-video/animated-explainer-video-production" },
+      { name: "SaaS & App Demos", href: "/services/explainer-video/saas-explainer-video-company" },
+      { name: "Training & Webinars", href: "/services/explainer-video/training-webinar-video-production" },
     ]
   },
   {
@@ -78,9 +89,9 @@ const SERVICE_CATEGORIES = [
     href: "/services/video-strategy",
     description: "Data-driven creative roadmaps for massive ROAS.",
     subItems: [
-      { name: "Funnel & Creative Strategy", href: "/services/video-strategy/video-marketing-funnel-creative-strategy" },
-      { name: "Campaign Planning", href: "/services/video-strategy/video-ad-campaign-planning-services" },
-      { name: "Platform Optimization", href: "/services/video-strategy/video-content-platform-optimization" },
+      { name: "Funnel Implementation", href: "/services/video-strategy/video-funnel-strategy-implementation" },
+      { name: "Creative Strategy Hooks", href: "/services/video-strategy/creative-strategy-hook-optimization" },
+      { name: "Campaign Optimization", href: "/services/video-strategy/platform-video-optimization-hub" },
     ]
   }
 ];
@@ -91,9 +102,9 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-video-ads",
     description: "Synthetic media ads for high-frequency conversion.",
     subItems: [
-      { name: "Meta AI Ads", href: "/services/ai-video-ads/ai-meta-facebook-instagram-ads-production" },
-      { name: "YouTube AI Ads", href: "/services/ai-video-ads/ai-youtube-video-ads-production-services" },
-      { name: "Performance AI Creatives", href: "/services/ai-video-ads/high-performance-ai-video-creatives" },
+      { name: "Meta AI Ads", href: "/services/ai-video-ads/ai-meta-ads-production-india" },
+      { name: "YouTube AI Ads", href: "/services/ai-video-ads/ai-youtube-ads-production-company" },
+      { name: "Performance AI Creatives", href: "/services/ai-video-ads/performance-ai-creatives-agency" },
     ]
   },
   {
@@ -101,8 +112,8 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-cinematic",
     description: "Fusing legacy optics with neural vision.",
     subItems: [
-      { name: "AI Brand Films", href: "/services/ai-cinematic/premium-cinematic-ai-brand-films" },
-      { name: "AI Visual Narratives", href: "/services/ai-cinematic/cinematic-ai-visual-storytelling-production" },
+      { name: "AI Brand Films", href: "/services/ai-cinematic/premium-ai-brand-films-india" },
+      { name: "AI Visual Narratives", href: "/services/ai-cinematic/high-end-ai-storytelling-agency" },
     ]
   },
   {
@@ -110,8 +121,8 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-film-narrative",
     description: "Next-gen cinematic storytelling for shorts & features.",
     subItems: [
-      { name: "AI Short Films", href: "/services/ai-film-narrative/ai-powered-short-film-production" },
-      { name: "AI Music Videos", href: "/services/ai-film-narrative/ai-generated-cinematic-music-videos" },
+      { name: "AI Short Films", href: "/services/ai-film-narrative/ai-short-film-production-kerala" },
+      { name: "AI Music Videos", href: "/services/ai-film-narrative/ai-music-video-production-india" },
     ]
   },
   {
@@ -119,8 +130,8 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-social-video",
     description: "Automated social content that feels hyper-organic.",
     subItems: [
-      { name: "AI Reels & Shorts", href: "/services/ai-social-video/ai-generated-reels-shorts-production" },
-      { name: "Daily AI Content Hub", href: "/services/ai-social-video/daily-ai-social-media-content-creation" },
+      { name: "AI Reels & Shorts", href: "/services/ai-social-video/ai-instagram-reels-production-india" },
+      { name: "Daily AI Content Hub", href: "/services/ai-social-video/daily-ai-content-hub-india" },
     ]
   },
   {
@@ -129,7 +140,7 @@ const AI_STUDIO_CATEGORIES = [
     description: "Synthetic product visuals for e-commerce scale.",
     subItems: [
       { name: "AI Amazon Videos", href: "/services/ai-product-video/ai-amazon-e-comm-video-services" },
-      { name: "AI Product Demos", href: "/services/ai-product-video/ai-generated-product-demo-videos" },
+      { name: "AI Product Demos", href: "/services/ai-product-video/ai-product-demo-production-india" },
     ]
   },
   {
@@ -138,8 +149,8 @@ const AI_STUDIO_CATEGORIES = [
     description: "Neural enhancement for traditional film footage.",
     subItems: [
       { name: "Neural AI Editing", href: "/services/ai-post-production/neural-ai-video-editing-services" },
-      { name: "AI VFX & Motion", href: "/services/ai-post-production/ai-powered-vfx-motion-graphics" },
-      { name: "AI Color Grading", href: "/services/ai-post-production/ai-video-color-grading-enhancement" },
+      { name: "AI VFX & Motion", href: "/services/ai-post-production/ai-vfx-motion-graphics-india" },
+      { name: "AI Color Grading", href: "/services/ai-post-production/ai-color-grading-services-kerala" },
     ]
   },
   {
@@ -147,8 +158,8 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-corporate-video",
     description: "Modernized corporate storytelling for tech-first brands.",
     subItems: [
-      { name: "AI Company Profiles", href: "/services/ai-corporate-video/ai-corporate-company-profile-production" },
-      { name: "AI Branding Films", href: "/services/ai-corporate-video/ai-enhanced-corporate-branding-films" },
+      { name: "AI Company Profiles", href: "/services/ai-corporate-video/ai-company-profiles-production" },
+      { name: "AI Employer Branding", href: "/services/ai-corporate-video/ai-employer-branding-videos-kerala" },
     ]
   },
   {
@@ -156,8 +167,8 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-explainer",
     description: "Educational tools powered by neural synthesis.",
     subItems: [
-      { name: "AI SaaS Explainers", href: "/services/ai-explainer/ai-powered-saas-explainer-videos" },
-      { name: "AI Avatar Training", href: "/services/ai-explainer/ai-avatar-educational-training-videos" },
+      { name: "AI SaaS Explainers", href: "/services/ai-explainer/ai-saas-explainer-company-india" },
+      { name: "AI Avatar Training", href: "/services/ai-explainer/ai-avatar-educational-videos-uae" },
     ]
   },
   {
@@ -165,8 +176,8 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-video-strategy",
     description: "Algorithmic creative research and optimization.",
     subItems: [
-      { name: "AI Funnel Strategy", href: "/services/ai-video-strategy/ai-driven-video-marketing-funnel-strategy" },
-      { name: "AI Data Optimization", href: "/services/ai-video-strategy/ai-video-content-performance-data-analysis" },
+      { name: "AI Funnel Planning", href: "/services/ai-video-strategy/ai-video-funnel-planning-uae" },
+      { name: "AI Distribution Lab", href: "/services/ai-video-strategy/ai-distribution-lab-india" },
     ]
   }
 ];
