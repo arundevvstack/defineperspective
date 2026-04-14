@@ -217,7 +217,7 @@ export default function AIVideoProductionLandingPage() {
                       </div>
                       <div className="space-y-2">
                          <h4 className="text-xl font-black uppercase italic text-white group-hover:text-primary-accent transition-colors">{node.t}</h4>
-                         <p className="text-sm text-zinc-500 uppercase tracking-widest leading-relaxed font-light">{node.d}</p>
+                         <p className="text-sm text-zinc-400 uppercase tracking-widest leading-relaxed font-light">{node.d}</p>
                       </div>
                    </div>
                  ))}
@@ -271,7 +271,7 @@ export default function AIVideoProductionLandingPage() {
                           {loc.title}
                        </h3>
                     </div>
-                    <p className="text-xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest text-[13px]">
+                    <p className="text-xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest text-[13px]">
                        {loc.content}
                     </p>
                     <Link href="/contact" className="flex items-center gap-4 text-[10px] font-mono text-zinc-700 uppercase tracking-widest group-hover:text-white transition-colors">
@@ -312,7 +312,7 @@ export default function AIVideoProductionLandingPage() {
                          <span className="text-primary-accent opacity-20 text-sm font-mono shrink-0">NODE_0{i+1}</span>
                          {faq.q}
                       </h4>
-                      <p className="pl-14 text-zinc-500 font-light leading-relaxed uppercase tracking-widest text-[11px]">
+                      <p className="pl-14 text-zinc-400 font-light leading-relaxed uppercase tracking-widest text-[11px]">
                          {faq.a}
                       </p>
                    </div>

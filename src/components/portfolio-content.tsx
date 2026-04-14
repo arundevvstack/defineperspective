@@ -153,7 +153,7 @@ export default function PortfolioContent() {
               {activeTab === "photo" && <>Case <span className="text-primary-accent italic">Study.</span></>}
             </h1>
             
-            <p className="text-base md:text-lg text-zinc-500 font-light max-w-3xl mx-auto uppercase tracking-[0.15em] leading-relaxed mb-10">
+            <p className="text-base md:text-lg text-zinc-400 font-light max-w-3xl mx-auto uppercase tracking-[0.15em] leading-relaxed mb-10">
                {activeTab === "video" && "Our core philosophy centers on high-stakes, broadcast-ready practical production. We build visual narratives that command authority and define market leadership."}
                {activeTab === "ai" && "Leveraging proprietary generative systems to bypass legacy constraints. We deliver hyper-realistic visual impact at 10x the speed of traditional agencies."}
                {activeTab === "photo" && "Deep-dive analysis of cross-industry visual solutions. Explore how we’ve moved the needle for major brands through strategic imagery and heritage preservation."}
@@ -171,7 +171,7 @@ export default function PortfolioContent() {
                         onClick={() => handleNavigate(tab.id)}
                         className={cn(
                           "relative px-4 py-3 md:px-12 md:py-6 rounded-2xl text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] transition-all duration-500 flex items-center gap-2 md:gap-4 outline-none",
-                          activeTab === tab.id ? "text-obsidian" : "text-zinc-500 hover:text-white"
+                          activeTab === tab.id ? "text-obsidian" : "text-zinc-400 hover:text-white"
                         )}
                       >
                         {activeTab === tab.id && (
@@ -206,7 +206,7 @@ export default function PortfolioContent() {
                   <h2 className="text-2xl md:text-5xl font-black uppercaseer text-white mb-6 group-hover:text-primary-accent transition-colors leading-none">
                     {section.category}
                   </h2>
-                  <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest">
+                  <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest">
                     {section.description}
                   </p>
                 </div>
@@ -223,7 +223,7 @@ export default function PortfolioContent() {
                        title={mode.label}
                        className={cn(
                          "p-2 rounded-lg transition-all duration-300",
-                         viewMode === mode.id ? "bg-white text-obsidian shadow-sm" : "text-zinc-500 hover:text-zinc-200"
+                         viewMode === mode.id ? "bg-white text-obsidian shadow-sm" : "text-zinc-400 hover:text-zinc-200"
                        )}
                      >
                        <mode.icon size={14} />
@@ -329,13 +329,13 @@ export default function PortfolioContent() {
                                 </span>
                               )}
                             </div>
-                            <div className="flex gap-4 text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
+                            <div className="flex gap-4 text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
                                <span>Client: {project.client || "Confidential"}</span>
                                <span>Service: {project.service || "Visual Production"}</span>
                                <span>Industry: {project.industry || "Market Leader"}</span>
                             </div>
                           </div>
-                          <ArrowRight className="text-zinc-500 group-hover:translate-x-4 transition-transform group-hover:text-primary-accent" size={32} />
+                          <ArrowRight className="text-zinc-400 group-hover:translate-x-4 transition-transform group-hover:text-primary-accent" size={32} />
                         </ContentWrapper>
                       </motion.div>
                     );

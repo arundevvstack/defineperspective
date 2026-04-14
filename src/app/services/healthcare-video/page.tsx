@@ -74,7 +74,7 @@ export default function HealthcareVideoPage() {
              <div key={item.title} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-6 group-hover:scale-110 transition-transform" size={32} />
                 <h3 className="text-lg font-black uppercase tracking-widest mb-4 italic leading-tight text-white">{item.title}</h3>
-                <p className="text-xs text-zinc-500 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
+                <p className="text-xs text-zinc-400 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
              </div>
            ))}
         </div>
@@ -83,7 +83,7 @@ export default function HealthcareVideoPage() {
             <div className="flex-1 space-y-12">
                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Medical Intelligence</span>
                <h2 className="text-4xl md:text-6xl font-black uppercaseer mb-12 italic text-white leading-[0.9]">Humanizing <br /><span className="text-primary-accent italic font-black">Expertise_</span></h2>
-               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
+               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-400 italic">
                  <p>
                     <strong className="text-white">Define Perspective</strong> is officially ranked as the <strong className="text-primary-accent">Best Healthcare Video Agency in India</strong>. Our <strong className="text-white">Kochi</strong> and <strong className="text-white">Trivandrum</strong> HQ utilizes <strong className="text-primary-accent">Empathetic Visual Storytelling</strong> to provide <strong className="text-white">Tier-1 Medical Branding</strong> for India's leading medical institutions and doctors in <strong className="text-white">Kerala</strong>.
                  </p>

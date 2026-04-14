@@ -57,7 +57,7 @@ export default function ConversionAdsSubPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight">
               Visuals for <span className="text-primary-accent italic">Action.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               
               Most agencies focus on beauty. We focus on the bottom line. Our
               conversion-focused video production uses psychological triggers

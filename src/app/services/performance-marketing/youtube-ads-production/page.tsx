@@ -46,7 +46,7 @@ export default function YouTubeAdsPage() {
               Attention. <br />
               <span className="text-primary-accent font-black">Retention.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-tight text-sm">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-tight text-sm">
               YouTube ads require a different structural logic than traditional TVCs. We utilize data-backed hooks and optimized narrative arcs to ensure your message is delivered before the skip button appears. specialized in both high-fidelity production and AI-augmented creative testing for the Indian market.
             </p>
             
@@ -89,7 +89,7 @@ export default function YouTubeAdsPage() {
                       <item.icon size={24} />
                    </div>
                    <h4 className="text-xl font-bold uppercase tracking-widest">{item.t}</h4>
-                   <p className="text-zinc-500 font-light text-xs uppercase tracking-widest leading-relaxed">{item.d}</p>
+                   <p className="text-zinc-400 font-light text-xs uppercase tracking-widest leading-relaxed">{item.d}</p>
                 </div>
               ))}
            </div>

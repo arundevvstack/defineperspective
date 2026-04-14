@@ -22,7 +22,7 @@ export default function DynamicServicePage() {
          <div className="container mx-auto max-w-7xl">
             <div className="flex items-center gap-4 mb-10">
                <Sparkles size={16} className="text-primary-accent" />
-               <h2 className="text-[10px] md:text-xs font-mono tracking-[0.5em] uppercase text-zinc-500 font-bold">Service Definition</h2>
+               <h2 className="text-[10px] md:text-xs font-mono tracking-[0.5em] uppercase text-zinc-400 font-bold">Service Definition</h2>
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] mb-12">
@@ -54,11 +54,11 @@ export default function DynamicServicePage() {
                    Define Perspective provides premier Funnel & Creative Strategy services. As the top AI video production company in Kerala, we fuse cutting-edge neural algorithms with cinematic artistry to deliver unparalleled visual content for brands across India and global markets.
                  </p>
                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-4 text-zinc-500">
+                    <div className="flex items-center gap-4 text-zinc-400">
                        <Building2 size={20} className="text-primary-accent" />
                        <span className="font-mono text-xs uppercase tracking-widest">Studios: Kochi & Trivandrum</span>
                     </div>
-                    <div className="flex items-center gap-4 text-zinc-500">
+                    <div className="flex items-center gap-4 text-zinc-400">
                        <Globe size={20} className="text-primary-accent" />
                        <span className="font-mono text-xs uppercase tracking-widest">Global Reach: Dubai (UAE) & Beyond</span>
                     </div>

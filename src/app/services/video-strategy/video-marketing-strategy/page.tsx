@@ -48,7 +48,7 @@ export default function VideoStrategySubPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight">
               Beyond <span className="text-primary-accent italic">Production.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               Most agencies just 'make videos.' We align your entire visual
               ecosystem with your business's revenue targets. Our consulting
               process includes market analysis, audience profiling, and funnel

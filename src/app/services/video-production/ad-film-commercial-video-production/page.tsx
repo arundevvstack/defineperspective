@@ -60,7 +60,7 @@ export default function AdFilmSubPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Crafted for <span className="text-primary-accent font-black">Impact_</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               A great commercial needs more than just high production value — it
               needs a psychological hook. Our ad film production team in Kerala
               and India specializes in storyboarding, cinematic lighting, and

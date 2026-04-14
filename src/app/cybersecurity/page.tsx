@@ -148,23 +148,23 @@ const Header = () => {
         </motion.div>
         <div>
           <h1 className="text-xl font-bolder text-primary-accent">DEFENSE_STATION_CORE</h1>
-          <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">NETWORK_MONITORING_ACTIVE</p>
+          <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">NETWORK_MONITORING_ACTIVE</p>
         </div>
       </div>
 
       <div className="flex items-center gap-8">
         <div className="hidden md:flex flex-col items-end">
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest leading-none">SYSTEM_UPTIME</span>
+          <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">SYSTEM_UPTIME</span>
           <span className="text-xs font-mono text-primary-accent">142:52:12:05</span>
         </div>
         <div className="flex flex-col items-end border-l border-white/5 pl-8">
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest leading-none">CURRENT_GMT</span>
+          <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">CURRENT_GMT</span>
           <span className="text-xs font-mono text-white">
             {time ? time.toLocaleTimeString() : "LOADING..."}
           </span>
         </div>
         <div className="flex flex-col items-end border-l border-white/5 pl-8">
-          <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest leading-none">ACCESS_LEVEL</span>
+          <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">ACCESS_LEVEL</span>
           <span className="text-xs font-mono text-primary-accent">S_LEVEL_GLOBAL</span>
         </div>
       </div>
@@ -442,7 +442,7 @@ const MapVisualizer = () => {
                 transition={{ delay: i * 0.1 }}
                 className="flex flex-col border-l-2 border-primary-accent pr-4 pl-2 bg-black/40 backdrop-blur-sm p-1"
               >
-                  <span className="text-[8px] text-zinc-500 uppercase">{m.label}</span>
+                  <span className="text-[8px] text-zinc-400 uppercase">{m.label}</span>
                   <span className="text-[12px] text-primary-accent font-black tracking-tighter italic">{m.val}</span>
               </motion.div>
           ))}
@@ -450,12 +450,12 @@ const MapVisualizer = () => {
 
       <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-8 z-40 text-right pointer-events-none">
           <div className="flex flex-col gap-1">
-              <span className="text-[10px] text-zinc-500 uppercase">SAT_LINK</span>
+              <span className="text-[10px] text-zinc-400 uppercase">SAT_LINK</span>
               <span className="text-primary-accent animate-pulse font-bold">LOCKED</span>
           </div>
           <div className="h-32 w-1 border-r-2 border-primary-accent/20 self-end mr-2" />
           <div className="flex flex-col gap-1">
-              <span className="text-[10px] text-zinc-500 uppercase">THREAT</span>
+              <span className="text-[10px] text-zinc-400 uppercase">THREAT</span>
               <span className="text-red-500 font-black italic">OMEGA</span>
           </div>
       </div>
@@ -536,7 +536,7 @@ const FirewallHeatmap = () => {
                 />
             ))}
         </div>
-        <div className="mt-3 flex justify-between text-[8px] font-mono text-zinc-500 uppercase">
+        <div className="mt-3 flex justify-between text-[8px] font-mono text-zinc-400 uppercase">
             <span>LOW_LOAD</span>
             <span>CRITICAL_LOAD</span>
         </div>
@@ -713,7 +713,7 @@ export default function CybersecurityDashboard() {
                           <span className={cn(
                             "px-1 rounded-sm",
                             comp.status === "ACTIVE" ? "bg-primary-accent/20 text-primary-accent" : 
-                            comp.status === "OFFLINE" ? "bg-red-500/20 text-red-500" : "bg-zinc-800 text-zinc-500"
+                            comp.status === "OFFLINE" ? "bg-red-500/20 text-red-500" : "bg-zinc-800 text-zinc-400"
                           )}>{comp.status}</span>
                       </div>
                   ))}
@@ -731,7 +731,7 @@ export default function CybersecurityDashboard() {
                     "IP_45.1.8.99 >> SINGAPORE, SG",
                     "IP_88.102.5.4 >> LONDON, UK"
                   ].map((loc, i) => (
-                      <div key={i} className="text-[8px] text-zinc-500 py-1 border-l-2 border-primary-accent/20 pl-2">
+                      <div key={i} className="text-[8px] text-zinc-400 py-1 border-l-2 border-primary-accent/20 pl-2">
                           {loc}
                       </div>
                   ))}
@@ -818,7 +818,7 @@ export default function CybersecurityDashboard() {
                       threat.risk === "CRITICAL" ? "text-red-500" : "text-primary-accent"
                     )}>{threat.risk}</span>
                   </div>
-                  <span className="text-[8px] text-zinc-500 uppercase">ACTION: {threat.action}</span>
+                  <span className="text-[8px] text-zinc-400 uppercase">ACTION: {threat.action}</span>
                 </div>
               ))}
             </div>
@@ -827,11 +827,11 @@ export default function CybersecurityDashboard() {
           {/* Quick Metrics */}
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div className="p-3 border border-primary-accent/20 bg-white/5 flex flex-col gap-1 relative glitch">
-                <span className="text-[9px] text-zinc-500 uppercase tracking-widest">REQUESTS</span>
+                <span className="text-[9px] text-zinc-400 uppercase tracking-widest">REQUESTS</span>
                 <span className="text-xl font-black text-white italic">442</span>
             </div>
             <div className="p-3 border border-primary-accent/20 bg-white/5 flex flex-col gap-1 relative glitch">
-                <span className="text-[9px] text-zinc-500 uppercase tracking-widest">THREATS</span>
+                <span className="text-[9px] text-zinc-400 uppercase tracking-widest">THREATS</span>
                 <span className="text-xl font-black text-red-500 italic">2</span>
             </div>
           </div>

@@ -65,7 +65,7 @@ export default function VideoFunnelSubPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Architect Your <span className="text-primary-accent italic">Growth Hub.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               Most agencies focus on making a single video. We focus on building
               a multi-channel video ecosystem. Our video funnel strategy in
               Kerala and India aligns your visual content with every stage of

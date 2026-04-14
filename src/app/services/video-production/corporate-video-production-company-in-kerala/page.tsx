@@ -145,7 +145,7 @@ export default function CorporateVideoPage() {
               <h3 className="text-xl font-black uppercase tracking-widest text-white leading-tight group- transition-colors">
                 {item.title}
               </h3>
-              <p className="text-xs text-zinc-500 font-light leading-relaxed tracking-tighter uppercase">
+              <p className="text-xs text-zinc-400 font-light leading-relaxed tracking-tighter uppercase">
                 {item.desc}
               </p>
             </div>

@@ -97,7 +97,7 @@ export default function BlogPage() {
                <span className="text-primary-accent italic">Production</span> <br />
                In Kerala_
              </h1>
-             <p className="text-xl md:text-3xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                The definitive guide to AI-powered media production in Kochi and Trivandrum. Scale your brand with neural excellence.
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -213,7 +213,7 @@ export default function BlogPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                   <div className="p-12 rounded-[4rem] bg-zinc-900/50 border border-white/5 hover:border-primary-accent/40 transition-all">
                     <h4 className="text-3xl font-black text-white uppercase mb-6">AI Video Kochihub</h4>
-                    <p className="text-lg text-zinc-500 mb-8">
+                    <p className="text-lg text-zinc-400 mb-8">
                       As the commercial capital of Kerala, <b>AI video production in Kochi</b> is essential for the region's explosive D2C and real-estate markets. We provide Kochi businesses with:
                     </p>
                     <ul className="space-y-3 text-sm font-mono uppercase tracking-widest text-primary-accent">
@@ -224,7 +224,7 @@ export default function BlogPage() {
                   </div>
                   <div className="p-12 rounded-[4rem] bg-zinc-900/50 border border-white/5 hover:border-primary-accent/40 transition-all text-right">
                     <h4 className="text-3xl font-black text-white uppercase mb-6">Trivandrum Impact</h4>
-                    <p className="text-lg text-zinc-500 mb-8">
+                    <p className="text-lg text-zinc-400 mb-8">
                       In <b>Trivandrum</b>, the focus is on enterprise-grade storytelling. Our <b>video production in Trivandrum</b> leverages AI to scale corporate comms and tech-showcases for the Technopark ecosystem.
                     </p>
                     <ul className="space-y-3 text-sm font-mono uppercase tracking-widest text-primary-accent">
@@ -247,7 +247,7 @@ export default function BlogPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80" />
                     <div className="absolute bottom-20 left-20">
                        <h3 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter">Neural_Workflow</h3>
-                       <p className="text-zinc-500 font-mono tracking-widest uppercase mt-4">100% Automated Delivery in 48 Hours</p>
+                       <p className="text-zinc-400 font-mono tracking-widest uppercase mt-4">100% Automated Delivery in 48 Hours</p>
                     </div>
                  </motion.div>
               </div>
@@ -293,7 +293,7 @@ export default function BlogPage() {
              <h2 className="text-5xl md:text-[8rem] font-black text-white uppercaseer mb-8 leading-none">
                 Analysis & <span className="text-primary-accent">Intelligence_</span>
              </h2>
-             <p className="text-zinc-500 font-mono tracking-[0.3em] uppercase">Answers to your cinematic AI questions</p>
+             <p className="text-zinc-400 font-mono tracking-[0.3em] uppercase">Answers to your cinematic AI questions</p>
            </div>
            
            <div className="max-w-4xl mx-auto space-y-6">
@@ -307,7 +307,7 @@ export default function BlogPage() {
                    <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-6 flex items-center gap-6">
                       <span className="h-3 w-3 rounded-full bg-primary-accent group-hover:scale-150 transition-transform" /> {faq.question}
                    </h3>
-                   <p className="text-lg text-zinc-500 font-light leading-relaxed">
+                   <p className="text-lg text-zinc-400 font-light leading-relaxed">
                       {faq.answer}
                    </p>
                 </motion.div>

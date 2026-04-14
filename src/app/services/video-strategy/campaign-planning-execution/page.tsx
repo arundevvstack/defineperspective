@@ -49,7 +49,7 @@ export default function CampaignExecutionSubPage() {
               Master Your
               <span className="text-primary-accent italic">Market Debut.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               A great campaign can fail without perfect execution. Our campaign
               planning and execution wing in Kerala and across India provides
               end-to-end tactical management — from initial brainstorming and

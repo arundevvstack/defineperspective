@@ -61,7 +61,7 @@ export default function ContentStrategySubPage() {
               Scale Your
               <span className="text-primary-accent italic">Visual Hub.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               
               Random posting is the enemy of brand growth. Our content strategy
               and planning division in Kerala and across India focuses on

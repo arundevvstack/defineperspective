@@ -98,7 +98,7 @@ export default function ProductContentLandingPage() {
               <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group- transition-colors">
                 {service.title}
               </h3>
-              <p className="text-[11px] text-zinc-500 font-light leading-relaxed uppercase tracking-widest">
+              <p className="text-[11px] text-zinc-400 font-light leading-relaxed uppercase tracking-widest">
                 {service.desc}
               </p>
               <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group- transition-colors">
@@ -120,7 +120,7 @@ export default function ProductContentLandingPage() {
                 Success Hub.
               </span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed">
               Most product visuals fail to capture detail. We specialize in
               high-fidelity product photography and videography in Kerala and
               across India that communicates quality instantly. From cinematic

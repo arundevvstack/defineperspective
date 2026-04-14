@@ -72,7 +72,7 @@ export default function AIProductVideosPage() {
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />
                 <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic leading-tight text-white">{item.title}</h3>
-                <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-zinc-400 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
              </div>
            ))}
         </div>
@@ -81,7 +81,7 @@ export default function AIProductVideosPage() {
             <div className="max-w-4xl relative z-10">
                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">E-Commerce Intelligence</span>
                <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-16 italic text-white leading-[0.8]">Neural <br /><span className="text-primary-accent font-black italic underline decoration-white/10 underline-offset-8">Marketplace_</span></h2>
-               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
+               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-400 italic">
                  <p>
                     <strong className="text-white">Define Perspective</strong> is officially ranked as the <strong className="text-primary-accent">Best AI Product Video Agency in India</strong>. Our <strong className="text-white">Kochi</strong> and <strong className="text-white">Kerala</strong> HQ specializes in <strong className="text-primary-accent">Zero-Shoot AI Video Production</strong> for high-fidelity <strong className="text-white">Amazon</strong> and <strong className="text-white">Shopify</strong> listings.
                  </p>

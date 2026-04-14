@@ -87,7 +87,7 @@ whileInView={{ opacity: 1, x: 0 }}
                     </div>
                     <span className="text-4xl font-bold uppercase tracking-tighter">{service.title}</span>
                  </div>
-                 <p className="text-2xl text-zinc-500 font-light leading-relaxed mb-12 max-w-2xl">
+                 <p className="text-2xl text-zinc-400 font-light leading-relaxed mb-12 max-w-2xl">
                     {service.desc}
                  </p>
                  <button 

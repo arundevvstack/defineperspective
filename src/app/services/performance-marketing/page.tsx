@@ -93,7 +93,7 @@ export default function PerformanceMarketingLandingPage() {
               <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight group- transition-colors">
                 {service.title}
               </h3>
-              <p className="text-sm text-zinc-500 font-light leading-relaxed uppercase tracking-widest text-[11px]">
+              <p className="text-sm text-zinc-400 font-light leading-relaxed uppercase tracking-widest text-[11px]">
                 {service.desc}
               </p>
               <div className="flex items-center gap-4 text-[10px] font-mono tracking-widest uppercase text-zinc-600 group- transition-colors">
@@ -113,7 +113,7 @@ export default function PerformanceMarketingLandingPage() {
               Scale Your <br />
               <span className="text-primary-accent italic">ROI Engine.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed">
               Most agencies focus on aesthetics. We focus on ROAS. Our
               performance marketing division in Kerala and India utilizes
               algorithmic creative testing to ensure that every video we produce

@@ -68,32 +68,32 @@ export default function GlassFooter() {
 
           <div className="col-span-1 flex flex-col items-start text-left">
              <h4 className="text-[10px] font-black text-white uppercase tracking-widest mb-6 text-primary-accent">Resources</h4>
-              <ul className="flex flex-col items-start gap-4 text-sm text-zinc-500 font-light">
-                 <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs</Link></li>
-                 <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Website Analysis</Link></li>
-              </ul>
+               <ul className="flex flex-col items-start gap-4 text-sm text-zinc-400 font-light">
+                  <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs</Link></li>
+                  <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Website Analysis</Link></li>
+               </ul>
           </div>
 
           <div className="col-span-1 flex flex-col items-start text-left">
              <h4 className="text-[10px] font-black text-white uppercase tracking-widest mb-6 text-primary-accent">AI Pillars</h4>
-             <ul className="flex flex-col items-start gap-4 text-sm text-zinc-500 font-light">
-                <li><Link href="/services/ai-video-ads" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Ads</Link></li>
-                <li><Link href="/services/ai-social-media-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Social Media AI</Link></li>
-                <li><Link href="/services/ai-product-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product AI Videos</Link></li>
-                <li><Link href="/services/ai-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Brand films</Link></li>
-                <li><Link href="/services/ai-cinematic-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Cinematic AI</Link></li>
-                <li><Link href="/services/ai-video-marketing" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Marketing</Link></li>
-             </ul>
+              <ul className="flex flex-col items-start gap-4 text-sm text-zinc-400 font-light">
+                 <li><Link href="/services/ai-video-ads" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Ads</Link></li>
+                 <li><Link href="/services/ai-social-media-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Social Media AI</Link></li>
+                 <li><Link href="/services/ai-product-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product AI Videos</Link></li>
+                 <li><Link href="/services/ai-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Brand films</Link></li>
+                 <li><Link href="/services/ai-cinematic-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Cinematic AI</Link></li>
+                 <li><Link href="/services/ai-video-marketing" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Marketing</Link></li>
+              </ul>
           </div>
 
           <div className="col-span-1 flex flex-col items-start text-left">
              <h4 className="text-[10px] font-black text-white uppercase tracking-widest mb-6 text-primary-accent">Services</h4>
-             <ul className="flex flex-col items-start gap-4 text-sm text-zinc-500 font-light">
-                <li><Link href="/services/ecommerce-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">E-commerce</Link></li>
-                <li><Link href="/services/real-estate-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Real Estate</Link></li>
-                <li><Link href="/services/saas-explainer-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">SaaS & Tech</Link></li>
-                <li><Link href="/services/healthcare-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Healthcare</Link></li>
-             </ul>
+              <ul className="flex flex-col items-start gap-4 text-sm text-zinc-400 font-light">
+                 <li><Link href="/services/ecommerce-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">E-commerce</Link></li>
+                 <li><Link href="/services/real-estate-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Real Estate</Link></li>
+                 <li><Link href="/services/saas-explainer-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">SaaS & Tech</Link></li>
+                 <li><Link href="/services/healthcare-video" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Healthcare</Link></li>
+              </ul>
           </div>
 
           <div className="col-span-1 flex flex-col items-start text-left">
@@ -139,7 +139,7 @@ export default function GlassFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-8 text-[10px] font-mono text-zinc-400 tracking-[0.3em] uppercase">
+        <div className="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-8 text-[10px] font-mono text-zinc-300 tracking-[0.3em] uppercase">
           <div className="flex flex-col md:flex-row gap-8 items-center">
               <span>Define Perspective © 2026. All rights reserved.</span>
               <span className="flex items-center gap-2">

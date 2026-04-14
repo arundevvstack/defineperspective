@@ -211,8 +211,8 @@ export default function AICharacter() {
                      <div className="flex flex-col gap-2">
                        <span className="text-[7px] text-primary-accent tracking-widest opacity-60">DP_STUDIO_NODES</span>
                        <div className="flex justify-between items-center bg-black/40 p-3 rounded-2xl">
-                         <span className="text-[8px] text-zinc-500 underline font-bold">KOCHI</span>
-                         <span className="text-[8px] text-zinc-500 underline font-bold">DUBAI</span>
+                         <span className="text-[8px] text-zinc-400 underline font-bold">KOCHI</span>
+                         <span className="text-[8px] text-zinc-400 underline font-bold">DUBAI</span>
                          <span className="text-[8px] text-primary-accent animate-pulse font-bold">SYNCED</span>
                        </div>
                      </div>

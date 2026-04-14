@@ -33,7 +33,7 @@ export default function InstagramFeed() {
           href="https://www.instagram.com/defineperspective/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="flex items-center gap-4 text-xs font-black uppercase tracking-widest text-zinc-500 hover:text-primary-accent transition-colors group"
+          className="flex items-center gap-4 text-xs font-black uppercase tracking-widest text-zinc-400 hover:text-primary-accent transition-colors group"
         >
           Follow @defineperspective <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
         </a>

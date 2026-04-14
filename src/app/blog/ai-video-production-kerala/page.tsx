@@ -96,7 +96,7 @@ export default function BlogPage() {
                <span className="text-primary-accent italic">Production</span> <br />
                In Kerala_
              </h1>
-             <p className="text-xl md:text-3xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                Transforming visual media in Kochi and Trivandrum through neural workflows and cinematic excellence.
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -170,7 +170,7 @@ export default function BlogPage() {
                     <p>
                       AI video production is the process of utilizing deep learning algorithms and neural networks to synthesize, edit, and optimize visual content. Unlike legacy filmmaking, which relies on physical constraints and manual labor, AI production enables:
                     </p>
-                    <ul className="space-y-4 text-zinc-500 font-mono text-[10px] uppercase tracking-widest border-l border-white/10 pl-6">
+                    <ul className="space-y-4 text-zinc-400 font-mono text-[10px] uppercase tracking-widest border-l border-white/10 pl-6">
                        <li className="flex items-center gap-4"><Zap size={14} className="text-primary-accent" /> Neural Script-to-Scene Synthesis</li>
                        <li className="flex items-center gap-4"><Zap size={14} className="text-primary-accent" /> Automated Cinematic Grading</li>
                        <li className="flex items-center gap-4"><Zap size={14} className="text-primary-accent" /> Real-time Visual Personalization</li>
@@ -214,7 +214,7 @@ export default function BlogPage() {
                   {["Kochi", "Trivandrum", "Calicut"].map((city, id) => (
                     <div key={id} className="p-12 rounded-[3.5rem] bg-zinc-900 border border-white/5 hover:border-primary-accent/50 transition-all">
                        <h4 className="text-2xl font-black text-white uppercase tracking-widest mb-6">{city}</h4>
-                       <p className="text-base text-zinc-500 leading-relaxed font-light">
+                       <p className="text-base text-zinc-400 leading-relaxed font-light">
                           {city === "Kochi" ? "Startup hub focused on D2C scale." : city === "Trivandrum" ? "Enterprise tech capital." : "Digital commerce hub."}
                        </p>
                     </div>
@@ -234,7 +234,7 @@ export default function BlogPage() {
              <h2 className="text-5xl md:text-[6rem] font-black text-white uppercaseer mb-8 leading-none">
                 Analysis & <span className="text-primary-accent">Intelligence_</span>
              </h2>
-             <p className="text-zinc-500 uppercase tracking-widest text-sm font-mono">Expert answers on AI Video Production in Kerala</p>
+             <p className="text-zinc-400 uppercase tracking-widest text-sm font-mono">Expert answers on AI Video Production in Kerala</p>
            </div>
            
            <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
@@ -243,7 +243,7 @@ export default function BlogPage() {
                    <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white mb-6 flex items-center gap-6">
                       <span className="h-3 w-3 rounded-full bg-primary-accent group-hover:animate-ping" /> {faq.question}
                    </h3>
-                   <p className="text-lg text-zinc-500 font-light leading-relaxed">{faq.answer}</p>
+                   <p className="text-lg text-zinc-400 font-light leading-relaxed">{faq.answer}</p>
                 </div>
               ))}
            </div>

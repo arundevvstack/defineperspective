@@ -26,7 +26,7 @@ export default function AiVideoKeralaPage() {
                AI Video Prod <br />
                <span className="text-primary-accent italic">In Kerala_</span>
              </h1>
-             <p className="text-xl md:text-3xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                Kerala's flagship AI studio for cinematic brand growth, performance ads, and neural storytelling in Kochi and Trivandrum.
              </p>
           </motion.div>
@@ -44,7 +44,7 @@ export default function AiVideoKeralaPage() {
               <div key={pill.t} className="p-10 rounded-[3rem] bg-white/[0.03] border border-white/5 hover:border-primary-accent/40 transition-all">
                  <pill.i className="text-primary-accent mb-6" size={28} />
                  <h4 className="text-xl font-bold uppercase text-white mb-4 tracking-tighter">{pill.t}</h4>
-                 <p className="text-sm text-zinc-500 font-light leading-relaxed uppercase tracking-widest">{pill.d}</p>
+                 <p className="text-sm text-zinc-400 font-light leading-relaxed uppercase tracking-widest">{pill.d}</p>
               </div>
             ))}
          </div>

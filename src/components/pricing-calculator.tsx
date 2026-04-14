@@ -48,7 +48,7 @@ export default function PricingCalculator() {
           <h2 className="text-4xl font-extrabold md:text-6xl text-white uppercase mb-8 leading-none">
             Estimate <span className="text-primary-accent italic">Costing_</span>
           </h2>
-          <p className="text-xl text-zinc-500 font-light max-w-2xl uppercase tracking-widest leading-relaxed">
+          <p className="text-xl text-zinc-400 font-light max-w-2xl uppercase tracking-widest leading-relaxed">
             Choose the production style that works best for your brand. We offer traditional human-led crafts and modern AI-assisted workflows.
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function PricingCalculator() {
           {/* Controls */}
           <div className="lg:col-span-4 flex flex-col gap-10">
              <div className="flex flex-col gap-6">
-                <span className="text-[10px] text-zinc-500 font-mono tracking-[0.3em] uppercase flex items-center gap-2">
+                <span className="text-[10px] text-zinc-400 font-mono tracking-[0.3em] uppercase flex items-center gap-2">
                    <Calculator size={14} /> Project Settings
                 </span>
                 <div className="flex flex-col gap-4">
@@ -71,7 +71,7 @@ export default function PricingCalculator() {
                      onChange={handleBaseCostChange}
                      className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary-accent"
                    />
-                   <div className="flex justify-between text-[10px] font-mono text-zinc-500 tracking-widest uppercase">
+                   <div className="flex justify-between text-[10px] font-mono text-zinc-400 tracking-widest uppercase">
                       <span>Lite</span>
                       <span>Enterprise</span>
                    </div>
@@ -89,7 +89,7 @@ export default function PricingCalculator() {
                         "flex items-center gap-4 p-6 rounded-2xl border transition-all text-left",
                         selectedTier === tier.id 
                           ? "bg-white/10 border-primary-accent/30 shadow-lg text-white" 
-                          : "bg-transparent border-white/5 text-zinc-500 hover:border-white/10"
+                          : "bg-transparent border-white/5 text-zinc-400 hover:border-white/10"
                       )}
                     >
                       <tier.icon size={24} className={selectedTier === tier.id ? "text-primary-accent" : ""} />
@@ -116,14 +116,14 @@ export default function PricingCalculator() {
                   Quote Node: {quoteId}
                 </div>
 
-                <span className="text-zinc-500 text-lg uppercase tracking-[0.3em] font-light mb-4">Estimated Investment_</span>
+                <span className="text-zinc-400 text-lg uppercase tracking-[0.3em] font-light mb-4">Estimated Investment_</span>
                 <div className="flex items-start gap-4">
                    <h3 className="text-7xl font-black md:text-9xl text-white tracking-tighter">
                      ${calculatedCost.toLocaleString()}
                    </h3>
                    <span className="mt-4 text-primary-accent font-black text-2xl uppercase tracking-widest italic">USD</span>
                 </div>
-                <p className="mt-12 text-zinc-500 max-w-sm font-light leading-relaxed uppercase tracking-tighter text-sm">
+                <p className="mt-12 text-zinc-400 max-w-sm font-light leading-relaxed uppercase tracking-tighter text-sm">
                    Based on your selection, this project will ship in approximately <span className="text-white font-bold">{Math.ceil(calculatedCost / 1000)} business days</span>. 
                    Save <span className="text-primary-accent font-bold">{Math.round((1 - calculatedCost / baseCost) * 100)}%</span> vs. legacy methods.
                 </p>

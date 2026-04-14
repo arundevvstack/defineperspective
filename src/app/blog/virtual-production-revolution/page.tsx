@@ -38,7 +38,7 @@ export default function BlogPage() {
              <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-10 leading-[0.9]">
                CGI <span className="text-primary-accent">vs</span> Reality: The <br />Virtual Production Revolution
              </h1>
-             <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest">
+             <p className="text-xl md:text-2xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest">
                "Exploring why Unreal Engine and LED volumes are redefining the architecture of cinematic storytelling."
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -147,7 +147,7 @@ export default function BlogPage() {
                    <h3 className="text-xl font-bold uppercase tracking-widest text-white mb-4 flex items-center gap-4">
                       <span className="h-2 w-2 rounded-full bg-primary-accent" /> {faq.question}
                    </h3>
-                   <p className="text-zinc-500 font-light leading-relaxed">
+                   <p className="text-zinc-400 font-light leading-relaxed">
                       {faq.answer}
                    </p>
                 </motion.div>
@@ -164,7 +164,7 @@ export default function BlogPage() {
            <h2 className="text-4xl md:text-6xl font-black uppercaseer mb-8 leading-tight">
               Ready to enter the <br /> <span className="text-primary-accent italic underline">Virtual Production</span> Era?
            </h2>
-           <p className="text-xl font-light text-zinc-500 mb-12 uppercase tracking-widest max-w-2xl mx-auto">
+           <p className="text-xl font-light text-zinc-400 mb-12 uppercase tracking-widest max-w-2xl mx-auto">
               Partner with Define Perspective to create high-end, immersive cinematic campaigns.
            </p>
            

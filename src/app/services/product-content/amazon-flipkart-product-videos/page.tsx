@@ -59,7 +59,7 @@ export default function MarketplaceVideoSubPage() {
               Visuals for
               <span className="text-primary-accent italic">Conversion.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               
               Listing photos aren't enough. On Amazon and Flipkart, video
               listings see up to an 80% higher conversion rate. We specialize in

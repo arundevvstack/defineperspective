@@ -31,7 +31,7 @@ export default function DesertQueenAICaseStudy() {
           </h1>
           <div className="flex flex-col md:flex-row gap-12 border-y border-white/5 py-20">
              <div className="flex-1 space-y-6">
-                <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest leading-loose">Mission_</h3>
+                <h3 className="text-sm font-mono text-zinc-400 uppercase tracking-widest leading-loose">Mission_</h3>
                 <p className="text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest leading-loose">
                   "Creating a photorealistic fashion world entirely in the neural domain. Zero cameras, zero locations—total visual freedom."
                 </p>
@@ -71,7 +71,7 @@ export default function DesertQueenAICaseStudy() {
                  <Cpu className="text-primary-accent" size={32} />
                  <h2 className="text-3xl md:text-5xl font-black uppercaseer">Neural Latents_</h2>
               </div>
-              <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+              <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 For 'Desert Queen', we bypassed traditional location scouting and camera departments entirely. Every frame was generated using our proprietary neural workflows, allowing us to choreograph impossible cinematography and lighting within a hyper-realistic desert environment. This marks a new era for fashion film production in India—where imagination is the only limit.
               </p>
               <div className="p-12 rounded-[2.5rem] bg-white/5 border border-white/5 relative group">
@@ -79,7 +79,7 @@ export default function DesertQueenAICaseStudy() {
                     <BrainCircuit size={28} />
                     <h4 className="text-xl font-black uppercase tracking-widest italic">Stable Vision Hub</h4>
                  </div>
-                 <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-loose">
+                 <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-loose">
                     Multi-node generation cluster used to maintain temporal consistency and high-fidelity texture across every cinematic frame.
                  </p>
               </div>

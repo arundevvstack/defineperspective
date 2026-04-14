@@ -97,7 +97,7 @@ transition={{ delay: 0.5 }}
                        <t.icon size={24} />
                     </div>
                     <div>
-                       <span className="text-[10px] font-mono text-zinc-500 uppercase block mb-1">{t.label}</span>
+                       <span className="text-[10px] font-mono text-zinc-400 uppercase block mb-1">{t.label}</span>
                        <span className="text-lg font-bold">{t.value}</span>
                     </div>
                  </div>
@@ -130,7 +130,7 @@ transition={{ delay: 0.5 }}
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tight text-white mb-12 leading-[0.9]">
                Ready for your <br /><span className="text-primary-accent">Exclusive Shoot?</span>
              </h2>
-             <p className="text-2xl text-zinc-500 font-light max-w-2xl mx-auto mb-20 leading-relaxed">
+             <p className="text-2xl text-zinc-400 font-light max-w-2xl mx-auto mb-20 leading-relaxed">
                Elevate your brand with the best photography production in Kerala and India.
              </p>
              <div className="flex flex-wrap justify-center gap-8">

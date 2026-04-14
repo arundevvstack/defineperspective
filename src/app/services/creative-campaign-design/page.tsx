@@ -33,7 +33,7 @@ export default function CreativeCampaignDesignPage() {
       <div className="container relative z-10 mx-auto max-w-5xl">
         <button
           onClick={() => window.history.back()}
-          className="flex items-center gap-2 text-zinc-500  mb-12 transition group mx-auto md:mx-0 uppercase tracking-widest text-[10px] font-black"
+          className="flex items-center gap-2 text-zinc-400  mb-12 transition group mx-auto md:mx-0 uppercase tracking-widest text-[10px] font-black"
         >
           <ArrowLeft
             size={18}
@@ -74,7 +74,7 @@ export default function CreativeCampaignDesignPage() {
                 ].map((f) => (
                   <li
                     key={f}
-                    className="flex items-center gap-3 text-xs text-zinc-500 font-black uppercase tracking-widest"
+                    className="flex items-center gap-3 text-xs text-zinc-400 font-black uppercase tracking-widest"
                   >
                     <CheckCircle2 size={16} className="text-primary-accent" />
                     {f}

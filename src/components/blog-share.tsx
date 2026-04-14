@@ -93,7 +93,7 @@ export default function BlogShare({ title, url }: BlogShareProps) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Share2 size={16} className="text-primary-accent" />
-            <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">Spread Knowledge_</span>
+            <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400">Spread Knowledge_</span>
           </div>
         </div>
         <div className="flex gap-4">

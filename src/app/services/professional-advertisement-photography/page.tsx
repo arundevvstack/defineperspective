@@ -20,7 +20,7 @@ export default function AdvertisementPhotographyPage() {
         
         <button
           onClick={() => window.history.back()}
-          className="flex items-center gap-2 text-zinc-500  mb-12 transition group"
+          className="flex items-center gap-2 text-zinc-400  mb-12 transition group"
         >
           
           <ArrowLeft
@@ -73,7 +73,7 @@ className="text-5xl font-black md:text-8xl tracking-tighter uppercase mb-12"
                 ].map((f) => (
                   <li
                     key={f}
-                    className="flex items-center gap-3 text-sm text-zinc-500"
+                    className="flex items-center gap-3 text-sm text-zinc-400"
                   >
                     
                     <CheckCircle2 size={16} className="text-primary-accent" />

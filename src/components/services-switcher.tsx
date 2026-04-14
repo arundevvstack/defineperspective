@@ -56,7 +56,7 @@ export default function ServicesSwitcher({ activeTab, setActiveTab }: { activeTa
                  "relative px-8 py-5 rounded-2xl flex items-center gap-3 font-bold uppercase tracking-widest text-xs transition-all whitespace-nowrap overflow-hidden border",
                  activeTab === service.id 
                   ? "bg-transparent border-primary-accent text-primary-accent shadow-[0_0_30px_rgba(var(--primary-rgb),0.15)]" 
-                  : "bg-white/5 border-white/5 text-zinc-500 hover:text-white hover:border-white/20"
+                  : "bg-white/5 border-white/5 text-zinc-400 hover:text-white hover:border-white/20"
                )}
              >
                 <service.icon size={16} className={cn(

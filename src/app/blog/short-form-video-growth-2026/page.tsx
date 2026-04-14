@@ -59,7 +59,7 @@ export default function BlogPage() {
              <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-10 leading-[0.9]">
                Why <span className="text-primary-accent">Short-Form</span> Video is the #1 Growth Engine in 2026
              </h1>
-             <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-2xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                "Mastering the 9:16 economy through high-fidelity micro-storytelling and neural-accelerated production."
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -101,7 +101,7 @@ export default function BlogPage() {
             In 2026, the 9:16 vertical frame is no longer just a trend—it is the primary architectural window through which the world discovers, evaluates, and purchases. Brands that are not winning in the vertical economy are effectively invisible. The battle for the modern consumer is not won in 30-minute documentaries; it is won in 15-second high-fidelity kinetic nodes.
           </p>
 
-          <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+          <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
              The math is undeniable: reach per dollar spent on short-form video is now <strong>8x higher</strong> than any other digital placement. But as the volume has increased, so has the 'Cinematic Bar.' Standard phone-shot content is no longer enough to build a premium brand identity; you need <strong>Studio-Grade Short-Form</strong>.
           </p>
 
@@ -147,15 +147,15 @@ export default function BlogPage() {
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-center">
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-primary-accent tracking-tighter shrink-0">94%</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">of premium brands now prioritize vertical video over traditional 16:9 broadcast formats.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">of premium brands now prioritize vertical video over traditional 16:9 broadcast formats.</p>
                 </div>
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-white tracking-tighter shrink-0">12x</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">higher engagement rates for short-form video nodes compared to static high-res imagery.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">higher engagement rates for short-form video nodes compared to static high-res imagery.</p>
                 </div>
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-primary-accent tracking-tighter shrink-0">2.8s</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">The average time a user spends before deciding to skip—The era of the 'Instant Hook'.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">The average time a user spends before deciding to skip—The era of the 'Instant Hook'.</p>
                 </div>
              </div>
           </section>
@@ -174,7 +174,7 @@ export default function BlogPage() {
                     <div className="h-2 w-2 rounded-full bg-primary-accent mt-4 shrink-0 group-hover:scale-[3] transition-transform duration-500" />
                     <div>
                        <h4 className="text-xl font-black text-white uppercase tracking-widest mb-4 group- transition-colors">{item.title}</h4>
-                       <p className="text-zinc-500 text-sm">{item.desc}</p>
+                       <p className="text-zinc-400 text-sm">{item.desc}</p>
                     </div>
                  </div>
                ))}
@@ -219,7 +219,7 @@ export default function BlogPage() {
                      <h3 className="text-xl font-black uppercase tracking-widest text-white mb-4 flex items-center gap-4 justify-center md:justify-start">
                         <span className="h-2 w-2 rounded-full bg-primary-accent" /> {faq.q}
                      </h3>
-                     <p className="text-zinc-500 font-light leading-relaxed text-sm">
+                     <p className="text-zinc-400 font-light leading-relaxed text-sm">
                         {faq.a}
                      </p>
                   </motion.div>
@@ -237,7 +237,7 @@ export default function BlogPage() {
               <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-10 leading-tight">
                  Ready to <span className="text-primary-accent italic">Scale</span> Your <br /><span className="underline">Vertical Engine?</span>
               </h2>
-              <p className="text-xl font-light text-zinc-500 mb-16 uppercase tracking-[0.3em] max-w-2xl mx-auto">
+              <p className="text-xl font-light text-zinc-400 mb-16 uppercase tracking-[0.3em] max-w-2xl mx-auto">
                  Partner with Define Perspective to dominate the 9:16 mobile economy.
               </p>
               

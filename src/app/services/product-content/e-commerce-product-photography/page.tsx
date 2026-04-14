@@ -65,7 +65,7 @@ export default function PhotoProductSubPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Elite <span className="text-primary-accent italic">Optic Craft.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               In e-commerce, the first touchpoint is the image. Our product
               photography studio in Kerala uses high-end cinematic lighting and
               post-processing to create visuals that stand out on global

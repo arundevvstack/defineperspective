@@ -82,7 +82,7 @@ export default function AnalysisDashboard() {
       className={`group relative flex items-center justify-start gap-4 w-full p-5 rounded-2xl transition-all duration-300 border mb-2 ${
         activeTab === tab 
         ? "bg-primary-accent text-white border-primary-accent shadow-[0_0_20px_rgba(var(--primary-accent-rgb),0.3)]" 
-        : "bg-white/5 text-zinc-500 border-white/5 /10 hover:text-white"
+        : "bg-white/5 text-zinc-400 border-white/5 /10 hover:text-white"
       }`}
     >
        <Icon size={20} className={activeTab === tab ? "animate-pulse" : ""} />
@@ -101,7 +101,7 @@ export default function AnalysisDashboard() {
        <div className={`p-4 rounded-2xl bg-white/5 w-fit mb-8 ${color || "text-primary-accent"}`}>
           <Icon size={24} />
        </div>
-       <h4 className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest mb-2">{title}_</h4>
+       <h4 className="text-[11px] font-mono text-zinc-400 uppercase tracking-widest mb-2">{title}_</h4>
        <div className="text-5xl font-black tracking-tighter mb-4 text-white group-hover:scale-105 transition-transform origin-left">{value}</div>
        <div className="text-[11px] font-bold text-zinc-600 uppercase tracking-widest flex items-center gap-2">
           <Activity size={12} className="text-primary-accent" /> {sub}
@@ -142,13 +142,13 @@ export default function AnalysisDashboard() {
               <div className="mt-12 pt-8 border-t border-white/5">
                  <button 
                   onClick={() => alert("Management Settings Panel - System locked for security.")}
-                  className="flex items-center gap-4 text-zinc-500 hover:text-white transition-colors text-[11px] font-black uppercase tracking-widest mb-6 w-full group active:scale-95"
+                  className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors text-[11px] font-black uppercase tracking-widest mb-6 w-full group active:scale-95"
                  >
                     <Settings size={16} className="group-hover:rotate-90 transition-transform" /> settings_panel
                  </button>
                  <button 
                   onClick={() => setSystemAlerts(0)}
-                  className="flex items-center gap-4 text-zinc-500 hover:text-white transition-colors text-[11px] font-black uppercase tracking-widest w-full group active:scale-95"
+                  className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors text-[11px] font-black uppercase tracking-widest w-full group active:scale-95"
                  >
                     <div className="relative">
                       <Bell size={16} />
@@ -171,7 +171,7 @@ export default function AnalysisDashboard() {
                     <h1 className="text-lg font-black uppercase text-white">Analytics_Dashboard</h1>
                  </div>
                  <div className="h-10 w-px bg-white/10 hidden md:block" />
-                 <div className="flex items-center gap-8 text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
+                 <div className="flex items-center gap-8 text-[11px] font-mono tracking-widest text-zinc-400 uppercase">
                     <span className="flex items-center gap-3"><Globe size={14} className="text-blue-400" /> Response: Very Fast</span>
                     <span className="flex items-center gap-3"><RefreshCw size={14} className="text-green-400 animate-spin-slow" /> Real-time Update</span>
                  </div>
@@ -207,7 +207,7 @@ export default function AnalysisDashboard() {
                       <StatBox title="Total Visitors" value={visitors.toLocaleString()} sub="+14% vs Yesterday" icon={Users} onClick={() => setActiveTab("overview")} />
                       <StatBox title="Avg. Time on Site" value="128s" sub="Top Engagement" icon={Clock} color="text-blue-500" />
                       <StatBox title="SEO Ranking Index" value={`${seoScore.toFixed(0)}%`} sub="Top 2% Performance" icon={Gauge} color="text-green-500" onClick={() => setActiveTab("seo")} />
-                      <StatBox title="Search Readiness" value="Highly Optimized" sub="Search Visibility Active" icon={Cpu} color="text-zinc-500" onClick={() => setActiveTab("system")} />
+                      <StatBox title="Search Readiness" value="Highly Optimized" sub="Search Visibility Active" icon={Cpu} color="text-zinc-400" onClick={() => setActiveTab("system")} />
                    </div>
 
                    {/* PERFORMANCE CHART AREA */}
@@ -223,13 +223,13 @@ export default function AnalysisDashboard() {
                              <div className="flex gap-4">
                                 <button 
                                   onClick={() => toggleChartMode("daily")}
-                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'daily' ? 'bg-white text-black border-white' : 'bg-white/5 text-zinc-500 border-white/10 '}`}
+                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'daily' ? 'bg-white text-black border-white' : 'bg-white/5 text-zinc-400 border-white/10 '}`}
                                 >
                                   Daily
                                 </button>
                                 <button 
                                   onClick={() => toggleChartMode("live")}
-                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'live' ? 'bg-primary-accent text-white border-primary-accent' : 'bg-white/5 text-zinc-500 border-white/10 '}`}
+                                  className={`h-10 px-6 rounded-xl text-[10px] uppercase font-bold tracking-widest border transition-all ${chartMode === 'live' ? 'bg-primary-accent text-white border-primary-accent' : 'bg-white/5 text-zinc-400 border-white/10 '}`}
                                 >
                                   Live
                                 </button>
@@ -263,7 +263,7 @@ export default function AnalysisDashboard() {
 
                       {/* DEVICE SEGMENTATION */}
                       <div className="p-12 bg-zinc-900 border border-white/5 rounded-[4rem] flex flex-col justify-between">
-                         <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-10">Device Type_</h3>
+                         <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 mb-10">Device Type_</h3>
                          
                          <div className="space-y-10">
                             {[
@@ -274,7 +274,7 @@ export default function AnalysisDashboard() {
                               <div key={i} className="space-y-4">
                                  <div className="flex justify-between items-center text-xs font-black uppercase tracking-widest">
                                     <span className="flex items-center gap-3 text-white"><d.icon size={16} /> {d.label}</span>
-                                    <span className="text-zinc-500">{d.val}</span>
+                                    <span className="text-zinc-400">{d.val}</span>
                                  </div>
                                  <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
                                     <motion.div 
@@ -290,7 +290,7 @@ export default function AnalysisDashboard() {
 
                          <div className="mt-12 p-8 bg-black/40 rounded-3xl border border-white/5 text-center">
                             <span className="block text-[10px] font-black uppercase tracking-widest text-primary-accent mb-2 underline underline-offset-4 decoration-primary-accent/30">Mobile Strategy Active_</span>
-                            <p className="text-[11px] text-zinc-500 uppercase tracking-widest leading-relaxed">Website is optimized for mobile users in all regions.</p>
+                            <p className="text-[11px] text-zinc-400 uppercase tracking-widest leading-relaxed">Website is optimized for mobile users in all regions.</p>
                          </div>
                       </div>
 
@@ -315,7 +315,7 @@ export default function AnalysisDashboard() {
                          </div>
                          <div>
                             <h2 className="text-3xl font-black uppercaseer">SEO Health_Report</h2>
-                            <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Last scan: {currentTime?.toLocaleTimeString() || "Initializing..."}</p>
+                            <p className="text-xs font-mono text-zinc-400 uppercase tracking-widest">Last scan: {currentTime?.toLocaleTimeString() || "Initializing..."}</p>
                          </div>
                       </div>
 
@@ -323,7 +323,7 @@ export default function AnalysisDashboard() {
                          {[
                            { name: "Sitemap Structure", score: 98, status: "Perfect", color: "text-green-500" },
                            { name: "Website Structure", score: 84, status: "Good", color: "text-blue-500" },
-                           { name: "Backlink Analysis", score: 72, status: "Improving", color: "text-zinc-500" },
+                           { name: "Backlink Analysis", score: 72, status: "Improving", color: "text-zinc-400" },
                            { name: "Page Descriptions", score: 94, status: "Perfect", color: "text-green-500" },
                            { name: "Loading Speed", score: 99, status: "Elite", color: "text-primary-accent" }
                          ].map((item, i) => (
@@ -366,7 +366,7 @@ export default function AnalysisDashboard() {
                       </div>
 
                       <div className="p-10 bg-zinc-900 border border-white/5 rounded-[4rem]">
-                         <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-8 flex items-center gap-3">
+                         <h3 className="text-[11px] font-black uppercase tracking-[0.3em] text-zinc-400 mb-8 flex items-center gap-3">
                             <Lightbulb size={16} className="text-primary-accent" /> Improve Rankings_
                          </h3>
                          <div className="space-y-6">
@@ -415,7 +415,7 @@ export default function AnalysisDashboard() {
                               <div key={i} className="space-y-4">
                                  <div className="flex justify-between items-center">
                                     <span className="text-sm font-black uppercase tracking-widest">{m.label}</span>
-                                    <span className={m.trend === 'Critical' ? 'text-primary-accent' : 'text-zinc-500'}>{m.trend}</span>
+                                    <span className={m.trend === 'Critical' ? 'text-primary-accent' : 'text-zinc-400'}>{m.trend}</span>
                                  </div>
                                  <div className="h-6 w-full bg-white/5 rounded-2xl relative overflow-hidden flex items-center px-4 border border-white/5">
                                     <motion.div 
@@ -431,7 +431,7 @@ export default function AnalysisDashboard() {
                          <div className="p-12 rounded-3xl bg-black/40 border border-white/5 flex flex-col justify-center items-center text-center">
                             <Target size={48} className="text-primary-accent mb-8" />
                             <h3 className="text-2xl font-black uppercase tracking-tighter mb-4">Lead Progress_</h3>
-                            <p className="text-sm font-light text-zinc-500 uppercase tracking-widest leading-loose mb-10 max-w-sm">
+                            <p className="text-sm font-light text-zinc-400 uppercase tracking-widest leading-loose mb-10 max-w-sm">
                                Google Trends shows a massive increase in 'AI Video Ads' this month. We suggest focusing on this area.
                             </p>
                              <button 
@@ -492,7 +492,7 @@ export default function AnalysisDashboard() {
                          <span className="text-[11px] font-black uppercase tracking-widest text-primary-accent">Log_Stream v2.0</span>
                          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
                       </div>
-                      <div className="flex-1 font-mono text-[11px] text-zinc-500 space-y-2 overflow-hidden bg-black/20 p-6 rounded-2xl">
+                      <div className="flex-1 font-mono text-[11px] text-zinc-400 space-y-2 overflow-hidden bg-black/20 p-6 rounded-2xl">
                          {logs.map((log, i) => (
                            <motion.div 
                              key={i} 

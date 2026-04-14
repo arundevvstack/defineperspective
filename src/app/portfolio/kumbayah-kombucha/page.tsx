@@ -121,7 +121,7 @@ export default function KumbayahKombuchaCaseStudy() {
                  </div>
                  <h2 className="text-3xl md:text-5xl font-black uppercaseer">Market Analysis_</h2>
               </div>
-              <div className="space-y-8 text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+              <div className="space-y-8 text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 <p>
                   To position <span className="text-white font-bold">Kumbayah Kombucha</span> as the <span className="text-white font-bold">Best Luxury Beverage in Kochi</span>, we analyzed global beverage trends against local Kerala consumer behavior.
                 </p>
@@ -166,7 +166,7 @@ export default function KumbayahKombuchaCaseStudy() {
                  <div className="flex-1 p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 flex flex-col justify-end">
                     <Sparkles className="text-primary-accent mb-4" size={24} />
                     <h4 className="text-sm font-black uppercase tracking-widest mb-2">Kinetic Capture</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">High-speed shutter orchestration for perfect liquid physics.</p>
+                    <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed">High-speed shutter orchestration for perfect liquid physics.</p>
                  </div>
                  <div className="flex-1 relative aspect-video rounded-[3rem] overflow-hidden border border-white/10">
                     <Image 
@@ -196,7 +196,7 @@ export default function KumbayahKombuchaCaseStudy() {
            <div className="max-w-3xl mb-24">
               <h3 className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mb-4">Strategic Assets // OMNICHANNEL</h3>
               <h2 className="text-3xl md:text-5xl font-black uppercaseer mb-8 leading-tight">Engineering the <br /> Retail Identity_</h2>
-              <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+              <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 We didn't just stop at photography. We built a scalable identity system that maintains luxury fidelity across <span className="text-white">Point-of-Sale (POS)</span> terminals, branded retail refrigeration, and transit media fleets across Kochi.
               </p>
            </div>

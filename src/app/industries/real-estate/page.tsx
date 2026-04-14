@@ -67,7 +67,7 @@ export default function RealEstateIndustryPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Property <span className="text-primary-accent italic">Clarity_</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               Static photos and generic walkthroughs no longer capture
               high-intent buyers. Our specialized real estate production in
               Kerala and Kochi utilizes cinematic FPV drone capture and

@@ -58,12 +58,12 @@ whileInView={{ opacity: 1, scale: 1 }}
               className="group relative flex flex-col items-center justify-center p-8 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm transition-all hover:bg-white hover:text-primary-accent transition-all duration-300"
             >
               <div className="mb-6 h-12 w-12 flex items-center justify-center rounded-xl bg-white/5 group-hover:scale-110 transition-transform hover:text-primary-accent transition-all duration-300">
-                <metric.icon size={24} className="text-zinc-500 group-hover:text-primary-accent transition-colors" />
+                <metric.icon size={24} className="text-zinc-400 group-hover:text-primary-accent transition-colors" />
               </div>
               <h3 className="text-4xl font-black text-white tracking-tighter mb-2">
                 {metric.value}{metric.label === "Years of Experience" || metric.label === "Countries Worked In" || metric.label === "Industries Served" ? "+" : ""}
               </h3>
-              <p className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase text-center leading-tight">
+              <p className="text-[10px] font-mono tracking-widest text-zinc-400 uppercase text-center leading-tight">
                 {metric.label}
               </p>
             </motion.div>

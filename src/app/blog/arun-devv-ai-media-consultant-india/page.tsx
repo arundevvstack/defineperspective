@@ -68,7 +68,7 @@ export default function ArunDevvConsultantBlog() {
                Arun Devv: <br />
                <span className="text-primary-accent italic text-3xl md:text-5xl lg:text-7xl">AI Media Architect_</span>
              </h1>
-             <p className="text-xl md:text-3xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                Engineering the shift from manual content creation to scalable intelligence-first production systems.
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -173,7 +173,7 @@ export default function ArunDevvConsultantBlog() {
                          <span className="text-4xl font-black text-white/10">0{i+1}</span>
                          <div>
                             <h4 className="text-xl font-black uppercase text-white mb-2 tracking-tighter">{item.t}_</h4>
-                            <p className="text-sm text-zinc-500 font-light uppercase tracking-widest">{item.d}</p>
+                            <p className="text-sm text-zinc-400 font-light uppercase tracking-widest">{item.d}</p>
                          </div>
                       </div>
                     ))}
@@ -200,7 +200,7 @@ export default function ArunDevvConsultantBlog() {
                       <h3 className="text-lg md:text-xl font-bold text-white uppercase mb-4 flex items-center gap-4">
                         <span className="h-2 w-2 rounded-full bg-primary-accent" /> {faq.question}
                       </h3>
-                      <p className="text-zinc-500 font-light leading-relaxed">{faq.answer}</p>
+                      <p className="text-zinc-400 font-light leading-relaxed">{faq.answer}</p>
                     </div>
                   ))}
                 </div>

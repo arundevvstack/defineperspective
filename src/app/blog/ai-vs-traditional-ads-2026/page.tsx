@@ -59,7 +59,7 @@ export default function BlogPage() {
              <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-10 leading-[0.9]">
                How AI Video Production is <span className="text-primary-accent">Replacing</span> Traditional Ads in 2026
              </h1>
-             <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-2xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                "The death of the 90-day production cycle and the rise of the Always-On Neural Storytelling Engine."
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -98,7 +98,7 @@ export default function BlogPage() {
             The traditional commercial shoot is becoming a relic of a slower era. In 2026, the friction between 'brief' and 'broadcast' has reached its breaking point. Brands are no longer willing to wait months for a single hero film that will be cannibalized by social media algorithms in less than a day. The shift is not just technical; it's existential.
           </p>
 
-          <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+          <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
              If your brand still thinks 'video production' means a 50-person crew, a massive lighting rig, and a 12-week wait, you are already losing the market to <strong>Neural-First competitors</strong> who produce 10x the volume at 1/10th the cost without sacrificing an ounce of cinematic quality.
           </p>
 
@@ -144,7 +144,7 @@ export default function BlogPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
                <div className="p-12 rounded-[3rem] bg-white/5 border border-white/5">
                   <h3 className="text-2xl font-black text-white uppercase mb-6 tracking-tight">Traditional <br /><span className="text-zinc-600 italic">Legacy Model_</span></h3>
-                  <ul className="text-sm space-y-4 text-zinc-500 font-mono uppercase tracking-widest">
+                  <ul className="text-sm space-y-4 text-zinc-400 font-mono uppercase tracking-widest">
                      <li>- Massive Crew Logistics</li>
                      <li>- 12-Week Production Lead</li>
                      <li>- One Static Output</li>
@@ -174,15 +174,15 @@ export default function BlogPage() {
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-center">
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-primary-accent tracking-tighter">6x</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Lower CAC (Customer Acquisition Cost) for brands utilizing AI-versioned video ads.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">Lower CAC (Customer Acquisition Cost) for brands utilizing AI-versioned video ads.</p>
                 </div>
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-white tracking-tighter">4.2s</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Average retention increase when headlines are dynamically altered via AI.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">Average retention increase when headlines are dynamically altered via AI.</p>
                 </div>
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-primary-accent tracking-tighter">2027</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">The year by which legacy ad filmmaking will be entirely 'Niche' or 'High-End Artisanal'.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">The year by which legacy ad filmmaking will be entirely 'Niche' or 'High-End Artisanal'.</p>
                 </div>
              </div>
           </section>
@@ -198,7 +198,7 @@ export default function BlogPage() {
                   </div>
                   <div>
                      <h4 className="text-xl font-bold text-white uppercase tracking-widest mb-4">Digitize Your Brand DNA</h4>
-                     <p className="text-zinc-500 text-sm">Create high-fidelity digital twins of your flagship products and a comprehensive 'Neural Visual Identity'. This ensures AI models know exactly how your brand should 'look' without needing a new shoot every time.</p>
+                     <p className="text-zinc-400 text-sm">Create high-fidelity digital twins of your flagship products and a comprehensive 'Neural Visual Identity'. This ensures AI models know exactly how your brand should 'look' without needing a new shoot every time.</p>
                   </div>
                </div>
                <div className="flex gap-8 group">
@@ -207,7 +207,7 @@ export default function BlogPage() {
                   </div>
                   <div>
                      <h4 className="text-xl font-bold text-white uppercase tracking-widest mb-4">Implement 'Hook-A/B' Workflows</h4>
-                     <p className="text-zinc-500 text-sm">Stop releasing a single video. Released a 'Root Strategy' and use AI to generate 10 hooks. Let the data decide which one gets the most budget within the first 2 hours of launch.</p>
+                     <p className="text-zinc-400 text-sm">Stop releasing a single video. Released a 'Root Strategy' and use AI to generate 10 hooks. Let the data decide which one gets the most budget within the first 2 hours of launch.</p>
                   </div>
                </div>
                <div className="flex gap-8 group">
@@ -216,7 +216,7 @@ export default function BlogPage() {
                   </div>
                   <div>
                      <h4 className="text-xl font-bold text-white uppercase tracking-widest mb-4">Partner with a Media Tech Node</h4>
-                     <p className="text-zinc-500 text-sm">Traditional agencies are too slow. Work with studios like Define Perspective that bridge the gap between cinematic excellence and neural performance technology.</p>
+                     <p className="text-zinc-400 text-sm">Traditional agencies are too slow. Work with studios like Define Perspective that bridge the gap between cinematic excellence and neural performance technology.</p>
                   </div>
                </div>
             </div>
@@ -260,7 +260,7 @@ export default function BlogPage() {
                      <h3 className="text-xl font-bold uppercase tracking-widest text-white mb-4 flex items-center gap-4">
                         <span className="h-2 w-2 rounded-full bg-primary-accent" /> {faq.q}
                      </h3>
-                     <p className="text-zinc-500 font-light leading-relaxed text-sm">
+                     <p className="text-zinc-400 font-light leading-relaxed text-sm">
                         {faq.a}
                      </p>
                   </motion.div>
@@ -278,7 +278,7 @@ export default function BlogPage() {
               <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-10 leading-tight">
                  Ready to <span className="italic underline">Obsolete</span> Your <br />Legacy <span className="text-white">Competition?</span>
               </h2>
-              <p className="text-xl font-light text-zinc-500 mb-16 uppercase tracking-[0.3em] max-w-2xl mx-auto">
+              <p className="text-xl font-light text-zinc-400 mb-16 uppercase tracking-[0.3em] max-w-2xl mx-auto">
                  Partner with Define Perspective to build your brand's AI content engine.
               </p>
               

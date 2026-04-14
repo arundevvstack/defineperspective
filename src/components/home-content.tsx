@@ -50,7 +50,7 @@ export default function HomeContent() {
                    <Activity size={24} className="text-primary-accent animate-pulse" />
                 </div>
                 <div>
-                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 block mb-2">Live Logistics Hub</span>
+                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 block mb-2">Live Logistics Hub</span>
                    <p className="max-w-3xl text-[11px] md:text-[13px] text-zinc-400 font-normal leading-relaxed uppercase tracking-tighter">
                       Leading <span className="text-white font-bold">video production company in Kerala</span> offering end-to-end media production including TV commercial production, brand film production, and corporate video production.
                    </p>
@@ -62,7 +62,7 @@ export default function HomeContent() {
                    <Cpu size={24} className="text-blue-500" />
                 </div>
                 <div>
-                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500 block mb-2">Neural Studio Kochi</span>
+                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 block mb-2">Neural Studio Kochi</span>
                    <p className="max-w-xl text-[11px] md:text-[13px] text-zinc-400 font-normal leading-relaxed uppercase tracking-tighter">
                       Our <span className="text-white font-bold">AI-video studio in Kochi</span> delivers high-performance <span className="text-white">generative content</span> for brands across <span className="text-blue-500">India</span>.
                    </p>
@@ -247,7 +247,7 @@ export default function HomeContent() {
                     ))}
                   </div>
 
-                  <p className="text-lg md:text-2xl text-zinc-500 font-light leading-relaxed">
+                  <p className="text-lg md:text-2xl text-zinc-400 font-light leading-relaxed">
                     Our <span className="text-white font-medium">AI-powered video production studio in Kochi</span> combines cinematic storytelling with generative AI workflows to deliver <span className="text-primary-accent underline underline-offset-8 decoration-primary-accent/30">scalable, high-performance content</span> for brands across India.
                   </p>
                 </div>
@@ -265,7 +265,7 @@ export default function HomeContent() {
                     </div>
                     <div>
                        <span className="block text-xs font-black text-white uppercase">Client Showreel</span>
-                       <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-mono italic">Watch 2026 Collection</span>
+                       <span className="text-[10px] text-zinc-400 uppercase tracking-widest font-mono italic">Watch 2026 Collection</span>
                     </div>
                   </div>
                 </div>

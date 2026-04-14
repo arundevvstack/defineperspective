@@ -64,7 +64,7 @@ export default function ProductDemoSubPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Clarity is <span className="text-primary-accent italic">Conversion.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               A great product shouldn't be hard to understand. Our product demo
               production focuses on breaking down complex features into simple,
               visually stunning narratives. Whether it's a SaaS platform or

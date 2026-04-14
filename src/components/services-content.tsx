@@ -155,7 +155,7 @@ className="text-5xl font-black md:text-[8rem] tracking-tighter uppercase mb-20 l
             Capabilities <br />
             <span className="text-primary-accent italic font-black underline decoration-white/5">Matrix_</span>
           </motion.h1>
-          <p className="text-xl md:text-3xl text-zinc-500 font-light max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
             "Eliminating mediocrity. High-end human filmmaking fused with 2026 AI-augmented production for brands in India."
           </p>
         </header>
@@ -169,7 +169,7 @@ className="text-5xl font-black md:text-[8rem] tracking-tighter uppercase mb-20 l
                   <h2 className="text-4xl md:text-[6rem] font-black uppercaseer text-white mb-8 group-hover:text-primary-accent transition-colors leading-[0.9]">
                     {section.title}
                   </h2>
-                  <p className="text-xl md:text-2xl font-light tracking-widest text-zinc-500 uppercase leading-relaxed">
+                  <p className="text-xl md:text-2xl font-light tracking-widest text-zinc-400 uppercase leading-relaxed">
                     {section.subtitle}
                   </p>
                 </div>
@@ -197,7 +197,7 @@ whileInView={{ opacity: 1, y: 0 }}
                      <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-8 leading-none min-h-[4rem] group-hover:text-primary-accent transition-colors">
                        {service.title}
                      </h3>
-                     <p className="text-zinc-500 font-light leading-relaxed mb-16 uppercase tracking-tight text-[11px] max-w-sm">
+                     <p className="text-zinc-400 font-light leading-relaxed mb-16 uppercase tracking-tight text-[11px] max-w-sm">
                        {service.desc}
                      </p>
 

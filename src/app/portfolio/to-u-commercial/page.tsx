@@ -31,7 +31,7 @@ export default function ToUCommercialCaseStudy() {
           </h1>
           <div className="flex flex-col md:flex-row gap-12 border-y border-white/5 py-20">
              <div className="flex-1 space-y-6">
-                <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest leading-loose">Mission_</h3>
+                <h3 className="text-sm font-mono text-zinc-400 uppercase tracking-widest leading-loose">Mission_</h3>
                 <p className="text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest leading-loose">
                   "Redefining fashion film aesthetics in South India. A high-energy, cinematic TVC for 'To U' that captures the pulse of modern apparel."
                 </p>
@@ -72,7 +72,7 @@ export default function ToUCommercialCaseStudy() {
                  <Zap className="text-primary-accent" size={32} />
                  <h2 className="text-3xl md:text-5xl font-black uppercaseer">Kinetic Flow_</h2>
               </div>
-              <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+              <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 For 'To U', we opted for a high-velocity editing style paired with shallow depth-of-field cinematography. The goal was to evoke sensory luxury—making the fabric feel almost tactile through the screen. Shot on high-speed sensors to allow for fluid time-ramping, the commercial balances intensity with elegance to resonate with a young, fashion-conscious audience in India.
               </p>
               <div className="flex gap-12">

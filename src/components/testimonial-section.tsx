@@ -62,7 +62,7 @@ whileInView={{ opacity: 1, y: 0 }}
                  </div>
                  <div className="flex flex-col">
                     <span className="text-lg font-bold text-white uppercase tracking-widest">{testimonial.author}</span>
-                    <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest leading-relaxed">
+                    <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest leading-relaxed">
                        {testimonial.role} — <span className="text-primary-accent">{testimonial.location}</span>
                     </span>
                  </div>

@@ -58,7 +58,7 @@ export default function PerformanceAdsSubPage() {
               Scale Your
               <span className="text-primary-accent italic">ROI Engine.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               
               Most agencies focus on aesthetics. We focus on ROAS. Our
               performance marketing video ads are structured around first-second

@@ -38,7 +38,7 @@ export default function BlogPage() {
              <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-10 leading-[0.9]">
                Mastering <span className="text-primary-accent italic">Performance</span> <br />Video Ads for D2C Brands
              </h1>
-             <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest">
+             <p className="text-xl md:text-2xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest">
                "How data-driven creativity and automated scaling are defining the next-gen of D2C growth."
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -147,7 +147,7 @@ export default function BlogPage() {
                    <h3 className="text-xl font-bold uppercase tracking-widest text-white mb-4 flex items-center gap-4">
                       <span className="h-2 w-2 rounded-full bg-primary-accent" /> {faq.question}
                    </h3>
-                   <p className="text-zinc-500 font-light leading-relaxed">
+                   <p className="text-zinc-400 font-light leading-relaxed">
                       {faq.answer}
                    </p>
                 </motion.div>
@@ -164,7 +164,7 @@ export default function BlogPage() {
            <h2 className="text-4xl md:text-6xl font-black uppercaseer mb-8 leading-tight">
               Ready to scale your D2C <br /> <span className="text-primary-accent italic underline">Growth Engine?</span>
            </h2>
-           <p className="text-xl font-light text-zinc-500 mb-12 uppercase tracking-widest max-w-2xl mx-auto">
+           <p className="text-xl font-light text-zinc-400 mb-12 uppercase tracking-widest max-w-2xl mx-auto">
               Partner with Define Perspective to create high-impact, performance-driven video campaigns.
            </p>
            

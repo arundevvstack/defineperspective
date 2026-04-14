@@ -189,7 +189,7 @@ transition={{ delay: 0.5 }}
                 Future of Design.
               </span>
             </h2>
-            <p className="text-2xl text-zinc-500 font-light max-w-2xl mx-auto mb-20 leading-relaxed">
+            <p className="text-2xl text-zinc-400 font-light max-w-2xl mx-auto mb-20 leading-relaxed">
               
               Collaborate with DP AI Studios to initialize your brand's
               synthetic evolution.

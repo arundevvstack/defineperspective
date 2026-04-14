@@ -83,7 +83,7 @@ export default function JeepAIVideoBlog() {
                The Future Of <br />
                <span className="text-primary-accent italic">Indian Ads_</span>
              </h1>
-             <p className="text-xl md:text-3xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                Engineering the shift from traditional production to neural-accelerated brand storytelling.
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -166,7 +166,7 @@ export default function JeepAIVideoBlog() {
                      <div key={item.t} className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-all">
                         <item.i className="text-primary-accent mb-6" size={32} />
                         <h4 className="text-lg font-black uppercase text-white mb-4 tracking-tighter">{item.t}</h4>
-                        <p className="text-sm text-zinc-500 leading-relaxed font-light uppercase tracking-widest">{item.d}</p>
+                        <p className="text-sm text-zinc-400 leading-relaxed font-light uppercase tracking-widest">{item.d}</p>
                      </div>
                    ))}
                 </div>
@@ -193,7 +193,7 @@ export default function JeepAIVideoBlog() {
                       <h3 className="text-lg md:text-xl font-bold text-white uppercase mb-4 flex items-center gap-4">
                         <span className="h-2 w-2 rounded-full bg-primary-accent" /> {faq.question}
                       </h3>
-                      <p className="text-zinc-500 font-light leading-relaxed">{faq.answer}</p>
+                      <p className="text-zinc-400 font-light leading-relaxed">{faq.answer}</p>
                     </div>
                   ))}
                 </div>

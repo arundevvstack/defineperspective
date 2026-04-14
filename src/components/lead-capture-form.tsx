@@ -38,7 +38,7 @@ export default function LeadCaptureForm() {
           <h3 className="text-3xl font-black uppercase text-white tracking-tight italic">
             Get Free Video <br /><span className="text-primary-accent">Strategy & Quote_</span>
           </h3>
-          <p className="text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-mono">Precision Lead Protocol v0.1</p>
+          <p className="text-[10px] text-zinc-400 uppercase tracking-[0.3em] font-mono">Precision Lead Protocol v0.1</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -71,7 +71,7 @@ export default function LeadCaptureForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <select 
             required
-            className="h-16 px-8 rounded-2xl bg-[#111] border border-white/10 text-zinc-500 text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none appearance-none transition-all"
+            className="h-16 px-8 rounded-2xl bg-[#111] border border-white/10 text-zinc-400 text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none appearance-none transition-all"
           >
             <option value="">REQUIREMENT TYPE_</option>
             <option value="ads">ADS / PERFORMANCE</option>
@@ -82,7 +82,7 @@ export default function LeadCaptureForm() {
           </select>
           <select 
             required
-            className="h-16 px-8 rounded-2xl bg-[#111] border border-white/10 text-zinc-500 text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none appearance-none transition-all"
+            className="h-16 px-8 rounded-2xl bg-[#111] border border-white/10 text-zinc-400 text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none appearance-none transition-all"
           >
             <option value="">BUDGET RANGE_</option>
             <option value="starter">₹50K - ₹2L</option>

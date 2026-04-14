@@ -31,7 +31,7 @@ export default function FashionEditorialCaseStudy() {
           </h1>
           <div className="flex flex-col md:flex-row gap-12 border-y border-white/5 py-20">
              <div className="flex-1 space-y-6">
-                <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest leading-loose">Mission_</h3>
+                <h3 className="text-sm font-mono text-zinc-400 uppercase tracking-widest leading-loose">Mission_</h3>
                 <p className="text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest leading-loose">
                   "Deliver a photorealistic fashion editorial that balances commercial appeal with high-art aesthetics for a growing D2C apparel brand."
                 </p>
@@ -74,19 +74,19 @@ export default function FashionEditorialCaseStudy() {
                  <Camera className="text-primary-accent" size={32} />
                  <h2 className="text-3xl md:text-5xl font-black uppercaseer">Vogue Standard_</h2>
               </div>
-              <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+              <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 We engineered a high-velocity production workflow that prioritized skin-tone accuracy and textile texture. Utilizing a combination of natural light diffusion and high-end studio strobes, we achieved a look that feels both effortless and luxury. Our retouching pipeline focused on preserving natural skin texture while elevating the overall color grading to a global 'Vogue' standard.
               </p>
               <div className="grid grid-cols-2 gap-8 pt-8">
                  <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
                     <Scissors className="text-primary-accent mb-4" size={24} />
                     <h4 className="text-sm font-black uppercase tracking-widest mb-2">Textile Node</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Preserving fabric weave at 100% crop.</p>
+                    <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed">Preserving fabric weave at 100% crop.</p>
                  </div>
                  <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
                     <Sparkles className="text-primary-accent mb-4" size={24} />
                     <h4 className="text-sm font-black uppercase tracking-widest mb-2">Chroma Sync</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Perfect color matching for global SKUs.</p>
+                    <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed">Perfect color matching for global SKUs.</p>
                  </div>
               </div>
            </div>

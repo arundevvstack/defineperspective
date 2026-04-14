@@ -67,7 +67,7 @@ export default function EcommerceIndustryPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Scale Your <span className="text-primary-accent italic">Ad ROAS_</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               Random posting is the enemy of e-commerce growth. Our specialized
               D2C division in Kerala and India focuses on high-impact product
               cinematography integrated with direct-response hooks. We ensure

@@ -96,7 +96,7 @@ export default function KeralaLocationPage() {
           <div className="relative z-10">
             <div className="flex items-center gap-4 mb-8">
               <BrainCircuit className="text-primary-accent" size={32} />
-              <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Our Process_</span>
+              <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-400">Our Process_</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Kochi & Trivandrum <span className="text-primary-accent font-black">Experts_</span>
@@ -132,7 +132,7 @@ export default function KeralaLocationPage() {
             <div key={i} className="p-10 rounded-[3rem] border border-white/5 bg-white/5 hover:bg-primary-accent/10 hover:border-primary-accent/20 transition-all group text-left shadow-xl">
               <Sparkles className="text-primary-accent mb-8 group-hover:scale-125 transition-transform" size={32} />
               <h3 className="text-xl font-black uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors">{cap.title}</h3>
-              <p className="text-sm text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">{cap.desc}</p>
+              <p className="text-sm text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">{cap.desc}</p>
             </div>
           ))}
         </div>

@@ -75,7 +75,7 @@ export default function CinematicHero({ mode }: { mode: string }) {
             viewport={{ once: true }}
             className="max-w-2xl mb-20 px-8 py-10 rounded-[2rem] border border-white/5 bg-white/[0.02] backdrop-blur-md"
           >
-            <p className="text-zinc-500 text-sm md:text-base font-light leading-relaxed uppercase tracking-[0.2em]">
+            <p className="text-zinc-400 text-sm md:text-base font-light leading-relaxed uppercase tracking-[0.2em]">
               {isAI 
                 ? <>Deploying <span className="text-white font-bold tracking-normal">neural cinematic systems</span> to accelerate brand growth by reducing production cycles and maximizing visual impact.</>
                 : <>Orchestrating <span className="text-white font-bold tracking-normal">elite cinematic video production</span> through meticulous lighting, sound engineering, and sophisticated narrative structure.</>}
@@ -111,7 +111,7 @@ export default function CinematicHero({ mode }: { mode: string }) {
                     <div className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mb-4">
                       {metric.label}
                     </div>
-                    <p className="text-xs text-zinc-500 font-light uppercase tracking-widest leading-relaxed">
+                    <p className="text-xs text-zinc-400 font-light uppercase tracking-widest leading-relaxed">
                       {metric.desc}
                     </p>
                   </motion.div>

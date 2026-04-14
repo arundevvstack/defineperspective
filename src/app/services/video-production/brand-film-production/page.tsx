@@ -67,7 +67,7 @@ export default function BrandFilmSubPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Define Your <span className="text-primary-accent italic font-black">Visual Legacy.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               A great brand film does more than sell — it inspires. Our
               cinematography teams in Kerala and India focus on the profound
               narrative heart of your organization. We combine 8K cinematic

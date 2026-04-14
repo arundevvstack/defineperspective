@@ -32,7 +32,7 @@ export default function GlobalMetricsHUD() {
       <div className="flex flex-col border-l-2 border-primary-accent pr-4 pl-3 bg-black/40 backdrop-blur-md p-2">
         <div className="flex items-center gap-2 mb-1">
             <Activity size={10} className="text-primary-accent" />
-            <span className="text-[8px] text-zinc-500 uppercase tracking-[0.2em]">CORE_LATENCY</span>
+            <span className="text-[8px] text-zinc-400 uppercase tracking-[0.2em]">CORE_LATENCY</span>
         </div>
         <span className="text-[12px] text-white font-black italic">{metrics.ping} MS</span>
       </div>
@@ -40,7 +40,7 @@ export default function GlobalMetricsHUD() {
       <div className="flex flex-col border-l-2 border-primary-accent pr-4 pl-3 bg-black/40 backdrop-blur-md p-2">
         <div className="flex items-center gap-2 mb-1">
             <Shield size={10} className={metrics.status === "SECURE" ? "text-primary-accent" : "text-red-500 animate-pulse"} />
-            <span className="text-[8px] text-zinc-500 uppercase tracking-[0.2em]">NODE_STATUS</span>
+            <span className="text-[8px] text-zinc-400 uppercase tracking-[0.2em]">NODE_STATUS</span>
         </div>
         <span className={metrics.status === "SECURE" ? "text-primary-accent text-[12px] font-black italic" : "text-red-500 text-[12px] font-black italic"}>
             {metrics.status}
@@ -50,7 +50,7 @@ export default function GlobalMetricsHUD() {
       <div className="flex flex-col border-l-2 border-primary-accent pr-4 pl-3 bg-black/40 backdrop-blur-md p-2">
         <div className="flex items-center gap-2 mb-1">
             <Zap size={10} className="text-primary-accent" />
-            <span className="text-[8px] text-zinc-500 uppercase tracking-[0.2em]">PACKET_THROUGHPUT</span>
+            <span className="text-[8px] text-zinc-400 uppercase tracking-[0.2em]">PACKET_THROUGHPUT</span>
         </div>
         <span className="text-[12px] text-white font-black italic">{metrics.load} GB/s</span>
       </div>

@@ -26,7 +26,7 @@ export default function CGIVirtualProductionPage() {
                CGI & <br />
                <span className="text-primary-accent italic">Virtual Prod_</span>
              </h1>
-             <p className="text-xl md:text-3xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                Eliminating location constraints through high-fidelity neural rendering and immersive LED environments.
              </p>
           </motion.div>
@@ -45,7 +45,7 @@ export default function CGIVirtualProductionPage() {
                </p>
                <ul className="space-y-4">
                   {["LED Volume Integration", "Neural Asset Generation", "Real-time Volumetric Lighting", "Digital Double Synthesis"].map(item => (
-                    <li key={item} className="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.2em] text-zinc-500">
+                    <li key={item} className="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.2em] text-zinc-400">
                        <Zap size={14} className="text-primary-accent" /> {item}
                     </li>
                   ))}

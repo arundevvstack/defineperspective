@@ -65,7 +65,7 @@ export default function HealthcareIndustryPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Empathetic <span className="text-primary-accent font-black">Aesthetics.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               Healthcare marketing requires a delicate balance of technical
               authority and human empathy. Our specialized healthcare division
               in Kerala and Kochi focuses on patient-centric storytelling — from

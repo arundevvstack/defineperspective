@@ -101,7 +101,7 @@ export default function TrivandrumLocationPage() {
           <div className="relative z-10">
             <div className="flex items-center gap-4 mb-8">
               <Building2 className="text-primary-accent" size={32} />
-              <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-500">Technopark Team_</span>
+              <span className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-zinc-400">Technopark Team_</span>
             </div>
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Thiruvananthapuram <span className="text-primary-accent italic">Leading Experts_</span>

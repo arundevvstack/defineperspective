@@ -85,7 +85,7 @@ function ContactForm() {
          </div>
          <div className="space-y-4">
             <h3 className="text-4xl font-black uppercase tracking-tighter text-white">Notification Sent</h3>
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-zinc-500 max-w-sm mx-auto leading-relaxed">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 max-w-sm mx-auto leading-relaxed">
                Project intake synchronized. <br />
                <span className="text-primary-accent">Success Mail Notification</span> triggered to the strategy hub.
             </p>
@@ -111,7 +111,7 @@ function ContactForm() {
       
       <div className="mb-14">
         <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Project Intake</h3>
-        <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em]">Status: Ready to Scale Your Vision</p>
+        <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-[0.3em]">Status: Ready to Scale Your Vision</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-10">
@@ -306,14 +306,14 @@ export default function ContactContent() {
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                        <div className="space-y-6">
-                          <span className="text-[11px] text-zinc-500 uppercase font-mono block mb-2 font-bold underline decoration-primary-accent decoration-2 underline-offset-8">Kerala Studio (India)</span>
+                          <span className="text-[11px] text-zinc-400 uppercase font-mono block mb-2 font-bold underline decoration-primary-accent decoration-2 underline-offset-8">Kerala Studio (India)</span>
                           <p className="text-xs text-zinc-400 font-light leading-relaxed uppercase tracking-widest">
                             <span className="text-white font-bold block mb-1">Kochi Studio:</span> Industrial Video Production Center <br />
                             <span className="text-white font-bold block mb-1 mt-3">Trivandrum Studio:</span> AI Media Research & VFX Lab
                           </p>
                        </div>
                        <div className="space-y-6">
-                          <span className="text-[11px] text-zinc-500 uppercase font-mono block mb-2 font-bold underline decoration-primary-accent decoration-2 underline-offset-8">Global Studio (UAE)</span>
+                          <span className="text-[11px] text-zinc-400 uppercase font-mono block mb-2 font-bold underline decoration-primary-accent decoration-2 underline-offset-8">Global Studio (UAE)</span>
                           <p className="text-xs text-zinc-400 font-light leading-relaxed uppercase tracking-widest">
                             <span className="text-white font-bold block mb-1">Dubai Studio:</span> Creative Strategy & Luxury Content Hub
                           </p>
@@ -321,7 +321,7 @@ export default function ContactContent() {
                     </div>
                     <div className="mt-12 pt-10 border-t border-white/10">
                        <p className="text-[9px] text-zinc-600 font-mono uppercase leading-relaxed tracking-wider">
-                          Recognized as the <span className="text-zinc-500 font-bold">top AI video production company in Kerala and India</span>. Servicing major brands across the Globe with unified Media & AI workflows.
+                          Recognized as the <span className="text-zinc-400 font-bold">top AI video production company in Kerala and India</span>. Servicing major brands across the Globe with unified Media & AI workflows.
                        </p>
                     </div>
                  </div>
@@ -376,7 +376,7 @@ export default function ContactContent() {
                     Building high-conversion visual systems for <span className="text-white font-bold">India and UAE</span>. Fusing cinematic craft with AI logic.
                  </motion.p>
                  <div className="space-y-8">
-                    <p className="text-sm md:text-lg text-zinc-500 font-light uppercase tracking-widest leading-relaxed">
+                    <p className="text-sm md:text-lg text-zinc-400 font-light uppercase tracking-widest leading-relaxed">
                        Operating as the premier <span className="text-white">AI video production studio in Kochi and Trivandrum</span>. Delivering results through cognitive content engineering across <span className="text-white">Kerala, India, and global markets</span>.
                     </p>
                     <div className="flex flex-wrap gap-4 pt-4">
@@ -393,7 +393,7 @@ export default function ContactContent() {
       {/* AI Readiness Context Hub (SEO & AI READABLE) */}
       <section className="py-8 px-6 md:px-12 bg-white/[0.03] border-b border-white/5 relative z-20">
          <div className="container mx-auto">
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-10 text-[9px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-500 leading-none">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-10 text-[9px] md:text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-400 leading-none">
                <div className="flex items-center gap-2 leading-none">
                   <Zap size={14} className="text-primary-accent shrink-0" />
                   <span>Best AI Video Production Kerala</span>

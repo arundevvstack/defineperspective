@@ -101,7 +101,7 @@ export default function BlogPage() {
                <span className="text-primary-accent italic">Production</span> <br />
                Company In India_
              </h1>
-             <p className="text-xl md:text-3xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-3xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                Defining the new standard of cinematic excellence through human artistry and neural intelligence.
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -160,21 +160,21 @@ export default function BlogPage() {
                           <CheckCircle className="text-primary-accent shrink-0 mt-1" size={20} />
                           <div>
                             <strong className="text-white block uppercase tracking-widest text-sm mb-1">Cost Efficiency</strong>
-                            <p className="text-base text-zinc-500">Reducing overheads by up to 60% compared to legacy filmmaking.</p>
+                            <p className="text-base text-zinc-400">Reducing overheads by up to 60% compared to legacy filmmaking.</p>
                           </div>
                         </li>
                         <li className="flex gap-4 items-start">
                           <CheckCircle className="text-primary-accent shrink-0 mt-1" size={20} />
                           <div>
                             <strong className="text-white block uppercase tracking-widest text-sm mb-1">Localization</strong>
-                            <p className="text-base text-zinc-500">Instant Malayalam, Tamil, and Hindi dubbing via AI voice cloning.</p>
+                            <p className="text-base text-zinc-400">Instant Malayalam, Tamil, and Hindi dubbing via AI voice cloning.</p>
                           </div>
                         </li>
                         <li className="flex gap-4 items-start">
                           <CheckCircle className="text-primary-accent shrink-0 mt-1" size={20} />
                           <div>
                             <strong className="text-white block uppercase tracking-widest text-sm mb-1">Virtual Sets</strong>
-                            <p className="text-base text-zinc-500">Utilizing <Link href="/services/cgi-virtual-production" className=" transition-colors">CGI & virtual production</Link> to film in "Paris" from a studio in Kochi.</p>
+                            <p className="text-base text-zinc-400">Utilizing <Link href="/services/cgi-virtual-production" className=" transition-colors">CGI & virtual production</Link> to film in "Paris" from a studio in Kochi.</p>
                           </div>
                         </li>
                      </ul>
@@ -209,14 +209,14 @@ export default function BlogPage() {
                        </div>
                        <h4 className="text-3xl font-black text-white uppercase tracking-tighter mb-2">{metric.name}</h4>
                        <p className="text-primary-accent text-xs font-mono uppercase tracking-widest mb-6">{metric.tagline}</p>
-                       <p className="text-base text-zinc-500 leading-relaxed font-light">
+                       <p className="text-base text-zinc-400 leading-relaxed font-light">
                           {metric.desc}
                        </p>
                     </div>
                   ))}
                   <div className="p-12 rounded-[3.5rem] bg-primary-accent/5 border border-primary-accent/20 flex flex-col items-center justify-center text-center">
                     <Sparkles className="text-primary-accent mb-6" size={40} />
-                    <p className="text-zinc-500 text-sm font-mono uppercase tracking-widest">Explore the full list in our elite directory.</p>
+                    <p className="text-zinc-400 text-sm font-mono uppercase tracking-widest">Explore the full list in our elite directory.</p>
                   </div>
                 </div>
               </section>
@@ -245,7 +245,7 @@ export default function BlogPage() {
                    <h2 className="text-5xl md:text-[6rem] font-black text-white uppercaseer mb-6">
                       Insights & <span className="text-primary-accent">FAQ_</span>
                    </h2>
-                   <p className="text-zinc-500 uppercase tracking-widest text-sm font-mono">Expert perspectives on the 2026 AI landscape</p>
+                   <p className="text-zinc-400 uppercase tracking-widest text-sm font-mono">Expert perspectives on the 2026 AI landscape</p>
                  </div>
                  
                  <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
@@ -254,7 +254,7 @@ export default function BlogPage() {
                          <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight text-white mb-6 flex items-center gap-6">
                             <span className="h-3 w-3 rounded-full bg-primary-accent group-hover:animate-ping" /> {faq.question}
                          </h3>
-                         <p className="text-lg text-zinc-500 font-light leading-relaxed">{faq.answer}</p>
+                         <p className="text-lg text-zinc-400 font-light leading-relaxed">{faq.answer}</p>
                       </div>
                     ))}
                  </div>

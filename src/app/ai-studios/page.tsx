@@ -86,7 +86,7 @@ export default function AIStudiosPage() {
             DP AI
             <span className="text-primary-accent italic">Studios_</span>
           </h1>
-          <p className="text-xl md:text-3xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
+          <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
             
             "The future of media is neural. We build high-velocity AI-powered
             visual campaigns for brands that want to scale exponentially."
@@ -126,7 +126,7 @@ export default function AIStudiosPage() {
               <h3 className="text-4xl font-black uppercase tracking-tight text-white mb-6 group- transition-colors">
                 {pillar.title}
               </h3>
-              <p className="text-lg text-zinc-500 font-light leading-relaxed mb-10">
+              <p className="text-lg text-zinc-400 font-light leading-relaxed mb-10">
                 {pillar.desc}
               </p>
               <div className="flex items-center gap-4 text-xs font-mono tracking-widest uppercase text-zinc-600 group- transition-colors">
@@ -181,7 +181,7 @@ export default function AIStudiosPage() {
                     <h4 className="text-xl font-bold uppercase tracking-widest text-white mb-2">
                       {item.t}
                     </h4>
-                    <p className="text-zinc-500 font-light leading-relaxed">
+                    <p className="text-zinc-400 font-light leading-relaxed">
                       {item.d}
                     </p>
                   </div>

@@ -3,31 +3,75 @@
 import { motion } from "framer-motion";
 import { Play, ArrowRight, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+const LazyYouTubeBackground = ({ videoId, onLoaded }: { videoId: string, onLoaded: () => void }) => {
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    // Load after component mounts and initial animation completes
+    const timer = setTimeout(() => {
+      setLoad(true);
+    }, 2500); 
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!load) return null;
+
+  return (
+    <iframe
+      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&vq=hd1080`}
+      className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none yt-bg-iframe"
+      frameBorder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      title="Define Perspective Showreel Background Video"
+      onLoad={onLoaded}
+    />
+  );
+};
 
 export default function VideoHero() {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black" aria-label="Cinematic Video Hero">
       {/* Visual Primary SEO Heading - Accessible to search engines */}
       <h1 className="sr-only">Define Perspective | AI Video Production Company in Kerala</h1>
       
-      {/* Background Video Holder */}
-
-
-      {/* YouTube Background Video Overlay */}
+      {/* YouTube Background Video Overlay - Defer for Performance */}
       <div className="absolute inset-0 z-[1] h-full w-full overflow-hidden pointer-events-none">
-        <iframe
-          src="https://www.youtube.com/embed/sNp1a5I6WsI?autoplay=1&mute=1&loop=1&playlist=sNp1a5I6WsI&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1&vq=hd1080"
-          className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 opacity-60 pointer-events-none"
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          title="Define Perspective Showreel Background Video"
-          /* @ts-ignore - fetchPriority is a valid experimental attribute in modern browsers for LCP optimization */
-          fetchPriority="high"
-        />
+        {/* Poster / Fallback Video: Fades out when YouTube is ready */}
+        <motion.div
+           initial={{ opacity: 0.6 }}
+           animate={{ opacity: videoLoaded ? 0 : 0.6 }}
+           transition={{ duration: 1.5 }}
+           className="absolute inset-0 z-[2]"
+        >
+          <video
+             className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none object-cover"
+             autoPlay
+             muted
+             loop
+             playsInline
+             poster="https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg"
+          />
+        </motion.div>
+
+        {/* The Actual Video Layer */}
+        <div className={`absolute inset-0 transition-opacity duration-[2000ms] ${videoLoaded ? 'opacity-60' : 'opacity-0'}`}>
+          <LazyYouTubeBackground videoId="sNp1a5I6WsI" onLoaded={() => setVideoLoaded(true)} />
+        </div>
+        
         {/* Cinematic Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-transparent to-obsidian" />
-        <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-transparent to-obsidian z-[3]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-transparent to-transparent opacity-80 z-[3]" />
       </div>
+
+      <style jsx global>{`
+        .yt-bg-iframe {
+          opacity: 1;
+        }
+      `}</style>
 
       {/* Floating Action & Scroll Area */}
       <div className="absolute bottom-12 left-0 w-full px-6 flex flex-col items-center gap-10 z-20">

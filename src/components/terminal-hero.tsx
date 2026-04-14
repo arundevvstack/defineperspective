@@ -55,7 +55,7 @@ export default function TerminalHero() {
               <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/40" />
               <div className="h-2.5 w-2.5 rounded-full bg-green-500/40" />
             </div>
-            <div className="flex-1 text-center font-mono text-[9px] text-zinc-500 uppercase tracking-[0.3em] opacity-40">
+            <div className="flex-1 text-center font-mono text-[9px] text-zinc-400 uppercase tracking-[0.3em] opacity-40">
               System.Process.Initialize("Video_Scale_Engine")
             </div>
             <div className="flex items-center gap-2 text-[9px] font-mono text-primary-accent/60">
@@ -98,11 +98,11 @@ export default function TerminalHero() {
                 <div className="grid grid-cols-2 gap-8 w-full md:w-auto">
                    <div className="p-6 rounded-2xl bg-white/2 border border-white/5 backdrop-blur-md">
                       <div className="text-primary-accent font-black text-2xl mb-1">10X</div>
-                      <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Velocity</div>
+                      <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Velocity</div>
                    </div>
                    <div className="p-6 rounded-2xl bg-white/2 border border-white/5 backdrop-blur-md">
                       <div className="text-primary-accent font-black text-2xl mb-1">4K+</div>
-                      <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Mastering</div>
+                      <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">Mastering</div>
                    </div>
                 </div>
               </div>

@@ -57,7 +57,7 @@ export default function AutomobileIndustryPage() {
           </div>
           <h1 className="text-6xl md:text-[10rem] font-blacker uppercase leading-[0.8] text-white italic">
             Automobile <br />
-            <span className="text-zinc-500 font-black">Motor_Hub_</span>
+            <span className="text-zinc-400 font-black">Motor_Hub_</span>
           </h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-4xl leading-relaxed mx-auto md:mx-0 uppercase tracking-widest leading-loose">
             "Precision Meets Power. We build high-spec automotive visuals for
@@ -70,7 +70,7 @@ export default function AutomobileIndustryPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Cinematic <span className="text-zinc-400 font-black">Velocity.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               Most vehicle videos look like static catalog shots. We specialize
               in dynamic car-to-car cinematography, precision FPV drone
               tracking, and studio-grade interior lighting. Our Indian and

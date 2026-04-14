@@ -65,7 +65,7 @@ export default function KochiLocationPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Local <span className="text-primary-accent font-black">Clarity_</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               Kochi is the epicenter of business innovation in Kerala. Our
               specialized Kochi division provides high-end 8K cinematography and
               performance marketing ads for builders, hospitals, and D2C brands.

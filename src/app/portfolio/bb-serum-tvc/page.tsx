@@ -31,7 +31,7 @@ export default function BBSerumTVCCaseStudy() {
           </h1>
           <div className="flex flex-col md:flex-row gap-12 border-y border-white/5 py-20">
              <div className="flex-1 space-y-6">
-                <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest leading-loose">Mission_</h3>
+                <h3 className="text-sm font-mono text-zinc-400 uppercase tracking-widest leading-loose">Mission_</h3>
                 <p className="text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest leading-loose">
                   "Deliver a photorealistic and 'clinical yet premium' TVC to launch BB Serum in the Indian luxury market."
                 </p>
@@ -71,7 +71,7 @@ export default function BBSerumTVCCaseStudy() {
                  <Sparkles className="text-primary-accent" size={32} />
                  <h2 className="text-3xl md:text-5xl font-black uppercaseer">Liquid Optics_</h2>
               </div>
-              <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+              <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 Beauty advertising is about trust. For BB Serum, we focused on high-magnification liquid photography—capturing the viscosity and light-refraction properties of the serum itself. By using clinical lighting setups and ultra-shallow depth of field, we emphasized the product's premium quality, making it stand out in the crowded Indian skincare landscape.
               </p>
               <div className="p-12 rounded-[2.5rem] bg-white/5 border border-white/5">
@@ -79,7 +79,7 @@ export default function BBSerumTVCCaseStudy() {
                     <BrainCircuit size={28} />
                     <h4 className="text-xl font-black uppercase tracking-widest italic">Neural Skin Care</h4>
                  </div>
-                 <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-loose">
+                 <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-loose">
                     Retouching and skin-tonal preservation done via our AI-assisted post-production lab, reducing delivery times by 40% while maintaining absolute texture integrity.
                  </p>
               </div>

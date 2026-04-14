@@ -64,7 +64,7 @@ export default function PortfolioSection({ mode }: { mode: string }) {
             <h2 className="text-4xl font-black md:text-7xl text-white uppercase">
               Intelligent Success Stories
             </h2>
-            <p className="mt-8 text-xl text-zinc-500 font-light max-w-2xl leading-relaxed">
+            <p className="mt-8 text-xl text-zinc-400 font-light max-w-2xl leading-relaxed">
               See how our AI-integrated workflows helped businesses explain, convert, and dominate their niche.
             </p>
           </div>
@@ -167,17 +167,17 @@ export default function PortfolioSection({ mode }: { mode: string }) {
                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border border-white/20 backdrop-blur-sm transition-colors hover:bg-white group hover:text-primary-accent transition-all duration-300">
                        <Workflow size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110 transition-colors duration-300 group-hover:text-primary-accent" />
-                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">{project.workflowLabel || "Architecture"}</span>
+                       <span className="text-[9px] text-zinc-400 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">{project.workflowLabel || "Architecture"}</span>
                        <span className="text-xs font-bold text-white uppercase tracking-wider transition-colors duration-300 group-hover:text-primary-accent">{project.workflow}</span>
                     </div>
                     <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border border-white/20 backdrop-blur-sm transition-colors hover:bg-white group hover:text-primary-accent transition-all duration-300">
                        <Clock size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110 transition-colors duration-300 group-hover:text-primary-accent" />
-                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">{project.ttmLabel || "Velocity"}</span>
+                       <span className="text-[9px] text-zinc-400 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">{project.ttmLabel || "Velocity"}</span>
                        <span className="text-xs font-bold text-white uppercase tracking-wider transition-colors duration-300 group-hover:text-primary-accent">{project.ttm}</span>
                     </div>
                     <div className="flex flex-col gap-2 p-6 rounded-2xl bg-transparent border border-white/20 backdrop-blur-sm transition-colors hover:bg-white group hover:text-primary-accent transition-all duration-300">
                        <BarChart3 size={20} className="text-primary-accent mb-2 transition-transform group-hover:scale-110 transition-colors duration-300 group-hover:text-primary-accent" />
-                       <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">{project.roiLabel || "Impact Agent"}</span>
+                       <span className="text-[9px] text-zinc-400 font-mono tracking-widest uppercase mb-1 transition-colors duration-300 group-hover:text-primary-accent">{project.roiLabel || "Impact Agent"}</span>
                        <span className="text-xs font-bold text-white uppercase tracking-wider transition-colors duration-300 group-hover:text-primary-accent">{project.roi}</span>
                     </div>
                  </div>

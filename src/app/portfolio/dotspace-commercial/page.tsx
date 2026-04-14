@@ -31,7 +31,7 @@ export default function DotspaceCommercialCaseStudy() {
           </h1>
           <div className="flex flex-col md:flex-row gap-12 border-y border-white/5 py-20">
              <div className="flex-1 space-y-6">
-                <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-widest leading-loose">Mission_</h3>
+                <h3 className="text-sm font-mono text-zinc-400 uppercase tracking-widest leading-loose">Mission_</h3>
                 <p className="text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest leading-loose">
                   "Capture the architectural essence and premium lifestyle of Dotspace co-working facilities for national real-estate campaigns."
                 </p>
@@ -71,19 +71,19 @@ export default function DotspaceCommercialCaseStudy() {
                  <Globe className="text-primary-accent" size={32} />
                  <h2 className="text-3xl md:text-5xl font-black uppercaseer">Space Narrative_</h2>
               </div>
-              <p className="text-xl text-zinc-500 font-light leading-relaxed uppercase tracking-widest leading-loose">
+              <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
                 Architecture video production requires a balance of wide-angle precision and intimate lifestyle storytelling. For Dotspace, we utilized cinematic gimbal movements and high-dynamic-range sensors to capture the interplay of natural light and modern industrial design within their Kerala locations. The goal was to make the workspace feel aspirational—a hub for innovation and visionary growth.
               </p>
               <div className="grid grid-cols-2 gap-8 pt-8">
                  <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
                     <Target className="text-primary-accent mb-4" size={24} />
                     <h4 className="text-sm font-black uppercase tracking-widest mb-2">Z-Axis Motion</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">Fluid gimbal paths across the facility.</p>
+                    <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed">Fluid gimbal paths across the facility.</p>
                  </div>
                  <div className="p-8 rounded-3xl bg-white/5 border border-white/5">
                     <Zap className="text-primary-accent mb-4" size={24} />
                     <h4 className="text-sm font-black uppercase tracking-widest mb-2">Lux Arc</h4>
-                    <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed">High-fidelity lighting for interior shoots.</p>
+                    <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed">High-fidelity lighting for interior shoots.</p>
                  </div>
               </div>
            </div>

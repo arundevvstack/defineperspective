@@ -104,7 +104,7 @@ export default function AboutContent() {
            <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
               <div className="md:col-span-1">
                  <h3 className="text-3xl font-black uppercase tracking-widest mb-6">Modern <br /> Production.</h3>
-                 <p className="text-zinc-500 text-sm font-light uppercase tracking-widest leading-relaxed">
+                 <p className="text-zinc-400 text-sm font-light uppercase tracking-widest leading-relaxed">
                    How we use AI to outpace traditional creative agencies.
                  </p>
               </div>

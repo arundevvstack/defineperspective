@@ -65,7 +65,7 @@ export default function HospitalityIndustryPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-10 uppercase leading-tight italic">
               Guest <span className="text-primary-accent font-black">Aesthetics.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               Most hospitality videos are generic. We specialize in immersive
               property films that capture the architectural beauty, local
               spirit, and emotional journey of your resort or hotel. Our Indian

@@ -263,7 +263,7 @@ const DropdownPanel = ({
                     <h3 className="text-[24px] font-bold text-white uppercase leading-[0.75] tracking-tighter mb-4">
                       {title}
                     </h3>
-                    <p className="text-[11px] text-zinc-500 mb-6 leading-[1.8] font-normal max-w-[240px] uppercase tracking-[0.2em] italic">
+                    <p className="text-[11px] text-zinc-400 mb-6 leading-[1.8] font-normal max-w-[240px] uppercase tracking-[0.2em] italic">
                       {description}
                     </p>
 
@@ -302,7 +302,7 @@ const DropdownPanel = ({
                   return (
                     <div key={cat.name} className="group/cat transition-all">
                       <Link href={cat.href} className="flex items-center gap-5 mb-4 group/link">
-                        <div className={cn("shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500", isActive ? "bg-primary-accent text-black scale-110 shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.4)]" : "bg-white/[0.03] text-zinc-500 group-hover/cat:bg-white group-hover/cat:text-black")}>
+                        <div className={cn("shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500", isActive ? "bg-primary-accent text-black scale-110 shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.4)]" : "bg-white/[0.03] text-zinc-400 group-hover/cat:bg-white group-hover/cat:text-black")}>
                           {getIcon(cat.name)}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -317,7 +317,7 @@ const DropdownPanel = ({
                             key={sub.name}
                             href={sub.href}
                             className={cn(
-                              "text-[12px] text-zinc-500 hover:text-white uppercase tracking-normal leading-[0.7] transition-colors font-semibold py-0.5 block relative group/sub",
+                              "text-[12px] text-zinc-400 hover:text-white uppercase tracking-normal leading-[0.7] transition-colors font-semibold py-0.5 block relative group/sub",
                               pathname === sub.href && "text-primary-accent"
                             )}
                           >
@@ -348,7 +348,7 @@ const NavTrigger = ({ title, isOpen, categories, pathname, href, onOpen, onClose
   return (
     <Link 
       href={href} 
-      className={cn("h-full flex items-center text-[12px] font-normal transition-all gap-1.5 py-2 uppercase tracking-normal outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/50 hover:text-primary-accent")} 
+      className={cn("h-full flex items-center text-[12px] font-normal transition-all gap-1.5 py-2 uppercase tracking-normal outline-none", isActive || isOpen ? "text-primary-accent" : "text-foreground/70 hover:text-primary-accent")} 
       onMouseEnter={onOpen} 
       onMouseLeave={onClose}
       onFocus={onOpen}
@@ -573,7 +573,7 @@ export default function GlassNavbar() {
                                   <ul className="space-y-1.5 pl-2">
                                      {cat.subItems.map(sub => (
                                        <li key={sub.name}>
-                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.7] font-medium" onClick={() => setMobileMenu(false)}>
+                                          <Link href={sub.href} className="text-sm text-zinc-400 hover:text-white transition-colors block leading-[0.7] font-medium" onClick={() => setMobileMenu(false)} aria-label={sub.name}>
                                              {sub.name}
                                           </Link>
                                        </li>
@@ -610,7 +610,7 @@ export default function GlassNavbar() {
                                   <ul className="space-y-1.5 pl-2">
                                      {cat.subItems.map(sub => (
                                        <li key={sub.name}>
-                                          <Link href={sub.href} className="text-sm text-zinc-500 hover:text-white transition-colors block leading-[0.7] font-medium" onClick={() => setMobileMenu(false)}>
+                                          <Link href={sub.href} className="text-sm text-zinc-400 hover:text-white transition-colors block leading-[0.7] font-medium" onClick={() => setMobileMenu(false)}>
                                              {sub.name}
                                           </Link>
                                        </li>
@@ -632,7 +632,7 @@ export default function GlassNavbar() {
                     href="https://wa.me/917012941696"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 text-zinc-500 hover:text-white group transition-all"
+                    className="flex items-center gap-4 text-zinc-400 hover:text-white group transition-all"
                     aria-label="Contact us on WhatsApp"
                   >
                      <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#25D366]">

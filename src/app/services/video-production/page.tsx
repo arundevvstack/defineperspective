@@ -311,7 +311,7 @@ export default function VideoProductionLandingPage() {
                       </div>
                       <div>
                          <h4 className="text-xl font-black uppercase tracking-widest text-white italic transition-colors group-hover:text-primary-accent">{val.t}</h4>
-                         <p className="text-sm text-zinc-500 uppercase tracking-widest leading-loose font-light">{val.d}</p>
+                         <p className="text-sm text-zinc-400 uppercase tracking-widest leading-loose font-light">{val.d}</p>
                       </div>
                    </div>
                  ))}
@@ -337,7 +337,7 @@ export default function VideoProductionLandingPage() {
                    </h3>
                    <ul className="space-y-4 mb-12 flex-1">
                       {silo.services.map((s) => (
-                        <li key={s} className="text-[11px] font-mono text-zinc-500 uppercase tracking-widest leading-loose flex items-center gap-3">
+                        <li key={s} className="text-[11px] font-mono text-zinc-400 uppercase tracking-widest leading-loose flex items-center gap-3">
                            <div className="w-1.5 h-1.5 rounded-full bg-primary-accent opacity-40 shrink-0" />
                            {s}
                         </li>
@@ -359,7 +359,7 @@ export default function VideoProductionLandingPage() {
               <h2 className="text-4xl md:text-6xl font-black uppercase italic mb-8">Global <span className="text-primary-accent">Presence_</span></h2>
               <div className="flex flex-wrap justify-center gap-4">
                  {locationBlocks.map(l => (
-                   <span key={l.id} className="px-6 py-2 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-zinc-500">{l.city} Node</span>
+                   <span key={l.id} className="px-6 py-2 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-zinc-400">{l.city} Node</span>
                  ))}
               </div>
            </div>
@@ -373,7 +373,7 @@ export default function VideoProductionLandingPage() {
                          {loc.title}
                       </h3>
                    </div>
-                   <p className="text-lg text-zinc-500 font-light leading-relaxed mb-10">
+                   <p className="text-lg text-zinc-400 font-light leading-relaxed mb-10">
                       {loc.content}
                    </p>
                    <Link href="/contact" className="flex items-center gap-4 text-[10px] font-mono text-zinc-700 uppercase tracking-widest group-hover:text-white transition-colors">

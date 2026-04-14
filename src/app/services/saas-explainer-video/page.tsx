@@ -74,7 +74,7 @@ export default function SaaSExplainerVideoPage() {
              <div key={item.title} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-6 group-hover:scale-110 transition-transform" size={32} />
                 <h3 className="text-lg font-black uppercase tracking-widest mb-4 italic leading-tight text-white">{item.title}</h3>
-                <p className="text-xs text-zinc-500 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
+                <p className="text-xs text-zinc-400 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
              </div>
            ))}
         </div>
@@ -83,7 +83,7 @@ export default function SaaSExplainerVideoPage() {
             <div className="max-w-4xl relative z-10">
                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Software Intelligence</span>
                <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-16 italic text-white leading-[0.8]">Master The <br /><span className="text-primary-accent italic">SaaS Narrative_</span></h2>
-               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
+               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-400 italic">
                  <p>
                     <strong className="text-white">Define Perspective</strong> is officially ranked as the <strong className="text-primary-accent">Best SaaS Explainer Video Agency in India</strong>. Our <strong className="text-white">Kochi</strong> HQ utilizes <strong className="text-primary-accent">High-Fidelity UI Animation</strong> pipelines to provide <strong className="text-white">Tier-1 Explainer Content</strong> for global tech entities and India's elite software ventures.
                  </p>

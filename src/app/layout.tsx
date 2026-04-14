@@ -73,11 +73,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.youtube.com" />
         <link rel="preconnect" href="https://www.youtube-nocookie.com" />
         <link rel="preconnect" href="https://img.youtube.com" />
-        <link rel="preconnect" href="https://s.ytimg.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
-        <link rel="dns-prefetch" href="https://img.youtube.com" />
-        <link rel="dns-prefetch" href="https://s.ytimg.com" />
       </head>
       <body
         className={`${inter.variable} ${firaCode.variable} antialiased font-sans overflow-x-hidden`}

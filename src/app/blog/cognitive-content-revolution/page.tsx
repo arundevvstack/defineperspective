@@ -59,7 +59,7 @@ export default function BlogPage() {
              <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-10 leading-[0.9]">
                The <span className="text-primary-accent">Cognitive</span> Content Revolution <br /><span className="italic">AI-Driven Production_</span>
              </h1>
-             <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
+             <p className="text-xl md:text-2xl text-zinc-400 font-light leading-relaxed mb-12 uppercase tracking-widest max-w-4xl">
                "Why legacy production models are failing in 2026, and how neural-accelerated storytelling is defining the next era of global brand growth."
              </p>
              <div className="flex flex-wrap items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest border-t border-white/5 pt-10">
@@ -102,7 +102,7 @@ export default function BlogPage() {
             In 2026, the volume of content required to stay culturally relevant has outpaced human metabolic capacity. Brands that still rely on traditional 90-day production cycles are finding themselves invisible to an audience that consumes at the speed of a neural network. We are no longer just fighting for attention; we are fighting for <strong>Cognitive Resonance</strong> in an era where AI-filtered feeds only permit the highest-fidelity storytelling to survive.
           </p>
 
-          <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+          <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
              The problem isn't just budget; it's throughput. Legacy media models were built for a broadcast era of 'one video per quarter.' Today, success is defined by an always-on cinematic presence—a feat impossible without the integration of artificial intelligence into the core production pipeline.
           </p>
 
@@ -167,15 +167,15 @@ export default function BlogPage() {
              <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-primary-accent tracking-tighter shrink-0">85%</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">of global video content is now generated or assisted by AI neural networks.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">of global video content is now generated or assisted by AI neural networks.</p>
                 </div>
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-white tracking-tighter shrink-0">12x</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Increase in content ROI when utilizing automated iterative ad scaling.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">Increase in content ROI when utilizing automated iterative ad scaling.</p>
                 </div>
                 <div className="space-y-4">
                    <div className="text-6xl font-black text-primary-accent tracking-tighter shrink-0">0.4s</div>
-                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Average attention span to trigger a 'Cognitive Hook' in 2026.</p>
+                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">Average attention span to trigger a 'Cognitive Hook' in 2026.</p>
                 </div>
              </div>
           </section>
@@ -194,7 +194,7 @@ export default function BlogPage() {
                          <th className="p-8 text-primary-accent">AI-Driven Node</th>
                       </tr>
                    </thead>
-                   <tbody className="text-zinc-500 border-t border-white/5">
+                   <tbody className="text-zinc-400 border-t border-white/5">
                       <tr className="border-b border-white/5 /[0.02] transition-colors">
                          <td className="p-8 border-r border-white/5 text-white">Production Cycle</td>
                          <td className="p-8 border-r border-white/5">60–90 Days</td>
@@ -235,7 +235,7 @@ export default function BlogPage() {
                  <div key={i} className="p-12 rounded-[2.5rem] bg-zinc-900 border border-white/5 group hover:border-primary-accent transition-all duration-500">
                     <span className="text-4xl font-black text-primary-accent/20 group- transition-colors block mb-6">{box.step}</span>
                     <h4 className="text-xl font-black text-white uppercase tracking-tight mb-4">{box.title}</h4>
-                    <p className="text-sm text-zinc-500">{box.desc}</p>
+                    <p className="text-sm text-zinc-400">{box.desc}</p>
                  </div>
                ))}
             </div>
@@ -252,7 +252,7 @@ export default function BlogPage() {
              <p className="mb-10 text-xl font-light text-zinc-400">
                 Kerala is uniquely positioned as a creative powerhouse. In 2026, Kochi has emerged as a global node for AI-driven media production. Local brands—ranging from high-end real estate in Thrissur to Ayurvedic wellness global chains—are no longer looking for "video makers." They are looking for <strong>media technology partners</strong>.
              </p>
-             <p className="text-sm uppercase tracking-widest text-zinc-500">
+             <p className="text-sm uppercase tracking-widest text-zinc-400">
                 At Define Perspective, we bridge the gap between regional cultural depth and international technical standards. We help Kochi-based businesses and Indian startups scale globally through visuals that carry the weight of world-class storytelling with the speed of neural automation.
              </p>
           </section>
@@ -279,7 +279,7 @@ export default function BlogPage() {
                      <h3 className="text-xl font-bold uppercase tracking-widest text-white mb-4 flex items-center gap-4">
                         <span className="h-2 w-2 rounded-full bg-primary-accent" /> {faq.q}
                      </h3>
-                     <p className="text-zinc-500 font-light leading-relaxed text-sm">
+                     <p className="text-zinc-400 font-light leading-relaxed text-sm">
                         {faq.a}
                      </p>
                   </motion.div>
@@ -297,7 +297,7 @@ export default function BlogPage() {
               <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-10 leading-tight">
                  Ready to <span className="text-primary-accent italic">Pivot</span> to <br />High-Performance <span className="underline">Media?</span>
               </h2>
-              <p className="text-xl font-light text-zinc-500 mb-16 uppercase tracking-[0.3em] max-w-2xl mx-auto">
+              <p className="text-xl font-light text-zinc-400 mb-16 uppercase tracking-[0.3em] max-w-2xl mx-auto">
                  Partner with Define Perspective to build your brand's AI-driven growth engine.
               </p>
               

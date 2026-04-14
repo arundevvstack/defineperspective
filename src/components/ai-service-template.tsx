@@ -122,7 +122,7 @@ export default function AIServiceTemplate({
                     {benefits.map((b, idx) => (
                       <div key={idx} className="flex gap-4">
                          <div className="h-2 w-2 rounded-full bg-primary-accent mt-2 shrink-0" />
-                         <p className="text-[13px] text-zinc-500 uppercase tracking-widest leading-loose font-medium">{b}</p>
+                         <p className="text-[13px] text-zinc-400 uppercase tracking-widest leading-loose font-medium">{b}</p>
                       </div>
                     ))}
                  </div>
@@ -154,7 +154,7 @@ export default function AIServiceTemplate({
               {faqs.map((f, i) => (
                 <div key={i} className="p-10 rounded-3xl bg-white/[0.01] border border-white/[0.04] space-y-4 hover:bg-white/[0.03] transition-all">
                    <h4 className="text-lg font-black uppercase italic text-white tracking-wide">{f.q}</h4>
-                   <p className="text-sm text-zinc-500 leading-relaxed uppercase tracking-widest font-normal">{f.a}</p>
+                   <p className="text-sm text-zinc-400 leading-relaxed uppercase tracking-widest font-normal">{f.a}</p>
                 </div>
               ))}
            </div>

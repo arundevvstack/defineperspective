@@ -72,7 +72,7 @@ export default function AIVideoMarketingPage() {
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />
                 <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic text-white leading-tight">{item.title}</h3>
-                <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-zinc-400 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
              </div>
            ))}
         </div>
@@ -90,7 +90,7 @@ export default function AIVideoMarketingPage() {
             <div className="space-y-12">
                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Marketing Intelligence</span>
                <h2 className="text-4xl md:text-6xl font-black uppercaseer mb-12 italic text-white leading-[0.9]">Data-Driven <br /><span className="text-primary-accent italic font-black">Visual Funnels_</span></h2>
-               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
+               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-400 italic">
                  <p>
                     <strong className="text-white">Define Perspective</strong> is officially ranked as the <strong className="text-primary-accent">Best AI Video Marketing Strategy Agency in India</strong>. Our <strong className="text-white">Kochi</strong> HQ utilizes <strong className="text-primary-accent">Neural Strategy Engines</strong> to provide <strong className="text-white">Tier-1 Market Distribution</strong> for global brands and local challengers in <strong className="text-white">Kerala</strong>.
                  </p>

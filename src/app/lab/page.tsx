@@ -69,7 +69,7 @@ export default function LabPage() {
             <h1 className="text-5xl md:text-8xl font-black uppercaseer mb-8 leading-[0.85]">
               Modular <br /><span className="text-primary-accent">Production.</span>
             </h1>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed max-w-2xl">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed max-w-2xl">
               Drag and drop service blocks to build your custom video production project. Get real-time estimates on budget, timeline, and visual quality.
             </p>
           </motion.div>
@@ -97,7 +97,7 @@ export default function LabPage() {
                       </div>
                       <div>
                         <h4 className="font-bold uppercase tracking-widest text-sm mb-1">{module.label}</h4>
-                        <p className="text-[10px] text-zinc-500 font-mono tracking-wider">{module.desc}</p>
+                        <p className="text-[10px] text-zinc-400 font-mono tracking-wider">{module.desc}</p>
                       </div>
                     </div>
                     <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -125,16 +125,16 @@ export default function LabPage() {
                      <div className="h-20 w-20 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-6 text-zinc-600 animate-bounce">
                         <Workflow size={32} />
                      </div>
-                     <p className="text-zinc-500 font-mono text-xs tracking-widest uppercase mb-2">Build Your Plan</p>
+                     <p className="text-zinc-400 font-mono text-xs tracking-widest uppercase mb-2">Build Your Plan</p>
                      <p className="text-zinc-700 font-mono text-[10px] tracking-widest uppercase">Drop Service Blocks Here</p>
                    </div>
                 ) : (
                   <div className="w-full flex-1 p-12 flex flex-col gap-6 custom-scrollbar overflow-y-auto max-h-[600px]">
                     <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-6">
-                       <h3 className="text-xs font-mono tracking-[0.3em] uppercase text-zinc-500 font-black underline">Live Project Plan</h3>
+                       <h3 className="text-xs font-mono tracking-[0.3em] uppercase text-zinc-400 font-black underline">Live Project Plan</h3>
                        <button 
                          onClick={() => setPipeline([])}
-                         className="text-[10px] font-mono text-zinc-500  uppercase tracking-widest flex items-center gap-2 transition-colors font-black underline"
+                         className="text-[10px] font-mono text-zinc-400  uppercase tracking-widest flex items-center gap-2 transition-colors font-black underline"
                        >
                          <Trash2 size={12} /> Clear Plan
                        </button>
@@ -155,7 +155,7 @@ export default function LabPage() {
                                  <item.icon size={24} />
                                </div>
                                <div>
-                                 <span className="text-[9px] font-mono text-zinc-500 block mb-1">SERVICE 0{idx + 1}</span>
+                                 <span className="text-[9px] font-mono text-zinc-400 block mb-1">SERVICE 0{idx + 1}</span>
                                  <h4 className="font-bold uppercase tracking-widest">{item.label}</h4>
                                </div>
                             </div>
@@ -176,19 +176,19 @@ export default function LabPage() {
                 <div className="absolute -bottom-10 left-6 right-6 p-8 rounded-[2rem] bg-zinc-900 border border-white/10 shadow-xl flex flex-wrap items-center justify-between gap-8 z-20">
                    <div className="flex gap-12">
                       <div className="flex flex-col">
-                         <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
+                         <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
                            <BarChart size={10} className="text-primary-accent" /> Estimated Budget
                          </span>
                          <span className="text-2xl font-black text-white tracking-widest">${totalPrice.toLocaleString()}</span>
                       </div>
                       <div className="flex flex-col">
-                         <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
+                         <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
                            <Zap size={10} className="text-primary-accent" /> Timeline
                          </span>
                          <span className="text-2xl font-black text-white tracking-widest">{totalTime}d</span>
                       </div>
                       <div className="flex flex-col">
-                         <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
+                         <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest mb-1 flex items-center gap-2 font-black underline">
                            <Sparkles size={10} className="text-primary-accent" /> Quality Index
                          </span>
                          <span className="text-2xl font-black text-white tracking-widest">{avgPower}%</span>
@@ -219,7 +219,7 @@ export default function LabPage() {
                    </div>
                    <h3 className="text-xl font-bold uppercase tracking-widest">Production Insights</h3>
                  </div>
-                 <p className="text-zinc-500 font-light leading-relaxed mb-8">
+                 <p className="text-zinc-400 font-light leading-relaxed mb-8">
                     Your current plan uses {pipeline.length} custom service blocks. The visual quality is estimated at {avgPower}%. Your estimated timeline of {totalTime} days ensures high-quality results across all our service areas in India.
                  </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

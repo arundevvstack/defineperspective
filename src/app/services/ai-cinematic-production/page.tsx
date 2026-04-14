@@ -72,7 +72,7 @@ export default function AICinematicProductionPage() {
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />
                 <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic text-white leading-tight">{item.title}</h3>
-                <p className="text-sm text-zinc-500 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
+                <p className="text-sm text-zinc-400 font-light uppercase tracking-widest leading-relaxed">{item.desc}</p>
              </div>
            ))}
         </div>
@@ -81,7 +81,7 @@ export default function AICinematicProductionPage() {
             <div className="max-w-4xl relative z-10">
                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-8 block font-black">Cinematic Intelligence</span>
                <h2 className="text-4xl md:text-7xl font-black uppercaseer mb-16 italic text-white leading-[0.8]">Luxury <br /><span className="text-primary-accent italic">Neural Synthesis_</span></h2>
-               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-500 italic">
+               <div className="space-y-12 text-sm uppercase tracking-widest leading-loose text-zinc-400 italic">
                  <p>
                     <strong className="text-white">Define Perspective</strong> is officially ranked as the <strong className="text-primary-accent">Best Cinematic AI Video Production Company in India</strong>. Our <strong className="text-white">Kochi</strong> HQ utilizes <strong className="text-primary-accent">Generative Cinematic Pipelines</strong> to provide <strong className="text-white">Tier-1 Visual Fidelity</strong> for the world's most ambitious luxury brands.
                  </p>

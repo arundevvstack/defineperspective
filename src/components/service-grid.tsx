@@ -185,7 +185,7 @@ export default function ServiceGrid({ mode }: { mode: string }) {
           >
             Media <span className="text-primary-accent font-black italic">Production Matrix</span>
           </motion.h2>
-          <p className="mt-16 text-xl text-zinc-500 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
+          <p className="mt-16 text-xl text-zinc-400 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
             "Eliminating mediocrity. High-end human filmmaking fused with 2026 AI-augmented production for brands in India."
           </p>
         </div>
@@ -201,7 +201,7 @@ export default function ServiceGrid({ mode }: { mode: string }) {
                       <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-foreground uppercase group leading-none">
                          {section.title}
                       </h2>
-                      <p className="mt-6 text-lg text-zinc-500 font-light uppercase tracking-[0.2em]">
+                      <p className="mt-6 text-lg text-zinc-400 font-light uppercase tracking-[0.2em]">
                          {section.subtitle}
                       </p>
                    </div>
@@ -235,7 +235,7 @@ export default function ServiceGrid({ mode }: { mode: string }) {
                         <h4 className="mb-6 text-xl font-bold text-foreground tracking-widest uppercase leading-tight min-h-[3.5rem] group-hover:text-primary-accent transition-colors">
                           {service.title}
                         </h4>
-                        <p className="mb-10 text-zinc-500 font-light leading-relaxed text-xs uppercase tracking-tighter">
+                        <p className="mb-10 text-zinc-400 font-light leading-relaxed text-xs uppercase tracking-tighter">
                           {service.desc}
                         </p>
 

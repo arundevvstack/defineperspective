@@ -60,7 +60,7 @@ export default function ProductVideoSubPage() {
               Elevat Your
               <span className="text-primary-accent italic">Optic Hub.</span>
             </h2>
-            <p className="text-xl text-zinc-500 font-light leading-relaxed mb-10">
+            <p className="text-xl text-zinc-400 font-light leading-relaxed mb-10">
               
               Most product videos are static. We specialize in high-energy,
               cinematic product cinematography that highlights every texture,
