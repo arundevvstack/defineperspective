@@ -12,8 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "Product & E-commerce Content India | Best Product Photographer Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-impact product photography and e-commerce video production in India. We create cinematic marketplaces visuals for D2C brands, specializing in Amazon and Flipkart content.",
   keywords: [
@@ -26,22 +25,22 @@ export const metadata: Metadata = {
 
 const subServices = [
   {
-    title: "E-commerce Product Photography",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     href: "/services/product-content/e-commerce-product-photography",
     desc: "Luxury-spec product photography for high-end catalogs and digital storefronts.",
   },
   {
-    title: "Product Demo Videos",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     href: "/services/product-content/product-demo-videos",
     desc: "Detailed feature walkthroughs and cinematic product highlights that build confidence.",
   },
   {
-    title: "Amazon & Flipkart Product Videos",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     href: "/services/product-content/amazon-flipkart-product-videos",
     desc: "Marketplace-optimized video assets designed to increase conversion rates on retail platforms.",
   },
   {
-    title: "Product Video Production",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     href: "/services/product-content/product-video-production",
     desc: "Cinematic, high-energy product films for social media and brand launches.",
   },
@@ -137,7 +136,7 @@ export default function ProductContentLandingPage() {
           <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl shadow-primary-accent/10">
             <Image
               src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2099&auto=format&fit=crop"
-              alt="Elite Product Photography Scene"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 hover:scale-110"
               priority

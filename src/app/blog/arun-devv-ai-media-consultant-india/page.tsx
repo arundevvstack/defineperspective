@@ -91,7 +91,7 @@ export default function ArunDevvConsultantBlog() {
          >
             <Image 
               src="/images/arun-devv/arun-4.jpg" 
-              alt="Arun Devv - India's Best AI Media Consultant"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-[2s]"
               priority
@@ -134,7 +134,7 @@ export default function ArunDevvConsultantBlog() {
                   <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 group">
                     <Image 
                       src="/images/arun-devv/arun-5.jpg" 
-                      alt="Consultation Session in Kochi"
+                      alt="AI video production company in Kerala - DP AI Studio"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-100"
                     />
@@ -152,10 +152,10 @@ export default function ArunDevvConsultantBlog() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                    <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/5">
-                      <Image src="/images/arun-devv/arun-2.jpg" alt="Virtual Production Session" fill className="object-cover" />
+                      <Image src="/images/arun-devv/arun-2.jpg" alt="AI video production company in Kerala - DP AI Studio" fill className="object-cover" />
                    </div>
                    <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/5">
-                      <Image src="/images/arun-devv/arun-4.jpg" alt="Arri Alexa technical shoot" fill className="object-cover" />
+                      <Image src="/images/arun-devv/arun-4.jpg" alt="AI video production company in Kerala - DP AI Studio" fill className="object-cover" />
                    </div>
                 </div>
               </section>
@@ -213,7 +213,7 @@ export default function ArunDevvConsultantBlog() {
 
         {/* Final CTA */}
         <div className="relative p-16 md:p-32 rounded-[6rem] bg-primary-accent text-white text-center overflow-hidden mb-40 mt-20">
-           <Image src="/images/arun-devv/arun-3.jpg" alt="Arun Devv" fill className="object-cover opacity-20" />
+           <Image src="/images/arun-devv/arun-3.jpg" alt="AI video production company in Kerala - DP AI Studio" fill className="object-cover opacity-20" />
            <div className="relative z-10">
               <h2 className="text-5xl md:text-[6rem] font-black uppercase mb-12 leading-[0.8] tracking-tighter">
                  SCALE YOUR BRANDS<br /> <span className="italic underline underline-offset-8">INTELLIGENCE_</span>

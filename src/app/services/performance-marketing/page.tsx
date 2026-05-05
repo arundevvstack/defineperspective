@@ -12,8 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "Performance Marketing Video Ads India | Best ROAS Video Agency Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-performance video ad creatives designed for conversion. We build ROI-focused ads for D2C brands in India, focusing on low CPA and high ROAS.",
   keywords: [
@@ -26,17 +25,17 @@ export const metadata: Metadata = {
 
 const subServices = [
   {
-    title: "Conversion-Focused Video Ads",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     href: "/services/performance-marketing/conversion-focused-video-ads",
     desc: "Direct-response video creatives engineered to drive immediate sales and sign-ups.",
   },
   {
-    title: "Facebook & Instagram Ad Creatives",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     href: "/services/performance-marketing/facebook-instagram-ad-creatives",
     desc: "Social-first video content optimized for Meta's discovery algorithms and high engagement.",
   },
   {
-    title: "Performance Marketing Video Ads",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     href: "/services/performance-marketing/performance-marketing-video-ads",
     desc: "Data-driven video assets for multi-channel performance campaigns and high-growth brands.",
   },
@@ -130,7 +129,7 @@ export default function PerformanceMarketingLandingPage() {
           <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-xl opacity-80">
             <Image
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-              alt="Strategy Data Charts for Video Funnel Systems"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority

@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "SHE Luxury Body Lotion Case Study | AI TV Commercial | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Explore the AI-driven TV commercial for SHE Luxury Body Lotion. Photorealistic generative video for premium skincare brands.",
   keywords: ["AI skincare ad", "generative commercial production Kerala", "SHE luxury body lotion film"],
 };

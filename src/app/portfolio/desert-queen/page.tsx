@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Desert Queen AI Film Case Study | Neural Fashion Cinema | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Experience the future of fashion cinema. Our 'Desert Queen' AI film demonstrates the power of photorealistic generative video for luxury brands.",
   keywords: ["AI fashion film India", "generative video production Kerala", "neural cinema Kochi", "West Vogue AI series"],
 };

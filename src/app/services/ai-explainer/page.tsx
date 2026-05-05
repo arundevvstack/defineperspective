@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import AIServiceTemplate from "@/components/ai-service-template";
 
 export const metadata: Metadata = {
-  title: "AI Explainer Video Company UAE | SaaS & App Demos India",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Leading AI explainer video company in the UAE and India. Scale your SaaS, app, or corporate message with AI-generated explainers, neural voiceovers, and automated animation.",
   keywords: ["AI explainer video UAE", "AI explainer company India", "AI SaaS video Kerala", "AI app demo Kochi", "best AI explainer company"],
 };

@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Education & EdTech Video Production India | Best AI E-learning Content Kerala | Define Perspective Studios",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-velocity AI-powered video production for EdTech and educational institutions across India. Scale your training content with photorealistic AI avatar presenters and engaging digital lessons.",
   keywords: [
@@ -83,7 +82,7 @@ export default function EducationIndustryPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
-              alt="Engaging Digital E-learning Scene India"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

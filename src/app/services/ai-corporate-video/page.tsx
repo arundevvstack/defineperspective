@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import AIServiceTemplate from "@/components/ai-service-template";
 
 export const metadata: Metadata = {
-  title: "AI Corporate Video Production India | Company Profiles & CEO Films",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Top AI corporate video production company in India, Kerala, and UAE. Modernize your corporate storytelling with AI-driven company profiles, internal comms, and CEO films.",
   keywords: ["AI corporate video India", "AI company profile Kerala", "AI corporate filmmaking Kochi", "AI CEO videos UAE", "best AI corporate video company"],
 };

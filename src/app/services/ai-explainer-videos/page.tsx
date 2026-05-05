@@ -5,7 +5,7 @@ import Image from "next/image";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Best AI Explainer Video Company India | SaaS & Avatar Videos Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the best AI explainer video company in India. Specialized in AI SaaS explainers, educational AI videos, and photorealistic AI avatar presenters in Kochi, Kerala.",
   keywords: [
     "best ai explainer video company india",
@@ -65,9 +65,9 @@ export default function AIExplainerVideosPage() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-40">
            {[
-             { title: "SaaS Explainers", icon: MessageSquare, desc: "Bespoke AI explainer videos for high-growth software and tech brands." },
-             { title: "Educational", icon: GraduationCap, desc: "High-fidelity AI educational sequences for modern online learning platforms." },
-             { title: "AI Avatars", icon: Users, desc: "Synthesizing photorealistic human presenters for localized globally scaled communication." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: MessageSquare, desc: "Bespoke AI explainer videos for high-growth software and tech brands." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: GraduationCap, desc: "High-fidelity AI educational sequences for modern online learning platforms." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Users, desc: "Synthesizing photorealistic human presenters for localized globally scaled communication." }
            ].map((item) => (
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />
@@ -93,7 +93,7 @@ export default function AIExplainerVideosPage() {
             <div className="flex-1 relative aspect-square rounded-[3.5rem] overflow-hidden border border-white/5 group shadow-2xl">
                <Image 
                  src="/images/blog/ai-film-concept.png"
-                 alt="AI Explainer Video Production Agency Kochi India"
+                 alt="AI video production company in Kerala - DP AI Studio"
                  fill
                  className="object-cover transition-transform group-hover:scale-105 duration-1000"
                />

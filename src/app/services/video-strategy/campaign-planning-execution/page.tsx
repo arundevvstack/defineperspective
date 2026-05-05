@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Campaign Planning & Execution India | Best Video Campaign Agency Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "End-to-end video campaign planning and execution for brands across India. We manage high-stakes visual launches, multi-channel distribution, and tactical media implementation.",
   keywords: [
@@ -76,7 +75,7 @@ export default function CampaignExecutionSubPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop"
-              alt="High-stakes Campaign Execution Dashboard"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

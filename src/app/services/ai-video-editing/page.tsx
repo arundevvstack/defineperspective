@@ -5,7 +5,7 @@ import Image from "next/image";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Best AI Video Editing Company Kochi | AI VFX & Post Production Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the best AI video editing company in India. We specialize in AI VFX, automated color grading, and neural video enhancement in Kochi, Kerala.",
   keywords: [
     "best ai video editing company kochi",
@@ -65,9 +65,9 @@ export default function AIVideoEditingPage() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-40">
            {[
-             { title: "AI VFX", icon: Wand2, desc: "Bespoke AI-generated visual effects for cinematic and commercial production." },
-             { title: "Color Grading", icon: Paintbrush, desc: "Automated neural color grading for hyper-realistic and stylized visuals." },
-             { title: "Enhancement", icon: Scissors, desc: "Intelligent AI editing and neural scaling for ultra-fresh post production." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Wand2, desc: "Bespoke AI-generated visual effects for cinematic and commercial production." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Paintbrush, desc: "Automated neural color grading for hyper-realistic and stylized visuals." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Scissors, desc: "Intelligent AI editing and neural scaling for ultra-fresh post production." }
            ].map((item) => (
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />
@@ -93,7 +93,7 @@ export default function AIVideoEditingPage() {
             <div className="flex-1 relative aspect-square rounded-[3.5rem] overflow-hidden border border-white/5 group shadow-2xl">
                <Image 
                  src="/images/blog/cognitive-hero.png"
-                 alt="AI Video Editing & Post Production Kochi India"
+                 alt="AI video production company in Kerala - DP AI Studio"
                  fill
                  className="object-cover transition-transform group-hover:scale-105 duration-1000"
                />

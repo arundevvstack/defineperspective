@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactContent from "@/components/contact-content";
 
 export const metadata: Metadata = {
-  title: "Contact Best AI Video Production Company in Kerala & India | Media Studio",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Work with the best AI video production company in Kerala. Delivering cinematic brand videos, AI-powered marketing content, and commercial film production in Kochi, Trivandrum, and UAE for brands across the Globe.",
   keywords: [
     "AI video production company in Kerala India",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "Professional video editing & post production"
   ],
   openGraph: {
-    title: "Contact Define Perspective | Elite AI Media & Film Production Hub",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     description: "Leading AI video production company in Kerala and India, delivering services in Kochi, Trivandrum, and Dubai for global brands.",
     url: "https://defineperspective.in/contact",
   },

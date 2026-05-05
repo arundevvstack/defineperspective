@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 const aiServices = [
   {
     id: "gen-ai-video",
-    title: "Generative AI Production",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     desc: "Next-gen video generation for commercials, explainers, and digital backgrounds without traditional sets.",
     features: ["Text-to-Video Engine", "AI Digital Environments", "Deep-Level Post Editing"],
     icon: Video,
@@ -22,7 +22,7 @@ const aiServices = [
   },
   {
     id: "ai-cgi",
-    title: "AI & CGI Fusion",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     desc: "Merging real-world physics with AI-generated visual effects and 3D architectural renders.",
     features: ["Virtual Studio Hub", "Physically Accurate AI", "Real-time 3D Rendering"],
     icon: Globe,
@@ -30,7 +30,7 @@ const aiServices = [
   },
   {
     id: "ai-scale",
-    title: "Automated Content Scaling",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     desc: "One master shoot turned into 100+ platform-optimized short-form assets in under 24 hours.",
     features: ["Social Formatting AI", "Automated Hook Testing", "Multi-Language Dubbing"],
     icon: Zap,
@@ -38,7 +38,7 @@ const aiServices = [
   },
   {
     id: "performance-ads",
-    title: "AI-Optimized Social Ads",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     desc: "High-velocity ad creative designed specifically for algorithmic engagement on Meta and TikTok.",
     features: ["Click-Rate Optimization", "Dynamic Visual Testing", "Regional Content Localization"],
     icon: Target,

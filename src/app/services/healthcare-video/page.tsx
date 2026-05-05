@@ -6,7 +6,7 @@ import Link from "next/link";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Best Healthcare Video Production Agency India | Hospital Branding Kochi | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the best healthcare video production agency in India. We specialize in hospital branding videos, doctor profile movies, and patient awareness content in Kochi, Kerala.",
   keywords: [
     "best healthcare video production agency india",
@@ -66,10 +66,10 @@ export default function HealthcareVideoPage() {
 
         <div className="grid md:grid-cols-4 gap-6 mb-40">
            {[
-             { title: "Hospital Branding", icon: Building2, desc: "High-fidelity brand narratives that establish authority for elite hospitals." },
-             { title: "Doctor Profiles", icon: Stethoscope, desc: "Bespoke cinematic profiles of world-class medical specialists." },
-             { title: "Patient Content", icon: Users, desc: "Empathetic patient awareness videos designed for global distribution." },
-             { title: "Trust Campaigns", icon: Heart, desc: "Synchronized trust-building visual campaigns for high-stakes clinical launches." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Building2, desc: "High-fidelity brand narratives that establish authority for elite hospitals." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Stethoscope, desc: "Bespoke cinematic profiles of world-class medical specialists." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Users, desc: "Empathetic patient awareness videos designed for global distribution." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Heart, desc: "Synchronized trust-building visual campaigns for high-stakes clinical launches." }
            ].map((item) => (
              <div key={item.title} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-6 group-hover:scale-110 transition-transform" size={32} />
@@ -95,7 +95,7 @@ export default function HealthcareVideoPage() {
             <div className="flex-1 relative aspect-square rounded-[3.5rem] overflow-hidden border border-white/5 shadow-2xl group">
                <Image 
                  src="/images/blog/cognitive-hero.png"
-                 alt="Healthcare Video Production Agency Kochi India"
+                 alt="AI video production company in Kerala - DP AI Studio"
                  fill
                  className="object-cover transition-transform group-hover:scale-105 duration-1000 grayscale group-hover:grayscale-0 duration-700"
                />

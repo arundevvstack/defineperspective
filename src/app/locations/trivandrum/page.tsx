@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AI Video Production Company Trivandrum | Best Ad Agency Thiruvananthapuram | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is Trivandrum's premier AI-powered video production company. Helping Thiruvananthapuram's high-stakes tech, heritage, and government brands dominate with cinematic brand films and performance ads.",
   keywords: [
     "AI video production company Trivandrum",
@@ -119,7 +119,7 @@ export default function TrivandrumLocationPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-2xl">
             <Image
               src="https://images.unsplash.com/photo-1548013146-72479768bbaa?q=80&w=2070&auto=format&fit=crop"
-              alt="Define Perspective Trivandrum AI Media"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110"
               priority

@@ -25,7 +25,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Best AI Video Production Company India | Kerala | UAE | Kochi | Trivandrum",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the top-rated AI video production company in India, Kerala, & UAE. Specialized in AI ad films, social media reels, and cinematic AI storytelling in Kochi & Trivandrum.",
   keywords: [
     "AI Video Production Company India",
@@ -43,49 +43,49 @@ export const metadata: Metadata = {
 
 const aiSilos = [
   {
-    title: "AI VIDEO ADS (PERFORMANCE)",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: ["Meta Ads (FB / IG)", "YouTube Ads", "Performance Creatives", "A/B Testing Variations"],
     seo: "AI-powered video ads designed for conversions & ROAS growth",
     icon: Zap,
   },
   {
-    title: "AI SOCIAL MEDIA PRODUCTION",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: ["Reels / Shorts / TikTok", "Daily Content", "Trend-based Videos"],
     seo: "AI social media video production for viral reach & engagement",
     icon: Target,
   },
   {
-    title: "AI POST-PRODUCTION",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: ["Neural AI Editing", "AI VFX & Motion", "AI Color Grading", "AI Enhancement Hub"],
     seo: "Advanced AI video editing & post-production services",
     icon: Cpu,
   },
   {
-    title: "AI PRODUCT VIDEO HUB",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: ["E-commerce Videos", "Product Demos", "Amazon / Shopify Visuals"],
     seo: "AI product video production for e-commerce & D2C brands",
     icon: Sparkles,
   },
   {
-    title: "AI EXPLAINER LAB",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: ["SaaS Explainers", "Educational Videos", "AI Avatar Videos"],
     seo: "AI explainer video company for startups & SaaS platforms",
     icon: BrainCircuit,
   },
   {
-    title: "AI CORPORATE CINEMA",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: ["Company Profiles", "Internal Communication", "Employer Branding"],
     seo: "AI corporate video production for modern businesses",
     icon: Shield,
   },
   {
-    title: "CINEMATIC AI STORYTELLING",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: ["High-end AI Brand Films", "Premium Visual Narratives"],
     seo: "Cinematic AI video production with premium storytelling",
     icon: PlayCircle,
   },
   {
-    title: "AI FILM & NARRATIVE",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: ["Short Films", "Music Videos", "Narrative Content"],
     seo: "AI-powered film production & narrative storytelling",
     icon: Clapperboard,
@@ -96,31 +96,31 @@ const locationBlocks = [
   {
     id: "india",
     city: "India",
-    title: "AI Video Production Company India",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "Positioned as the best AI video production company in India, Define Perspective integrates massive neural compute with cinematic vision. We deliver AI-led performance creatives for national brands, ensuring India stays at the forefront of the global AI media revolution.",
   },
   {
     id: "kerala",
     city: "Kerala",
-    title: "AI Video Production Agency Kerala",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "No.1 AI video production agency in Kerala. We use high-velocity AI pipelines to serve the state's growing startup and media ecosystem, delivering global-standard AI content from our specialized labs in God's Own Country.",
   },
   {
     id: "trivandrum",
     city: "Trivandrum",
-    title: "AI Video Production Studio Trivandrum",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "Top AI video production studio in Trivandrum, catering to the capital's tech and education sectors. Our AI nodes in Trivandrum are optimized for automated explainer production and SaaS-focused visual marketing.",
   },
   {
     id: "kochi",
     city: "Kochi",
-    title: "AI Video Production Company Kochi",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "The elite choice for AI video production in Kochi. We operate at the intersection of heritage cinema and neural innovation, providing Kochi's commercial market with AI-integrated TVCs and digital brand films.",
   },
   {
     id: "uae",
     city: "UAE",
-    title: "AI Video Production Company UAE",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "Leading AI video production company in the UAE. Our Middle Eastern delivery hub focuses on luxury AI brand films and performance-driven ad creatives for the global luxury and tech markets in Dubai and beyond.",
   },
 ];

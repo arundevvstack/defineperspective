@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Content Strategy & Media Planning India | Best Content Strategist Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Elite visual content strategy and planning for brands across India. We build high-velocity media roadmaps, content calendars, and social schedules designed to scale engagement and ROI.",
   keywords: [
@@ -89,7 +88,7 @@ export default function ContentStrategySubPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-              alt="Content Planning and Strategy Hub"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

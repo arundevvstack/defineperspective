@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "SHE Diamond Case Study | Cinematic AI Luxury Jewelry | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Experience the ultimate in AI luxury jewelry advertising. Explore the cinematic SHE Diamond commercial by Define Perspective Studios.",
   keywords: ["AI jewelry ad India", "luxury jewelry video Kochi", "SHE diamond AI commercial"],
 };

@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Banaras Silk Case Study | AI Documentary | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Experience the heritage of Banaras Silk through cinematic AI documentary filmmaking. Explore the Fabrics of India series.",
   keywords: ["AI documentary Kerala", "Banaras Silk film India", "fabrics of India series"],
 };

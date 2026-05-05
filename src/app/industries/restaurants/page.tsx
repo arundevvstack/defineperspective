@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Restaurants & Cafes Video Production India | Best Food Photographer Kerala | Define Perspective Studios",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Breathtaking food cinematography and social media visuals for restaurants and cafes across India. Specialized food videography studio in Kerala for high-conversion reels and menu films.",
   keywords: [
@@ -92,7 +91,7 @@ export default function RestaurantIndustryPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop"
-              alt="Elite Food Cinematography Scene"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

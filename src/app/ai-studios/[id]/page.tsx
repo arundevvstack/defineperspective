@@ -16,7 +16,7 @@ import WhatsAppChat from "@/components/whatsapp-chat";
 import { use } from "react";
 const projects = {
   "ai-design-1": {
-    title: "The Synthetic Muse",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     client: "Moda Verve",
     cat: "AI Design & Digital Humans",
     hero: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2400",
@@ -144,7 +144,7 @@ transition={{ delay: 0.5 }}
             <img
               src={project.gallery[0]}
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              alt="Detail 1"
+              alt="AI video production company in Kerala - DP AI Studio"
             />
             <div className="absolute inset-0 bg-transparent border-2 border-primary-accent/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xl hover:bg-transparent    transition-all duration-300">
               
@@ -156,7 +156,7 @@ transition={{ delay: 0.5 }}
             <img
               src={project.gallery[1]}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-              alt="Detail 2"
+              alt="AI video production company in Kerala - DP AI Studio"
             />
           </div>
           <div className="aspect-[4/5] rounded-[3rem] overflow-hidden group border border-white/5">
@@ -164,7 +164,7 @@ transition={{ delay: 0.5 }}
             <img
               src={project.gallery[2]}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-              alt="Detail 3"
+              alt="AI video production company in Kerala - DP AI Studio"
             />
           </div>
           <div className="md:col-span-2 aspect-video rounded-[3rem] overflow-hidden group border border-white/5">
@@ -172,7 +172,7 @@ transition={{ delay: 0.5 }}
             <img
               src={project.gallery[3]}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-              alt="Detail 4"
+              alt="AI video production company in Kerala - DP AI Studio"
             />
           </div>
         </div>

@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "To U Commercial Case Study | Cinematic Fashion TVC | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Explore the visual engineering behind the 'To U' TV commercial. A masterclass in cinematic fashion storytelling produced in Kerala for the global market.",
   keywords: ["fashion TVC Kerala", "apparel brand film India", "cinematic commercial production Kochi", "To U brand film"],
 };

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import AIServiceTemplate from "@/components/ai-service-template";
 
 export const metadata: Metadata = {
-  title: "AI Video Marketing & Strategy Agency India | Performance Funnels",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Best AI video marketing and strategy agency in India, Kerala, and UAE. Data-driven video funnels, neural hook optimization, and scalable brand distribution strategies.",
   keywords: ["AI video strategy India", "AI video marketing Kerala", "AI video funnels Kochi", "viral video strategy UAE", "best AI video strategy agency"],
 };

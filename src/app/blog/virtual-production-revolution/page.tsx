@@ -63,7 +63,7 @@ export default function BlogPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-10" />
             <Image 
               src="/images/blog/virtual-prod-hero.png" 
-              alt="Virtual Production Hero" 
+              alt="AI video production company in Kerala - DP AI Studio" 
               fill 
               className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
             />

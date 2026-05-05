@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AI Video Production Agency Kerala | Best AI Media Company | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is Kerala's leading AI-powered video production agency. We provide cinematic brand films and high-velocity AI video ads for Kerala's top builders, hospitals, and D2C brands. Rank #1 in Kerala with neural production.",
   keywords: [
     "AI video production agency Kerala",
@@ -114,7 +114,7 @@ export default function KeralaLocationPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1932&auto=format&fit=crop"
-              alt="Define Perspective Kerala AI Cinema"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110"
               priority
@@ -125,9 +125,9 @@ export default function KeralaLocationPage() {
 
         <div className="grid md:grid-cols-3 gap-12 mb-40">
           {[
-            { title: "Smart Video", desc: "Using AI to create realistic brand films and cinematic videos without traditional limits." },
-            { title: "AI Storytelling", desc: "Using AI to create video stories that connect with your audience and drive results." },
-            { title: "Fast Ad Delivery", desc: "Create and launch many high-quality AI video ads quickly for e-commerce brands." }
+            { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Using AI to create realistic brand films and cinematic videos without traditional limits." },
+            { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Using AI to create video stories that connect with your audience and drive results." },
+            { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Create and launch many high-quality AI video ads quickly for e-commerce brands." }
           ].map((cap, i) => (
             <div key={i} className="p-10 rounded-[3rem] border border-white/5 bg-white/5 hover:bg-primary-accent/10 hover:border-primary-accent/20 transition-all group text-left shadow-xl">
               <Sparkles className="text-primary-accent mb-8 group-hover:scale-125 transition-transform" size={32} />

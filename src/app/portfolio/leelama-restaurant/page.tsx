@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Leelama Restaurant Case Study | Next-Gen AI Food Ad | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Experience the future of food advertising. Our AI-generated commercial for Leelama Restaurant showcases photorealistic food items and cinematic storytelling.",
   keywords: ["AI food ad", "restaurant commercial Kerala", "Leelama restaurant film"],
 };

@@ -12,8 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "Real Estate & Builders Video Production India | Best Property Films Kerala | Define Perspective Studios",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Elite AI-powered video production for real estate and builders across India. Cinematic property walkthroughs, CGI units, and AI-enhanced real estate marketing reels.",
   keywords: [
@@ -84,7 +83,7 @@ export default function RealEstateIndustryPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
-              alt="Luxury Real Estate Property Film Scene"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

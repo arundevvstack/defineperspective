@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Swarna Kosa Case Study | AI TV Commercial | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Experience the luxury of heritage silk through AI-driven TVC production. Explore the 'Swarna Kosa' commercial by Define Perspective.",
   keywords: ["AI TVC Kerala", "heritage silk ad India", "swarna kosa AI film"],
 };

@@ -122,7 +122,7 @@ export default function BlogPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-10 opacity-80" />
             <Image 
               src="/images/blog/ai-kerala-hero-v2.png" 
-              alt="AI Video Production Kerala Define Perspective Workflow" 
+              alt="AI video production company in Kerala - DP AI Studio" 
               fill 
               className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-[2000ms] ease-out"
               priority
@@ -243,7 +243,7 @@ export default function BlogPage() {
                    whileInView={{ opacity: 1, y: 0 }}
                    className="relative aspect-video rounded-[4rem] bg-zinc-900 border border-white/10 overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.02)]"
                  >
-                    <Image src="/images/blog/ai-workflow.png" alt="AI Media Production Workspace Kerala Kochi Trivandrum" fill className="object-cover opacity-60" />
+                    <Image src="/images/blog/ai-workflow.png" alt="AI video production company in Kerala - DP AI Studio" fill className="object-cover opacity-60" />
                     <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80" />
                     <div className="absolute bottom-20 left-20">
                        <h3 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter">Neural_Workflow</h3>

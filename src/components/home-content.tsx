@@ -147,7 +147,7 @@ export default function HomeContent() {
                       src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=75&w=800" 
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
-                      alt="Professional working on AI video production in Kochi studio"
+                      alt="AI video production company in Kerala - DP AI Studio"
                       sizes="(max-width: 768px) 100vw, 30vw"
                     />
                     <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
@@ -160,7 +160,7 @@ export default function HomeContent() {
                       src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=75&w=800" 
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
-                      alt="High-end cinematic camera setup for brand film production Kerala"
+                      alt="AI video production company in Kerala - DP AI Studio"
                       sizes="(max-width: 768px) 100vw, 30vw"
                     />
                     <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
@@ -282,7 +282,7 @@ export default function HomeContent() {
                >
                   <Image 
                     src="/images/kerala_ai_studio_cinematic_1776011816804.png"
-                    alt="Define Perspective AI Studio Kochi Kerala"
+                    alt="AI video production company in Kerala - DP AI Studio"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-[3000ms]"
                     sizes="(max-width: 1024px) 100vw, 50vw"

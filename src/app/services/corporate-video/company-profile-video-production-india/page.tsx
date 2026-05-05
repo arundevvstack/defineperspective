@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, Building2, Globe } from "lucide-react";
 
 export const metadata = {
-  title: "Company Profile Videos | Define Perspective AI Media Studio",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Professional brand narratives for industry leaders. Connect with Define Perspective, the leading AI video production company in Kerala and India. Professional film, ad, and video services in Kochi, Trivandrum & UAE.",
   alternates: {
     canonical: "https://defineperspective.in/services/corporate-video/company-profile-video-production-india"

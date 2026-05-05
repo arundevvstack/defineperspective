@@ -3,7 +3,7 @@ import PortfolioContent from "@/components/portfolio-content";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "AI Ad Film Portfolio | Top AI Video Creators Kochi | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Explore the work of a leading AI ad film production company in Kochi. We deliver cinematic AI video production for brands in Kerala and across India. Recognized as the Best AI Video Production Agency India.",
   keywords: [
     "AI ad film production company Kochi",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "AI video production company India"
   ],
   openGraph: {
-    title: "AI & Cinematic Portfolio | Define Perspective",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     description: "Cinematic AI video production for brands in Kerala. Top AI video creators in India.",
     url: "https://defineperspective.in/portfolio",
   },

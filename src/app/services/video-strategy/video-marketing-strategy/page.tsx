@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title: "Video Marketing Strategy & Consulting India | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Elite video marketing strategy and business consulting for high-growth brands in India. Align your visual content with long-term revenue goals through data-driven planning.",
   keywords: [
@@ -74,7 +74,7 @@ export default function VideoStrategySubPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-              alt="Strategic Video Marketing Consulting"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority

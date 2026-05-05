@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "BB Serum TVC Case Study | Cosmetics & Beauty Advertising | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Visual engineering for high-stakes cosmetics advertising. Discover how we captured the essence of BB Serum through cinematic Macro-visuals.",
   keywords: ["cosmetic TVC India", "beauty product videographer Kerala", "skin care commercial Kochi", "BB Serum brand film"],
 };

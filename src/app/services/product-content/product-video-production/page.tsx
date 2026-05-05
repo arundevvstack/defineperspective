@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Product Video Production Company India | Best Product Videographer Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Elite product video production for consumer brands across India. Cinematic product close-ups, lifestyle films, and visual storytelling specifically designed for global and Indian E-commerce marketplaces.",
   keywords: [
@@ -88,7 +87,7 @@ export default function ProductVideoSubPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2099&auto=format&fit=crop"
-              alt="Elite Product Video Production Scene"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

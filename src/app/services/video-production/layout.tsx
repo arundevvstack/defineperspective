@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best AI Video Production Company India | Kerala | UAE | Kochi | Trivandrum",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the #1 AI video production company in India, Kerala, and UAE. High-conversion video ads, cinematic brand films, and corporate ad films in Kochi and Trivandrum.",
   keywords: [
     "AI Video Production Company India",

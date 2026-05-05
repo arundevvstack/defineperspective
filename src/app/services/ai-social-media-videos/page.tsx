@@ -5,7 +5,7 @@ import Link from "next/link";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Best AI Reels & Shorts Production Agency Kochi | Social Media AI Videos India | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the best AI social media video production agency in India. We create high-engagement AI Reels, YouTube Shorts, and TikTok-style daily content in Kochi, Kerala.",
   keywords: [
     "best ai reels production agency kochi",
@@ -65,9 +65,9 @@ export default function AISocialMediaVideosPage() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-40">
            {[
-             { title: "Reels & Shorts", icon: Smartphone, desc: "Ultra-fast AI production for high-fidelity Reels & YouTube Shorts." },
-             { title: "Daily Content", icon: TrendingUp, desc: "Continuous AI-driven episodic and daily visual brand content." },
-             { title: "Viral Trends", icon: Sparkles, desc: "Synthesizing viral trends into AI video narratives instantly." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Smartphone, desc: "Ultra-fast AI production for high-fidelity Reels & YouTube Shorts." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: TrendingUp, desc: "Continuous AI-driven episodic and daily visual brand content." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Sparkles, desc: "Synthesizing viral trends into AI video narratives instantly." }
            ].map((item) => (
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />

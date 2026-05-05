@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Kumbayah | Luxury Cinematic Product Branding & Advertising",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "A deep dive into the Kumbayah Kombucha visual strategy. Specialized in luxury beverage photography, kinetic food styling, and cinematography in Kochi, Kerala.",
   keywords: [
     "Luxury product photography Kochi",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "Cinematic product films Kerala"
   ],
   openGraph: {
-    title: "Kumbayah | Define Perspective",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     description: "Engineering the organic visual identity for India's premium kombucha brand.",
     images: ["/images/clients/kumbayah-kombucha.png"],
   }
@@ -98,7 +98,7 @@ export default function KumbayahKombuchaCaseStudy() {
            <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl transition-all duration-700 hover:border-primary-accent/30">
               <Image 
                 src="/images/clients/kumbayah/product-splash.jpg"
-                alt="Kumbayah Kombucha Premium Ad Photography Master"
+                alt="AI video production company in Kerala - DP AI Studio"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 priority
@@ -157,7 +157,7 @@ export default function KumbayahKombuchaCaseStudy() {
               <div className="md:col-span-8 relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl bg-black max-w-2xl mx-auto w-full">
                  <Image 
                    src="/images/clients/kumbayah/fashion-splash.jpg"
-                   alt="Cinematic Fashion Lifestyle Shot for Kumbayah"
+                   alt="AI video production company in Kerala - DP AI Studio"
                    fill
                    className="object-contain md:object-cover transition-transform duration-1000 group-hover:scale-105"
                  />
@@ -171,7 +171,7 @@ export default function KumbayahKombuchaCaseStudy() {
                  <div className="flex-1 relative aspect-video rounded-[3rem] overflow-hidden border border-white/10">
                     <Image 
                       src="/images/clients/kumbayah/product-splash.jpg"
-                      alt="Organic Beverage Macro Shot"
+                      alt="AI video production company in Kerala - DP AI Studio"
                       fill
                       className="object-cover"
                     />
@@ -183,7 +183,7 @@ export default function KumbayahKombuchaCaseStudy() {
               <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group max-w-4xl mx-auto w-full bg-black">
                  <Image 
                     src="/images/clients/kumbayah/triple-bottle.jpg"
-                    alt="Product Lineup with Dynamic Splash"
+                    alt="AI video production company in Kerala - DP AI Studio"
                     fill
                     className="object-contain md:object-cover transition-transform duration-700 group-hover:scale-105"
                  />
@@ -203,13 +203,13 @@ export default function KumbayahKombuchaCaseStudy() {
 
            <div className="grid md:grid-cols-3 gap-12 group">
               <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-white/10 group-hover:border-primary-accent/20 transition-all shadow-2xl bg-black">
-                 <Image src="/images/clients/kumbayah/fridge-mockup.png" alt="Custom Retail Fridge Mockup for Kumbayah" fill className="object-contain md:object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+                 <Image src="/images/clients/kumbayah/fridge-mockup.png" alt="AI video production company in Kerala - DP AI Studio" fill className="object-contain md:object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
                  <div className="absolute top-8 right-8">
                     <div className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full text-[8px] font-mono text-white/60">POS DESIGN</div>
                  </div>
               </div>
               <div className="md:col-span-2 relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
-                 <Image src="/images/clients/kumbayah/van-marketing.jpg" alt="Kumbayah Delivery Fleet Branding" fill className="object-cover" />
+                 <Image src="/images/clients/kumbayah/van-marketing.jpg" alt="AI video production company in Kerala - DP AI Studio" fill className="object-cover" />
                  <div className="absolute bottom-8 left-8">
                     <div className="bg-primary-accent px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest">Transit Media Node</div>
                  </div>

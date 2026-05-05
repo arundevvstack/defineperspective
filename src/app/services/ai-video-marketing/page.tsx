@@ -5,7 +5,7 @@ import Image from "next/image";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Best AI Video Marketing Strategy Agency | Video Funnel Marketing India | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the best AI video marketing and strategy agency in India. We specialize in AI-driven campaign strategy, funnel video planning, and distribution in Kochi, Kerala.",
   keywords: [
     "best ai video marketing strategy agency india",
@@ -65,9 +65,9 @@ export default function AIVideoMarketingPage() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-40">
            {[
-             { title: "Campaign Strategy", icon: Rocket, desc: "Bespoke AI-driven visual campaign roadmaps for high-growth ventures." },
-             { title: "Funnel Videos", icon: BarChart3, desc: "Synchronized AI-powered video systems specifically designed for each stage of the buyer journey." },
-             { title: "Distribution", icon: Map, desc: "Synthesizing cinematic distribution plans to ensure maximum reach across global digital nodes." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Rocket, desc: "Bespoke AI-driven visual campaign roadmaps for high-growth ventures." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: BarChart3, desc: "Synchronized AI-powered video systems specifically designed for each stage of the buyer journey." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Map, desc: "Synthesizing cinematic distribution plans to ensure maximum reach across global digital nodes." }
            ].map((item) => (
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />
@@ -81,7 +81,7 @@ export default function AIVideoMarketingPage() {
             <div className="relative aspect-square rounded-[3.5rem] overflow-hidden border border-white/5 shadow-2xl group">
                <Image 
                  src="/images/blog/ai-video-companies-india-2026.png"
-                 alt="Best AI Video Marketing Strategy Agency Kochi India"
+                 alt="AI video production company in Kerala - DP AI Studio"
                  fill
                  className="object-cover transition-transform group-hover:scale-105 duration-1000"
                />

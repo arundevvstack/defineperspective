@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title: "DP AI Studios | Leading AI Video Production Company in India",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "DP AI Studios is a premier AI video production company. We specialize in generative AI video, photorealistic avatars, and high-velocity CGI virtual production for ambitious global brands.",
   keywords: [
@@ -97,14 +97,14 @@ export default function AIStudiosPage() {
           
           {[
             {
-              title: "AI Media Production",
+              title: "Best AI Video Production Company in Kerala | DP AI Studio India",
               href: "/services/ai-media-production",
               icon: Sparkles,
               color: "from-primary-accent to-primary-accent",
               desc: "Generative video, photorealistic avatars, and automated multilingual dubbing for global scale.",
             },
             {
-              title: "AI CGI & Virtual Production",
+              title: "Best AI Video Production Company in Kerala | DP AI Studio India",
               href: "/services/cgi-virtual-production",
               icon: Wand2,
               color: "from-primary-accent to-primary-accent",
@@ -193,7 +193,7 @@ export default function AIStudiosPage() {
             
             <Image
               src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop"
-              alt="AI Neural Processing Laboratory"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 hover:scale-110"
               priority

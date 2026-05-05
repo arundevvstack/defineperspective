@@ -54,7 +54,7 @@ export default function CGIVirtualProductionPage() {
             <div className="relative aspect-video rounded-[3rem] overflow-hidden border border-white/5 bg-zinc-950 group">
                <Image 
                  src="/images/blog/cgi-interaction.png" 
-                 alt="Virtual Production Kerala Studio"
+                 alt="AI video production company in Kerala - DP AI Studio"
                  fill
                  className="object-cover opacity-60 group-hover:scale-105 transition-all duration-1000"
                />

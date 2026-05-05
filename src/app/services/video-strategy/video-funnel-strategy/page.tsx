@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Video Funnel Strategy & Media Roadmaps India | Best Video Consultant Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Elite video funnel strategy and architectural media planning for brands in India. Move your customers from awareness to sale through high-performance visual storytelling systems.",
   keywords: [
@@ -83,7 +82,7 @@ export default function VideoFunnelSubPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-              alt="Strategy Data Charts for Video Funnel Systems"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

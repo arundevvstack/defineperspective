@@ -5,7 +5,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Dotspace Commercial Case Study | Architecture & Lifestyle TVC | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Explore the visual engineering behind the 'Dotspace' co-working property commercial. A cinematic lifestyle commercial produced in Kochi for modern innovators.",
   keywords: ["architecture videography Kerala", "luxury real estate video Kochi", "cinematic commercial production India", "Dotspace property film"],
 };

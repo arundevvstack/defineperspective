@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title: "Facebook & Instagram Video Ad Creatives India | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-performance Facebook and Instagram video ad creatives for brands in India. Vertical Reels, stop-motion, and AI-powered performance ads optimized for low CPA and high ROAS.",
   keywords: [
@@ -75,7 +75,7 @@ export default function MetaAdsSubPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop"
-              alt="High-performance Social Video Ad Production"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority

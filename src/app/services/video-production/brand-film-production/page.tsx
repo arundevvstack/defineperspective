@@ -12,8 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "Brand Film Production India | Best Cinematic Storytelling Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Elite brand film production for visionary companies across India. We create cinematic storytelling that captures your brand's unique mission and heritage.",
   keywords: [
@@ -93,7 +92,7 @@ export default function BrandFilmSubPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071&auto=format&fit=crop"
-              alt="Cinematic Brand Film Production Scene"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

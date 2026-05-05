@@ -41,7 +41,7 @@ export default function GlassFooter() {
              <div className="flex items-center justify-start m-0 p-0 mb-8">
                  <Image 
                    src="/images/main-logo.png" 
-                   alt="Define Perspective Logo" 
+                   alt="AI video production company in Kerala - DP AI Studio" 
                    width={260} 
                    height={94} 
                    className="object-contain m-0 p-0"

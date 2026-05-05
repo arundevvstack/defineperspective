@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Performance Marketing Video Ads India | Best ROAS Video Agency Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-performance video ad creatives designed for conversion. We build ROI-focused ads for D2C brands in India, focusing on low CPA and high ROAS through strategic storytelling.",
   keywords: [
@@ -76,7 +75,7 @@ export default function PerformanceAdsSubPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop"
-              alt="Performance Marketing ROI Metrics"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

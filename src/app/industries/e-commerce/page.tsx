@@ -12,8 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "D2C Brands & E-commerce Video Production India | Best Product Ad Agency Kerala | Define Perspective Studios",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-velocity AI-powered video production for D2C and e-commerce brands across India. Scale your product visuals and boost your ROAS with cinematic product films.",
   keywords: [
@@ -92,7 +91,7 @@ export default function EcommerceIndustryPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=2099&auto=format&fit=crop"
-              alt="Elite D2C Product Production Scene"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

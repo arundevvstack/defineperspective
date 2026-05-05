@@ -8,8 +8,35 @@ import Link from "next/link";
 
 const BLOGS = [
   {
+    slug: "how-ai-video-production-is-changing-kerala-advertising",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
+    excerpt: "DP AI Studio is the best AI video production company in Kerala, redefining how advertising works for brands in Kochi and Trivandrum.",
+    date: "May 5, 2026",
+    author: "DP AI Studio",
+    category: "AI Revolution",
+    image: "/images/blog/ai-kerala-hero-v2.png"
+  },
+  {
+    slug: "top-ai-ad-trends-india-2026",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
+    excerpt: "Stay ahead with DP AI Studio, the No 1 AI video production company in South India, as we explore the 2026 AI advertising landscape.",
+    date: "May 5, 2026",
+    author: "DP AI Studio",
+    category: "2026 Trends",
+    image: "/images/blog/ai-video-companies-india-2026.png"
+  },
+  {
+    slug: "why-brands-kochi-use-ai-video-ads",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
+    excerpt: "Discover why DP AI Studio is the trusted AI video production company in Kochi and Ernakulam for high-converting video ads.",
+    date: "May 5, 2026",
+    author: "DP AI Studio",
+    category: "Local Impact",
+    image: "/images/blog/kochi-ai-studio-office.png"
+  },
+  {
     slug: "future-ai-video-production-kerala-2026",
-    title: "The Future of AI Video Production in Kerala: 2026 Trends & Local Impact",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "Discover how AI filmmaking is transforming Kerala's brand storytelling from CGI virtual production to hyper-personalized corporate films.",
     date: "May 5, 2026",
     author: "DP Editorial Team",
@@ -18,7 +45,7 @@ const BLOGS = [
   },
   {
     slug: "arun-devv-ai-media-consultant-india",
-    title: "Arun Devv: The Best AI Media Consultant in India for Scalable Brand Growth (2026)",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "Discover how senior strategist Arun Devv builds scalable AI systems for brands in Kerala, Kochi and across India...",
     date: "April 12, 2026",
     author: "Define Editorial",
@@ -27,7 +54,7 @@ const BLOGS = [
   },
   {
     slug: "ai-video-production-future-india-2026",
-    title: "Why AI Video Production is the Future of Indian Advertising: A 2026 Deep Dive (Featuring the Jeep Wrangler AI Ad)",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "Explore how DP AI Studios created the viral Jeep Wrangler AI ad and what it means for brands in India...",
     date: "April 12, 2026",
     author: "Arun Devv",
@@ -36,7 +63,7 @@ const BLOGS = [
   },
   {
     slug: "best-ai-video-production-companies-india-2026",
-    title: "Best AI Video Production Company In India (2026 Guide)",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "Discover why Define Perspective is the definitive leader in cinematic AI production, setting the 2026 global benchmark.",
     date: "March 9, 2026",
     author: "Shailesh Nigam",
@@ -45,7 +72,7 @@ const BLOGS = [
   },
   {
     slug: "short-form-video-growth-2026",
-    title: "Why Short-Form Video is the #1 Growth Engine for Brands in 2026",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "Mastering the 9:16 economy through high-fidelity micro-storytelling and neural-accelerated production.",
     date: "April 3, 2026",
     author: "Arun Dev",
@@ -54,7 +81,7 @@ const BLOGS = [
   },
   {
     slug: "ai-vs-traditional-ads-2026",
-    title: "How AI Video Production is Replacing Traditional Ads in 2026 (And What Brands Must Do)",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "The death of the 90-day production cycle and the rise of the Always-On Neural Storytelling Engine.",
     date: "April 3, 2026",
     author: "Arun Dev",
@@ -63,7 +90,7 @@ const BLOGS = [
   },
   {
     slug: "cognitive-content-revolution",
-    title: "The Cognitive Content Revolution: Why Brands Are Switching to AI-Driven Media Production in 2026",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "Exploring the fundamental shift from manual creation to neural-accelerated generation and how it's redefining global brand growth.",
     date: "April 3, 2026",
     author: "Arun Dev",
@@ -72,7 +99,7 @@ const BLOGS = [
   },
   {
     slug: "ai-video-production-kerala",
-    title: "How AI Video Production is Transforming Brand Communication in Kerala",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "Discover how automation and neural workflows are redefining storytelling for premium brands in the south Indian creative ecosystem.",
     date: "April 03, 2026",
     author: "Shamnad Shams",
@@ -81,7 +108,7 @@ const BLOGS = [
   },
   {
     slug: "best-ai-video-production-kerala",
-    title: "#1 AI Video Production Company In Kerala | Kochi & Trivandrum (Elite 2026)",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "The authoritative pillar guide to AI-powered media production, market dominance, and neural storytelling for premium brands in Kochi and Trivandrum.",
     date: "April 4, 2026",
     author: "Define Editorial",
@@ -90,7 +117,7 @@ const BLOGS = [
   },
   {
     slug: "performance-video-ads-d2c",
-    title: "Mastering Performance Video Ads for D2C Brands",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "A deep dive into the technical structure of high-converting social media ads that scale revenue for direct-to-consumer businesses.",
     date: "April 12, 2024",
     author: "Define Labs",
@@ -99,7 +126,7 @@ const BLOGS = [
   },
   {
     slug: "virtual-production-revolution",
-    title: "CGI vs. Reality: The Virtual Production Revolution",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "Exploring why Unreal Engine and virtual studios are becoming the primary tool for high-end commercial shoots in 2024.",
     date: "April 08, 2024",
     author: "Production Lab",

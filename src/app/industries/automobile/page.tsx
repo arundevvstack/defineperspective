@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Automobile & Dealerships Video Production India | Best Vehicle Cinematography Kerala | Define Perspective Studios",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Elite automobile video production and dealership marketing for luxury car brands across India. Cinematic vehicle walkthroughs, performance ads, and high-spec automotive visuals in Kochi and Trivandrum.",
   keywords: [
@@ -97,7 +96,7 @@ export default function AutomobileIndustryPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop"
-              alt="Elite Automobile Cinematography Scene"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

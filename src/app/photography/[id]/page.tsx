@@ -17,7 +17,7 @@ import { use } from "react";
 
 const projects = {
   "photo1": {
-    title: "The Hourglass Legacy",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     client: "Eon Luxury",
     cat: "Commercial / Product",
     hero: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=2400",
@@ -108,19 +108,19 @@ transition={{ delay: 0.5 }}
          {/* 3. High-Impact Gallery Grid */}
          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-48">
              <div className="md:col-span-2 aspect-[21/9] rounded-[3rem] overflow-hidden group relative">
-                <Image src={project.gallery[0]} fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Detail 1" loading="lazy" />
+                <Image src={project.gallery[0]} fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="AI video production company in Kerala - DP AI Studio" loading="lazy" />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                    <Maximize2 className="text-white" size={40} />
                 </div>
              </div>
              <div className="aspect-square rounded-[3rem] overflow-hidden group relative">
-                <Image src={project.gallery[1]} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" alt="Detail 2" loading="lazy" />
+                <Image src={project.gallery[1]} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" alt="AI video production company in Kerala - DP AI Studio" loading="lazy" />
              </div>
              <div className="aspect-square rounded-[3rem] overflow-hidden group relative">
-                <Image src={project.gallery[2]} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" alt="Detail 3" loading="lazy" />
+                <Image src={project.gallery[2]} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" alt="AI video production company in Kerala - DP AI Studio" loading="lazy" />
              </div>
              <div className="md:col-span-2 aspect-[16/10] rounded-[3rem] overflow-hidden group relative">
-                <Image src={project.gallery[3]} fill className="object-cover group-hover:scale-105 transition-transform duration-1000" alt="Detail 4" loading="lazy" />
+                <Image src={project.gallery[3]} fill className="object-cover group-hover:scale-105 transition-transform duration-1000" alt="AI video production company in Kerala - DP AI Studio" loading="lazy" />
              </div>
          </div>
 

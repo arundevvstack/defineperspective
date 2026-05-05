@@ -28,7 +28,7 @@ import { motion } from "framer-motion";
 
 const serviceSilos = [
   {
-    title: "PERFORMANCE VIDEO PRODUCTION",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: [
       "Video Ads Production (Meta, YouTube, Google)",
       "UGC Video Ads Production",
@@ -40,7 +40,7 @@ const serviceSilos = [
     icon: Zap,
   },
   {
-    title: "PRODUCT & E-COMMERCE VIDEO",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: [
       "Product Demo Videos",
       "Amazon / Flipkart Product Videos",
@@ -52,7 +52,7 @@ const serviceSilos = [
     icon: Star,
   },
   {
-    title: "SOCIAL MEDIA VIDEO",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: [
       "Instagram Reels",
       "YouTube Shorts",
@@ -63,7 +63,7 @@ const serviceSilos = [
     icon: Target,
   },
   {
-    title: "CORPORATE VIDEO PRODUCTION",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: [
       "Company Profile Videos",
       "Branding Films",
@@ -75,7 +75,7 @@ const serviceSilos = [
     icon: Shield,
   },
   {
-    title: "EXPLAINER & EDUCATIONAL",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: [
       "Animated Explainers",
       "SaaS Explainers",
@@ -86,7 +86,7 @@ const serviceSilos = [
     icon: BarChart3,
   },
   {
-    title: "AD FILM & CREATIVE",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: [
       "TV Commercials",
       "Digital Ad Films",
@@ -98,7 +98,7 @@ const serviceSilos = [
     icon: Award,
   },
   {
-    title: "VIDEO MARKETING & STRATEGY",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     services: [
       "Funnel Strategy",
       "Creative Strategy",
@@ -114,31 +114,31 @@ const locationBlocks = [
   {
     id: "india",
     city: "India",
-    title: "Video Production Company in India",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "Ranked as the best AI video production company in India, Define Perspective delivers national-scale ad campaigns and brand films. We bridge the gap between cinematic artistry and technical precision, serving metropolitan hubs with high-fidelity media assets that dominate the visual landscape. Our Indian nodes are optimized for massive ROAS and national brand recall.",
   },
   {
     id: "kerala",
     city: "Kerala",
-    title: "Video Production Company in Kerala",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "The top video production house in Kerala, we specialize in high-end cinematography and AI-integrated post-production. From the heart of God's Own Country, we build visual identities for the most ambitious local and international brands, ensuring Kerala's rich storytelling heritage meets global technical standards.",
   },
   {
     id: "trivandrum",
     city: "Trivandrum",
-    title: "Video Production Agency in Trivandrum",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "No.1 video production agency in Trivandrum, catering to the growing tech and corporate sectors of the capital. Our Trivandrum hub focuses on professional corporate storytelling, high-spec technical explainers, and recruitment films for industry leaders.",
   },
   {
     id: "kochi",
     city: "Kochi",
-    title: "Video Production Company in Kochi",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "Leading video production house in Kochi, India's thriving media capital. We operate at the intersection of commercial cinema and digital velocity, delivering elite TV commercials and digital ad films for high-stakes consumer brands in Kochi and beyond.",
   },
   {
     id: "uae",
     city: "UAE",
-    title: "Video Production Company in UAE",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     content: "Leading AI video production company in the UAE, specializing in luxury brand films and performance marketing for the Middle Eastern market. Our global delivery node in the UAE ensures high-spec visual assets that resonate with a global, sophisticated audience.",
   },
 ];

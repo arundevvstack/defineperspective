@@ -5,8 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "Ad Film & Commercial Video Production India | Best TVC Agency Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-impact television and digital commercials for brands in India. From concept and script to cinematic production and viral execution.",
   keywords: [
@@ -86,7 +85,7 @@ export default function AdFilmSubPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071&auto=format&fit=crop"
-              alt="High-end Commercial Production"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

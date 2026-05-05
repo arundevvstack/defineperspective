@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AI Video Production Agency India | Best AI Media Company | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "India's premier AI-first video production and media agency. We provide cinematic brand films and performance ads across Mumbai, Bangalore, Delhi, and Hyderabad. Rank #1 in India with our silicon-speed AI workflows.",
   keywords: [
     "AI video production agency India",
@@ -125,7 +125,7 @@ export default function IndiaLocationPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2071&auto=format&fit=crop"
-              alt="Define Perspective India AI Branding"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110"
               priority

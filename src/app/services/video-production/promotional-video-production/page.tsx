@@ -4,8 +4,7 @@ import GlassNavbar from "@/components/glass-navbar";
 import { Zap, Target, Star, CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Promotional Video Production Company India | Best Promo Video Agency Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-energy promotional video production for brands in India. Launch your products and campaigns with cinematic, fast-paced promo films specifically engineered for the Indian marketplace.",
   keywords: [
@@ -85,7 +84,7 @@ export default function PromoVideoSubPage() {
           <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1974&auto=format&fit=crop"
-              alt="High-energy Promotional Video Filming"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority

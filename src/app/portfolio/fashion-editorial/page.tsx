@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Fashion Editorial Case Study | High-End Catalog Photography | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Explore the visual engineering behind our High-End Fashion Editorial campaign. Specialized fashion photography and creative catalog production in Kochi, Kerala.",
   keywords: ["fashion photography Kerala", "apparel catalog shoots Kochi", "premium editorial photography India", "clothing brand visuals"],
 };
@@ -58,7 +58,7 @@ export default function FashionEditorialCaseStudy() {
            <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
               <Image 
                 src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2000"
-                alt="High-End Fashion Editorial Master Plate"
+                alt="AI video production company in Kerala - DP AI Studio"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 priority
@@ -94,7 +94,7 @@ export default function FashionEditorialCaseStudy() {
               <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 shadow-xl group">
                  <Image 
                    src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop"
-                   alt="Fashion Model Close Up"
+                   alt="AI video production company in Kerala - DP AI Studio"
                    fill
                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                  />

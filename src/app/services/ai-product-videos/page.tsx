@@ -5,7 +5,7 @@ import Image from "next/image";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Best AI Product Video Production India | E-commerce AI Videos Kochi | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the best AI product video production agency in India. Specialized in AI zero-shoot product movies, Amazon/Shopify visuals, and e-commerce AI content in Kochi, Kerala.",
   keywords: [
     "best ai product video production india",
@@ -65,9 +65,9 @@ export default function AIProductVideosPage() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-40">
            {[
-             { title: "E-Commerce", icon: ShoppingCart, desc: "High-fidelity AI product movies for Shopify and D2C marketplaces." },
-             { title: "Amazon/Shopify", icon: LayoutGrid, desc: "Bespoke AI-generated product demo visuals for global e-commerce listings." },
-             { title: "Product Demos", icon: LayoutList, desc: "Hyper-realistic feature-focused AI product demonstrations at scale." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: ShoppingCart, desc: "High-fidelity AI product movies for Shopify and D2C marketplaces." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: LayoutGrid, desc: "Bespoke AI-generated product demo visuals for global e-commerce listings." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: LayoutList, desc: "Hyper-realistic feature-focused AI product demonstrations at scale." }
            ].map((item) => (
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />

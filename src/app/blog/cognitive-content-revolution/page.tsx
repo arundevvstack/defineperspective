@@ -84,7 +84,7 @@ export default function BlogPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-10" />
             <Image 
               src="/images/blog/cognitive-hero.png" 
-              alt="The Cognitive Content Revolution Hero" 
+              alt="AI video production company in Kerala - DP AI Studio" 
               fill 
               className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
             />
@@ -227,10 +227,10 @@ export default function BlogPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                {[
-                 { step: "01", title: "Data Infusion", desc: "Injecting brand heritage and previous performance metrics into our custom AI models to establish a 'Creative Baseline.'" },
-                 { step: "02", title: "Neural Ideation", desc: "Generating thousands of storyboard nodes in minutes, filtered by real-time attention-prediction algorithms." },
-                 { step: "03", title: "Hybrid Production", desc: "Combining high-end physical cinematography with generative virtual environments and CGI." },
-                 { step: "04", title: "Iterative Scaling", desc: "Deploying automated variations to different audience clusters and doubling down on winners within hours." }
+                 { step: "01", title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Injecting brand heritage and previous performance metrics into our custom AI models to establish a 'Creative Baseline.'" },
+                 { step: "02", title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Generating thousands of storyboard nodes in minutes, filtered by real-time attention-prediction algorithms." },
+                 { step: "03", title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Combining high-end physical cinematography with generative virtual environments and CGI." },
+                 { step: "04", title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Deploying automated variations to different audience clusters and doubling down on winners within hours." }
                ].map((box, i) => (
                  <div key={i} className="p-12 rounded-[2.5rem] bg-zinc-900 border border-white/5 group hover:border-primary-accent transition-all duration-500">
                     <span className="text-4xl font-black text-primary-accent/20 group- transition-colors block mb-6">{box.step}</span>

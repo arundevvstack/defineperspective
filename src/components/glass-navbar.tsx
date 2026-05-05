@@ -419,7 +419,7 @@ function GlassNavbarInner() {
             <div className="w-[160px] md:w-[240px]">
               <Image 
                 src={isAiMode ? "/images/ai-logo.png" : "/images/main-logo.png"} 
-                alt="Define Perspective" 
+                alt="AI video production company in Kerala - DP AI Studio" 
                 width={240} 
                 height={76} 
                 className="object-contain" 

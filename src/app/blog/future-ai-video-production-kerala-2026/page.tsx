@@ -96,7 +96,7 @@ export default function FutureAIBlogPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-10 opacity-80" />
             <Image 
               src="/images/blog/future-ai-video-production-kerala-2026.png" 
-              alt="The Future of AI Video Production in Kerala 2026" 
+              alt="AI video production company in Kerala - DP AI Studio" 
               fill 
               className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-[2000ms] ease-out"
               priority
@@ -147,7 +147,7 @@ export default function FutureAIBlogPage() {
                   <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
                     <Image 
                       src="/images/blog/ai-chenda-drummer-kerala.png" 
-                      alt="AI Cultural Fusion in Kerala" 
+                      alt="AI video production company in Kerala - DP AI Studio" 
                       fill 
                       className="object-cover"
                     />
@@ -199,7 +199,7 @@ export default function FutureAIBlogPage() {
                 <div className="relative aspect-[16/9] rounded-[4rem] overflow-hidden border border-white/10">
                   <Image 
                     src="/images/blog/kochi-ai-studio-office.png" 
-                    alt="Kochi AI Studio Office" 
+                    alt="AI video production company in Kerala - DP AI Studio" 
                     fill 
                     className="object-cover"
                   />

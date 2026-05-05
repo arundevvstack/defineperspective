@@ -4,7 +4,7 @@ import { BrainCircuit, Building2, Briefcase, Heart } from "lucide-react";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Top AI Corporate Video Agency India | Employer Branding Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the top AI corporate video agency in India. We specialize in AI company profiles, internal communication videos, and employer branding in Kochi, Kerala.",
   keywords: [
     "top ai corporate video agency india",
@@ -64,9 +64,9 @@ export default function AICorporateVideosPage() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-40">
            {[
-             { title: "Company Profile", icon: Building2, desc: "High-fidelity AI corporate films that establish authoritative brand identity." },
-             { title: "Internal Comms", icon: Briefcase, desc: "Synchronized AI-driven communication systems for internal global teams." },
-             { title: "Employer Brand", icon: Heart, desc: "Synthesizing cinematic employer branding narratives to attract top-tier global talent." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Building2, desc: "High-fidelity AI corporate films that establish authoritative brand identity." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Briefcase, desc: "Synchronized AI-driven communication systems for internal global teams." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Heart, desc: "Synthesizing cinematic employer branding narratives to attract top-tier global talent." }
            ].map((item) => (
              <div key={item.title} className="p-12 rounded-[3.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-8 group-hover:scale-110 transition-transform" size={40} />

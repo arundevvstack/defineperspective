@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title: "Corporate Video Production Company in Kerala | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Elite corporate video production for businesses in Kerala. We specialize in producing brand films, corporate legacy stories, and promotional videos optimized for global markets.",
   keywords: [
@@ -102,7 +102,7 @@ export default function CorporateVideoPage() {
             <div className="relative aspect-square md:w-[400px] rounded-3xl overflow-hidden border border-white/10 shrink-0">
               <Image
                 src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1974&auto=format&fit=crop"
-                alt="Corporate Filming Scene Kerala"
+                alt="AI video production company in Kerala - DP AI Studio"
                 fill
                 className="object-cover"
                 priority
@@ -115,22 +115,22 @@ export default function CorporateVideoPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-40">
           {[
             {
-              title: "Brand Films",
+              title: "Best AI Video Production Company in Kerala | DP AI Studio India",
               desc: "Showcasing the journey, culture, and core mission of your organization.",
               icon: Target,
             },
             {
-              title: "Internal Comms",
+              title: "Best AI Video Production Company in Kerala | DP AI Studio India",
               desc: "High-impact CEO messages and town-hall videos for distributed teams.",
               icon: Workflow,
             },
             {
-              title: "CSR Stories",
+              title: "Best AI Video Production Company in Kerala | DP AI Studio India",
               desc: "Professional documentaries capturing your brand's social impact in local communities.",
               icon: Globe,
             },
             {
-              title: "Recruitment Films",
+              title: "Best AI Video Production Company in Kerala | DP AI Studio India",
               desc: "Attract global talent by showcasing your vibrant work environment and perks.",
               icon: PlayCircle,
             },

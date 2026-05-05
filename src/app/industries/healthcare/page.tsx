@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title:
-    "Healthcare & Hospitals Video Production India | Best Patient Stories Kerala | Define Perspective Studios",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "Trust-centric healthcare video production and hospital brand storytelling for clinics across India. Cinematic patient stories, institutional films, and AI-powered medical visuals in Kochi and Trivandrum.",
   keywords: [
@@ -83,7 +82,7 @@ export default function HealthcareIndustryPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
             <Image
               src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop"
-              alt="Elite Healthcare Brand Storytelling Scene"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority

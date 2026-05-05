@@ -144,7 +144,7 @@ export default function JeepAIVideoBlog() {
                   <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 group">
                     <Image 
                       src="/images/blog/jeep-ai-blog.jpg" 
-                      alt="Jeep Wrangler AI Commercial Rendering"
+                      alt="AI video production company in Kerala - DP AI Studio"
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-1000"
                     />

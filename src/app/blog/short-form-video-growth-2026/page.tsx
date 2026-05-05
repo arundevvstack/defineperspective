@@ -84,7 +84,7 @@ export default function BlogPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-10" />
             <Image 
               src="/images/blog/short-form-hero.png" 
-              alt="Short-Form Growth Hero" 
+              alt="AI video production company in Kerala - DP AI Studio" 
               fill 
               className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-2000"
             />
@@ -166,9 +166,9 @@ export default function BlogPage() {
             </h2>
             <div className="space-y-12">
                {[
-                 { title: "The Cinematic Hook", desc: "Start with a high-fidelity visual node. Use macro shots, intense grading, and custom neural-generated typography to stop the scroll in under 0.5s." },
-                 { title: "Infinite Iteration", desc: "Don't release 'one version.' Use AI to reformatting a single high-end shoot into 20 variations, each testing different hooks and audio triggers." },
-                 { title: "Kinetic Brand Identity", desc: "Maintain luxury brand codes in a vertical space. This means studio lighting, professional grading, and high-fidelity sound design—not just 'mobile-shots'." }
+                 { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Start with a high-fidelity visual node. Use macro shots, intense grading, and custom neural-generated typography to stop the scroll in under 0.5s." },
+                 { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Don't release 'one version.' Use AI to reformatting a single high-end shoot into 20 variations, each testing different hooks and audio triggers." },
+                 { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Maintain luxury brand codes in a vertical space. This means studio lighting, professional grading, and high-fidelity sound design—not just 'mobile-shots'." }
                ].map((item, i) => (
                  <div key={i} className="flex gap-10 group">
                     <div className="h-2 w-2 rounded-full bg-primary-accent mt-4 shrink-0 group-hover:scale-[3] transition-transform duration-500" />

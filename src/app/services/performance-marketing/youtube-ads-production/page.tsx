@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "YouTube Ads Production India | High-Performance Video Ads Kerala | Define Perspective Studios",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Elite YouTube ad production optimized for high retention and conversion. specialized in skippable and unskippable formats for Indian brands and global markets.",
   keywords: ["YouTube ad production India", "best video ads Kerala", "YouTube marketing agency Kochi", "high retention ads India"],
 };
@@ -69,7 +69,7 @@ export default function YouTubeAdsPage() {
           <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2074&auto=format&fit=crop"
-              alt="High Quality YouTube Production Workflow India"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
               priority

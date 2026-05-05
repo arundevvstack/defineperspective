@@ -6,7 +6,7 @@ import Link from "next/link";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Best SaaS Explainer Video Agency India | Product Demos Kochi | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the best SaaS explainer video agency in India. We specialize in high-fidelity software explainers, product demos, and onboarding videos in Kochi, Kerala.",
   keywords: [
     "best saas explainer video agency india",
@@ -66,10 +66,10 @@ export default function SaaSExplainerVideoPage() {
 
         <div className="grid md:grid-cols-4 gap-6 mb-40">
            {[
-             { title: "Explainer Videos", icon: MessageSquare, desc: "Bespoke narratives that explain complex SaaS solutions instantly." },
-             { title: "Product Demos", icon: Presentation, desc: "Feature-focused walkthroughs with world-class UI visual fidelity." },
-             { title: "Onboarding", icon: UserPlus, desc: "Synchronized visual systems for seamless global user acquisition." },
-             { title: "Feature Launch", icon: Rocket, desc: "High-impact visual capsules for massive product updates and reveals." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: MessageSquare, desc: "Bespoke narratives that explain complex SaaS solutions instantly." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Presentation, desc: "Feature-focused walkthroughs with world-class UI visual fidelity." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: UserPlus, desc: "Synchronized visual systems for seamless global user acquisition." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Rocket, desc: "High-impact visual capsules for massive product updates and reveals." }
            ].map((item) => (
              <div key={item.title} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-6 group-hover:scale-110 transition-transform" size={32} />

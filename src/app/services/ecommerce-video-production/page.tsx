@@ -6,7 +6,7 @@ import Link from "next/link";
 import CinematicHero from "@/components/cinematic-hero";
 
 export const metadata: Metadata = {
-  title: "Best E-commerce Video Production Agency Kochi | Amazon & Shopify Videos India | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Define Perspective is the best e-commerce video production agency in India. We specialize in Amazon product videos, Shopify creatives, and performance-driven lifestyle product visuals in Kochi, Kerala.",
   keywords: [
     "best e-commerce video production agency kochi",
@@ -67,10 +67,10 @@ export default function EcommerceVideoProductionPage() {
 
         <div className="grid md:grid-cols-4 gap-6 mb-40">
            {[
-             { title: "Product Videos", icon: Package, desc: "Cinematic product movies showcasing every detail with surgical precision." },
-             { title: "Amazon/Shopify", icon: LayoutGrid, desc: "Marketplace-compliant creatives that boost click-through and sales." },
-             { title: "Ad Performance", icon: TrendingUp, desc: "High-conversion video ads engineered for Meta, Google, and Amazon." },
-             { title: "Lifestyle Visuals", icon: Star, desc: "Aspirational product narratives that connect emotionally with your audience." }
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Package, desc: "Cinematic product movies showcasing every detail with surgical precision." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: LayoutGrid, desc: "Marketplace-compliant creatives that boost click-through and sales." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: TrendingUp, desc: "High-conversion video ads engineered for Meta, Google, and Amazon." },
+             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Star, desc: "Aspirational product narratives that connect emotionally with your audience." }
            ].map((item) => (
              <div key={item.title} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-6 group-hover:scale-110 transition-transform" size={32} />
@@ -84,7 +84,7 @@ export default function EcommerceVideoProductionPage() {
             <div className="relative aspect-square rounded-[3.5rem] overflow-hidden border border-white/5 shadow-2xl group">
                <Image 
                  src="/images/blog/d2c-ads-hero.png"
-                 alt="Best E-commerce Video Production Agency Kochi India"
+                 alt="AI video production company in Kerala - DP AI Studio"
                  fill
                  className="object-cover transition-transform group-hover:scale-105 duration-1000"
                />

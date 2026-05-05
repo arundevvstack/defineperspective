@@ -125,7 +125,7 @@ export default function BlogPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-10 opacity-80" />
             <Image 
               src="/images/blog/ai-video-companies-india-2026.png" 
-              alt="10 Best AI-Powered Video Production Companies in India 2026" 
+              alt="AI video production company in Kerala - DP AI Studio" 
               fill 
               className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-[2000ms] ease-out"
               priority

@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 export const metadata: Metadata = {
-  title: "Conversion-Focused Video Ads India | Define Perspective",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description:
     "High-performance, conversion-centric video ads for D2C and SaaS brands in India. Lower your CPA and boost your ROAS with psychological hooks and AI-optimized storytelling.",
   keywords: [
@@ -84,7 +84,7 @@ export default function ConversionAdsSubPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 group shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop"
-              alt="High-conversion Data Charts and Ad Creatives"
+              alt="AI video production company in Kerala - DP AI Studio"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
               priority
