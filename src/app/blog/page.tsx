@@ -8,6 +8,15 @@ import Link from "next/link";
 
 const BLOGS = [
   {
+    slug: "future-ai-tvc-commercial-production-kerala-2026",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
+    excerpt: "Discover how AI-native workflows are redefining commercial filmmaking in Kerala, from virtual production to high-end TVC trends.",
+    date: "May 5, 2026",
+    author: "DP Editorial Team",
+    category: "Commercial AI",
+    image: "/images/blog/ai-tvc-kerala-houseboat.png"
+  },
+  {
     slug: "how-ai-video-production-is-changing-kerala-advertising",
     title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     excerpt: "DP AI Studio is the best AI video production company in Kerala, redefining how advertising works for brands in Kochi and Trivandrum.",
