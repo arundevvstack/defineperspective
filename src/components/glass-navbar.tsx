@@ -361,7 +361,7 @@ const NavTrigger = ({ title, isOpen, categories, pathname, href, onOpen, onClose
   );
 };
 
-export default function GlassNavbar() {
+function GlassNavbarInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [openMenu, setOpenMenu] = useState<"video" | "ai" | null>(null);
@@ -656,3 +656,21 @@ export default function GlassNavbar() {
     </>
   );
 }
+
+export default function GlassNavbar() {
+  return (
+    <Suspense fallback={
+      <nav className="fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 bg-obsidian/90 backdrop-blur-3xl h-[80px]">
+        <div className="w-full max-w-none flex h-12 items-center justify-between px-2 md:px-8">
+           <div className="w-[160px] md:w-[240px] h-10 bg-white/5 animate-pulse rounded-lg" />
+           <div className="hidden md:flex gap-8">
+              {[1,2,3,4].map(i => <div key={i} className="w-16 h-4 bg-white/5 animate-pulse rounded" />)}
+           </div>
+        </div>
+      </nav>
+    }>
+      <GlassNavbarInner />
+    </Suspense>
+  );
+}
+

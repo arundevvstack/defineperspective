@@ -13,7 +13,7 @@ import {
   List,
   Layout
 } from "lucide-react";
-import { useState } from "react";
+import { Suspense,  useState } from "react";
 import Image from "next/image";
 import GlassNavbar from "@/components/glass-navbar";
 import WhatsAppChat from "@/components/whatsapp-chat";
@@ -105,7 +105,7 @@ const photoData = [
   }
 ];
 
-export default function PortfolioContent() {
+function PortfolioInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const activeTab = searchParams.get("view") || "video";
@@ -375,5 +375,14 @@ export default function PortfolioContent() {
 
       <WhatsAppChat />
     </main>
+  );
+}
+
+
+export default function PortfolioContent() {
+  return (
+    <Suspense fallback={null}>
+      <PortfolioInner />
+    </Suspense>
   );
 }

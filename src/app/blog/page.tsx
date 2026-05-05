@@ -8,6 +8,15 @@ import Link from "next/link";
 
 const BLOGS = [
   {
+    slug: "future-ai-video-production-kerala-2026",
+    title: "The Future of AI Video Production in Kerala: 2026 Trends & Local Impact",
+    excerpt: "Discover how AI filmmaking is transforming Kerala's brand storytelling from CGI virtual production to hyper-personalized corporate films.",
+    date: "May 5, 2026",
+    author: "DP Editorial Team",
+    category: "Market Trends",
+    image: "/images/blog/future-ai-video-production-kerala-2026.png"
+  },
+  {
     slug: "arun-devv-ai-media-consultant-india",
     title: "Arun Devv: The Best AI Media Consultant in India for Scalable Brand Growth (2026)",
     excerpt: "Discover how senior strategist Arun Devv builds scalable AI systems for brands in Kerala, Kochi and across India...",
