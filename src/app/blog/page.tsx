@@ -7,8 +7,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BLOGS } from "@/data/blog-data";
+import { useState } from "react";
 
 export default function BlogsPage() {
+  const [activeFilter, setActiveFilter] = useState("All Posts");
+
+  const filteredBlogs = activeFilter === "All Posts" 
+    ? BLOGS 
+    : BLOGS.filter(b => b.category.includes(activeFilter) || b.title.includes(activeFilter));
+
+  const featuredPost = BLOGS[0];
+  const gridBlogs = activeFilter === "All Posts" ? filteredBlogs.slice(1) : filteredBlogs;
+
   return (
     <main className="min-h-screen bg-obsidian text-white pt-32 pb-40 relative overflow-hidden font-sans">
       <GlassNavbar />
@@ -67,7 +77,12 @@ export default function BlogsPage() {
            {["All Posts", "AI TVC", "Production", "Marketing", "Strategy"].map((tag, i) => (
              <button 
                key={i}
-               className="px-8 py-3 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-widest text-zinc-400 hover:text-white hover:border-primary-accent/50 transition-all whitespace-nowrap"
+               onClick={() => setActiveFilter(tag)}
+               className={`px-8 py-3 rounded-full border text-[10px] font-mono uppercase tracking-widest transition-all whitespace-nowrap ${
+                 activeFilter === tag 
+                 ? "bg-primary-accent text-black border-primary-accent shadow-[0_0_20px_rgba(var(--primary-accent-rgb),0.4)]" 
+                 : "bg-white/5 text-zinc-400 border-white/5 hover:text-white hover:border-primary-accent/50"
+               }`}
              >
                {tag}
              </button>
@@ -76,7 +91,7 @@ export default function BlogsPage() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {BLOGS.map((blog, idx) => (
+          {gridBlogs.map((blog, idx) => (
             <motion.article
               key={blog.slug}
               initial={{ opacity: 0, y: 40 }}
