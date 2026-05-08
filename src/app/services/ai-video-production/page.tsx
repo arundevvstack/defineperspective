@@ -161,8 +161,10 @@ export default function AIVideoProductionLandingPage() {
                Node: Professional AI Video Hub
              </div>
           </div>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-[9rem] font-blacker uppercase leading-[0.8] tracking-tighter mb-16 italic">
             AI Production <br />
             <span className="text-primary-accent">Services_</span>
+          </h1>
           <p className="text-xl md:text-3xl text-zinc-300 font-light max-w-5xl leading-tight uppercase tracking-widest leading-loose mb-16">
             👉 India’s Leading <span className="text-white font-bold">AI Video Production</span> Company for Ads, Content & Brand Films. Scaling brands across <span className="text-white">India, Kerala, UAE, Trivandrum & Kochi</span>.
           </p>
@@ -189,7 +191,7 @@ export default function AIVideoProductionLandingPage() {
                <LiteYouTube videoId="5kOnWP-dZZY" title="AI Video Production Hub Showreel" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-16 left-16 z-20">
-                 <p className="text-4xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-none mix-blend-overlay">
+                 <p className="text-3xl md:text-6xl font-black italic uppercase text-white tracking-tighter leading-none mix-blend-overlay">
                    AI Videos That Perform, <br />Convert & Scale.
                  </p>
               </div>
@@ -197,7 +199,7 @@ export default function AIVideoProductionLandingPage() {
         </section>
 
         {/* 🎞️ FEATURED PROJECT: LACRISPO */}
-        <section className="mb-64 relative group">
+        <section className="mb-48 relative group">
            {/* Decorative Background Glow */}
            <div className="absolute -inset-10 bg-primary-accent/5 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
            
@@ -226,7 +228,7 @@ export default function AIVideoProductionLandingPage() {
                        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em]">Client: Lacrispo Snacks</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-6xl xl:text-[6.5rem] font-black uppercase italic leading-[0.8] tracking-tighter text-white">
+                    <h2 className="text-4xl md:text-6xl xl:text-[7rem] font-black uppercase italic leading-[0.8] tracking-tighter text-white">
                        Lacrispo <br />
                        <span className="text-primary-accent drop-shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.2)]">AI Commercial_</span>
                     </h2>
