@@ -30,24 +30,34 @@ export default function AnalysisDashboard() {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [systemAlerts, setSystemAlerts] = useState(0);
 
+  const [userData, setUserData] = useState<any>(null);
+  const [sitePages] = useState<string[]>([
+    "/", "/arun-devv", "/services/ai-video-production", "/blogs", "/portfolio", "/contact"
+  ]);
+
   useEffect(() => {
+    // Fetch real user data
+    fetch("https://ipapi.co/json/")
+      .then(res => res.json())
+      .then(data => setUserData(data))
+      .catch(() => setUserData({ query: "127.0.0.1", city: "Unknown", org: "Secure Link" }));
+
     // Initial client-side populate
     setCurrentTime(new Date());
-    setDataPoints(Array(24).fill(0).map(() => 40 + Math.floor(Math.random() * 60)));
+    setDataPoints(Array(24).fill(0).map(() => 45 + Math.floor(Math.random() * 55)));
 
     const logInterval = setInterval(() => {
-      const actions = ["SEO_SCAN", "MARKET_ANALYSIS", "TREND_FETCH", "SYNC_ACTIVE", "SEARCH_CHECK"];
-      const resources = ["Cloud_Server", "SearchAPI", "Analytics_Core", "SEO_Validator"];
+      const actions = ["SEO_SCAN", "MARKET_ANALYSIS", "TREND_FETCH", "SYNC_ACTIVE", "SEARCH_CHECK", "BOT_FILTER"];
+      const resources = ["Cloud_Server", "SearchAPI", "Analytics_Core", "Security_Layer"];
       const newLog = `[${new Date().toLocaleTimeString()}] ${actions[Math.floor(Math.random() * actions.length)]} -> ${resources[Math.floor(Math.random() * resources.length)]}`;
       setLogs(prev => [newLog, ...prev.slice(0, 15)]);
-    }, 1500);
+    }, 3000);
 
     const statsInterval = setInterval(() => {
-      setVisitors(v => v + Math.floor(Math.random() * 5));
-      setActiveSystems(n => Math.max(800, n + (Math.random() > 0.5 ? 4 : -4)));
+      setVisitors(v => v + Math.floor(Math.random() * 3));
+      setActiveSystems(n => Math.max(820, n + (Math.random() > 0.5 ? 2 : -2)));
       setCurrentTime(new Date());
-      setSeoScore(prev => Math.min(98, Math.max(88, prev + (Math.random() - 0.5) * 0.3)));
-    }, 2500);
+    }, 5000);
 
     return () => {
       clearInterval(logInterval);

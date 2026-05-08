@@ -71,6 +71,7 @@ export default function GlassFooter() {
                <ul className="flex flex-col items-start gap-4 text-sm text-zinc-400 font-light">
                   <li><Link href="/blogs" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Blogs</Link></li>
                   <li><Link href="/analysis" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Website Analysis</Link></li>
+                  <li><Link href="/arun-devv" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Arun Devv</Link></li>
                </ul>
           </div>
 

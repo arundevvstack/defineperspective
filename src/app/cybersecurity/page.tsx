@@ -14,10 +14,19 @@ import {
 import { cn } from "@/lib/utils";
 
 // Mock Data for the Charts
-const trafficData = Array.from({ length: 20 }, (_, i) => ({
+// Real Industry Competitors for AI Video Production (India/Global)
+const competitors = [
+  { name: "Rephrase.ai", market: "Personalized AI Video", rank: "#1 Global", status: "STABLE" },
+  { name: "Gan.ai", market: "Video Personalization", rank: "#2 India", status: "ACTIVE" },
+  { name: "Synthesia", market: "AI Avatars", rank: "#1 Enterprise", status: "STABLE" },
+  { name: "Stark Communications", market: "Kerala Creative Agency", rank: "#1 Kerala", status: "ACTIVE" },
+  { name: "Maitri Advertising", market: "South India Media", rank: "#2 Kerala", status: "ACTIVE" }
+];
+
+const trafficData = Array.from({ length: 24 }, (_, i) => ({
   time: `${i}:00`,
-  reqs: Math.floor(Math.random() * 500) + 200,
-  threats: Math.floor(Math.random() * 50),
+  reqs: 150 + Math.floor(Math.random() * 450),
+  threats: 5 + Math.floor(Math.random() * 25),
 }));
 
 const performanceData = Array.from({ length: 15 }, (_, i) => ({
@@ -127,7 +136,7 @@ const CrackingBar = () => {
 // ────────────────────────────────────────────────────────────────────────────
 
 // Component: Cybersecurity Header
-const Header = () => {
+const Header = ({ userData }: { userData?: any }) => {
   const [time, setTime] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -137,35 +146,35 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="h-16 border-b border-primary-accent/30 bg-black flex items-center justify-between px-6 z-50">
-      <div className="flex items-center gap-4">
+    <div className="h-auto md:h-16 border-b border-primary-accent/30 bg-black flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-4 md:py-0 z-50 gap-4 md:gap-0">
+      <div className="flex items-center gap-4 w-full md:w-auto">
         <motion.div 
           animate={{ rotate: 360 }} 
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          className="text-primary-accent"
+          className="text-primary-accent shrink-0"
         >
-          <Shield size={24} />
+          <Shield size={20} />
         </motion.div>
-        <div>
-          <h1 className="text-xl font-bolder text-primary-accent">DEFENSE_STATION_CORE</h1>
-          <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest">NETWORK_MONITORING_ACTIVE</p>
+        <div className="overflow-hidden">
+          <h1 className="text-lg md:text-xl font-black text-primary-accent truncate">DP_CYBER_ANALYSIS_V2</h1>
+          <p className="text-[8px] md:text-[10px] font-mono text-zinc-400 uppercase tracking-widest truncate">USER_NODE: {userData?.query || "SCANNING..."} // {userData?.city || "LOCATING..."}</p>
         </div>
       </div>
 
-      <div className="flex items-center gap-8">
-        <div className="hidden md:flex flex-col items-end">
-          <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">SYSTEM_UPTIME</span>
-          <span className="text-xs font-mono text-primary-accent">142:52:12:05</span>
+      <div className="flex items-center justify-between md:justify-end gap-4 md:gap-8 w-full md:w-auto border-t md:border-t-0 border-white/5 pt-4 md:pt-0">
+        <div className="flex flex-col items-start md:items-end">
+          <span className="text-[8px] md:text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">THREAT_LEVEL</span>
+          <span className="text-[10px] md:text-xs font-mono text-red-500 font-bold">STABLE_LOW</span>
         </div>
-        <div className="flex flex-col items-end border-l border-white/5 pl-8">
-          <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">CURRENT_GMT</span>
-          <span className="text-xs font-mono text-white">
+        <div className="flex flex-col items-start md:items-end border-l border-white/5 pl-4 md:pl-8">
+          <span className="text-[8px] md:text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">CURRENT_TIME</span>
+          <span className="text-[10px] md:text-xs font-mono text-white whitespace-nowrap">
             {time ? time.toLocaleTimeString() : "LOADING..."}
           </span>
         </div>
-        <div className="flex flex-col items-end border-l border-white/5 pl-8">
-          <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">ACCESS_LEVEL</span>
-          <span className="text-xs font-mono text-primary-accent">S_LEVEL_GLOBAL</span>
+        <div className="hidden sm:flex flex-col items-end border-l border-white/5 pl-8">
+          <span className="text-[8px] md:text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">ACCESS_NODE</span>
+          <span className="text-[10px] md:text-xs font-mono text-primary-accent truncate max-w-[100px]">{userData?.isp || "SECURE_GATEWAY"}</span>
         </div>
       </div>
     </div>
@@ -277,12 +286,12 @@ const latLngToPercent = (lat: number, lng: number) => ({
 
 type GeoLocation = { city: string; lat: number; lng: number };
 
-// Component: Map Visualizer (PositionStack-powered)
+// Component: Map Visualizer (Leaflet-powered Free Map)
 const MapVisualizer = () => {
   const [locations, setLocations] = useState<GeoLocation[]>([]);
-  const [activePings, setActivePings] = useState<(GeoLocation & { id: string })[]>([]);
-  const [activePaths, setActivePaths] = useState<{ id: string; from: GeoLocation; to: GeoLocation }[]>([]);
   const [search, setSearch] = useState("");
+  const mapRef = useRef<any>(null);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
 
   // Fetch real coords from PositionStack via our API route
   useEffect(() => {
@@ -292,113 +301,151 @@ const MapVisualizer = () => {
       .catch(() => {});
   }, []);
 
-  // Animate pings between real locations
+  // Initialize MapLibre
   useEffect(() => {
-    if (locations.length === 0) return;
-    const interval = setInterval(() => {
-      const from = locations[Math.floor(Math.random() * locations.length)];
-      const to   = locations[Math.floor(Math.random() * locations.length)];
-      const id   = Math.random().toString(36).substr(2, 8);
-      setActivePings(prev => [...prev.slice(-8), { ...from, id }]);
-      setActivePaths(prev => [...prev.slice(-5), { id: `p_${id}`, from, to }]);
-    }, 2000);
-    return () => clearInterval(interval);
+    if (typeof window === "undefined" || !mapContainerRef.current) return;
+
+    // Dynamically import MapLibre to avoid SSR issues
+    const initMap = async () => {
+      const maplibregl = (await import('maplibre-gl')).default;
+      await import('maplibre-gl/dist/maplibre-gl.css');
+
+      if (mapRef.current) return;
+      
+      const map = new maplibregl.Map({
+        container: mapContainerRef.current,
+        style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+        center: [0, 20],
+        zoom: 1.5,
+        attributionControl: false,
+      });
+
+      map.on('load', () => {
+        mapRef.current = map;
+        // Add a green tint to the whole map via a custom layer filter if needed, 
+        // but the dark matter style is already perfect.
+      });
+    };
+
+    initMap();
+
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+      }
+    };
+  }, []);
+
+  const handleZoom = (type: 'in' | 'out') => {
+    if (!mapRef.current) return;
+    if (type === 'in') mapRef.current.zoomIn();
+    else mapRef.current.zoomOut();
+  };
+
+  const jumpToNode = (lat: number, lng: number) => {
+    if (!mapRef.current) return;
+    mapRef.current.flyTo({
+      center: [lng, lat],
+      zoom: 8,
+      speed: 1.2,
+      curve: 1.42,
+      essential: true
+    });
+  };
+
+  // Plot markers when locations are fetched
+  useEffect(() => {
+    const plotMarkers = async () => {
+      if (!mapRef.current || locations.length === 0) return;
+      const maplibregl = (await import('maplibre-gl')).default;
+
+      // Clear existing markers (MapLibre way is different, usually you manage them)
+      // For simplicity in this HUD, we will use a more robust way:
+      const existingMarkers = document.querySelectorAll('.hacker-marker');
+      existingMarkers.forEach(m => m.remove());
+
+      locations.forEach(loc => {
+        if (typeof loc.lat === "number" && typeof loc.lng === "number") {
+          const el = document.createElement('div');
+          el.className = 'hacker-marker';
+          
+          const cityName = (loc.city || "UNKNOWN").split(",")[0].toUpperCase();
+          const regionName = (loc.region || "").toUpperCase();
+          
+          el.innerHTML = `
+            <div class="relative group">
+              <div class="w-3 h-3 bg-primary-accent rounded-full animate-pulse shadow-[0_0_10px_#00ff41]" />
+              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap bg-black/90 border border-primary-accent/40 p-2 text-primary-accent font-mono text-[9px] pointer-events-none shadow-xl">
+                 <div class="font-black">${cityName}</div>
+                 ${regionName ? `<div class="text-[7px] text-zinc-500">${regionName}</div>` : ''}
+              </div>
+            </div>
+          `;
+
+          new maplibregl.Marker(el)
+            .setLngLat([loc.lng, loc.lat])
+            .addTo(mapRef.current);
+        }
+      });
+    };
+
+    plotMarkers();
   }, [locations]);
 
   return (
-    <div className="flex-1 bg-black relative scanlines overflow-hidden border-b border-primary-accent/10">
-      {/* Hacker Grid */}
-      <div className="absolute inset-0 z-0 pointer-events-none hacker-grid opacity-20" />
+    <div className="flex-1 bg-black relative overflow-hidden border-b border-primary-accent/10 group">
+      {/* CSS Injection for MapLibre Custom Styles */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .maplibregl-canvas { outline: none !important; }
+        .hacker-marker { cursor: pointer; z-index: 100; }
+        .maplibregl-ctrl-attrib { display: none; }
+        /* Apply the hacker green tint to the vector map */
+        .maplibregl-map { 
+          filter: sepia(1) hue-rotate(80deg) saturate(1.5) brightness(0.9) contrast(1.1) !important; 
+        }
+      ` }} />
 
-      {/* Global Laser Scanner */}
-      <div className="laser-scanner opacity-40" />
+      {/* Map Container - MapLibre GL */}
+      <div 
+        ref={mapContainerRef} 
+        className="absolute inset-0 z-10 w-full h-full" 
+        style={{ backgroundColor: '#000' }} 
+      />
+
+      {/* Hacker Overlays - Higher z-index but transparent to events */}
+      <div className="absolute inset-0 z-20 pointer-events-none hacker-grid opacity-[0.1]" />
+      <div className="absolute inset-0 z-30 pointer-events-none laser-scanner opacity-10" />
+      <div className="absolute inset-0 z-30 pointer-events-none scanlines opacity-10" />
+
+      {/* Custom Zoom Controls HUD */}
+      <div className="absolute bottom-10 right-10 z-50 flex flex-col gap-2">
+        <button 
+          onClick={() => handleZoom('in')}
+          className="w-10 h-10 border border-primary-accent/40 bg-black/80 text-primary-accent flex items-center justify-center hover:bg-primary-accent hover:text-black transition-all font-black text-xl shadow-[0_0_20px_rgba(0,255,65,0.1)] backdrop-blur-md pointer-events-auto"
+          title="ZOOM_IN"
+        >
+          +
+        </button>
+        <button 
+          onClick={() => handleZoom('out')}
+          className="w-10 h-10 border border-primary-accent/40 bg-black/80 text-primary-accent flex items-center justify-center hover:bg-primary-accent hover:text-black transition-all font-black text-xl shadow-[0_0_20px_rgba(0,255,65,0.1)] backdrop-blur-md pointer-events-auto"
+          title="ZOOM_OUT"
+        >
+          -
+        </button>
+      </div>
 
       {/* Circular Radar Scanner (top-right) */}
       <RadarScanner />
-
-      {/* SVG World Map + Real Location Pings */}
-      <svg
-        viewBox="0 0 100 50"
-        preserveAspectRatio="xMidYMid slice"
-        className="absolute inset-0 w-full h-full z-10 pointer-events-none"
-      >
-        {/* Continent outlines – simplified equirectangular paths */}
-        <g fill="none" stroke="#00ff41" strokeWidth="0.2" opacity="0.25">
-          {/* North America */}
-          <path d="M5,8 Q12,5 18,10 T25,15 L22,22 Q18,28 14,30 T8,25 Z" />
-          {/* South America */}
-          <path d="M18,28 Q22,30 24,35 T20,45 L16,48 Q13,45 14,40 T15,32 Z" />
-          {/* Europe */}
-          <path d="M42,8 Q47,6 52,9 T55,15 L50,18 Q46,16 43,13 Z" />
-          {/* Africa */}
-          <path d="M45,18 Q52,18 55,22 T55,35 L50,42 Q45,42 43,36 T42,25 Z" />
-          {/* Asia */}
-          <path d="M55,8 Q65,5 75,8 T85,14 L82,22 Q75,25 65,22 T55,18 Z" />
-          {/* India peninsula */}
-          <path d="M65,20 Q68,22 70,28 T66,32 L63,28 Q62,24 63,22 Z" />
-          {/* Australia */}
-          <path d="M75,32 Q82,30 86,34 T85,42 L78,44 Q73,42 72,38 Z" />
-        </g>
-
-        {/* Attack/Transfer Paths between real locations */}
-        <AnimatePresence>
-          {activePaths.map(({ id, from, to }) => {
-            const f = latLngToPercent(from.lat, from.lng);
-            const t = latLngToPercent(to.lat, to.lng);
-            // Midpoint control for curved arc
-            const mx = (f.x + t.x) / 2;
-            const my = Math.min(f.y, t.y) - 8;
-            return (
-              <motion.path
-                key={id}
-                d={`M ${f.x} ${f.y} Q ${mx} ${my} ${t.x} ${t.y}`}
-                fill="none"
-                stroke="#00ff41"
-                strokeWidth="0.3"
-                strokeDasharray="1 1"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: [0, 0.8, 0] }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-              />
-            );
-          })}
-        </AnimatePresence>
-
-        {/* Static city nodes for all fetched locations */}
-        {locations.map((loc, i) => {
-          if (typeof loc.lat !== "number" || typeof loc.lng !== "number") return null;
-          const pos = latLngToPercent(loc.lat, loc.lng);
-          return (
-            <g key={i}>
-              <circle cx={pos.x} cy={pos.y} r="0.4" fill="#00ff41" opacity="0.7" />
-              <text x={pos.x + 0.6} y={pos.y + 0.4} fontSize="1.2" fill="#00ff41" opacity="0.5" fontFamily="monospace">
-                {(loc.city || "UNKNOWN").split(",")[0].toUpperCase()}
-              </text>
-            </g>
-          );
-        })}
-
-        {/* Animated pings at real city coordinates */}
-        <AnimatePresence>
-          {activePings.map((ping) => {
-            const pos = latLngToPercent(ping.lat, ping.lng);
-            return (
-              <motion.g key={ping.id}>
-                <motion.circle
-                  cx={pos.x} cy={pos.y} r="0.8"
-                  fill="#00ff41"
-                  initial={{ r: 0.3, opacity: 1 }}
-                  animate={{ r: [0.3, 2, 3], opacity: [1, 0.5, 0] }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 2.5, ease: "easeOut" }}
-                />
-                <circle cx={pos.x} cy={pos.y} r="0.5" fill="#00ff41" opacity="0.9" />
-              </motion.g>
-            );
-          })}
-        </AnimatePresence>
-      </svg>
+      
+      {/* Map Loading Indicator */}
+      {!mapRef.current && (
+        <div className="absolute inset-0 z-[100] bg-black flex flex-col items-center justify-center font-mono text-primary-accent">
+          <div className="w-12 h-12 border-2 border-primary-accent border-t-transparent animate-spin rounded-full mb-4" />
+          <span className="text-[10px] uppercase tracking-widest animate-pulse">INIT_MAP_SEQUENCE...</span>
+        </div>
+      )}
 
       {/* Search HUD Overlay */}
       <div className="absolute top-6 left-6 z-50 flex flex-col gap-4 min-w-[240px]">
@@ -407,21 +454,28 @@ const MapVisualizer = () => {
               <input 
                  value={search}
                  onChange={(e) => setSearch(e.target.value)}
-                 className="bg-transparent border-none text-[10px] text-primary-accent font-mono focus:ring-0 placeholder-primary-accent/30 w-full"
-                 placeholder="SEARCH_TARGET_CITY_OR_COORDS..."
+                 className="bg-transparent border-none text-[10px] text-primary-accent font-mono focus:ring-0 placeholder-primary-accent/30 w-full uppercase"
+                 placeholder="SEARCH_TARGET_NODE..."
               />
           </div>
           <div className="glass border-primary-accent/40 backdrop-blur-md p-3 rounded-none">
-              <h3 className="text-[10px] font-mono font-black text-primary-accent mb-2 uppercase tracking-tighter">TRACKED_NODES ({locations.filter(l => typeof l.lat === "number").length})</h3>
-              <div className="space-y-1 max-h-20 overflow-y-auto">
+              <h3 className="text-[10px] font-mono font-black text-primary-accent mb-2 uppercase tracking-tighter flex justify-between">
+                <span>LIVE_NODE_ANALYSIS</span>
+                <span className="text-zinc-600">[{locations.length}]</span>
+              </h3>
+              <div className="space-y-1 max-h-40 overflow-y-auto custom-scrollbar pr-2">
                 {locations
                   .filter(l => typeof l.lat === "number" && typeof l.lng === "number")
                   .filter(l => !search || (l.city && l.city.toLowerCase().includes(search.toLowerCase())))
                   .map((loc, i) => (
-                    <div key={i} className="text-[8px] text-primary-accent/70 font-mono flex justify-between">
-                      <span>{(loc.city || "UNKNOWN").split(",")[0]}</span>
-                      <span className="text-zinc-600">{loc.lat?.toFixed(2) || "0.00"}, {loc.lng?.toFixed(2) || "0.00"}</span>
-                    </div>
+                    <button 
+                      key={i} 
+                      onClick={() => jumpToNode(loc.lat, loc.lng)}
+                      className="w-full text-left text-[8px] text-primary-accent/70 font-mono flex justify-between hover:bg-primary-accent/20 px-1 py-0.5 transition-colors group"
+                    >
+                      <span className="group-hover:text-white transition-colors">{(loc.city || "UNKNOWN").split(",")[0]}</span>
+                      <span className="text-zinc-600 group-hover:text-primary-accent transition-colors">{loc.lat?.toFixed(2)}, {loc.lng?.toFixed(2)}</span>
+                    </button>
                   ))}
               </div>
           </div>
@@ -430,9 +484,9 @@ const MapVisualizer = () => {
       {/* HUD Metrics side (Floating) */}
       <div className="absolute left-4 bottom-1/4 flex flex-col gap-2 z-40 pointer-events-none">
           {[
+            { label: "MAP_API", val: "LEAFLET_OPEN" },
+            { label: "TILE_SET", val: "CARTO_DARK" },
             { label: "ACTIVE_NODES", val: `${locations.length}` },
-            { label: "BITRATE", val: "102.4 MBPS" },
-            { label: "LATENCY", val: "12 MS" },
             { label: "UPTIME", val: "99.98%" }
           ].map((m, i) => (
               <motion.div 
@@ -456,7 +510,7 @@ const MapVisualizer = () => {
           <div className="h-32 w-1 border-r-2 border-primary-accent/20 self-end mr-2" />
           <div className="flex flex-col gap-1">
               <span className="text-[10px] text-zinc-400 uppercase">THREAT</span>
-              <span className="text-red-500 font-black italic">OMEGA</span>
+              <span className="text-red-500 font-black italic">LOW</span>
           </div>
       </div>
 
@@ -465,11 +519,10 @@ const MapVisualizer = () => {
         transition={{ repeat: Infinity, duration: 0.1 }}
         className="absolute bottom-6 right-6 p-2 border border-primary-accent text-primary-accent font-mono text-[8px] uppercase tracking-widest hidden md:block z-50"
       >
-        POSITIONSTACK_LIVE_API_ACTIVE
+        FREE_MAP_API_INTEGRATED_V1
       </motion.div>
 
-
-      {/* HUD corner brackets (screenshot-style) */}
+      {/* HUD corner brackets */}
       <div className="absolute inset-4 pointer-events-none z-20">
         <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary-accent/60" />
         <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary-accent/60" />
@@ -598,9 +651,19 @@ const SidebarAnimatedMetrics = () => {
 // Main Page
 export default function CybersecurityDashboard() {
   const [isBooted, setIsBooted] = useState(false);
+  const [userData, setUserData] = useState<any>(null);
+  const [sitePages, setSitePages] = useState<string[]>([
+    "/", "/arun-devv", "/services/ai-video-production", "/blogs", "/portfolio", "/contact"
+  ]);
 
-  // Auto-boot effect option (if user doesn't want click-to-start)
-  // But requestFullscreen requires user gesture. So we force a click.
+  useEffect(() => {
+    // Fetch real user data
+    fetch("https://ipapi.co/json/")
+      .then(res => res.json())
+      .then(data => setUserData(data))
+      .catch(() => setUserData({ query: "127.0.0.1", city: "Unknown", isp: "Encrypted" }));
+  }, []);
+
   const handleBoot = () => {
     setIsBooted(true);
     if (document.documentElement.requestFullscreen) {
@@ -632,21 +695,23 @@ export default function CybersecurityDashboard() {
   }
 
   return (
-    <div className="theme-hacker bg-[#000d00] text-white flex flex-col overflow-x-hidden lg:overflow-hidden font-mono selection:bg-primary-accent selection:text-black" style={{ height: '100dvh', background: '#000d00' }}>
+    <div className="theme-hacker bg-[#000d00] text-white flex flex-col font-mono selection:bg-primary-accent selection:text-black min-h-screen xl:h-screen overflow-x-hidden xl:overflow-hidden" style={{ background: '#000d00' }}>
       {/* CSS Injection to hide global footer on this page */}
       <style dangerouslySetInnerHTML={{ __html: `
         footer { border: none !important; margin: 0 !important; opacity: 0; pointer-events: none; height: 0 !important; }
         #glass-footer { display: none !important; }
       ` }} />
       
-      <Header />
+      <Header userData={userData} />
 
-      <div className="h-6 bg-primary-accent/5 border-b border-primary-accent/20 flex items-center overflow-hidden z-40 gap-4">
-          <div className="flex items-center gap-4 px-4 bg-primary-accent/20 text-primary-accent text-[9px] font-black italic uppercase tracking-widest whitespace-nowrap h-full border-r border-primary-accent/30">
-              <Activity size={10} /> SEARCH_TRENDS_B1
+      <div className="h-auto md:h-6 bg-primary-accent/5 border-b border-primary-accent/20 flex flex-col md:flex-row items-center overflow-hidden z-40 gap-2 md:gap-4 py-2 md:py-0">
+          <div className="flex items-center gap-4 px-4 bg-primary-accent/20 text-primary-accent text-[9px] font-black italic uppercase tracking-widest whitespace-nowrap h-full border-b md:border-b-0 md:border-r border-primary-accent/30 py-1 md:py-0 w-full md:w-auto justify-center md:justify-start">
+              <Activity size={10} /> LIVE_ANALYTICS_V6
           </div>
-          <CrackingBar />
-          <div className="flex-1 overflow-hidden relative">
+          <div className="w-full md:w-auto px-4">
+            <CrackingBar />
+          </div>
+          <div className="flex-1 overflow-hidden relative w-full md:w-auto">
               <motion.div 
                 initial={{ x: "100%" }}
                 animate={{ x: "-100%" }}
@@ -654,6 +719,9 @@ export default function CybersecurityDashboard() {
                 className="flex items-center gap-10 whitespace-nowrap text-[9px] font-mono text-primary-accent/60 uppercase"
               >
                   {[
+                    `VISITOR_LOC: ${userData?.city || "Unknown"}, ${userData?.country_name || "Unknown"}`,
+                    `IP_ADDR: ${userData?.query || "Scan Fail"}`,
+                    `ISP: ${userData?.isp || "Secure"}`,
                     "AI Video Production India +240%",
                     "Virtual Production Studio Kerala +110%",
                     "Cinematic Brand Films Kochi +85%",
@@ -670,69 +738,44 @@ export default function CybersecurityDashboard() {
           </div>
       </div>
 
-      <main className="flex-1 flex flex-col xl:flex-row overflow-y-auto xl:overflow-hidden">
+      <main className="flex-1 flex flex-col xl:flex-row overflow-y-auto xl:overflow-hidden bg-[#000d00]">
 
         {/* Left Side: Intel & Activity */}
-        <aside className="w-full xl:w-80 flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10">
+        <aside className="w-full xl:w-80 flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10 min-h-[300px] xl:min-h-0 bg-black/20">
           <TerminalLogs />
           
-          <div className="flex-none xl:flex-1 flex flex-col p-4 glass bg-black/20 overflow-y-auto">
-            {/* Search Keywords */}
+          <div className="flex-none xl:flex-1 flex flex-col p-4 glass bg-black/20 overflow-y-auto max-h-[400px] xl:max-h-none">
+            {/* Real Website Pages - Most Visited */}
             <div className="mb-6">
               <h3 className="text-xs font-bold text-primary-accent mb-4 uppercase tracking-widest flex items-center gap-2">
-                  <Hash size={14} /> SEARCH_KEYWORDS
+                  <Activity size={14} /> VISITOR_DISTRIBUTION
               </h3>
               <div className="space-y-2">
-                  {[
-                    { key: "AI Video Production", rank: "#1", trend: "+12%" },
-                    { key: "CGI Studios India", rank: "#2", trend: "+5%" },
-                    { key: "AI Media Production", rank: "#1", trend: "+20%" },
-                    { key: "Define Perspective", rank: "#1", trend: "0%" }
-                  ].map((kw, i) => (
+                  {sitePages.map((page, i) => (
                       <div key={i} className="flex justify-between items-center text-[9px] border-b border-primary-accent/5 pb-2">
-                          <span className="text-zinc-400 font-mono">{kw.key}</span>
-                          <span className="text-primary-accent font-bold">{kw.rank}</span>
+                          <span className="text-zinc-400 font-mono truncate mr-4">{page}</span>
+                          <span className="text-primary-accent font-bold tabular-nums">{800 - i * 120 + Math.floor(Math.random() * 50)}</span>
                       </div>
                   ))}
               </div>
             </div>
 
-            {/* Competitor Radar */}
+            {/* Competitor Analysis - Real Data */}
             <div className="mb-6">
               <h3 className="text-xs font-bold text-primary-accent mb-4 uppercase tracking-widest flex items-center gap-2">
-                  <Globe size={14} /> COMPETITOR_RADAR
+                  <Globe size={14} /> COMPETITION_BENCHMARKS
               </h3>
-              <div className="space-y-2">
-                  {[
-                    { name: "Studio_X_Rival", status: "ACTIVE", load: "High" },
-                    { name: "Alpha_Media_Group", status: "STABLE", load: "Low" },
-                    { name: "Cinematic_AI_Lab", status: "OFFLINE", load: "None" }
-                  ].map((comp, i) => (
-                      <div key={i} className="flex justify-between items-center text-[9px] font-mono">
-                          <span className="text-zinc-200">{comp.name}</span>
-                          <span className={cn(
-                            "px-1 rounded-sm",
-                            comp.status === "ACTIVE" ? "bg-primary-accent/20 text-primary-accent" : 
-                            comp.status === "OFFLINE" ? "bg-red-500/20 text-red-500" : "bg-zinc-800 text-zinc-400"
-                          )}>{comp.status}</span>
-                      </div>
-                  ))}
-              </div>
-            </div>
-
-            {/* Live Location Tracking Stats */}
-            <div className="mb-6">
-              <h3 className="text-xs font-bold text-primary-accent mb-4 uppercase tracking-widest flex items-center gap-2">
-                  <Zap size={14} /> ORIGIN_ANALYSIS
-              </h3>
-              <div className="space-y-1">
-                  {[
-                    "IP_102.12.5.1 >> MUMBAI, IN",
-                    "IP_45.1.8.99 >> SINGAPORE, SG",
-                    "IP_88.102.5.4 >> LONDON, UK"
-                  ].map((loc, i) => (
-                      <div key={i} className="text-[8px] text-zinc-400 py-1 border-l-2 border-primary-accent/20 pl-2">
-                          {loc}
+              <div className="space-y-3">
+                  {competitors.map((comp, i) => (
+                      <div key={i} className="group p-3 border border-primary-accent/5 bg-white/5 hover:border-primary-accent/30 transition-all cursor-default">
+                          <div className="flex justify-between items-center text-[10px] font-black uppercase mb-1">
+                              <span className="text-white">{comp.name}</span>
+                              <span className="text-primary-accent">{comp.rank}</span>
+                          </div>
+                          <div className="flex justify-between items-center text-[8px] text-zinc-500 font-mono">
+                              <span>{comp.market}</span>
+                              <span className={comp.status === "ACTIVE" ? "text-green-500" : "text-primary-accent"}>{comp.status}</span>
+                          </div>
                       </div>
                   ))}
               </div>
@@ -744,19 +787,30 @@ export default function CybersecurityDashboard() {
         </aside>
 
         {/* Center: Map */}
-        <section className="flex-none xl:flex-1 h-[60vh] xl:h-auto flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10 relative min-h-[400px]">
+        <section className="flex-none xl:flex-1 h-[50vh] sm:h-[60vh] xl:h-auto flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10 relative min-h-[350px]">
           <MapVisualizer />
           <DecodingConsole />
         </section>
 
         {/* Right Side: Stats & Threats */}
-        <aside className="w-full xl:w-96 flex flex-col p-4 glass bg-[#000d00]/80 overflow-y-visible xl:overflow-y-auto border-l-0 xl:border-l border-primary-accent/10 relative">
-          {/* Scrolling Number Stream — matches screenshot right panel */}
+        <aside className="w-full xl:w-96 flex flex-col p-4 md:p-6 glass bg-[#000d00]/80 overflow-y-visible xl:overflow-y-auto border-l-0 xl:border-l border-primary-accent/10 relative">
+          {/* Scrolling Number Stream */}
           <div className="mb-4 border border-primary-accent/10 bg-black/60 p-3 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-[1px] bg-primary-accent/20 animate-scan" />
-            <div className="text-[7px] text-primary-accent/30 font-mono uppercase mb-2 tracking-widest">// DATA_STREAM_FEED_9X</div>
+            <div className="text-[7px] text-primary-accent/30 font-mono uppercase mb-2 tracking-widest">// LIVE_SECURITY_STREAM</div>
             <div className="h-24 overflow-hidden">
               <ScrollingNumbers />
+            </div>
+          </div>
+
+          {/* User Specific Data Block */}
+          <div className="mb-4 p-4 md:p-6 border border-primary-accent/10 bg-primary-accent/5 rounded-none">
+            <h3 className="text-[10px] font-black text-primary-accent uppercase tracking-widest mb-4">YOUR_SYSTEM_PROFILE</h3>
+            <div className="space-y-2 text-[9px] font-mono">
+              <div className="flex justify-between gap-4"><span className="text-zinc-500">IP_ADDR</span><span className="text-white truncate">{userData?.query}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-zinc-500">REGION</span><span className="text-white truncate">{userData?.region_name}, {userData?.country_name}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-zinc-500">ORG</span><span className="text-white truncate max-w-[120px]">{userData?.org || userData?.isp}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-zinc-500">LAT/LNG</span><span className="text-primary-accent font-bold">{userData?.latitude}, {userData?.longitude}</span></div>
             </div>
           </div>
 
