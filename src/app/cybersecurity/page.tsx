@@ -284,9 +284,9 @@ const latLngToPercent = (lat: number, lng: number) => ({
   y: ((90 - lat) / 180) * 100,
 });
 
-type GeoLocation = { city: string; lat: number; lng: number };
+type GeoLocation = { city: string; lat: number; lng: number; region?: string };
 
-// Component: Map Visualizer (Leaflet-powered Free Map)
+// Component: Map Visualizer (MapLibre-powered High Performance GL)
 const MapVisualizer = () => {
   const [locations, setLocations] = useState<GeoLocation[]>([]);
   const [search, setSearch] = useState("");
