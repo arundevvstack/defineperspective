@@ -197,36 +197,73 @@ export default function AIVideoProductionLandingPage() {
         </section>
 
         {/* 🎞️ FEATURED PROJECT: LACRISPO */}
-        <section className="mb-48">
-           <div className="grid lg:grid-cols-2 gap-20 items-center">
-              <div className="relative aspect-[4/5] md:aspect-video lg:aspect-[4/5] rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group">
+        <section className="mb-48 relative group">
+           {/* Decorative Background Glow */}
+           <div className="absolute -inset-10 bg-primary-accent/5 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
+           
+           <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center relative z-10">
+              {/* VIDEO CONTAINER */}
+              <div className="relative aspect-[4/5] md:aspect-video lg:aspect-[4/5] rounded-[3rem] md:rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group/video transition-transform duration-700 hover:scale-[1.01]">
                  <LiteYouTube videoId="vGijXeVUS74" title="Lacrispo Snacks AI Commercial" />
-                 <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                 <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover/video:opacity-100 transition-opacity pointer-events-none" />
+                 {/* Floating Label Over Video */}
+                 <div className="absolute top-8 left-8 z-20">
+                    <div className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-black text-white uppercase tracking-widest flex items-center gap-2">
+                       <div className="h-1.5 w-1.5 rounded-full bg-primary-accent animate-pulse" />
+                       Cinematic Capture
+                    </div>
+                 </div>
               </div>
-              <div className="space-y-10">
-                 <div className="flex items-center gap-4">
-                    <span className="px-4 py-1 rounded-full bg-primary-accent/10 border border-primary-accent/20 text-[10px] font-black text-primary-accent uppercase tracking-widest">Featured Project</span>
-                    <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Client: Lacrispo Snacks</span>
-                 </div>
-                 <h2 className="text-4xl md:text-7xl font-black uppercase italic leading-tight tracking-tighter">
-                    Lacrispo Snacks <br />
-                    <span className="text-primary-accent">AI Commercial_</span>
-                 </h2>
-                 <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest max-w-xl">
-                    A professional project blending high-end food filming with advanced AI tools. This ad shows the future of snack marketing in Kerala.
-                 </p>
-                 <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
-                    <div>
-                       <h4 className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2">Category</h4>
-                       <p className="text-sm font-bold uppercase tracking-tight">AI Commercial / Theatre Ad</p>
+
+              {/* CONTENT CONTAINER */}
+              <div className="space-y-12 p-2 md:p-8">
+                 <div className="space-y-6">
+                    <div className="flex flex-wrap items-center gap-4">
+                       <span className="px-5 py-2 rounded-xl bg-primary-accent text-black text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(var(--primary-accent-rgb),0.4)]">
+                          Featured Project
+                       </span>
+                       <div className="h-px w-8 bg-white/20" />
+                       <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em]">Client: Lacrispo Snacks</span>
                     </div>
-                    <div>
-                       <h4 className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2">Visual Style</h4>
-                       <p className="text-sm font-bold uppercase tracking-tight">Luxury Food Cinematic</p>
+
+                    <h2 className="text-5xl md:text-8xl font-black uppercase italic leading-[0.9] tracking-tighter text-white">
+                       Lacrispo <br />
+                       <span className="text-primary-accent drop-shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.2)]">AI Commercial_</span>
+                    </h2>
+
+                    <div className="p-6 md:p-8 rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-3xl relative overflow-hidden group/card">
+                       <div className="absolute top-0 left-0 w-1 h-full bg-primary-accent/30 group-hover/card:bg-primary-accent transition-colors" />
+                       <p className="text-lg md:text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest max-w-xl">
+                          A professional project blending high-end food filming with advanced AI tools. This ad shows the future of snack marketing in Kerala.
+                       </p>
                     </div>
                  </div>
-                 <Link href="/contact" className="h-20 px-12 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-4 hover:scale-105 transition-all w-fit shadow-xl mt-12">
-                    Inquire for Similar Project <ArrowRight size={18} />
+
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="p-6 rounded-2xl bg-black/40 border border-white/5 space-y-3">
+                       <h4 className="text-[9px] font-black text-zinc-600 uppercase tracking-[0.4em]">Category_</h4>
+                       <div className="flex items-center gap-3">
+                          <CheckCircle2 size={14} className="text-primary-accent" />
+                          <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white">AI Commercial / Theatre Ad</p>
+                       </div>
+                    </div>
+                    <div className="p-6 rounded-2xl bg-black/40 border border-white/5 space-y-3">
+                       <h4 className="text-[9px] font-black text-zinc-600 uppercase tracking-[0.4em]">Visual Style_</h4>
+                       <div className="flex items-center gap-3">
+                          <Star size={14} className="text-primary-accent" />
+                          <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-white">Luxury Food Cinematic</p>
+                       </div>
+                    </div>
+                 </div>
+
+                 <Link 
+                    href="/contact" 
+                    className="group/btn h-20 px-12 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-6 hover:bg-primary-accent transition-all duration-500 w-full sm:w-fit shadow-2xl active:scale-95"
+                 >
+                    Inquire for Similar Project 
+                    <div className="h-10 w-10 rounded-xl bg-black/5 flex items-center justify-center group-hover/btn:bg-black/10 transition-colors">
+                       <ArrowRight size={18} />
+                    </div>
                  </Link>
               </div>
            </div>
