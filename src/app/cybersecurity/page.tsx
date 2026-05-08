@@ -372,13 +372,18 @@ const MapVisualizer = () => {
     const maplibregl = (await import('maplibre-gl')).default;
 
     const el = document.createElement('div');
-    el.className = 'hacker-alert-pulse';
+    el.className = 'hacker-pin-red';
     el.innerHTML = `
-      <div class="relative flex items-center justify-center">
-        <div class="absolute w-12 h-12 border-2 border-primary-accent rounded-full animate-ping opacity-20"></div>
-        <div class="absolute w-8 h-8 border border-primary-accent rounded-full animate-ping delay-100 opacity-40"></div>
-        <div class="w-4 h-4 bg-primary-accent rounded-full shadow-[0_0_20px_#00ff41] z-10"></div>
-        <div class="absolute top-6 whitespace-nowrap bg-red-600 text-white font-black text-[7px] px-1 py-0.5 animate-pulse">INCOMING_ACCESS</div>
+      <div class="relative flex flex-col items-center">
+        <div class="absolute inset-0 flex items-center justify-center">
+           <div class="w-12 h-12 border border-red-500 rounded-full animate-ripple-1 opacity-20"></div>
+           <div class="w-8 h-8 border border-red-500 rounded-full animate-ripple-2 opacity-40"></div>
+        </div>
+        <div class="w-3 h-3 bg-red-500 rounded-full shadow-[0_0_15px_#ff0000] z-10 relative">
+           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-white rounded-full"></div>
+        </div>
+        <div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-red-500 mt-0.5"></div>
+        <div class="absolute top-8 whitespace-nowrap bg-red-600/90 text-white font-mono font-black text-[6px] px-1 py-0.5 border border-red-400">SIGNAL_INTERCEPT</div>
       </div>
     `;
 
@@ -386,10 +391,7 @@ const MapVisualizer = () => {
       .setLngLat([alert.lng, alert.lat])
       .addTo(mapRef.current);
 
-    // Remove marker after animation
-    setTimeout(() => {
-      marker.remove();
-    }, 5000);
+    setTimeout(() => { marker.remove(); }, 6000);
   };
 
   const handleZoom = (type: 'in' | 'out') => {
@@ -409,26 +411,30 @@ const MapVisualizer = () => {
     });
   };
 
-  // Plot permanent static markers
+  // Plot permanent static markers (Green Pins)
   useEffect(() => {
     const plotMarkers = async () => {
       if (!mapRef.current || locations.length === 0) return;
       const maplibregl = (await import('maplibre-gl')).default;
 
-      const existingMarkers = document.querySelectorAll('.hacker-node-static');
+      const existingMarkers = document.querySelectorAll('.hacker-pin-green');
       existingMarkers.forEach(m => m.remove());
 
       locations.forEach(loc => {
         if (typeof loc.lat === "number" && typeof loc.lng === "number") {
           const el = document.createElement('div');
-          el.className = 'hacker-node-static';
+          el.className = 'hacker-pin-green';
           
           const cityName = (loc.city || "UNKNOWN").split(",")[0].toUpperCase();
           
           el.innerHTML = `
-            <div class="relative group cursor-pointer">
-              <div class="w-1.5 h-1.5 bg-primary-accent/40 rounded-full group-hover:bg-primary-accent transition-colors" />
-              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-black border border-primary-accent/20 p-1 text-[8px] text-primary-accent pointer-events-none">
+            <div class="relative group cursor-pointer flex flex-col items-center">
+              <div class="absolute inset-0 flex items-center justify-center">
+                 <div class="w-8 h-8 border border-primary-accent rounded-full animate-ripple-1 opacity-10"></div>
+              </div>
+              <div class="w-2.5 h-2.5 bg-primary-accent rounded-full shadow-[0_0_10px_#00ff41] z-10" />
+              <div class="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-primary-accent mt-0.5"></div>
+              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-black border border-primary-accent/40 p-1 text-[7px] text-primary-accent pointer-events-none font-mono">
                  ${cityName}
               </div>
             </div>
@@ -446,13 +452,21 @@ const MapVisualizer = () => {
 
   return (
     <div className="flex-1 bg-black relative overflow-hidden border-b border-primary-accent/10 group">
-      {/* CSS Injection for MapLibre Custom Styles */}
+      {/* CSS Injection for Sanitized HUD Map */}
       <style dangerouslySetInnerHTML={{ __html: `
         .maplibregl-canvas { outline: none !important; }
-        .maplibregl-ctrl-attrib { display: none; }
+        .maplibregl-ctrl-attrib, .maplibregl-ctrl-logo { display: none !important; }
         .maplibregl-map { background: #000 !important; }
-        .hacker-alert-pulse { pointer-events: none; z-index: 500; }
-        .hacker-node-static { cursor: pointer; z-index: 100; }
+        
+        @keyframes ripple {
+          0% { transform: scale(0.5); opacity: 0.8; }
+          100% { transform: scale(2.5); opacity: 0; }
+        }
+        .animate-ripple-1 { animation: ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+        .animate-ripple-2 { animation: ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite 1s; }
+        
+        .hacker-pin-red { z-index: 500; }
+        .hacker-pin-green { z-index: 100; }
       ` }} />
 
       {/* Map Container - MapLibre GL */}
