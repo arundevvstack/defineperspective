@@ -31,12 +31,43 @@ export default function BlogsPage() {
           </motion.div>
         </section>
 
+        {/* Featured Post Hero */}
+        <section className="mb-24">
+          {BLOGS.slice(0, 1).map((featured) => (
+            <Link key={featured.slug} href={`/blog/${featured.slug}`} className="group block relative rounded-[3rem] overflow-hidden border border-white/10 bg-white/5 aspect-[21/9] min-h-[300px]">
+              <Image 
+                src={featured.image} 
+                alt={featured.title} 
+                fill 
+                className="object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-1000" 
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
+              <div className="absolute inset-0 p-8 md:p-16 flex flex-col justify-end max-w-4xl">
+                 <div className="flex items-center gap-3 mb-6">
+                    <span className="px-3 py-1 rounded bg-primary-accent text-black text-[9px] font-black uppercase tracking-widest">Featured Post</span>
+                    <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-widest">{featured.date}</span>
+                 </div>
+                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase text-white mb-6 leading-tight tracking-tighter">
+                    {featured.title}
+                 </h2>
+                 <p className="text-sm md:text-lg text-zinc-400 font-light max-w-2xl uppercase tracking-widest mb-8 line-clamp-2">
+                    {featured.excerpt}
+                 </p>
+                 <div className="flex items-center gap-4 text-primary-accent font-black uppercase text-[10px] tracking-widest">
+                    Enter the future <ArrowRight size={16} />
+                 </div>
+              </div>
+            </Link>
+          ))}
+        </section>
+
         {/* Filters */}
         <div className="flex flex-wrap gap-4 mb-20 overflow-x-auto pb-4 scrollbar-hide">
-           {["All Posts", "AI Nodes", "Vertical Economy", "Production Strategy", "Cinematic Density"].map((tag, i) => (
+           {["All Posts", "AI TVC", "Production", "Marketing", "Strategy"].map((tag, i) => (
              <button 
                key={i}
-               className="px-8 py-3 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-widest text-zinc-400 hover:text-white hover:border-primary-accent/50 /5 transition-all whitespace-nowrap"
+               className="px-8 py-3 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-widest text-zinc-400 hover:text-white hover:border-primary-accent/50 transition-all whitespace-nowrap"
              >
                {tag}
              </button>
