@@ -91,6 +91,14 @@ const aiData = [
         industry: "Real Estate", 
         client: "Real Estate AI",
         href: "/portfolio/real-estate-ai-ad"
+      },
+      { 
+        id: "ai-vert3", 
+        title: "DBC Project | Death By Chocolate AI Ad", 
+        videoId: "LqIZbDRN38M", 
+        service: "AI Vertical Ad", 
+        industry: "Food & Beverages", 
+        client: "DBC (Death By Chocolate)"
       }
     ]
   }
@@ -237,7 +245,7 @@ function PortfolioInner() {
                 <div className={cn(
                   "grid gap-12 md:gap-16",
                   (section.category === "AI Vertical Ads" || section.category === "Vertical Ads") 
-                    ? "grid-cols-1 md:grid-cols-3 lg:grid-cols-5" 
+                    ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-4" 
                     : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                 )}>
                   {section.projects.map((project: any, projectIdx: number) => {
