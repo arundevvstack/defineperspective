@@ -323,7 +323,7 @@ const MapVisualizer = () => {
       
       const map = new maplibregl.Map({
         container: mapContainerRef.current,
-        style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+        style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
         center: [0, 20],
         zoom: 1.5,
         attributionControl: false,
@@ -372,26 +372,29 @@ const MapVisualizer = () => {
     const maplibregl = (await import('maplibre-gl')).default;
 
     const el = document.createElement('div');
-    el.className = 'hacker-pin-red';
+    el.className = 'hacker-alert-pin';
     el.innerHTML = `
       <div class="relative flex flex-col items-center">
         <div class="absolute inset-0 flex items-center justify-center">
-           <div class="w-12 h-12 border border-red-500 rounded-full animate-ripple-1 opacity-20"></div>
-           <div class="w-8 h-8 border border-red-500 rounded-full animate-ripple-2 opacity-40"></div>
+          <div class="w-12 h-12 border border-red-500 rounded-full animate-ping opacity-30"></div>
+          <div class="w-8 h-8 border border-red-500 rounded-full animate-ping delay-150 opacity-50"></div>
         </div>
-        <div class="w-3 h-3 bg-red-500 rounded-full shadow-[0_0_15px_#ff0000] z-10 relative">
-           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-white rounded-full"></div>
+        <div class="w-6 h-6 bg-red-600 rounded-full border-2 border-white flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.8)] z-20">
+          <div class="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
         </div>
-        <div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-red-500 mt-0.5"></div>
-        <div class="absolute top-8 whitespace-nowrap bg-red-600/90 text-white font-mono font-black text-[6px] px-1 py-0.5 border border-red-400">SIGNAL_INTERCEPT</div>
+        <div class="w-0.5 h-3 bg-gradient-to-b from-red-600 to-transparent z-10 -mt-1" />
+        <div class="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-red-600" />
       </div>
     `;
 
-    const marker = new maplibregl.Marker(el)
+    const marker = new maplibregl.Marker({ element: el, anchor: 'bottom' })
       .setLngLat([alert.lng, alert.lat])
       .addTo(mapRef.current);
 
-    setTimeout(() => { marker.remove(); }, 6000);
+    // Remove marker after animation
+    setTimeout(() => {
+      marker.remove();
+    }, 5000);
   };
 
   const handleZoom = (type: 'in' | 'out') => {
@@ -411,36 +414,33 @@ const MapVisualizer = () => {
     });
   };
 
-  // Plot permanent static markers (Green Pins)
+  // Plot permanent static markers
   useEffect(() => {
     const plotMarkers = async () => {
       if (!mapRef.current || locations.length === 0) return;
       const maplibregl = (await import('maplibre-gl')).default;
 
-      const existingMarkers = document.querySelectorAll('.hacker-pin-green');
+      const existingMarkers = document.querySelectorAll('.hacker-node-static');
       existingMarkers.forEach(m => m.remove());
 
       locations.forEach(loc => {
         if (typeof loc.lat === "number" && typeof loc.lng === "number") {
           const el = document.createElement('div');
-          el.className = 'hacker-pin-green';
+          el.className = 'hacker-node-static';
           
           const cityName = (loc.city || "UNKNOWN").split(",")[0].toUpperCase();
           
           el.innerHTML = `
-            <div class="relative group cursor-pointer flex flex-col items-center">
-              <div class="absolute inset-0 flex items-center justify-center">
-                 <div class="w-8 h-8 border border-primary-accent rounded-full animate-ripple-1 opacity-10"></div>
-              </div>
-              <div class="w-2.5 h-2.5 bg-primary-accent rounded-full shadow-[0_0_10px_#00ff41] z-10" />
-              <div class="w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-primary-accent mt-0.5"></div>
-              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-black border border-primary-accent/40 p-1 text-[7px] text-primary-accent pointer-events-none font-mono">
+            <div class="relative group flex flex-col items-center">
+              <div class="w-1 h-3 bg-red-500/60 rounded-full group-hover:bg-red-500 transition-colors" />
+              <div class="w-0.5 h-1.5 bg-red-500/30 -mt-0.5" />
+              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-black/90 border border-red-500/20 px-2 py-1 text-[7px] text-red-500 pointer-events-none uppercase font-black">
                  ${cityName}
               </div>
             </div>
           `;
 
-          new maplibregl.Marker(el)
+          new maplibregl.Marker({ element: el, anchor: 'bottom' })
             .setLngLat([loc.lng, loc.lat])
             .addTo(mapRef.current);
         }
@@ -450,23 +450,28 @@ const MapVisualizer = () => {
     plotMarkers();
   }, [locations]);
 
+  const seoMetrics = [
+    { label: "AI Search Visibility", value: "98.4%", trend: "+2.1%", color: "text-primary-accent" },
+    { label: "Keyword Dominance", value: "Elite", trend: "Lock", color: "text-blue-400" },
+    { label: "Regional Power", value: "Global", trend: "High", color: "text-purple-400" },
+    { label: "Authority Score", value: "92/100", trend: "+5", color: "text-amber-400" }
+  ];
+
   return (
     <div className="flex-1 bg-black relative overflow-hidden border-b border-primary-accent/10 group">
-      {/* CSS Injection for Sanitized HUD Map */}
+      {/* CSS Injection for MapLibre Custom Styles */}
       <style dangerouslySetInnerHTML={{ __html: `
         .maplibregl-canvas { outline: none !important; }
-        .maplibregl-ctrl-attrib, .maplibregl-ctrl-logo { display: none !important; }
-        .maplibregl-map { background: #000 !important; }
-        
-        @keyframes ripple {
-          0% { transform: scale(0.5); opacity: 0.8; }
-          100% { transform: scale(2.5); opacity: 0; }
+        .maplibregl-ctrl { display: none !important; }
+        .maplibregl-ctrl-attrib { display: none !important; }
+        .maplibregl-ctrl-logo { display: none !important; }
+        /* Tactical Dark Grey Map */
+        .maplibregl-map { 
+          filter: grayscale(1) brightness(0.6) contrast(1.2) !important;
+          background: #111 !important;
         }
-        .animate-ripple-1 { animation: ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
-        .animate-ripple-2 { animation: ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite 1s; }
-        
-        .hacker-pin-red { z-index: 500; }
-        .hacker-pin-green { z-index: 100; }
+        .hacker-alert-pin { pointer-events: none; z-index: 500; }
+        .hacker-node-static { cursor: pointer; z-index: 100; }
       ` }} />
 
       {/* Map Container - MapLibre GL */}
@@ -475,6 +480,19 @@ const MapVisualizer = () => {
         className="absolute inset-0 z-10 w-full h-full" 
         style={{ backgroundColor: '#000' }} 
       />
+
+      {/* SEO Strength HUD Overlay */}
+      <div className="absolute bottom-10 left-10 z-50 flex gap-4 pointer-events-none">
+          {seoMetrics.map((metric) => (
+            <div key={metric.label} className="glass p-3 min-w-[140px] border-white/5 bg-black/40 backdrop-blur-md">
+                <div className="text-[7px] text-zinc-500 font-mono uppercase tracking-widest mb-1">{metric.label}</div>
+                <div className="flex items-baseline gap-2">
+                  <div className={cn("text-lg font-black tracking-tighter", metric.color)}>{metric.value}</div>
+                  <div className="text-[8px] font-mono opacity-50">{metric.trend}</div>
+                </div>
+            </div>
+          ))}
+      </div>
 
       {/* Incoming Alerts Feed HUD */}
       <div className="absolute top-24 right-6 z-50 flex flex-col gap-2 pointer-events-none">
