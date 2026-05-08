@@ -932,7 +932,7 @@ export default function CybersecurityDashboard() {
               <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">BROWSER</span><span className="text-white truncate">{typeof window !== 'undefined' ? window.navigator.userAgent.split(')')[0].split('(')[1] : "DETECTING..."}</span></div>
               <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">PLATFORM</span><span className="text-white truncate">{typeof window !== 'undefined' ? window.navigator.platform : "DETECTING..."}</span></div>
               <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">RESOLUTION</span><span className="text-white truncate">{typeof window !== 'undefined' ? `${window.screen.width}x${window.screen.height}` : "DETECTING..."}</span></div>
-              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">LATENCY</span><span className="text-red-500 font-bold">{visitorInfo?.latitude ? `${Math.floor(Math.random() * 15) + 12}ms` : "CALIBRATING..."}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">LATENCY</span><span className="text-red-500 font-bold">{userData?.latitude ? `${Math.floor(Math.random() * 15) + 12}ms` : "CALIBRATING..."}</span></div>
             </div>
           </div>
 
