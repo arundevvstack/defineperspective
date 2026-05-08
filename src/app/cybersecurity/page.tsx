@@ -799,15 +799,26 @@ export default function CybersecurityDashboard() {
 
   return (
     <div className="theme-hacker bg-zinc-950 text-primary-accent flex flex-col font-mono selection:bg-red-500 selection:text-white min-h-screen xl:h-screen overflow-x-hidden xl:overflow-hidden">
-      {/* CSS Injection for high contrast and color lock */}
+      {/* NUCLEAR COLOR LOCK - Force every text element to be Red or Green */}
       <style dangerouslySetInnerHTML={{ __html: `
-        footer { border: none !important; margin: 0 !important; opacity: 0; pointer-events: none; height: 0 !important; }
+        footer { border: none !important; margin: 0 !important; opacity: 0 !important; pointer-events: none; height: 0 !important; }
         #glass-footer { display: none !important; }
-        .text-white { color: #00ff41 !important; }
-        .text-zinc-400 { color: #ff3e3e !important; }
-        .text-zinc-500 { color: #ff3e3e !important; opacity: 0.6; }
-        .bg-primary-accent { background-color: #00ff41 !important; }
-        .border-primary-accent { border-color: #00ff41 !important; }
+        
+        /* Force everything to Green by default */
+        body, div, span, h1, h2, h3, h4, p, a, button { color: #00ff41 !important; }
+        
+        /* Tactical Red Overrides for Alerts/Metrics/Criticals */
+        .text-red-500, .text-zinc-400, .text-zinc-500, .text-zinc-600, 
+        .text-amber-400, .text-blue-400, .text-purple-400,
+        .text-slate-400, .text-slate-500 { 
+          color: #ff3e3e !important; 
+        }
+
+        /* Keep primary accent as green */
+        .text-primary-accent { color: #00ff41 !important; }
+
+        /* Ensure opacity is preserved for secondary layers but still red/green */
+        .opacity-60, .opacity-40, .text-zinc-500 { opacity: 0.6 !important; }
       ` }} />
       
       <Header userData={userData} />
