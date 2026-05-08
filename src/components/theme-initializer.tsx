@@ -8,13 +8,14 @@ export default function ThemeInitializer() {
   const searchParams = useSearchParams();
 
   useLayoutEffect(() => {
-    const isBlue = pathname.includes("/services/ai-") || 
+    const isAI = pathname.includes("/services/ai-") || 
                    pathname.includes("/ai-studios") || 
                    pathname === "/ai-services" || 
-                   (pathname === "/portfolio" && searchParams.get("view") === "ai");
+                   (pathname === "/portfolio" && searchParams.get("view") === "ai") ||
+                   pathname.includes("/analysis");
     
-    document.documentElement.classList.remove('theme-red', 'theme-blue');
-    document.documentElement.classList.add(isBlue ? 'theme-blue' : 'theme-red');
+    document.documentElement.classList.remove('theme-red', 'theme-blue', 'theme-green');
+    document.documentElement.classList.add(isAI ? 'theme-green' : 'theme-red');
   }, [pathname, searchParams]);
 
   return null;
