@@ -270,7 +270,7 @@ export default function AIVideoProductionLandingPage() {
            </div>
            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
               {aiSilos.map((silo, idx) => (
-                <div key={silo.title} className="p-12 rounded-[4rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-primary-accent/30 transition-all group flex flex-col">
+                <div key={`${silo.title}-${idx}`} className="p-12 rounded-[4rem] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-primary-accent/30 transition-all group flex flex-col">
                    <div className="h-16 w-16 rounded-2xl bg-white/5 flex items-center justify-center text-primary-accent mb-12 group-hover:scale-110 transition-transform">
                       <silo.icon size={32} />
                    </div>
