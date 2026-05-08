@@ -186,7 +186,7 @@ export default function AIVideoProductionLandingPage() {
         {/* 🎥 SHOWREEL SECTION */}
         <section className="mb-48 relative">
             <div className="relative aspect-video rounded-[5rem] overflow-hidden border border-white/5 shadow-2xl">
-               <LiteYouTube videoId="vGijXeVUS74" title="AI Video Production Hub Showreel" />
+               <LiteYouTube videoId="5kOnWP-dZZY" title="AI Video Production Hub Showreel" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-16 left-16 z-20">
                  <p className="text-4xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-none mix-blend-overlay">
