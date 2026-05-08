@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ArunDevvContent from "@/components/arun-devv-content";
 
 export const metadata: Metadata = {
-  title: "Arun Devv | Best AI Video Creator in India & Content Architect Kerala",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Arun Devv is India's leading AI video creator and content architect. 20+ years expertise in cinematic storytelling, AI ad films, and brand strategy across Kerala, Kochi, Trivandrum, and India.",
   keywords: [
     "Best Content Architect in Kerala",

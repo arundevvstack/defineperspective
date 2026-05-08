@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "Top AI TVC Production Company in India | DP AI Studio",
+  title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "DP AI Studio is the best AI TVC production company in India & Kerala. Specialized in luxury AI commercials, cinematic brand films, and high-end ad production.",
   keywords: [
     "Top AI TVC Production India",

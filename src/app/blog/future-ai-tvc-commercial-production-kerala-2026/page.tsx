@@ -153,7 +153,7 @@ export default function BlogPage() {
                 <div className="flex -space-x-4">
                   {[1,2,3,4].map(i => (
                     <div key={i} className="h-12 w-12 rounded-full border-2 border-obsidian bg-zinc-800 relative overflow-hidden">
-                       <Image src={`/images/team/avatar-${i}.png`} alt="AI Specialist" fill className="object-cover" />
+                       <Image src={`/images/team/avatar-${i}.png`} alt="AI video production company in Kerala - DP AI Studio" fill className="object-cover" />
                     </div>
                   ))}
                 </div>
@@ -283,7 +283,7 @@ export default function BlogPage() {
                <div className="relative aspect-square rounded-[4rem] overflow-hidden border border-white/10 glassmorphism shadow-2xl">
                   <Image 
                     src="/images/blog/ai-studio-process.png" 
-                    alt="AI Content Production Company Kerala - Workflow" 
+                    alt="AI video production company in Kerala - DP AI Studio" 
                     fill 
                     className="object-cover opacity-60"
                   />

@@ -23,6 +23,7 @@ import SemanticSeoLayer from "@/components/semantic-seo-layer";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://defineperspective.in"),
   title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "DP AI Studio is a leading AI video production company in Kerala, South India, India. Trusted for cinematic AI ads, reels, and brand storytelling in Trivandrum, Kochi, and Ernakulam.",
   keywords: [
@@ -35,7 +36,10 @@ export const metadata: Metadata = {
     "cinematic AI filmmaking",
     "AI ad production India",
     "DP AI Studio",
-    "Define Perspective"
+    "Define Perspective",
+    "Malayalam AI video generation",
+    "AI content creator Kerala",
+    "Top AI TVC production India"
   ],
   openGraph: {
     title: "Best AI Video Production Company in Kerala | DP AI Studio India",
