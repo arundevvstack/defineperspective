@@ -326,8 +326,7 @@ const MapVisualizer = () => {
         style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
         center: [0, 20],
         zoom: 1.5,
-        attributionControl: false,
-        antialias: true
+        attributionControl: false
       });
 
       map.on('load', () => {
