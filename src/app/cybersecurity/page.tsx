@@ -860,65 +860,68 @@ export default function CybersecurityDashboard() {
 
   return (
     <div className="theme-hacker bg-zinc-950 text-primary-accent flex flex-col font-mono selection:bg-red-500 selection:text-white min-h-screen xl:h-screen overflow-x-hidden xl:overflow-hidden">
-      {/* NUCLEAR COLOR LOCK - Force every text element to be Red or Green */}
+      {/* PREMIUM COLOR SYSTEM - Sophisticated Red/Green Palette */}
       <style dangerouslySetInnerHTML={{ __html: `
         footer { border: none !important; margin: 0 !important; opacity: 0 !important; pointer-events: none; height: 0 !important; }
         #glass-footer { display: none !important; }
         
-        /* Force everything to Green by default */
-        body, div, span, h1, h2, h3, h4, p, a, button { color: #00ff41 !important; }
+        .glow-green { text-shadow: 0 0 8px rgba(0, 255, 65, 0.6); }
+        .glow-red { text-shadow: 0 0 8px rgba(255, 62, 62, 0.6); }
         
-        /* Tactical Red Overrides for Alerts/Metrics/Criticals */
-        .text-red-500, .text-zinc-400, .text-zinc-500, .text-zinc-600, 
-        .text-amber-400, .text-blue-400, .text-purple-400,
-        .text-slate-400, .text-slate-500 { 
-          color: #ff3e3e !important; 
-        }
-
-        /* Keep primary accent as green */
+        /* Tactical Color Layering */
         .text-primary-accent { color: #00ff41 !important; }
+        .text-secondary { color: rgba(0, 255, 65, 0.6) !important; }
+        .text-muted { color: rgba(0, 255, 65, 0.3) !important; }
+        
+        .text-breach { color: #ff3e3e !important; }
+        .text-breach-muted { color: rgba(255, 62, 62, 0.5) !important; }
 
-        /* Ensure opacity is preserved for secondary layers but still red/green */
-        .opacity-60, .opacity-40, .text-zinc-500 { opacity: 0.6 !important; }
+        /* Force standard typography to be Green by default but allow specific overrides */
+        h1, h2, h3, h4 { letter-spacing: 0.1em; text-transform: uppercase; }
+        
+        .glass-panel {
+          background: rgba(0, 13, 0, 0.8);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(0, 255, 65, 0.1);
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        }
       ` }} />
       
       <Header userData={userData} />
 
-      <div className="h-auto md:h-6 bg-primary-accent/5 border-b border-primary-accent/20 flex flex-col md:flex-row items-center overflow-hidden z-40 gap-2 md:gap-4 py-2 md:py-0">
-          <div className="flex items-center gap-4 px-4 bg-primary-accent/20 text-primary-accent text-[9px] font-black italic uppercase tracking-widest whitespace-nowrap h-full border-b md:border-b-0 md:border-r border-primary-accent/30 py-1 md:py-0 w-full md:w-auto justify-center md:justify-start">
-              <Activity size={10} /> LIVE_ANALYTICS_V6
+      <div className="h-auto md:h-8 bg-black border-b border-primary-accent/30 flex flex-col md:flex-row items-center overflow-hidden z-40 gap-2 md:gap-4 py-2 md:py-0">
+          <div className="flex items-center gap-4 px-6 bg-red-600 text-white text-[10px] font-black italic uppercase tracking-widest h-full border-b md:border-b-0 md:border-r border-red-500/50 py-1 md:py-0 w-full md:w-auto justify-center md:justify-start">
+              <Activity size={12} className="animate-pulse" /> LIVE_INTELLIGENCE_STREAM
           </div>
-          <div className="w-full md:w-auto px-4">
+          <div className="w-full md:w-auto px-4 flex items-center">
             <CrackingBar />
           </div>
           <div className="flex-1 overflow-hidden relative w-full md:w-auto">
               <motion.div 
                 initial={{ x: "100%" }}
                 animate={{ x: "-100%" }}
-                transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-                className="flex items-center gap-10 whitespace-nowrap text-[9px] font-mono text-primary-accent/60 uppercase"
+                transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+                className="flex items-center gap-12 whitespace-nowrap text-[10px] font-bold text-primary-accent uppercase tracking-wider"
               >
                   {[
-                    `VISITOR_LOC: ${userData?.city || "Unknown"}, ${userData?.country_name || "Unknown"}`,
-                    `IP_ADDR: ${userData?.query || "Scan Fail"}`,
-                    `ISP: ${userData?.isp || "Secure"}`,
-                    "AI Video Production India +240%",
-                    "Virtual Production Studio Kerala +110%",
-                    "Cinematic Brand Films Kochi +85%",
-                    "AI CGI & 3D Pipelines +150%",
-                    "Define Perspective SEO Rank #1",
-                    "Performance Marketing Video Ads +92%",
-                    "Generative AI Media Workflows +310%"
+                    `VISITOR: ${userData?.city || "Unknown"}, ${userData?.country_name || "Unknown"}`,
+                    `NODE_IP: ${userData?.query || "SCANNING..."}`,
+                    "AI SEARCH VISIBILITY +240%",
+                    "DOMAIN AUTHORITY LOCK: ELITE",
+                    "KEYWORD DOMINANCE: #1 KERALA",
+                    "NEURAL MEDIA PIPELINES: STABLE",
+                    "SEO PENETRATION 92%",
+                    "VIRTUAL PRODUCTION UPLINK: ACTIVE"
                   ].map((trend, i) => (
-                      <span key={i} className="flex items-center gap-2">
-                          <Hash size={10} className="text-primary-accent" /> {trend}
+                      <span key={i} className="flex items-center gap-3">
+                          <div className="w-1 h-1 bg-red-500 rounded-full animate-ping" /> {trend}
                       </span>
                   ))}
               </motion.div>
           </div>
       </div>
 
-      <main className="flex-1 flex flex-col xl:flex-row overflow-y-auto xl:overflow-hidden bg-[#000d00]">
+      <main className="flex-1 flex flex-col xl:flex-row overflow-y-auto xl:overflow-hidden bg-[#000500]">
 
         {/* Left Side: Intel & Activity */}
         <aside className="w-full xl:w-80 flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10 min-h-[300px] xl:min-h-0 bg-black/20">
@@ -984,16 +987,16 @@ export default function CybersecurityDashboard() {
           </div>
 
           {/* Visitor Intelligence Block - REAL DATA */}
-          <div className="mb-4 p-4 md:p-6 border border-primary-accent/10 bg-primary-accent/5 rounded-none">
-            <h3 className="text-[10px] font-black text-red-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-              <Activity size={14} /> VISITOR_DIAGNOSTICS
+          <div className="mb-4 p-4 md:p-6 border border-primary-accent/20 bg-black/80 rounded-none shadow-[inset_0_0_20px_rgba(0,255,65,0.05)]">
+            <h3 className="text-[11px] font-black text-breach uppercase tracking-[0.2em] mb-5 flex items-center gap-3 glow-red">
+              <Activity size={16} /> VISITOR_DIGITAL_IDENTITY
             </h3>
-            <div className="space-y-2 text-[9px] font-mono">
-              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">IP_ADDR</span><span className="text-white truncate">{userData?.query || "SCANNING..."}</span></div>
-              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">BROWSER</span><span className="text-white truncate">{typeof window !== 'undefined' ? window.navigator.userAgent.split(')')[0].split('(')[1] : "DETECTING..."}</span></div>
-              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">PLATFORM</span><span className="text-white truncate">{typeof window !== 'undefined' ? window.navigator.platform : "DETECTING..."}</span></div>
-              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">RESOLUTION</span><span className="text-white truncate">{typeof window !== 'undefined' ? `${window.screen.width}x${window.screen.height}` : "DETECTING..."}</span></div>
-              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">LATENCY</span><span className="text-red-500 font-bold">{userData?.latitude ? `${Math.floor(Math.random() * 15) + 12}ms` : "CALIBRATING..."}</span></div>
+            <div className="space-y-4 text-[10px] font-mono">
+              <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">ADDRESS_ID</span><span className="text-primary-accent glow-green truncate">{userData?.query || "SCANNING..."}</span></div>
+              <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">CORE_OS</span><span className="text-primary-accent truncate">{typeof window !== 'undefined' ? window.navigator.platform : "DETECTING..."}</span></div>
+              <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">U_AGENT</span><span className="text-primary-accent truncate max-w-[150px]">{typeof window !== 'undefined' ? window.navigator.userAgent.split(')')[0].split('(')[1] : "DETECTING..."}</span></div>
+              <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">GEOMETRY</span><span className="text-primary-accent">{typeof window !== 'undefined' ? `${window.screen.width}x${window.screen.height}` : "DETECTING..."}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-breach uppercase">LATENCY</span><span className="text-breach font-bold glow-red">{userData?.latitude ? `${Math.floor(Math.random() * 15) + 12}ms` : "CALIBRATING..."}</span></div>
             </div>
           </div>
 
