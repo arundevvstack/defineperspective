@@ -308,14 +308,22 @@ const MapVisualizer = () => {
 
     // Dynamically import MapLibre to avoid SSR issues
     const initMap = async () => {
+      // Ensure CSS is loaded before map init
+      if (!document.getElementById("maplibre-css-fix")) {
+        const link = document.createElement("link");
+        link.id = "maplibre-css-fix";
+        link.rel = "stylesheet";
+        link.href = "https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.css";
+        document.head.appendChild(link);
+      }
+
       const maplibregl = (await import('maplibre-gl')).default;
-      await import('maplibre-gl/dist/maplibre-gl.css');
 
       if (mapRef.current) return;
       
       const map = new maplibregl.Map({
         container: mapContainerRef.current,
-        style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+        style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
         center: [0, 20],
         zoom: 1.5,
         attributionControl: false,
@@ -442,11 +450,7 @@ const MapVisualizer = () => {
       <style dangerouslySetInnerHTML={{ __html: `
         .maplibregl-canvas { outline: none !important; }
         .maplibregl-ctrl-attrib { display: none; }
-        /* Ultra Dark Black Map */
-        .maplibregl-map { 
-          filter: grayscale(1) invert(1) brightness(0.05) contrast(1.5) sepia(1) hue-rotate(80deg) saturate(3) !important;
-          background: #000 !important;
-        }
+        .maplibregl-map { background: #000 !important; }
         .hacker-alert-pulse { pointer-events: none; z-index: 500; }
         .hacker-node-static { cursor: pointer; z-index: 100; }
       ` }} />
