@@ -355,7 +355,10 @@ const MapVisualizer = () => {
   const jumpToCity = async (query: string) => {
     if (!query || !mapRef.current) return;
     try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1`);
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1`, {
+        headers: { 'Accept-Language': 'en' }
+      });
+      if (!res.ok) throw new Error("Fetch failed");
       const data = await res.json();
       if (data && data[0]) {
         const { lat, lon } = data[0];
@@ -369,7 +372,7 @@ const MapVisualizer = () => {
         setSearch("");
       }
     } catch (e) {
-      console.error("Search failed", e);
+      console.warn("Geocoding failed - check network/CORS", e);
     }
   };
 
@@ -859,31 +862,36 @@ export default function CybersecurityDashboard() {
 
   return (
     <div className="theme-hacker bg-zinc-950 text-primary-accent flex flex-col font-mono selection:bg-red-500 selection:text-white min-h-screen xl:h-screen overflow-x-hidden xl:overflow-hidden">
-      {/* PREMIUM COLOR SYSTEM - Sophisticated Red/Green Palette */}
+      {/* TOTAL TACTICAL LOCK - 100% Red/Green Only */}
       <style dangerouslySetInnerHTML={{ __html: `
-        footer { border: none !important; margin: 0 !important; opacity: 0 !important; pointer-events: none; height: 0 !important; }
-        #glass-footer { display: none !important; }
+        footer, #glass-footer { display: none !important; opacity: 0 !important; visibility: hidden !important; height: 0 !important; pointer-events: none !important; }
         
         .glow-green { text-shadow: 0 0 8px rgba(0, 255, 65, 0.6); }
         .glow-red { text-shadow: 0 0 8px rgba(255, 62, 62, 0.6); }
         
-        /* Tactical Color Layering */
-        .text-primary-accent { color: #00ff41 !important; }
-        .text-secondary { color: rgba(0, 255, 65, 0.6) !important; }
-        .text-muted { color: rgba(0, 255, 65, 0.3) !important; }
-        
-        .text-breach { color: #ff3e3e !important; }
-        .text-breach-muted { color: rgba(255, 62, 62, 0.5) !important; }
-
-        /* Force standard typography to be Green by default but allow specific overrides */
-        h1, h2, h3, h4 { letter-spacing: 0.1em; text-transform: uppercase; }
-        
-        .glass-panel {
-          background: rgba(0, 13, 0, 0.8);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(0, 255, 65, 0.1);
-          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+        /* Force everything to Green or Red */
+        * { color: inherit; }
+        body, div, span, h1, h2, h3, h4, p, a, button, input { 
+          color: #00ff41 !important; 
         }
+        
+        .text-red-500, .text-breach, .text-breach-muted, 
+        .text-zinc-400, .text-zinc-500, .text-zinc-600,
+        .text-amber-400, .text-blue-400, .text-purple-400 { 
+          color: #ff3e3e !important; 
+        }
+
+        .text-primary-accent { color: #00ff41 !important; }
+        .text-secondary { color: rgba(0, 255, 65, 0.7) !important; }
+
+        /* Fix Design Overlaps */
+        .glass-panel {
+          background: rgba(0, 5, 0, 0.9);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(0, 255, 65, 0.15);
+          z-index: 10;
+        }
+        .z-top { z-index: 100 !important; }
       ` }} />
       
       <Header userData={userData} />
@@ -969,9 +977,11 @@ export default function CybersecurityDashboard() {
         </aside>
 
         {/* Center: Map */}
-        <section className="flex-none xl:flex-1 h-[50vh] sm:h-[60vh] xl:h-auto flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10 relative min-h-[350px]">
+        <section className="flex-none xl:flex-1 h-[50vh] sm:h-[60vh] xl:h-auto flex flex-col border-b xl:border-b-0 border-r-0 xl:border-r border-primary-accent/10 relative min-h-[400px]">
           <MapVisualizer />
-          <DecodingConsole />
+          <div className="absolute bottom-4 left-4 right-4 z-20">
+            <DecodingConsole />
+          </div>
         </section>
 
         {/* Right Side: Stats & Threats */}
