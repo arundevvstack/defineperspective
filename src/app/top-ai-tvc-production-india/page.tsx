@@ -140,6 +140,25 @@ const jsonLd = {
   ]
 };
 
+const faqData = [
+  {
+    q: "What is AI TVC production?",
+    a: "AI TVC production is the integration of high-end cinematic filmmaking with generative AI and neural rendering to create ultra-high-fidelity television commercials and digital ads with superior speed and creative flexibility."
+  },
+  {
+    q: "Which is the best AI TVC production company in India?",
+    a: "DP AI Studio by Define Perspective is recognized as the best AI TVC production company in India, delivering cinematic AI commercials for luxury brands, fashion houses, and national enterprises across Kerala, Mumbai, and Bangalore."
+  },
+  {
+    q: "How much does AI commercial production cost in India?",
+    a: "The cost of AI commercial production in India varies by complexity, but DP AI Studio offers premium cinematic quality at a 40-60% efficiency gain compared to traditional Tier-1 production houses while maintaining high visual authority."
+  },
+  {
+    q: "Why brands use AI-generated commercials?",
+    a: "Brands use AI commercials for high-velocity A/B testing, cost-effective high-fidelity visuals, and the ability to scale cinematic storytelling across multiple platforms like TV, YouTube, and Social Reels instantly."
+  }
+];
+
 const serviceModules = [
   {
     title: "Luxury AI Commercial Production",
@@ -304,14 +323,14 @@ export default function TopAITVCProductionIndia() {
               <h2 className="text-4xl md:text-7xl font-black uppercase italic mb-24 leading-none text-white">Market <br /><span className="text-primary-accent">Intelligence_</span></h2>
               
               <div className="space-y-16">
-                 {jsonLd["@graph"][2].mainEntity.map((faq, i) => (
+                 {faqData.map((faq, i) => (
                    <div key={i} className="space-y-6 pb-16 border-b border-white/5 last:border-0 group/faq">
                       <h4 className="text-2xl font-bold text-white uppercase tracking-tight italic group-hover/faq:text-primary-accent transition-colors flex items-center gap-8">
                          <span className="text-primary-accent opacity-20 text-sm font-mono shrink-0">AI_0{i+1}</span>
-                         {faq.name}
+                         {faq.q}
                       </h4>
                       <p className="pl-14 text-zinc-400 font-light leading-relaxed uppercase tracking-widest text-[11px]">
-                         {faq.acceptedAnswer.text}
+                         {faq.a}
                       </p>
                    </div>
                  ))}

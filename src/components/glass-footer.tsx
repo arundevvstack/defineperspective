@@ -83,6 +83,7 @@ export default function GlassFooter() {
                  <li><Link href="/services/ai-product-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product AI Videos</Link></li>
                  <li><Link href="/services/ai-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Brand films</Link></li>
                  <li><Link href="/services/ai-cinematic-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Cinematic AI</Link></li>
+                 <li><Link href="/top-ai-tvc-production-india" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px] font-bold text-white">AI TVC Production India</Link></li>
                  <li><Link href="/services/ai-video-marketing" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Marketing</Link></li>
               </ul>
           </div>
