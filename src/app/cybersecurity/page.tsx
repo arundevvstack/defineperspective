@@ -544,14 +544,14 @@ const MapVisualizer = () => {
           </div>
       </div>
 
-      {/* SEO Strength HUD Overlay */}
-      <div className="absolute bottom-10 left-10 z-50 flex gap-4 pointer-events-none">
+      {/* SEO Strength HUD Overlay - Vertical Stack to avoid overlap */}
+      <div className="absolute bottom-20 left-6 z-50 flex flex-col gap-3 pointer-events-none">
           {seoMetrics.map((metric) => (
-            <div key={metric.label} className="glass p-3 min-w-[140px] border-white/5 bg-black/40 backdrop-blur-md">
-                <div className="text-[7px] text-zinc-500 font-mono uppercase tracking-widest mb-1">{metric.label}</div>
-                <div className="flex items-baseline gap-2">
-                  <div className={cn("text-lg font-black tracking-tighter", metric.color)}>{metric.value}</div>
-                  <div className="text-[8px] font-mono opacity-50">{metric.trend}</div>
+            <div key={metric.label} className="glass p-2 min-w-[120px] border-white/5 bg-black/60 backdrop-blur-md">
+                <div className="text-[7px] text-zinc-500 font-mono uppercase tracking-[0.2em] mb-1">{metric.label}</div>
+                <div className="flex items-baseline justify-between gap-3">
+                  <div className={cn("text-sm font-black tracking-tighter", metric.color)}>{metric.value}</div>
+                  <div className="text-[7px] font-mono opacity-40">{metric.trend}</div>
                 </div>
             </div>
           ))}
@@ -683,7 +683,7 @@ const MapVisualizer = () => {
       <motion.div 
         animate={{ opacity: [1, 0.4, 1, 0.8, 1] }} 
         transition={{ repeat: Infinity, duration: 0.1 }}
-        className="absolute bottom-6 right-6 p-2 border border-primary-accent text-primary-accent font-mono text-[8px] uppercase tracking-widest hidden md:block z-50"
+        className="absolute top-24 left-6 p-2 border border-primary-accent/40 text-primary-accent font-mono text-[7px] uppercase tracking-[0.3em] hidden md:block z-50 bg-black/40 backdrop-blur-sm"
       >
         FREE_MAP_API_INTEGRATED_V1
       </motion.div>
