@@ -319,7 +319,7 @@ const MapVisualizer = () => {
 
       const maplibregl = (await import('maplibre-gl')).default;
 
-      if (mapRef.current) return;
+      if (mapRef.current || !mapContainerRef.current) return;
       
       const map = new maplibregl.Map({
         container: mapContainerRef.current,
