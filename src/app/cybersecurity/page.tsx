@@ -465,10 +465,10 @@ const MapVisualizer = () => {
         .maplibregl-ctrl { display: none !important; }
         .maplibregl-ctrl-attrib { display: none !important; }
         .maplibregl-ctrl-logo { display: none !important; }
-        /* Tactical Dark Grey Map */
+        /* High Contrast Tactical Map */
         .maplibregl-map { 
-          filter: grayscale(1) brightness(0.6) contrast(1.2) !important;
-          background: #111 !important;
+          filter: grayscale(1) brightness(0.8) contrast(1.4) !important;
+          background: #000 !important;
         }
         .hacker-alert-pin { pointer-events: none; z-index: 500; }
         .hacker-node-static { cursor: pointer; z-index: 100; }
@@ -778,12 +778,12 @@ export default function CybersecurityDashboard() {
     return (
       <div 
         onClick={handleBoot}
-        className="fixed inset-0 z-50 bg-[#000d00] flex flex-col items-center justify-center font-mono text-primary-accent cursor-pointer selection:bg-transparent"
+        className="fixed inset-0 z-50 bg-zinc-950 flex flex-col items-center justify-center font-mono text-primary-accent cursor-pointer selection:bg-transparent"
       >
-        <div className="laser-scanner opacity-30" />
-        <Terminal size={48} className="mb-6 animate-pulse" />
-        <h1 className="text-2xl md:text-5xl font-black mb-2 uppercase">System Offline</h1>
-        <p className="text-sm md:text-md opacity-60 mb-8 animate-pulse text-center px-4">CONNECTION_STANDBY // CLICK_ANYWHERE_TO_INITIALIZE_FULLSCREEN</p>
+        <div className="laser-scanner opacity-40" />
+        <Terminal size={48} className="mb-6 animate-pulse text-red-500" />
+        <h1 className="text-2xl md:text-5xl font-black mb-2 uppercase text-red-500">System Offline</h1>
+        <p className="text-sm md:text-md opacity-80 mb-8 animate-pulse text-center px-4 text-primary-accent">CONNECTION_STANDBY // CLICK_ANYWHERE_TO_INITIALIZE_FULLSCREEN</p>
         
         <div className="w-64 h-1 border border-primary-accent/30 relative overflow-hidden">
           <motion.div 
@@ -798,11 +798,16 @@ export default function CybersecurityDashboard() {
   }
 
   return (
-    <div className="theme-hacker bg-[#000d00] text-white flex flex-col font-mono selection:bg-primary-accent selection:text-black min-h-screen xl:h-screen overflow-x-hidden xl:overflow-hidden" style={{ background: '#000d00' }}>
-      {/* CSS Injection to hide global footer on this page */}
+    <div className="theme-hacker bg-zinc-950 text-primary-accent flex flex-col font-mono selection:bg-red-500 selection:text-white min-h-screen xl:h-screen overflow-x-hidden xl:overflow-hidden">
+      {/* CSS Injection for high contrast and color lock */}
       <style dangerouslySetInnerHTML={{ __html: `
         footer { border: none !important; margin: 0 !important; opacity: 0; pointer-events: none; height: 0 !important; }
         #glass-footer { display: none !important; }
+        .text-white { color: #00ff41 !important; }
+        .text-zinc-400 { color: #ff3e3e !important; }
+        .text-zinc-500 { color: #ff3e3e !important; opacity: 0.6; }
+        .bg-primary-accent { background-color: #00ff41 !important; }
+        .border-primary-accent { border-color: #00ff41 !important; }
       ` }} />
       
       <Header userData={userData} />
