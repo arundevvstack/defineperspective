@@ -67,6 +67,7 @@ const aiData = [
       { id: "ai3", title: "Banaras Silk | Fabrics of India", videoId: "ic0skwrzA5M", service: "AI Documentary", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/portfolio/banaras-silk" },
       { id: "ai4", title: "Swarna Kosa | Heritage Silk Sarees", videoId: "-CYvl4ytIFY", service: "AI TVC", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/portfolio/swarna-kosa" },
       { id: "ai5", title: "SHE Diamond | Cinematic AI Luxury Jewelry Advertisement", videoId: "ZKsTHF772K0", service: "AI TVC", industry: "Fashion & Lifestyle", client: "SHE", href: "/portfolio/she-diamond" },
+      { id: "ai6", title: "Lacrispo Snacks AI Theatre Ad | Cinematic Commercial", videoId: "vGijXeVUS74", service: "AI Theatre Ad", industry: "FMCG / Snacks", client: "Lacrispo" },
     ]
   },
   {

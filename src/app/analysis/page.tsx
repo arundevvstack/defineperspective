@@ -172,7 +172,7 @@ export default function AnalysisDashboard() {
         )}>
            <div className="p-6 md:p-8 bg-zinc-900/80 xl:bg-zinc-900/50 backdrop-blur-3xl border border-white/10 xl:border-white/5 rounded-[2rem] md:rounded-[3rem] h-full flex flex-col shadow-2xl">
               <div className="mb-8 md:mb-12">
-                 <h2 className="text-[11px] font-black uppercase text-primary-accent mb-2 tracking-widest">Management Center_</h2>
+                 <h2 className="text-[11px] font-black uppercase text-primary-accent mb-2 tracking-widest">Dashboard Settings_</h2>
                  <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest flex items-center gap-2">
                     <Radio size={10} className="text-primary-accent" /> Active Systems: {activeSystems}
                  </p>
@@ -214,7 +214,7 @@ export default function AnalysisDashboard() {
               <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10 text-center sm:text-left">
                  <div className="flex items-center gap-4">
                     <div className="h-3 w-3 rounded-full bg-primary-accent shadow-[0_0_15px_var(--primary-accent)] animate-pulse" />
-                    <h1 className="text-base md:text-lg font-black uppercase text-white tracking-tighter">ANALYTICS_COMMAND_CENTER</h1>
+                    <h1 className="text-base md:text-lg font-black uppercase text-white tracking-tighter">WEBSITE_PERFORMANCE_DASHBOARD</h1>
                  </div>
                  <div className="h-10 w-px bg-white/10 hidden md:block" />
                  <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-[9px] md:text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
@@ -263,8 +263,8 @@ export default function AnalysisDashboard() {
                       <div className="lg:col-span-2 p-8 md:p-12 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem] flex flex-col h-[400px] md:h-[500px]">
                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 md:mb-10 border-b border-white/5 pb-6 md:pb-8 gap-4">
                             <div>
-                               <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-accent mb-1 md:mb-2">Traffic Engine_</h3>
-                               <h2 className="text-2xl md:text-4xl font-black uppercase">Visitor_Neural_Map</h2>
+                               <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-accent mb-1 md:mb-2">Traffic Source_</h3>
+                               <h2 className="text-2xl md:text-4xl font-black uppercase">Visitor_Traffic_Map</h2>
                             </div>
                              <div className="flex gap-2 md:gap-4 w-full sm:w-auto">
                                 <button 
@@ -283,7 +283,7 @@ export default function AnalysisDashboard() {
                                     chartMode === 'live' ? 'bg-primary-accent text-black border-primary-accent shadow-[0_0_15px_rgba(var(--primary-accent-rgb),0.3)]' : 'bg-white/5 text-zinc-500 border-white/10'
                                   )}
                                 >
-                                  Neural
+                                  Live
                                 </button>
                              </div>
                          </div>
@@ -367,7 +367,7 @@ export default function AnalysisDashboard() {
                             <SearchCode className="w-6 h-6 md:w-7 md:h-7" />
                          </div>
                          <div>
-                            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">SEO_HEALTH_CORE</h2>
+                            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">SEARCH_OPTIMIZATION_STATUS</h2>
                             <p className="text-[9px] md:text-xs font-mono text-zinc-500 uppercase tracking-widest">Global Scan: {currentTime?.toLocaleTimeString() || "Syncing..."}</p>
                          </div>
                       </div>
@@ -382,7 +382,7 @@ export default function AnalysisDashboard() {
                          ].map((item, i) => (
                            <div key={i} className="p-5 md:p-6 rounded-2xl md:rounded-[2rem] bg-white/[0.02] border border-white/5 flex items-center justify-between group hover:border-primary-accent/30 transition-all">
                               <div className="flex items-center gap-4 md:gap-6">
-                                 <span className="text-[9px] md:text-[11px] font-mono text-zinc-700">NODE_0{i+1}</span>
+                                 <span className="text-[9px] md:text-[11px] font-mono text-zinc-700">CHECK_0{i+1}</span>
                                  <h4 className="text-base md:text-lg font-bold uppercase tracking-tight text-white group-hover:text-primary-accent transition-colors">{item.name}</h4>
                               </div>
                               <div className="flex items-center gap-4 md:gap-8">
@@ -419,13 +419,13 @@ export default function AnalysisDashboard() {
 
                       <div className="p-8 md:p-10 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem]">
                          <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-6 md:mb-8 flex items-center gap-3">
-                            <Lightbulb size={16} className="text-primary-accent" /> Strategic Directives_
+                            <Lightbulb size={16} className="text-primary-accent" /> Action Plan_
                          </h3>
                          <div className="space-y-4 md:space-y-6">
                             {[
                                "Synchronize metadata for Kerala / UAE regions.",
                                "Accelerate image-to-neural pipeline speed.",
-                               "Optimize service pages for 'AI Ad Film' keywords.",
+                               "Optimize service pages for Lacrispo brand terms.",
                                "Deep-index 2026 industry authority articles."
                             ].map((tip, i) => (
                               <div key={i} className="flex gap-4 text-[11px] md:text-[13px] font-bold uppercase tracking-tight text-zinc-400 group cursor-default">
@@ -448,7 +448,7 @@ export default function AnalysisDashboard() {
                 >
                    <div className="p-8 md:p-12 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem]">
                       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 md:mb-16 gap-6">
-                         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">MARKET_INTENT_RADAR</h2>
+                         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">MARKET_INSIGHTS_RADAR</h2>
                          <div className="flex items-center gap-6 md:gap-10 text-[9px] md:text-[11px] font-mono tracking-widest text-zinc-600 uppercase">
                             <span className="flex items-center gap-2"><Gauge size={14} /> High Demand</span>
                             <span className="flex items-center gap-2"><LineChart size={14} /> Peak Signal</span>
@@ -458,7 +458,7 @@ export default function AnalysisDashboard() {
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
                          <div className="space-y-8 md:space-y-10">
                             {[
-                              { label: "AI Video Commercials", val: "94%", trend: "Critical" },
+                              { label: "Lacrispo Branding", val: "94%", trend: "Critical" },
                               { label: "Cinematic Virtual Prod", val: "68%", trend: "Growing" },
                               { label: "Performance Video Ads", val: "96%", trend: "Critical" },
                               { label: "Neural Brand Films", val: "54%", trend: "Scaling" }
@@ -483,7 +483,7 @@ export default function AnalysisDashboard() {
                             <Target className="w-10 h-10 md:w-12 md:h-12 text-primary-accent mb-6 md:mb-8" />
                             <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter mb-4">Strategic Targeting_</h3>
                             <p className="text-[11px] md:text-sm font-bold text-zinc-500 uppercase tracking-widest leading-loose mb-8 md:mb-10 max-w-sm">
-                               Global intent for 'Cinematic AI' is peaking. Redirecting creative nodes to capture high-stakes ad production.
+                               Global intent for Lacrispo and 'Cinematic AI' is peaking. Redirecting creative nodes to capture high-stakes ad production.
                             </p>
                              <Link 
                                 href="/contact"
@@ -506,7 +506,7 @@ export default function AnalysisDashboard() {
                 >
                    {/* GLOBAL REACH */}
                    <div className="lg:col-span-2 p-8 md:p-12 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem] h-[500px] md:h-[600px] flex flex-col">
-                      <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-8 md:mb-10">GLOBAL_SYSTEM_TOPOLOGY</h2>
+                      <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-8 md:mb-10">GLOBAL_PRESENCE_MAP</h2>
                       <div className="flex-1 border border-white/10 rounded-[2rem] md:rounded-[3rem] bg-black/50 relative overflow-hidden group shadow-inner">
                          {/* SIMULATED GRID */}
                          <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 pointer-events-none opacity-40">
@@ -532,7 +532,7 @@ export default function AnalysisDashboard() {
                          </AnimatePresence>
                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                             <Globe className="w-32 h-32 md:w-48 md:h-48 text-zinc-800 opacity-20" />
-                            <h3 className="text-[9px] md:text-[10px] font-black uppercase tracking-[1em] text-zinc-600 absolute w-full left-0 mt-4">DP_NETWORK_ACTIVE</h3>
+                            <h3 className="text-[9px] md:text-[10px] font-black uppercase tracking-[1em] text-zinc-600 absolute w-full left-0 mt-4">WEBSITE_ACTIVE_GLOBALLY</h3>
                          </div>
                       </div>
                    </div>
@@ -540,7 +540,7 @@ export default function AnalysisDashboard() {
                    {/* LIVE LOG STREAM */}
                    <div className="p-8 md:p-10 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem] flex flex-col h-[500px] md:h-auto">
                       <div className="flex items-center justify-between mb-6 md:mb-8 pb-4 border-b border-white/5">
-                         <span className="text-[10px] md:text-[11px] font-black uppercase tracking-widest text-primary-accent">Log_Stream v6.0</span>
+                         <span className="text-[10px] md:text-[11px] font-black uppercase tracking-widest text-primary-accent">System Activity v6.0</span>
                          <div className="h-2 w-2 rounded-full bg-primary-accent animate-pulse shadow-[0_0_10px_var(--primary-accent)]" />
                       </div>
                       <div className="flex-1 font-mono text-[9px] md:text-[11px] text-zinc-500 space-y-3 overflow-y-auto no-scrollbar bg-black/30 p-5 md:p-6 rounded-2xl md:rounded-3xl border border-white/5 shadow-inner">

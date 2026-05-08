@@ -198,6 +198,42 @@ export default function AIVideoProductionLandingPage() {
            </div>
         </section>
 
+        {/* 🎞️ FEATURED PROJECT: LACRISPO */}
+        <section className="mb-48">
+           <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <div className="relative aspect-[4/5] md:aspect-video lg:aspect-[4/5] rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group">
+                 <LiteYouTube videoId="vGijXeVUS74" title="Lacrispo Snacks AI Theatre Ad" />
+                 <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              </div>
+              <div className="space-y-10">
+                 <div className="flex items-center gap-4">
+                    <span className="px-4 py-1 rounded-full bg-primary-accent/10 border border-primary-accent/20 text-[10px] font-black text-primary-accent uppercase tracking-widest">Featured Project</span>
+                    <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Client: Lacrispo Snacks</span>
+                 </div>
+                 <h2 className="text-4xl md:text-7xl font-black uppercase italic leading-tight tracking-tighter">
+                    Lacrispo Snacks <br />
+                    <span className="text-primary-accent">AI Theatre Ad_</span>
+                 </h2>
+                 <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest max-w-xl">
+                    A cinematic masterpiece blending high-end food cinematography with advanced neural rendering. This theatre advertisement defines the future of FMCG marketing in Kerala.
+                 </p>
+                 <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
+                    <div>
+                       <h4 className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2">Category</h4>
+                       <p className="text-sm font-bold uppercase tracking-tight">AI Commercial / Theatre Ad</p>
+                    </div>
+                    <div>
+                       <h4 className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2">Visual Style</h4>
+                       <p className="text-sm font-bold uppercase tracking-tight">Luxury Food Cinematic</p>
+                    </div>
+                 </div>
+                 <Link href="/contact" className="h-20 px-12 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-4 hover:scale-105 transition-all w-fit shadow-xl mt-12">
+                    Inquire for Similar Project <ArrowRight size={18} />
+                 </Link>
+              </div>
+           </div>
+        </section>
+
         {/* 💰 LEAD CAPTURE SECTION */}
         <section id="lead-capture" className="mb-48 grid lg:grid-cols-2 gap-32 items-center">
            <div className="space-y-16">
