@@ -215,8 +215,8 @@ export default function BlogPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
            {[
-             { img: "/ai_tvc_luxury_food_frame_1778219193859.png", title: "Luxury Food AI TVC", tag: "Hyper-Realism" },
-             { img: "/ai_tvc_automotive_frame_1778219216582.png", title: "Automotive AI Ads", tag: "High Speed" },
+             { img: "/images/blog/ai_tvc_luxury_food_frame_1778219193859.png", title: "Luxury Food AI TVC", tag: "Hyper-Realism" },
+             { img: "/images/blog/ai_tvc_automotive_frame_1778219216582.png", title: "Automotive AI Ads", tag: "High Speed" },
              { img: "/images/blog/ai-tvc-beauty.png", title: "Beauty & Fashion AI", tag: "Cinematic" }
            ].map((item, i) => (
              <motion.div 
