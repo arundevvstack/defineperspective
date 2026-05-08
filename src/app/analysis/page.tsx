@@ -125,7 +125,7 @@ export default function AnalysisDashboard() {
       )}
     >
        <div className={cn("p-3 md:p-4 rounded-xl md:rounded-2xl bg-white/5 w-fit mb-6 md:mb-8", color || "text-primary-accent")}>
-          <Icon size={20} className="md:size-24" />
+          <Icon className="w-5 h-5 md:w-6 md:h-6" />
        </div>
        <h4 className="text-[9px] md:text-[11px] font-mono text-zinc-400 uppercase tracking-widest mb-1 md:mb-2">{title}_</h4>
        <div className="text-3xl md:text-5xl font-black tracking-tighter mb-2 md:mb-4 text-white group-hover:scale-105 transition-transform origin-left">{value}</div>
@@ -133,7 +133,7 @@ export default function AnalysisDashboard() {
           <Activity size={10} className="text-primary-accent" /> {sub}
        </div>
        <div className="absolute top-0 right-0 p-4 md:p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-          <Icon size={80} className="md:size-120" />
+          <Icon className="w-20 h-20 md:w-32 md:h-32" />
        </div>
     </div>
   );
@@ -327,7 +327,7 @@ export default function AnalysisDashboard() {
                             ].map((d, i) => (
                               <div key={i} className="space-y-4">
                                  <div className="flex justify-between items-center text-[10px] md:text-xs font-black uppercase tracking-widest">
-                                    <span className="flex items-center gap-3 text-white"><d.icon size={14} className="md:size-16" /> {d.label}</span>
+                                    <span className="flex items-center gap-3 text-white"><d.icon className="w-3.5 h-3.5 md:w-4 md:h-4" /> {d.label}</span>
                                     <span className="text-zinc-500 font-mono">{d.val}</span>
                                  </div>
                                  <div className="h-1.5 md:h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
@@ -364,7 +364,7 @@ export default function AnalysisDashboard() {
                    <div className="p-8 md:p-12 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem]">
                       <div className="flex items-center gap-6 mb-8 md:mb-12 border-b border-white/5 pb-6 md:pb-8">
                          <div className="h-12 w-12 md:h-14 md:w-14 rounded-xl md:rounded-2xl bg-green-500/10 flex items-center justify-center text-green-500 shadow-[0_0_30px_rgba(34,197,94,0.1)]">
-                            <SearchCode size={24} md:size={28} />
+                            <SearchCode className="w-6 h-6 md:w-7 md:h-7" />
                          </div>
                          <div>
                             <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">SEO_HEALTH_CORE</h2>
@@ -391,7 +391,7 @@ export default function AnalysisDashboard() {
                                     <span className={cn("text-[8px] md:text-[9px] font-mono uppercase tracking-widest", item.color)}>{item.status}</span>
                                  </div>
                                  <div className="h-8 md:h-10 w-px bg-white/5" />
-                                 <CheckCircle2 size={16} md:size={18} className="text-green-500" />
+                                 <CheckCircle2 className="w-4 h-4 md:w-[18px] md:h-[18px] text-green-500" />
                               </div>
                            </div>
                          ))}
@@ -480,7 +480,7 @@ export default function AnalysisDashboard() {
                             ))}
                          </div>
                          <div className="p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] bg-black/40 border border-white/5 flex flex-col justify-center items-center text-center">
-                            <Target size={40} md:size={48} className="text-primary-accent mb-6 md:mb-8" />
+                            <Target className="w-10 h-10 md:w-12 md:h-12 text-primary-accent mb-6 md:mb-8" />
                             <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter mb-4">Strategic Targeting_</h3>
                             <p className="text-[11px] md:text-sm font-bold text-zinc-500 uppercase tracking-widest leading-loose mb-8 md:mb-10 max-w-sm">
                                Global intent for 'Cinematic AI' is peaking. Redirecting creative nodes to capture high-stakes ad production.
@@ -531,7 +531,7 @@ export default function AnalysisDashboard() {
                            ))}
                          </AnimatePresence>
                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                            <Globe size={140} md:size={180} className="text-zinc-800 opacity-20" />
+                            <Globe className="w-32 h-32 md:w-48 md:h-48 text-zinc-800 opacity-20" />
                             <h3 className="text-[9px] md:text-[10px] font-black uppercase tracking-[1em] text-zinc-600 absolute w-full left-0 mt-4">DP_NETWORK_ACTIVE</h3>
                          </div>
                       </div>
