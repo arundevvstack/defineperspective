@@ -327,10 +327,18 @@ const MapVisualizer = () => {
         center: [0, 20],
         zoom: 1.5,
         attributionControl: false,
+        antialias: true
       });
 
       map.on('load', () => {
         mapRef.current = map;
+        
+        // Add Standard Navigation Controls
+        map.addControl(new maplibregl.NavigationControl({ showCompass: true }), 'bottom-right');
+        map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+        
+        // Add Scale Control
+        map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
       });
     };
 
@@ -343,6 +351,28 @@ const MapVisualizer = () => {
       }
     };
   }, []);
+
+  // Tactical City Search Function
+  const jumpToCity = async (query: string) => {
+    if (!query || !mapRef.current) return;
+    try {
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=1`);
+      const data = await res.json();
+      if (data && data[0]) {
+        const { lat, lon } = data[0];
+        mapRef.current.flyTo({
+          center: [parseFloat(lon), parseFloat(lat)],
+          zoom: 10,
+          speed: 1.5,
+          curve: 1,
+          essential: true
+        });
+        setSearch("");
+      }
+    } catch (e) {
+      console.error("Search failed", e);
+    }
+  };
 
   // Live Alert Simulator: Trigger "Incoming Search" alerts
   useEffect(() => {
@@ -431,18 +461,21 @@ const MapVisualizer = () => {
           const cityName = (loc.city || "UNKNOWN").split(",")[0].toUpperCase();
           
           el.innerHTML = `
-            <div class="relative group flex flex-col items-center">
-              <div class="w-1 h-3 bg-red-500/60 rounded-full group-hover:bg-red-500 transition-colors" />
-              <div class="w-0.5 h-1.5 bg-red-500/30 -mt-0.5" />
+            <div class="relative group flex flex-col items-center cursor-pointer">
+              <div class="w-1.5 h-1.5 bg-red-500/80 rounded-full border border-white/20 group-hover:scale-150 transition-transform" />
               <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-black/90 border border-red-500/20 px-2 py-1 text-[7px] text-red-500 pointer-events-none uppercase font-black">
                  ${cityName}
               </div>
             </div>
           `;
 
-          new maplibregl.Marker({ element: el, anchor: 'bottom' })
+          const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
             .setLngLat([loc.lng, loc.lat])
             .addTo(mapRef.current);
+            
+          el.addEventListener('click', () => {
+            mapRef.current.flyTo({ center: [loc.lng, loc.lat], zoom: 8, speed: 1.2 });
+          });
         }
       });
     };
@@ -462,9 +495,16 @@ const MapVisualizer = () => {
       {/* CSS Injection for MapLibre Custom Styles */}
       <style dangerouslySetInnerHTML={{ __html: `
         .maplibregl-canvas { outline: none !important; }
-        .maplibregl-ctrl { display: none !important; }
         .maplibregl-ctrl-attrib { display: none !important; }
         .maplibregl-ctrl-logo { display: none !important; }
+        .maplibregl-ctrl-group { 
+          background: rgba(0,0,0,0.8) !important; 
+          border: 1px solid rgba(0,255,65,0.2) !important; 
+          backdrop-filter: blur(10px);
+        }
+        .maplibregl-ctrl-group button { border-bottom: 1px solid rgba(0,255,65,0.1) !important; }
+        .maplibregl-ctrl-group button span { filter: invert(1) brightness(100) !important; }
+        
         /* High Contrast Tactical Map */
         .maplibregl-map { 
           filter: grayscale(1) brightness(0.8) contrast(1.4) !important;
@@ -480,6 +520,27 @@ const MapVisualizer = () => {
         className="absolute inset-0 z-10 w-full h-full" 
         style={{ backgroundColor: '#000' }} 
       />
+
+      {/* Search & Navigation Bar Overlay */}
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-6">
+          <div className="glass border-primary-accent/30 bg-black/60 p-2 flex items-center gap-3 backdrop-blur-xl">
+              <LucideMap size={16} className="text-red-500 ml-2" />
+              <input 
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && jumpToCity(search)}
+                placeholder="ENTER_DESTINATION_FOR_FLY_TO..."
+                className="bg-transparent border-none outline-none text-[10px] text-primary-accent font-mono w-full placeholder:text-primary-accent/30"
+              />
+              <button 
+                onClick={() => jumpToCity(search)}
+                className="bg-primary-accent/10 border border-primary-accent/30 px-3 py-1 text-[8px] font-black hover:bg-primary-accent/20 transition-all uppercase"
+              >
+                GOTO
+              </button>
+          </div>
+      </div>
 
       {/* SEO Strength HUD Overlay */}
       <div className="absolute bottom-10 left-10 z-50 flex gap-4 pointer-events-none">
