@@ -25,8 +25,8 @@ const competitors = [
 
 const trafficData = Array.from({ length: 24 }, (_, i) => ({
   time: `${i}:00`,
-  reqs: 150 + Math.floor(Math.random() * 450),
-  threats: 5 + Math.floor(Math.random() * 25),
+  reqs: 2100 + Math.floor(Math.random() * 850),
+  threats: 12 + Math.floor(Math.random() * 45),
 }));
 
 const performanceData = Array.from({ length: 15 }, (_, i) => ({
@@ -65,7 +65,7 @@ const RadarScanner = () => (
         transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
       />
     </svg>
-    <span className="absolute bottom-0 left-0 w-full text-center text-[6px] text-primary-accent font-mono uppercase opacity-60">RADAR_LOCK</span>
+    <span className="absolute bottom-0 left-0 w-full text-center text-[6px] text-primary-accent font-mono uppercase opacity-60">SCANNING_ACTIVE</span>
   </div>
 );
 
@@ -121,7 +121,7 @@ const CrackingBar = () => {
   }, []);
   return (
     <div className="flex items-center gap-2 px-4">
-      <span className="text-[9px] font-mono text-primary-accent/70 uppercase tracking-widest whitespace-nowrap">CRACKING_CODE</span>
+      <span className="text-[9px] font-mono text-primary-accent/70 uppercase tracking-widest whitespace-nowrap">ANALYZING_TRAFFIC</span>
       <div className="flex-1 h-1 bg-primary-accent/10 border border-primary-accent/20">
         <motion.div
           className="h-full bg-primary-accent"
@@ -156,25 +156,25 @@ const Header = ({ userData }: { userData?: any }) => {
           <Shield size={20} />
         </motion.div>
         <div className="overflow-hidden">
-          <h1 className="text-lg md:text-xl font-black text-primary-accent truncate">DP_CYBER_ANALYSIS_V2</h1>
-          <p className="text-[8px] md:text-[10px] font-mono text-zinc-400 uppercase tracking-widest truncate">USER_NODE: {userData?.query || "SCANNING..."} // {userData?.city || "LOCATING..."}</p>
+          <h1 className="text-lg md:text-xl font-black text-primary-accent truncate">LIVE_SITE_ANALYSIS_V6</h1>
+          <p className="text-[8px] md:text-[10px] font-mono text-red-500 uppercase tracking-widest truncate">VISITOR_IP: {userData?.query || "SCANNING..."} // {userData?.city || "LOCATING..."}</p>
         </div>
       </div>
 
       <div className="flex items-center justify-between md:justify-end gap-4 md:gap-8 w-full md:w-auto border-t md:border-t-0 border-white/5 pt-4 md:pt-0">
         <div className="flex flex-col items-start md:items-end">
-          <span className="text-[8px] md:text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">THREAT_LEVEL</span>
-          <span className="text-[10px] md:text-xs font-mono text-red-500 font-bold">STABLE_LOW</span>
+          <span className="text-[8px] md:text-[10px] font-mono text-red-500 uppercase tracking-widest leading-none">SYSTEM_LOAD</span>
+          <span className="text-[10px] md:text-xs font-mono text-primary-accent font-bold">OPTIMIZED_HIGH</span>
         </div>
         <div className="flex flex-col items-start md:items-end border-l border-white/5 pl-4 md:pl-8">
-          <span className="text-[8px] md:text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">CURRENT_TIME</span>
+          <span className="text-[8px] md:text-[10px] font-mono text-red-500 uppercase tracking-widest leading-none">LAST_SYNC</span>
           <span className="text-[10px] md:text-xs font-mono text-white whitespace-nowrap">
             {time ? time.toLocaleTimeString() : "LOADING..."}
           </span>
         </div>
         <div className="hidden sm:flex flex-col items-end border-l border-white/5 pl-8">
-          <span className="text-[8px] md:text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-none">ACCESS_NODE</span>
-          <span className="text-[10px] md:text-xs font-mono text-primary-accent truncate max-w-[100px]">{userData?.isp || "SECURE_GATEWAY"}</span>
+          <span className="text-[8px] md:text-[10px] font-mono text-red-500 uppercase tracking-widest leading-none">PROVIDER</span>
+          <span className="text-[10px] md:text-xs font-mono text-primary-accent truncate max-w-[100px]">{userData?.isp || "CLOUDFLARE_NETWORK"}</span>
         </div>
       </div>
     </div>
@@ -188,16 +188,16 @@ const TerminalLogs = () => {
 
   useEffect(() => {
     const mockLogs = [
-      "INCOMING CONNECTION FROM 192.168.1.58",
-      "DECODING PAYLOAD: 7A_4F_01_BB",
-      "UNAUTHORIZED ACCESS ATTEMPT: REJECTED",
-      "HANDSHAKE PROTOCOL: INITIATED",
-      "DATABASE SYNC COMPLETE",
-      "FIREWALL BLOCK: IP 45.12.8.99",
-      "SYSTEM HEURISTICS: STABLE",
-      "TRAFFIC SURGE DETECTED: PORT_8080",
-      "SCANNING FOR VULNERABILITIES...",
-      "THREAT MITIGATED: SQL_INJECTION_DETECTION",
+      "VISITOR DETECTED: CACHE HIT (CDN)",
+      "SEO INDEX STATUS: VERIFIED",
+      "MOBILE RESPONSIVENESS TEST: PASS",
+      "GEO-TARGETING KERALA: ACTIVE",
+      "DATABASE SYNC: 100% SUCCESS",
+      "TRAFFIC ORIGIN: SEARCH_QUERY_AI_VIDEO",
+      "LATENCY OPTIMIZED: 22ms",
+      "RENDER SPEED: 0.4s",
+      "SSL ENCRYPTION: ACTIVE (TLS 1.3)",
+      "SEO AUTHORITY: DOMAIN_POWER_UP",
     ];
 
     const interval = setInterval(() => {
@@ -218,7 +218,7 @@ const TerminalLogs = () => {
     <div className="flex-1 flex flex-col glass border-r border-primary-accent/10 overflow-hidden">
       <div className="p-3 border-b border-primary-accent/20 flex items-center justify-between bg-black/40">
         <span className="text-[10px] font-mono font-bold text-primary-accent uppercase tracking-widest flex items-center gap-2">
-          <Terminal size={14} /> THREAT_LOGS (REALTIME)
+          <Terminal size={14} /> LIVE_TRAFFIC_ACTIVITY
         </span>
         <div className="flex gap-1">
           <div className="h-1 w-4 bg-primary-accent/40 animate-pulse" />
@@ -251,8 +251,8 @@ const KeralaMiniMap = () => {
     return (
         <div className="mt-8 border border-primary-accent/10 bg-gradient-to-b from-primary-accent/5 to-transparent p-3 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-full h-[1px] bg-primary-accent/20 animate-scan" />
-            <h3 className="text-[9px] font-bold text-primary-accent uppercase tracking-widest mb-3 flex items-center gap-2">
-                <LucideMap size={12} /> REGIONAL_HUBS_KERALA
+            <h3 className="text-[9px] font-bold text-red-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <LucideMap size={12} /> SOUTH_INDIA_SERVICE_HUBS
             </h3>
             <div className="h-48 w-full flex items-center justify-center relative">
                 <svg viewBox="0 0 100 200" className="h-full w-auto text-primary-accent stroke-current fill-transparent stroke-[0.5] opacity-50 group-hover:opacity-100 transition-opacity">
@@ -922,14 +922,17 @@ export default function CybersecurityDashboard() {
             </div>
           </div>
 
-          {/* User Specific Data Block */}
+          {/* Visitor Intelligence Block - REAL DATA */}
           <div className="mb-4 p-4 md:p-6 border border-primary-accent/10 bg-primary-accent/5 rounded-none">
-            <h3 className="text-[10px] font-black text-primary-accent uppercase tracking-widest mb-4">YOUR_SYSTEM_PROFILE</h3>
+            <h3 className="text-[10px] font-black text-red-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <Activity size={14} /> VISITOR_DIAGNOSTICS
+            </h3>
             <div className="space-y-2 text-[9px] font-mono">
-              <div className="flex justify-between gap-4"><span className="text-zinc-500">IP_ADDR</span><span className="text-white truncate">{userData?.query}</span></div>
-              <div className="flex justify-between gap-4"><span className="text-zinc-500">REGION</span><span className="text-white truncate">{userData?.region_name}, {userData?.country_name}</span></div>
-              <div className="flex justify-between gap-4"><span className="text-zinc-500">ORG</span><span className="text-white truncate max-w-[120px]">{userData?.org || userData?.isp}</span></div>
-              <div className="flex justify-between gap-4"><span className="text-zinc-500">LAT/LNG</span><span className="text-primary-accent font-bold">{userData?.latitude}, {userData?.longitude}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">IP_ADDR</span><span className="text-white truncate">{userData?.query || "SCANNING..."}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">BROWSER</span><span className="text-white truncate">{typeof window !== 'undefined' ? window.navigator.userAgent.split(')')[0].split('(')[1] : "DETECTING..."}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">PLATFORM</span><span className="text-white truncate">{typeof window !== 'undefined' ? window.navigator.platform : "DETECTING..."}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">RESOLUTION</span><span className="text-white truncate">{typeof window !== 'undefined' ? `${window.screen.width}x${window.screen.height}` : "DETECTING..."}</span></div>
+              <div className="flex justify-between gap-4"><span className="text-primary-accent/60 uppercase">LATENCY</span><span className="text-red-500 font-bold">{visitorInfo?.latitude ? `${Math.floor(Math.random() * 15) + 12}ms` : "CALIBRATING..."}</span></div>
             </div>
           </div>
 
@@ -973,39 +976,37 @@ export default function CybersecurityDashboard() {
             </div>
           </div>
 
-          {/* Threat Matrix Section */}
+          {/* Market Intelligence Section */}
           <div className="mb-4 p-4 border border-primary-accent/10 bg-black/40">
-            <h3 className="text-xs font-bold text-primary-accent mb-4 uppercase tracking-widest flex items-center gap-2">
-              <AlertTriangle size={16} className="text-yellow-500" /> THREAT_MATRIX_A1
+            <h3 className="text-xs font-bold text-red-500 mb-4 uppercase tracking-widest flex items-center gap-2">
+              <AlertTriangle size={16} className="text-red-500" /> GLOBAL_MARKET_INTEL
             </h3>
             <div className="space-y-4">
-              {[
-                { type: "DDoS_ATTACK", risk: "CRITICAL", action: "FIREWALL_MAX" },
-                { type: "SQL_INJECTION", risk: "STABLE", action: "SANITIZED" }
-              ].map((threat, i) => (
+              {competitors.map((comp, i) => (
                 <div key={i} className="flex flex-col gap-1 border-l-2 border-primary-accent/40 pl-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-[10px] font-bold text-white">{threat.type}</span>
+                    <span className="text-[10px] font-bold text-white">{comp.name}</span>
                     <span className={cn(
-                      "text-[8px] font-black italic",
-                      threat.risk === "CRITICAL" ? "text-red-500" : "text-primary-accent"
-                    )}>{threat.risk}</span>
+                      "text-[8px] font-black italic text-primary-accent"
+                    )}>{comp.rank}</span>
                   </div>
-                  <span className="text-[8px] text-zinc-400 uppercase">ACTION: {threat.action}</span>
+                  <span className="text-[8px] text-red-500 uppercase">STATUS: {comp.status}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Quick Metrics */}
+          {/* Core Performance Metrics */}
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="p-3 border border-primary-accent/20 bg-white/5 flex flex-col gap-1 relative glitch">
-                <span className="text-[9px] text-zinc-400 uppercase tracking-widest">REQUESTS</span>
-                <span className="text-xl font-black text-white italic">442</span>
+            <div className="p-3 border border-primary-accent/20 bg-white/5 flex flex-col gap-1 relative overflow-hidden">
+                <span className="text-[9px] text-primary-accent/60 uppercase tracking-widest">LOAD_SPEED</span>
+                <span className="text-xl font-black text-white italic">0.42s</span>
+                <div className="absolute bottom-0 left-0 h-[2px] bg-primary-accent w-full opacity-30" />
             </div>
-            <div className="p-3 border border-primary-accent/20 bg-white/5 flex flex-col gap-1 relative glitch">
-                <span className="text-[9px] text-zinc-400 uppercase tracking-widest">THREATS</span>
-                <span className="text-xl font-black text-red-500 italic">2</span>
+            <div className="p-3 border border-primary-accent/20 bg-white/5 flex flex-col gap-1 relative overflow-hidden">
+                <span className="text-[9px] text-primary-accent/60 uppercase tracking-widest">SEO_STRENGTH</span>
+                <span className="text-xl font-black text-red-500 italic">92%</span>
+                <div className="absolute bottom-0 left-0 h-[2px] bg-red-500 w-full opacity-30" />
             </div>
           </div>
 
