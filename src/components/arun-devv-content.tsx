@@ -5,7 +5,7 @@ import {
   Plus, Users, Globe, BarChart3, Star, Building2, Zap, Target, Activity, 
   MessageCircle, ArrowRight, Shield, Cpu, Play, CheckCircle2, 
   BrainCircuit, Rocket, Camera, Video, Sparkles, Layout, Lightbulb,
-  MousePointer2, Phone, Mail, Instagram, Linkedin, Facebook
+  MousePointer2, Phone, Mail
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import WhatsAppChat from "@/components/whatsapp-chat";
