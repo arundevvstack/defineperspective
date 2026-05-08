@@ -13,8 +13,8 @@ export default function ThemeInitializer() {
                    pathname === "/ai-services" || 
                    (pathname === "/portfolio" && searchParams.get("view") === "ai");
     
-    document.documentElement.classList.remove('theme-red', 'theme-blue');
-    document.documentElement.classList.add(isBlue ? 'theme-blue' : 'theme-red');
+    document.documentElement.classList.remove('theme-red', 'theme-blue', 'theme-green');
+    document.documentElement.classList.add(isBlue ? 'theme-green' : 'theme-red');
   }, [pathname, searchParams]);
 
   return null;

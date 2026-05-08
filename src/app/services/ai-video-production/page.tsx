@@ -197,7 +197,7 @@ export default function AIVideoProductionLandingPage() {
         </section>
 
         {/* 🎞️ FEATURED PROJECT: LACRISPO */}
-        <section className="mb-48 relative group">
+        <section className="mb-64 relative group">
            {/* Decorative Background Glow */}
            <div className="absolute -inset-10 bg-primary-accent/5 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
            
@@ -226,7 +226,7 @@ export default function AIVideoProductionLandingPage() {
                        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em]">Client: Lacrispo Snacks</span>
                     </div>
 
-                    <h2 className="text-5xl md:text-7xl xl:text-[7rem] font-black uppercase italic leading-[0.8] tracking-tighter text-white">
+                    <h2 className="text-4xl md:text-6xl xl:text-[6.5rem] font-black uppercase italic leading-[0.8] tracking-tighter text-white">
                        Lacrispo <br />
                        <span className="text-primary-accent drop-shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.2)]">AI Commercial_</span>
                     </h2>
