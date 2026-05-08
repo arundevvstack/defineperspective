@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 
 // SEO Metadata
 export const metadata: Metadata = {
+  metadataBase: new URL("https://defineperspective.in"),
   title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "DP AI Studio is the best AI TVC production company in India & Kerala. Specialized in luxury AI commercials, cinematic brand films, and high-end ad production.",
   keywords: [
@@ -43,12 +44,12 @@ export const metadata: Metadata = {
     "AI Marketing Video Production",
   ],
   alternates: {
-    canonical: "https://defineperspective.com/top-ai-tvc-production-india",
+    canonical: "https://defineperspective.in/top-ai-tvc-production-india",
   },
   openGraph: {
-    title: "Top AI TVC Production India | Cinematic Commercial Filmmaking",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     description: "Leading the future of AI advertising in India. Premium AI commercials for luxury brands.",
-    url: "https://defineperspective.com/top-ai-tvc-production-india",
+    url: "https://defineperspective.in/top-ai-tvc-production-india",
     siteName: "DP AI Studio",
     images: [{ url: "/images/og-ai-tvc-india.jpg", width: 1200, height: 630 }],
     locale: "en_IN",
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best AI TVC Production Company in India | DP AI Studio",
+    title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     description: "Next-generation AI cinematic storytelling for national and global brands.",
     images: ["/images/og-ai-tvc-india.jpg"],
   },
@@ -68,10 +69,10 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://defineperspective.com/#organization",
+      "@id": "https://defineperspective.in/#organization",
       "name": "Define Perspective (DP AI Studio)",
-      "url": "https://defineperspective.com",
-      "logo": "https://defineperspective.com/logo.png",
+      "url": "https://defineperspective.in",
+      "logo": "https://defineperspective.in/logo.png",
       "sameAs": [
         "https://www.youtube.com/@DP.AI.Studio",
         "https://wa.me/917012941696"
@@ -81,7 +82,7 @@ const jsonLd = {
     {
       "@type": "Service",
       "serviceType": "AI TVC Production",
-      "provider": { "@id": "https://defineperspective.com/#organization" },
+      "provider": { "@id": "https://defineperspective.in/#organization" },
       "areaServed": [
         { "@type": "Country", "name": "India" },
         { "@type": "State", "name": "Kerala" },
@@ -132,9 +133,9 @@ const jsonLd = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://defineperspective.com" },
-        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://defineperspective.com/services" },
-        { "@type": "ListItem", "position": 3, "name": "Top AI TVC Production India", "item": "https://defineperspective.com/top-ai-tvc-production-india" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://defineperspective.in" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://defineperspective.in/services" },
+        { "@type": "ListItem", "position": 3, "name": "Top AI TVC Production India", "item": "https://defineperspective.in/top-ai-tvc-production-india" }
       ]
     }
   ]
