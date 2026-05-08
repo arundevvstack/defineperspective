@@ -158,13 +158,11 @@ export default function AIVideoProductionLandingPage() {
         <header className="mb-48 flex flex-col items-center text-center">
           <div className="flex items-center gap-4 mb-12">
              <div className="px-6 py-2 rounded-full border border-primary-accent/30 text-[10px] font-mono font-black text-primary-accent uppercase tracking-[0.4em] bg-primary-accent/10 backdrop-blur-md">
-               Node: AI Elite Production Hub
+               Node: Professional AI Video Hub
              </div>
           </div>
-          <h1 className="text-6xl md:text-[9rem] font-blacker uppercase leading-[0.8] tracking-tighter mb-16 italic">
-            Best AI <br />
-            <span className="text-primary-accent">Production_</span>
-          </h1>
+            AI Production <br />
+            <span className="text-primary-accent">Services_</span>
           <p className="text-xl md:text-3xl text-zinc-300 font-light max-w-5xl leading-tight uppercase tracking-widest leading-loose mb-16">
             👉 India’s Leading <span className="text-white font-bold">AI Video Production</span> Company for Ads, Content & Brand Films. Scaling brands across <span className="text-white">India, Kerala, UAE, Trivandrum & Kochi</span>.
           </p>
@@ -202,7 +200,7 @@ export default function AIVideoProductionLandingPage() {
         <section className="mb-48">
            <div className="grid lg:grid-cols-2 gap-20 items-center">
               <div className="relative aspect-[4/5] md:aspect-video lg:aspect-[4/5] rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group">
-                 <LiteYouTube videoId="vGijXeVUS74" title="Lacrispo Snacks AI Theatre Ad" />
+                 <LiteYouTube videoId="vGijXeVUS74" title="Lacrispo Snacks AI Commercial" />
                  <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               </div>
               <div className="space-y-10">
@@ -212,10 +210,10 @@ export default function AIVideoProductionLandingPage() {
                  </div>
                  <h2 className="text-4xl md:text-7xl font-black uppercase italic leading-tight tracking-tighter">
                     Lacrispo Snacks <br />
-                    <span className="text-primary-accent">AI Theatre Ad_</span>
+                    <span className="text-primary-accent">AI Commercial_</span>
                  </h2>
                  <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest max-w-xl">
-                    A cinematic masterpiece blending high-end food cinematography with advanced neural rendering. This theatre advertisement defines the future of FMCG marketing in Kerala.
+                    A professional project blending high-end food filming with advanced AI tools. This ad shows the future of snack marketing in Kerala.
                  </p>
                  <div className="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
                     <div>
@@ -238,14 +236,14 @@ export default function AIVideoProductionLandingPage() {
         <section id="lead-capture" className="mb-48 grid lg:grid-cols-2 gap-32 items-center">
            <div className="space-y-16">
               <h2 className="text-5xl md:text-8xl font-black uppercase italic leading-[0.8] mb-12">
-                 AI <br /><span className="text-primary-accent font-blacker">Advantage_</span>
+                 The AI <br /><span className="text-primary-accent font-blacker">Advantage_</span>
               </h2>
               <div className="space-y-10">
                  {[
-                   { t: "Automated Velocity", d: "High-spec video assets ready in hours, not weeks." },
-                   { t: "Infinite Scalability", d: "Generate thousands of ad variations for A/B testing instantly." },
-                   { t: "Cost-Efficiency", d: "Tier-1 Agency quality at a fraction of traditional production costs." },
-                   { t: "Neural Aesthetics", d: "Next-gen visual fidelity powered by state-of-the-art AI labs." }
+                   { t: "Fast Turnaround", d: "High-quality video assets ready in hours, not weeks." },
+                   { t: "Easy to Scale", d: "Generate thousands of ad versions for testing instantly." },
+                   { t: "Cost-Effective", d: "Top agency quality at a fraction of traditional production costs." },
+                   { t: "Modern Look", d: "Next-gen visual quality powered by our advanced AI tools." }
                  ].map((node, i) => (
                    <div key={i} className="flex gap-8 group">
                       <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 border border-primary-accent/20 flex items-center justify-center text-primary-accent group-hover:bg-primary-accent group-hover:text-black transition-all">
@@ -265,8 +263,8 @@ export default function AIVideoProductionLandingPage() {
         {/* 📊 SERVICE BLOCKS (SEO OPTIMIZED) */}
         <section className="mb-48">
            <div className="text-center mb-32">
-              <h2 className="text-4xl md:text-7xl font-black uppercase italic mb-8">AI Matrix <span className="text-primary-accent">Services_</span></h2>
-              <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.4em]">Integrated Authority Sourced From Node: AI_LABS</p>
+              <h2 className="text-4xl md:text-7xl font-black uppercase italic mb-8">Our AI <span className="text-primary-accent">Services_</span></h2>
+              <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.4em]">Expert Video Solutions From Our AI Lab</p>
            </div>
            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
               {aiSilos.map((silo, idx) => (
@@ -297,7 +295,7 @@ export default function AIVideoProductionLandingPage() {
 
         {/* 🌍 LOCATION SEO (CRITICAL) */}
         <section className="mb-48 space-y-12">
-            <h2 className="text-4xl md:text-6xl font-black uppercase italic text-center mb-24 leading-none">Global AI <br /><span className="text-primary-accent">Ranking Nodes_</span></h2>
+            <h2 className="text-4xl md:text-6xl font-black uppercase italic text-center mb-24 leading-none">Our Global <br /><span className="text-primary-accent">Presence_</span></h2>
             <div className="grid lg:grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-[5rem] overflow-hidden">
                {locationBlocks.map(loc => (
                  <div key={loc.id} className="p-16 bg-obsidian hover:bg-white/[0.02] transition-colors group">
@@ -311,13 +309,13 @@ export default function AIVideoProductionLandingPage() {
                        {loc.content}
                     </p>
                     <Link href="/contact" className="flex items-center gap-4 text-[10px] font-mono text-zinc-700 uppercase tracking-widest group-hover:text-white transition-colors">
-                       Establish Connection <ArrowRight size={14} className="group-hover:translate-x-3 transition-transform" />
+                       Get in Touch <ArrowRight size={14} className="group-hover:translate-x-3 transition-transform" />
                     </Link>
                  </div>
                ))}
                <div className="p-20 bg-primary-accent/10 flex flex-col justify-center items-center text-center space-y-12 group hover:bg-primary-accent transition-all duration-700">
                   <BrainCircuit size={160} className="text-primary-accent group-hover:text-black transition-colors" />
-                  <h4 className="text-6xl font-blacker uppercase text-white group-hover:text-black leading-[0.8] italic">Neural <br />Dominance</h4>
+                  <h4 className="text-6xl font-blacker uppercase text-white group-hover:text-black leading-[0.8] italic">AI <br />Leadership</h4>
                   <div className="flex gap-4">
                      {["Kochi", "Dubai", "Trivandrum"].map(c => <span key={c} className="px-4 py-1.5 rounded-full border border-white/10 text-[9px] uppercase font-mono text-white/50 group-hover:text-black group-hover:border-black/20">{c} Hub</span>)}
                   </div>
@@ -332,7 +330,7 @@ export default function AIVideoProductionLandingPage() {
            </div>
            
            <div className="max-w-4xl relative z-10">
-              <h2 className="text-4xl md:text-[6rem] font-black uppercase italic mb-24 leading-none text-white">Market <br /><span className="text-primary-accent">Intelligence_</span></h2>
+              <h2 className="text-4xl md:text-[6rem] font-black uppercase italic mb-24 leading-none text-white">Common <br /><span className="text-primary-accent">Questions_</span></h2>
               
               <div className="space-y-16">
                  {[
@@ -345,7 +343,7 @@ export default function AIVideoProductionLandingPage() {
                  ].map((faq, i) => (
                    <div key={i} className="space-y-6 pb-16 border-b border-white/5 last:border-0 group/faq">
                       <h4 className="text-2xl font-bold text-white uppercase tracking-tight italic group-hover/faq:text-primary-accent transition-colors flex items-center gap-8">
-                         <span className="text-primary-accent opacity-20 text-sm font-mono shrink-0">NODE_0{i+1}</span>
+                         <span className="text-primary-accent opacity-20 text-sm font-mono shrink-0">FAQ_0{i+1}</span>
                          {faq.q}
                       </h4>
                       <p className="pl-14 text-zinc-400 font-light leading-relaxed uppercase tracking-widest text-[11px]">
@@ -376,7 +374,7 @@ export default function AIVideoProductionLandingPage() {
                  </Link>
               </div>
               <div className="flex justify-center items-center gap-16 opacity-30 mt-20">
-                 {["Trivandrum Node", "Kochi Node", "UAE Node", "Global Scale"].map(t => (
+                 {["Trivandrum Lab", "Kochi Lab", "UAE Office", "Global Delivery"].map(t => (
                    <span key={t} className="text-[9px] uppercase font-mono tracking-widest">{t}</span>
                  ))}
               </div>
