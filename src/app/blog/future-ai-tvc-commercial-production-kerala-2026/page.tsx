@@ -217,7 +217,7 @@ export default function BlogPage() {
            {[
              { img: "/images/blog/ai-tvc-luxury-perfume.png", title: "Luxury Perfume AI", tag: "Neural Fidelity" },
              { img: "/images/blog/ai-tvc-automotive-munnar.png", title: "Automotive AI Ads", tag: "Munnar 2026" },
-             { img: "/images/blog/ai-tvc-beauty.png", title: "Beauty & Fashion AI", tag: "Cinematic" }
+             { img: "/images/blog/ai-tvc-beauty.png", title: "Cochin Nights Fashion", tag: "Cinematic" }
            ].map((item, i) => (
              <motion.div 
                key={i}

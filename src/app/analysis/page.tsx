@@ -32,15 +32,23 @@ export default function AnalysisDashboard() {
 
   const [userData, setUserData] = useState<any>(null);
   const [sitePages] = useState<string[]>([
-    "/", "/arun-devv", "/services/ai-video-production", "/blogs", "/portfolio", "/contact"
+    "/", "/arun-devv", "/services/ai-video-production", "/blog", "/portfolio", "/contact"
   ]);
 
   useEffect(() => {
     // Fetch real user data
-    fetch("https://ipapi.co/json/")
-      .then(res => res.json())
-      .then(data => setUserData(data))
-      .catch(() => setUserData({ query: "127.0.0.1", city: "Unknown", org: "Secure Link" }));
+    // Fetch real user data with robust error handling
+    try {
+      fetch("https://ipapi.co/json/")
+        .then(res => {
+          if (!res.ok) throw new Error("API Limit");
+          return res.json();
+        })
+        .then(data => setUserData(data))
+        .catch(() => setUserData({ query: "127.0.0.1", city: "Local Hub", org: "DP Secure Network" }));
+    } catch (e) {
+      setUserData({ query: "127.0.0.1", city: "Local Hub", org: "DP Secure Network" });
+    }
 
     // Initial client-side populate
     setCurrentTime(new Date());
