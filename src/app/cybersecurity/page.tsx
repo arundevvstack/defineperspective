@@ -290,6 +290,7 @@ type GeoLocation = { city: string; lat: number; lng: number; region?: string };
 const MapVisualizer = () => {
   const [locations, setLocations] = useState<GeoLocation[]>([]);
   const [search, setSearch] = useState("");
+  const [alerts, setAlerts] = useState<{ id: string; city: string; ip: string; lat: number; lng: number }[]>([]);
   const mapRef = useRef<any>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
@@ -310,7 +311,7 @@ const MapVisualizer = () => {
       const maplibregl = (await import('maplibre-gl')).default;
       await import('maplibre-gl/dist/maplibre-gl.css');
 
-      if (mapRef.current || !mapContainerRef.current) return;
+      if (mapRef.current) return;
       
       const map = new maplibregl.Map({
         container: mapContainerRef.current,
@@ -322,8 +323,6 @@ const MapVisualizer = () => {
 
       map.on('load', () => {
         mapRef.current = map;
-        // Add a green tint to the whole map via a custom layer filter if needed, 
-        // but the dark matter style is already perfect.
       });
     };
 
@@ -336,6 +335,54 @@ const MapVisualizer = () => {
       }
     };
   }, []);
+
+  // Live Alert Simulator: Trigger "Incoming Search" alerts
+  useEffect(() => {
+    if (locations.length === 0) return;
+    
+    const interval = setInterval(() => {
+      const target = locations[Math.floor(Math.random() * locations.length)];
+      if (!target.lat || !target.lng) return;
+
+      const newAlert = {
+        id: Math.random().toString(36).substr(2, 9),
+        city: target.city.split(",")[0],
+        ip: `${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`,
+        lat: target.lat,
+        lng: target.lng
+      };
+
+      setAlerts(prev => [newAlert, ...prev].slice(0, 5));
+      triggerMapAnimation(newAlert);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [locations]);
+
+  const triggerMapAnimation = async (alert: any) => {
+    if (!mapRef.current) return;
+    const maplibregl = (await import('maplibre-gl')).default;
+
+    const el = document.createElement('div');
+    el.className = 'hacker-alert-pulse';
+    el.innerHTML = `
+      <div class="relative flex items-center justify-center">
+        <div class="absolute w-12 h-12 border-2 border-primary-accent rounded-full animate-ping opacity-20"></div>
+        <div class="absolute w-8 h-8 border border-primary-accent rounded-full animate-ping delay-100 opacity-40"></div>
+        <div class="w-4 h-4 bg-primary-accent rounded-full shadow-[0_0_20px_#00ff41] z-10"></div>
+        <div class="absolute top-6 whitespace-nowrap bg-red-600 text-white font-black text-[7px] px-1 py-0.5 animate-pulse">INCOMING_ACCESS</div>
+      </div>
+    `;
+
+    const marker = new maplibregl.Marker(el)
+      .setLngLat([alert.lng, alert.lat])
+      .addTo(mapRef.current);
+
+    // Remove marker after animation
+    setTimeout(() => {
+      marker.remove();
+    }, 5000);
+  };
 
   const handleZoom = (type: 'in' | 'out') => {
     if (!mapRef.current) return;
@@ -354,31 +401,27 @@ const MapVisualizer = () => {
     });
   };
 
-  // Plot markers when locations are fetched
+  // Plot permanent static markers
   useEffect(() => {
     const plotMarkers = async () => {
       if (!mapRef.current || locations.length === 0) return;
       const maplibregl = (await import('maplibre-gl')).default;
 
-      // Clear existing markers (MapLibre way is different, usually you manage them)
-      // For simplicity in this HUD, we will use a more robust way:
-      const existingMarkers = document.querySelectorAll('.hacker-marker');
+      const existingMarkers = document.querySelectorAll('.hacker-node-static');
       existingMarkers.forEach(m => m.remove());
 
       locations.forEach(loc => {
         if (typeof loc.lat === "number" && typeof loc.lng === "number") {
           const el = document.createElement('div');
-          el.className = 'hacker-marker';
+          el.className = 'hacker-node-static';
           
           const cityName = (loc.city || "UNKNOWN").split(",")[0].toUpperCase();
-          const regionName = (loc.region || "").toUpperCase();
           
           el.innerHTML = `
-            <div class="relative group">
-              <div class="w-3 h-3 bg-primary-accent rounded-full animate-pulse shadow-[0_0_10px_#00ff41]" />
-              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap bg-black/90 border border-primary-accent/40 p-2 text-primary-accent font-mono text-[9px] pointer-events-none shadow-xl">
-                 <div class="font-black">${cityName}</div>
-                 ${regionName ? `<div class="text-[7px] text-zinc-500">${regionName}</div>` : ''}
+            <div class="relative group cursor-pointer">
+              <div class="w-1.5 h-1.5 bg-primary-accent/40 rounded-full group-hover:bg-primary-accent transition-colors" />
+              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-black border border-primary-accent/20 p-1 text-[8px] text-primary-accent pointer-events-none">
+                 ${cityName}
               </div>
             </div>
           `;
@@ -398,12 +441,14 @@ const MapVisualizer = () => {
       {/* CSS Injection for MapLibre Custom Styles */}
       <style dangerouslySetInnerHTML={{ __html: `
         .maplibregl-canvas { outline: none !important; }
-        .hacker-marker { cursor: pointer; z-index: 100; }
         .maplibregl-ctrl-attrib { display: none; }
-        /* Apply the hacker green tint to the vector map */
+        /* Ultra Dark Black Map */
         .maplibregl-map { 
-          filter: sepia(1) hue-rotate(80deg) saturate(1.5) brightness(0.9) contrast(1.1) !important; 
+          filter: grayscale(1) invert(1) brightness(0.05) contrast(1.5) sepia(1) hue-rotate(80deg) saturate(3) !important;
+          background: #000 !important;
         }
+        .hacker-alert-pulse { pointer-events: none; z-index: 500; }
+        .hacker-node-static { cursor: pointer; z-index: 100; }
       ` }} />
 
       {/* Map Container - MapLibre GL */}
@@ -412,6 +457,28 @@ const MapVisualizer = () => {
         className="absolute inset-0 z-10 w-full h-full" 
         style={{ backgroundColor: '#000' }} 
       />
+
+      {/* Incoming Alerts Feed HUD */}
+      <div className="absolute top-24 right-6 z-50 flex flex-col gap-2 pointer-events-none">
+          <AnimatePresence>
+            {alerts.map((alert) => (
+              <motion.div 
+                key={alert.id}
+                initial={{ opacity: 0, x: 50, scale: 0.8 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                className="glass border-red-500/50 bg-red-950/20 p-2 min-w-[180px] flex items-center gap-3 backdrop-blur-md"
+              >
+                  <div className="w-1 h-8 bg-red-500 animate-pulse" />
+                  <div className="flex flex-col">
+                    <span className="text-[7px] text-red-500 font-black tracking-widest leading-none mb-1">INCOMING_SIGNAL_DETECTED</span>
+                    <span className="text-[10px] text-white font-bold tracking-tighter uppercase">{alert.city} // {alert.ip}</span>
+                    <span className="text-[7px] text-zinc-500 font-mono">LAT: {alert.lat.toFixed(2)} / LNG: {alert.lng.toFixed(2)}</span>
+                  </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+      </div>
 
       {/* Hacker Overlays - Higher z-index but transparent to events */}
       <div className="absolute inset-0 z-20 pointer-events-none hacker-grid opacity-[0.1]" />
