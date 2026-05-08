@@ -226,12 +226,12 @@ export default function AIVideoProductionLandingPage() {
                        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em]">Client: Lacrispo Snacks</span>
                     </div>
 
-                    <h2 className="text-5xl md:text-8xl font-black uppercase italic leading-[0.9] tracking-tighter text-white">
+                    <h2 className="text-5xl md:text-7xl xl:text-[7rem] font-black uppercase italic leading-[0.8] tracking-tighter text-white">
                        Lacrispo <br />
                        <span className="text-primary-accent drop-shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.2)]">AI Commercial_</span>
                     </h2>
 
-                    <div className="p-6 md:p-8 rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-3xl relative overflow-hidden group/card">
+                    <div className="p-6 md:p-8 rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-3xl relative overflow-hidden group/card mt-8">
                        <div className="absolute top-0 left-0 w-1 h-full bg-primary-accent/30 group-hover/card:bg-primary-accent transition-colors" />
                        <p className="text-lg md:text-xl text-zinc-300 font-light leading-relaxed uppercase tracking-widest max-w-xl">
                           A professional project blending high-end food filming with advanced AI tools. This ad shows the future of snack marketing in Kerala.
@@ -422,9 +422,9 @@ export default function AIVideoProductionLandingPage() {
 
       {/* 🏙️ Sticky CTA */}
       <div className="fixed bottom-10 right-10 z-[100]">
-         <Link href="#lead-capture" className="h-20 w-20 md:h-24 md:w-64 rounded-full bg-primary-accent text-black font-black uppercase tracking-widest text-xs flex items-center justify-center gap-4 shadow-[0_0_60px_rgba(var(--primary-accent-rgb),0.5)] hover:scale-105 transition-all">
+         <Link href="#lead-capture" className="h-16 w-16 md:h-20 md:w-56 rounded-full bg-primary-accent text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 shadow-[0_0_50px_rgba(0,255,65,0.4)] hover:scale-105 hover:rotate-1 transition-all">
             <span className="hidden md:block">Get AI Audit</span>
-            <Cpu size={28} />
+            <Cpu size={24} />
          </Link>
       </div>
     </main>

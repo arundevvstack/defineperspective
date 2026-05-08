@@ -14,14 +14,23 @@
 :root {
   --background: #000000;
   --foreground: #FFFFFF;
-  --accent: #fb2c36; /* Signature Red - Sharp & Minimal */
-  --accent-rgb: 251, 44, 54;
-  --accent-foreground: #ffffff;
-  --glow: rgba(251, 44, 54, 0.15); /* Reduced intensity for minimal feel */
-  --glow-strong: rgba(251, 44, 54, 0.25);
+  --accent: #00ff41; /* Tactical Green - DP Studio Signature */
+  --accent-rgb: 0, 255, 65;
+  --accent-foreground: #000000;
+  --glow: rgba(0, 255, 65, 0.15);
+  --glow-strong: rgba(0, 255, 65, 0.25);
   --glass-white: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --border-subtle: rgba(255, 255, 255, 0.05);
+}
+
+.theme-green {
+  --accent: #00ff41; 
+  --color-primary-accent: #00ff41 !important;
+  --accent-rgb: 0, 255, 65;
+  --accent-foreground: #000000;
+  --glow: rgba(0, 255, 65, 0.15);
+  --glow-strong: rgba(0, 255, 65, 0.25);
 }
 
 .theme-red {
