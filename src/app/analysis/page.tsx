@@ -104,7 +104,7 @@ export default function AnalysisDashboard() {
       className={cn(
         "group relative flex items-center justify-start gap-4 w-full p-4 rounded-2xl transition-all duration-300 border mb-2",
         activeTab === tab 
-        ? "bg-primary-accent text-black border-primary-accent shadow-[0_0_20px_rgba(0,255,65,0.3)]" 
+        ? "bg-primary-accent text-black border-primary-accent shadow-[0_0_20px_rgba(var(--primary-accent-rgb),0.3)]" 
         : "bg-white/5 text-zinc-400 border-white/5 hover:text-white hover:bg-white/10"
       )}
     >
@@ -139,7 +139,7 @@ export default function AnalysisDashboard() {
   );
 
   return (
-    <main className="theme-green min-h-screen bg-black text-white pt-20 md:pt-28 pb-12 relative overflow-hidden font-sans selection:bg-primary-accent selection:text-white">
+    <main className="min-h-screen bg-black text-white pt-20 md:pt-28 pb-12 relative overflow-hidden font-sans selection:bg-primary-accent selection:text-white">
       {/* Premium Background FX */}
       <div className="fixed inset-0 z-0 bg-gradient-to-tr from-obsidian via-black to-zinc-900 overflow-hidden pointer-events-none">
          <div className="absolute top-[-20%] right-[-10%] w-[80%] h-[80%] bg-primary-accent/5 blur-[150px] rounded-full" />
@@ -359,7 +359,7 @@ export default function AnalysisDashboard() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="grid grid-cols-1 xl:grid-cols-2 gap-6 md:gap-10"
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10"
                 >
                    <div className="p-8 md:p-12 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem]">
                       <div className="flex items-center gap-6 mb-8 md:mb-12 border-b border-white/5 pb-6 md:pb-8">
