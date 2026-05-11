@@ -15,7 +15,8 @@ import {
   Trophy,
   PieChart,
   BarChart3,
-  Globe
+  Globe,
+  Target
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Magnetic from "@/components/magnetic";
