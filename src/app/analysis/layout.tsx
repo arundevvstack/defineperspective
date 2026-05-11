@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Live AI Video Production Analysis Dashboard | DP AI Studio",
-  description: "Real-time performance metrics, SEO health tracking, and market index monitoring for Define Perspective's AI video production ecosystem.",
-  keywords: ["AI video production metrics", "SEO dashboard", "DP AI Studio analysis", "neural compute monitoring"],
+  title: "System Security Console | DP AI Studio Authority",
+  description: "Advanced system security monitoring, neural node integrity, and real-time performance metrics for the Define Perspective ecosystem.",
+  keywords: ["System Security Console", "DP AI Studio Security", "Neural Node Integrity", "Cybersecurity Monitoring"],
 };
 
 export default function AnalysisLayout({

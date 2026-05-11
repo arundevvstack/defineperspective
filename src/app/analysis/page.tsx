@@ -10,7 +10,7 @@ import {
   Clock, Wifi, Database, Layout, Eye, MousePointer2, MapPin, SearchCode,
   Radio, Share2, MoreHorizontal, Maximize2, RefreshCw, CheckCircle2, AlertTriangle,
   Lightbulb, Gauge, Target, FileSearch, LineChart, Globe2, PieChart, Tablet, 
-  ChevronRight, Settings, Bell, Download, Filter, Menu, X
+  ChevronRight, Settings, Bell, Download, Filter, Menu, X, Lock
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import { cn } from "@/lib/utils";
@@ -154,7 +154,7 @@ export default function AnalysisDashboard() {
         <div className="xl:hidden flex items-center justify-between p-4 bg-zinc-900/50 backdrop-blur-xl border border-white/5 rounded-2xl mb-4">
            <div className="flex items-center gap-3">
               <div className="h-2 w-2 rounded-full bg-primary-accent animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-widest">Dashboard System_</span>
+              <span className="text-[10px] font-black uppercase tracking-widest">Security Console_</span>
            </div>
            <button 
              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -172,17 +172,17 @@ export default function AnalysisDashboard() {
         )}>
            <div className="p-6 md:p-8 bg-zinc-900/80 xl:bg-zinc-900/50 backdrop-blur-3xl border border-white/10 xl:border-white/5 rounded-[2rem] md:rounded-[3rem] h-full flex flex-col shadow-2xl">
               <div className="mb-8 md:mb-12">
-                 <h2 className="text-[11px] font-black uppercase text-primary-accent mb-2 tracking-widest">Dashboard Settings_</h2>
+                 <h2 className="text-[11px] font-black uppercase text-primary-accent mb-2 tracking-widest">Security Settings_</h2>
                  <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest flex items-center gap-2">
                     <Radio size={10} className="text-primary-accent" /> Active Systems: {activeSystems}
                  </p>
               </div>
 
               <div className="flex-1 space-y-2">
-                 <SidebarButton icon={Layers} label="Overview" tab="overview" />
-                 <SidebarButton icon={SearchCode} label="SEO Health" tab="seo" />
-                 <SidebarButton icon={Target} label="Market Index" tab="marketing" />
-                 <SidebarButton icon={Cpu} label="System Node" tab="system" />
+                 <SidebarButton icon={Layers} label="Mainframe" tab="overview" />
+                 <SidebarButton icon={Shield} label="Node Integrity" tab="seo" />
+                 <SidebarButton icon={Target} label="Network Scans" tab="marketing" />
+                 <SidebarButton icon={Cpu} label="Secure Core" tab="system" />
               </div>
 
               <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/5 space-y-4">
@@ -214,7 +214,7 @@ export default function AnalysisDashboard() {
               <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10 text-center sm:text-left">
                  <div className="flex items-center gap-4">
                     <div className="h-3 w-3 rounded-full bg-primary-accent shadow-[0_0_15px_var(--primary-accent)] animate-pulse" />
-                    <h1 className="text-base md:text-lg font-black uppercase text-white tracking-tighter">WEBSITE_PERFORMANCE_DASHBOARD</h1>
+                    <h1 className="text-base md:text-lg font-black uppercase text-white tracking-tighter">SYSTEM_SECURITY_CONSOLE</h1>
                  </div>
                  <div className="h-10 w-px bg-white/10 hidden md:block" />
                  <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-[9px] md:text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
@@ -251,9 +251,9 @@ export default function AnalysisDashboard() {
                 >
                    {/* STAT GRID */}
                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                      <StatBox title="Live Traffic" value={visitors.toLocaleString()} sub="+14% Performance" icon={Users} onClick={() => setActiveTab("overview")} />
+                      <StatBox title="Active Nodes" value={visitors.toLocaleString()} sub="System Integrity: Secure" icon={Shield} onClick={() => setActiveTab("overview")} />
                       <StatBox title="Engagement" value="2.4m" sub="Retention High" icon={TrendingUp} color="text-blue-500" />
-                      <StatBox title="SEO Index" value={`${seoScore.toFixed(0)}%`} sub="Top-Tier Authority" icon={Gauge} color="text-green-500" onClick={() => setActiveTab("seo")} />
+                      <StatBox title="Security Index" value={`${seoScore.toFixed(0)}%`} sub="Encryption Level High" icon={Lock} color="text-green-500" onClick={() => setActiveTab("seo")} />
                       <StatBox title="System Load" value="Optimal" sub="Zero Latency" icon={Cpu} color="text-zinc-500" onClick={() => setActiveTab("system")} />
                    </div>
 
@@ -263,8 +263,8 @@ export default function AnalysisDashboard() {
                       <div className="lg:col-span-2 p-8 md:p-12 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem] flex flex-col h-[400px] md:h-[500px]">
                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 md:mb-10 border-b border-white/5 pb-6 md:pb-8 gap-4">
                             <div>
-                               <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-accent mb-1 md:mb-2">Traffic Source_</h3>
-                               <h2 className="text-2xl md:text-4xl font-black uppercase">Visitor_Traffic_Map</h2>
+                               <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-accent mb-1 md:mb-2">Security Feed_</h3>
+                               <h2 className="text-2xl md:text-4xl font-black uppercase">System_Integrity_Monitor</h2>
                             </div>
                              <div className="flex gap-2 md:gap-4 w-full sm:w-auto">
                                 <button 
@@ -367,7 +367,7 @@ export default function AnalysisDashboard() {
                             <SearchCode className="w-6 h-6 md:w-7 md:h-7" />
                          </div>
                          <div>
-                            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">SEARCH_OPTIMIZATION_STATUS</h2>
+                            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">NODE_INTEGRITY_STATUS</h2>
                             <p className="text-[9px] md:text-xs font-mono text-zinc-500 uppercase tracking-widest">Global Scan: {currentTime?.toLocaleTimeString() || "Syncing..."}</p>
                          </div>
                       </div>
@@ -448,7 +448,7 @@ export default function AnalysisDashboard() {
                 >
                    <div className="p-8 md:p-12 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem]">
                       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 md:mb-16 gap-6">
-                         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">MARKET_INSIGHTS_RADAR</h2>
+                         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">NETWORK_PENETRATION_RADAR</h2>
                          <div className="flex items-center gap-6 md:gap-10 text-[9px] md:text-[11px] font-mono tracking-widest text-zinc-600 uppercase">
                             <span className="flex items-center gap-2"><Gauge size={14} /> High Demand</span>
                             <span className="flex items-center gap-2"><LineChart size={14} /> Peak Signal</span>
