@@ -37,12 +37,27 @@ const SCAN_LOGS = [
   "Vector Map Updated: malayalam-ai-generation",
 ];
 
+import { SeoService } from "@/services/seo-service";
+
 export default function SeoRadarPage() {
   const [rotation, setRotation] = useState(0);
   const [activeSignals, setActiveSignals] = useState<number[]>([]);
   const [logs, setLogs] = useState(SCAN_LOGS);
+  const [regionalSignals, setRegionalSignals] = useState(REGIONAL_SIGNALS);
 
   useEffect(() => {
+    async function hydrateRadar() {
+      const liveSignals = await SeoService.getRegionalSignals();
+      if (liveSignals && liveSignals.length > 0) {
+        setRegionalSignals(liveSignals.map((signal: any) => ({
+          ...signal,
+          lat: "N/A",
+          lng: "N/A"
+        })));
+      }
+    }
+    hydrateRadar();
+
     const interval = setInterval(() => {
       setRotation(prev => (prev + 1) % 360);
     }, 20);
@@ -65,7 +80,7 @@ export default function SeoRadarPage() {
   // Simulate radar "hits"
   useEffect(() => {
     const hitInterval = setInterval(() => {
-      const index = Math.floor(Math.random() * REGIONAL_SIGNALS.length);
+      const index = Math.floor(Math.random() * regionalSignals.length);
       setActiveSignals(prev => [...prev, index]);
       setTimeout(() => {
         setActiveSignals(prev => prev.filter(i => i !== index));
@@ -73,7 +88,7 @@ export default function SeoRadarPage() {
     }, 4000);
 
     return () => clearInterval(hitInterval);
-  }, []);
+  }, [regionalSignals]);
 
   return (
     <main className="min-h-screen bg-obsidian text-white font-sans overflow-hidden">
@@ -148,7 +163,7 @@ export default function SeoRadarPage() {
                 </div>
 
                 {/* Radar Hits (Regional Signals) */}
-                {REGIONAL_SIGNALS.map((signal, idx) => {
+                {regionalSignals.map((signal, idx) => {
                   const isActive = activeSignals.includes(idx);
                   return (
                     <motion.div
@@ -169,7 +184,6 @@ export default function SeoRadarPage() {
                       <div className="absolute top-full mt-2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/80 backdrop-blur-md p-3 rounded-xl border border-white/10 text-center w-32">
                          <span className="block text-[8px] font-mono text-primary-accent uppercase mb-1">{signal.status}</span>
                          <span className="block text-xs font-bold uppercase tracking-widest">{signal.city}</span>
-                         <span className="block text-[8px] font-mono text-zinc-500 mt-1">{signal.lat} | {signal.lng}</span>
                       </div>
                     </motion.div>
                   );
@@ -192,7 +206,7 @@ export default function SeoRadarPage() {
                  </div>
 
                  <div className="space-y-6">
-                    {REGIONAL_SIGNALS.map((signal) => (
+                    {regionalSignals.map((signal) => (
                       <div key={signal.city} className="group cursor-pointer">
                         <div className="flex items-center justify-between mb-2">
                            <span className="text-sm font-bold uppercase tracking-widest group-hover:text-primary-accent transition-colors">{signal.city}</span>

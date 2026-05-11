@@ -42,7 +42,7 @@ export default function SeoRankingsPage() {
 
   return (
     <main className="min-h-screen bg-obsidian text-white font-sans selection:bg-primary-accent/30">
-      <NeuralSeoLayer city="Kochi" serviceId="ai-video-production" />
+      <NeuralSeoLayer />
       <GlassNavbar />
 
       <section className="relative pt-32 pb-20 overflow-hidden">

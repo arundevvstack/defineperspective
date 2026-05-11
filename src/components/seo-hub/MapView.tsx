@@ -13,36 +13,68 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const COMPETITORS = [
-  { id: 1, name: "SpiderWorks (Kochi)", x: 65, y: 30, threat: "Medium", strength: "SEO Network", weakness: "Traditional Focus" },
-  { id: 2, name: "Quadcubes", x: 40, y: 55, threat: "Low", strength: "Branding", weakness: "AI Scale" },
-  { id: 3, name: "Originative Nest", x: 80, y: 70, threat: "Medium", strength: "Content Velocity", weakness: "Production Value" },
-  { id: 4, name: "Made in Space (TVM)", x: 25, y: 40, threat: "Low", strength: "Workflows", weakness: "Market Reach" },
-];
+import { supabase } from "@/lib/supabase";
 
-export default function MapView({ city }: { city?: string }) {
+export default function MapView({ city, setStatus }: { city?: string, setStatus?: (s: string) => void }) {
+  const [competitors, setCompetitors] = useState<any[]>([]);
   const [selectedComp, setSelectedComp] = useState<any>(null);
-
-  // Auto-select a competitor if they match the detected city
-  useEffect(() => {
-    if (city) {
-      const match = COMPETITORS.find(c => c.name.toLowerCase().includes(city.toLowerCase()));
-      if (match) setSelectedComp(match);
-    }
-  }, [city]);
   const [isRunningStrategy, setIsRunningStrategy] = useState(false);
   const [strategyPlan, setStrategyPlan] = useState<string | null>(null);
 
-  const runStrategy = () => {
+  useEffect(() => {
+    async function fetchCompetitors() {
+      const { data } = await supabase
+        .from('entity_graph')
+        .select('*')
+        .eq('type', 'competitor');
+      
+      if (data) {
+        const mapped = data.map(c => ({
+          ...c,
+          id: c.id,
+          name: c.entity_name,
+          x: 20 + (Math.random() * 60),
+          y: 20 + (Math.random() * 60),
+          threat: c.metadata?.threat_level || "Medium",
+          strength: c.metadata?.focus || "Traditional",
+          weakness: "Neural Adoption"
+        }));
+        setCompetitors(mapped);
+      }
+    }
+    fetchCompetitors();
+  }, []);
+
+  // Auto-select a competitor if they match the detected city
+  useEffect(() => {
+    if (city && competitors.length > 0) {
+      const match = competitors.find(c => c.name.toLowerCase().includes(city.toLowerCase()));
+      if (match) setSelectedComp(match);
+    }
+  }, [city, competitors]);
+
+  const runStrategy = async () => {
     if (!selectedComp) return;
     setIsRunningStrategy(true);
     setStrategyPlan(null);
+    setStatus?.(`Strategy: Creating comparison page for ${selectedComp.name}...`);
     
-    // Simulate tactical calculation
-    setTimeout(() => {
-      setStrategyPlan(`DOMINATE_PLAN: Execute high-velocity AI cycles focused on ${selectedComp.weakness}. Deploy regional authority signals in ${selectedComp.name}'s core sectors.`);
+    try {
+      const res = await fetch('/api/seo/execute-counter-strategy', {
+        method: 'POST',
+        body: JSON.stringify({ competitor: selectedComp })
+      });
+      const data = await res.json();
+      
+      setStrategyPlan(`Success: A comparison page for ${selectedComp.name} has been drafted and is ready for review in the Content Editor.`);
+      setStatus?.(`Success: Comparison for ${selectedComp.name} drafted.`);
+    } catch (err) {
+      console.error("Strategy Execution Error:", err);
+      setStrategyPlan("Error: Could not complete comparison strategy.");
+      setStatus?.("Error: Connection lost.");
+    } finally {
       setIsRunningStrategy(false);
-    }, 2500);
+    }
   };
 
   return (
@@ -60,7 +92,7 @@ export default function MapView({ city }: { city?: string }) {
         </div>
 
         {/* Competitor Nodes */}
-        {COMPETITORS.map((comp) => (
+        {competitors.map((comp) => (
           <button key={comp.id} onClick={() => { setSelectedComp(comp); setStrategyPlan(null); }} className="absolute z-30 group" style={{ left: `${comp.x}%`, top: `${comp.y}%` }}>
             <div className={cn(
               "h-5 w-5 rotate-45 border transition-all duration-500", 
@@ -121,9 +153,9 @@ export default function MapView({ city }: { city?: string }) {
                    <button 
                     onClick={runStrategy}
                     disabled={isRunningStrategy}
-                    className="w-full py-4 bg-primary-accent text-white rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary-accent/20"
+                    className="w-full py-4 bg-primary-accent text-black rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary-accent/20"
                    >
-                     {isRunningStrategy ? <div className="h-4 w-4 border-2 border-white border-t-transparent animate-spin rounded-full" /> : <><Target size={14} /> Run Counter-Strategy</>}
+                     {isRunningStrategy ? <div className="h-4 w-4 border-2 border-black border-t-transparent animate-spin rounded-full" /> : <><Target size={14} /> Run Comparison</>}
                    </button>
                 </div>
              </motion.div>

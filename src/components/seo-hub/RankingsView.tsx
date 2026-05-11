@@ -9,7 +9,10 @@ import {
   Brain, 
   Globe, 
   ArrowUpRight,
-  RefreshCcw
+  RefreshCcw,
+  Radar,
+  Search,
+  Link as LinkIcon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -31,10 +34,30 @@ const RANKINGS = [
   { rank: 15, name: "The SEO Lab", ai: 38, google: 32, trend: "down" },
 ];
 
-export default function RankingsView({ city }: { city?: string }) {
+export default function RankingsView({ city, setStatus }: { city?: string, setStatus?: (s: string) => void }) {
   const [keyword, setKeyword] = useState("");
   const [isSimulating, setIsSimulating] = useState(false);
   const [simResults, setSimResults] = useState<any>(null);
+  const [backlinks, setBacklinks] = useState<any[]>([]);
+  const [isScanning, setIsScanning] = useState(false);
+
+  const fetchBacklinks = async () => {
+    setIsScanning(true);
+    setStatus?.("Links: Finding growth opportunities...");
+    try {
+      const res = await fetch('/api/seo/find-backlinks');
+      const data = await res.json();
+      if (data.opportunities) {
+        setBacklinks(data.opportunities);
+        setStatus?.(`Success: Found ${data.opportunities.length} potential link targets.`);
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus?.("Error: Link scan failed.");
+    } finally {
+      setIsScanning(false);
+    }
+  };
 
   const simulateSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +100,7 @@ export default function RankingsView({ city }: { city?: string }) {
                 disabled={isSimulating}
                 className="px-6 py-3 bg-primary-accent text-white rounded-xl font-black uppercase tracking-widest text-[9px] hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
                >
-                 {isSimulating ? <RefreshCcw size={14} className="animate-spin" /> : "EXEC_SIM"}
+                 {isSimulating ? <RefreshCcw size={14} className="animate-spin" /> : "Check Authority"}
                </button>
             </form>
          </div>
@@ -143,6 +166,70 @@ export default function RankingsView({ city }: { city?: string }) {
         </table>
       </div>
       
+      {/* Backlink Opportunity Radar */}
+      <section className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 relative overflow-hidden group">
+         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/5 blur-[120px] -z-10" />
+         <div className="flex items-center justify-between mb-10">
+            <div>
+               <h3 className="text-2xl font-blacker uppercase italic tracking-tighter mb-2">Link Opportunities_</h3>
+               <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Find websites to grow your domain authority.</p>
+            </div>
+            <button 
+              onClick={fetchBacklinks}
+              disabled={isScanning}
+              className="px-8 py-4 bg-blue-500/10 border border-blue-500/30 text-blue-500 rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-blue-500/20 transition-all shadow-xl shadow-blue-500/10"
+            >
+              {isScanning ? <RefreshCcw size={16} className="animate-spin" /> : <Radar size={16} />}
+              Find Links
+            </button>
+         </div>
+
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence>
+              {backlinks.map((link) => (
+                <motion.div 
+                  key={link.url}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="p-6 rounded-3xl bg-white/[0.03] border border-white/10 flex flex-col gap-6 group/item hover:border-blue-500/30 transition-all"
+                >
+                   <div className="flex items-center justify-between">
+                      <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-blue-400">
+                         <Globe size={20} />
+                      </div>
+                      <div className="flex flex-col items-end">
+                         <span className="text-[8px] font-mono text-zinc-600 uppercase">DA Score</span>
+                         <span className="text-xl font-black text-white">{link.domain_authority}</span>
+                      </div>
+                   </div>
+                   <div>
+                      <h4 className="text-sm font-black uppercase tracking-widest mb-1 group-hover/item:text-blue-400 transition-colors">{link.source_name}</h4>
+                      <p className="text-[9px] text-zinc-600 font-mono truncate">{link.url}</p>
+                   </div>
+                   <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                      <div className="flex items-center gap-2">
+                         <Brain size={12} className="text-blue-500" />
+                         <span className="text-[9px] font-mono uppercase text-zinc-500">Relevance: {link.relevance_score}%</span>
+                      </div>
+                      <button className="p-2 hover:bg-white/5 rounded-lg text-zinc-600 hover:text-white transition-colors">
+                         <ArrowUpRight size={16} />
+                      </button>
+                   </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+            
+            {backlinks.length === 0 && !isScanning && (
+              <div className="lg:col-span-3 py-20 text-center border-2 border-dashed border-white/5 rounded-[3rem]">
+                 <div className="h-20 w-20 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-6">
+                    <Radar size={40} className="text-zinc-800" />
+                 </div>
+                 <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Ready: Start a scan to find links.</p>
+              </div>
+            )}
+         </div>
+      </section>
+
       {/* AI Preview Section */}
       <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/10 backdrop-blur-xl">
          <div className="flex items-center gap-3 mb-8 text-blue-400">

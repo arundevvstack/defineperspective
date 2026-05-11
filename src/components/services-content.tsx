@@ -8,8 +8,11 @@ import {
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
 import WhatsAppChat from "@/components/whatsapp-chat";
+import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+
+const DynamicLeadMagnet = dynamic(() => import("@/components/seo-hub/leads/DynamicLeadMagnet"), { ssr: false });
 
 const serviceSections = [
   {
@@ -220,6 +223,12 @@ whileInView={{ opacity: 1, y: 0 }}
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-48 pb-20">
+          <DynamicLeadMagnet 
+            context="AI Video Production India" 
+          />
         </div>
       </div>
       

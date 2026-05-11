@@ -5,6 +5,7 @@ import { CheckCircle2, ArrowRight, MessageCircle, HelpCircle, Target, Zap, Shiel
 import Link from "next/link";
 import LeadCaptureForm from "@/components/lead-capture-form";
 import GlassNavbar from "@/components/glass-navbar";
+import LeadMagnetModal from "@/components/LeadMagnetModal";
 
 interface FAQ {
   q: string;
@@ -61,6 +62,7 @@ export default function AIServiceTemplate({
   return (
     <main className="min-h-screen bg-obsidian text-white pt-32 pb-40 px-6 md:px-12 relative overflow-hidden">
       <GlassNavbar />
+      <LeadMagnetModal />
       
       {/* Background FX */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-accent/5 blur-[250px] rounded-full pointer-events-none" />

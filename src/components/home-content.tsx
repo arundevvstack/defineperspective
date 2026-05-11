@@ -18,7 +18,8 @@ const IndustriesSection = dynamic(() => import("@/components/industries-section"
 const PortfolioSection = dynamic(() => import("@/components/portfolio-section").then(mod => mod.default || mod));
 const TestimonialSection = dynamic(() => import("@/components/testimonial-section").then(mod => mod.default || mod));
 const FAQSection = dynamic(() => import("@/components/faq-section").then(mod => mod.default || mod));
-const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat").then(mod => mod.default || mod), { ssr: false });
+const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat"), { ssr: false });
+const DynamicLeadMagnet = dynamic(() => import("@/components/seo-hub/leads/DynamicLeadMagnet"), { ssr: false });
 
 const SectionHeader = ({ tag, title, subtitle, align = "center", h2 = false }: any) => {
   const TitleTag = h2 ? "h2" : "h3";
@@ -174,7 +175,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* 3. AI STUDIO (H2: AI Video Production & Content Creation) */}
+       {/* 3. AI STUDIO (H2: AI Video Production & Content Creation) */}
       <section className="py-24 md:py-40 px-4 md:px-12 bg-black relative border-b border-white/5">
         <div className="container mx-auto max-w-7xl">
            <SectionHeader 
@@ -195,6 +196,15 @@ export default function HomeContent() {
                 </div>
               ))}
            </div>
+        </div>
+      </section>
+
+      {/* LEAD MAGNET INTEGRATION */}
+      <section className="py-20 bg-black">
+        <div className="container mx-auto px-6">
+          <DynamicLeadMagnet 
+            context="AI Advertising India" 
+          />
         </div>
       </section>
 
