@@ -3,7 +3,8 @@
   "version": "6.0.0",
   "private": true,
   "scripts": {
-    "build": "next build --webpack && opennextjs-cloudflare build",
+    "build": "next build --webpack",
+    "pages:build": "next build --webpack && opennextjs-cloudflare build",
     "dev": "next dev --webpack -H 0.0.0.0",
     "start": "next start",
     "lint": "eslint",
