@@ -83,6 +83,11 @@ const nextConfig: NextConfig = {
         destination: "/blog/:slug*",
         permanent: true,
       },
+      {
+        source: "/ai-films/:id*",
+        destination: "/ai-studios/:id*",
+        permanent: true,
+      },
     ];
   },
 };
