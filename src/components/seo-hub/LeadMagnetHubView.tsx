@@ -37,7 +37,9 @@ export default function LeadMagnetHubView({ setStatus, activeNode }: { setStatus
   const [promptDesc, setPromptDesc] = useState("Enter the target topic for AI synthesis (e.g., Luxury Real Estate, AI in Fashion).");
 
   const [selectedGuide, setSelectedGuide] = useState<any>(null);
+  const [selectedLead, setSelectedLead] = useState<any>(null);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -45,14 +47,19 @@ export default function LeadMagnetHubView({ setStatus, activeNode }: { setStatus
 
   async function fetchData() {
     setIsLoading(true);
-    if (activeSubTab === "guides") {
-      const { data } = await supabase.from('lead_magnets').select('*').order('created_at', { ascending: false });
-      setGuides(data || []);
-    } else {
-      const { data } = await supabase.from('leads').select('*').order('created_at', { ascending: false });
-      setLeads(data || []);
+    try {
+      if (activeSubTab === "guides") {
+        const { data } = await supabase.from('lead_magnets').select('*').order('created_at', { ascending: false });
+        setGuides(data || []);
+      } else {
+        const { data } = await supabase.from('leads').select('*').order('created_at', { ascending: false });
+        setLeads(data || []);
+      }
+    } catch (err) {
+      console.error("Data Fetch Error:", err);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   }
 
   const handleDownload = (guide: any) => {
@@ -98,7 +105,6 @@ Status: Executive Verified
     } catch (err: any) {
       console.error(err);
       setStatus?.(`Error: ${err.message}`);
-      // Show specific error in a modal
       setPromptTitle("System Error");
       setPromptDesc(err.message);
       setIsPromptOpen(true);
@@ -126,6 +132,82 @@ Status: Executive Verified
         onClose={() => setIsViewerOpen(false)}
         guide={selectedGuide}
       />
+
+      {/* Lead Details Modal */}
+      <AnimatePresence>
+        {isLeadModalOpen && selectedLead && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsLeadModalOpen(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="relative w-full max-w-2xl bg-obsidian border border-white/10 rounded-[3rem] p-12 overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary-accent/5 blur-[80px] -z-0" />
+              
+              <div className="flex items-center gap-6 mb-12">
+                 <div className="h-20 w-20 rounded-3xl bg-primary-accent flex items-center justify-center text-black text-3xl font-black">
+                   {selectedLead.name?.charAt(0) || "?"}
+                 </div>
+                 <div>
+                    <h2 className="text-3xl font-black uppercase tracking-tighter">{selectedLead.name}</h2>
+                    <p className="text-primary-accent font-mono text-xs uppercase tracking-widest">{selectedLead.company}</p>
+                 </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8 mb-12">
+                 <div className="space-y-1">
+                    <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-widest">Industry</span>
+                    <p className="text-sm font-black uppercase text-white">{selectedLead.industry}</p>
+                 </div>
+                 <div className="space-y-1">
+                    <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-widest">Region</span>
+                    <p className="text-sm font-black uppercase text-white">{selectedLead.region || "Global"}</p>
+                 </div>
+                 <div className="space-y-1">
+                    <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-widest">Budget Range</span>
+                    <p className="text-sm font-black uppercase text-green-500">{selectedLead.budget || "N/A"}</p>
+                 </div>
+                 <div className="space-y-1">
+                    <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-widest">Email</span>
+                    <p className="text-sm font-mono text-white">{selectedLead.email}</p>
+                 </div>
+              </div>
+
+              <div className="p-8 rounded-2xl bg-white/5 border border-white/5 mb-10">
+                 <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-widest block mb-4">Detected Intent Cluster</span>
+                 <p className="text-xs text-zinc-300 font-light italic uppercase tracking-widest">
+                   "{selectedLead.interest_cluster || "Inquired about general AI production services and market intelligence."}"
+                 </p>
+              </div>
+
+              <div className="flex items-center justify-between pt-8 border-t border-white/5">
+                 <div className="flex items-center gap-4">
+                    <div className={cn(
+                      "px-4 py-2 rounded-lg font-black text-xs uppercase tracking-widest",
+                      selectedLead.score > 80 ? "bg-green-500/10 text-green-500" : "bg-orange-500/10 text-orange-500"
+                    )}>
+                      Lead Score: {selectedLead.score || 50}
+                    </div>
+                 </div>
+                 <button 
+                   onClick={() => setIsLeadModalOpen(false)}
+                   className="px-8 py-3 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[10px]"
+                 >
+                   Acknowledge
+                 </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Sub Tabs */}
       <div className="flex items-center justify-between border-b border-white/5 pb-6">
@@ -239,7 +321,14 @@ Status: Executive Verified
                 <div className="col-span-1 text-right">Score</div>
               </div>
               {leads.map((lead) => (
-                <div key={lead.id} className="grid grid-cols-12 gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/5 transition-all items-center group">
+                <div 
+                  key={lead.id} 
+                  onClick={() => {
+                    setSelectedLead(lead);
+                    setIsLeadModalOpen(true);
+                  }}
+                  className="grid grid-cols-12 gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/5 transition-all items-center group cursor-pointer"
+                >
                   <div className="col-span-4 flex items-center gap-4">
                     <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center font-black text-xs text-primary-accent group-hover:bg-primary-accent group-hover:text-black transition-colors">
                       {lead.name?.charAt(0) || "?"}
