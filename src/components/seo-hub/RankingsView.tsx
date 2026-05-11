@@ -84,7 +84,7 @@ export default function RankingsView({ city }: { city?: string }) {
 
          <AnimatePresence>
            {simResults && (
-             <motion.div initial={{ opacity: 0, h: 0 }} animate={{ opacity: 1, h: "auto" }} className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-white/5">
+             <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-white/5">
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                    <span className="text-[8px] font-mono text-zinc-500 uppercase block mb-1">DP Authority for "{keyword}"</span>
                    <div className="text-2xl font-black text-primary-accent">{simResults.dp}%</div>
