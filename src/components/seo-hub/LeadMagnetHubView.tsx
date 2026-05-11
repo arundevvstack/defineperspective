@@ -242,7 +242,7 @@ Status: Executive Verified
                 <div key={lead.id} className="grid grid-cols-12 gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/5 transition-all items-center group">
                   <div className="col-span-4 flex items-center gap-4">
                     <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center font-black text-xs text-primary-accent group-hover:bg-primary-accent group-hover:text-black transition-colors">
-                      {lead.name.charAt(0)}
+                      {lead.name?.charAt(0) || "?"}
                     </div>
                     <div>
                       <h5 className="font-black text-sm uppercase tracking-widest">{lead.name}</h5>
