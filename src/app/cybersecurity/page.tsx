@@ -6,10 +6,7 @@ import {
   Shield, AlertTriangle, Activity, Globe, Terminal, 
   Cpu, Lock, Unlock, Zap, Database, Hash, Map as LucideMap 
 } from "lucide-react";
-import {
-  ResponsiveContainer, AreaChart, Area, XAxis, YAxis, 
-  Tooltip, CartesianGrid, LineChart, Line 
-} from "recharts";
+// recharts imports removed due to compatibility issues in dev
 // mapboxgl removed — now using PositionStack + SVG map
 import { cn } from "@/lib/utils";
 
@@ -156,8 +153,8 @@ const Header = ({ userData }: { userData?: any }) => {
           <Shield size={20} />
         </motion.div>
         <div className="overflow-hidden">
-          <h1 className="text-lg md:text-xl font-black text-primary-accent truncate">LIVE_SITE_ANALYSIS_V6</h1>
-          <p className="text-[8px] md:text-[10px] font-mono text-red-500 uppercase tracking-widest truncate">VISITOR_IP: {userData?.query || "SCANNING..."} // {userData?.city || "LOCATING..."}</p>
+          <h1 className="text-lg md:text-xl font-black text-primary-accent truncate tracking-tighter">SYSTEM_SECURITY_CONSOLE_V6</h1>
+          <p className="text-[8px] md:text-[9px] font-mono text-red-500 uppercase tracking-[0.3em] truncate opacity-80">VISITOR_IP: {userData?.query || "SCANNING..."} // {userData?.city || "LOCATING..."}</p>
         </div>
       </div>
 
@@ -317,7 +314,8 @@ const MapVisualizer = () => {
         document.head.appendChild(link);
       }
 
-      const maplibregl = (await import('maplibre-gl')).default;
+      const module = await import('maplibre-gl');
+      const maplibregl = module.default || module;
 
       if (mapRef.current || !mapContainerRef.current) return;
       
@@ -401,7 +399,8 @@ const MapVisualizer = () => {
 
   const triggerMapAnimation = async (alert: any) => {
     if (!mapRef.current) return;
-    const maplibregl = (await import('maplibre-gl')).default;
+    const module = await import('maplibre-gl');
+    const maplibregl = module.default || module;
 
     const el = document.createElement('div');
     el.className = 'hacker-alert-pin';
@@ -450,7 +449,8 @@ const MapVisualizer = () => {
   useEffect(() => {
     const plotMarkers = async () => {
       if (!mapRef.current || locations.length === 0) return;
-      const maplibregl = (await import('maplibre-gl')).default;
+      const module = await import('maplibre-gl');
+      const maplibregl = module.default || module;
 
       const existingMarkers = document.querySelectorAll('.hacker-node-static');
       existingMarkers.forEach(m => m.remove());
@@ -523,26 +523,6 @@ const MapVisualizer = () => {
         style={{ backgroundColor: '#000' }} 
       />
 
-      {/* Search & Navigation Bar Overlay */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-6">
-          <div className="glass border-primary-accent/30 bg-black/60 p-2 flex items-center gap-3 backdrop-blur-xl">
-              <LucideMap size={16} className="text-red-500 ml-2" />
-              <input 
-                type="text"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && jumpToCity(search)}
-                placeholder="ENTER_DESTINATION_FOR_FLY_TO..."
-                className="bg-transparent border-none outline-none text-[10px] text-primary-accent font-mono w-full placeholder:text-primary-accent/30"
-              />
-              <button 
-                onClick={() => jumpToCity(search)}
-                className="bg-primary-accent/10 border border-primary-accent/30 px-3 py-1 text-[8px] font-black hover:bg-primary-accent/20 transition-all uppercase"
-              >
-                GOTO
-              </button>
-          </div>
-      </div>
 
       {/* SEO Strength HUD Overlay - Vertical Stack to avoid overlap */}
       <div className="absolute bottom-20 left-6 z-50 flex flex-col gap-3 pointer-events-none">
@@ -558,7 +538,7 @@ const MapVisualizer = () => {
       </div>
 
       {/* Incoming Alerts Feed HUD */}
-      <div className="absolute top-24 right-6 z-50 flex flex-col gap-2 pointer-events-none">
+      <div className="absolute top-36 right-6 z-50 flex flex-col gap-2 pointer-events-none">
           <AnimatePresence>
             {alerts.map((alert) => (
               <motion.div 
@@ -613,23 +593,30 @@ const MapVisualizer = () => {
         </div>
       )}
 
-      {/* Search HUD Overlay */}
-      <div className="absolute top-6 left-6 z-50 flex flex-col gap-4 min-w-[240px]">
-          <div className="glass border-primary-accent/40 backdrop-blur-md p-1 flex items-center gap-3">
-              <div className="h-2 w-2 rounded-full bg-primary-accent animate-pulse ml-2" />
+      {/* Consolidated Search HUD Overlay */}
+      <div className="absolute top-6 left-6 z-50 flex flex-col gap-3 min-w-[280px]">
+          <div className="glass border-primary-accent/40 bg-black/80 backdrop-blur-xl p-2 flex items-center gap-3 shadow-[0_0_30px_rgba(0,255,65,0.1)]">
+              <LucideMap size={14} className="text-red-500 ml-1" />
               <input 
                  value={search}
                  onChange={(e) => setSearch(e.target.value)}
-                 className="bg-transparent border-none text-[10px] text-primary-accent font-mono focus:ring-0 placeholder-primary-accent/30 w-full uppercase"
-                 placeholder="SEARCH_TARGET_NODE..."
+                 onKeyDown={(e) => e.key === 'Enter' && jumpToCity(search)}
+                 className="bg-transparent border-none text-[9px] text-primary-accent font-mono focus:ring-0 placeholder-primary-accent/30 w-full uppercase"
+                 placeholder="SCAN_LOCATION_COORDS..."
               />
+              <button 
+                onClick={() => jumpToCity(search)}
+                className="bg-primary-accent/10 border border-primary-accent/30 px-2 py-1 text-[7px] font-black hover:bg-primary-accent/20 transition-all uppercase text-primary-accent"
+              >
+                EXEC_FLY
+              </button>
           </div>
-          <div className="glass border-primary-accent/40 backdrop-blur-md p-3 rounded-none">
-              <h3 className="text-[10px] font-mono font-black text-primary-accent mb-2 uppercase tracking-tighter flex justify-between">
-                <span>LIVE_NODE_ANALYSIS</span>
+          <div className="glass border-primary-accent/20 backdrop-blur-md p-3 rounded-none bg-black/40">
+              <h3 className="text-[9px] font-mono font-black text-primary-accent/60 mb-2 uppercase tracking-[0.2em] flex justify-between">
+                <span>NODE_DATABASE</span>
                 <span className="text-zinc-600">[{locations.length}]</span>
               </h3>
-              <div className="space-y-1 max-h-40 overflow-y-auto custom-scrollbar pr-2">
+              <div className="space-y-1 max-h-32 overflow-y-auto custom-scrollbar pr-2">
                 {locations
                   .filter(l => typeof l.lat === "number" && typeof l.lng === "number")
                   .filter(l => !search || (l.city && l.city.toLowerCase().includes(search.toLowerCase())))
@@ -637,10 +624,10 @@ const MapVisualizer = () => {
                     <button 
                       key={i} 
                       onClick={() => jumpToNode(loc.lat, loc.lng)}
-                      className="w-full text-left text-[8px] text-primary-accent/70 font-mono flex justify-between hover:bg-primary-accent/20 px-1 py-0.5 transition-colors group"
+                      className="w-full text-left text-[8px] text-primary-accent/70 font-mono flex justify-between hover:bg-primary-accent/20 px-1 py-1 border-b border-white/5 transition-colors group"
                     >
-                      <span className="group-hover:text-white transition-colors">{(loc.city || "UNKNOWN").split(",")[0]}</span>
-                      <span className="text-zinc-600 group-hover:text-primary-accent transition-colors">{loc.lat?.toFixed(2)}, {loc.lng?.toFixed(2)}</span>
+                      <span className="group-hover:text-white transition-colors">{(loc.city || "UNKNOWN").split(",")[0].toUpperCase()}</span>
+                      <span className="text-zinc-600 group-hover:text-primary-accent transition-colors font-bold">{loc.lat?.toFixed(1)}, {loc.lng?.toFixed(1)}</span>
                     </button>
                   ))}
               </div>
@@ -688,12 +675,12 @@ const MapVisualizer = () => {
         FREE_MAP_API_INTEGRATED_V1
       </motion.div>
 
-      {/* HUD corner brackets */}
-      <div className="absolute inset-4 pointer-events-none z-20">
-        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary-accent/60" />
-        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary-accent/60" />
-        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary-accent/60" />
-        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary-accent/60" />
+      {/* HUD corner brackets - Adjusted positioning and z-index to avoid overlap */}
+      <div className="absolute inset-8 pointer-events-none z-0 opacity-40">
+        <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-primary-accent/40" />
+        <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-primary-accent/40" />
+        <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-primary-accent/40" />
+        <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-primary-accent/40" />
       </div>
 
     </div>
@@ -830,32 +817,49 @@ export default function CybersecurityDashboard() {
       .catch(() => setUserData({ query: "127.0.0.1", city: "Unknown", isp: "Encrypted" }));
   }, []);
 
-  const handleBoot = () => {
-    setIsBooted(true);
-    if (document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen().catch(() => {});
-    }
-  };
-
   if (!isBooted) {
     return (
       <div 
-        onClick={handleBoot}
-        className="fixed inset-0 z-50 bg-zinc-950 flex flex-col items-center justify-center font-mono text-primary-accent cursor-pointer selection:bg-transparent"
+        onClick={() => setIsBooted(true)}
+        className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center font-mono text-primary-accent cursor-pointer selection:bg-transparent overflow-hidden"
       >
-        <div className="laser-scanner opacity-40" />
-        <Terminal size={48} className="mb-6 animate-pulse text-red-500" />
-        <h1 className="text-2xl md:text-5xl font-black mb-2 uppercase text-red-500">System Offline</h1>
-        <p className="text-sm md:text-md opacity-80 mb-8 animate-pulse text-center px-4 text-primary-accent">CONNECTION_STANDBY // CLICK_ANYWHERE_TO_INITIALIZE_FULLSCREEN</p>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,65,0.05)_0%,transparent_70%)]" />
+        <div className="laser-scanner opacity-20" />
         
-        <div className="w-64 h-1 border border-primary-accent/30 relative overflow-hidden">
-          <motion.div 
-            initial={{ x: "-100%" }}
-            animate={{ x: "100%" }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute top-0 bottom-0 w-1/2 bg-primary-accent" 
-          />
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative z-10 flex flex-col items-center gap-12"
+        >
+          <div className="relative">
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              className="w-40 h-40 border border-primary-accent/10 rounded-full"
+            />
+            <Shield size={64} className="absolute inset-0 m-auto text-primary-accent animate-pulse" />
+          </div>
+
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl md:text-7xl font-black tracking-[0.3em] uppercase italic text-primary-accent drop-shadow-[0_0_30px_rgba(0,255,65,0.4)]">
+              SYSTEM_SECURITY_CONSOLE
+            </h1>
+            <p className="text-[10px] md:text-xs opacity-50 tracking-[0.5em] uppercase">Tactical Infrastructure Monitoring // DP_AI_NODE_KERALA</p>
+          </div>
+
+          <div className="w-80 h-px bg-primary-accent/10 relative overflow-hidden">
+            <motion.div 
+              initial={{ left: "-100%" }}
+              animate={{ left: "100%" }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="absolute top-0 w-1/2 h-full bg-primary-accent" 
+            />
+          </div>
+
+          <button className="px-16 py-4 bg-primary-accent text-black font-black uppercase tracking-[0.4em] text-[10px] hover:bg-white transition-all shadow-[0_0_50px_rgba(0,255,65,0.2)] active:scale-95">
+            ESTABLISH_NEURAL_LINK_V6
+          </button>
+        </motion.div>
       </div>
     );
   }
@@ -896,9 +900,9 @@ export default function CybersecurityDashboard() {
       
       <Header userData={userData} />
 
-      <div className="h-auto md:h-8 bg-black border-b border-primary-accent/30 flex flex-col md:flex-row items-center overflow-hidden z-40 gap-2 md:gap-4 py-2 md:py-0">
-          <div className="flex items-center gap-4 px-6 bg-red-600 text-white text-[10px] font-black italic uppercase tracking-widest h-full border-b md:border-b-0 md:border-r border-red-500/50 py-1 md:py-0 w-full md:w-auto justify-center md:justify-start">
-              <Activity size={12} className="animate-pulse" /> LIVE_INTELLIGENCE_STREAM
+      <div className="h-auto md:h-8 bg-black/90 border-b border-primary-accent/20 flex flex-col md:flex-row items-center overflow-hidden z-40 gap-2 md:gap-4 py-2 md:py-0">
+          <div className="flex items-center gap-4 px-6 bg-gradient-to-r from-red-600/20 to-transparent text-red-500 text-[10px] font-black italic uppercase tracking-[0.2em] h-full border-b md:border-b-0 md:border-r border-primary-accent/10 py-1 md:py-0 w-full md:w-auto justify-center md:justify-start">
+              <Activity size={12} className="animate-pulse" /> LIVE_INTEL_STREAM
           </div>
           <div className="w-full md:w-auto px-4 flex items-center">
             <CrackingBar />
@@ -1017,35 +1021,8 @@ export default function CybersecurityDashboard() {
             <h3 className="text-xs font-bold text-primary-accent mb-6 uppercase tracking-widest flex items-center gap-2">
               <Activity size={16} /> NETWORK_THROUGHPUT
             </h3>
-            <div className="h-32 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={trafficData}>
-                  <defs>
-                    <linearGradient id="colorReqs" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#00ff41" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#00ff41" stopOpacity={0}/>
-                    </linearGradient>
-                  </defs>
-                  <Area 
-                    type="monotone" 
-                    dataKey="reqs" 
-                    stroke="#00ff41" 
-                    fillOpacity={1} 
-                    fill="url(#colorReqs)" 
-                    strokeWidth={2}
-                    animationDuration={1500}
-                  />
-                  <Area 
-                    type="monotone" 
-                    dataKey="threats" 
-                    stroke="#ff3e3e" 
-                    fillOpacity={0.1} 
-                    fill="#ff3e3e"
-                    strokeWidth={1}
-                    strokeDasharray="4 4"
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
+            <div className="h-32 w-full flex items-center justify-center border border-primary-accent/10 bg-black/40">
+                <div className="text-primary-accent text-[10px] font-mono">[TRAFFIC_CHART_OFFLINE]</div>
             </div>
           </div>
 
@@ -1088,15 +1065,9 @@ export default function CybersecurityDashboard() {
               <Cpu size={16} /> CORE_HEURISTICS
             </h3>
             <div className="h-24">
-                <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={performanceData}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#ffffff05" vertical={false} />
-                        <XAxis hide dataKey="time" />
-                        <YAxis hide domain={[0, 100]} />
-                        <Line type="monotone" dataKey="cpu" stroke="#00ff41" dot={false} strokeWidth={2} />
-                        <Line type="monotone" dataKey="mem" stroke="#00f5ff" dot={false} strokeWidth={1} strokeDasharray="3 3" />
-                    </LineChart>
-                </ResponsiveContainer>
+            <div className="h-24 flex items-center justify-center border border-primary-accent/10 bg-black/40">
+                <div className="text-primary-accent text-[10px] font-mono">[HEURISTICS_CHART_OFFLINE]</div>
+            </div>
             </div>
           </div>
 

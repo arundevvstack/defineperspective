@@ -16,6 +16,7 @@ const firaCode = Fira_Code({
 
 import ThemeWrapper from "@/components/theme-wrapper";
 import GlassFooter from "@/components/glass-footer";
+import NeuralSeoLayer from "@/components/neural-seo-layer";
 import GlobalTacticalHUD from "@/components/global-tactical-hud";
 import MatrixRain from "@/components/matrix-rain";
 import ThemeInitializer from "@/components/theme-initializer";
@@ -85,6 +86,7 @@ export default function RootLayout({
           <ThemeInitializer />
         </Suspense>
         <ThemeWrapper>
+          <NeuralSeoLayer />
           <MatrixRain />
           <GlobalTacticalHUD />
           <SemanticSeoLayer />

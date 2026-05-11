@@ -13,11 +13,12 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 // Dynamic imports for performance
-const IndustriesSection = dynamic(() => import("@/components/industries-section"));
-const PortfolioSection = dynamic(() => import("@/components/portfolio-section"));
-const TestimonialSection = dynamic(() => import("@/components/testimonial-section"));
-const FAQSection = dynamic(() => import("@/components/faq-section"));
-const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat"), { ssr: false });
+// Dynamic imports with robust resolution
+const IndustriesSection = dynamic(() => import("@/components/industries-section").then(mod => mod.default || mod));
+const PortfolioSection = dynamic(() => import("@/components/portfolio-section").then(mod => mod.default || mod));
+const TestimonialSection = dynamic(() => import("@/components/testimonial-section").then(mod => mod.default || mod));
+const FAQSection = dynamic(() => import("@/components/faq-section").then(mod => mod.default || mod));
+const WhatsAppChat = dynamic(() => import("@/components/whatsapp-chat").then(mod => mod.default || mod), { ssr: false });
 
 const SectionHeader = ({ tag, title, subtitle, align = "center", h2 = false }: any) => {
   const TitleTag = h2 ? "h2" : "h3";
@@ -50,7 +51,7 @@ export default function HomeContent() {
                    <Activity size={24} className="text-primary-accent animate-pulse" />
                 </div>
                 <div>
-                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 block mb-2">Live Logistics Hub</span>
+                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 block mb-2">Production Operations Hub</span>
                    <p className="max-w-3xl text-[11px] md:text-[13px] text-zinc-400 font-normal leading-relaxed uppercase tracking-tighter">
                       Leading <span className="text-white font-bold">video production company in Kerala</span> offering end-to-end media production including TV commercial production, brand film production, and corporate video production.
                    </p>
@@ -62,7 +63,7 @@ export default function HomeContent() {
                    <Cpu size={24} className="text-blue-500" />
                 </div>
                 <div>
-                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 block mb-2">Neural Studio Kochi</span>
+                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 block mb-2">AI Video Production Studio</span>
                    <p className="max-w-xl text-[11px] md:text-[13px] text-zinc-400 font-normal leading-relaxed uppercase tracking-tighter">
                       Our <span className="text-white font-bold">AI-video studio in Kochi</span> delivers high-performance <span className="text-white">generative content</span> for brands across <span className="text-blue-500">India</span>.
                    </p>
@@ -77,7 +78,7 @@ export default function HomeContent() {
         <div className="container mx-auto max-w-7xl">
           <SectionHeader 
             h2
-            tag="Strategic Identity"
+            tag="Our Core Services"
             title={<>Media Production & <br />AI Studio <span className="text-primary-accent italic">Services_</span></>}
             subtitle="We are a video production company in Kerala specializing in AI-powered video production and cinematic brand films."
           />
@@ -120,7 +121,7 @@ export default function HomeContent() {
               <div className="lg:col-span-5">
                  <SectionHeader 
                    h2 
-                   tag="Cinematic Focus" 
+                   tag="Our Expertise" 
                    title={<>Cinematic Video <br />Production & <span className="text-primary-accent italic">Brand Films_</span></>} 
                    align="left" 
                  />
@@ -178,7 +179,7 @@ export default function HomeContent() {
         <div className="container mx-auto max-w-7xl">
            <SectionHeader 
              h2 
-             tag="Future Tech" 
+             tag="AI Technology" 
              title={<>AI Video <br />Production & <span className="text-primary-accent italic">Content Creation_</span></>} 
            />
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -215,7 +216,7 @@ export default function HomeContent() {
               >
                 <div className="flex items-center gap-6">
                   <div className="h-0.5 w-16 bg-primary-accent" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.5em] text-primary-accent">Kerala Authority Node</span>
+                  <span className="text-[11px] font-black uppercase tracking-[0.5em] text-primary-accent">Leading Video Production Kerala</span>
                 </div>
 
                 <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-white uppercase leading-[0.85] tracking-tighter">
@@ -281,7 +282,7 @@ export default function HomeContent() {
                  className="relative aspect-[4/5] md:aspect-square rounded-[4rem] overflow-hidden border border-white/10 group shadow-[0_0_100px_-20px_rgba(var(--primary-accent-rgb),0.3)]"
                >
                   <Image 
-                    src="/images/kerala_ai_studio_cinematic_1776011816804.png"
+                    src="/images/kerala-ai-studio-cinematic.png"
                     alt="AI video production company in Kerala - DP AI Studio"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-[3000ms]"
@@ -290,7 +291,7 @@ export default function HomeContent() {
                   {/* Glassmorphic Overlay Card */}
                   <div className="absolute inset-x-8 bottom-8 md:inset-x-12 md:bottom-12 p-8 md:p-12 rounded-[3rem] bg-black/40 backdrop-blur-3xl border border-white/10 shadow-2xl">
                      <Cpu size={32} className="text-primary-accent mb-8" />
-                     <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-4 leading-none">Neural Hub <br /> Kochi_</h3>
+                     <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-4 leading-none">AI Production <br /> Hub_</h3>
                      <p className="text-[10px] md:text-xs text-zinc-400 font-mono uppercase tracking-[0.3em] leading-relaxed">
                         End-to-end media production infrastructure powered by the DP Generation Engine.
                      </p>
@@ -314,7 +315,7 @@ export default function HomeContent() {
       {/* 6. STUDIO ADVANTAGE (H2: Why Brands Choose Our Production Studio) */}
       <section className="py-24 md:py-40 px-4 md:px-12 bg-black relative border-b border-white/5">
          <div className="container mx-auto max-w-7xl">
-            <SectionHeader h2 tag="Success Factors" title={<>Why Brands Choose Our <br />Production <span className="text-primary-accent italic">Studio_</span></>} />
+            <SectionHeader h2 tag="Why Choose Us" title={<>Why Brands Choose Our <br />Production <span className="text-primary-accent italic">Studio_</span></>} />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                {[
                  { t: "Expert Cinematography", d: "Professional camera crews and meticulous lighting design.", i: Zap },
@@ -335,7 +336,7 @@ export default function HomeContent() {
       {/* 7. SOCIAL PROOF (Experience, Clients, Stats) */}
       <section className="py-24 md:py-40 px-4 md:px-12 bg-obsidian border-y border-white/5">
         <div className="container mx-auto">
-          <SectionHeader tag="Market Reach" title={<>Proven <span className="text-primary-accent italic">Authority_</span></>} />
+          <SectionHeader tag="Our Experience" title={<>Proven <span className="text-primary-accent italic">Authority_</span></>} />
           <div className="grid grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
             {[
               { l: "Years Active", v: "9+", i: Plus },
@@ -364,7 +365,7 @@ export default function HomeContent() {
       <section className="py-32 md:py-48 px-6 md:px-12 bg-black relative border-t border-white/5">
         <div className="container mx-auto max-w-4xl text-center">
             <SectionHeader 
-              tag="Initialize Mission" 
+              tag="Start Your Project" 
               title={<>Start Your <br /><span className="text-primary-accent italic">Project Now_</span></>}
             />
             <p className="text-zinc-400 font-normal uppercase text-sm tracking-[0.2em] md:tracking-[0.4em] mb-16 md:mb-20 max-w-2xl mx-auto">

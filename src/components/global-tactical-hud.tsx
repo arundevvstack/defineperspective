@@ -36,13 +36,13 @@ export default function GlobalTacticalHUD() {
       
       {/* Global Corner Accents */}
       <div className="fixed inset-0 pointer-events-none z-[100] px-6 py-6 hidden md:block">
-          {/* Top-Left */}
-          <div className="absolute top-6 left-6 flex flex-col gap-1 border-t-2 border-l-2 border-primary-accent/20 p-2 w-16 h-16">
-              <span className="text-[7px] text-zinc-700 font-mono">ID_A4</span>
+          {/* Top-Left - Reduced size and moved to avoid header overlap */}
+          <div className="absolute top-4 left-4 flex flex-col gap-1 border-t border-l border-primary-accent/10 p-1 w-12 h-12">
+              <span className="text-[5px] text-zinc-800 font-mono">NODE_01</span>
           </div>
           {/* Top-Right */}
-          <div className="absolute top-6 right-6 flex flex-col items-end gap-1 border-t-2 border-r-2 border-primary-accent/20 p-2 w-16 h-16">
-              <span className="text-[7px] text-zinc-700 font-mono">SYS_2026</span>
+          <div className="absolute top-4 right-4 flex flex-col items-end gap-1 border-t border-r border-primary-accent/10 p-1 w-12 h-12">
+              <span className="text-[5px] text-zinc-800 font-mono">SYS_2026</span>
           </div>
           {/* Bottom-Right (Opposite Metrics) */}
           <div className="absolute bottom-6 right-6 flex flex-col items-end justify-end gap-1 border-b-2 border-r-2 border-primary-accent/20 p-2 w-16 h-16">
