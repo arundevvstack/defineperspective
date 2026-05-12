@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { 
+import {
   Plus, Users, Globe, BarChart3, Star, Building2, Zap, Target, Activity, MessageCircle, ArrowRight, Shield, Cpu, Play, CheckCircle2, Clapperboard, MonitorPlay, Sparkles
 } from "lucide-react";
 import GlassNavbar from "@/components/glass-navbar";
@@ -86,7 +86,7 @@ const ServiceNode = ({ node, title, icon, services, accentColor, className }: an
           <span className="font-mono text-[10px] uppercase tracking-[0.6em]" style={{ color: accentColor }}>{node}</span>
           <h3 className="text-4xl md:text-5xl font-black uppercase text-white leading-none tracking-tighter">{title}</h3>
         </div>
-        <div 
+        <div
           className="h-16 w-16 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-2xl"
           style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
         >
@@ -96,8 +96,8 @@ const ServiceNode = ({ node, title, icon, services, accentColor, className }: an
 
       <div className="relative z-10 grid sm:grid-cols-2 gap-x-12 gap-y-6">
         {services.map((s: string, idx: number) => (
-          <motion.div 
-            key={s} 
+          <motion.div
+            key={s}
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
@@ -110,7 +110,7 @@ const ServiceNode = ({ node, title, icon, services, accentColor, className }: an
       </div>
 
       {/* Interactive Bottom Accent */}
-      <div 
+      <div
         className="absolute bottom-0 left-0 w-0 h-1.5 transition-all duration-700 group-hover:w-full"
         style={{ backgroundColor: accentColor }}
       />
@@ -125,7 +125,7 @@ export default function HomeContent() {
     <main className="min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden relative selection:bg-primary-accent selection:text-white theme-blue">
       <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       <GlassNavbar />
-      
+
       {/* 1. HERO SECTION (With H1 in components/video-hero.tsx) */}
       <VideoHero />
 
@@ -234,31 +234,31 @@ export default function HomeContent() {
 
       {/* 📍 LOCATION AUTHORITY BAR (SEO WEAPON) */}
       <div className="bg-black border-y border-white/5 py-8 relative z-30">
-         <div className="container mx-auto px-6 overflow-hidden">
-            <div className="flex items-center gap-12 animate-marquee whitespace-nowrap">
-               {[
-                 "Serving Brands Across India",
-                 "Kerala", "Kochi", "Trivandrum", "Bangalore", 
-                 "Chennai", "Mumbai", "Hyderabad", "South India", "Pan India"
-               ].map((loc, i) => (
-                 <div key={i} className="flex items-center gap-4 group cursor-default">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary-accent group-hover:scale-150 transition-transform" />
-                    <span className="label-mono !text-zinc-500 group-hover:!text-white transition-colors">{loc}</span>
-                 </div>
-               ))}
-               {/* Duplicate for seamless marquee */}
-               {[
-                 "Serving Brands Across India",
-                 "Kerala", "Kochi", "Trivandrum", "Bangalore", 
-                 "Chennai", "Mumbai", "Hyderabad", "South India", "Pan India"
-               ].map((loc, i) => (
-                 <div key={`dup-${i}`} className="flex items-center gap-4 group cursor-default">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary-accent group-hover:scale-150 transition-transform" />
-                    <span className="label-mono !text-zinc-500 group-hover:!text-white transition-colors">{loc}</span>
-                 </div>
-               ))}
-            </div>
-         </div>
+        <div className="container mx-auto px-6 overflow-hidden">
+          <div className="flex items-center gap-12 animate-marquee whitespace-nowrap">
+            {[
+              "Serving Brands Across India",
+              "Kerala", "Kochi", "Trivandrum", "Bangalore",
+              "Chennai", "Mumbai", "Hyderabad", "South India", "Pan India"
+            ].map((loc, i) => (
+              <div key={i} className="flex items-center gap-4 group cursor-default">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary-accent group-hover:scale-150 transition-transform" />
+                <span className="label-mono !text-zinc-500 group-hover:!text-white transition-colors">{loc}</span>
+              </div>
+            ))}
+            {/* Duplicate for seamless marquee */}
+            {[
+              "Serving Brands Across India",
+              "Kerala", "Kochi", "Trivandrum", "Bangalore",
+              "Chennai", "Mumbai", "Hyderabad", "South India", "Pan India"
+            ].map((loc, i) => (
+              <div key={`dup-${i}`} className="flex items-center gap-4 group cursor-default">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary-accent group-hover:scale-150 transition-transform" />
+                <span className="label-mono !text-zinc-500 group-hover:!text-white transition-colors">{loc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <style jsx>{`
@@ -273,431 +273,431 @@ export default function HomeContent() {
 
       {/* 🚀 PRIMARY SERVICE DOMINATION GRID (SEO CLUSTERING) */}
       <section id="services" className="section-pad bg-obsidian border-b border-white/5 relative z-10">
-         <div className="container-max">
-            <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-32">
-               <div className="space-y-6">
-                  <span className="label-mono !text-primary-accent">Neural // Traditional Infrastructure</span>
-                  <div>
-                    <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.8]">
-                       AI Production <br />
-                       <span className="text-primary-accent">Hub_</span>
-                    </h2>
-                    <p className="text-zinc-500 max-w-2xl leading-relaxed !text-lg mt-6">
-                       End-to-end media production infrastructure powered by the DP Generation Engine.
-                    </p>
-                  </div>
-               </div>
+        <div className="container-max">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-32">
+            <div className="space-y-6">
+              <span className="label-mono !text-primary-accent">Neural // Traditional Infrastructure</span>
+              <div>
+                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.8]">
+                  AI Production <br />
+                  <span className="text-primary-accent">Hub_</span>
+                </h2>
+                <p className="text-zinc-500 max-w-2xl leading-relaxed !text-lg mt-6">
+                  End-to-end media production infrastructure powered by the DP Generation Engine.
+                </p>
+              </div>
             </div>
+          </div>
 
-            <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
-               {/* Cluster 1: AI Video Production */}
-               <ServiceNode 
-                 node="Node 01"
-                 title="AI Production"
-                 icon={<Cpu size={32} />}
-                 services={[
-                   "AI Commercial Production", "AI TVC Production", "AI Reel Production",
-                   "AI Product Ads", "AI Fashion Commercials", "AI Food Commercials",
-                   "AI Real Estate Videos", "AI Luxury Brand Films", "AI Theatre Ads",
-                   "AI Social Media Campaigns"
-                 ]}
-                 accentColor="#3b82f6"
-               />
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
+            {/* Cluster 1: AI Video Production */}
+            <ServiceNode
+              node="Node 01"
+              title="AI Production"
+              icon={<Cpu size={32} />}
+              services={[
+                "AI Commercial Production", "AI TVC Production", "AI Reel Production",
+                "AI Product Ads", "AI Fashion Commercials", "AI Food Commercials",
+                "AI Real Estate Videos", "AI Luxury Brand Films", "AI Theatre Ads",
+                "AI Social Media Campaigns"
+              ]}
+              accentColor="#3b82f6"
+            />
 
-               {/* Cluster 2: Traditional Video Production */}
-               <ServiceNode 
-                 node="Node 02"
-                 title="Video Production"
-                 icon={<Clapperboard size={32} />}
-                 services={[
-                   "TV Commercial Production", "Corporate Films", "Brand Storytelling",
-                   "Product Videos", "Social Media Videos", "Event Films",
-                   "Documentary Production", "Promotional Videos", "Theatre Commercials",
-                   "Broadcast Ad Films"
-                 ]}
-                 accentColor="#eb1e2c"
-               />
-            </div>
-         </div>
+            {/* Cluster 2: Traditional Video Production */}
+            <ServiceNode
+              node="Node 02"
+              title="Video Production"
+              icon={<Clapperboard size={32} />}
+              services={[
+                "TV Commercial Production", "Corporate Films", "Brand Storytelling",
+                "Product Videos", "Social Media Videos", "Event Films",
+                "Documentary Production", "Promotional Videos", "Theatre Commercials",
+                "Broadcast Ad Films"
+              ]}
+              accentColor="#eb1e2c"
+            />
+          </div>
+        </div>
       </section>
 
       {/* 🌟 ELITE FLAGSHIP PRODUCTIONS (MASTER-GRADE FEATURING) */}
       <section id="featured-productions" className="section-pad bg-black relative overflow-hidden">
-         {/* Background Telemetry Grid */}
-         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-         
-         <div className="container-max relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-32">
-               <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                     <div className="h-2 w-2 rounded-full bg-primary-accent animate-pulse" />
-                     <span className="label-mono !text-primary-accent">Flagship Productions {" // "} Master Grade</span>
+        {/* Background Telemetry Grid */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+        <div className="container-max relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-32">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="h-2 w-2 rounded-full bg-primary-accent animate-pulse" />
+                <span className="label-mono !text-primary-accent">Flagship Productions {" // "} Master Grade</span>
+              </div>
+              <h2 className="heading-section">
+                The <span className="text-primary-accent">Featured_</span> <br />
+                Collection
+              </h2>
+            </div>
+            <p className="body-copy max-w-sm text-right opacity-40">
+              Engineering cinematic authority through proprietary neural pipelines and world-class vision.
+            </p>
+          </div>
+
+          <div className="space-y-32">
+            {[
+              {
+                id: "5kOnWP-dZZY",
+                title: "SHE Luxury Ad",
+                type: "Luxury Commercial",
+                desc: "A high-fidelity cinematic ad film engineered for elite fashion brands, showcasing the intersection of neural aesthetics and luxury storytelling.",
+                specs: ["8K NATIVE", "NEURAL VFX", "SPATIAL AUDIO", "RTX COMPUTE"],
+                location: "Studio Node Alpha // India",
+                accent: "#3b82f6"
+              },
+              {
+                id: "vGijXeVUS74",
+                title: "Lacrispo Theater Ad",
+                type: "Cinema Commercial",
+                desc: "Broadcast-grade theater commercial optimized for high-impact cinema screens, delivering immersive visual fidelity across South India.",
+                specs: ["DCP READY", "SURROUND 7.1", "HDR10+", "400MBPS BITRATE"],
+                location: "Production Node Beta // Kerala",
+                accent: "#3b82f6"
+              },
+              {
+                id: "INpn97C16yM",
+                title: "BB App TV Commercial",
+                type: "Brand Film",
+                desc: "A high-energy, neural-optimized brand film for the BB App, engineered for rapid delivery and maximum market penetration through AI-driven visuals.",
+                specs: ["NEURAL PIPELINE", "48HR DELIVERY", "SOCIAL OPTIMIZED", "DYNAMIC VFX"],
+                location: "Production Node Gamma // India",
+                accent: "#eb1e2c"
+              }
+            ].map((vid, idx) => (
+              <div
+                key={vid.id}
+                className={cn(
+                  "flex flex-col lg:flex-row gap-16 items-center group",
+                  idx % 2 === 1 && "lg:flex-row-reverse"
+                )}
+              >
+                {/* Cinematic Canvas */}
+                <div
+                  className="w-full lg:w-3/5 aspect-video rounded-[3rem] overflow-hidden border border-white/10 bg-obsidian relative cursor-pointer shadow-2xl transition-all duration-700"
+                  style={{ borderColor: `${vid.accent}20`, boxShadow: `0 25px 50px -12px ${vid.accent}05` }}
+                  onClick={() => setActiveVideo(vid.id)}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${vid.id}/sddefault.jpg`}
+                    alt={vid.title}
+                    className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[2000ms]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+
+                  {/* Telemetry Overlay */}
+                  <div className="absolute top-8 left-8 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    {vid.specs.map(spec => (
+                      <span key={spec} className="px-3 py-1 rounded bg-black/60 backdrop-blur-md border border-white/10 text-[8px] font-mono uppercase tracking-[0.2em]" style={{ color: vid.accent }}>
+                        {spec}
+                      </span>
+                    ))}
                   </div>
-                  <h2 className="heading-section">
-                     The <span className="text-primary-accent">Featured_</span> <br />
-                     Collection
-                  </h2>
-               </div>
-               <p className="body-copy max-w-sm text-right opacity-40">
-                  Engineering cinematic authority through proprietary neural pipelines and world-class vision.
-               </p>
-            </div>
 
-            <div className="space-y-32">
-               {[
-                 { 
-                   id: "5kOnWP-dZZY", 
-                   title: "SHE Luxury Ad", 
-                   type: "Luxury Commercial", 
-                   desc: "A high-fidelity cinematic ad film engineered for elite fashion brands, showcasing the intersection of neural aesthetics and luxury storytelling.",
-                   specs: ["8K NATIVE", "NEURAL VFX", "SPATIAL AUDIO", "RTX COMPUTE"],
-                   location: "Studio Node Alpha // India",
-                   accent: "#3b82f6"
-                 },
-                 { 
-                   id: "vGijXeVUS74", 
-                   title: "Lacrispo Theater Ad", 
-                   type: "Cinema Commercial", 
-                   desc: "Broadcast-grade theater commercial optimized for high-impact cinema screens, delivering immersive visual fidelity across South India.",
-                   specs: ["DCP READY", "SURROUND 7.1", "HDR10+", "400MBPS BITRATE"],
-                   location: "Production Node Beta // Kerala",
-                   accent: "#3b82f6"
-                 },
-                 { 
-                   id: "INpn97C16yM", 
-                   title: "BB App TV Commercial", 
-                   type: "Brand Film", 
-                   desc: "A high-energy, neural-optimized brand film for the BB App, engineered for rapid delivery and maximum market penetration through AI-driven visuals.",
-                   specs: ["NEURAL PIPELINE", "48HR DELIVERY", "SOCIAL OPTIMIZED", "DYNAMIC VFX"],
-                   location: "Production Node Gamma // India",
-                   accent: "#eb1e2c"
-                 }
-               ].map((vid, idx) => (
-                 <div 
-                   key={vid.id}
-                   className={cn(
-                     "flex flex-col lg:flex-row gap-16 items-center group",
-                     idx % 2 === 1 && "lg:flex-row-reverse"
-                   )}
-                 >
-                    {/* Cinematic Canvas */}
-                    <div 
-                      className="w-full lg:w-3/5 aspect-video rounded-[3rem] overflow-hidden border border-white/10 bg-obsidian relative cursor-pointer shadow-2xl transition-all duration-700"
-                      style={{ borderColor: `${vid.accent}20`, boxShadow: `0 25px 50px -12px ${vid.accent}05` }}
+                  {/* Play Interface */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="h-20 w-20 md:h-24 md:w-24 rounded-full backdrop-blur-3xl border text-white flex items-center justify-center group-hover:scale-110 transition-all duration-500" style={{ backgroundColor: `${vid.accent}10`, borderColor: `${vid.accent}40`, color: vid.accent }}>
+                      <Play size={32} fill="currentColor" className="ml-1" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Metadata Narrative */}
+                <div className="w-full lg:w-2/5 space-y-10">
+                  <div className="space-y-4">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.5em] block" style={{ color: vid.accent }}>{vid.type}</span>
+                    <h3 className="text-4xl md:text-6xl font-black uppercase text-white leading-none tracking-tighter">
+                      {vid.title}
+                    </h3>
+                  </div>
+
+                  <p className="body-copy !text-base !text-zinc-400 !leading-relaxed uppercase tracking-widest">
+                    {vid.desc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-4 pt-8">
+                    <button
                       onClick={() => setActiveVideo(vid.id)}
+                      className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
                     >
-                       <img 
-                         src={`https://img.youtube.com/vi/${vid.id}/sddefault.jpg`} 
-                         alt={vid.title} 
-                         className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[2000ms]"
-                       />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                       
-                       {/* Telemetry Overlay */}
-                       <div className="absolute top-8 left-8 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                          {vid.specs.map(spec => (
-                            <span key={spec} className="px-3 py-1 rounded bg-black/60 backdrop-blur-md border border-white/10 text-[8px] font-mono uppercase tracking-[0.2em]" style={{ color: vid.accent }}>
-                               {spec}
-                            </span>
-                          ))}
-                       </div>
-
-                       {/* Play Interface */}
-                       <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="h-20 w-20 md:h-24 md:w-24 rounded-full backdrop-blur-3xl border text-white flex items-center justify-center group-hover:scale-110 transition-all duration-500" style={{ backgroundColor: `${vid.accent}10`, borderColor: `${vid.accent}40`, color: vid.accent }}>
-                             <Play size={32} fill="currentColor" className="ml-1" />
-                          </div>
-                       </div>
-                    </div>
-
-                    {/* Metadata Narrative */}
-                    <div className="w-full lg:w-2/5 space-y-10">
-                       <div className="space-y-4">
-                          <span className="text-[10px] font-mono uppercase tracking-[0.5em] block" style={{ color: vid.accent }}>{vid.type}</span>
-                          <h3 className="text-4xl md:text-6xl font-black uppercase text-white leading-none tracking-tighter">
-                             {vid.title}
-                          </h3>
-                       </div>
-                       
-                       <p className="body-copy !text-base !text-zinc-400 !leading-relaxed uppercase tracking-widest">
-                          {vid.desc}
-                       </p>
-
-                       <div className="flex flex-wrap gap-4 pt-8">
-                          <button 
-                            onClick={() => setActiveVideo(vid.id)}
-                            className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
-                          >
-                             <span className="text-[13px] font-bold group-hover/btn:text-white transition-colors" style={{ color: vid.accent }}>Initialize Stream</span>
-                             <MonitorPlay size={18} className="text-zinc-500 group-hover/btn:text-white transition-colors" />
-                          </button>
-                          <button 
-                             onClick={() => setActiveVideo(vid.id)}
-                             className="h-16 px-10 rounded-2xl border border-white/5 text-white flex items-center gap-4 hover:border-white/20 transition-all group/btn"
-                          >
-                             <span className="text-[13px] font-bold text-zinc-500 group-hover/btn:text-white transition-colors">Project Specs</span>
-                             <ArrowRight size={18} className="text-zinc-700 group-hover/btn:text-primary-accent transition-colors" />
-                          </button>
-                       </div>
-                    </div>
-                 </div>
-               ))}
-            </div>
-         </div>
+                      <span className="text-[13px] font-bold group-hover/btn:text-white transition-colors" style={{ color: vid.accent }}>Initialize Stream</span>
+                      <MonitorPlay size={18} className="text-zinc-500 group-hover/btn:text-white transition-colors" />
+                    </button>
+                    <button
+                      onClick={() => setActiveVideo(vid.id)}
+                      className="h-16 px-10 rounded-2xl border border-white/5 text-white flex items-center gap-4 hover:border-white/20 transition-all group/btn"
+                    >
+                      <span className="text-[13px] font-bold text-zinc-500 group-hover/btn:text-white transition-colors">Project Specs</span>
+                      <ArrowRight size={18} className="text-zinc-700 group-hover/btn:text-primary-accent transition-colors" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 🧠 WHY AI VIDEO PRODUCTION (EDUCATIONAL AUTHORITY) */}
       <section className="section-pad bg-black relative z-10">
-         <div className="container-max">
-            <div className="grid lg:grid-cols-2 gap-32 items-center">
-               <div className="space-y-12">
-                  <span className="label-mono">The AI Advantage</span>
-                  <h2 className="heading-section">Why Brands Are <br />Switching to <span className="text-primary-accent">AI Production_</span></h2>
-                  <div className="space-y-8">
-                     {[
-                       { t: "Faster Production", d: "Neural workflows reduce turnaround times by 70% without sacrificing quality." },
-                       { t: "Scalable Content", d: "Generate thousands of creative variations for multi-platform optimization." },
-                       { t: "Cinematic Quality", d: "High-fidelity AI rendering that rivals traditional high-budget cinematography." },
-                       { t: "Lower Production Cost", d: "Elite-tier commercials at a fraction of traditional production budgets." }
-                     ].map((item, i) => (
-                       <div key={i} className="flex gap-8 group">
-                          <div className="h-12 w-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary-accent/40 transition-all">
-                             <span className="text-lg font-black text-white/20 group-hover:text-primary-accent">0{i+1}</span>
-                          </div>
-                          <div className="space-y-2">
-                             <h4 className="text-xl font-bold uppercase text-white group-hover:text-primary-accent transition-colors">{item.t}</h4>
-                             <p className="body-copy !text-base opacity-40">{item.d}</p>
-                          </div>
-                       </div>
-                     ))}
+        <div className="container-max">
+          <div className="grid lg:grid-cols-2 gap-32 items-center">
+            <div className="space-y-12">
+              <span className="label-mono">The AI Advantage</span>
+              <h2 className="heading-section">Why Brands Are <br />Switching to <span className="text-primary-accent">AI Production_</span></h2>
+              <div className="space-y-8">
+                {[
+                  { t: "Faster Production", d: "Neural workflows reduce turnaround times by 70% without sacrificing quality." },
+                  { t: "Scalable Content", d: "Generate thousands of creative variations for multi-platform optimization." },
+                  { t: "Cinematic Quality", d: "High-fidelity AI rendering that rivals traditional high-budget cinematography." },
+                  { t: "Lower Production Cost", d: "Elite-tier commercials at a fraction of traditional production budgets." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-8 group">
+                    <div className="h-12 w-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary-accent/40 transition-all">
+                      <span className="text-lg font-black text-white/20 group-hover:text-primary-accent">0{i + 1}</span>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-xl font-bold uppercase text-white group-hover:text-primary-accent transition-colors">{item.t}</h4>
+                      <p className="body-copy !text-base opacity-40">{item.d}</p>
+                    </div>
                   </div>
-               </div>
-               <div className="relative aspect-square rounded-[4rem] overflow-hidden border border-white/10 bg-obsidian group shadow-2xl">
-                  <Image 
-                    src="/images/ai-advantage-cinematic.png"
-                    alt="AI Video Production Intelligence — Define Perspective Cinematic Storytelling"
-                    fill
-                    className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[5000ms]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                  <div className="absolute inset-x-12 bottom-12 p-10 rounded-[2.5rem] bg-black/40 backdrop-blur-3xl border border-white/10">
-                     <span className="label-mono !text-primary-accent mb-4">Neural Architecture</span>
-                     <h3 className="text-3xl font-black uppercase text-white leading-none tracking-tighter">72HR TURNAROUND <br /> GUARANTEED_</h3>
-                  </div>
-               </div>
+                ))}
+              </div>
             </div>
-         </div>
+            <div className="relative aspect-square rounded-[4rem] overflow-hidden border border-white/10 bg-obsidian group shadow-2xl">
+              <Image
+                src="/images/ai-advantage-cinematic.png"
+                alt="AI Video Production Intelligence — Define Perspective Cinematic Storytelling"
+                fill
+                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[5000ms]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-x-12 bottom-12 p-10 rounded-[2.5rem] bg-black/40 backdrop-blur-3xl border border-white/10">
+                <span className="label-mono !text-primary-accent mb-4">Neural Architecture</span>
+                <h3 className="text-3xl font-black uppercase text-white leading-none tracking-tighter">72HR TURNAROUND <br /> GUARANTEED_</h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 📊 TRADITIONAL VS AI COMPARISON (AI OVERVIEW OPTIMIZATION) */}
       <section className="section-pad bg-black relative border-y border-white/5 overflow-hidden">
-         <div className="container-max">
-            <div className="text-center mb-32 space-y-6">
-               <span className="label-mono">Efficiency Analytics</span>
-               <h2 className="heading-section">Traditional vs <span className="text-primary-accent">AI Production_</span></h2>
+        <div className="container-max">
+          <div className="text-center mb-32 space-y-6">
+            <span className="label-mono">Efficiency Analytics</span>
+            <h2 className="heading-section">Traditional vs <span className="text-primary-accent">AI Production_</span></h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
+            {/* Traditional Pillar */}
+            <div className="space-y-12 transition-all duration-700">
+              <div className="space-y-4">
+                <span className="label-mono">Legacy Workflow</span>
+                <h3 className="text-4xl font-black uppercase text-white">Traditional Agency</h3>
+              </div>
+              <div className="space-y-8">
+                {[
+                  { m: "Production Speed", v: "4-8 Weeks", p: 20 },
+                  { m: "Average Cost", v: "₹₹₹₹₹ (High)", p: 90 },
+                  { m: "Scalability", v: "Limited", p: 15 },
+                  { m: "Revision Flexibility", v: "Difficult", p: 10 }
+                ].map(item => (
+                  <div key={item.m} className="space-y-3">
+                    <div className="flex justify-between text-[15px] font-mono uppercase tracking-wider text-white">
+                      <span>{item.m}</span>
+                      <span>{item.v}</span>
+                    </div>
+                    <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-zinc-400/40" style={{ width: `${item.p}%` }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
-               {/* Traditional Pillar */}
-               <div className="space-y-12 transition-all duration-700">
-                  <div className="space-y-4">
-                    <span className="label-mono">Legacy Workflow</span>
-                    <h3 className="text-4xl font-black uppercase text-white">Traditional Agency</h3>
+            {/* AI Pillar */}
+            <div className="space-y-12 p-12 rounded-[4rem] bg-white/[0.03] border border-primary-accent/20 relative overflow-hidden group shadow-2xl shadow-primary-accent/5">
+              <div className="absolute top-0 right-0 p-8">
+                <div className="h-3 w-3 rounded-full bg-primary-accent animate-ping" />
+              </div>
+              <div className="space-y-4 relative z-10">
+                <span className="label-mono !text-primary-accent">AI Production Studio</span>
+                <h3 className="text-4xl font-black uppercase text-white">DP AI Studio</h3>
+              </div>
+              <div className="space-y-8 relative z-10">
+                {[
+                  { m: "Production Speed", v: "48-72 Hours", p: 100 },
+                  { m: "Average Cost", v: "₹ (Scalable)", p: 20 },
+                  { m: "Scalability", v: "Unlimited", p: 100 },
+                  { m: "Revision Flexibility", v: "Instant", p: 95 }
+                ].map(item => (
+                  <div key={item.m} className="space-y-3">
+                    <div className="flex justify-between text-[15px] font-mono uppercase tracking-wider text-white">
+                      <span>{item.m}</span>
+                      <span>{item.v}</span>
+                    </div>
+                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${item.p}%` }}
+                        transition={{ duration: 1.5, ease: "circOut" }}
+                        className="h-full bg-primary-accent shadow-[0_0_15px_rgba(235,30,44,0.5)]"
+                      />
+                    </div>
                   </div>
-                  <div className="space-y-8">
-                    {[
-                      { m: "Production Speed", v: "4-8 Weeks", p: 20 },
-                      { m: "Average Cost", v: "₹₹₹₹₹ (High)", p: 90 },
-                      { m: "Scalability", v: "Limited", p: 15 },
-                      { m: "Revision Flexibility", v: "Difficult", p: 10 }
-                    ].map(item => (
-                      <div key={item.m} className="space-y-3">
-                        <div className="flex justify-between text-[15px] font-mono uppercase tracking-wider text-white">
-                          <span>{item.m}</span>
-                          <span>{item.v}</span>
-                        </div>
-                        <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                          <div className="h-full bg-zinc-400/40" style={{ width: `${item.p}%` }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-               </div>
-
-               {/* AI Pillar */}
-               <div className="space-y-12 p-12 rounded-[4rem] bg-white/[0.03] border border-primary-accent/20 relative overflow-hidden group shadow-2xl shadow-primary-accent/5">
-                  <div className="absolute top-0 right-0 p-8">
-                    <div className="h-3 w-3 rounded-full bg-primary-accent animate-ping" />
-                  </div>
-                  <div className="space-y-4 relative z-10">
-                    <span className="label-mono !text-primary-accent">AI Production Studio</span>
-                    <h3 className="text-4xl font-black uppercase text-white">DP AI Studio</h3>
-                  </div>
-                  <div className="space-y-8 relative z-10">
-                    {[
-                      { m: "Production Speed", v: "48-72 Hours", p: 100 },
-                      { m: "Average Cost", v: "₹ (Scalable)", p: 20 },
-                      { m: "Scalability", v: "Unlimited", p: 100 },
-                      { m: "Revision Flexibility", v: "Instant", p: 95 }
-                    ].map(item => (
-                      <div key={item.m} className="space-y-3">
-                        <div className="flex justify-between text-[15px] font-mono uppercase tracking-wider text-white">
-                          <span>{item.m}</span>
-                          <span>{item.v}</span>
-                        </div>
-                        <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                          <motion.div 
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${item.p}%` }}
-                            transition={{ duration: 1.5, ease: "circOut" }}
-                            className="h-full bg-primary-accent shadow-[0_0_15px_rgba(235,30,44,0.5)]" 
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-               </div>
+                ))}
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
             </div>
-         </div>
+          </div>
+        </div>
       </section>
 
       {/* 🇮🇳 KERALA + INDIA AUTHORITY BLOCK (GEO-AUTHORITY) */}
       <section className="section-pad bg-obsidian relative z-10 overflow-hidden">
-         <div className="container-max">
-            <div className="grid lg:grid-cols-2 gap-32 items-center">
-               <div className="order-2 lg:order-1 relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
-                  <Image 
-                    src="/images/kochi-neural-skyline.png"
-                    alt="Kochi City Skyline — The Primary Neural Production Node of Define Perspective"
-                    fill
-                    className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-[5000ms]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-                  <div className="absolute inset-x-12 bottom-12 p-8 rounded-2xl bg-black/60 backdrop-blur-2xl border border-white/10">
-                     <span className="label-mono !text-primary-accent mb-2">Regional Authority</span>
-                     <h3 className="text-xl font-bold uppercase text-white">Serving India's Media Hubs</h3>
-                  </div>
-               </div>
-               <div className="order-1 lg:order-2 space-y-10">
-                  <span className="label-mono">Geo-Political Authority</span>
-                  <h2 className="heading-section">The Leading AI Video Production <br /><span className="text-primary-accent">Company in Kerala_</span></h2>
-                  <p className="body-copy !text-lg opacity-80 leading-loose">
-                      Headquartered in <span className="text-white font-bold">Kochi</span>, we serve as the primary production hub for brands in <span className="text-zinc-400">Trivandrum, Bangalore, Chennai, Mumbai, and South India</span>. DP AI Studio is the leading provider of cinematic AI advertising and professional video production services.
-                   </p>
-                  <div className="flex flex-wrap gap-4">
-                     {["Kochi", "Trivandrum", "Bangalore", "Mumbai", "Dubai"].map(city => (
-                       <div key={city} className="px-6 py-2 rounded-full border border-white/10 bg-white/5 label-mono !text-[10px] hover:border-primary-accent/40 hover:text-primary-accent transition-all cursor-default">{city}</div>
-                     ))}
-                  </div>
-               </div>
+        <div className="container-max">
+          <div className="grid lg:grid-cols-2 gap-32 items-center">
+            <div className="order-2 lg:order-1 relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
+              <Image
+                src="/images/kochi-neural-skyline.png"
+                alt="Kochi City Skyline — The Primary Neural Production Node of Define Perspective"
+                fill
+                className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-[5000ms]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-x-12 bottom-12 p-8 rounded-2xl bg-black/60 backdrop-blur-2xl border border-white/10">
+                <span className="label-mono !text-primary-accent mb-2">Regional Authority</span>
+                <h3 className="text-xl font-bold uppercase text-white">Serving India's Media Hubs</h3>
+              </div>
             </div>
-         </div>
+            <div className="order-1 lg:order-2 space-y-10">
+              <span className="label-mono">Geo-Political Authority</span>
+              <h2 className="heading-section">The Leading AI Video Production <br /><span className="text-primary-accent">Company in Kerala_</span></h2>
+              <p className="body-copy !text-lg opacity-80 leading-loose">
+                Headquartered in <span className="text-white font-bold">Kochi</span>, we serve as the primary production hub for brands in <span className="text-zinc-400">Trivandrum, Bangalore, Chennai, Mumbai, and South India</span>. DP AI Studio is the leading provider of cinematic AI advertising and professional video production services.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                {["Kochi", "Trivandrum", "Bangalore", "Mumbai", "Dubai"].map(city => (
+                  <div key={city} className="px-6 py-2 rounded-full border border-white/10 bg-white/5 label-mono !text-[10px] hover:border-primary-accent/40 hover:text-primary-accent transition-all cursor-default">{city}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 🏆 PREMIUM CASE STUDIES (BENTO GRID) */}
       <section id="portfolio" className="section-pad bg-black relative z-10">
-         <div className="container-max">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 gap-8">
-               <div className="space-y-6">
-                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                     <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />
-                     <span className="label-mono !text-[10px]">Visual Evidence</span>
-                  </div>
-                  <h2 className="heading-section">Explore Our Video Production <br /><span className="text-primary-accent">Portfolio_</span></h2>
-               </div>
-               <Link 
-                 href="/portfolio" 
-                 className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
-               >
-                  <span className="text-[13px] font-bold">Explore Full Archive</span>
-                  <ArrowRight size={18} className="text-zinc-500 group-hover/btn:text-primary-accent transition-colors" />
-               </Link>
+        <div className="container-max">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 gap-8">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />
+                <span className="label-mono !text-[10px]">Visual Evidence</span>
+              </div>
+              <h2 className="heading-section">Explore Our Video Production <br /><span className="text-primary-accent">Portfolio_</span></h2>
             </div>
+            <Link
+              href="/portfolio"
+              className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
+            >
+              <span className="text-[13px] font-bold">Explore Full Archive</span>
+              <ArrowRight size={18} className="text-zinc-500 group-hover/btn:text-primary-accent transition-colors" />
+            </Link>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-               {[
-                 { t: "SHE Luxury Ad", r: "+320% Reach", c: "45% Conv", d: "72HR Delivery", bg: "bg-white/[0.02]" },
-                 { t: "Lacrispo Theater", r: "Cinema Ready", c: "8K HDR", d: "National TVC", bg: "bg-white/[0.02]" },
-                 { t: "Neural Branding", r: "60% Lower Cost", c: "18 Assets", d: "Global Scale", bg: "bg-white/[0.02]" }
-               ].map((caseStudy, i) => (
-                 <div key={i} className={cn("p-12 rounded-[3.5rem] border border-white/5 flex flex-col gap-12 group hover:border-primary-accent/40 transition-all duration-500 bg-obsidian relative overflow-hidden", caseStudy.bg)}>
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                    <div className="space-y-4 relative z-10">
-                       <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Case Study 0{i+1}</span>
-                       <h3 className="text-3xl font-black uppercase text-white leading-none tracking-tighter">{caseStudy.t}</h3>
-                    </div>
-                    <div className="space-y-6 pt-12 border-t border-white/10 relative z-10">
-                       <div className="flex justify-between items-center">
-                          <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Reach Metrics</span>
-                          <span className="text-[14px] font-bold text-white">{caseStudy.r}</span>
-                       </div>
-                       <div className="flex justify-between items-center">
-                          <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Performance</span>
-                          <span className="text-[14px] font-bold text-white">{caseStudy.c}</span>
-                       </div>
-                       <div className="flex justify-between items-center">
-                          <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Velocity</span>
-                          <span className="text-[14px] font-bold text-white">{caseStudy.d}</span>
-                       </div>
-                    </div>
-                 </div>
-               ))}
-            </div>
-         </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { t: "SHE Luxury Ad", r: "+320% Reach", c: "45% Conv", d: "72HR Delivery", bg: "bg-white/[0.02]" },
+              { t: "Lacrispo Theater", r: "Cinema Ready", c: "8K HDR", d: "National TVC", bg: "bg-white/[0.02]" },
+              { t: "Neural Branding", r: "60% Lower Cost", c: "18 Assets", d: "Global Scale", bg: "bg-white/[0.02]" }
+            ].map((caseStudy, i) => (
+              <div key={i} className={cn("p-12 rounded-[3.5rem] border border-white/5 flex flex-col gap-12 group hover:border-primary-accent/40 transition-all duration-500 bg-obsidian relative overflow-hidden", caseStudy.bg)}>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                <div className="space-y-4 relative z-10">
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Case Study 0{i + 1}</span>
+                  <h3 className="text-3xl font-black uppercase text-white leading-none tracking-tighter">{caseStudy.t}</h3>
+                </div>
+                <div className="space-y-6 pt-12 border-t border-white/10 relative z-10">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Reach Metrics</span>
+                    <span className="text-[14px] font-bold text-white">{caseStudy.r}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Performance</span>
+                    <span className="text-[14px] font-bold text-white">{caseStudy.c}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Velocity</span>
+                    <span className="text-[14px] font-bold text-white">{caseStudy.d}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 🚀 EXTENDED SHOWCASE (YOUTUBE CHANNEL CTA) */}
       <section className="py-32 bg-black relative overflow-hidden border-b border-white/5">
-         <div className="container-max relative z-10">
-            <div className="relative flex flex-col lg:flex-row justify-between items-center gap-12 p-16 md:p-24 rounded-[4rem] border border-white/5 overflow-hidden group hover:border-primary-accent/20 transition-all duration-700 shadow-2xl">
-               {/* Background Image with Deep Overlay */}
-               <Image 
-                 src="/images/full-archive-cinematic.png"
-                 alt="Cinematic Portfolio Archive"
-                 fill
-                 className="object-cover opacity-20 group-hover:scale-105 group-hover:opacity-30 transition-all duration-[5000ms]"
-               />
-               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-0" />
-               
-               <div className="space-y-8 text-center lg:text-left relative z-10">
-                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary-accent/10 border border-primary-accent/20">
-                     <div className="h-1.5 w-1.5 rounded-full bg-primary-accent animate-pulse" />
-                     <span className="label-mono !text-[10px] !text-primary-accent">Extended Portfolio Archive</span>
-                  </div>
-                  <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white leading-none">
-                     Explore Our <br />
-                     <span className="text-primary-accent">Full Archive_</span>
-                  </h2>
-                  <p className="body-copy max-w-xl opacity-60 text-lg leading-relaxed">
-                     Dive deeper into our world. Explore our full collection of 100+ cinematic projects, high-fidelity commercials, and professional video workflows on our official channel.
-                  </p>
-               </div>
-               
-               <a 
-                 href="https://www.youtube.com/@DefinePerspective" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="group/btn relative z-10"
-               >
-                  <div className="absolute -inset-4 bg-primary-accent/20 blur-2xl rounded-full opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
-                  <div className="relative h-24 w-24 md:h-32 md:w-32 rounded-full bg-primary-accent text-white flex items-center justify-center flex-col gap-2 hover:scale-110 transition-transform duration-500 shadow-2xl">
-                     <Play size={24} fill="currentColor" />
-                     <span className="label-mono !text-[8px] font-black">Explore Hub</span>
-                  </div>
-               </a>
+        <div className="container-max relative z-10">
+          <div className="relative flex flex-col lg:flex-row justify-between items-center gap-12 p-16 md:p-24 rounded-[4rem] border border-white/5 overflow-hidden group hover:border-primary-accent/20 transition-all duration-700 shadow-2xl">
+            {/* Background Image with Deep Overlay */}
+            <Image
+              src="/images/full-archive-cinematic.png"
+              alt="Cinematic Portfolio Archive"
+              fill
+              className="object-cover opacity-20 group-hover:scale-105 group-hover:opacity-30 transition-all duration-[5000ms]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-0" />
+
+            <div className="space-y-8 text-center lg:text-left relative z-10">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary-accent/10 border border-primary-accent/20">
+                <div className="h-1.5 w-1.5 rounded-full bg-primary-accent animate-pulse" />
+                <span className="label-mono !text-[10px] !text-primary-accent">Extended Portfolio Archive</span>
+              </div>
+              <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white leading-none">
+                Explore Our <br />
+                <span className="text-primary-accent">Full Archive_</span>
+              </h2>
+              <p className="body-copy max-w-xl opacity-60 text-lg leading-relaxed">
+                Dive deeper into our world. Explore our full collection of 100+ cinematic projects, high-fidelity commercials, and professional video workflows on our official channel.
+              </p>
             </div>
-         </div>
+
+            <a
+              href="https://www.youtube.com/@DefinePerspective"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/btn relative z-10"
+            >
+              <div className="absolute -inset-4 bg-primary-accent/20 blur-2xl rounded-full opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+              <div className="relative h-24 w-24 md:h-32 md:w-32 rounded-full bg-primary-accent text-white flex items-center justify-center flex-col gap-2 hover:scale-110 transition-transform duration-500 shadow-2xl">
+                <Play size={24} fill="currentColor" />
+                <span className="label-mono !text-[8px] font-black">Explore Hub</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </section>
 
-       {/* 4. REDESIGNED AUTHORITY BLOCK (The Kerala Brand Narrative) */}
+      {/* 4. REDESIGNED AUTHORITY BLOCK (The Kerala Brand Narrative) */}
       <section className="relative py-32 md:py-60 px-6 md:px-12 bg-black overflow-hidden border-b border-white/5">
         {/* Kinetic Light Effects */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(var(--accent-rgb),0.05)_0%,transparent_70%)] pointer-events-none" />
-        
+
         <div className="container-max relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
-            
+
             {/* Left: Prestigious Brand Narrative */}
             <div className="order-2 lg:order-1">
               <motion.div
@@ -719,7 +719,7 @@ export default function HomeContent() {
                   <p className="body-copy !text-xl md:!text-3xl text-zinc-300 font-light leading-snug">
                     We are a <span className="text-white font-bold">leading video production company in Kerala</span> offering end-to-end media production services including TVCs, brand films, and corporate storytelling.
                   </p>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-y border-white/5">
                     {[
                       { t: "TV Commercials", d: "High-end TVC production" },
@@ -730,11 +730,11 @@ export default function HomeContent() {
                       <div key={s.t} className="flex flex-col gap-2">
                         <span className="text-xs font-black text-white uppercase tracking-widest">{s.t}</span>
                         <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                          <motion.div 
+                          <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: "100%" }}
                             transition={{ duration: 1.5, delay: 0.5 }}
-                            className="h-full bg-primary-accent/40" 
+                            className="h-full bg-primary-accent/40"
                           />
                         </div>
                       </div>
@@ -747,8 +747,8 @@ export default function HomeContent() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-8 pt-8">
-                  <Link 
-                    href="/contact" 
+                  <Link
+                    href="/contact"
                     className="btn-primary"
                   >
                     Start Production <ArrowRight size={20} />
@@ -759,28 +759,28 @@ export default function HomeContent() {
 
             {/* Right: Immersive Studio Visual */}
             <div className="order-1 lg:order-2">
-               <motion.div
-                 initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
-                 whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                 transition={{ duration: 1.2 }}
-                 className="relative aspect-[4/5] md:aspect-square rounded-[4rem] overflow-hidden border border-white/10 group shadow-[0_0_100px_-20px_rgba(var(--accent-rgb),0.3)]"
-               >
-                  <Image 
-                    src="/images/kerala-ai-studio-cinematic.png"
-                    alt="AI video production company in Kerala - DP AI Studio"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-[3000ms]"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  {/* Glassmorphic Overlay Card */}
-                  <div className="absolute inset-x-8 bottom-8 md:inset-x-12 md:bottom-12 p-8 md:p-12 rounded-[3rem] bg-black/40 backdrop-blur-3xl border border-white/10 shadow-2xl">
-                     <Cpu size={32} className="text-primary-accent mb-8" />
-                     <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-4 leading-none">AI Production <br /> Hub_</h3>
-                     <p className="text-[10px] md:text-xs text-zinc-400 font-mono uppercase tracking-[0.3em] leading-relaxed">
-                        End-to-end media production infrastructure powered by the DP Generation Engine.
-                     </p>
-                  </div>
-               </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 1.2 }}
+                className="relative aspect-[4/5] md:aspect-square rounded-[4rem] overflow-hidden border border-white/10 group shadow-[0_0_100px_-20px_rgba(var(--accent-rgb),0.3)]"
+              >
+                <Image
+                  src="/images/kerala-ai-studio-cinematic.png"
+                  alt="AI video production company in Kerala - DP AI Studio"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-[3000ms]"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                {/* Glassmorphic Overlay Card */}
+                <div className="absolute inset-x-8 bottom-8 md:inset-x-12 md:bottom-12 p-8 md:p-12 rounded-[3rem] bg-black/40 backdrop-blur-3xl border border-white/10 shadow-2xl">
+                  <Cpu size={32} className="text-primary-accent mb-8" />
+                  <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-4 leading-none">AI Production <br /> Hub_</h3>
+                  <p className="text-[10px] md:text-xs text-zinc-400 font-mono uppercase tracking-[0.3em] leading-relaxed">
+                    End-to-end media production infrastructure powered by the DP Generation Engine.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -788,151 +788,151 @@ export default function HomeContent() {
 
       {/* 🤖 AI AD CONCEPT GENERATOR (HIGH CONVERSION) */}
       <section className="section-pad bg-obsidian border-y border-white/5 relative overflow-hidden">
-         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-accent/10 blur-[150px] rounded-full" />
-         </div>
-         <div className="container-max relative z-10">
-            <div className="grid lg:grid-cols-2 gap-32 items-center">
-               <div className="space-y-10">
-                  <span className="label-mono">Interactive Node</span>
-                  <h2 className="heading-section">Generate Your AI <br /><span className="text-primary-accent">Commercial Concept_</span></h2>
-                  <p className="body-copy opacity-50 uppercase tracking-widest leading-relaxed">
-                     Input your brand parameters and our proprietary Neural Engine will draft a high-authority cinematic commercial concept instantly.
-                  </p>
-                  <div className="flex items-center gap-6 p-8 rounded-3xl bg-white/[0.03] border border-white/5">
-                     <div className="h-12 w-12 rounded-xl bg-primary-accent/10 flex items-center justify-center text-primary-accent">
-                        <MessageCircle size={24} />
-                     </div>
-                     <span className="label-mono !text-[11px] !text-zinc-400">1,200+ Concepts Generated This Week</span>
-                  </div>
-               </div>
-               <div className="p-12 rounded-[3.5rem] bg-black/60 backdrop-blur-3xl border border-white/10 shadow-2xl">
-                  <form className="space-y-8">
-                     <div className="grid grid-cols-2 gap-6">
-                        <div className="space-y-3">
-                           <label className="label-mono !text-[9px] opacity-40">Brand Name</label>
-                           <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-xs font-mono focus:border-primary-accent outline-none transition-all" placeholder="e.g. SHE Luxury" />
-                        </div>
-                        <div className="space-y-3">
-                           <label className="label-mono !text-[9px] opacity-40">Product Category</label>
-                           <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-xs font-mono focus:border-primary-accent outline-none transition-all" placeholder="e.g. Fashion" />
-                        </div>
-                     </div>
-                     <div className="space-y-3">
-                        <label className="label-mono !text-[9px] opacity-40">Campaign Mood</label>
-                        <select className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-xs font-mono focus:border-primary-accent outline-none transition-all appearance-none">
-                           <option>Neural Cinema</option>
-                           <option>High-Velocity Performance</option>
-                           <option>Luxury Minimalist</option>
-                           <option>Cyberpunk Elegance</option>
-                        </select>
-                     </div>
-                     <div className="space-y-3">
-                        <label className="label-mono !text-[9px] opacity-40">Target Platform</label>
-                        <div className="flex gap-4">
-                           {["Instagram", "YouTube", "Theater", "TVC"].map(p => (
-                             <button key={p} type="button" className="flex-1 py-3 rounded-lg border border-white/5 bg-white/5 text-[9px] font-mono hover:bg-primary-accent hover:text-black transition-all">{p}</button>
-                           ))}
-                        </div>
-                     </div>
-                     <button type="button" className="w-full py-6 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-[0.3em] text-xs hover:scale-[1.02] transition-all shadow-xl shadow-primary-accent/20">
-                        Generate Concept_
-                     </button>
-                  </form>
-               </div>
+        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-accent/10 blur-[150px] rounded-full" />
+        </div>
+        <div className="container-max relative z-10">
+          <div className="grid lg:grid-cols-2 gap-32 items-center">
+            <div className="space-y-10">
+              <span className="label-mono">Interactive Node</span>
+              <h2 className="heading-section">Generate Your AI <br /><span className="text-primary-accent">Commercial Concept_</span></h2>
+              <p className="body-copy opacity-50 uppercase tracking-widest leading-relaxed">
+                Input your brand parameters and our proprietary Neural Engine will draft a high-authority cinematic commercial concept instantly.
+              </p>
+              <div className="flex items-center gap-6 p-8 rounded-3xl bg-white/[0.03] border border-white/5">
+                <div className="h-12 w-12 rounded-xl bg-primary-accent/10 flex items-center justify-center text-primary-accent">
+                  <MessageCircle size={24} />
+                </div>
+                <span className="label-mono !text-[11px] !text-zinc-400">1,200+ Concepts Generated This Week</span>
+              </div>
             </div>
-         </div>
+            <div className="p-12 rounded-[3.5rem] bg-black/60 backdrop-blur-3xl border border-white/10 shadow-2xl">
+              <form className="space-y-8">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <label className="label-mono !text-[9px] opacity-40">Brand Name</label>
+                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-xs font-mono focus:border-primary-accent outline-none transition-all" placeholder="e.g. SHE Luxury" />
+                  </div>
+                  <div className="space-y-3">
+                    <label className="label-mono !text-[9px] opacity-40">Product Category</label>
+                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-xs font-mono focus:border-primary-accent outline-none transition-all" placeholder="e.g. Fashion" />
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <label className="label-mono !text-[9px] opacity-40">Campaign Mood</label>
+                  <select className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-xs font-mono focus:border-primary-accent outline-none transition-all appearance-none">
+                    <option>Neural Cinema</option>
+                    <option>High-Velocity Performance</option>
+                    <option>Luxury Minimalist</option>
+                    <option>Cyberpunk Elegance</option>
+                  </select>
+                </div>
+                <div className="space-y-3">
+                  <label className="label-mono !text-[9px] opacity-40">Target Platform</label>
+                  <div className="flex gap-4">
+                    {["Instagram", "YouTube", "Theater", "TVC"].map(p => (
+                      <button key={p} type="button" className="flex-1 py-3 rounded-lg border border-white/5 bg-white/5 text-[9px] font-mono hover:bg-primary-accent hover:text-black transition-all">{p}</button>
+                    ))}
+                  </div>
+                </div>
+                <button type="button" className="w-full py-6 rounded-2xl bg-primary-accent text-black font-black uppercase tracking-[0.3em] text-xs hover:scale-[1.02] transition-all shadow-xl shadow-primary-accent/20">
+                  Generate Concept_
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 5. INDUSTRIES (H2: Industries We Serve) */}
       <section id="industries">
         <Suspense fallback={<div className="h-96 bg-black" />}>
-           <IndustriesSection />
+          <IndustriesSection />
         </Suspense>
       </section>
 
       {/* 6. STUDIO ADVANTAGE (H2: Why Brands Choose Our Production Studio) */}
       <section className="py-24 md:py-40 px-4 md:px-12 bg-black relative border-b border-white/5">
-         <div className="container-max">
-            <SectionHeader h2 tag="Why Choose Us" title={<>Why Brands Choose Our <br />Production <span>Studio_</span></>} align="center" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-               {[
-                 { t: "Expert Cinematography", d: "Professional camera crews and meticulous lighting design.", i: Zap },
-                 { t: "AI Integration", d: "Modern neural rendering for high-velocity output.", i: Cpu },
-                 { t: "Growth ROI", d: "Strategically crafted content built for high conversions.", i: BarChart3 },
-                 { t: "Global Mastering", d: "Industry-standard post-production for all platforms.", i: Activity }
-               ].map(adv => (
-                 <div key={adv.t} className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 hover:border-primary-accent/30 transition-all group hover:bg-white/[0.04]">
-                    <adv.i size={32} className="text-primary-accent mb-10 group-hover:scale-110 transition-transform" />
-                    <h4 className="text-xl font-bold uppercase tracking-widest text-white mb-6 group-hover:text-primary-accent transition-colors">{adv.t}</h4>
-                    <p className="label-mono !text-zinc-500 !text-[11px] !leading-relaxed uppercase tracking-widest font-normal">{adv.d}</p>
-                 </div>
-               ))}
-            </div>
-         </div>
+        <div className="container-max">
+          <SectionHeader h2 tag="Why Choose Us" title={<>Why Brands Choose Our <br />Production <span>Studio_</span></>} align="center" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { t: "Expert Cinematography", d: "Professional camera crews and meticulous lighting design.", i: Zap },
+              { t: "AI Integration", d: "Modern neural rendering for high-velocity output.", i: Cpu },
+              { t: "Growth ROI", d: "Strategically crafted content built for high conversions.", i: BarChart3 },
+              { t: "Global Mastering", d: "Industry-standard post-production for all platforms.", i: Activity }
+            ].map(adv => (
+              <div key={adv.t} className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 hover:border-primary-accent/30 transition-all group hover:bg-white/[0.04]">
+                <adv.i size={32} className="text-primary-accent mb-10 group-hover:scale-110 transition-transform" />
+                <h4 className="text-xl font-bold uppercase tracking-widest text-white mb-6 group-hover:text-primary-accent transition-colors">{adv.t}</h4>
+                <p className="label-mono !text-zinc-500 !text-[11px] !leading-relaxed uppercase tracking-widest font-normal">{adv.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 🧩 MASSIVE FAQ SYSTEM (AI SEARCH OPTIMIZATION) */}
       <section className="section-pad bg-black relative border-t border-white/5">
-         <div className="container-max">
-            <div className="text-center mb-32 space-y-6">
-               <span className="label-mono">Knowledge Base</span>
-               <h2 className="heading-section">Frequently Asked <br /><span className="text-primary-accent">Questions_</span></h2>
-            </div>
-            <div className="grid lg:grid-cols-2 gap-12">
-               {[
-                 { q: "What is AI video production?", a: "AI video production utilizes neural networks and generative models to create, enhance, and optimize cinematic content with unprecedented speed and precision." },
-                 { q: "How much does AI commercial production cost in India?", a: "AI commercial production at DP AI Studio offers elite-tier results at 40-60% lower cost than traditional high-budget agencies, starting with scalable packages for premium brands." },
-                 { q: "Can AI create luxury commercials?", a: "Yes. Our proprietary neural pipelines are specifically engineered for luxury fashion, jewelry, and high-end tech brands, delivering Apple-grade visual fidelity." },
-                 { q: "Does DP AI Studio serve Kerala, Bangalore, and Mumbai?", a: "We are headquartered in Kerala with production nodes in Kochi and Trivandrum, serving national and global brands across Bangalore, Mumbai, Chennai, and Dubai." },
-                 { q: "How long does AI production take?", a: "Standard commercial batches are delivered in 48-72 hours, representing a 10x velocity increase over traditional production timelines." },
-                 { q: "Is AI video production affordable for startups?", a: "Our AI workflows allow us to provide high-fidelity video solutions that were previously only accessible to enterprise-level budgets, making us the ideal partner for high-growth startups." }
-               ].map((faq, i) => (
-                 <div key={i} className="p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 space-y-6 group hover:border-white/20 transition-all">
-                    <h3 className="text-xl font-bold uppercase text-white group-hover:text-primary-accent transition-colors flex items-start gap-4">
-                       <span className="text-primary-accent/40 font-mono text-xs mt-1">Q{i+1}.</span>
-                       {faq.q}
-                    </h3>
-                    <p className="body-copy !text-base opacity-40 pl-10 leading-relaxed uppercase tracking-widest">{faq.a}</p>
-                 </div>
-               ))}
-            </div>
-         </div>
+        <div className="container-max">
+          <div className="text-center mb-32 space-y-6">
+            <span className="label-mono">Knowledge Base</span>
+            <h2 className="heading-section">Frequently Asked <br /><span className="text-primary-accent">Questions_</span></h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {[
+              { q: "What is AI video production?", a: "AI video production utilizes neural networks and generative models to create, enhance, and optimize cinematic content with unprecedented speed and precision." },
+              { q: "How much does AI commercial production cost in India?", a: "AI commercial production at DP AI Studio offers elite-tier results at 40-60% lower cost than traditional high-budget agencies, starting with scalable packages for premium brands." },
+              { q: "Can AI create luxury commercials?", a: "Yes. Our proprietary neural pipelines are specifically engineered for luxury fashion, jewelry, and high-end tech brands, delivering Apple-grade visual fidelity." },
+              { q: "Does DP AI Studio serve Kerala, Bangalore, and Mumbai?", a: "We are headquartered in Kerala with production nodes in Kochi and Trivandrum, serving national and global brands across Bangalore, Mumbai, Chennai, and Dubai." },
+              { q: "How long does AI production take?", a: "Standard commercial batches are delivered in 48-72 hours, representing a 10x velocity increase over traditional production timelines." },
+              { q: "Is AI video production affordable for startups?", a: "Our AI workflows allow us to provide high-fidelity video solutions that were previously only accessible to enterprise-level budgets, making us the ideal partner for high-growth startups." }
+            ].map((faq, i) => (
+              <div key={i} className="p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 space-y-6 group hover:border-white/20 transition-all">
+                <h3 className="text-xl font-bold uppercase text-white group-hover:text-primary-accent transition-colors flex items-start gap-4">
+                  <span className="text-primary-accent/40 font-mono text-xs mt-1">Q{i + 1}.</span>
+                  {faq.q}
+                </h3>
+                <p className="body-copy !text-base opacity-40 pl-10 leading-relaxed uppercase tracking-widest">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 💎 FINAL CINEMATIC CTA */}
       <section className="py-40 md:py-60 px-6 md:px-12 bg-black relative overflow-hidden">
-         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary-accent-rgb),0.1)_0%,transparent_70%)] animate-pulse" />
-         <div className="container-max relative z-10 text-center">
-            <motion.div
-               initial={{ opacity: 0, scale: 0.9 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               transition={{ duration: 1 }}
-               className="space-y-16"
-            >
-               <span className="label-mono !text-primary-accent">The Future is Here</span>
-               <h2 className="text-5xl md:text-9xl font-black text-white uppercase leading-[0.8] tracking-tighter">
-                  Ready to Create <br />
-                  India's Next Viral <br />
-                  <span className="text-primary-accent underline decoration-white/10 underline-offset-16">AI Commercial?_</span>
-               </h2>
-               <div className="flex flex-col sm:flex-row justify-center gap-8 pt-12">
-                  <Link href="/contact" className="h-24 px-16 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-4 hover:bg-primary-accent hover:text-white transition-all shadow-2xl active:scale-95">
-                     Book Consultation <ArrowRight size={20} />
-                  </Link>
-                  <Link href="https://wa.me/917012941696" className="h-24 px-16 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-4 hover:bg-white/10 transition-all shadow-2xl active:scale-95 backdrop-blur-3xl">
-                     WhatsApp Now <MessageCircle size={20} />
-                  </Link>
-               </div>
-            </motion.div>
-         </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary-accent-rgb),0.1)_0%,transparent_70%)] animate-pulse" />
+        <div className="container-max relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="space-y-16"
+          >
+            <span className="label-mono !text-primary-accent">The Future is Here</span>
+            <h2 className="text-5xl md:text-9xl font-black text-white uppercase leading-[0.8] tracking-tighter">
+              Ready to Create <br />
+              India's Next Viral <br />
+              <span className="text-primary-accent underline decoration-white/10 underline-offset-16">AI Commercial?_</span>
+            </h2>
+            <div className="flex flex-col sm:flex-row justify-center gap-8 pt-12">
+              <Link href="/contact" className="h-24 px-16 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-4 hover:bg-primary-accent hover:text-white transition-all shadow-2xl active:scale-95">
+                Book Consultation <ArrowRight size={20} />
+              </Link>
+              <Link href="https://wa.me/917012941696" className="h-24 px-16 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-4 hover:bg-white/10 transition-all shadow-2xl active:scale-95 backdrop-blur-3xl">
+                WhatsApp Now <MessageCircle size={20} />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       <WhatsAppChat />
-      <VideoLightbox 
-        isOpen={!!activeVideo} 
-        onClose={() => setActiveVideo(null)} 
-        videoId={activeVideo || ""} 
+      <VideoLightbox
+        isOpen={!!activeVideo}
+        onClose={() => setActiveVideo(null)}
+        videoId={activeVideo || ""}
       />
     </main>
   );
