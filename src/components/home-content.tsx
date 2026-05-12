@@ -126,7 +126,7 @@ export default function HomeContent() {
               </a>
               <Link
                 href="/contact"
-                className="h-14 px-8 rounded-xl bg-[#eb1e2c] text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-[#eb1e2c]/90 transition-all shadow-xl"
+                className="h-14 px-8 rounded-xl bg-[#1a1a1a] border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-zinc-800 transition-all shadow-xl"
               >
                 Start a Project <ArrowRight size={14} />
               </Link>
