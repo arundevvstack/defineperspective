@@ -50,6 +50,103 @@ export default function HomeContent() {
       {/* 1. HERO SECTION (With H1 in components/video-hero.tsx) */}
       <VideoHero />
 
+      {/* 🎬 SHOWREEL BLOCK — BLOCK 2 */}
+      <section className="relative bg-black overflow-hidden border-b border-white/5">
+        {/* Cinematic ambient glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(235,30,44,0.08)_0%,transparent_70%)] pointer-events-none z-0" />
+
+        <div className="relative z-10 py-20 md:py-32 px-6 md:px-12 container-max">
+
+          {/* Header row */}
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
+            <div className="space-y-3">
+              <span className="label-mono !text-primary-accent">DP AI Studio — Official Showreel 2025</span>
+              <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-white leading-none">
+                Watch What <span className="text-primary-accent">We Create_</span>
+              </h2>
+            </div>
+            <p className="body-copy max-w-xs text-right opacity-40 uppercase tracking-widest text-[10px]">
+              India's most awarded AI &amp; cinematic production studio. Every frame, a statement.
+            </p>
+          </div>
+
+          {/* ── SHOWREEL FRAME ── */}
+          <div
+            className="relative w-full aspect-video rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_120px_-20px_rgba(235,30,44,0.2)] group cursor-pointer bg-zinc-950"
+            onClick={() => setActiveVideo("sNp1a5I6WsI")}
+          >
+            {/* YouTube thumbnail poster */}
+            <img
+              src="https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg"
+              alt="Define Perspective Showreel — AI Video Production Company Kerala India"
+              className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-[1.03] transition-all duration-[2000ms]"
+            />
+
+            {/* Gradient overlays */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+
+            {/* Centre play button */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <motion.div
+                whileHover={{ scale: 1.12 }}
+                transition={{ type: "spring", stiffness: 280 }}
+                className="h-20 w-20 md:h-28 md:w-28 rounded-full bg-white/10 backdrop-blur-2xl border-2 border-white/30 text-white flex items-center justify-center group-hover:bg-primary-accent group-hover:border-primary-accent transition-all duration-500 shadow-2xl"
+              >
+                <Play size={36} fill="currentColor" className="ml-1" />
+              </motion.div>
+            </div>
+
+            {/* Bottom info strip */}
+            <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+              <div>
+                <span className="block text-[8px] font-mono text-zinc-500 uppercase tracking-[0.4em] mb-1.5">Now Playing</span>
+                <h3 className="text-lg md:text-2xl font-black uppercase text-white tracking-tighter">
+                  Define Perspective — 2025 Showreel
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {["TVCs", "Brand Films", "AI Ads", "Corporate Videos"].map(tag => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md text-[8px] font-mono text-zinc-400 uppercase tracking-widest"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CTA strip */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-10 pt-8 border-t border-white/5">
+            <div className="flex items-center gap-5">
+              <div className="h-1.5 w-1.5 rounded-full bg-primary-accent animate-pulse" />
+              <span className="label-mono !text-zinc-500 !text-[10px]">
+                AI &amp; Traditional Video Production · Kerala · India · Dubai
+              </span>
+            </div>
+            <div className="flex gap-3">
+              <a
+                href="https://www.youtube.com/@DP.AI.Studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-12 px-7 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] flex items-center gap-3 hover:bg-white/10 transition-all"
+              >
+                Full Channel <ArrowRight size={14} />
+              </a>
+              <Link
+                href="/contact"
+                className="h-12 px-7 rounded-xl bg-primary-accent text-black font-black uppercase tracking-widest text-[9px] flex items-center gap-3 hover:bg-primary-accent/80 transition-all"
+              >
+                Start a Project <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* 📍 LOCATION AUTHORITY BAR (SEO WEAPON) */}
       <div className="bg-black border-y border-white/5 py-8 relative z-30">
          <div className="container mx-auto px-6 overflow-hidden">
