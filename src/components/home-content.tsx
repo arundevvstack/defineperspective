@@ -637,7 +637,16 @@ export default function HomeContent() {
                           <span className="text-[14px] font-bold text-white">{caseStudy.c}</span>
                        </div>
                        <div className="flex justify-between items-center">
- 
+                          <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Velocity</span>
+                          <span className="text-[14px] font-bold text-white">{caseStudy.d}</span>
+                       </div>
+                    </div>
+                 </div>
+               ))}
+            </div>
+         </div>
+      </section>
+
       {/* 🚀 EXTENDED SHOWCASE (YOUTUBE CHANNEL CTA) */}
       <section className="py-32 bg-black relative overflow-hidden border-b border-white/5">
          <div className="container-max relative z-10">
