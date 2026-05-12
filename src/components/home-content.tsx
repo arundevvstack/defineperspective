@@ -238,10 +238,10 @@ export default function HomeContent() {
                <div className="p-12 rounded-[3.5rem] bg-white/[0.02] border border-white/5 space-y-12">
                   <div className="flex justify-between items-start">
                      <div className="space-y-2">
-                        <span className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.4em]">Node 02</span>
+                        <span className="text-red-500 font-mono text-[10px] uppercase tracking-[0.4em]">Node 02</span>
                         <h3 className="text-4xl font-black uppercase text-white">Video Production</h3>
                      </div>
-                     <div className="h-14 w-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500">
+                     <div className="h-14 w-14 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500">
                         <Clapperboard size={28} />
                      </div>
                   </div>
@@ -252,8 +252,8 @@ export default function HomeContent() {
                        "Documentary Production", "Promotional Videos", "Theatre Commercials",
                        "Broadcast Ad Films"
                      ].map(s => (
-                       <div key={s} className="flex items-center gap-3 py-3 border-b border-white/5 hover:border-blue-500/40 transition-colors">
-                          <CheckCircle2 size={12} className="text-blue-500" />
+                       <div key={s} className="flex items-center gap-3 py-3 border-b border-white/5 hover:border-red-500/40 transition-colors">
+                          <CheckCircle2 size={12} className="text-red-500" />
                           <span className="label-mono !text-[11px] !text-zinc-400">{s}</span>
                        </div>
                      ))}
