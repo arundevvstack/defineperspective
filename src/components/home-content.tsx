@@ -86,15 +86,19 @@ export default function HomeContent() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
 
-            {/* Centre play button */}
+            {/* Centre CTA button — inside the video frame */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                whileHover={{ scale: 1.12 }}
-                transition={{ type: "spring", stiffness: 280 }}
-                className="h-20 w-20 md:h-28 md:w-28 rounded-full bg-white/10 backdrop-blur-2xl border-2 border-white/30 text-white flex items-center justify-center group-hover:bg-primary-accent group-hover:border-primary-accent transition-all duration-500 shadow-2xl"
+              <motion.button
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="flex items-center gap-4 px-10 py-5 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/25 text-white font-black uppercase tracking-widest text-[11px] md:text-sm group-hover:bg-primary-accent group-hover:border-primary-accent group-hover:text-black transition-all duration-500 shadow-2xl"
               >
-                <Play size={36} fill="currentColor" className="ml-1" />
-              </motion.div>
+                <span className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shrink-0 group-hover:bg-black/20 transition-colors">
+                  <Play size={18} fill="currentColor" className="ml-0.5" />
+                </span>
+                Watch AI Video Showcase
+              </motion.button>
             </div>
 
             {/* Bottom info strip */}
