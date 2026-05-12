@@ -566,11 +566,14 @@ export default function HomeContent() {
       <section className="section-pad bg-obsidian relative z-10 overflow-hidden">
          <div className="container-max">
             <div className="grid lg:grid-cols-2 gap-32 items-center">
-               <div className="order-2 lg:order-1 relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
-                  <div className="absolute inset-0 bg-primary-accent/10 animate-pulse" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                     <MonitorPlay size={80} className="text-primary-accent/40" />
-                  </div>
+               <div className="order-2 lg:order-1 relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
+                  <Image 
+                    src="/images/kochi-neural-skyline.png"
+                    alt="Kochi City Skyline — The Primary Neural Production Node of Define Perspective"
+                    fill
+                    className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-[5000ms]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                   <div className="absolute inset-x-12 bottom-12 p-8 rounded-2xl bg-black/60 backdrop-blur-2xl border border-white/10">
                      <span className="label-mono !text-primary-accent mb-2">Regional Authority</span>
                      <h3 className="text-xl font-bold uppercase text-white">Serving India's Media Hubs</h3>
@@ -579,12 +582,12 @@ export default function HomeContent() {
                <div className="order-1 lg:order-2 space-y-10">
                   <span className="label-mono">Geo-Political Authority</span>
                   <h2 className="heading-section">The Leading AI Video Production <br /><span className="text-primary-accent">Company in Kerala_</span></h2>
-                  <p className="body-copy opacity-60 uppercase tracking-widest leading-loose">
-                     Strategically headquartered in **Kochi**, we operate as the primary neural production node for brands in **Trivandrum, Bangalore, Chennai, Mumbai, and South India**. DP AI Studio is the definitive leader in cinematic AI advertising and premium video production services.
+                  <p className="body-copy !text-lg opacity-80 leading-loose">
+                     Strategically headquartered in <span className="text-white font-bold">Kochi</span>, we operate as the primary neural production node for brands in <span className="text-zinc-400">Trivandrum, Bangalore, Chennai, Mumbai, and South India</span>. DP AI Studio is the definitive leader in cinematic AI advertising and premium video production services.
                   </p>
                   <div className="flex flex-wrap gap-4">
                      {["Kochi", "Trivandrum", "Bangalore", "Mumbai", "Dubai"].map(city => (
-                       <div key={city} className="px-6 py-2 rounded-full border border-white/10 bg-white/5 label-mono !text-[10px]">{city}</div>
+                       <div key={city} className="px-6 py-2 rounded-full border border-white/10 bg-white/5 label-mono !text-[10px] hover:border-primary-accent/40 hover:text-primary-accent transition-all cursor-default">{city}</div>
                      ))}
                   </div>
                </div>
