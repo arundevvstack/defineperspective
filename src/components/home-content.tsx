@@ -275,15 +275,17 @@ export default function HomeContent() {
          <div className="container-max">
             <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-32">
                <div className="space-y-6">
-                  <span className="label-mono">Service Infrastructure</span>
-                  <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white">
-                     Production <br />
-                     <span className="text-primary-accent">Intelligence_</span>
-                  </h2>
+                  <span className="label-mono !text-primary-accent">Neural // Traditional Infrastructure</span>
+                  <div>
+                    <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white">
+                       Production <br />
+                       <span className="text-primary-accent">Intelligence_</span>
+                    </h2>
+                    <p className="body-copy opacity-40 uppercase tracking-widest text-[11px] leading-relaxed max-w-2xl mt-4">
+                       Semantically clustered media solutions for global brand dominance.
+                    </p>
+                  </div>
                </div>
-               <p className="body-copy max-w-sm text-right opacity-40 uppercase tracking-widest text-[10px]">
-                  Semantically clustered media solutions for global brand dominance.
-               </p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
