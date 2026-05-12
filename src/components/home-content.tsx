@@ -50,106 +50,102 @@ export default function HomeContent() {
       {/* 1. HERO SECTION (With H1 in components/video-hero.tsx) */}
       <VideoHero />
 
-      {/* 🎬 SHOWREEL BLOCK — BLOCK 2 */}
-      <section className="relative bg-black overflow-hidden border-b border-white/5">
-        {/* Cinematic ambient glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(235,30,44,0.08)_0%,transparent_70%)] pointer-events-none z-0" />
+      {/* 🎬 SHOWREEL BLOCK — FULL SCREEN */}
+      <section
+        className="relative w-full h-screen min-h-[600px] overflow-hidden border-b border-white/5 cursor-pointer group"
+        onClick={() => setActiveVideo("sNp1a5I6WsI")}
+      >
+        {/* Full-bleed thumbnail */}
+        <img
+          src="https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg"
+          alt="Define Perspective Showreel — AI Video Production Company Kerala India"
+          className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-[1.04] transition-all duration-[2500ms]"
+        />
 
-        <div className="relative z-10 py-20 md:py-32 px-6 md:px-12 container-max">
+        {/* Cinematic gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(235,30,44,0.06)_0%,transparent_70%)]" />
 
-          {/* Header row */}
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
-            <div className="space-y-3">
-              <span className="label-mono !text-primary-accent">DP AI Studio — Official Showreel 2025</span>
-              <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-white leading-none">
-                Watch What <span className="text-primary-accent">We Create_</span>
-              </h2>
-            </div>
-            <p className="body-copy max-w-xs text-right opacity-40 uppercase tracking-widest text-[10px]">
-              India's most awarded AI &amp; cinematic production studio. Every frame, a statement.
-            </p>
-          </div>
+        {/* ── CENTRE CONTENT ── */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 gap-10">
 
-          {/* ── SHOWREEL FRAME ── */}
-          <div
-            className="relative w-full aspect-video rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_120px_-20px_rgba(235,30,44,0.2)] group cursor-pointer bg-zinc-950"
-            onClick={() => setActiveVideo("sNp1a5I6WsI")}
+          {/* Label */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="flex items-center gap-4"
           >
-            {/* YouTube thumbnail poster */}
-            <img
-              src="https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg"
-              alt="Define Perspective Showreel — AI Video Production Company Kerala India"
-              className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-[1.03] transition-all duration-[2000ms]"
-            />
+            <div className="h-px w-8 bg-primary-accent/50" />
+            <span className="label-mono !text-primary-accent">DP AI Studio — Official Showreel 2025</span>
+            <div className="h-px w-8 bg-primary-accent/50" />
+          </motion.div>
 
-            {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+          {/* Heading */}
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-5xl md:text-8xl lg:text-[7rem] font-black uppercase tracking-tighter text-white leading-[0.85] max-w-5xl"
+          >
+            Watch What <br />
+            <span className="text-primary-accent">We Create_</span>
+          </motion.h2>
 
-            {/* Centre CTA button — inside the video frame */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.button
-                whileHover={{ scale: 1.06 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="flex items-center gap-4 px-10 py-5 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/25 text-white font-black uppercase tracking-widest text-[11px] md:text-sm group-hover:bg-primary-accent group-hover:border-primary-accent group-hover:text-black transition-all duration-500 shadow-2xl"
-              >
-                <span className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shrink-0 group-hover:bg-black/20 transition-colors">
-                  <Play size={18} fill="currentColor" className="ml-0.5" />
-                </span>
-                Watch AI Video Showcase
-              </motion.button>
-            </div>
-
-            {/* Bottom info strip */}
-            <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
-              <div>
-                <span className="block text-[8px] font-mono text-zinc-500 uppercase tracking-[0.4em] mb-1.5">Now Playing</span>
-                <h3 className="text-lg md:text-2xl font-black uppercase text-white tracking-tighter">
-                  Define Perspective — 2025 Showreel
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {["TVCs", "Brand Films", "AI Ads", "Corporate Videos"].map(tag => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md text-[8px] font-mono text-zinc-400 uppercase tracking-widest"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* CTA strip */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-10 pt-8 border-t border-white/5">
-            <div className="flex items-center gap-5">
-              <div className="h-1.5 w-1.5 rounded-full bg-primary-accent animate-pulse" />
-              <span className="label-mono !text-zinc-500 !text-[10px]">
-                AI &amp; Traditional Video Production · Kerala · India · Dubai
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="flex items-center gap-4 px-12 py-5 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/25 text-white font-black uppercase tracking-widest text-[11px] md:text-sm group-hover:bg-primary-accent group-hover:border-primary-accent group-hover:text-black transition-all duration-500 shadow-2xl"
+            >
+              <span className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shrink-0 group-hover:bg-black/20 transition-colors">
+                <Play size={18} fill="currentColor" className="ml-0.5" />
               </span>
-            </div>
-            <div className="flex gap-3">
-              <a
-                href="https://www.youtube.com/@DP.AI.Studio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-12 px-7 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] flex items-center gap-3 hover:bg-white/10 transition-all"
-              >
-                Full Channel <ArrowRight size={14} />
-              </a>
-              <Link
-                href="/contact"
-                className="h-12 px-7 rounded-xl bg-primary-accent text-black font-black uppercase tracking-widest text-[9px] flex items-center gap-3 hover:bg-primary-accent/80 transition-all"
-              >
-                Start a Project <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
+              Watch AI Video Showcase
+            </motion.button>
+          </motion.div>
+        </div>
 
+        {/* ── BOTTOM STRIP ── */}
+        <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-4 z-10">
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2">
+            {["TVCs", "Brand Films", "AI Ads", "Corporate Videos"].map(tag => (
+              <span
+                key={tag}
+                className="px-3 py-1.5 rounded-full border border-white/10 bg-black/50 backdrop-blur-md text-[8px] font-mono text-zinc-400 uppercase tracking-widest"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          {/* Channel + CTA */}
+          <div className="flex gap-3" onClick={e => e.stopPropagation()}>
+            <a
+              href="https://www.youtube.com/@DP.AI.Studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-11 px-6 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] flex items-center gap-2 hover:bg-white/10 transition-all backdrop-blur-md"
+            >
+              Full Channel <ArrowRight size={13} />
+            </a>
+            <Link
+              href="/contact"
+              className="h-11 px-6 rounded-xl bg-primary-accent text-black font-black uppercase tracking-widest text-[9px] flex items-center gap-2 hover:bg-primary-accent/80 transition-all"
+            >
+              Start a Project <ArrowRight size={13} />
+            </Link>
+          </div>
         </div>
       </section>
+
 
       {/* 📍 LOCATION AUTHORITY BAR (SEO WEAPON) */}
       <div className="bg-black border-y border-white/5 py-8 relative z-30">
