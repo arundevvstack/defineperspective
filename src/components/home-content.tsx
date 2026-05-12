@@ -73,11 +73,11 @@ export default function HomeContent() {
           {/* ── SHOWREEL FRAME ── */}
           <div
             className="relative w-full aspect-video rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_120px_-20px_rgba(235,30,44,0.2)] group cursor-pointer bg-zinc-950"
-            onClick={() => setActiveVideo("sNp1a5I6WsI")}
+            onClick={() => setActiveVideo("qJwObz6fe-M")}
           >
             {/* YouTube thumbnail poster */}
             <img
-              src="https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg"
+              src="https://img.youtube.com/vi/qJwObz6fe-M/maxresdefault.jpg"
               alt="Define Perspective Showreel — AI Video Production Company Kerala India"
               className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-[1.03] transition-all duration-[2000ms]"
             />

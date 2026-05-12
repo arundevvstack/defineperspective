@@ -1,10 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const VideoLightbox = dynamic(() => import("@/components/ai-video-hub/VideoLightbox"), { ssr: false });
+
+const SHOWREEL_ID = "qJwObz6fe-M";
 
 export default function VideoHero() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black" aria-label="Cinematic Hero">
       {/* SEO H1 — screen reader only */}
@@ -12,14 +20,11 @@ export default function VideoHero() {
 
       {/* ── STATIC CINEMATIC BACKGROUND ── */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
-        {/* Deep radial glow */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(235,30,44,0.10)_0%,transparent_70%)]" />
-        {/* Subtle grid texture */}
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '48px 48px' }}
         />
-        {/* Vignette edges */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
       </div>
@@ -30,7 +35,7 @@ export default function VideoHero() {
         <div className="absolute bottom-1/4 -right-1/4 w-[800px] h-[800px] bg-blue-500/5 blur-[200px] rounded-full opacity-20" />
       </div>
 
-      {/* 🚀 NEURAL CINEMATIC CONTENT */}
+      {/* 🚀 HERO CONTENT */}
       <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pt-20">
         <div className="container-max text-center space-y-10">
           <motion.div
@@ -63,16 +68,14 @@ export default function VideoHero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8"
           >
-            <button 
-              onClick={() => {
-                const el = document.getElementById('featured-productions');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
+            {/* Watch Showcase — opens VideoLightbox */}
+            <button
+              onClick={() => setLightboxOpen(true)}
               className="group h-16 md:h-20 px-10 md:px-14 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center gap-4 hover:bg-primary-accent hover:text-white transition-all duration-500 shadow-2xl active:scale-95"
             >
               Watch Showcase <Play size={18} fill="currentColor" />
             </button>
-            <Link 
+            <Link
               href="/contact"
               className="group h-16 md:h-20 px-10 md:px-14 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[11px] flex items-center gap-4 hover:border-primary-accent/50 hover:bg-white/10 transition-all duration-500 backdrop-blur-3xl shadow-2xl active:scale-95"
             >
@@ -82,9 +85,9 @@ export default function VideoHero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-12 left-0 w-full px-6 flex flex-col items-center gap-10 z-30">
-        <motion.div 
+        <motion.div
            animate={{ y: [0, 8, 0] }}
            transition={{ duration: 2, repeat: Infinity }}
            className="flex flex-col items-center gap-3 opacity-30"
@@ -94,6 +97,13 @@ export default function VideoHero() {
           <div className="h-8 w-[1px] bg-gradient-to-b from-white to-transparent" />
         </motion.div>
       </div>
+
+      {/* Lightbox — self-contained inside hero */}
+      <VideoLightbox
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        videoId={SHOWREEL_ID}
+      />
     </section>
   );
 }
