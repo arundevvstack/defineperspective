@@ -598,37 +598,47 @@ export default function HomeContent() {
       {/* 🏆 PREMIUM CASE STUDIES (BENTO GRID) */}
       <section id="portfolio" className="section-pad bg-black relative z-10">
          <div className="container-max">
-            <div className="flex justify-between items-end mb-32">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 gap-8">
                <div className="space-y-6">
-                  <span className="label-mono">Visual Evidence</span>
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10">
+                     <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />
+                     <span className="label-mono !text-[10px]">Visual Evidence</span>
+                  </div>
                   <h2 className="heading-section">Campaign <br /><span className="text-primary-accent">Intelligence_</span></h2>
                </div>
-               <Link href="/portfolio" className="btn-accent h-16 px-10">View All Work</Link>
+               <Link 
+                 href="/portfolio" 
+                 className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
+               >
+                  <span className="text-[13px] font-bold">Explore Full Archive</span>
+                  <ArrowRight size={18} className="text-zinc-500 group-hover/btn:text-primary-accent transition-colors" />
+               </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                {[
-                 { t: "SHE Luxury Ad", r: "+320% Reach", c: "45% Conv", d: "72HR Delivery", bg: "bg-blue-500/20" },
-                 { t: "Lacrispo Theater", r: "Cinema Ready", c: "8K HDR", d: "National TVC", bg: "bg-primary-accent/20" },
-                 { t: "Neural Branding", r: "60% Lower Cost", c: "18 Assets", d: "Global Scale", bg: "bg-zinc-800" }
+                 { t: "SHE Luxury Ad", r: "+320% Reach", c: "45% Conv", d: "72HR Delivery", bg: "bg-white/[0.02]" },
+                 { t: "Lacrispo Theater", r: "Cinema Ready", c: "8K HDR", d: "National TVC", bg: "bg-white/[0.02]" },
+                 { t: "Neural Branding", r: "60% Lower Cost", c: "18 Assets", d: "Global Scale", bg: "bg-white/[0.02]" }
                ].map((caseStudy, i) => (
-                 <div key={i} className={cn("p-12 rounded-[3.5rem] border border-white/5 flex flex-col gap-12 group hover:border-primary-accent/40 transition-all", caseStudy.bg)}>
-                    <div className="space-y-4">
-                       <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest">Case Study 0{i+1}</span>
-                       <h3 className="text-4xl font-black uppercase text-white leading-none tracking-tighter">{caseStudy.t}</h3>
+                 <div key={i} className={cn("p-12 rounded-[3.5rem] border border-white/5 flex flex-col gap-12 group hover:border-primary-accent/40 transition-all duration-500 bg-obsidian relative overflow-hidden", caseStudy.bg)}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                    <div className="space-y-4 relative z-10">
+                       <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Case Study 0{i+1}</span>
+                       <h3 className="text-3xl font-black uppercase text-white leading-none tracking-tighter">{caseStudy.t}</h3>
                     </div>
-                    <div className="space-y-4 pt-12 border-t border-white/10">
+                    <div className="space-y-6 pt-12 border-t border-white/10 relative z-10">
                        <div className="flex justify-between items-center">
-                          <span className="label-mono !text-[10px] opacity-40">Reach Metrics</span>
-                          <span className="label-mono !text-[10px] text-white">{caseStudy.r}</span>
+                          <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Reach Metrics</span>
+                          <span className="text-[14px] font-bold text-white">{caseStudy.r}</span>
                        </div>
                        <div className="flex justify-between items-center">
-                          <span className="label-mono !text-[10px] opacity-40">Performance</span>
-                          <span className="label-mono !text-[10px] text-primary-accent">{caseStudy.c}</span>
+                          <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Performance</span>
+                          <span className="text-[14px] font-bold text-white">{caseStudy.c}</span>
                        </div>
                        <div className="flex justify-between items-center">
-                          <span className="label-mono !text-[10px] opacity-40">Velocity</span>
-                          <span className="label-mono !text-[10px] text-white">{caseStudy.d}</span>
+                          <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Velocity</span>
+                          <span className="text-[14px] font-bold text-white">{caseStudy.d}</span>
                        </div>
                     </div>
                  </div>
