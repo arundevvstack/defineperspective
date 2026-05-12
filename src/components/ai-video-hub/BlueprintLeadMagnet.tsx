@@ -26,17 +26,17 @@ export default function BlueprintLeadMagnet() {
                       <span className="text-primary-accent">Commercial_</span> <br />
                       Blueprint
                    </h2>
-                   <p className="text-xl text-zinc-400 font-light max-w-xl uppercase leading-relaxed">
-                      Download the luxury guide explaining how modern brands use cinematic AI advertising to scale attention, authority, and conversions.
-                   </p>
+                    <p className="text-xl text-zinc-400 font-light max-w-xl uppercase leading-relaxed">
+                       Download our free guide to see how top brands use AI video to get more customers and grow faster.
+                    </p>
                 </div>
 
                 <ul className="space-y-6">
                    {[
-                     "Future of AI vs Traditional TVCs",
-                     "Viral Ad Psychology & Hook Design",
-                     "Luxury AI Branding Strategies",
-                     "2026 AI Media Content Trends"
+                      "AI vs Traditional Video Ads",
+                      "How to make viral video ads",
+                      "Using AI for premium branding",
+                      "Future trends in AI video"
                    ].map((item) => (
                      <li key={item} className="flex items-center gap-6 group/item">
                         <div className="h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary-accent group-hover/item:bg-primary-accent group-hover/item:text-black transition-all">

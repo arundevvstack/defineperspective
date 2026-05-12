@@ -26,7 +26,7 @@ export default function LiteYouTube({
 }: LiteYouTubeProps) {
   const [internalIsPlaying, setInternalIsPlaying] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [thumbUrl, setThumbUrl] = useState(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
+  const [thumbUrl, setThumbUrl] = useState(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
 
   const isPlaying = externalIsPlaying !== undefined ? externalIsPlaying : internalIsPlaying;
 

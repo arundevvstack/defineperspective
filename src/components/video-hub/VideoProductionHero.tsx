@@ -33,7 +33,7 @@ export default function VideoProductionHero() {
               <span className="relative inline-flex rounded-full h-3 w-3 bg-primary-accent"></span>
             </div>
             <span className="label-mono !text-zinc-400 group-hover:!text-white transition-colors">
-              India's Premier <span className="text-primary-accent">TVC & Video Production Studio_</span>
+              India's Best <span className="text-primary-accent">TVC & Video Production Company_</span>
             </span>
           </motion.div>
 
@@ -56,7 +56,7 @@ export default function VideoProductionHero() {
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="body-copy !text-lg md:!text-xl max-w-5xl mx-auto"
             >
-              Broadcasting excellence through <span className="text-white font-bold">high-end commercials</span>, luxury brand films, and viral social media campaigns.
+              We create <span className="text-white font-bold">TV commercials, brand films, and social media videos</span> for brands across India. Great quality. On time. Every time.
             </motion.p>
           </div>
 
@@ -71,7 +71,7 @@ export default function VideoProductionHero() {
               onClick={() => setIsLightboxOpen(true)}
               className="btn-primary group"
             >
-              Watch Showreel
+              Watch Our Showreel
               <div className="h-10 w-10 rounded-xl bg-black/5 flex items-center justify-center group-hover:bg-black/10 transition-colors">
                 <Play size={20} fill="currentColor" />
               </div>
@@ -81,7 +81,7 @@ export default function VideoProductionHero() {
               target="_blank"
               className="btn-accent group"
             >
-              See All Projects
+              See All Our Videos
               <div className="h-10 w-10 rounded-xl bg-black/5 flex items-center justify-center group-hover:bg-black/10 transition-colors">
                 <Play size={20} fill="currentColor" />
               </div>
@@ -96,12 +96,12 @@ export default function VideoProductionHero() {
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 w-full max-w-7xl pt-12 border-t border-white/5"
           >
             {[
-              "TVC Production",
-              "Cinematic Ad Films",
-              "Viral Reel Campaigns",
-              "Corporate Identity",
+              "TV Commercials",
+              "Cinema Ad Films",
+              "Social Media Videos",
+              "Corporate Videos",
               "Luxury Brand Films",
-              "4K Broadcast Grade"
+              "4K & 8K Production"
             ].map((text) => (
               <div key={text} className="flex items-center justify-center gap-3">
                  <CheckCircle2 size={12} className="text-primary-accent" />
@@ -118,8 +118,8 @@ export default function VideoProductionHero() {
       {/* Background Cinematic Visual */}
       <div className="absolute inset-0 z-[-1] opacity-30 pointer-events-none">
          <Image 
-           src="/artifacts/media__1778571632209.jpg" 
-           alt="Premium Cinematic Background" 
+           src="/images/kochi-neural-skyline.png" 
+           alt="Premium Cinematic Background — Define Perspective AI Studio Kochi India" 
            fill 
            className="object-cover grayscale brightness-50"
          />

@@ -11,25 +11,25 @@ export default function VideoProductionPipeline() {
       <div className="container-max relative z-10">
         <div className="text-center mb-32 space-y-8">
           <span className="text-primary-accent font-mono text-[10px] uppercase font-black underline decoration-2 underline-offset-8">
-            Creative Framework {" // "} Production_Delta
+            How We Work {" // "} Our Process
           </span>
           <h2 className="text-4xl md:text-6xl font-black uppercase leading-[0.9] text-white">
-             The Production <br />
-             <span className="text-primary-accent">Pipeline_</span>
+             Our Production <br />
+             <span className="text-primary-accent">Process_</span>
           </h2>
           <p className="text-xl text-zinc-500 font-light max-w-3xl mx-auto uppercase leading-relaxed">
-            From creative concept to 4K broadcast delivery, we follow a high-fidelity workflow for world-class results.
+            From first idea to final delivery, here is how we make great videos.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            { icon: Clapperboard, title: "Creative Blueprint", desc: "Crafting a unique narrative strategy and storyboard tailored to your brand's specific identity." },
-            { icon: Camera, title: "High-End Cinematography", desc: "Filming with professional 8K camera systems and lighting for a true cinematic experience." },
-            { icon: Film, title: "Premium Post-Production", desc: "Expert editing, color grading, and VFX that transform raw footage into a broadcast masterpiece." },
-            { icon: Mic2, title: "Sound Architecture", desc: "Professional sound design and voiceovers recorded in high-end studios for maximum impact." },
-            { icon: MonitorCheck, title: "Broadcast QC", desc: "Rigorous quality control to ensure every frame meets global television and digital standards." },
-            { icon: Share2, title: "Omnichannel Delivery", desc: "Optimizing content for cinema, television, and every major social media platform." }
+            { icon: Clapperboard, title: "Creative Planning", desc: "We work with you to understand your brand and plan the video before we shoot anything." },
+            { icon: Camera, title: "Professional Filming", desc: "We film your video in 4K and 8K using professional cameras, lighting, and crew." },
+            { icon: Film, title: "Editing & Post-Production", desc: "We edit the footage, add colour grading, and include graphics or effects where needed." },
+            { icon: Mic2, title: "Sound & Voiceover", desc: "We add professional sound design and voiceovers, recorded in a proper studio." },
+            { icon: MonitorCheck, title: "Quality Check", desc: "We review every frame to make sure it meets TV and digital platform standards." },
+            { icon: Share2, title: "Final Delivery", desc: "We give you the finished video ready for TV, cinema, YouTube, Instagram, and more." }
           ].map((step, idx) => (
             <motion.div 
               key={idx}

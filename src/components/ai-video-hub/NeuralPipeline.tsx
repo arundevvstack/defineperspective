@@ -7,32 +7,32 @@ const steps = [
   {
     icon: BrainCircuit,
     title: "AI Concept Development",
-    desc: "Neural processing of brand goals into hyper-targeted cinematic concepts optimized for virality.",
+    desc: "We turn your brand goals into creative video concepts made to get views.",
   },
   {
     icon: Sparkles,
     title: "Prompt Engineering & Design",
-    desc: "Mastering high-fidelity visual synthesis through proprietary neural architecture and prompt design.",
+    desc: "We use advanced AI tools to design high-quality visuals for your brand.",
   },
   {
     icon: Film,
     title: "Motion AI Pipeline",
-    desc: "Generating consistent, high-bitrate cinematic movement using advanced temporal diffusion models.",
+    desc: "We create smooth, cinematic motion in every video using AI.",
   },
   {
     icon: Wand2,
     title: "Neural VFX & Compositing",
-    desc: "Seamlessly blending physical reality with neural artistry for impossible visual storytelling.",
+    desc: "We mix real-world footage with AI art to tell unique stories.",
   },
   {
     icon: Mic2,
     title: "AI Voice & Sound Architecture",
-    desc: "Hyper-realistic regional dialects and immersive spatial audio engineered for brand authority.",
+    desc: "We add realistic voices and great sound to make your brand stand out.",
   },
   {
     icon: MonitorCheck,
     title: "Platform Optimization",
-    desc: "Autonomous adaptation of every frame for 9:16, 16:9, and theatre formats with zero quality loss.",
+    desc: "We make sure your video looks perfect on TV, phones, and cinema screens.",
   },
 ];
 

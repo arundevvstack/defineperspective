@@ -42,7 +42,7 @@ export default function TopAITVCProductionIndiaClient() {
   ];
 
   return (
-    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-blue">
+    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-red">
       <NeuralSeoLayer />
       <GlassNavbar />
 
@@ -73,7 +73,7 @@ export default function TopAITVCProductionIndiaClient() {
               </h1>
 
               <p className="body-copy !text-lg md:!text-xl max-w-5xl mx-auto">
-                Define Perspective is the premier **AI TVC Production Company in India, Kerala, and South India**. We deliver cinematic high-fidelity commercials for global luxury brands.
+                Define Perspective is the best **AI TVC Production Company in India**. We make high-quality AI commercials for luxury brands in Kochi, Mumbai, and beyond.
               </p>
             </div>
 
@@ -146,27 +146,35 @@ export default function TopAITVCProductionIndiaClient() {
                   </h2>
                </div>
                <p className="body-copy max-w-sm text-right opacity-40">
-                  Engineering cinematic authority through proprietary neural pipelines and world-class vision.
+                  We make cinematic videos using the latest AI technology and creative storytelling.
                </p>
             </div>
 
             <div className="space-y-32">
                {[
                  { 
+                   id: "INpn97C16yM", 
+                   title: "BB App TVC", 
+                   type: "Brand TV Commercial", 
+                   desc: "A national-scale premium television commercial produced for BB App, showcasing high-fidelity production values and cinematic storytelling.",
+                   specs: ["8K HDR", "ALEXA 35", "PRO AUDIO", "MASTER GRADE"],
+                   location: "Production Hub // India"
+                 },
+                 { 
                    id: "5kOnWP-dZZY", 
                    title: "SHE Luxury Ad", 
                    type: "Luxury Commercial", 
-                   desc: "A high-fidelity cinematic ad film engineered for elite fashion brands, showcasing the intersection of neural aesthetics and luxury storytelling.",
-                   specs: ["8K NATIVE", "NEURAL VFX", "SPATIAL AUDIO", "RTX COMPUTE"],
-                   location: "Studio Node Alpha // India"
+                   desc: "A high-quality cinematic ad for fashion brands, showing how AI can create beautiful product stories.",
+                   specs: ["4K QUALITY", "AI VISUALS", "GREAT SOUND", "PRO EDITING"],
+                   location: "Main Studio // India"
                  },
                  { 
                    id: "vGijXeVUS74", 
                    title: "Lacrispo Theater Ad", 
                    type: "Cinema Commercial", 
-                   desc: "Broadcast-grade theater commercial optimized for high-impact cinema screens, delivering immersive visual fidelity across South India.",
-                   specs: ["DCP READY", "SURROUND 7.1", "HDR10+", "400MBPS BITRATE"],
-                   location: "Production Node Beta // Kerala"
+                   desc: "A professional theater ad made for the big screen, delivered with high quality across South India.",
+                   specs: ["CINEMA READY", "CLEAR SOUND", "HDR VIDEO", "PRO GRADE"],
+                   location: "Studio Node // Kerala"
                  }
                ].map((vid, idx) => (
                  <div 
@@ -182,7 +190,7 @@ export default function TopAITVCProductionIndiaClient() {
                       onClick={() => setActiveVideo(vid.id)}
                     >
                        <img 
-                         src={`https://img.youtube.com/vi/${vid.id}/maxresdefault.jpg`} 
+                         src={`https://img.youtube.com/vi/${vid.id}/hqdefault.jpg`} 
                          alt={vid.title} 
                          className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[2000ms]"
                        />
@@ -228,7 +236,7 @@ export default function TopAITVCProductionIndiaClient() {
                             onClick={() => setActiveVideo(vid.id)}
                             className="flex items-center gap-4 px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-primary-accent hover:text-black transition-all group/btn"
                           >
-                             <span className="label-mono !text-xs">Initialize Stream</span>
+                             <span className="label-mono !text-xs">Watch Video</span>
                              <MonitorPlay size={18} className="group-hover/btn:scale-110 transition-transform" />
                           </button>
                           <Link 
@@ -293,7 +301,7 @@ export default function TopAITVCProductionIndiaClient() {
                   </h2>
                </div>
                <p className="body-copy max-w-sm text-right">
-                  Comprehensive AI video production services for brands in Kerala, India, and beyond.
+                  Professional AI video services to help your brand grow in Kerala, India, and beyond.
                </p>
             </div>
 
@@ -372,7 +380,7 @@ export default function TopAITVCProductionIndiaClient() {
                        </div>
                        <div className="space-y-2">
                           <h4 className="text-xl font-black uppercase text-white group-hover:text-primary-accent transition-colors">{node.t}</h4>
-                          <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed font-light">{node.d}</p>
+                          <p className="text-[10px] text-zinc-500 uppercase tracking-widest leading-relaxed font-light">We use the best AI tools and creative talent to make your videos.</p>
                        </div>
                     </div>
                   ))}

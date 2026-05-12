@@ -60,8 +60,8 @@ export default function EfficiencyLeadMagnet() {
               <motion.div key="step1" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-10">
                 <div className="space-y-6">
                   <span className="label-mono border border-primary-accent/30 px-4 py-1.5 rounded-full">Optimized Ops_</span>
-                  <h2 className="heading-section">Claim Your <br /><span className="text-primary-accent">AI Efficiency Plan_</span></h2>
-                  <p className="body-copy">Calculate how much time and capital your brand can save by switching to Neural Production.</p>
+                  <h2 className="heading-section">Get Your <br /><span className="text-primary-accent">AI Efficiency Plan_</span></h2>
+                  <p className="body-copy">Calculate how much time and money you can save with AI video.</p>
                 </div>
 
                 <div className="space-y-6">

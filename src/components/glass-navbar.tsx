@@ -399,7 +399,7 @@ function GlassNavbarInner() {
 
   // Handle Dynamic Theme Switching based on Interaction + Path
   useEffect(() => {
-    const themeClass = isAiMode ? "theme-blue" : "theme-red";
+    const themeClass = "theme-red";
     document.body.classList.remove("theme-red", "theme-blue");
     document.body.classList.add(themeClass);
     
@@ -417,7 +417,7 @@ function GlassNavbarInner() {
     <>
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 backdrop-blur-3xl transition-all duration-500",
-        isAiMode ? "bg-blue-900/10" : "bg-obsidian/90"
+        isAiMode ? "bg-obsidian/90" : "bg-obsidian/90"
       )}>
         <div className="w-full max-w-none flex h-12 items-center justify-between px-2 md:px-8">
           <Link href="/" className="group flex cursor-pointer items-center transition-all duration-500 hover:scale-105">

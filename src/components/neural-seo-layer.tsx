@@ -9,6 +9,7 @@ export default function NeuralSeoLayer() {
   const [schema, setSchema] = useState<any>(null);
 
   useEffect(() => {
+    console.log("Supabase URL in browser:", process.env.NEXT_PUBLIC_SUPABASE_URL);
     async function hydratePageIntelligence() {
       // 1. Get slug from pathname
       const slug = pathname === '/' ? 'home' : pathname.slice(1);

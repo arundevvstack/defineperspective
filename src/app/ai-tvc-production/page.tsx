@@ -12,10 +12,10 @@ export default function AITVCProductionPage() {
     <NichePageTemplate 
       title="AI TVC Production"
       headline="Neural TVC <br /> Studio_"
-      subheadline="Broadcast-ready AI television commercials engineered for maximum reach and cinematic authority."
+      subheadline="High-quality AI TV commercials made for national broadcast and social media."
       description="India's leading AI TVC production company."
       contentTitle="Cinematic <br /> Broadcast_"
-      contentBody="Legacy TVC production involves massive crews and months of lead time. Our AI-First workflow delivers broadcast-fidelity commercials with 10x content variations for targeted media buying."
+      contentBody="Traditional TV ads take months to make and cost a lot. Our AI workflow delivers professional commercials 10x faster with many more versions for your brand."
     />
   );
 }

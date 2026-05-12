@@ -30,7 +30,7 @@ export default function AIVideoProductionIndiaClient() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden">
+    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-red">
       <NeuralSeoLayer />
       <GlassNavbar />
       
@@ -63,9 +63,9 @@ export default function AIVideoProductionIndiaClient() {
                   </div>
                   <div className="space-y-6">
                      {[
-                       { t: "Global Production Quality", d: "Cinematic quality rendered with precision using AI technology." },
-                       { t: "Fast Ad Scalability", d: "Generate thousands of ad variations for global and local markets." },
-                       { t: "Platform Optimized", d: "Perfect for Instagram Reels, YouTube Ads, and Theater Commercials." }
+                       { t: "Global Production Quality", d: "High-quality cinematic videos made with AI." },
+                       { t: "Fast Ad Scalability", d: "Create many versions of your ad quickly for different markets." },
+                       { t: "Platform Optimized", d: "Videos made to look perfect on Instagram, YouTube, and Cinema." }
                      ].map(point => (
                        <div key={point.t} className="flex gap-6 group">
                           <div className="h-12 w-12 rounded-xl bg-primary-accent/10 flex items-center justify-center text-primary-accent group-hover:bg-primary-accent group-hover:text-black transition-all">
@@ -91,9 +91,66 @@ export default function AIVideoProductionIndiaClient() {
          </div>
       </section>
 
-      {/* Exclusive Reveal Section */}
+      {/* 🚀 HIGH-IMPACT FEATURED PROJECT: SHE LUXURY */}
       <section className="section-pad bg-obsidian border-t border-white/5 relative overflow-hidden">
          <div className="absolute inset-0 bg-primary-accent/[0.02] pointer-events-none" />
+         
+         <div className="container-max relative z-10">
+            <div className="space-y-8 text-center mb-20">
+               <span className="label-mono">
+                  Featured Project {" // "} Luxury AI Ad
+               </span>
+               <h2 className="heading-hero">
+                  SHE Luxury <br />
+                  <span className="text-primary-accent">Body Lotion_</span>
+               </h2>
+               <p className="body-copy max-w-2xl mx-auto">
+                  A high-end cinematic AI commercial for SHE Luxury. This project demonstrates our capability to create realistic, elegant, and high-fidelity product storytelling using advanced neural pipelines.
+               </p>
+            </div>
+
+            <div 
+              className="relative aspect-video rounded-3xl overflow-hidden group border border-white/10 shadow-[0_0_100px_rgba(var(--primary-accent-rgb),0.05)] cursor-pointer bg-black"
+              onClick={() => setActiveVideo("5kOnWP-dZZY")}
+            >
+               <img 
+                 src="https://img.youtube.com/vi/5kOnWP-dZZY/hqdefault.jpg" 
+                 alt="SHE Luxury AI Ad - Define Perspective" 
+                 className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+               
+               <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
+                     <div className="absolute h-24 w-24 rounded-full bg-black/40 backdrop-blur-md -translate-x-4 z-10" />
+                     <div className="relative h-24 w-24 rounded-full bg-primary-accent text-black flex items-center justify-center z-20 shadow-2xl">
+                        <Play size={40} fill="currentColor" className="ml-1" />
+                     </div>
+                  </div>
+               </div>
+
+               <div className="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+                  <div className="space-y-4">
+                     <div className="flex gap-2">
+                        <span className="px-4 py-1.5 rounded-full bg-primary-accent text-black text-[9px] font-black uppercase tracking-widest">Luxury AI</span>
+                        <span className="px-4 py-1.5 rounded-full bg-black/60 border border-white/20 text-white text-[9px] font-black uppercase tracking-widest">4K Neural</span>
+                     </div>
+                     <div className="space-y-1">
+                        <h3 className="heading-section !text-3xl md:!text-5xl !leading-none">SHE Luxury</h3>
+                        <p className="label-mono opacity-60">Status: Completed // Production: DP AI Studio</p>
+                     </div>
+                  </div>
+                  <div className="btn-primary !h-16">
+                     Watch Full Ad
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* Exclusive Reveal Section: Lacrispo */}
+      <section className="section-pad bg-black border-t border-white/5 relative overflow-hidden">
+         <div className="absolute inset-0 bg-primary-accent/[0.01] pointer-events-none" />
          
          <div className="container-max relative z-10">
             <div className="space-y-8 text-center mb-20">
@@ -114,7 +171,7 @@ export default function AIVideoProductionIndiaClient() {
               onClick={() => setActiveVideo("vGijXeVUS74")}
             >
                <img 
-                 src="https://img.youtube.com/vi/vGijXeVUS74/maxresdefault.jpg" 
+                 src="https://img.youtube.com/vi/vGijXeVUS74/hqdefault.jpg" 
                  alt="Lacrispo AI Commercial" 
                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
                />
@@ -133,7 +190,7 @@ export default function AIVideoProductionIndiaClient() {
                <div className="absolute bottom-12 left-12 right-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
                   <div className="space-y-4">
                      <div className="flex gap-2">
-                        <span className="px-4 py-1.5 rounded-full bg-[#0070F3] text-white text-[9px] font-black uppercase tracking-widest">Theater Ad</span>
+                        <span className="px-4 py-1.5 rounded-full bg-primary-accent text-black text-[9px] font-black uppercase tracking-widest">Theater Ad</span>
                         <span className="px-4 py-1.5 rounded-full bg-black/60 border border-white/20 text-white text-[9px] font-black uppercase tracking-widest">4K Quality</span>
                      </div>
                      <div className="space-y-1">
@@ -158,7 +215,7 @@ export default function AIVideoProductionIndiaClient() {
                  onClick={() => setActiveVideo("L7aRxqziN8w")}
                >
                   <img 
-                    src="https://img.youtube.com/vi/L7aRxqziN8w/maxresdefault.jpg" 
+                    src="https://img.youtube.com/vi/L7aRxqziN8w/hqdefault.jpg" 
                     alt="Red Chamber AI Music Video" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
                   />
@@ -184,7 +241,7 @@ export default function AIVideoProductionIndiaClient() {
                      <span className="text-primary-accent">Music Video_</span>
                   </h2>
                   <p className="body-copy">
-                     A visual journey into modern AI filmmaking. This project shows our ability to create atmospheric stories and cinematic visuals using advanced AI tools.
+                     A visual look into modern AI filmmaking. This project shows how we use AI to tell atmospheric and cinematic stories.
                   </p>
                   <div className="flex gap-4 pt-4">
                      <div className="px-6 py-4 rounded-xl bg-white/5 border border-white/10 flex flex-col gap-1">
@@ -208,16 +265,16 @@ export default function AIVideoProductionIndiaClient() {
       <section className="section-pad bg-black border-t border-white/5 relative overflow-hidden">
          <div className="container-max relative z-10">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
-               <div className="space-y-8 order-2 lg:order-1">
+               <div className="space-y-12">
                   <span className="label-mono">
-                     AI Commercial {" // "} Beauty & Products
+                     Case Study {" // "} AI Beauty
                   </span>
                   <h2 className="heading-section">
                      SHE Luxury <br />
                      <span className="text-primary-accent">Body Lotion_</span>
                   </h2>
                   <p className="body-copy">
-                     A high-quality AI commercial for SHE Luxury. We focus on creating realistic textures and elegant product stories that help brands stand out in the beauty market.
+                     A high-quality AI commercial for SHE Luxury. We create realistic and elegant product videos that help your brand stand out.
                   </p>
                   <div className="flex gap-4 pt-4">
                      <div className="px-6 py-4 rounded-xl bg-white/5 border border-white/10 flex flex-col gap-1">
@@ -239,7 +296,7 @@ export default function AIVideoProductionIndiaClient() {
                  onClick={() => setActiveVideo("5kOnWP-dZZY")}
                >
                   <img 
-                    src="https://img.youtube.com/vi/5kOnWP-dZZY/maxresdefault.jpg" 
+                    src="https://img.youtube.com/vi/5kOnWP-dZZY/hqdefault.jpg" 
                     alt="SHE Luxury Ad" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
                   />
@@ -283,7 +340,7 @@ export default function AIVideoProductionIndiaClient() {
                   </h2>
                </div>
                <p className="body-copy max-w-sm text-right">
-                  Specialized AI video services designed to help your brand grow and scale effectively.
+                  Specialized AI video services to help your brand grow and reach more customers.
                </p>
             </div>
 

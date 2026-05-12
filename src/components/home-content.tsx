@@ -122,7 +122,7 @@ export default function HomeContent() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden relative selection:bg-primary-accent selection:text-white theme-blue">
+    <main className="min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden relative selection:bg-primary-accent selection:text-white theme-red">
       <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       <GlassNavbar />
 
@@ -283,7 +283,7 @@ export default function HomeContent() {
                   <span className="text-primary-accent">Hub_</span>
                 </h2>
                 <p className="text-zinc-500 max-w-2xl leading-relaxed !text-lg mt-6">
-                  End-to-end media production infrastructure powered by the DP Generation Engine.
+                  Complete video production services powered by our creative AI engine.
                 </p>
               </div>
             </div>
@@ -321,130 +321,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* 🌟 ELITE FLAGSHIP PRODUCTIONS (MASTER-GRADE FEATURING) */}
-      <section id="featured-productions" className="section-pad bg-black relative overflow-hidden">
-        {/* Background Telemetry Grid */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-        <div className="container-max relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-32">
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="h-2 w-2 rounded-full bg-primary-accent animate-pulse" />
-                <span className="label-mono !text-primary-accent">Flagship Productions {" // "} Master Grade</span>
-              </div>
-              <h2 className="heading-section">
-                The <span className="text-primary-accent">Featured_</span> <br />
-                Collection
-              </h2>
-            </div>
-            <p className="body-copy max-w-sm text-right opacity-40">
-              Engineering cinematic authority through proprietary neural pipelines and world-class vision.
-            </p>
-          </div>
-
-          <div className="space-y-32">
-            {[
-              {
-                id: "5kOnWP-dZZY",
-                title: "SHE Luxury Ad",
-                type: "Luxury Commercial",
-                desc: "A high-fidelity cinematic ad film engineered for elite fashion brands, showcasing the intersection of neural aesthetics and luxury storytelling.",
-                specs: ["8K NATIVE", "NEURAL VFX", "SPATIAL AUDIO", "RTX COMPUTE"],
-                location: "Studio Node Alpha // India",
-                accent: "#3b82f6"
-              },
-              {
-                id: "vGijXeVUS74",
-                title: "Lacrispo Theater Ad",
-                type: "Cinema Commercial",
-                desc: "Broadcast-grade theater commercial optimized for high-impact cinema screens, delivering immersive visual fidelity across South India.",
-                specs: ["DCP READY", "SURROUND 7.1", "HDR10+", "400MBPS BITRATE"],
-                location: "Production Node Beta // Kerala",
-                accent: "#3b82f6"
-              },
-              {
-                id: "INpn97C16yM",
-                title: "BB App TV Commercial",
-                type: "Brand Film",
-                desc: "A high-energy, neural-optimized brand film for the BB App, engineered for rapid delivery and maximum market penetration through AI-driven visuals.",
-                specs: ["NEURAL PIPELINE", "48HR DELIVERY", "SOCIAL OPTIMIZED", "DYNAMIC VFX"],
-                location: "Production Node Gamma // India",
-                accent: "#eb1e2c"
-              }
-            ].map((vid, idx) => (
-              <div
-                key={vid.id}
-                className={cn(
-                  "flex flex-col lg:flex-row gap-16 items-center group",
-                  idx % 2 === 1 && "lg:flex-row-reverse"
-                )}
-              >
-                {/* Cinematic Canvas */}
-                <div
-                  className="w-full lg:w-3/5 aspect-video rounded-[3rem] overflow-hidden border border-white/10 bg-obsidian relative cursor-pointer shadow-2xl transition-all duration-700"
-                  style={{ borderColor: `${vid.accent}20`, boxShadow: `0 25px 50px -12px ${vid.accent}05` }}
-                  onClick={() => setActiveVideo(vid.id)}
-                >
-                  <img
-                    src={`https://img.youtube.com/vi/${vid.id}/sddefault.jpg`}
-                    alt={vid.title}
-                    className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[2000ms]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
-
-                  {/* Telemetry Overlay */}
-                  <div className="absolute top-8 left-8 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    {vid.specs.map(spec => (
-                      <span key={spec} className="px-3 py-1 rounded bg-black/60 backdrop-blur-md border border-white/10 text-[8px] font-mono uppercase tracking-[0.2em]" style={{ color: vid.accent }}>
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Play Interface */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-20 w-20 md:h-24 md:w-24 rounded-full backdrop-blur-3xl border text-white flex items-center justify-center group-hover:scale-110 transition-all duration-500" style={{ backgroundColor: `${vid.accent}10`, borderColor: `${vid.accent}40`, color: vid.accent }}>
-                      <Play size={32} fill="currentColor" className="ml-1" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Metadata Narrative */}
-                <div className="w-full lg:w-2/5 space-y-10">
-                  <div className="space-y-4">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.5em] block" style={{ color: vid.accent }}>{vid.type}</span>
-                    <h3 className="text-4xl md:text-6xl font-black uppercase text-white leading-none tracking-tighter">
-                      {vid.title}
-                    </h3>
-                  </div>
-
-                  <p className="body-copy !text-base !text-zinc-400 !leading-relaxed uppercase tracking-widest">
-                    {vid.desc}
-                  </p>
-
-                  <div className="flex flex-wrap gap-4 pt-8">
-                    <button
-                      onClick={() => setActiveVideo(vid.id)}
-                      className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
-                    >
-                      <span className="text-[13px] font-bold group-hover/btn:text-white transition-colors" style={{ color: vid.accent }}>Initialize Stream</span>
-                      <MonitorPlay size={18} className="text-zinc-500 group-hover/btn:text-white transition-colors" />
-                    </button>
-                    <button
-                      onClick={() => setActiveVideo(vid.id)}
-                      className="h-16 px-10 rounded-2xl border border-white/5 text-white flex items-center gap-4 hover:border-white/20 transition-all group/btn"
-                    >
-                      <span className="text-[13px] font-bold text-zinc-500 group-hover/btn:text-white transition-colors">Project Specs</span>
-                      <ArrowRight size={18} className="text-zinc-700 group-hover/btn:text-primary-accent transition-colors" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 🧠 WHY AI VIDEO PRODUCTION (EDUCATIONAL AUTHORITY) */}
       <section className="section-pad bg-black relative z-10">
@@ -455,10 +332,10 @@ export default function HomeContent() {
               <h2 className="heading-section">Why Brands Are <br />Switching to <span className="text-primary-accent">AI Production_</span></h2>
               <div className="space-y-8">
                 {[
-                  { t: "Faster Production", d: "Neural workflows reduce turnaround times by 70% without sacrificing quality." },
-                  { t: "Scalable Content", d: "Generate thousands of creative variations for multi-platform optimization." },
-                  { t: "Cinematic Quality", d: "High-fidelity AI rendering that rivals traditional high-budget cinematography." },
-                  { t: "Lower Production Cost", d: "Elite-tier commercials at a fraction of traditional production budgets." }
+                  { t: "Faster Production", d: "We finish videos 70% faster using AI without losing quality." },
+                  { t: "Scalable Content", d: "Create many versions of your video for all social platforms." },
+                  { t: "Cinematic Quality", d: "High-quality visuals that look like big-budget films." },
+                  { t: "Lower Costs", d: "Get professional commercials at a fraction of the usual price." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-8 group">
                     <div className="h-12 w-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary-accent/40 transition-all">
