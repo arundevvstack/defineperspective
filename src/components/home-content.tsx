@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { 
   Plus, Users, Globe, BarChart3, Star, Building2, Zap, Target, Activity, MessageCircle, ArrowRight, Shield, Cpu, Play, CheckCircle2, Clapperboard, MonitorPlay, Sparkles
 } from "lucide-react";
@@ -28,14 +28,90 @@ const SectionHeader = ({ tag, title, subtitle, align = "center", h2 = false, cla
   return (
     <div className={cn("mb-16 md:mb-20", align === "center" ? "text-center" : "text-left", className)}>
       <span className="text-xs md:text-sm font-mono tracking-[0.4em] uppercase text-primary-accent mb-6 block font-bold">{tag}</span>
-      <TitleTag className={cn(
-        "font-black text-white uppercase leading-tight md:leading-[0.9]",
-        align === "center" ? "text-3xl md:text-6xl lg:text-[5.5rem]" : "text-3xl md:text-5xl lg:text-[4.5rem]"
-      )}>
-        {title}
-      </TitleTag>
-      {subtitle && <p className="mt-8 text-zinc-400 font-normal text-sm md:text-base max-w-2xl mx-auto leading-relaxed">{subtitle}</p>}
+      <TitleTag className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-white mb-6 leading-[0.9]">{title}</TitleTag>
+      {subtitle && <p className="text-zinc-500 text-sm md:text-lg max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">{subtitle}</p>}
     </div>
+  );
+};
+
+// ── INTERACTIVE SERVICE NODE COMPONENT ──
+const ServiceNode = ({ node, title, icon, services, accentColor }: any) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseX = useSpring(x, { stiffness: 500, damping: 50 });
+  const mouseY = useSpring(y, { stiffness: 500, damping: 50 });
+
+  const rotateX = useTransform(mouseY, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  function onMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseXRelative = (event.clientX - rect.left) / width - 0.5;
+    const mouseYRelative = (event.clientY - rect.top) / height - 0.5;
+    x.set(mouseXRelative);
+    y.set(mouseYRelative);
+  }
+
+  function onMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
+  return (
+    <motion.div
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      className="group relative p-8 md:p-12 rounded-[3.5rem] bg-zinc-900/40 border border-white/5 space-y-12 transition-all duration-500 hover:border-white/10 hover:bg-zinc-900/60"
+    >
+      {/* Dynamic Glow Spotlight */}
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-[3.5rem] opacity-0 group-hover:opacity-100 transition duration-300"
+        style={{
+          background: useTransform(
+            [mouseX, mouseY],
+            ([mx, my]: any) => `radial-gradient(800px circle at ${(mx + 0.5) * 100}% ${(my + 0.5) * 100}%, ${accentColor}15, transparent 80%)`
+          ),
+        }}
+      />
+
+      <div className="relative z-10 flex justify-between items-start">
+        <div className="space-y-2">
+          <span className="font-mono text-[10px] uppercase tracking-[0.4em]" style={{ color: accentColor }}>{node}</span>
+          <h3 className="text-3xl md:text-4xl font-black uppercase text-white leading-none">{title}</h3>
+        </div>
+        <div 
+          className="h-14 w-14 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+          style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
+        >
+          {icon}
+        </div>
+      </div>
+
+      <div className="relative z-10 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+        {services.map((s: string, idx: number) => (
+          <motion.div 
+            key={s} 
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: idx * 0.05 }}
+            className="flex items-center gap-3 py-3 border-b border-white/5 hover:border-white/20 transition-colors group/item"
+          >
+            <CheckCircle2 size={12} style={{ color: accentColor }} className="opacity-40 group-hover/item:opacity-100 transition-opacity" />
+            <span className="label-mono !text-[10px] md:!text-[11px] !text-zinc-400 group-hover/item:!text-white transition-colors">{s}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Interactive Bottom Accent */}
+      <div 
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 transition-all duration-700 group-hover:w-1/3 rounded-full blur-sm"
+        style={{ backgroundColor: accentColor }}
+      />
+    </motion.div>
   );
 };
 
@@ -208,57 +284,35 @@ export default function HomeContent() {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-16">
+            <div className="grid lg:grid-cols-2 gap-16">
                {/* Cluster 1: AI Video Production */}
-               <div className="p-12 rounded-[3.5rem] bg-white/[0.02] border border-white/5 space-y-12">
-                  <div className="flex justify-between items-start">
-                     <div className="space-y-2">
-                        <span className="text-primary-accent font-mono text-[10px] uppercase tracking-[0.4em]">Node 01</span>
-                        <h3 className="text-4xl font-black uppercase text-white">AI Video Production</h3>
-                     </div>
-                     <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 flex items-center justify-center text-primary-accent">
-                        <Cpu size={28} />
-                     </div>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
-                     {[
-                       "AI Commercial Production", "AI TVC Production", "AI Reel Production",
-                       "AI Product Ads", "AI Fashion Commercials", "AI Food Commercials",
-                       "AI Real Estate Videos", "AI Luxury Brand Films", "AI Theatre Ads",
-                       "AI Social Media Campaigns"
-                     ].map(s => (
-                       <div key={s} className="flex items-center gap-3 py-3 border-b border-white/5 hover:border-primary-accent/40 transition-colors">
-                          <CheckCircle2 size={12} className="text-primary-accent" />
-                          <span className="label-mono !text-[11px] !text-zinc-400">{s}</span>
-                       </div>
-                     ))}
-                  </div>
-               </div>
+               <ServiceNode 
+                 node="Node 01"
+                 title="AI Video Production"
+                 icon={<Cpu size={28} />}
+                 services={[
+                   "AI Commercial Production", "AI TVC Production", "AI Reel Production",
+                   "AI Product Ads", "AI Fashion Commercials", "AI Food Commercials",
+                   "AI Real Estate Videos", "AI Luxury Brand Films", "AI Theatre Ads",
+                   "AI Social Media Campaigns"
+                 ]}
+                 accentColor="#eb1e2c"
+               />
 
                {/* Cluster 2: Traditional Video Production */}
-               <div className="p-12 rounded-[3.5rem] bg-white/[0.02] border border-white/5 space-y-12">
-                  <div className="flex justify-between items-start">
-                     <div className="space-y-2">
-                        <span className="text-red-500 font-mono text-[10px] uppercase tracking-[0.4em]">Node 02</span>
-                        <h3 className="text-4xl font-black uppercase text-white">Video Production</h3>
-                     </div>
-                     <div className="h-14 w-14 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500">
-                        <Clapperboard size={28} />
-                     </div>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
-                     {[
-                       "TV Commercial Production", "Corporate Films", "Brand Storytelling",
-                       "Product Videos", "Social Media Videos", "Event Films",
-                       "Documentary Production", "Promotional Videos", "Theatre Commercials",
-                       "Broadcast Ad Films"
-                     ].map(s => (
-                       <div key={s} className="flex items-center gap-3 py-3 border-b border-white/5 hover:border-red-500/40 transition-colors">
-                          <CheckCircle2 size={12} className="text-red-500" />
-                          <span className="label-mono !text-[11px] !text-zinc-400">{s}</span>
-                       </div>
-                     ))}
-                  </div>
-               </div>
+               <ServiceNode 
+                 node="Node 02"
+                 title="Video Production"
+                 icon={<Clapperboard size={28} />}
+                 services={[
+                   "TV Commercial Production", "Corporate Films", "Brand Storytelling",
+                   "Product Videos", "Social Media Videos", "Event Films",
+                   "Documentary Production", "Promotional Videos", "Theatre Commercials",
+                   "Broadcast Ad Films"
+                 ]}
+                 accentColor="#eb1e2c"
+               />
+            </div>
             </div>
          </div>
       </section>
