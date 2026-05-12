@@ -108,7 +108,7 @@ export default function HomeContent() {
               <span className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shrink-0 group-hover:bg-black/20 transition-colors">
                 <Play size={18} fill="currentColor" className="ml-0.5" />
               </span>
-              Watch AI Video Showcase
+              Watch Video Showcase
             </motion.button>
           </motion.div>
         </div>
