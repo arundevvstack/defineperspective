@@ -298,7 +298,7 @@ export default function HomeContent() {
                    "AI Real Estate Videos", "AI Luxury Brand Films", "AI Theatre Ads",
                    "AI Social Media Campaigns"
                  ]}
-                 accentColor="#eb1e2c"
+                 accentColor="#3b82f6"
                />
 
                {/* Cluster 2: Traditional Video Production */}
