@@ -422,10 +422,14 @@ export default function HomeContent() {
                        <div className="flex flex-wrap gap-4 pt-8">
                           <button 
                             onClick={() => setActiveVideo(vid.id)}
-                            className="btn-glass !h-16 !px-10"
+                            className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
                           >
-                             <span className="label-mono !text-xs">Stream Now</span>
-                             <MonitorPlay size={18} />
+                             <span className="label-mono !text-[11px] !text-primary-accent group-hover/btn:text-white transition-colors">Initialize Stream</span>
+                             <MonitorPlay size={18} className="text-zinc-500 group-hover/btn:text-white transition-colors" />
+                          </button>
+                          <button className="h-16 px-10 rounded-2xl border border-white/5 text-white flex items-center gap-4 hover:border-white/20 transition-all group/btn">
+                             <span className="label-mono !text-[11px] !text-zinc-500 group-hover/btn:text-white transition-colors">Project Specs</span>
+                             <ArrowRight size={18} className="text-zinc-700 group-hover/btn:text-primary-accent transition-colors" />
                           </button>
                        </div>
                     </div>
