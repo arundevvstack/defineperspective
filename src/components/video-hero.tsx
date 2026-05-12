@@ -73,7 +73,7 @@ export default function VideoHero() {
               onClick={() => setLightboxOpen(true)}
               className="group h-16 md:h-20 px-10 md:px-14 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center gap-4 hover:bg-primary-accent hover:text-white transition-all duration-500 shadow-2xl active:scale-95"
             >
-              Watch Showcase <Play size={18} fill="currentColor" />
+              Watch AI Video Showcase <Play size={18} fill="currentColor" />
             </button>
             <Link
               href="/contact"
