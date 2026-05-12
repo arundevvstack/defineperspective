@@ -711,12 +711,12 @@ export default function HomeContent() {
                   <span className="text-[11px] font-black uppercase tracking-[0.5em] text-primary-accent">Leading Video Production Kerala</span>
                 </div>
 
-                <h2 className="heading-section !text-5xl md:!text-8xl">
+                <h2 className="heading-section !text-2xl md:!text-4xl">
                   End-to-End <br /> Media <span>Dominance_</span>
                 </h2>
 
                 <div className="space-y-10">
-                  <p className="body-copy !text-xl md:!text-3xl text-zinc-300 font-light leading-snug">
+                  <p className="body-copy !text-sm md:!text-lg text-zinc-300 font-light leading-snug">
                     We are a <span className="text-white font-bold">leading video production company in Kerala</span> offering end-to-end media production services including TVCs, brand films, and corporate storytelling.
                   </p>
 
