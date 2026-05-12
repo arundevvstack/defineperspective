@@ -434,7 +434,7 @@ function GlassNavbarInner() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-10 lg:gap-14 md:flex h-full">
+          <div className="hidden items-center gap-6 lg:gap-8 md:flex h-full">
             <Link href="/" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/" ? "text-primary-accent" : "text-foreground/80")}>Home</Link>
             <Link href="/about" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/about" ? "text-primary-accent" : "text-foreground/80")}>About Us</Link>
             
@@ -459,7 +459,6 @@ function GlassNavbarInner() {
             />
 
             <Link href="/portfolio" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/portfolio" ? "text-primary-accent" : "text-foreground/80")}>Portfolio</Link>
-            <Link href="/blog" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname.startsWith("/blog") ? "text-primary-accent" : "text-foreground/80")}>Blog</Link>
             <Link href="/contact" className={cn("text-[12px] font-normal uppercase tracking-normal transition-colors", pathname === "/contact" ? "text-primary-accent" : "text-foreground/80")}>Contact</Link>
           </div>
 
