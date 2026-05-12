@@ -105,10 +105,10 @@ export default function HomeContent() {
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="flex items-center gap-4 px-12 py-5 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/25 text-white font-black uppercase tracking-widest text-[11px] md:text-sm hover:bg-[#eb1e2c] hover:border-[#eb1e2c] hover:text-white transition-all duration-500 shadow-2xl"
+              className="flex items-center gap-4 px-12 py-5 rounded-2xl bg-[#eb1e2c] text-white font-black uppercase tracking-widest text-[11px] md:text-sm hover:bg-[#eb1e2c]/90 transition-all duration-500 shadow-[0_0_50px_-10px_rgba(235,30,44,0.4)]"
               onClick={() => setActiveVideo("sNp1a5I6WsI")}
             >
-              <span className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shrink-0 group-hover:bg-black/20 transition-colors">
+              <span className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shrink-0">
                 <Play size={18} fill="currentColor" className="ml-0.5" />
               </span>
               Watch Video Showcase
