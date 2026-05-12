@@ -512,7 +512,7 @@ export default function HomeContent() {
                       { m: "Revision Flexibility", v: "Difficult", p: 10 }
                     ].map(item => (
                       <div key={item.m} className="space-y-3">
-                        <div className="flex justify-between text-[13px] font-mono uppercase tracking-wider text-zinc-400">
+                        <div className="flex justify-between text-[15px] font-mono uppercase tracking-wider text-white">
                           <span>{item.m}</span>
                           <span>{item.v}</span>
                         </div>
@@ -541,7 +541,7 @@ export default function HomeContent() {
                       { m: "Revision Flexibility", v: "Instant", p: 95 }
                     ].map(item => (
                       <div key={item.m} className="space-y-3">
-                        <div className="flex justify-between text-[13px] font-mono uppercase tracking-wider text-primary-accent">
+                        <div className="flex justify-between text-[15px] font-mono uppercase tracking-wider text-white">
                           <span>{item.m}</span>
                           <span>{item.v}</span>
                         </div>
