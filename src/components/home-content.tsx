@@ -282,9 +282,9 @@ export default function HomeContent() {
                        Production <br />
                        <span className="text-primary-accent">Intelligence_</span>
                     </h2>
-                    <p className="body-copy opacity-40 uppercase tracking-widest text-[11px] leading-relaxed max-w-2xl mt-4">
-                       Semantically clustered media solutions for global brand dominance.
-                    </p>
+                    <p className="text-zinc-500 max-w-2xl leading-relaxed !text-lg">
+                  Advanced video production solutions for global brand dominance.
+               </p>
                   </div>
                </div>
             </div>
@@ -530,7 +530,7 @@ export default function HomeContent() {
                     <div className="h-3 w-3 rounded-full bg-primary-accent animate-ping" />
                   </div>
                   <div className="space-y-4 relative z-10">
-                    <span className="label-mono !text-primary-accent">Neural Production</span>
+                    <span className="label-mono !text-primary-accent">AI Production Studio</span>
                     <h3 className="text-4xl font-black uppercase text-white">DP AI Studio</h3>
                   </div>
                   <div className="space-y-8 relative z-10">
@@ -583,8 +583,8 @@ export default function HomeContent() {
                   <span className="label-mono">Geo-Political Authority</span>
                   <h2 className="heading-section">The Leading AI Video Production <br /><span className="text-primary-accent">Company in Kerala_</span></h2>
                   <p className="body-copy !text-lg opacity-80 leading-loose">
-                     Strategically headquartered in <span className="text-white font-bold">Kochi</span>, we operate as the primary neural production node for brands in <span className="text-zinc-400">Trivandrum, Bangalore, Chennai, Mumbai, and South India</span>. DP AI Studio is the definitive leader in cinematic AI advertising and premium video production services.
-                  </p>
+                      Headquartered in <span className="text-white font-bold">Kochi</span>, we serve as the primary production hub for brands in <span className="text-zinc-400">Trivandrum, Bangalore, Chennai, Mumbai, and South India</span>. DP AI Studio is the leading provider of cinematic AI advertising and professional video production services.
+                   </p>
                   <div className="flex flex-wrap gap-4">
                      {["Kochi", "Trivandrum", "Bangalore", "Mumbai", "Dubai"].map(city => (
                        <div key={city} className="px-6 py-2 rounded-full border border-white/10 bg-white/5 label-mono !text-[10px] hover:border-primary-accent/40 hover:text-primary-accent transition-all cursor-default">{city}</div>
@@ -658,11 +658,11 @@ export default function HomeContent() {
                      <span className="label-mono !text-[10px] !text-primary-accent">Extended Portfolio Archive</span>
                   </div>
                   <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white leading-none">
-                     Extended <br />
-                     <span className="text-primary-accent">Showcase_</span>
+                     Explore Our <br />
+                     <span className="text-primary-accent">Full Archive_</span>
                   </h2>
-                  <p className="body-copy max-w-xl opacity-40 uppercase tracking-widest text-xs leading-relaxed">
-                     Dive deeper into our neural ecosystem. Explore our full archive of 100+ cinematic assets, high-fidelity commercial experiments, and proprietary visual workflows on our official hub.
+                  <p className="body-copy max-w-xl opacity-60 text-lg leading-relaxed">
+                     Dive deeper into our world. Explore our full collection of 100+ cinematic projects, high-fidelity commercials, and professional video workflows on our official channel.
                   </p>
                </div>
                
