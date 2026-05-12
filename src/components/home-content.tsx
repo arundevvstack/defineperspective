@@ -129,7 +129,7 @@ export default function HomeContent() {
           {/* Channel + CTA */}
           <div className="flex gap-3" onClick={e => e.stopPropagation()}>
             <a
-              href="https://www.youtube.com/@DP.AI.Studio"
+              href="https://www.youtube.com/watch?v=sNp1a5I6WsI"
               target="_blank"
               rel="noopener noreferrer"
               className="h-11 px-6 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] flex items-center gap-2 hover:bg-white/10 transition-all backdrop-blur-md"
