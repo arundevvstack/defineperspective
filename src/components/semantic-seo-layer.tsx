@@ -3,9 +3,8 @@ import React from 'react';
 const SemanticSeoLayer = () => {
   return (
     <section 
-      style={{ display: 'none' }} 
-      aria-hidden="true" 
-      className="semantic-seo-reinforcement"
+      className="sr-only semantic-seo-reinforcement"
+      aria-hidden="false" 
     >
       {/* Entity Reinforcement */}
       <div className="entities">
