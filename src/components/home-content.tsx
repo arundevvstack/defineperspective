@@ -278,13 +278,13 @@ export default function HomeContent() {
                <div className="space-y-6">
                   <span className="label-mono !text-primary-accent">Neural // Traditional Infrastructure</span>
                   <div>
-                    <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white">
-                       Production <br />
-                       <span className="text-primary-accent">Intelligence_</span>
+                    <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.8]">
+                       AI Production <br />
+                       <span className="text-primary-accent">Hub_</span>
                     </h2>
-                    <p className="text-zinc-500 max-w-2xl leading-relaxed !text-lg">
-                  Advanced video production solutions for global brand dominance.
-               </p>
+                    <p className="text-zinc-500 max-w-2xl leading-relaxed !text-lg mt-6">
+                       End-to-end media production infrastructure powered by the DP Generation Engine.
+                    </p>
                   </div>
                </div>
             </div>
@@ -293,7 +293,7 @@ export default function HomeContent() {
                {/* Cluster 1: AI Video Production */}
                <ServiceNode 
                  node="Node 01"
-                 title="AI Video Production"
+                 title="AI Production"
                  icon={<Cpu size={32} />}
                  services={[
                    "AI Commercial Production", "AI TVC Production", "AI Reel Production",
