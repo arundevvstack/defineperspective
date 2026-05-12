@@ -428,11 +428,14 @@ export default function HomeContent() {
                             onClick={() => setActiveVideo(vid.id)}
                             className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
                           >
-                             <span className="label-mono !text-[11px] group-hover/btn:text-white transition-colors" style={{ color: vid.accent }}>Initialize Stream</span>
+                             <span className="text-[13px] font-bold group-hover/btn:text-white transition-colors" style={{ color: vid.accent }}>Initialize Stream</span>
                              <MonitorPlay size={18} className="text-zinc-500 group-hover/btn:text-white transition-colors" />
                           </button>
-                          <button className="h-16 px-10 rounded-2xl border border-white/5 text-white flex items-center gap-4 hover:border-white/20 transition-all group/btn">
-                             <span className="label-mono !text-[11px] !text-zinc-500 group-hover/btn:text-white transition-colors">Project Specs</span>
+                          <button 
+                             onClick={() => setActiveVideo(vid.id)}
+                             className="h-16 px-10 rounded-2xl border border-white/5 text-white flex items-center gap-4 hover:border-white/20 transition-all group/btn"
+                          >
+                             <span className="text-[13px] font-bold text-zinc-500 group-hover/btn:text-white transition-colors">Project Specs</span>
                              <ArrowRight size={18} className="text-zinc-700 group-hover/btn:text-primary-accent transition-colors" />
                           </button>
                        </div>
