@@ -195,14 +195,15 @@ export default function HomeContent() {
 
             {/* Secondary Buttons moved from bottom */}
             <div className="flex flex-wrap justify-center gap-4 mt-2">
-              <a
-                href="https://www.youtube.com/watch?v=sNp1a5I6WsI"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-14 px-8 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-white/10 transition-all backdrop-blur-md"
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveVideo("sNp1a5I6WsI");
+                }}
+                className="h-14 px-8 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-white/10 transition-all backdrop-blur-md cursor-pointer"
               >
                 View Our Works <ArrowRight size={14} />
-              </a>
+              </button>
               <Link
                 href="/contact"
                 className="h-14 px-8 rounded-xl bg-[#1a1a1a] border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-zinc-800 transition-all shadow-xl"
