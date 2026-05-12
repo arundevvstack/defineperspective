@@ -206,7 +206,9 @@ export default function VideoProductionClient() {
 
       <VideoProductionPipeline />
       
-      <EfficiencyLeadMagnet />
+      <div className="theme-blue">
+        <EfficiencyLeadMagnet />
+      </div>
 
       {/* 🎬 VIDEO PORTFOLIO SECTION */}
       <section className="section-pad bg-black border-t border-white/5">
@@ -267,9 +269,11 @@ export default function VideoProductionClient() {
          </div>
       </section>
 
-      <AIVideoComparison />
-      
-      <AIVideoROICalculator />
+      <div className="theme-blue">
+        <AIVideoComparison />
+        
+        <AIVideoROICalculator />
+      </div>
 
       {/* ðŸŽ¬ PRODUCTION SERVICES SILOS */}
       <section className="section-pad bg-black border-t border-white/5">
@@ -344,7 +348,9 @@ export default function VideoProductionClient() {
          </div>
       </section>
 
-      <BlueprintLeadMagnet />
+      <div className="theme-blue">
+        <BlueprintLeadMagnet />
+      </div>
 
       <FAQSection />
 

@@ -1,21 +1,51 @@
-import NichePageTemplate from "@/components/ai-video-hub/NichePageTemplate";
 import { Metadata } from "next";
+import AuthorityPageTemplate from "@/components/seo/AuthorityPageTemplate";
+import { INDUSTRY_DATA } from "@/constants/seo-data";
+
+const data = INDUSTRY_DATA.fashion;
 
 export const metadata: Metadata = {
-  title: "AI Fashion Commercials | Neural Style & Motion",
-  description: "Transforming fashion marketing with AI. We create cinematic fashion commercials using neural style transfer and high-fidelity motion synthesis.",
-  keywords: ["AI Fashion Commercials", "Fashion Marketing AI", "Cinematic Fashion Videos", "Neural Style Fashion"],
+  title: data.title,
+  description: data.description,
+  keywords: [
+    "AI Fashion Commercials India",
+    "Luxury AI Brand Films",
+    "Neural Runway Visuals",
+    "Digital Fashion Content India",
+    "AI Fashion Ad Production",
+    "Cinematic Fashion AI",
+    "DP AI Studio Fashion"
+  ],
+  alternates: {
+    canonical: "https://defineperspective.in/ai-fashion-commercials"
+  }
 };
 
-export default function AIFashionCommercialsPage() {
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Luxury AI Fashion Commercial Production",
+  "provider": {
+    "@type": "Organization",
+    "name": "Define Perspective (DP AI Studio)"
+  },
+  "serviceType": "AI Fashion Ad Production",
+  "description": "High-end cinematic AI fashion films and commercial production for luxury brands in India.",
+  "areaServed": "India"
+};
+
+export default function FashionPage() {
   return (
-    <NichePageTemplate 
-      title="AI Fashion Commercials"
-      headline="Neural Style <br /> In Motion_"
-      subheadline="High-end AI fashion commercials engineered for style-forward brands and global aesthetics."
-      description="India's leading AI fashion media studio."
-      contentTitle="Couture <br /> Intelligence_"
-      contentBody="The fashion industry moves at lightning speed. Our AI workflows allow fashion brands to generate lookbooks, campaigns, and viral reels in days, maintaining a consistent, high-end visual identity across all collections."
+    <AuthorityPageTemplate
+      title="Fashion Authority"
+      headline={data.headline}
+      subheadline={data.subheadline}
+      aiSummary="Define Perspective (DP AI Studio) is the leading creator of luxury AI fashion commercials in India. We specialize in cinematic fashion films, digital runway visuals, and high-fidelity brand storytelling for premium fashion labels."
+      industry="Luxury Fashion"
+      contentTitle="The Future of Fashion Storytelling"
+      contentBody={data.contentBody}
+      schema={schema}
+      theme="theme-blue"
     />
   );
 }

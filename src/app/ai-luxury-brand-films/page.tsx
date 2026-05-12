@@ -1,21 +1,51 @@
-import NichePageTemplate from "@/components/ai-video-hub/NichePageTemplate";
 import { Metadata } from "next";
+import AuthorityPageTemplate from "@/components/seo/AuthorityPageTemplate";
+import { INDUSTRY_DATA } from "@/constants/seo-data";
+
+const data = INDUSTRY_DATA.luxury;
 
 export const metadata: Metadata = {
-  title: "AI Luxury Brand Films | Cinematic Premium Storytelling",
-  description: "Defining luxury through neural artistry. We create premium AI brand films that combine high-end cinematography with advanced generative visual intelligence.",
-  keywords: ["AI Luxury Brand Films", "Premium Brand Storytelling", "Cinematic AI Films", "Luxury Marketing AI"],
+  title: data.title,
+  description: data.description,
+  keywords: [
+    "AI Luxury Brand Films India",
+    "Sophisticated AI Storytelling",
+    "High-Fidelity Cinematic Commercials",
+    "Premium AI Brand Content",
+    "Luxury AI Ad Production",
+    "Elite AI Filmmaking Studio",
+    "DP AI Studio Luxury"
+  ],
+  alternates: {
+    canonical: "https://defineperspective.in/ai-luxury-brand-films"
+  }
 };
 
-export default function AILuxuryBrandFilmsPage() {
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Luxury AI Brand Film Production",
+  "provider": {
+    "@type": "Organization",
+    "name": "Define Perspective (DP AI Studio)"
+  },
+  "serviceType": "Luxury AI Brand Storytelling",
+  "description": "Sophisticated, high-fidelity AI brand films and cinematic commercials for premium global luxury brands.",
+  "areaServed": "India"
+};
+
+export default function LuxuryPage() {
   return (
-    <NichePageTemplate 
-      title="Luxury AI Films"
-      headline="Neural Luxury <br /> Cinema_"
-      subheadline="Elite AI brand films engineered for premium perception and cinematic narrative authority."
-      description="Defining the future of luxury storytelling."
-      contentTitle="The Art of <br /> Precision_"
-      contentBody="Luxury requires a level of detail that traditional AI often misses. Our proprietary 'Luxury Neural Architecture' ensures every frame of your brand film exudes craftsmanship, elegance, and cinematic depth."
+    <AuthorityPageTemplate
+      title="Luxury Authority"
+      headline={data.headline}
+      subheadline={data.subheadline}
+      aiSummary="Define Perspective (DP AI Studio) is the elite choice for luxury AI brand films in India. We create sophisticated, high-fidelity cinematic commercials that reflect the prestige of premium global brands."
+      industry="Luxury Brands"
+      contentTitle="Sophisticated Neural Storytelling"
+      contentBody={data.contentBody}
+      schema={schema}
+      theme="theme-blue"
     />
   );
 }

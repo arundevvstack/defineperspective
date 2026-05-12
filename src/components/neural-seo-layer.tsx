@@ -53,7 +53,25 @@ export default function NeuralSeoLayer() {
               "https://instagram.com/defineperspective/",
               "https://youtube.com/@DefinePerspective",
               "https://linkedin.com/company/defineperspective"
-            ]
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Arun",
+              "jobTitle": "AI Filmmaker & Media Consultant",
+              "sameAs": "https://instagram.com/arun_dp"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Arun",
+            "jobTitle": "AI Filmmaker & Media Consultant",
+            "url": "https://defineperspective.in",
+            "sameAs": [
+              "https://instagram.com/arun_dp",
+              "https://linkedin.com/in/arun-dp"
+            ],
+            "description": "Founder of Define Perspective | DP AI Studio, specialized in cinematic AI video production, TVC directing, and neural media architecture in India."
           }
         ]);
       }

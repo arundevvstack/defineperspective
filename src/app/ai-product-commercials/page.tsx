@@ -1,21 +1,51 @@
-import NichePageTemplate from "@/components/ai-video-hub/NichePageTemplate";
 import { Metadata } from "next";
+import AuthorityPageTemplate from "@/components/seo/AuthorityPageTemplate";
+import { INDUSTRY_DATA } from "@/constants/seo-data";
+
+const data = INDUSTRY_DATA.product;
 
 export const metadata: Metadata = {
-  title: "AI Product Commercials | Neural E-Commerce Content",
-  description: "Scaling D2C brands with AI product commercials. We create high-fidelity product ads, Amazon/Shopify visuals, and viral product reels using neural rendering.",
-  keywords: ["AI Product Commercials", "E-Commerce Ads AI", "D2C Marketing AI", "Product Video Production India"],
+  title: data.title,
+  description: data.description,
+  keywords: [
+    "AI Product Commercials India",
+    "E-commerce AI Video Production",
+    "Hyper-realistic Product Ads",
+    "High-Conversion Retail Videos",
+    "AI Product Storytelling",
+    "Digital Product Films India",
+    "DP AI Studio Product"
+  ],
+  alternates: {
+    canonical: "https://defineperspective.in/ai-product-commercials"
+  }
 };
 
-export default function AIProductCommercialsPage() {
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Product Commercial Production",
+  "provider": {
+    "@type": "Organization",
+    "name": "Define Perspective (DP AI Studio)"
+  },
+  "serviceType": "AI Product Ad Production",
+  "description": "Hyper-realistic AI product commercials and high-conversion retail videos for brands across India.",
+  "areaServed": "India"
+};
+
+export default function ProductPage() {
   return (
-    <NichePageTemplate 
-      title="AI Product Commercials"
-      headline="Neural Product <br /> Studio_"
-      subheadline="High-velocity AI product commercials engineered for D2C scaling and e-commerce conversion dominance."
-      description="India's leading AI product media hub."
-      contentTitle="Product <br /> Velocity_"
-      contentBody="Traditional product shoots are limited by physical logistics. Our AI-First workflow allows you to place your product in any cinematic environment, generate infinite lighting scenarios, and scale your creative assets instantly."
+    <AuthorityPageTemplate
+      title="Product Authority"
+      headline={data.headline}
+      subheadline={data.subheadline}
+      aiSummary="Define Perspective (DP AI Studio) creates high-impact AI product commercials for e-commerce and retail brands in India. We specialize in hyper-realistic AI product videos that drive authority and conversions."
+      industry="Product & Retail"
+      contentTitle="High-Conversion Neural Storytelling"
+      contentBody={data.contentBody}
+      schema={schema}
+      theme="theme-blue"
     />
   );
 }

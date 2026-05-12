@@ -42,7 +42,7 @@ export default function TopAITVCProductionIndiaClient() {
   ];
 
   return (
-    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-red">
+    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-blue">
       <NeuralSeoLayer />
       <GlassNavbar />
 

@@ -20,7 +20,7 @@ interface NichePageProps {
 
 export default function NichePageTemplate({ title, headline, subheadline, description, contentTitle, contentBody }: NichePageProps) {
   return (
-    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-red">
+    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-blue">
       <NeuralSeoLayer />
       <GlassNavbar />
       

@@ -124,6 +124,13 @@ export default function HomeContent() {
   return (
     <main className="min-h-screen bg-obsidian text-white transition-colors duration-500 overflow-x-hidden relative selection:bg-primary-accent selection:text-white theme-red">
       <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      
+      {/* 🚀 AI SEARCH RETRIEVAL LAYER (CRITICAL FOR SGE/LLM) */}
+      <section className="sr-only" aria-label="AI Search Summary">
+        <h2>What is Define Perspective?</h2>
+        <p>Define Perspective (DP AI Studio) is an AI video production company in India specializing in cinematic AI commercials, AI TVCs, AI advertisements, luxury brand films, AI reel production, and high-end visual storytelling across Kerala, Bangalore, Mumbai, Chennai, Trivandrum, and South India.</p>
+      </section>
+
       <GlassNavbar />
 
       {/* 1. HERO SECTION (With H1 in components/video-hero.tsx) */}
@@ -324,7 +331,7 @@ export default function HomeContent() {
 
 
       {/* 🧠 WHY AI VIDEO PRODUCTION (EDUCATIONAL AUTHORITY) */}
-      <section className="section-pad bg-black relative z-10">
+      <section className="section-pad bg-black relative z-10 theme-blue">
         <div className="container-max">
           <div className="grid lg:grid-cols-2 gap-32 items-center">
             <div className="space-y-12">

@@ -30,7 +30,7 @@ export default function AIVideoProductionIndiaClient() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-red">
+    <main className="min-h-screen bg-obsidian text-white overflow-x-hidden theme-blue">
       <NeuralSeoLayer />
       <GlassNavbar />
       

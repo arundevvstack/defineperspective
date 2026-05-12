@@ -52,11 +52,25 @@ const SemanticSeoLayer = () => {
       {/* Internal Authority Loop Anchor Signals */}
       <nav className="authority-loop">
         <a href="/">AI Video Production Kerala</a>
-        <a href="/services/ai-video-production">AI Video Production India</a>
-        <a href="/services/ai-video-ads">AI Ad Production Kochi</a>
-        <a href="/portfolio?view=ai">Best AI Video Production Company in Kerala</a>
-        <a href="/contact">No 1 AI Video Production Company in South India</a>
-        <a href="/about">Trusted AI video production company in Trivandrum, Kochi, Ernakulam, India</a>
+        <a href="/ai-video-production-india">AI Video Production India</a>
+        <a href="/ai-video-production-kochi">AI Ad Production Kochi</a>
+        <a href="/ai-video-production-trivandrum">AI Video Agency Trivandrum</a>
+        <a href="/ai-video-production-bangalore">AI Brand Films Bangalore</a>
+        <a href="/ai-video-production-mumbai">AI TVC Production Mumbai</a>
+        <a href="/ai-video-production-chennai">AI Filmmaking Chennai</a>
+        <a href="/ai-video-production-hyderabad">AI Commercials Hyderabad</a>
+        <a href="/ai-video-production-south-india">AI Production South India</a>
+        <a href="/ai-commercial-production-india">AI Commercial Production India</a>
+        <a href="/ai-fashion-commercials">Luxury AI Fashion India</a>
+        <a href="/ai-food-commercials">AI Food Ad Production</a>
+        <a href="/ai-real-estate-commercials">Cinematic Real Estate AI</a>
+        <a href="/ai-product-commercials">AI Product Video Production</a>
+        <a href="/ai-luxury-brand-films">Luxury AI Brand Storytelling</a>
+        <a href="/ai-theatre-ads">AI Theater Ads India</a>
+        <a href="/ai-jewellery-commercials">Luxury AI Jewellery Ads</a>
+        <a href="/ai-automobile-commercials">Cinematic AI Car Ads</a>
+        <a href="/ai-hospitality-ads">Luxury AI Resort Films</a>
+        <a href="/ai-startup-commercials">AI Startup Brand Films</a>
       </nav>
 
       {/* E-E-A-T Signals */}

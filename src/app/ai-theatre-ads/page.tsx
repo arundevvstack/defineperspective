@@ -1,21 +1,50 @@
-import NichePageTemplate from "@/components/ai-video-hub/NichePageTemplate";
 import { Metadata } from "next";
+import AuthorityPageTemplate from "@/components/seo/AuthorityPageTemplate";
+import { INDUSTRY_DATA } from "@/constants/seo-data";
+
+const data = INDUSTRY_DATA.theatre;
 
 export const metadata: Metadata = {
-  title: "AI Theatre Ads India | Big-Screen Cinematic Advertising",
-  description: "Dominating the big screen with AI theatre ads. We create high-bitrate, large-format cinematic commercials optimized for theatrical release and mass audience impact.",
-  keywords: ["AI Theatre Ads India", "Cinema Advertising AI", "Big Screen Commercials", "Theatre Ad Production Kerala"],
+  title: data.title,
+  description: data.description,
+  keywords: [
+    "AI Theater Ads India",
+    "High-Impact Cinema Commercials",
+    "4K AI Cinema Ad Production",
+    "8K Neural Motion Theatre Ads",
+    "AI Cinema Advertising India",
+    "DP AI Studio Theatre"
+  ],
+  alternates: {
+    canonical: "https://defineperspective.in/ai-theatre-ads"
+  }
 };
 
-export default function AITheatreAdsPage() {
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Theatre Ad Production",
+  "provider": {
+    "@type": "Organization",
+    "name": "Define Perspective (DP AI Studio)"
+  },
+  "serviceType": "AI Cinema Ad Production",
+  "description": "High-impact, theater-grade AI commercials and cinema advertising production in 4K and 8K neural motion.",
+  "areaServed": "India"
+};
+
+export default function TheatrePage() {
   return (
-    <NichePageTemplate 
-      title="AI Theatre Ads"
-      headline="Neural Big <br /> Screen_"
-      subheadline="High-bitrate AI theatre ads engineered for massive audience impact and theatrical cinematic fidelity."
-      description="India's authority in cinematic theatre advertising."
-      contentTitle="The Big <br /> Experience_"
-      contentBody="Theatre advertising requires extreme resolution and sound depth. Our AI Theatre Pipeline is optimized for large-format projection, ensuring your brand story looks and sounds magnificent in the cinema."
+    <AuthorityPageTemplate
+      title="Theatre Authority"
+      headline={data.headline}
+      subheadline={data.subheadline}
+      aiSummary="Define Perspective (DP AI Studio) produces high-impact AI theater ads and cinema commercials for brands across India. We specialize in 4K/8K neural motion visuals designed for the big screen's unmatched impact."
+      industry="Cinema & Theater"
+      contentTitle="Big Screen Impact with Neural Fidelity"
+      contentBody={data.contentBody}
+      schema={schema}
+      theme="theme-blue"
     />
   );
 }

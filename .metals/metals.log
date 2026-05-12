@@ -1,0 +1,8 @@
+2026.05.12 16:53:28 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.05.12 16:53:28 WARN  Build server is not auto-connectable.
+2026.05.12 16:53:28 WARN  no build tool detected in workspace 'D:\Workstation DP-2\DP Clients\WEB DEVELOPMENT\DP Live'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2026.05.12 16:53:28 WARN  Build server is not auto-connectable.
+2026.05.12 21:04:31 INFO  Shutting down server
+2026.05.12 21:04:31 INFO  Memory monitor stopped
+2026.05.12 21:04:31 INFO  shutting down Metals
+2026.05.12 21:04:31 INFO  Exiting server
