@@ -637,22 +637,21 @@ export default function HomeContent() {
                           <span className="text-[14px] font-bold text-white">{caseStudy.c}</span>
                        </div>
                        <div className="flex justify-between items-center">
-                          <span className="text-[13px] font-mono text-zinc-500 uppercase tracking-wider">Velocity</span>
-                          <span className="text-[14px] font-bold text-white">{caseStudy.d}</span>
-                       </div>
-                    </div>
-                 </div>
-               ))}
-            </div>
-         </div>
-      </section>
  
       {/* 🚀 EXTENDED SHOWCASE (YOUTUBE CHANNEL CTA) */}
       <section className="py-32 bg-black relative overflow-hidden border-b border-white/5">
-         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(235,30,44,0.03)_0%,transparent_50%)]" />
          <div className="container-max relative z-10">
-            <div className="flex flex-col lg:flex-row justify-between items-center gap-12 p-16 md:p-24 rounded-[4rem] bg-white/[0.02] border border-white/5 backdrop-blur-sm group hover:border-primary-accent/20 transition-all duration-700">
-               <div className="space-y-8 text-center lg:text-left">
+            <div className="relative flex flex-col lg:flex-row justify-between items-center gap-12 p-16 md:p-24 rounded-[4rem] border border-white/5 overflow-hidden group hover:border-primary-accent/20 transition-all duration-700 shadow-2xl">
+               {/* Background Image with Deep Overlay */}
+               <Image 
+                 src="/images/full-archive-cinematic.png"
+                 alt="Cinematic Portfolio Archive"
+                 fill
+                 className="object-cover opacity-20 group-hover:scale-105 group-hover:opacity-30 transition-all duration-[5000ms]"
+               />
+               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-0" />
+               
+               <div className="space-y-8 text-center lg:text-left relative z-10">
                   <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary-accent/10 border border-primary-accent/20">
                      <div className="h-1.5 w-1.5 rounded-full bg-primary-accent animate-pulse" />
                      <span className="label-mono !text-[10px] !text-primary-accent">Extended Portfolio Archive</span>
@@ -670,7 +669,7 @@ export default function HomeContent() {
                  href="https://www.youtube.com/@DefinePerspective" 
                  target="_blank" 
                  rel="noopener noreferrer"
-                 className="group/btn relative"
+                 className="group/btn relative z-10"
                >
                   <div className="absolute -inset-4 bg-primary-accent/20 blur-2xl rounded-full opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
                   <div className="relative h-24 w-24 md:h-32 md:w-32 rounded-full bg-primary-accent text-white flex items-center justify-center flex-col gap-2 hover:scale-110 transition-transform duration-500 shadow-2xl">
