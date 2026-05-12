@@ -90,26 +90,47 @@ export default function HomeContent() {
             className="text-5xl md:text-8xl lg:text-[7rem] font-black uppercase tracking-tighter text-white leading-[0.85] max-w-5xl"
           >
             Watch What <br />
-            <span className="text-primary-accent">We Create_</span>
+            <span className="text-[#eb1e2c]">We Create_</span>
           </motion.h2>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col items-center gap-6"
           >
+            {/* Main Showcase Button */}
             <motion.button
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="flex items-center gap-4 px-12 py-5 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/25 text-white font-black uppercase tracking-widest text-[11px] md:text-sm group-hover:bg-primary-accent group-hover:border-primary-accent group-hover:text-black transition-all duration-500 shadow-2xl"
+              className="flex items-center gap-4 px-12 py-5 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/25 text-white font-black uppercase tracking-widest text-[11px] md:text-sm hover:bg-[#eb1e2c] hover:border-[#eb1e2c] hover:text-white transition-all duration-500 shadow-2xl"
+              onClick={() => setActiveVideo("sNp1a5I6WsI")}
             >
               <span className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center shrink-0 group-hover:bg-black/20 transition-colors">
                 <Play size={18} fill="currentColor" className="ml-0.5" />
               </span>
               Watch Video Showcase
             </motion.button>
+
+            {/* Secondary Buttons moved from bottom */}
+            <div className="flex flex-wrap justify-center gap-4 mt-2">
+              <a
+                href="https://www.youtube.com/watch?v=sNp1a5I6WsI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-14 px-8 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-white/10 transition-all backdrop-blur-md"
+              >
+                View Our Works <ArrowRight size={14} />
+              </a>
+              <Link
+                href="/contact"
+                className="h-14 px-8 rounded-xl bg-[#eb1e2c] text-white font-black uppercase tracking-widest text-[10px] flex items-center gap-3 hover:bg-[#eb1e2c]/90 transition-all shadow-xl"
+              >
+                Start a Project <ArrowRight size={14} />
+              </Link>
+            </div>
           </motion.div>
         </div>
 
@@ -126,23 +147,7 @@ export default function HomeContent() {
               </span>
             ))}
           </div>
-          {/* Channel + CTA */}
-          <div className="flex gap-3" onClick={e => e.stopPropagation()}>
-            <a
-              href="https://www.youtube.com/watch?v=sNp1a5I6WsI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-11 px-6 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] flex items-center gap-2 hover:bg-white/10 transition-all backdrop-blur-md"
-            >
-              View Our Works <ArrowRight size={13} />
-            </a>
-            <Link
-              href="/contact"
-              className="h-11 px-6 rounded-xl bg-primary-accent text-black font-black uppercase tracking-widest text-[9px] flex items-center gap-2 hover:bg-primary-accent/80 transition-all"
-            >
-              Start a Project <ArrowRight size={13} />
-            </Link>
-          </div>
+          {/* Removed Channel + CTA from here as they moved to center */}
         </div>
       </section>
 
