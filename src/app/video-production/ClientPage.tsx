@@ -15,10 +15,16 @@ import {
   Video,
   Clapperboard,
   Camera,
-  Film
+  Film,
+  Mic2,
+  MonitorCheck,
+  Share2
 } from "lucide-react";
 import Link from "next/link";
 import VideoLightbox from "@/components/ai-video-hub/VideoLightbox";
+import AIVideoComparison from "@/components/ai-video-hub/AIVideoComparison";
+import EfficiencyLeadMagnet from "@/components/ai-video-hub/EfficiencyLeadMagnet";
+import BlueprintLeadMagnet from "@/components/ai-video-hub/BlueprintLeadMagnet";
 
 export default function VideoProductionClient() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
