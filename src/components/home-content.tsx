@@ -610,7 +610,7 @@ export default function HomeContent() {
               href="/portfolio"
               className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
             >
-              <span className="text-[13px] font-bold">Explore Full Archive</span>
+              <span className="text-[13px] font-bold">View Portfolio</span>
               <ArrowRight size={18} className="text-zinc-500 group-hover/btn:text-primary-accent transition-colors" />
             </Link>
           </div>
@@ -666,8 +666,8 @@ export default function HomeContent() {
                 <span className="label-mono !text-[10px] !text-primary-accent">Extended Portfolio Archive</span>
               </div>
               <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white leading-none">
-                Explore Our <br />
-                <span className="text-primary-accent">Full Archive_</span>
+                View Our <br />
+                <span className="text-primary-accent">Portfolio_</span>
               </h2>
               <p className="body-copy max-w-xl opacity-60 text-lg leading-relaxed">
                 Dive deeper into our world. Explore our full collection of 100+ cinematic projects, high-fidelity commercials, and professional video workflows on our official channel.
