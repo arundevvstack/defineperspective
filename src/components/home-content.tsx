@@ -35,7 +35,7 @@ const SectionHeader = ({ tag, title, subtitle, align = "center", h2 = false, cla
 };
 
 // ── INTERACTIVE SERVICE NODE COMPONENT ──
-const ServiceNode = ({ node, title, icon, services, accentColor }: any) => {
+const ServiceNode = ({ node, title, icon, services, accentColor, className }: any) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -65,7 +65,10 @@ const ServiceNode = ({ node, title, icon, services, accentColor }: any) => {
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className="group relative p-8 md:p-12 rounded-[3.5rem] bg-zinc-900/40 border border-white/5 space-y-12 transition-all duration-500 hover:border-white/10 hover:bg-zinc-900/60"
+      className={cn(
+        "group relative p-8 md:p-10 rounded-[2.5rem] bg-zinc-900/40 border border-white/5 flex flex-col justify-between transition-all duration-500 hover:border-white/10 hover:bg-zinc-900/60 overflow-hidden",
+        className
+      )}
     >
       {/* Dynamic Glow Spotlight */}
       <motion.div
@@ -284,34 +287,51 @@ export default function HomeContent() {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-16">
-            <div className="grid lg:grid-cols-2 gap-16">
-               {/* Cluster 1: AI Video Production */}
-               <ServiceNode 
-                 node="Node 01"
-                 title="AI Video Production"
-                 icon={<Cpu size={28} />}
-                 services={[
-                   "AI Commercial Production", "AI TVC Production", "AI Reel Production",
-                   "AI Product Ads", "AI Fashion Commercials", "AI Food Commercials",
-                   "AI Real Estate Videos", "AI Luxury Brand Films", "AI Theatre Ads",
-                   "AI Social Media Campaigns"
-                 ]}
-                 accentColor="#eb1e2c"
-               />
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+               {/* 1. MAIN FLAGSHIP: AI COMMERCIALS (Large) */}
+               <div className="md:col-span-2 lg:col-span-2 lg:row-span-2">
+                 <ServiceNode 
+                   node="Node 01"
+                   title="AI Commercials"
+                   icon={<Cpu size={32} />}
+                   services={["AI TVC Production", "AI Product Ads", "AI Fashion Commercials", "AI Luxury Brand Films", "AI Theatre Ads"]}
+                   accentColor="#eb1e2c"
+                   className="h-full"
+                 />
+               </div>
 
-               {/* Cluster 2: Traditional Video Production */}
-               <ServiceNode 
-                 node="Node 02"
-                 title="Video Production"
-                 icon={<Clapperboard size={28} />}
-                 services={[
-                   "TV Commercial Production", "Corporate Films", "Brand Storytelling",
-                   "Product Videos", "Social Media Videos", "Event Films",
-                   "Documentary Production", "Promotional Videos", "Theatre Commercials",
-                   "Broadcast Ad Films"
-                 ]}
-                 accentColor="#eb1e2c"
-               />
+               {/* 2. BRAND & CORPORATE (Medium) */}
+               <div className="md:col-span-1 lg:col-span-2">
+                 <ServiceNode 
+                   node="Node 02"
+                   title="Corporate & Brand"
+                   icon={<Building2 size={24} />}
+                   services={["Corporate Films", "Brand Storytelling", "Documentary Production"]}
+                   accentColor="#eb1e2c"
+                 />
+               </div>
+
+               {/* 3. SOCIAL & REELS (Small) */}
+               <div className="md:col-span-1">
+                 <ServiceNode 
+                   node="Node 03"
+                   title="Social Pulse"
+                   icon={<Zap size={24} />}
+                   services={["AI Reel Production", "Social Media Videos", "Promotional Videos"]}
+                   accentColor="#eb1e2c"
+                 />
+               </div>
+
+               {/* 4. SPECIALIZED FILMS (Small) */}
+               <div className="md:col-span-1 lg:col-span-1">
+                 <ServiceNode 
+                   node="Node 04"
+                   title="Specialized"
+                   icon={<Clapperboard size={24} />}
+                   services={["Event Films", "Theatre Commercials", "Broadcast Ad Films"]}
+                   accentColor="#eb1e2c"
+                 />
+               </div>
             </div>
             </div>
          </div>
