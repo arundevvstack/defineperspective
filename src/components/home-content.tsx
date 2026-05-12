@@ -455,10 +455,10 @@ export default function HomeContent() {
                </div>
                <div className="relative aspect-square rounded-[4rem] overflow-hidden border border-white/10 bg-obsidian group shadow-2xl">
                   <Image 
-                    src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=1000"
-                    alt="AI Video Production Intelligence"
+                    src="/images/ai-advantage-cinematic.png"
+                    alt="AI Video Production Intelligence — Define Perspective Cinematic Storytelling"
                     fill
-                    className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-[4000ms]"
+                    className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[5000ms]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                   <div className="absolute inset-x-12 bottom-12 p-10 rounded-[2.5rem] bg-black/40 backdrop-blur-3xl border border-white/10">
