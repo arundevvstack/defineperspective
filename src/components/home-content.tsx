@@ -103,8 +103,8 @@ const ServiceNode = ({ node, title, icon, services, accentColor, className }: an
             transition={{ delay: idx * 0.05 }}
             className="flex items-center gap-4 py-3 border-b border-white/5 hover:border-white/20 transition-colors group/item"
           >
-            <CheckCircle2 size={14} style={{ color: accentColor }} className="opacity-40 group-hover/item:opacity-100 transition-opacity" />
-            <span className="label-mono !text-[11px] !text-zinc-400 group-hover/item:!text-white transition-colors leading-tight">{s}</span>
+            <CheckCircle2 size={16} style={{ color: accentColor }} className="opacity-40 group-hover/item:opacity-100 transition-opacity" />
+            <span className="label-mono !text-[14px] !text-zinc-400 group-hover/item:!text-white transition-colors leading-tight">{s}</span>
           </motion.div>
         ))}
       </div>
