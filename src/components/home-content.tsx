@@ -604,7 +604,7 @@ export default function HomeContent() {
                      <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />
                      <span className="label-mono !text-[10px]">Visual Evidence</span>
                   </div>
-                  <h2 className="heading-section">Campaign <br /><span className="text-primary-accent">Intelligence_</span></h2>
+                  <h2 className="heading-section">Explore Our Video Production <br /><span className="text-primary-accent">Portfolio_</span></h2>
                </div>
                <Link 
                  href="/portfolio" 
