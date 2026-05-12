@@ -66,7 +66,7 @@ const ServiceNode = ({ node, title, icon, services, accentColor, className }: an
       onMouseLeave={onMouseLeave}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       className={cn(
-        "group relative p-8 md:p-10 rounded-[2.5rem] bg-zinc-900/40 border border-white/5 flex flex-col justify-between transition-all duration-500 hover:border-white/10 hover:bg-zinc-900/60 overflow-hidden",
+        "group relative p-8 md:p-14 rounded-[3.5rem] bg-zinc-900/40 border border-white/5 space-y-16 transition-all duration-500 hover:border-white/10 hover:bg-zinc-900/60 overflow-hidden",
         className
       )}
     >
@@ -82,36 +82,36 @@ const ServiceNode = ({ node, title, icon, services, accentColor, className }: an
       />
 
       <div className="relative z-10 flex justify-between items-start">
-        <div className="space-y-2">
-          <span className="font-mono text-[10px] uppercase tracking-[0.4em]" style={{ color: accentColor }}>{node}</span>
-          <h3 className="text-3xl md:text-4xl font-black uppercase text-white leading-none">{title}</h3>
+        <div className="space-y-4">
+          <span className="font-mono text-[10px] uppercase tracking-[0.6em]" style={{ color: accentColor }}>{node}</span>
+          <h3 className="text-4xl md:text-5xl font-black uppercase text-white leading-none tracking-tighter">{title}</h3>
         </div>
         <div 
-          className="h-14 w-14 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+          className="h-16 w-16 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-2xl"
           style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
         >
           {icon}
         </div>
       </div>
 
-      <div className="relative z-10 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+      <div className="relative z-10 grid sm:grid-cols-2 gap-x-12 gap-y-6">
         {services.map((s: string, idx: number) => (
           <motion.div 
             key={s} 
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.05 }}
-            className="flex items-center gap-3 py-3 border-b border-white/5 hover:border-white/20 transition-colors group/item"
+            className="flex items-center gap-4 py-3 border-b border-white/5 hover:border-white/20 transition-colors group/item"
           >
-            <CheckCircle2 size={12} style={{ color: accentColor }} className="opacity-40 group-hover/item:opacity-100 transition-opacity" />
-            <span className="label-mono !text-[10px] md:!text-[11px] !text-zinc-400 group-hover/item:!text-white transition-colors">{s}</span>
+            <CheckCircle2 size={14} style={{ color: accentColor }} className="opacity-40 group-hover/item:opacity-100 transition-opacity" />
+            <span className="label-mono !text-[11px] !text-zinc-400 group-hover/item:!text-white transition-colors leading-tight">{s}</span>
           </motion.div>
         ))}
       </div>
 
       {/* Interactive Bottom Accent */}
       <div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 transition-all duration-700 group-hover:w-1/3 rounded-full blur-sm"
+        className="absolute bottom-0 left-0 w-0 h-1.5 transition-all duration-700 group-hover:w-full"
         style={{ backgroundColor: accentColor }}
       />
     </motion.div>
@@ -286,53 +286,34 @@ export default function HomeContent() {
                </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-               {/* 1. MAIN FLAGSHIP: AI COMMERCIALS (Large) */}
-               <div className="md:col-span-2 lg:col-span-2 lg:row-span-2">
-                 <ServiceNode 
-                   node="Node 01"
-                   title="AI Commercials"
-                   icon={<Cpu size={32} />}
-                   services={["AI TVC Production", "AI Product Ads", "AI Fashion Commercials", "AI Luxury Brand Films", "AI Theatre Ads"]}
-                   accentColor="#eb1e2c"
-                   className="h-full"
-                 />
-               </div>
+            <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
+               {/* Cluster 1: AI Video Production */}
+               <ServiceNode 
+                 node="Node 01"
+                 title="AI Video Production"
+                 icon={<Cpu size={32} />}
+                 services={[
+                   "AI Commercial Production", "AI TVC Production", "AI Reel Production",
+                   "AI Product Ads", "AI Fashion Commercials", "AI Food Commercials",
+                   "AI Real Estate Videos", "AI Luxury Brand Films", "AI Theatre Ads",
+                   "AI Social Media Campaigns"
+                 ]}
+                 accentColor="#eb1e2c"
+               />
 
-               {/* 2. BRAND & CORPORATE (Medium) */}
-               <div className="md:col-span-1 lg:col-span-2">
-                 <ServiceNode 
-                   node="Node 02"
-                   title="Corporate & Brand"
-                   icon={<Building2 size={24} />}
-                   services={["Corporate Films", "Brand Storytelling", "Documentary Production"]}
-                   accentColor="#eb1e2c"
-                 />
-               </div>
-
-               {/* 3. SOCIAL & REELS (Small) */}
-               <div className="md:col-span-1">
-                 <ServiceNode 
-                   node="Node 03"
-                   title="Social Pulse"
-                   icon={<Zap size={24} />}
-                   services={["AI Reel Production", "Social Media Videos", "Promotional Videos"]}
-                   accentColor="#eb1e2c"
-                 />
-               </div>
-
-               {/* 4. SPECIALIZED FILMS (Small) */}
-               <div className="md:col-span-1 lg:col-span-1">
-                 <ServiceNode 
-                   node="Node 04"
-                   title="Specialized"
-                   icon={<Clapperboard size={24} />}
-                   services={["Event Films", "Theatre Commercials", "Broadcast Ad Films"]}
-                   accentColor="#eb1e2c"
-                 />
-               </div>
-            </div>
+               {/* Cluster 2: Traditional Video Production */}
+               <ServiceNode 
+                 node="Node 02"
+                 title="Video Production"
+                 icon={<Clapperboard size={32} />}
+                 services={[
+                   "TV Commercial Production", "Corporate Films", "Brand Storytelling",
+                   "Product Videos", "Social Media Videos", "Event Films",
+                   "Documentary Production", "Promotional Videos", "Theatre Commercials",
+                   "Broadcast Ad Films"
+                 ]}
+                 accentColor="#eb1e2c"
+               />
             </div>
          </div>
       </section>
