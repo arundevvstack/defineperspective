@@ -626,6 +626,41 @@ export default function HomeContent() {
             </div>
          </div>
       </section>
+ 
+      {/* 🚀 EXTENDED SHOWCASE (YOUTUBE CHANNEL CTA) */}
+      <section className="py-32 bg-black relative overflow-hidden border-b border-white/5">
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(235,30,44,0.03)_0%,transparent_50%)]" />
+         <div className="container-max relative z-10">
+            <div className="flex flex-col lg:flex-row justify-between items-center gap-12 p-16 md:p-24 rounded-[4rem] bg-white/[0.02] border border-white/5 backdrop-blur-sm group hover:border-primary-accent/20 transition-all duration-700">
+               <div className="space-y-8 text-center lg:text-left">
+                  <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary-accent/10 border border-primary-accent/20">
+                     <div className="h-1.5 w-1.5 rounded-full bg-primary-accent animate-pulse" />
+                     <span className="label-mono !text-[10px] !text-primary-accent">Extended Portfolio Archive</span>
+                  </div>
+                  <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white leading-none">
+                     Extended <br />
+                     <span className="text-primary-accent">Showcase_</span>
+                  </h2>
+                  <p className="body-copy max-w-xl opacity-40 uppercase tracking-widest text-xs leading-relaxed">
+                     Dive deeper into our neural ecosystem. Explore our full archive of 100+ cinematic assets, high-fidelity commercial experiments, and proprietary visual workflows on our official hub.
+                  </p>
+               </div>
+               
+               <a 
+                 href="https://www.youtube.com/@DefinePerspective" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="group/btn relative"
+               >
+                  <div className="absolute -inset-4 bg-primary-accent/20 blur-2xl rounded-full opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500" />
+                  <div className="relative h-24 w-24 md:h-32 md:w-32 rounded-full bg-primary-accent text-white flex items-center justify-center flex-col gap-2 hover:scale-110 transition-transform duration-500 shadow-2xl">
+                     <Play size={24} fill="currentColor" />
+                     <span className="label-mono !text-[8px] font-black">Explore Hub</span>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </section>
 
        {/* 4. REDESIGNED AUTHORITY BLOCK (The Kerala Brand Narrative) */}
       <section className="relative py-32 md:py-60 px-6 md:px-12 bg-black overflow-hidden border-b border-white/5">
