@@ -499,7 +499,7 @@ export default function HomeContent() {
 
             <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
                {/* Traditional Pillar */}
-               <div className="space-y-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-80 transition-all duration-700">
+               <div className="space-y-12 transition-all duration-700">
                   <div className="space-y-4">
                     <span className="label-mono">Legacy Workflow</span>
                     <h3 className="text-4xl font-black uppercase text-white">Traditional Agency</h3>
@@ -512,12 +512,12 @@ export default function HomeContent() {
                       { m: "Revision Flexibility", v: "Difficult", p: 10 }
                     ].map(item => (
                       <div key={item.m} className="space-y-3">
-                        <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+                        <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-400">
                           <span>{item.m}</span>
                           <span>{item.v}</span>
                         </div>
-                        <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                          <div className="h-full bg-zinc-500/40" style={{ width: `${item.p}%` }} />
+                        <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                          <div className="h-full bg-zinc-400/40" style={{ width: `${item.p}%` }} />
                         </div>
                       </div>
                     ))}
