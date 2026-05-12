@@ -379,11 +379,11 @@ export default function HomeContent() {
                  >
                     {/* Cinematic Canvas */}
                     <div 
-                      className="w-full lg:w-3/5 aspect-video rounded-[3rem] overflow-hidden border border-white/10 bg-obsidian relative cursor-pointer shadow-2xl shadow-primary-accent/5 group-hover:border-primary-accent/40 transition-all duration-700"
+                      className="w-full lg:w-3/5 aspect-video rounded-[3rem] overflow-hidden border border-white/10 bg-obsidian relative cursor-pointer shadow-2xl shadow-[#eb1e2c]/5 group-hover:border-[#eb1e2c]/40 transition-all duration-700"
                       onClick={() => setActiveVideo(vid.id)}
                     >
                        <img 
-                         src={`https://img.youtube.com/vi/${vid.id}/maxresdefault.jpg`} 
+                         src={`https://img.youtube.com/vi/${vid.id}/sddefault.jpg`} 
                          alt={vid.title} 
                          className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[2000ms]"
                        />
@@ -392,7 +392,7 @@ export default function HomeContent() {
                        {/* Telemetry Overlay */}
                        <div className="absolute top-8 left-8 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                           {vid.specs.map(spec => (
-                            <span key={spec} className="px-3 py-1 rounded bg-black/60 backdrop-blur-md border border-white/10 text-[8px] font-mono text-primary-accent uppercase tracking-[0.2em]">
+                            <span key={spec} className="px-3 py-1 rounded bg-black/60 backdrop-blur-md border border-white/10 text-[8px] font-mono text-[#eb1e2c] uppercase tracking-[0.2em]">
                                {spec}
                             </span>
                           ))}
@@ -400,7 +400,7 @@ export default function HomeContent() {
 
                        {/* Play Interface */}
                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-primary-accent/10 backdrop-blur-3xl border border-primary-accent/40 text-primary-accent flex items-center justify-center group-hover:scale-110 group-hover:bg-primary-accent group-hover:text-black transition-all duration-500">
+                          <div className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-[#eb1e2c]/10 backdrop-blur-3xl border border-[#eb1e2c]/40 text-[#eb1e2c] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#eb1e2c] group-hover:text-black transition-all duration-500">
                              <Play size={32} fill="currentColor" className="ml-1" />
                           </div>
                        </div>
@@ -409,7 +409,7 @@ export default function HomeContent() {
                     {/* Metadata Narrative */}
                     <div className="w-full lg:w-2/5 space-y-10">
                        <div className="space-y-4">
-                          <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.5em] block">{vid.type}</span>
+                          <span className="text-[10px] font-mono text-[#eb1e2c] uppercase tracking-[0.5em] block">{vid.type}</span>
                           <h3 className="text-4xl md:text-6xl font-black uppercase text-white leading-none tracking-tighter">
                              {vid.title}
                           </h3>
@@ -424,7 +424,7 @@ export default function HomeContent() {
                             onClick={() => setActiveVideo(vid.id)}
                             className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white flex items-center gap-4 hover:bg-white/10 transition-all backdrop-blur-3xl group/btn"
                           >
-                             <span className="label-mono !text-[11px] !text-primary-accent group-hover/btn:text-white transition-colors">Initialize Stream</span>
+                             <span className="label-mono !text-[11px] !text-[#eb1e2c] group-hover/btn:text-white transition-colors">Initialize Stream</span>
                              <MonitorPlay size={18} className="text-zinc-500 group-hover/btn:text-white transition-colors" />
                           </button>
                           <button className="h-16 px-10 rounded-2xl border border-white/5 text-white flex items-center gap-4 hover:border-white/20 transition-all group/btn">
