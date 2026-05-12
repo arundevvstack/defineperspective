@@ -41,7 +41,7 @@ export default function VideoHero() {
           >
             <div className="flex items-center justify-center gap-4 mb-4">
                <div className="h-px w-6 md:w-10 bg-primary-accent/40" />
-               <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.6em] text-primary-accent">Neural Advertising Studio</span>
+               <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.6em] text-primary-accent">Video Production Studio · Kerala &amp; India</span>
                <div className="h-px w-6 md:w-10 bg-primary-accent/40" />
             </div>
 
@@ -51,7 +51,9 @@ export default function VideoHero() {
             </h1>
 
             <p className="max-w-3xl mx-auto text-[11px] md:text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest opacity-80">
-              Luxury commercials and brand films crafted through neural storytelling <br className="hidden md:block" /> for modern icons across India.
+              TVCs · Brand Films · AI Commercials · Corporate Videos
+              <br className="hidden md:block" />
+              Premium video production for iconic brands across Kerala, India &amp; beyond.
             </p>
           </motion.div>
 
