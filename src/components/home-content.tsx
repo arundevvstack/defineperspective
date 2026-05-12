@@ -134,7 +134,7 @@ export default function HomeContent() {
               rel="noopener noreferrer"
               className="h-11 px-6 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[9px] flex items-center gap-2 hover:bg-white/10 transition-all backdrop-blur-md"
             >
-              Full Channel <ArrowRight size={13} />
+              View Our Works <ArrowRight size={13} />
             </a>
             <Link
               href="/contact"
