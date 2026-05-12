@@ -360,6 +360,14 @@ export default function HomeContent() {
                    desc: "Broadcast-grade theater commercial optimized for high-impact cinema screens, delivering immersive visual fidelity across South India.",
                    specs: ["DCP READY", "SURROUND 7.1", "HDR10+", "400MBPS BITRATE"],
                    location: "Production Node Beta // Kerala"
+                 },
+                 { 
+                   id: "INpn97C16yM", 
+                   title: "BB App TV Commercial", 
+                   type: "Brand Film", 
+                   desc: "A high-energy, neural-optimized brand film for the BB App, engineered for rapid delivery and maximum market penetration through AI-driven visuals.",
+                   specs: ["NEURAL PIPELINE", "48HR DELIVERY", "SOCIAL OPTIMIZED", "DYNAMIC VFX"],
+                   location: "Production Node Gamma // India"
                  }
                ].map((vid, idx) => (
                  <div 
@@ -478,32 +486,67 @@ export default function HomeContent() {
                <h2 className="heading-section">Traditional vs <span className="text-primary-accent">AI Production_</span></h2>
             </div>
 
-            <div className="overflow-x-auto">
-               <table className="w-full text-left border-collapse min-w-[800px]">
-                  <thead>
-                     <tr className="border-b border-white/10">
-                        <th className="py-8 label-mono !text-zinc-500">Metric</th>
-                        <th className="py-8 label-mono text-zinc-300">Traditional Agency</th>
-                        <th className="py-8 label-mono text-primary-accent">DP AI Studio</th>
-                     </tr>
-                  </thead>
-                  <tbody className="text-white">
-                     {[
-                       { m: "Production Speed", t: "4-8 Weeks", a: "48-72 Hours" },
-                       { m: "Average Cost", t: "₹₹₹₹₹ (High)", a: "₹ (Scalable)" },
-                       { m: "Scalability", t: "Limited", a: "Unlimited Variations" },
-                       { m: "Revision Flexibility", t: "Difficult / Expensive", a: "Instant / Precise" },
-                       { m: "Campaign Velocity", t: "Slow", a: "Neural Speed" },
-                       { m: "Turnaround Time", t: "Monthly", a: "Weekly Batches" }
-                     ].map((row, i) => (
-                       <tr key={i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors group">
-                          <td className="py-8 font-black uppercase text-xs tracking-widest">{row.m}</td>
-                          <td className="py-8 text-zinc-500 line-through opacity-40">{row.t}</td>
-                          <td className="py-8 text-primary-accent font-black tracking-tighter text-xl">{row.a}</td>
-                       </tr>
-                     ))}
-                   </tbody>
-               </table>
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
+               {/* Traditional Pillar */}
+               <div className="space-y-12 opacity-50 grayscale hover:grayscale-0 hover:opacity-80 transition-all duration-700">
+                  <div className="space-y-4">
+                    <span className="label-mono">Legacy Workflow</span>
+                    <h3 className="text-4xl font-black uppercase text-white">Traditional Agency</h3>
+                  </div>
+                  <div className="space-y-8">
+                    {[
+                      { m: "Production Speed", v: "4-8 Weeks", p: 20 },
+                      { m: "Average Cost", v: "₹₹₹₹₹ (High)", p: 90 },
+                      { m: "Scalability", v: "Limited", p: 15 },
+                      { m: "Revision Flexibility", v: "Difficult", p: 10 }
+                    ].map(item => (
+                      <div key={item.m} className="space-y-3">
+                        <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+                          <span>{item.m}</span>
+                          <span>{item.v}</span>
+                        </div>
+                        <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                          <div className="h-full bg-zinc-500/40" style={{ width: `${item.p}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+               </div>
+
+               {/* AI Pillar */}
+               <div className="space-y-12 p-12 rounded-[4rem] bg-white/[0.03] border border-primary-accent/20 relative overflow-hidden group shadow-2xl shadow-primary-accent/5">
+                  <div className="absolute top-0 right-0 p-8">
+                    <div className="h-3 w-3 rounded-full bg-primary-accent animate-ping" />
+                  </div>
+                  <div className="space-y-4 relative z-10">
+                    <span className="label-mono !text-primary-accent">Neural Production</span>
+                    <h3 className="text-4xl font-black uppercase text-white">DP AI Studio</h3>
+                  </div>
+                  <div className="space-y-8 relative z-10">
+                    {[
+                      { m: "Production Speed", v: "48-72 Hours", p: 100 },
+                      { m: "Average Cost", v: "₹ (Scalable)", p: 20 },
+                      { m: "Scalability", v: "Unlimited", p: 100 },
+                      { m: "Revision Flexibility", v: "Instant", p: 95 }
+                    ].map(item => (
+                      <div key={item.m} className="space-y-3">
+                        <div className="flex justify-between text-[10px] font-mono uppercase tracking-widest text-primary-accent">
+                          <span>{item.m}</span>
+                          <span>{item.v}</span>
+                        </div>
+                        <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${item.p}%` }}
+                            transition={{ duration: 1.5, ease: "circOut" }}
+                            className="h-full bg-primary-accent shadow-[0_0_15px_rgba(235,30,44,0.5)]" 
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+               </div>
             </div>
          </div>
       </section>
