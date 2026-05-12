@@ -76,7 +76,7 @@ whileInView={{ opacity: 1, scale: 1 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-[6.4rem] font-black text-white tracking-widest uppercase mb-12 leading-tight md:leading-[0.85]"
           >
-            Industries <br /><span className="text-primary-accent italic">We Serve_</span>
+            Industries <br /><span className="text-primary-accent">We Serve_</span>
           </motion.h2>
           <p className="text-base md:text-xl text-zinc-400 font-light max-w-3xl leading-relaxed uppercase tracking-widest">
             As a <span className="text-white font-bold">video production company in Kerala</span> based in Kochi and Trivandrum, we build AI-powered video solutions tailored for high-growth sectors across India.
@@ -114,7 +114,7 @@ whileInView={{ opacity: 1, scale: 1 }}
                       <ArrowUpRight size={18} className="text-zinc-400 group-hover:text-primary-accent transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
                    </div>
                    
-                   <span className="absolute -right-4 -bottom-6 text-[10rem] font-black text-white/5 pointer-events-none select-none tracking-tighter italic">
+                   <span className="absolute -right-4 -bottom-6 text-[10rem] font-black text-white/5 pointer-events-none select-none tracking-tighter">
                       0{idx + 1}
                    </span>
                 </Link>

@@ -188,7 +188,7 @@ export default function ArunDevvContent() {
             </span>
             <h1 className="text-4xl md:text-7xl lg:text-[8rem] font-black uppercase leading-[0.85] tracking-tighter mb-12">
               Arun Devv — <br />
-              <span className="text-primary-accent italic">Brand Stories_</span>
+              <span className="text-primary-accent">Brand Stories_</span>
             </h1>
             <p className="text-lg md:text-2xl text-zinc-300 font-light max-w-4xl mx-auto uppercase tracking-widest leading-relaxed mb-16">
               20+ years of expertise in content strategy, cinematic storytelling, and AI-powered video production across Kerala, South India, and India.
@@ -255,7 +255,7 @@ export default function ArunDevvContent() {
           <SectionHeader 
             h2 
             tag="Core Offerings" 
-            title={<>High-Impact <br /><span className="text-primary-accent italic">Creative Systems_</span></>}
+            title={<>High-Impact <br /><span className="text-primary-accent">Creative Systems_</span></>}
             subtitle="Engineered for brands requiring national-level authority and scalable growth."
           />
           
@@ -306,7 +306,7 @@ export default function ArunDevvContent() {
                 h2 
                 align="left"
                 tag="The Profile" 
-                title={<>Arun Devv: <br /><span className="text-primary-accent italic">The Architect_</span></>}
+                title={<>Arun Devv: <br /><span className="text-primary-accent">The Architect_</span></>}
               />
               <div className="space-y-8 text-xl md:text-2xl text-zinc-300 font-light leading-relaxed uppercase tracking-tight">
                 <p>
@@ -337,7 +337,7 @@ export default function ArunDevvContent() {
           <SectionHeader 
             h2 
             tag="Strategic Value" 
-            title={<>Why Brands Work <br />With <span className="text-primary-accent italic">Arun Devv_</span></>}
+            title={<>Why Brands Work <br />With <span className="text-primary-accent">Arun Devv_</span></>}
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -408,7 +408,7 @@ export default function ArunDevvContent() {
           <SectionHeader 
             h2 
             tag="Knowledge Base" 
-            title={<>Common <span className="text-primary-accent italic">Questions_</span></>}
+            title={<>Common <span className="text-primary-accent">Questions_</span></>}
           />
           <div className="grid grid-cols-1 gap-6">
             {faqs.map((faq, i) => (
@@ -434,7 +434,7 @@ export default function ArunDevvContent() {
         <div className="container mx-auto max-w-5xl text-center">
           <SectionHeader 
             tag="Initialize" 
-            title={<>Build Your <br /><span className="text-primary-accent italic">Legacy Now_</span></>}
+            title={<>Build Your <br /><span className="text-primary-accent">Legacy Now_</span></>}
             subtitle="Are you ready to architect a high-performance visual ecosystem for your brand?"
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mt-12">

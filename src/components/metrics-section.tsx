@@ -43,7 +43,7 @@ export default function MetricsSection() {
       <div className="container mx-auto">
         <div className="mb-24 flex flex-col items-center text-center">
             <h2 className="text-4xl font-extrabold md:text-6xl text-white uppercase flex flex-col md:flex-row items-center gap-4">
-              WHY BRANDS <span className="text-primary-accent italic">CHOOSE US_</span>
+              WHY BRANDS <span className="text-primary-accent">CHOOSE US_</span>
             </h2>
             <div className="mt-8 h-1 w-24 rounded-full bg-transparent border-2 border-primary-accent/30 hover:bg-transparent hover:text-primary-accent   transition-all duration-300" />
         </div>

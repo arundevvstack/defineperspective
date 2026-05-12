@@ -49,7 +49,7 @@ export default function CinematicHero({ mode }: { mode: string }) {
               className="text-5xl md:text-7xl lg:text-[8.5vw] font-black tracking-tighter uppercase leading-[0.8] text-white"
             >
               {isAI ? "AI-Powered" : "Elite Cinematic Excellence"} <br />
-              <span className="text-primary-accent italic">{isAI ? "Production Studio" : "Master Brand Storytelling"}</span>
+              <span className="text-primary-accent">{isAI ? "Production Studio" : "Master Brand Storytelling"}</span>
             </motion.h1>
 
             <motion.p

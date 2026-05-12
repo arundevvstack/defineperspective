@@ -40,13 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# OpenNext
-.open-next
-
-# Wrangler
-.wrangler
-.dev.vars
-
 # Large temporary files
 *.zip
 /defineperspective_deploy/

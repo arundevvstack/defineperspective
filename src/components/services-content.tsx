@@ -156,7 +156,7 @@ export default function ServicesContent() {
 className="text-5xl font-black md:text-[8rem] tracking-tighter uppercase mb-20 leading-[0.8]"
           >
             Capabilities <br />
-            <span className="text-primary-accent italic font-black underline decoration-white/5">Matrix_</span>
+            <span className="text-primary-accent font-black underline decoration-white/5">Matrix_</span>
           </motion.h1>
           <p className="text-xl md:text-3xl text-zinc-400 font-light max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
             "Eliminating mediocrity. High-end human filmmaking fused with 2026 AI-augmented production for brands in India."

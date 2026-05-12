@@ -26,7 +26,7 @@ export default function InstagramFeed() {
         <div className="max-w-2xl">
           <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-primary-accent mb-6 block">Visual Stream {" // "} Studio Access</span>
           <h2 className="text-3xl md:text-6xl font-black uppercaseer text-white leading-none">
-            Live from <br /><span className="text-primary-accent italic">Instagram_</span>
+            Live from <br /><span className="text-primary-accent">Instagram_</span>
           </h2>
         </div>
         <a 

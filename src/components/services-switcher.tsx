@@ -42,7 +42,7 @@ export default function ServicesSwitcher({ activeTab, setActiveTab }: { activeTa
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-7xl font-black text-white uppercase"
             >
-              {activeTab === "media-production" ? "Media" : "DP AI"} <span className="text-primary-accent italic">{activeTab === "media-production" ? "Production_" : "Studios_"}</span>
+              {activeTab === "media-production" ? "Media" : "DP AI"} <span className="text-primary-accent">{activeTab === "media-production" ? "Production_" : "Studios_"}</span>
             </motion.h2>
         </div>
 

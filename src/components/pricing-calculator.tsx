@@ -46,7 +46,7 @@ export default function PricingCalculator() {
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center text-center mb-24 max-w-4xl mx-auto">
           <h2 className="text-4xl font-extrabold md:text-6xl text-white uppercase mb-8 leading-none">
-            Estimate <span className="text-primary-accent italic">Costing_</span>
+            Estimate <span className="text-primary-accent">Costing_</span>
           </h2>
           <p className="text-xl text-zinc-400 font-light max-w-2xl uppercase tracking-widest leading-relaxed">
             Choose the production style that works best for your brand. We offer traditional human-led crafts and modern AI-assisted workflows.
@@ -121,7 +121,7 @@ export default function PricingCalculator() {
                    <h3 className="text-7xl font-black md:text-9xl text-white tracking-tighter">
                      ${calculatedCost.toLocaleString()}
                    </h3>
-                   <span className="mt-4 text-primary-accent font-black text-2xl uppercase tracking-widest italic">USD</span>
+                   <span className="mt-4 text-primary-accent font-black text-2xl uppercase tracking-widest">USD</span>
                 </div>
                 <p className="mt-12 text-zinc-400 max-w-sm font-light leading-relaxed uppercase tracking-tighter text-sm">
                    Based on your selection, this project will ship in approximately <span className="text-white font-bold">{Math.ceil(calculatedCost / 1000)} business days</span>. 

@@ -26,7 +26,7 @@ const SectionHeader = ({ tag, title, subtitle, align = "center", h2 = false }: a
   return (
     <div className={cn("mb-16 md:mb-20", align === "center" ? "text-center" : "text-left")}>
       <span className="text-[10px] font-mono tracking-[0.4em] uppercase text-primary-accent mb-6 block font-bold">{tag}</span>
-      <TitleTag className="text-3xl md:text-6xl lg:text-[5.5rem] font-black text-white uppercase leading-tight md:leading-[0.9] tracking-tighter">
+      <TitleTag className="text-3xl md:text-6xl lg:text-[5.5rem] font-black text-white uppercase leading-tight md:leading-[0.9]">
         {title}
       </TitleTag>
       {subtitle && <p className="mt-8 text-zinc-400 font-normal text-sm md:text-base max-w-2xl mx-auto leading-relaxed">{subtitle}</p>}
@@ -80,7 +80,7 @@ export default function HomeContent() {
           <SectionHeader 
             h2
             tag="Our Core Services"
-            title={<>Media Production & <br />AI Studio <span className="text-primary-accent italic">Services_</span></>}
+            title={<>Media Production & <br />AI Studio <span>Services_</span></>}
             subtitle="We are a video production company in Kerala specializing in AI-powered video production and cinematic brand films."
           />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
@@ -123,7 +123,7 @@ export default function HomeContent() {
                  <SectionHeader 
                    h2 
                    tag="Our Expertise" 
-                   title={<>Cinematic Video <br />Production & <span className="text-primary-accent italic">Brand Films_</span></>} 
+                   title={<>Cinematic Video <br />Production & <span>Brand Films_</span></>} 
                    align="left" 
                  />
                  <p className="text-zinc-400 text-sm md:text-base font-normal leading-relaxed mb-12">
@@ -136,7 +136,7 @@ export default function HomeContent() {
                       "Brand Film Production",
                       "Cinematic Social Content"
                     ].map(bullet => (
-                      <h3 key={bullet} className="flex items-center gap-4 text-[10px] md:text-[11px] font-mono uppercase tracking-widest text-white font-bold">
+                      <h3 key={bullet} className="flex items-center gap-4 text-[10px] md:text-[11px] font-mono uppercase text-white font-bold">
                          <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />
                          {bullet}
                       </h3>
@@ -153,8 +153,8 @@ export default function HomeContent() {
                       sizes="(max-width: 768px) 100vw, 30vw"
                     />
                     <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
-                       <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] block mb-2">Service Excellence</span>
-                       <h3 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">AI Content Lab</h3>
+                       <span className="text-[10px] font-mono text-primary-accent uppercase block mb-2">Service Excellence</span>
+                       <h3 className="text-base md:text-lg font-bold uppercase text-white">AI Content Lab</h3>
                     </div>
                  </div>
                  <div className="rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/10 aspect-[4/5] relative group lg:mt-24">
@@ -166,8 +166,8 @@ export default function HomeContent() {
                       sizes="(max-width: 768px) 100vw, 30vw"
                     />
                     <div className="absolute inset-x-6 bottom-6 md:inset-x-8 md:bottom-8 p-6 md:p-8 rounded-2xl md:rounded-3xl bg-black/60 backdrop-blur-xl border border-white/10">
-                       <span className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] block mb-2">Cinematic Art</span>
-                       <h3 className="text-base md:text-lg font-bold uppercase tracking-widest text-white">Brand Film Hub</h3>
+                       <span className="text-[10px] font-mono text-primary-accent uppercase block mb-2">Cinematic Art</span>
+                       <h3 className="text-base md:text-lg font-bold uppercase text-white">Brand Film Hub</h3>
                     </div>
                  </div>
               </div>
@@ -181,7 +181,7 @@ export default function HomeContent() {
            <SectionHeader 
              h2 
              tag="AI Technology" 
-             title={<>AI Video <br />Production & <span className="text-primary-accent italic">Content Creation_</span></>} 
+             title={<>AI Video <br />Production & <span>Content Creation_</span></>} 
            />
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
@@ -230,7 +230,7 @@ export default function HomeContent() {
                 </div>
 
                 <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-white uppercase leading-[0.85] tracking-tighter">
-                  End-to-End <br /> Media <span className="text-primary-accent italic">Dominance_</span>
+                  End-to-End <br /> Media <span>Dominance_</span>
                 </h2>
 
                 <div className="space-y-10">
@@ -276,7 +276,7 @@ export default function HomeContent() {
                     </div>
                     <div>
                        <span className="block text-xs font-black text-white uppercase">Client Showreel</span>
-                       <span className="text-[10px] text-zinc-400 uppercase tracking-widest font-mono italic">Watch 2026 Collection</span>
+                       <span className="text-[10px] text-zinc-400 uppercase tracking-widest font-mono">Watch 2026 Collection</span>
                     </div>
                   </div>
                 </div>
@@ -325,7 +325,7 @@ export default function HomeContent() {
       {/* 6. STUDIO ADVANTAGE (H2: Why Brands Choose Our Production Studio) */}
       <section className="py-24 md:py-40 px-4 md:px-12 bg-black relative border-b border-white/5">
          <div className="container mx-auto max-w-7xl">
-            <SectionHeader h2 tag="Why Choose Us" title={<>Why Brands Choose Our <br />Production <span className="text-primary-accent italic">Studio_</span></>} />
+            <SectionHeader h2 tag="Why Choose Us" title={<>Why Brands Choose Our <br />Production <span>Studio_</span></>} />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                {[
                  { t: "Expert Cinematography", d: "Professional camera crews and meticulous lighting design.", i: Zap },
@@ -346,7 +346,7 @@ export default function HomeContent() {
       {/* 7. SOCIAL PROOF (Experience, Clients, Stats) */}
       <section className="py-24 md:py-40 px-4 md:px-12 bg-obsidian border-y border-white/5">
         <div className="container mx-auto">
-          <SectionHeader tag="Our Experience" title={<>Proven <span className="text-primary-accent italic">Authority_</span></>} />
+          <SectionHeader tag="Our Experience" title={<>Proven <span>Authority_</span></>} />
           <div className="grid grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
             {[
               { l: "Years Active", v: "9+", i: Plus },
@@ -376,7 +376,7 @@ export default function HomeContent() {
         <div className="container mx-auto max-w-4xl text-center">
             <SectionHeader 
               tag="Start Your Project" 
-              title={<>Start Your <br /><span className="text-primary-accent italic">Project Now_</span></>}
+              title={<>Start Your <br /><span>Project Now_</span></>}
             />
             <p className="text-zinc-400 font-normal uppercase text-sm tracking-[0.2em] md:tracking-[0.4em] mb-16 md:mb-20 max-w-2xl mx-auto">
               Are you ready for national-level brand films and high-speed AI content? Partner with the best video production company in Kerala.

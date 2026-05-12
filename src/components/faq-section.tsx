@@ -24,8 +24,9 @@ const faqData = [
   }
 ];
 
-export default function FAQSection() {
+export default function FAQSection({ customData }: { customData?: { question: string, answer: string }[] }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const data = customData || faqData;
 
   const toggleFaq = (idx: number) => {
     setOpenIdx(openIdx === idx ? null : idx);
@@ -50,7 +51,7 @@ export default function FAQSection() {
               </motion.div>
               
               <h2 className="text-4xl md:text-9xl font-black text-white uppercase tracking-tighter leading-tight md:leading-[0.85] mb-12">
-                Common <br /> <span className="text-primary-accent italic">Questions_</span>
+                Common <br /> <span className="text-primary-accent">Questions_</span>
               </h2>
               
               <p className="text-lg md:text-2xl text-zinc-400 font-light leading-relaxed max-w-2xl uppercase tracking-tighter">
@@ -76,7 +77,7 @@ export default function FAQSection() {
 
         {/* FAQ Grid: High UX Accordion */}
         <div className="grid grid-cols-1 gap-6 md:gap-8 max-w-6xl mx-auto">
-          {faqData.map((faq, idx) => {
+          {data.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
               <motion.div 

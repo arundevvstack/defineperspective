@@ -61,7 +61,7 @@ export default function GlassFooter() {
                    <span>+91 701 294 1696</span>
                 </div>
              </div>
-             <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest italic leading-relaxed">
+             <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-widest leading-relaxed">
                 "Define your brand. Define your future. Define Perspective."
              </p>
           </div>
@@ -82,6 +82,7 @@ export default function GlassFooter() {
                  <li><Link href="/services/ai-social-media-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Social Media AI</Link></li>
                  <li><Link href="/services/ai-product-videos" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Product AI Videos</Link></li>
                  <li><Link href="/services/ai-video-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Brand films</Link></li>
+                 <li><Link href="/ai-video-production-company-india" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px] font-bold text-white">AI Video Production India</Link></li>
                  <li><Link href="/services/ai-cinematic-production" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">Cinematic AI</Link></li>
                  <li><Link href="/top-ai-tvc-production-india" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px] font-bold text-white">AI TVC Production India</Link></li>
                  <li><Link href="/services/ai-video-marketing" className="hover:text-primary-accent transition uppercase tracking-widest text-[10px]">AI Video Marketing</Link></li>

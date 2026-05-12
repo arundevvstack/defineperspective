@@ -4,18 +4,12 @@
   "private": true,
   "scripts": {
     "build": "next build --webpack",
-    "pages:build": "next build --webpack && opennextjs-cloudflare build",
     "dev": "next dev --webpack -H 0.0.0.0",
     "start": "next start",
     "lint": "eslint",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "optimize": "node scripts/optimize-images.mjs",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "optimize": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^1.18.0",
     "@supabase/supabase-js": "^2.102.1",
     "@types/mapbox-gl": "^3.4.1",
     "clsx": "^2.1.1",
@@ -41,7 +35,6 @@
     "globby": "^14.0.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "wrangler": "^4.90.0"
+    "typescript": "^5"
   }
 }

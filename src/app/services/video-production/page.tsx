@@ -216,7 +216,7 @@ export default function VideoProductionLandingPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="text-6xl md:text-[11vw] font-blacker uppercase leading-[0.8] tracking-tighter italic text-center text-white"
+                className="text-6xl md:text-[11vw] font-blacker uppercase leading-[0.8] tracking-tighter text-center text-white"
               >
                  <span className="relative inline-block pb-6">
                    Global <span className="text-primary-accent">Ops_</span>
@@ -240,7 +240,7 @@ export default function VideoProductionLandingPage() {
                <div className="absolute top-[-40%] left-[-15%] opacity-10 pointer-events-none rotate-[-12deg]">
                   <Video size={360} className="text-primary-accent" />
                </div>
-               <p className="text-xl md:text-4xl text-white font-black leading-relaxed uppercase tracking-[0.3em] text-center max-w-5xl mx-auto drop-shadow-2xl italic">
+               <p className="text-xl md:text-4xl text-white font-black leading-relaxed uppercase tracking-[0.3em] text-center max-w-5xl mx-auto drop-shadow-2xl">
                  Dominating the visual web with <span className="text-primary-accent">high-velocity</span> media networks.
                </p>
             </motion.div>
@@ -285,7 +285,7 @@ export default function VideoProductionLandingPage() {
                 priority
               />
               <div className="absolute top-12 left-12 z-20 pointer-events-none">
-                 <p className="text-5xl md:text-8xl font-black italic uppercase text-white tracking-tighter leading-none mix-blend-difference opacity-40">
+                 <p className="text-5xl md:text-8xl font-black uppercase text-white tracking-tighter leading-none mix-blend-difference opacity-40">
                    Videos That Sell. <br />Not Just Look Good.
                  </p>
               </div>
@@ -295,7 +295,7 @@ export default function VideoProductionLandingPage() {
         {/* 💰 LEAD CAPTURE SECTION */}
         <section id="lead-capture" className="mb-48 grid lg:grid-cols-2 gap-24 items-center">
            <div className="space-y-16">
-              <h2 className="text-5xl md:text-7xl font-black uppercase italic leading-[0.85]">
+              <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.85]">
                 Initiate <br /><span className="text-primary-accent">Protocol_</span>
               </h2>
               <div className="space-y-8">
@@ -310,7 +310,7 @@ export default function VideoProductionLandingPage() {
                          <CheckCircle2 size={24} />
                       </div>
                       <div>
-                         <h4 className="text-xl font-black uppercase tracking-widest text-white italic transition-colors group-hover:text-primary-accent">{val.t}</h4>
+                         <h4 className="text-xl font-black uppercase tracking-widest text-white transition-colors group-hover:text-primary-accent">{val.t}</h4>
                          <p className="text-sm text-zinc-400 uppercase tracking-widest leading-loose font-light">{val.d}</p>
                       </div>
                    </div>
@@ -323,12 +323,12 @@ export default function VideoProductionLandingPage() {
         {/* 📊 SERVICE SECTION (SEO BLOCKS) */}
         <section className="mb-48">
            <div className="text-center mb-32">
-              <h2 className="text-4xl md:text-7xl font-black uppercase italic italic mb-8">Service <span className="text-primary-accent">Intelligence_</span></h2>
+              <h2 className="text-4xl md:text-7xl font-black uppercase mb-8">Service <span className="text-primary-accent">Intelligence_</span></h2>
               <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.4em]">Integrated Authority Matrix v2.0</p>
            </div>
            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {serviceSilos.map((silo, idx) => (
-                <div key={silo.title} className="p-12 rounded-[3rem] border border-white/5 bg-white/[0.02] hover:bg-primary-accent/[0.03] hover:border-primary-accent/20 transition-all group flex flex-col h-full">
+                <div key={idx} className="p-12 rounded-[3rem] border border-white/5 bg-white/[0.02] hover:bg-primary-accent/[0.03] hover:border-primary-accent/20 transition-all group flex flex-col h-full">
                    <div className="h-16 w-16 rounded-2xl bg-white/5 flex items-center justify-center text-primary-accent mb-12 group-hover:scale-110 transition-transform">
                       <silo.icon size={32} />
                    </div>
@@ -344,7 +344,7 @@ export default function VideoProductionLandingPage() {
                       ))}
                    </ul>
                    <div className="pt-8 border-t border-white/5">
-                      <p className="text-[10px] font-black italic uppercase text-zinc-300 tracking-widest">
+                      <p className="text-[10px] font-black uppercase text-zinc-300 tracking-widest">
                          {silo.seo}
                       </p>
                    </div>
@@ -356,7 +356,7 @@ export default function VideoProductionLandingPage() {
         {/* 🌍 LOCATION SEO SECTION */}
         <section className="mb-48 space-y-8">
            <div className="text-center mb-24">
-              <h2 className="text-4xl md:text-6xl font-black uppercase italic mb-8">Global <span className="text-primary-accent">Presence_</span></h2>
+              <h2 className="text-4xl md:text-6xl font-black uppercase mb-8">Global <span className="text-primary-accent">Presence_</span></h2>
               <div className="flex flex-wrap justify-center gap-4">
                  {locationBlocks.map(l => (
                    <span key={l.id} className="px-6 py-2 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-zinc-400">{l.city} Node</span>
@@ -365,11 +365,11 @@ export default function VideoProductionLandingPage() {
            </div>
            
            <div className="grid lg:grid-cols-2 gap-px bg-white/5 border border-white/5 rounded-[4rem] overflow-hidden shadow-2xl">
-              {locationBlocks.map((loc) => (
-                <div key={loc.id} className="p-16 bg-obsidian hover:bg-white/[0.02] transition-colors group">
+              {locationBlocks.map((loc, idx) => (
+                <div key={idx} className="p-16 bg-obsidian hover:bg-white/[0.02] transition-colors group">
                    <div className="flex items-center gap-6 mb-8">
                       <div className="h-1 w-8 bg-primary-accent group-hover:w-16 transition-all" />
-                      <h3 className="text-2xl font-black uppercase text-white italic tracking-tighter transition-colors group-hover:text-primary-accent">
+                      <h3 className="text-2xl font-black uppercase text-white tracking-tighter transition-colors group-hover:text-primary-accent">
                          {loc.title}
                       </h3>
                    </div>
@@ -384,7 +384,7 @@ export default function VideoProductionLandingPage() {
               {/* Extra block for branding/trust */}
               <div className="p-16 bg-primary-accent flex flex-col justify-center items-center text-center space-y-10 order-last lg:col-span-1">
                  <Globe size={120} className="text-black opacity-20" />
-                 <h4 className="text-5xl font-blacker uppercase text-black leading-none italic">Elite <br />Worldwide</h4>
+                 <h4 className="text-5xl font-blacker uppercase text-black leading-none">Elite <br />Worldwide</h4>
                  <p className="text-black text-xs font-black uppercase tracking-[0.3em]">Scalability Protocol Enabled</p>
               </div>
            </div>
@@ -396,7 +396,7 @@ export default function VideoProductionLandingPage() {
               <Search size={300} />
            </div>
            <div className="max-w-4xl relative z-10">
-              <h2 className="text-4xl md:text-7xl font-black uppercase italic mb-20 leading-none">AI & Market <br /><span className="text-primary-accent">Intelligence_</span></h2>
+              <h2 className="text-4xl md:text-7xl font-black uppercase mb-20 leading-none">AI & Market <br /><span className="text-primary-accent">Intelligence_</span></h2>
               
               <div className="space-y-16">
                  {[
@@ -422,7 +422,7 @@ export default function VideoProductionLandingPage() {
                    }
                  ].map((faq, idx) => (
                    <div key={idx} className="space-y-6 group/faq transition-all border-b border-white/5 pb-12 last:border-0">
-                      <h4 className="text-2xl font-bold text-white uppercase tracking-tight italic group-hover/faq:text-primary-accent transition-colors flex items-center gap-6">
+                      <h4 className="text-2xl font-bold text-white uppercase tracking-tight group-hover/faq:text-primary-accent transition-colors flex items-center gap-6">
                          <span className="text-primary-accent font-mono text-sm opacity-50 shrink-0">0{idx+1}</span>
                          {faq.q}
                       </h4>
@@ -441,7 +441,7 @@ export default function VideoProductionLandingPage() {
               <span className="text-[25rem] font-black uppercase tracking-tighter">IMPACT</span>
            </div>
            
-           <h2 className="text-5xl md:text-8xl font-black uppercase leading-[0.85] italic">
+           <h2 className="text-5xl md:text-8xl font-black uppercase leading-[0.85]">
              Ready to Scale <br />with High-<span className="text-primary-accent">Performance?</span>
            </h2>
            <div className="flex flex-col sm:flex-row justify-center gap-10 relative z-10">

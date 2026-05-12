@@ -157,9 +157,9 @@ function PortfolioInner() {
           >
 
             <h1 className="text-4xl md:text-8xl font-black uppercase mb-6 leading-tight drop-shadow-2xl">
-              {activeTab === "video" && <>Cinematic <span className="text-primary-accent italic">Portfolio.</span></>}
-              {activeTab === "ai" && <>DP <span className="text-primary-accent italic">AI Studios.</span></>}
-              {activeTab === "photo" && <>Case <span className="text-primary-accent italic">Study.</span></>}
+              {activeTab === "video" && <>Cinematic <span className="text-primary-accent">Portfolio.</span></>}
+              {activeTab === "ai" && <>DP <span className="text-primary-accent">AI Studios.</span></>}
+              {activeTab === "photo" && <>Case <span className="text-primary-accent">Study.</span></>}
             </h1>
             
             <p className="text-base md:text-lg text-zinc-400 font-light max-w-3xl mx-auto uppercase tracking-[0.15em] leading-relaxed mb-10">
@@ -362,7 +362,7 @@ function PortfolioInner() {
           <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           <div className="relative z-10">
             <h2 className="text-5xl md:text-[9rem] font-black uppercaseer text-white mb-16 leading-[0.8]">
-              Ready for <br /><span className="text-primary-accent italic">Impact?</span>
+              Ready for <br /><span className="text-primary-accent">Impact?</span>
             </h2>
             <div className="flex flex-col sm:flex-row justify-center gap-8">
               <button 

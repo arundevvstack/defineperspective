@@ -49,7 +49,6 @@ const SERVICE_CATEGORIES = [
       { name: "Instagram Reels", href: "/services/social-video/instagram-reels-production-company" },
       { name: "YouTube Shorts", href: "/services/social-video/youtube-shorts-production-india" },
       { name: "Trend-based Content", href: "/services/social-video/trend-based-video-content-agency" },
-      { name: "Monthly Content Packages", href: "/services/social-video/monthly-social-content-packages" },
     ]
   },
   {
@@ -60,7 +59,6 @@ const SERVICE_CATEGORIES = [
       { name: "Product Demo Videos", href: "/services/product-video/product-demo-video-production" },
       { name: "Amazon/Flipkart Videos", href: "/services/product-video/amazon-flipkart-product-video-services" },
       { name: "Product Ad Creatives", href: "/services/product-video/product-ad-creatives-agency" },
-      { name: "Photography + Video Bundles", href: "/services/product-video/photography-video-content-bundles" },
     ]
   },
   {
@@ -71,7 +69,6 @@ const SERVICE_CATEGORIES = [
       { name: "Company Profile Videos", href: "/services/corporate-video/company-profile-video-production" },
       { name: "Branding Films", href: "/services/corporate-video/corporate-branding-films-india" },
       { name: "CEO & Leadership Videos", href: "/services/corporate-video/ceo-leadership-video-production" },
-      { name: "Internal Communications", href: "/services/corporate-video/internal-communications-video-agency" },
     ]
   },
   {
@@ -81,7 +78,6 @@ const SERVICE_CATEGORIES = [
     subItems: [
       { name: "Animated Explainers", href: "/services/explainer-video/animated-explainer-video-production" },
       { name: "SaaS & App Demos", href: "/services/explainer-video/saas-explainer-video-company" },
-      { name: "Training & Webinars", href: "/services/explainer-video/training-webinar-video-production" },
     ]
   },
   {
@@ -112,6 +108,7 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-cinematic",
     description: "Fusing legacy optics with neural vision.",
     subItems: [
+      { name: "AI Video Production India", href: "/ai-video-production-company-india" },
       { name: "AI Brand Films", href: "/services/ai-cinematic/premium-ai-brand-films-india" },
       { name: "AI Visual Narratives", href: "/services/ai-cinematic/high-end-ai-storytelling-agency" },
     ]
@@ -131,7 +128,6 @@ const AI_STUDIO_CATEGORIES = [
     description: "Automated social content that feels hyper-organic.",
     subItems: [
       { name: "AI Reels & Shorts", href: "/services/ai-social-video/ai-instagram-reels-production-india" },
-      { name: "Daily AI Content Hub", href: "/services/ai-social-video/daily-ai-content-hub-india" },
     ]
   },
   {
@@ -168,7 +164,6 @@ const AI_STUDIO_CATEGORIES = [
     description: "Educational tools powered by neural synthesis.",
     subItems: [
       { name: "AI SaaS Explainers", href: "/services/ai-explainer/ai-saas-explainer-company-india" },
-      { name: "AI Avatar Training", href: "/services/ai-explainer/ai-avatar-educational-videos-uae" },
     ]
   },
   {
@@ -177,7 +172,6 @@ const AI_STUDIO_CATEGORIES = [
     description: "Algorithmic creative research and optimization.",
     subItems: [
       { name: "AI Funnel Planning", href: "/services/ai-video-strategy/ai-video-funnel-planning-uae" },
-      { name: "AI Distribution Lab", href: "/services/ai-video-strategy/ai-distribution-lab-india" },
     ]
   }
 ];
@@ -234,94 +228,105 @@ const DropdownPanel = ({
   return (
     <div
       className={cn(
-        "fixed top-[76px] left-0 right-0 bottom-0 z-[5000]",
-        "transition-opacity duration-300 ease-out",
+        "fixed top-[76px] left-0 right-0 z-[5000]",
+        "transition-all duration-500 ease-out",
         isOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-4 pointer-events-none"
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       <div className="absolute -top-10 left-0 right-0 h-10 bg-transparent" />
       <div
-        className="h-full flex flex-col relative"
+        className="relative overflow-hidden border-b border-white/5 shadow-[0_40px_100px_rgba(0,0,0,0.8)]"
         style={{
-          background: "rgba(4,4,4,0.98)",
-          backdropFilter: "blur(60px)",
-          boxShadow: "0 60px 160px rgba(0,0,0,0.95)",
+          background: "rgba(6,6,6,0.98)",
+          backdropFilter: "blur(40px)",
         }}
       >
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary-accent/80 to-transparent z-10 pointer-events-none" />
-        <div className="flex-1 overflow-hidden">
-          <div className="h-full grid grid-cols-1 lg:grid-cols-[340px_1fr]">
-            <div className="hidden lg:flex flex-col h-full border-r border-white/5 bg-white/[0.01]">
-              <div className="flex flex-col justify-between h-full px-12 py-8 overflow-y-auto no-scrollbar">
-                <div className="space-y-12">
-                  <div>
-                    <div className="h-0.5 w-12 bg-primary-accent mb-5" />
-                    <h3 className="text-[24px] font-bold text-white uppercase leading-[0.75] tracking-tighter mb-4">
-                      {title}
-                    </h3>
-                    <p className="text-[11px] text-zinc-400 mb-6 leading-[1.8] font-normal max-w-[240px] uppercase tracking-[0.2em] italic">
-                      {description}
-                    </p>
-
-                    <div className="space-y-4">
-                        <Link 
-                          href="/contact"
-                          className="h-16 px-10 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/btn hover:bg-primary-accent transition-all shadow-2xl outline-none focus:ring-2 focus:ring-primary-accent"
-                          aria-label="Get a project quote"
-                        >
-                          Get A Quote <ArrowRight size={16} className="group-hover/btn:translate-x-2 transition-transform" aria-hidden="true" />
-                        </Link>
-                        <Link 
-                          href="https://wa.me/917012941696"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] flex items-center justify-between group/wa hover:border-[#25D366]/50 transition-all outline-none focus:ring-2 focus:ring-[#25D366]"
-                          aria-label="Contact us on WhatsApp"
-                        >
-                          Whatsapp Now <MessageCircle size={16} className="text-[#25D366] group-hover/wa:scale-125 transition-transform" aria-hidden="true" />
-                        </Link>
-                    </div>
-                  </div>
+        {/* Accent Bar */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-accent/40 to-transparent z-10" />
+        
+        <div className="container mx-auto max-w-[1600px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr]">
+            
+            {/* Sidebar Pane */}
+            <div className="hidden lg:flex flex-col h-full border-r border-white/5 bg-white/[0.01] p-16">
+              <div className="space-y-16">
+                <div className="space-y-6">
+                  <div className="h-0.5 w-16 bg-primary-accent" />
+                  <h3 className="text-4xl font-black text-white uppercase leading-none tracking-tighter">
+                    {title}
+                  </h3>
+                  <p className="text-[10px] text-zinc-500 uppercase tracking-[0.3em] font-mono leading-relaxed max-w-[280px]">
+                    {description}
+                  </p>
                 </div>
-                
-                <div className="pt-12 border-t border-white/5">
-                   <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-[0.4em]">Define Perspective © 2026</span>
+
+                <div className="space-y-4">
+                  <Link 
+                    href="/contact"
+                    className="h-20 px-10 rounded-xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center justify-between group/btn hover:bg-primary-accent transition-all shadow-2xl"
+                  >
+                    Start Project_ <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
+                  </Link>
+                  <Link 
+                    href="https://wa.me/917012941696"
+                    target="_blank"
+                    className="h-20 px-10 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[11px] flex items-center justify-between group/wa hover:border-emerald-500/50 transition-all"
+                  >
+                    Direct Connect_ <MessageCircle size={18} className="text-emerald-500 group-hover/wa:scale-125 transition-transform" />
+                  </Link>
+                </div>
+
+                <div className="pt-16 border-t border-white/5">
+                   <div className="flex items-center gap-4 text-zinc-600">
+                      <div className="h-1 w-1 rounded-full bg-primary-accent animate-pulse" />
+                      <span className="text-[8px] font-mono uppercase tracking-[0.5em]">DP Studio // Node Active</span>
+                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Col 2: High-Density Links Grid */}
-            <div className="h-full overflow-y-auto px-8 lg:px-20 py-8 no-scrollbar lg:col-span-1">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
+            {/* Content Pane */}
+            <div className="p-16 lg:px-24">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
                 {categories.map((cat) => {
                   const isActive = pathname === cat.href || cat.subItems.some((s: any) => pathname === s.href);
                   return (
-                    <div key={cat.name} className="group/cat transition-all">
-                      <Link href={cat.href} className="flex items-center gap-5 mb-4 group/link">
-                        <div className={cn("shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500", isActive ? "bg-primary-accent text-black scale-110 shadow-[0_0_30px_rgba(var(--primary-accent-rgb),0.4)]" : "bg-white/[0.03] text-zinc-400 group-hover/cat:bg-white group-hover/cat:text-black")}>
+                    <div key={cat.name} className="group/cat space-y-8">
+                      <Link href={cat.href} className="flex items-center gap-6 group/link">
+                        <div className={cn(
+                          "shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 border border-white/5 shadow-xl", 
+                          isActive 
+                            ? "bg-primary-accent text-black scale-110 shadow-primary-accent/20" 
+                            : "bg-white/[0.03] text-zinc-500 group-hover/cat:bg-white group-hover/cat:text-black group-hover/cat:scale-110"
+                        )}>
                           {getIcon(cat.name)}
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <span className="block text-[14px] font-bold uppercase tracking-tight leading-[0.85] text-white group-hover/cat:text-primary-accent transition-colors">
+                        <div className="space-y-1">
+                          <span className="block text-[16px] font-black uppercase tracking-tighter text-white group-hover/cat:text-primary-accent transition-colors leading-none">
                             {cat.name}
+                          </span>
+                          <span className="block text-[9px] text-zinc-600 uppercase font-mono tracking-widest">
+                             Service_Node
                           </span>
                         </div>
                       </Link>
-                      <div className="grid gap-y-3 pl-[68px]">
+                      
+                      <div className="space-y-4 pl-20 border-l border-white/5">
                         {cat.subItems.map((sub: any) => (
                           <Link
                             key={sub.name}
                             href={sub.href}
                             className={cn(
-                              "text-[12px] text-zinc-400 hover:text-white uppercase tracking-normal leading-[0.7] transition-colors font-semibold py-0.5 block relative group/sub",
+                              "text-[13px] text-zinc-500 hover:text-white uppercase tracking-normal transition-colors font-bold block relative group/sub py-0",
+                              "leading-[0.6]",
                               pathname === sub.href && "text-primary-accent"
                             )}
                           >
-                            <span className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-px bg-primary-accent scale-x-0 group-hover/sub:scale-x-100 transition-transform origin-left" />
+                            <span className="absolute -left-6 top-1/2 -translate-y-1/2 w-3 h-px bg-primary-accent scale-x-0 group-hover/sub:scale-x-100 transition-transform origin-left" />
                             {sub.name}
                           </Link>
                         ))}
@@ -331,13 +336,13 @@ const DropdownPanel = ({
                 })}
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 
 const DropdownBackdrop = ({ isOpen }: { isOpen: boolean }) => (
   <div className={cn("fixed inset-0 top-[76px] z-[4000] bg-black/60 backdrop-blur-md pointer-events-none transition-opacity duration-300", isOpen ? "opacity-100" : "opacity-0")} />

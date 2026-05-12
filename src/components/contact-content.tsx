@@ -271,7 +271,7 @@ export default function ContactContent() {
                               <Mail size={32} />
                            </div>
                            <div className="flex flex-col justify-center">
-                              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-1 font-bold italic">Email Gateway</span>
+                              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-1 font-bold">Email Gateway</span>
                               <h4 className="text-sm md:text-base font-medium uppercase tracking-widest text-zinc-400 group-hover:text-primary-accent transition-colors break-all">defineperspective.in@gmail.com</h4>
                            </div>
                         </a>
@@ -281,7 +281,7 @@ export default function ContactContent() {
                               <Phone size={32} />
                            </div>
                            <div className="flex flex-col justify-center">
-                              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-1 font-bold italic">Talk With Us</span>
+                              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-1 font-bold">Talk With Us</span>
                               <h4 className="text-sm md:text-base font-medium uppercase tracking-widest text-zinc-400 group-hover:text-primary-accent transition-colors">+91 701 294 1696</h4>
                            </div>
                         </a>
@@ -291,7 +291,7 @@ export default function ContactContent() {
                               <MessageCircle size={32} />
                            </div>
                            <div className="flex flex-col justify-center">
-                              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-1 font-bold italic">WhatsApp Now</span>
+                              <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest block mb-1 font-bold">WhatsApp Now</span>
                               <h4 className="text-sm md:text-base font-medium uppercase tracking-widest text-zinc-400 group-hover:text-[#25D366] transition-colors">+91 701 294 1696</h4>
                            </div>
                         </a>
@@ -362,7 +362,7 @@ export default function ContactContent() {
                 transition={{ duration: 1 }}
                 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-bold uppercase tracking-tighter leading-[0.8] mb-16 text-center md:text-left"
               >
-                <span className="text-primary-accent italic tracking-[-0.05em]">Define <br /> Perspective_</span>
+                <span className="text-primary-accent tracking-[-0.05em]">Define <br /> Perspective_</span>
               </motion.h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
