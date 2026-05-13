@@ -55,10 +55,10 @@ export default async function DynamicRootPage({ params }: Props) {
 
   if (isPillar) {
     // Map to PillarPageTemplate
-    const features = sections.find(s => s.toLowerCase().includes('capabilities') || s.toLowerCase().includes('features'))
+    const features = sections.find((s: string) => s.toLowerCase().includes('capabilities') || s.toLowerCase().includes('features'))
       ?.split('\n-')
       .slice(1)
-      .map(s => {
+      .map((s: string) => {
         const [t, ...d] = s.split(':');
         return { title: t?.trim() || "Feature", desc: d.join(':')?.trim() || "Description" };
       }) || [];
@@ -69,10 +69,10 @@ export default async function DynamicRootPage({ params }: Props) {
       { label: "Visual Fidelity", value: "8K" }
     ];
 
-    const faqs = sections.find(s => s.toLowerCase().includes('faq'))
+    const faqs = sections.find((s: string) => s.toLowerCase().includes('faq'))
       ?.split('###')
       .slice(1)
-      .map(s => {
+      .map((s: string) => {
         const [q, ...a] = s.split('\n');
         return { q: q.trim(), a: a.join('\n').trim() };
       }) || [
@@ -106,15 +106,15 @@ export default async function DynamicRootPage({ params }: Props) {
   }
 
   // Default to AIServiceTemplate for shorter/service pages
-  const services = sections.find(s => s.includes('Capabilities'))
+  const services = sections.find((s: string) => s.includes('Capabilities'))
     ?.split('\n-')
     .slice(1)
-    .map(s => s.trim()) || ["Neural Video Synthesis", "Strategic AI Ads"];
+    .map((s: string) => s.trim()) || ["Neural Video Synthesis", "Strategic AI Ads"];
 
-  const benefits = sections.find(s => s.includes('Benefits'))
+  const benefits = sections.find((s: string) => s.includes('Benefits'))
     ?.split('\n-')
     .slice(1)
-    .map(s => s.trim()) || ["Cost Reduction", "High Engagement"];
+    .map((s: string) => s.trim()) || ["Cost Reduction", "High Engagement"];
 
   return (
     <>

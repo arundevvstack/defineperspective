@@ -26,7 +26,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  ${staticRoutes.map(route => `
+  ${staticRoutes.map((route: string) => `
   <url>
     <loc>${baseUrl}${route}</loc>
     <image:image>
@@ -35,8 +35,8 @@ export async function GET() {
       <image:caption>Define Perspective - Premium AI Video Production Agency</image:caption>
     </image:image>
   </url>`).join('')}
-  ${(pages || []).map(page => {
-    const images = [];
+  ${(pages || []).map((page: any) => {
+    const images: any[] = [];
     if (page.schema_json?.thumbnailUrl) {
       images.push({
         loc: page.schema_json.thumbnailUrl,
@@ -53,11 +53,10 @@ export async function GET() {
         caption: `DP AI Studio | ${page.title}`
       });
     }
-
     return `
   <url>
     <loc>${baseUrl}/${page.slug}</loc>
-    ${images.map(img => `
+    ${images.map((img: any) => `
     <image:image>
       <image:loc>${img.loc}</image:loc>
       <image:title>${img.title}</image:title>

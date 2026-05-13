@@ -67,21 +67,21 @@ export async function GET() {
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${staticRoutes.map(route => `
+  ${staticRoutes.map((route: string) => `
   <url>
     <loc>${baseUrl}${route}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${route === '' ? '1.0' : route.split('/').length > 2 ? '0.6' : '0.8'}</priority>
   </url>`).join('')}
-  ${(pages || []).map(page => `
+  ${(pages || []).map((page: any) => `
   <url>
     <loc>${baseUrl}/${page.slug}</loc>
     <lastmod>${page.updated_at || new Date().toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`).join('')}
-  ${(entities || []).map(entity => {
+  ${(entities || []).map((entity: any) => {
     const slug = entity.type === 'location' ? `/locations/${entity.entity_name.toLowerCase().replace(/\s+/g, '-')}` : `/industries/${entity.entity_name.toLowerCase().replace(/\s+/g, '-')}`;
     return `
   <url>

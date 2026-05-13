@@ -13,10 +13,10 @@ export async function GET() {
     .eq('status', 'published')
     .not('schema_json', 'is', null);
 
-  const videoPages = (pages || []).filter(p => {
-    const schema = p.schema_json;
+  const videoPages = (pages || []).filter((p: any) => {
+    const schema: any = p.schema_json;
     if (Array.isArray(schema)) {
-      return schema.some(s => s["@type"] === "VideoObject");
+      return schema.some((s: any) => s["@type"] === "VideoObject");
     }
     return schema?.["@type"] === "VideoObject";
   });
@@ -24,9 +24,9 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  ${videoPages.map(page => {
-    const schema = Array.isArray(page.schema_json) 
-      ? page.schema_json.find(s => s["@type"] === "VideoObject") 
+  ${videoPages.map((page: any) => {
+    const schema: any = Array.isArray(page.schema_json) 
+      ? page.schema_json.find((s: any) => s["@type"] === "VideoObject") 
       : page.schema_json;
       
     const video = schema;
