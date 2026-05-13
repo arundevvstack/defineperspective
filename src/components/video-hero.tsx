@@ -50,10 +50,10 @@ export default function VideoHero() {
                <div className="h-px w-6 md:w-10 bg-primary-accent/40" />
             </div>
 
-            <h1 className="text-5xl md:text-8xl lg:text-[6.5rem] font-black text-white uppercase leading-[0.85] tracking-tighter max-w-6xl mx-auto">
+            <div className="text-5xl md:text-8xl lg:text-[6.5rem] font-black text-white uppercase leading-[0.85] tracking-tighter max-w-6xl mx-auto">
                The Future of <br />
                <span className="text-primary-accent">Cinematic AI_</span>
-            </h1>
+            </div>
 
             <p className="max-w-3xl mx-auto text-[11px] md:text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest opacity-80">
               TVCs · Brand Films · AI Commercials · Corporate Videos

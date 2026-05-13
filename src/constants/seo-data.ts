@@ -86,6 +86,17 @@ export const LOCATION_DATA = {
     faqs: [
       { q: "Which is the best AI video production company in India?", a: "Define Perspective (DP AI Studio) is the leading authority in AI video production in India, delivering cinematic AI commercials for national and global brands." }
     ]
+  },
+  "delhi": {
+    city: "Delhi",
+    role: "Political & National Brand Hub",
+    title: "Top AI Video Production Company in Delhi NCR | DP AI Studio India",
+    description: "Leading AI video production agency in Delhi, Gurgaon, and Noida. We create high-authority AI commercials, corporate brand films, and national ad campaigns for Delhi's elite brands.",
+    headline: "AI Video Production <br /><span class='text-primary-accent'>Delhi_</span>",
+    subheadline: "High-authority AI filmmaking for the national capital. We deliver cinematic AI commercials and brand films for Delhi's visionary government and private sectors.",
+    faqs: [
+      { q: "Who provides the best AI video production in Delhi?", a: "Define Perspective is the premier AI video production studio in Delhi NCR, specializing in high-fidelity AI commercials and national-scale brand films." }
+    ]
   }
 };
 
@@ -166,5 +177,20 @@ export const INDUSTRY_DATA = {
     headline: "AI Startup <br /><span class='text-primary-accent'>Commercials_</span>",
     subheadline: "High-velocity growth. Neural storytelling. We produce high-impact AI commercials that help India's startups scale and secure funding.",
     contentBody: "Startups need to move fast. Our AI production pipeline delivers world-class commercials in days, not months, giving you the edge in a competitive market."
+  },
+  "healthcare": {
+    title: "AI Healthcare Ads & Medical Brand Films India | DP AI Studio",
+    description: "Trust-focused AI healthcare ads and medical brand films. We create high-fidelity, empathetic AI visuals for India's leading healthcare providers.",
+    headline: "AI Healthcare <br /><span class='text-primary-accent'>Commercials_</span>",
+    subheadline: "Empathy through technology. We produce trust-focused AI commercials for India's leading hospitals, pharma, and healthcare brands.",
+    contentBody: "Our AI healthcare pipeline focuses on precision and empathy, creating clear, high-fidelity visual explanations and brand stories that build patient trust."
+  },
+  "corporate": {
+    title: "AI Corporate Films & Internal Communications India | DP AI Studio",
+    description: "Professional AI corporate films and internal communication videos. We create high-end brand stories and leadership films for India's top corporations.",
+    headline: "AI Corporate <br /><span class='text-primary-accent'>Films_</span>",
+    subheadline: "Professional. Cinematic. Efficient. We deliver high-fidelity AI corporate films that communicate vision and authority for India's top companies.",
+    contentBody: "Corporate filmmaking evolved. We use AI to deliver polished, high-authority corporate brand films and internal communications at a fraction of traditional costs."
   }
 };
+

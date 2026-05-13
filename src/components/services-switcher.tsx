@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MoveRight, Play, Cpu, Briefcase, MessageCircle } from "lucide-react";
@@ -130,10 +131,12 @@ export default function ServicesSwitcher({ activeTab, setActiveTab }: { activeTa
 
                   {/* Image Half */}
                   <div className="relative h-80 my-auto lg:h-full min-h-[300px] w-full max-h-[500px] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
-                    <img 
+                    <Image 
                       src={activeContent.mediaUrl}
                       alt={activeContent.label}
-                      className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 grayscale hover:grayscale-0"
+                      fill
+                      className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 grayscale hover:grayscale-0"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     {/* Interior gradient shadow */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />

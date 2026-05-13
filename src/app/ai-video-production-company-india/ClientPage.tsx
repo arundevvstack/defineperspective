@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import GlassNavbar from "@/components/glass-navbar";
 import NeuralHero from "@/components/ai-video-hub/NeuralHero";
@@ -81,10 +82,13 @@ export default function AIVideoProductionIndiaClient() {
                </div>
                <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/10 group">
                   <div className="absolute inset-0 bg-primary-accent/5 z-10 group-hover:opacity-0 transition-opacity" />
-                  <img 
+                  <Image 
                     src="/artifacts/media__1778571632209.jpg" 
                     alt="AI Video Production India" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
+                    fill
+                    priority
+                    className="object-cover group-hover:scale-105 transition-all duration-1000"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                </div>
             </div>
@@ -113,10 +117,12 @@ export default function AIVideoProductionIndiaClient() {
               className="relative aspect-video rounded-3xl overflow-hidden group border border-white/10 shadow-[0_0_100px_rgba(var(--primary-accent-rgb),0.05)] cursor-pointer bg-black"
               onClick={() => setActiveVideo("5kOnWP-dZZY")}
             >
-               <img 
-                 src="https://img.youtube.com/vi/5kOnWP-dZZY/hqdefault.jpg" 
+               <Image 
+                 src="https://img.youtube.com/vi/5kOnWP-dZZY/maxresdefault.jpg" 
                  alt="SHE Luxury AI Ad - Define Perspective" 
-                 className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                 fill
+                 className="object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                 sizes="100vw"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                
@@ -170,10 +176,12 @@ export default function AIVideoProductionIndiaClient() {
               className="relative aspect-video rounded-xl overflow-hidden group border border-white/10 shadow-[0_0_100px_rgba(var(--primary-accent-rgb),0.05)] cursor-pointer bg-black"
               onClick={() => setActiveVideo("vGijXeVUS74")}
             >
-               <img 
-                 src="https://img.youtube.com/vi/vGijXeVUS74/hqdefault.jpg" 
+               <Image 
+                 src="https://img.youtube.com/vi/vGijXeVUS74/maxresdefault.jpg" 
                  alt="Lacrispo AI Commercial" 
-                 className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                 fill
+                 className="object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                 sizes="100vw"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                
@@ -214,10 +222,12 @@ export default function AIVideoProductionIndiaClient() {
                  className="relative aspect-video rounded-xl overflow-hidden group border border-white/10 shadow-[0_0_100px_rgba(var(--primary-accent-rgb),0.05)] cursor-pointer bg-black"
                  onClick={() => setActiveVideo("L7aRxqziN8w")}
                >
-                  <img 
-                    src="https://img.youtube.com/vi/L7aRxqziN8w/hqdefault.jpg" 
+                  <Image 
+                    src="https://img.youtube.com/vi/L7aRxqziN8w/maxresdefault.jpg" 
                     alt="Red Chamber AI Music Video" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   
@@ -295,10 +305,12 @@ export default function AIVideoProductionIndiaClient() {
                  className="relative aspect-video rounded-xl overflow-hidden group border border-white/10 shadow-[0_0_100px_rgba(var(--primary-accent-rgb),0.05)] cursor-pointer bg-black order-1 lg:order-2"
                  onClick={() => setActiveVideo("5kOnWP-dZZY")}
                >
-                  <img 
-                    src="https://img.youtube.com/vi/5kOnWP-dZZY/hqdefault.jpg" 
+                  <Image 
+                    src="https://img.youtube.com/vi/5kOnWP-dZZY/maxresdefault.jpg" 
                     alt="SHE Luxury Ad" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   

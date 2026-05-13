@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import GlassNavbar from "@/components/glass-navbar";
 import VideoProductionHero from "@/components/video-hub/VideoProductionHero";
@@ -82,10 +83,13 @@ export default function VideoProductionClient() {
                </div>
                <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/10 group shadow-2xl">
                   <div className="absolute inset-0 bg-primary-accent/5 z-10 group-hover:opacity-0 transition-opacity" />
-                  <img 
+                  <Image 
                     src="/images/kerala-ai-studio-cinematic.png" 
-                    alt="Premium Video Production India â€” Define Perspective Studio Kerala" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
+                    alt="Premium Video Production India — Define Perspective Studio Kerala" 
+                    fill
+                    priority
+                    className="object-cover group-hover:scale-105 transition-all duration-1000"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
                </div>
@@ -115,10 +119,12 @@ export default function VideoProductionClient() {
               className="relative aspect-video rounded-3xl overflow-hidden group border border-white/10 shadow-[0_0_100px_rgba(var(--primary-accent-rgb),0.05)] cursor-pointer bg-black"
               onClick={() => setActiveVideo("INpn97C16yM")}
             >
-               <img 
-                 src="https://img.youtube.com/vi/INpn97C16yM/hqdefault.jpg" 
+               <Image 
+                 src="https://img.youtube.com/vi/INpn97C16yM/maxresdefault.jpg" 
                  alt="BB App TVC - Define Perspective Video Production India" 
-                 className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                 fill
+                 className="object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                 sizes="100vw"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                
@@ -158,10 +164,12 @@ export default function VideoProductionClient() {
                  className="relative aspect-video rounded-3xl overflow-hidden group border border-white/10 shadow-[0_0_100px_rgba(var(--primary-accent-rgb),0.05)] cursor-pointer bg-black"
                  onClick={() => setActiveVideo("8TntXDekuE8")}
                >
-                  <img 
-                    src="https://img.youtube.com/vi/8TntXDekuE8/hqdefault.jpg" 
+                  <Image 
+                    src="https://img.youtube.com/vi/8TntXDekuE8/maxresdefault.jpg" 
                     alt="BB Serum Ad Film" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-all duration-2000 opacity-80"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   
@@ -246,10 +254,12 @@ export default function VideoProductionClient() {
                    className="relative aspect-video rounded-2xl overflow-hidden group border border-white/5 cursor-pointer shadow-2xl"
                    onClick={() => setActiveVideo(video.id)}
                  >
-                    <img 
-                      src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
+                    <Image 
+                      src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} 
                       alt={video.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000 opacity-80"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-all duration-1000 opacity-80"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">

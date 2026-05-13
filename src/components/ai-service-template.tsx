@@ -61,6 +61,23 @@ export default function AIServiceTemplate({
 
   return (
     <main className="min-h-screen bg-obsidian text-white pt-32 pb-40 px-6 md:px-12 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f.a
+              }
+            }))
+          })
+        }}
+      />
       <GlassNavbar />
       <LeadMagnetModal />
       

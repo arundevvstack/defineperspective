@@ -190,7 +190,7 @@ export default function TopAITVCProductionIndiaClient() {
                       onClick={() => setActiveVideo(vid.id)}
                     >
                        <img 
-                         src={`https://img.youtube.com/vi/${vid.id}/hqdefault.jpg`} 
+                         src={`https://img.youtube.com/vi/${vid.id}/maxresdefault.jpg`} 
                          alt={vid.title} 
                          className="w-full h-full object-cover opacity-60 group-hover:scale-105 group-hover:opacity-100 transition-all duration-[2000ms]"
                        />

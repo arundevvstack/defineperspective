@@ -70,13 +70,46 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preload" href="/images/main-logo.png" as="image" />
+        {/* Preload critical LCP candidate (Showreel thumbnail) */}
+        <link rel="preload" href="https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg" as="image" fetchPriority="high" />
 
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="preconnect" href="https://www.youtube.com" />
-        <link rel="preconnect" href="https://www.youtube-nocookie.com" />
-        <link rel="preconnect" href="https://img.youtube.com" />
+        <link rel="preconnect" href="https://bdvhkvftsaxgrxiemdsg.supabase.co" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://img.youtube.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.youtube.com" crossOrigin="anonymous" />
+        
+        <link rel="dns-prefetch" href="https://bdvhkvftsaxgrxiemdsg.supabase.co" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Define Perspective | DP AI Studio",
+              "alternateName": ["DP AI Studio", "DP Studio"],
+              "url": "https://defineperspective.in",
+              "logo": "https://defineperspective.in/images/main-logo.png",
+              "sameAs": [
+                "https://facebook.com/defineperspectiveofficial/",
+                "https://instagram.com/defineperspective/",
+                "https://youtube.com/@DefinePerspective",
+                "https://linkedin.com/company/defineperspective"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-7012941696",
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": ["en", "ml"]
+              }
+            })
+          }}
+        />
       </head>
       <body
         className={`${inter.variable} ${firaCode.variable} antialiased font-sans overflow-x-hidden`}
