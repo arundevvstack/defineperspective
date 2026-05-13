@@ -179,7 +179,7 @@ export default function PillarPageTemplate({
               ].map(topic => (
                 <Link 
                   key={topic.name} 
-                  href={topic.topicHref || topic.href}
+                  href={topic.href}
                   className="text-[11px] font-black uppercase tracking-widest text-zinc-500 hover:text-primary-accent transition-colors flex items-center gap-2 group"
                 >
                    <span className="w-1.5 h-1.5 rounded-full bg-primary-accent/20 group-hover:bg-primary-accent transition-colors" />
