@@ -86,7 +86,7 @@ export default async function DynamicRootPage({ params }: Props) {
           title={page.title}
           region={page.keywords?.includes('Kerala') ? 'Kerala' : 'India'}
           entityId={page.id}
-          insights={features.map(f => f.title)}
+          insights={features.map((f: any) => f.title)}
           category="Authority Pillar"
         />
         <PillarPageTemplate 
