@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import GlassNavbar from "@/components/glass-navbar";
-import { Play, Zap, Target, Star, CheckCircle2, ArrowRight, Video, Sparkles, Globe, BrainCircuit } from "lucide-react";
+import { Play, Zap, Target, Star, CheckCircle2, ArrowRight, Video, Sparkles, Globe, BrainCircuit, Cpu } from "lucide-react";
 import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
 
