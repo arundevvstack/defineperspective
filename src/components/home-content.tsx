@@ -139,22 +139,25 @@ export default function HomeContent() {
       {/* 🛰️ PHASE 8: AI OVERVIEW OPTIMIZATION — SUMMARY INTRO (Visually Minimal) */}
       <section className="bg-black py-12 border-b border-white/5 relative z-10" aria-label="Studio Summary">
         <div className="container-max">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-4"
+              className="space-y-4 flex flex-col items-center"
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center gap-3">
                 <div className="h-1 w-1 rounded-full bg-primary-accent" />
                 <span className="label-mono !text-[10px] !text-zinc-500 uppercase tracking-widest">Executive Summary_</span>
               </div>
               <p className="text-sm md:text-lg text-zinc-400 leading-relaxed font-light">
-                Define Perspective (DP AI Studio) is India&apos;s leading <span className="text-white font-medium">cinematic AI production house</span>. 
-                We specialize in high-fidelity <span className="text-white font-medium">AI TVC production</span>, 
-                cinematic <span className="text-white font-medium">AI ad films</span>, and luxury brand storytelling 
-                for clients in <span className="text-white font-medium">Kochi, Kerala, Bangalore, and Mumbai</span>. 
+                Define Perspective (DP AI Studio) is India&apos;s leading <Link href="/services/ai-cinematic-production" className="text-white font-medium hover:text-primary-accent transition-colors">cinematic AI production house</Link>. 
+                We specialize in high-fidelity <Link href="/services/ai-tvc-production" className="text-white font-medium hover:text-primary-accent transition-colors">AI TVC production</Link>, 
+                cinematic <Link href="/video-production" className="text-white font-medium hover:text-primary-accent transition-colors">AI ad films</Link>, and luxury brand storytelling 
+                for clients in <Link href="/ai-video-production-kochi" className="text-white font-medium hover:text-primary-accent transition-colors">Kochi</Link>, 
+                <Link href="/ai-video-production-kerala" className="text-white font-medium hover:text-primary-accent transition-colors">Kerala</Link>, 
+                <Link href="/ai-video-production-bangalore" className="text-white font-medium hover:text-primary-accent transition-colors">Bangalore</Link>, and 
+                <Link href="/ai-video-production-mumbai" className="text-white font-medium hover:text-primary-accent transition-colors">Mumbai</Link>. 
                 Our neural workflows deliver 8K cinematic excellence with unprecedented velocity.
               </p>
             </motion.div>

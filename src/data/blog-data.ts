@@ -1,5 +1,14 @@
 export const BLOGS = [
   {
+    slug: "ai-video-production-studio-kerala-india",
+    title: "Kerala’s AI Production Revolution",
+    excerpt: "How cinematic AI studios in Kerala are transforming advertising, AI commercials, and next-generation brand storytelling across India.",
+    date: "May 16, 2026",
+    author: "DP Editorial Team",
+    category: "AI Production // Cinematic Advertising",
+    image: "/images/blog/ai-video-production-kerala.webp"
+  },
+  {
     slug: "future-ai-tvc-commercial-production-kerala-2026",
     title: "Best AI Video Production Company in Kerala & India: The Future of AI TVC 2026",
     excerpt: "DP AI Studio is the leading authority in cinematic AI TV commercials and ad films in Kerala. Explore the future of high-fidelity commercial production in 2026.",
