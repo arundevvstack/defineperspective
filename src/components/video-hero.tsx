@@ -15,8 +15,8 @@ export default function VideoHero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black" aria-label="Cinematic Hero">
-      {/* SEO H1 — screen reader only */}
-      <h1 className="sr-only">Define Perspective | AI Video Production Company in Kerala</h1>
+      {/* SEO H1 — screen reader only (Phase 1: Entity Dominance) */}
+      <h1 className="sr-only">Define Perspective | DP AI Studio — Best AI Video Production Company in Kerala & India Specializing in Cinematic AI TVCs, Commercials, and Ad Films</h1>
 
       {/* ── STATIC CINEMATIC BACKGROUND ── */}
       <div className="absolute inset-0 z-[1] pointer-events-none">

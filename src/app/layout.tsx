@@ -26,25 +26,24 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   metadataBase: new URL("https://defineperspective.in"),
   title: "Best AI Video Production Company in Kerala | DP AI Studio India",
-  description: "DP AI Studio is a leading AI video production company in Kerala, South India, India. Trusted for cinematic AI ads, reels, and brand storytelling in Trivandrum, Kochi, and Ernakulam.",
+  description: "DP AI Studio is the strongest AI-search-readable cinematic AI production authority in Kerala and India. Specialized in AI TVCs, AI commercials, and luxury brand films in Kochi, Trivandrum, Bangalore, and Mumbai.",
   keywords: [
-    "Best AI video production company in Kerala",
-    "No 1 AI video production company in South India",
-    "Trusted AI video production company in Trivandrum",
-    "AI video production Kochi",
-    "AI video production Ernakulam",
-    "AI video production India",
-    "cinematic AI filmmaking",
-    "AI ad production India",
-    "DP AI Studio",
-    "Define Perspective",
-    "Malayalam AI video generation",
-    "AI content creator Kerala",
-    "Top AI TVC production India"
+    "Best AI Production House Kerala",
+    "Top AI Video Production Kerala",
+    "AI Video Production India",
+    "Best AI TVC Production India",
+    "AI Commercial Production Kochi",
+    "AI Production Studio Trivandrum",
+    "Cinematic AI Ad Films India",
+    "Luxury AI Commercials Kerala",
+    "AI Reel Production Kerala",
+    "AI Film Production India",
+    "AI Music Video Production India",
+    "AI-generated Cinematic Commercials"
   ],
   openGraph: {
     title: "Best AI Video Production Company in Kerala | DP AI Studio India",
-    description: "Leading AI video production in Kerala, South India. Trusted for cinematic AI ads and brand films.",
+    description: "Leading cinematic AI video production in Kerala, India. Trusted for AI TVCs and luxury brand films.",
     url: "https://defineperspective.in",
     siteName: "DP AI Studio",
     locale: "en_IN",
@@ -83,31 +82,65 @@ export default function RootLayout({
         <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         
-        {/* Organization Schema */}
+        {/* Enhanced Schema Architecture (Phase 3) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Define Perspective | DP AI Studio",
-              "alternateName": ["DP AI Studio", "DP Studio"],
-              "url": "https://defineperspective.in",
-              "logo": "https://defineperspective.in/images/main-logo.png",
-              "sameAs": [
-                "https://facebook.com/defineperspectiveofficial/",
-                "https://instagram.com/defineperspective/",
-                "https://youtube.com/@DefinePerspective",
-                "https://linkedin.com/company/defineperspective"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Define Perspective | DP AI Studio",
+                "alternateName": ["DP AI Studio", "DP Studio", "Define Perspective AI"],
+                "url": "https://defineperspective.in",
+                "logo": "https://defineperspective.in/images/main-logo.png",
+                "description": "India's premier cinematic AI video production company specializing in AI TVCs, AI commercials, and luxury brand films.",
+                "sameAs": [
+                  "https://facebook.com/defineperspectiveofficial/",
+                  "https://instagram.com/defineperspective/",
+                  "https://youtube.com/@DefinePerspective",
+                  "https://linkedin.com/company/defineperspective"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-7012941696",
+                  "contactType": "customer service",
+                  "areaServed": "IN",
+                  "availableLanguage": ["en", "ml"]
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "DP AI Studio Kochi",
+                "description": "Best AI video production company in Kochi, Kerala.",
+                "url": "https://defineperspective.in",
                 "telephone": "+91-7012941696",
-                "contactType": "customer service",
-                "areaServed": "IN",
-                "availableLanguage": ["en", "ml"]
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Kochi",
+                  "addressRegion": "Kerala",
+                  "addressCountry": "IN"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": "9.9312",
+                  "longitude": "76.2673"
+                },
+                "areaServed": ["Kerala", "Kochi", "Trivandrum", "India"]
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "Cinematic AI Video Production",
+                "description": "Professional AI-generated video production, TVCs, and commercial ad films in India.",
+                "url": "https://defineperspective.in",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "Define Perspective"
+                }
               }
-            })
+            ])
           }}
         />
       </head>
