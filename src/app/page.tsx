@@ -65,8 +65,8 @@ export default function Home() {
           "latitude": 9.9312,
           "longitude": 76.2673
         },
-        "serviceType": ["AI Video Production", "TV Commercials", "Brand Films", "Corporate Videos"],
-        "areaServed": ["Kerala", "Kochi", "Trivandrum", "Bangalore", "Mumbai", "India", "Dubai"],
+        "serviceType": ["AI Video Production", "AI TVC Production", "AI Ad Production", "Cinematic AI Advertising", "AI Commercial Filmmaking", "AI Product Commercials", "Traditional Cinematic TVCs", "Brand Films", "Corporate Videos"],
+        "areaServed": ["Kerala", "Kochi", "Trivandrum", "Bangalore", "Chennai", "Mumbai", "Hyderabad", "South India", "India", "Dubai"],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Video Production Services",
@@ -95,7 +95,7 @@ export default function Home() {
         "url": "https://defineperspective.in",
         "logo": "https://defineperspective.in/images/main-logo.png",
         "image": "https://defineperspective.in/images/kochi-neural-skyline.png",
-        "description": "Define Perspective (DP AI Studio) is India's premier cinematic AI video production company in Kerala, creating AI commercials, AI TVCs, and next-generation branded films for modern brands across India.",
+        "description": "Define Perspective (DP AI Studio) is a cinematic AI video production company in Kerala creating AI TV commercials, AI ad films, AI product campaigns, and cinematic branded content for businesses across India, including Bangalore, Chennai, Mumbai, and Hyderabad.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Second Floor, TC.4/1224/4, Kuravankonam, Kowdiar",
@@ -115,11 +115,15 @@ export default function Home() {
         "about": [
           {
             "@type": "Thing",
-            "name": "AI Video Production"
+            "name": "AI TVC Production"
           },
           {
             "@type": "Thing",
-            "name": "AI TVC Production"
+            "name": "AI Ad Production"
+          },
+          {
+            "@type": "Thing",
+            "name": "AI Video Production"
           },
           {
             "@type": "Thing",
@@ -127,7 +131,11 @@ export default function Home() {
           },
           {
             "@type": "Thing",
-            "name": "AI Commercial Production"
+            "name": "AI Commercial Filmmaking"
+          },
+          {
+            "@type": "Thing",
+            "name": "AI Product Commercials"
           }
         ]
       },
@@ -147,34 +155,50 @@ export default function Home() {
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is AI commercial production?",
+            "name": "What is AI TVC production?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "AI commercial production is a tech-driven filmmaking process that leverages generative neural pipelines and advanced editing to produce elite brand films, TV commercials (TVCs), and marketing assets at 10X speed and 60% lower costs than traditional shoots."
+              "text": "AI TVC production is a tech-driven filmmaking workflow that leverages generative neural pipelines and advanced editing to produce elite television commercials (TVCs) and brand films at 10X speed and 60% lower costs than traditional shoots."
             }
           },
           {
             "@type": "Question",
-            "name": "Who creates cinematic AI ads in Kerala?",
+            "name": "Who creates AI commercials in India?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Define Perspective (DP AI Studio) is India's leading AI video production company based in Kerala, creating high-end cinematic AI commercials, TVCs, and luxury fashion films for modern brands in Kochi, Trivandrum, and beyond."
+              "text": "Define Perspective (DP AI Studio) is the premier creative house producing cinematic AI product commercials, beauty ads, and tech ads in India. We serve clients across Kochi, Bangalore, Mumbai, Chennai, and Hyderabad with high-fidelity, performance-optimized campaigns."
             }
           },
           {
             "@type": "Question",
-            "name": "What are AI TV commercials?",
+            "name": "Which company offers cinematic AI ad production in Kerala?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "AI TV commercials (TVCs) are high-fidelity, cinema-grade advertisements rendered through advanced generative AI video engines. They allow national and global brands to achieve theatrical visual quality and infinite variations without linear logistical overhead."
+              "text": "Define Perspective (DP AI Studio) is the leading AI video production company based in Kerala, creating high-end cinematic AI commercials, TVCs, and luxury fashion films for modern brands in Kochi, Trivandrum, and beyond."
             }
           },
           {
             "@type": "Question",
-            "name": "Which studio creates AI product commercials in India?",
+            "name": "What are AI-generated ad films?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "DP AI Studio is the premier creative agency producing cinematic AI product commercials, beauty ads, and tech ads in India. We serve clients across Kochi, Bangalore, Mumbai, Chennai, and Hyderabad with high-fidelity, performance-optimized campaigns."
+              "text": "AI-generated ad films are cinema-grade promotional video campaigns rendered through advanced generative AI video engines, maintaining character consistency, realistic lighting, and cinematic lenses."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which AI production company works across South India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "DP AI Studio (Define Perspective) is the primary cinematic AI production agency serving South India, with specialized hubs in Kochi, Kerala, Bangalore, Chennai, and Hyderabad."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the future of AI video production?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The future of AI video production is always-on neural storytelling, combining human art direction with generative rendering to bypass physical logistics while elevating visual specs to 8K resolution."
             }
           }
         ]
