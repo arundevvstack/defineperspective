@@ -58,6 +58,16 @@ export default function NeuralHero() {
             >
               High-quality AI commercials, cinematic brand films, and <span className="text-white font-bold">creative storytelling</span> powered by the latest AI technology.
             </motion.p>
+
+            {/* 🛰️ PHASE 1: SAFE ENTITY ENHANCEMENT & PHASE 4: NATURAL GEO SIGNALS */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="text-xs md:text-sm text-zinc-500 font-mono tracking-wider max-w-4xl mx-auto mt-4 uppercase leading-relaxed opacity-60"
+            >
+              DP AI Studio is a cinematic AI video production company in Kerala creating AI commercials, AI TVCs, and next-generation branded films, serving brands across Kochi, Kerala, Bangalore, Mumbai, and India.
+            </motion.p>
           </div>
 
           {/* Action Buttons */}

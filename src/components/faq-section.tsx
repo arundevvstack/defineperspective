@@ -37,7 +37,7 @@ export default function FAQSection({ customData }: { customData?: { question: st
       {/* Background Glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
       
-      <div className="container mx-auto relative z-10 max-w-7xl">
+      <div className="container mx-auto relative z-10 max-w-7xl" itemScope itemType="https://schema.org/FAQPage">
         {/* Header Section: High UX */}
         <div className="mb-20 md:mb-32 flex flex-col lg:flex-row lg:items-end justify-between gap-10 md:gap-16">
            <div className="max-w-4xl">
@@ -92,6 +92,8 @@ export default function FAQSection({ customData }: { customData?: { question: st
                     ? "bg-white/[0.04] border-primary-accent/30 shadow-[0_0_50px_rgba(0,0,0,0.5)]" 
                     : "bg-white/[0.01] border-white/5 hover:bg-white/[0.03] hover:border-white/10"
                 )}
+                itemScope 
+                itemType="https://schema.org/Question"
               >
                 <button 
                   onClick={() => toggleFaq(idx)}
@@ -104,7 +106,9 @@ export default function FAQSection({ customData }: { customData?: { question: st
                       <h3 id={`faq-question-${idx}`} className={cn(
                         "text-lg md:text-3xl font-black uppercase tracking-tighter leading-tight transition-all",
                         isOpen ? "text-primary-accent" : "text-white"
-                      )}>
+                      )}
+                      itemProp="name"
+                      >
                          {faq.question}
                       </h3>
                    </div>
@@ -129,10 +133,16 @@ export default function FAQSection({ customData }: { customData?: { question: st
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <div className="px-8 md:px-24 pb-10 md:pb-14 border-t border-white/5 pt-8 md:pt-12">
+                      <div className="px-8 md:px-24 pb-10 md:pb-14 border-t border-white/5 pt-8 md:pt-12"
+                           itemProp="acceptedAnswer"
+                           itemScope
+                           itemType="https://schema.org/Answer"
+                      >
                          <div className="relative">
                             <div className="absolute left-0 top-0 w-1 h-full bg-primary-accent/20 rounded-full hidden md:block" />
-                            <p className="text-base md:text-2xl text-zinc-400 font-light leading-relaxed md:pl-12 uppercase tracking-tight">
+                            <p className="text-base md:text-2xl text-zinc-400 font-light leading-relaxed md:pl-12 uppercase tracking-tight"
+                               itemProp="text"
+                            >
                               {faq.answer}
                             </p>
                          </div>

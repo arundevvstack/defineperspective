@@ -1,5 +1,41 @@
 export const BLOGS = [
   {
+    slug: "future-of-ai-tv-commercials-india",
+    title: "The Future of AI TV Commercials in India: Tectonic Shift in Broadcast Advertising",
+    excerpt: "Explore how generative neural video engines and advanced AI pipelines are revolutionizing high-budget television commercials (TVCs) across India's advertising networks.",
+    date: "May 19, 2026",
+    author: "DP Editorial Team",
+    category: "AI TVC",
+    image: "/images/blog/ai-tvc-kerala-houseboat.png"
+  },
+  {
+    slug: "ai-filmmaking-workflow",
+    title: "The Cinematic AI Filmmaking Workflow: From Neural Pre-Vis to Theatrical Mastering",
+    excerpt: "An in-depth breakdown of how DP AI Studio merges human art direction with generative neural rendering to produce cinema-grade ad films.",
+    date: "May 19, 2026",
+    author: "DP Editorial Team",
+    category: "Production",
+    image: "/images/blog/ai-video-production-kerala.webp"
+  },
+  {
+    slug: "how-ai-commercial-production-reduces-costs",
+    title: "How AI Commercial Production Reduces Brand Costs by 60% Without Quality Loss",
+    excerpt: "Understand the economics of generative media production: why leading brands are shifting from linear logistics to high-velocity neural workflows.",
+    date: "May 19, 2026",
+    author: "DP Editorial Team",
+    category: "Strategy",
+    image: "/images/blog/ai-vs-traditional-hero.png"
+  },
+  {
+    slug: "cinematic-ai-advertising-explained",
+    title: "Cinematic AI Advertising Explained: Dominate Search & AI Answers in 2026",
+    excerpt: "The definitive guide to cinematic AI ads, semantic authority networks, and preparing your brand for the new era of generative LLM search answers.",
+    date: "May 19, 2026",
+    author: "DP Editorial Team",
+    category: "Marketing",
+    image: "/images/blog/ai-kerala-hero-v2.png"
+  },
+  {
     slug: "ai-video-production-studio-kerala-india",
     title: "Kerala’s AI Production Revolution",
     excerpt: "How cinematic AI studios in Kerala are transforming advertising, AI commercials, and next-generation brand storytelling across India.",

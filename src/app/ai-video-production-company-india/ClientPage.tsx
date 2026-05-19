@@ -47,9 +47,9 @@ export default function AIVideoProductionIndiaClient() {
                      <span className="text-primary-accent">Choose AI Video_</span>
                   </h2>
                   <p className="body-copy">
-                     Traditional video production is often slow and expensive. <span className="text-white font-bold">AI Video Production</span> allows brands to create high-quality content 10X faster and at 60% lower cost. 
+                     Traditional video production is often slow and expensive. <Link href="/video-production" className="text-white font-bold hover:text-primary-accent transition-colors">AI Video Production</Link> allows brands to create high-quality content 10X faster and at 60% lower cost. 
                      <br /><br />
-                     As the premier <span className="text-primary-accent font-bold">AI Creative Studio in South India</span>, we combine artistic storytelling with the latest AI technology to serve brands across Kerala and the entire country.
+                     As the premier <Link href="/ai-tvc-production" className="text-primary-accent font-bold hover:text-primary-accent transition-colors">AI TVC Production</Link> studio in South India, we combine artistic storytelling with the latest AI technology to serve brands across Kerala and the entire country.
                   </p>
                   
                   <div className="py-6">
@@ -251,7 +251,7 @@ export default function AIVideoProductionIndiaClient() {
                      <span className="text-primary-accent">Music Video_</span>
                   </h2>
                   <p className="body-copy">
-                     A visual look into modern AI filmmaking. This project shows how we use AI to tell atmospheric and cinematic stories.
+                     A visual look into modern generative filmmaking. This project demonstrates how we deploy <Link href="/services/ai-cinematic-production" className="text-white font-bold hover:text-primary-accent transition-colors">Cinematic AI Advertising</Link> to tell atmospheric and cinematic stories.
                   </p>
                   <div className="flex gap-4 pt-4">
                      <div className="px-6 py-4 rounded-xl bg-white/5 border border-white/10 flex flex-col gap-1">
@@ -414,7 +414,26 @@ export default function AIVideoProductionIndiaClient() {
 
       <BlueprintLeadMagnet />
 
-      <FAQSection />
+      <FAQSection 
+         customData={[
+           {
+             question: "What is AI commercial production?",
+             answer: "AI commercial production is a tech-driven filmmaking process that leverages generative neural pipelines and advanced editing to produce elite brand films, TV commercials (TVCs), and marketing assets at 10X speed and 60% lower costs than traditional shoots."
+           },
+           {
+             question: "Who creates cinematic AI ads in Kerala?",
+             answer: "Define Perspective (DP AI Studio) is India's leading AI video production company based in Kerala, creating high-end cinematic AI commercials, TVCs, and luxury fashion films for modern brands in Kochi, Trivandrum, and beyond."
+           },
+           {
+             question: "What are AI TV commercials?",
+             answer: "AI TV commercials (TVCs) are high-fidelity, cinema-grade advertisements rendered through advanced generative AI video engines. They allow national and global brands to achieve theatrical visual quality and infinite variations without linear logistical overhead."
+           },
+           {
+             question: "Which studio creates AI product commercials in India?",
+             answer: "DP AI Studio is the premier creative agency producing cinematic AI product commercials, beauty ads, and tech ads in India. We serve clients across Kochi, Bangalore, Mumbai, Chennai, and Hyderabad with high-fidelity, performance-optimized campaigns."
+           }
+         ]}
+      />
 
       <VideoLightbox 
         isOpen={!!activeVideo} 
