@@ -1,21 +1,66 @@
 import GlassNavbar from "@/components/glass-navbar";
 import Link from "next/link";
 import { ArrowRight, Sparkles, Building2, Globe } from "lucide-react";
+import AIDirectAnswer from "@/components/seo/ai-direct-answer";
+import { generateAIGeneratedSchema, generateFAQSchema } from "@/lib/seo-schema";
+import GeoAuthorityCluster from "@/components/seo/geo-authority-cluster";
 
 export const metadata = {
   title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Synthetic media ads for high-frequency conversion. Connect with Define Perspective, the leading AI video production company in Kerala and India. Professional film, ad, and video services in Kochi, Trivandrum & UAE.",
   alternates: {
     canonical: "https://defineperspective.in/services/ai-video-ads"
-  }
+  },
+  keywords: [
+    "ai video production company india",
+    "ai ad film production company",
+    "ai video ads production",
+    "ai video production kerala",
+    "best ai video production company"
+  ]
 };
 
 export default function DynamicServicePage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Video Ads Production",
+    "provider": {
+      "@type": "Organization",
+      "name": "Define Perspective",
+      "url": "https://defineperspective.in"
+    },
+    "description": metadata.description,
+    "areaServed": ["India", "Kerala", "UAE"]
+  };
+
+  const faqs = [
+    {
+      question: "What is an AI ad film production company?",
+      answer: "An AI ad film production company specializes in creating commercial advertisements using generative AI models instead of traditional physical cameras. This allows brands to produce high-frequency, conversion-optimized video ads at scale without the massive costs of location shoots."
+    },
+    {
+      question: "How do AI video ads perform compared to traditional ads?",
+      answer: "AI video ads typically achieve higher conversion rates because they allow for rapid A/B testing of visuals, environments, and hooks. Because production is virtual, brands can instantly generate multiple variations of an ad to see which performs best on platforms like Meta and YouTube."
+    }
+  ];
+
+  const aiSchema = generateAIGeneratedSchema({
+    title: metadata.title as string,
+    description: metadata.description as string,
+    url: "https://defineperspective.in/services/ai-video-ads",
+    keywords: metadata.keywords as string[]
+  });
+
+  const faqSchema = generateFAQSchema(faqs);
+
+  const jsonLd = [serviceSchema, aiSchema, faqSchema];
+
   return (
     <main className="min-h-screen bg-obsidian text-white relative overflow-hidden selection:bg-primary-accent selection:text-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="fixed inset-0 z-[1] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       <GlassNavbar />
-      
       {/* Hero Section */}
       <section className="pt-48 pb-32 px-6 md:px-12 relative z-10 border-b border-white/5">
          <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-primary-accent/10 blur-[200px] rounded-full pointer-events-none" />
@@ -77,6 +122,21 @@ export default function DynamicServicePage() {
         </div>
       </section>
 
+      <section className="py-24 px-6 md:px-12 relative z-10">
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl font-black uppercase tracking-tighter mb-12 text-center">Frequently Asked Questions</h2>
+          {faqs.map((faq, index) => (
+            <AIDirectAnswer 
+              key={index}
+              question={faq.question}
+              directAnswer={faq.answer.split('.')[0] + '.'}
+              elaboration={faq.answer.substring(faq.answer.indexOf('.') + 1).trim()}
+            />
+          ))}
+        </div>
+      </section>
+      
+      <GeoAuthorityCluster />
     </main>
   );
 }

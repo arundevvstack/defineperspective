@@ -79,3 +79,48 @@ export const generateVideoSchema = (video: { title: string, description: string,
     }
   }
 });
+
+export const generateFAQSchema = (faqs: { question: string, answer: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
+
+export const generateAIGeneratedSchema = (pageData: { title: string, description: string, url: string, keywords: string[] }) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": pageData.url
+  },
+  "headline": pageData.title,
+  "description": pageData.description,
+  "author": {
+    "@type": "Organization",
+    "name": SEO_ENTITIES.Organization.name
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": SEO_ENTITIES.Organization.name,
+    "logo": {
+      "@type": "ImageObject",
+      "url": SEO_ENTITIES.Organization.logo
+    }
+  },
+  "keywords": pageData.keywords.join(", "),
+  "about": {
+    "@type": "Thing",
+    "name": "Generative AI Filmmaking"
+  },
+  "mentions": pageData.keywords.map(kw => ({
+    "@type": "Thing",
+    "name": kw
+  }))
+});
