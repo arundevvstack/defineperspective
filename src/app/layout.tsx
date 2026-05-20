@@ -69,8 +69,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preload" href="/images/main-logo.png" as="image" />
-        {/* Preload critical LCP candidate (Showreel thumbnail) */}
-        <link rel="preload" href="https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg" as="image" fetchPriority="high" />
+        {/* Preload critical LCP candidate (Showreel thumbnail) responsively */}
+        <link rel="preload" as="image" href="https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg" imageSrcSet="https://img.youtube.com/vi/sNp1a5I6WsI/mqdefault.jpg 320w, https://img.youtube.com/vi/sNp1a5I6WsI/hqdefault.jpg 768w, https://img.youtube.com/vi/sNp1a5I6WsI/maxresdefault.jpg 1280w" imageSizes="100vw" fetchPriority="high" />
 
         <link rel="preconnect" href="https://bdvhkvftsaxgrxiemdsg.supabase.co" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://img.youtube.com" crossOrigin="anonymous" />

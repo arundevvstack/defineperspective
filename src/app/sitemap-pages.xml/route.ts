@@ -12,6 +12,7 @@ export async function GET() {
     '/about',
     '/contact',
     '/portfolio',
+    '/portfolio/luxury-ai-jewellery-tvc-production',
     '/arun-devv',
     '/services',
     '/blog',

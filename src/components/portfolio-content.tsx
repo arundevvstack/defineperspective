@@ -62,6 +62,7 @@ const aiData = [
     category: "AI Video Production",
     description: "Photorealistic generative video and motion for brands. Visual velocity refined.",
     projects: [
+      { id: "ai-jewellery", title: "Cinematic AI Jewellery Commercial", videoId: "ViVvFiF-kBQ", service: "Luxury AI TVC", industry: "Luxury & Jewellery", client: "DP AI Studios", href: "/portfolio/luxury-ai-jewellery-tvc-production" },
       { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue", href: "/portfolio/desert-queen" },
       { id: "ai2", title: "SHE Luxury Body Lotion", videoId: "5kOnWP-dZZY", service: "AI TV Commercial", industry: "Fashion & Lifestyle", client: "She", href: "/portfolio/she-body-lotion" },
       { id: "ai3", title: "Banaras Silk | Fabrics of India", videoId: "ic0skwrzA5M", service: "AI Documentary", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/portfolio/banaras-silk" },
@@ -260,39 +261,39 @@ function PortfolioInner() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: projectIdx * 0.1 }}
-                        className="group"
+                        className="group flex flex-col h-full"
                       >
-                        <ContentWrapper {...wrapperProps} className="block h-full w-full">
-                          <div className={cn(
-                            "relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-4 transition-all duration-700",
-                            isVertical ? "aspect-[9/16] w-full" : "aspect-video",
-                            project.href ? "group-hover:border-primary-accent/50 cursor-pointer" : "cursor-default"
-                          )}>
-                             {!project.videoId ? (
+                        <div className={cn(
+                          "relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-black/60 shadow-xl mb-4 transition-all duration-700",
+                          isVertical ? "aspect-[9/16] w-full" : "aspect-video",
+                          project.href ? "group-hover:border-primary-accent/50" : ""
+                        )}>
+                           {!project.videoId ? (
+                             <ContentWrapper {...wrapperProps} className="block w-full h-full cursor-pointer">
                                <Image src={project.img || ""} alt={project.title} fill className="object-cover transition-transform group-hover:scale-105 duration-700" />
-                             ) : (
-                               <LiteYouTube 
-                                 videoId={project.videoId} 
-                                 title={project.title} 
-                                 aspectRatio={isVertical ? "vertical" : "video"} 
-                                 isPlaying={activeVideoId === project.id}
-                                 onTogglePlay={(playing) => setActiveVideoId(playing ? project.id : null)}
-                               />
-                             )}
-                          </div>
-                          <div className="px-4">
-                            <h4 className={cn("font-bold uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors", isVertical ? "text-xs md:text-sm" : "text-lg")}>
-                              {project.title}
-                              {project.href && (
-                                <span className="ml-4 px-3 py-1 bg-primary-accent/10 border border-primary-accent/20 rounded-full text-[8px] font-black text-primary-accent tracking-tighter align-middle">
-                                  CASE STUDY
-                                </span>
-                              )}
-                            </h4>
-                            <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
-                              {project.service || "Phased Production"} {" // "} {project.industry || "Strategic"}
-                            </p>
-                          </div>
+                             </ContentWrapper>
+                           ) : (
+                             <LiteYouTube 
+                               videoId={project.videoId} 
+                               title={project.title} 
+                               aspectRatio={isVertical ? "vertical" : "video"} 
+                               isPlaying={activeVideoId === project.id}
+                               onTogglePlay={(playing) => setActiveVideoId(playing ? project.id : null)}
+                             />
+                           )}
+                        </div>
+                        <ContentWrapper {...wrapperProps} className="block px-4 cursor-pointer mt-auto">
+                          <h4 className={cn("font-bold uppercase tracking-widest mb-4 group-hover:text-primary-accent transition-colors", isVertical ? "text-xs md:text-sm" : "text-lg")}>
+                            {project.title}
+                            {project.href && (
+                              <span className="ml-4 px-3 py-1 bg-primary-accent/10 border border-primary-accent/20 rounded-full text-[8px] font-black text-primary-accent tracking-tighter align-middle inline-block">
+                                CASE STUDY
+                              </span>
+                            )}
+                          </h4>
+                          <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+                            {project.service || "Phased Production"} {" // "} {project.industry || "Strategic"}
+                          </p>
                         </ContentWrapper>
                       </motion.div>
                     );
@@ -313,37 +314,39 @@ function PortfolioInner() {
                         key={project.id}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        className="group bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.05] transition-all"
+                        className="group bg-white/[0.02] border border-white/5 rounded-3xl p-8 hover:bg-white/[0.05] transition-all flex flex-col md:flex-row gap-8 items-center"
                       >
-                        <ContentWrapper {...wrapperProps} className="flex flex-col md:flex-row gap-8 items-center">
-                          <div className={cn("relative rounded-2xl overflow-hidden shrink-0", isVertical ? "h-64 aspect-[9/16]" : "h-40 aspect-video")}>
-                             {!project.videoId ? (
+                        <div className={cn("relative rounded-2xl overflow-hidden shrink-0", isVertical ? "h-64 aspect-[9/16]" : "h-40 aspect-video")}>
+                           {!project.videoId ? (
+                             <ContentWrapper {...wrapperProps} className="block w-full h-full cursor-pointer">
                                <Image src={project.img || ""} alt={project.title} fill className="object-cover" />
-                             ) : (
-                               <LiteYouTube 
-                                 videoId={project.videoId} 
-                                 title={project.title} 
-                                 aspectRatio={isVertical ? "vertical" : "video"} 
-                                 isPlaying={activeVideoId === project.id}
-                                 onTogglePlay={(playing) => setActiveVideoId(playing ? project.id : null)}
-                               />
-                             )}
+                             </ContentWrapper>
+                           ) : (
+                             <LiteYouTube 
+                               videoId={project.videoId} 
+                               title={project.title} 
+                               aspectRatio={isVertical ? "vertical" : "video"} 
+                               isPlaying={activeVideoId === project.id}
+                               onTogglePlay={(playing) => setActiveVideoId(playing ? project.id : null)}
+                             />
+                           )}
+                        </div>
+                        <ContentWrapper {...wrapperProps} className="flex-1 text-left cursor-pointer flex flex-col h-full justify-center">
+                          <div className="flex items-center gap-4 mb-2">
+                            <h4 className="text-2xl font-black uppercase tracking-widest group-hover:text-primary-accent transition-colors">{project.title}</h4>
+                            {project.href && (
+                              <span className="px-3 py-1 bg-primary-accent/10 border border-primary-accent/20 rounded-full text-[8px] font-black text-primary-accent tracking-tighter">
+                                CASE STUDY
+                              </span>
+                            )}
                           </div>
-                          <div className="flex-1 text-left">
-                            <div className="flex items-center gap-4 mb-2">
-                              <h4 className="text-2xl font-black uppercase tracking-widest group-hover:text-primary-accent transition-colors">{project.title}</h4>
-                              {project.href && (
-                                <span className="px-3 py-1 bg-primary-accent/10 border border-primary-accent/20 rounded-full text-[8px] font-black text-primary-accent tracking-tighter">
-                                  CASE STUDY
-                                </span>
-                              )}
-                            </div>
-                            <div className="flex gap-4 text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
-                               <span>Client: {project.client || "Confidential"}</span>
-                               <span>Service: {project.service || "Visual Production"}</span>
-                               <span>Industry: {project.industry || "Market Leader"}</span>
-                            </div>
+                          <div className="flex flex-wrap gap-4 text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
+                             <span>Client: {project.client || "Confidential"}</span>
+                             <span>Service: {project.service || "Visual Production"}</span>
+                             <span>Industry: {project.industry || "Market Leader"}</span>
                           </div>
+                        </ContentWrapper>
+                        <ContentWrapper {...wrapperProps} className="hidden md:flex cursor-pointer items-center justify-center p-4">
                           <ArrowRight className="text-zinc-400 group-hover:translate-x-4 transition-transform group-hover:text-primary-accent" size={32} />
                         </ContentWrapper>
                       </motion.div>

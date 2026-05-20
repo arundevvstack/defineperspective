@@ -70,7 +70,11 @@ export default function LiteYouTube({
   };
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn(
+      "relative w-full h-full overflow-hidden", 
+      aspectRatio === "vertical" ? "aspect-[9/16]" : "aspect-video",
+      className
+    )}>
       {/* 🎬 Multimodal AI Indexing Node */}
       <script
         type="application/ld+json"
@@ -95,10 +99,7 @@ export default function LiteYouTube({
         </div>
       ) : (
         <div 
-          className={cn(
-            "relative cursor-pointer group/yt overflow-hidden",
-            aspectRatio === "vertical" ? "aspect-[9/16]" : "aspect-video"
-          )}
+          className="relative cursor-pointer group/yt w-full h-full"
           onClick={handlePlay}
         >
           <Image

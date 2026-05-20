@@ -21,7 +21,8 @@ export default function MatrixRain() {
     resize();
     window.addEventListener("resize", resize);
 
-    const fontSize  = 13;
+    const isMobile = window.innerWidth < 768;
+    const fontSize  = isMobile ? 26 : 13; // Double font size on mobile halves columns/particles
     const chars     = "01";
 
     // Number of columns

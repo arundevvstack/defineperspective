@@ -21,10 +21,28 @@ export async function GET() {
     return schema?.["@type"] === "VideoObject";
   });
 
+  const featuredStaticVideos = [
+    {
+      slug: "portfolio/luxury-ai-jewellery-tvc-production",
+      title: "Luxury AI Jewellery Commercial | Cinematic AI TVC Production",
+      meta_description: "Witness the future of luxury advertising. This 100% AI-generated jewellery commercial was produced by DP AI Studios, India's premier AI video production company.",
+      schema_json: {
+        "@type": "VideoObject",
+        "name": "Luxury AI Jewellery Commercial | Cinematic AI TVC Production",
+        "description": "Witness the future of luxury advertising. This 100% AI-generated jewellery commercial was produced by DP AI Studios, India's premier AI video production company.",
+        "thumbnailUrl": "https://img.youtube.com/vi/ViVvFiF-kBQ/maxresdefault.jpg",
+        "uploadDate": "2024-05-20T08:00:00+08:00",
+        "embedUrl": "https://www.youtube.com/embed/ViVvFiF-kBQ"
+      }
+    }
+  ];
+
+  const allVideoPages = [...videoPages, ...featuredStaticVideos];
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  ${videoPages.map((page: any) => {
+  ${allVideoPages.map((page: any) => {
     const schema: any = Array.isArray(page.schema_json) 
       ? page.schema_json.find((s: any) => s["@type"] === "VideoObject") 
       : page.schema_json;
