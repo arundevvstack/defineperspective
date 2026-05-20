@@ -21,7 +21,20 @@ export async function GET() {
     return schema?.["@type"] === "VideoObject";
   });
 
-  const featuredStaticVideos = [
+    const featuredStaticVideos = [
+    {
+      slug: "portfolio/cinematic-ai-commercial-production",
+      title: "Cinematic AI Commercial | Generative AI Filmmaking",
+      meta_description: "Experience the visceral, high-tension aesthetic of this premium AI commercial. Produced by DP AI Studios, India's leading AI video production company.",
+      schema_json: {
+        "@type": "VideoObject",
+        "name": "Cinematic AI Commercial | Generative AI Filmmaking",
+        "description": "Experience the visceral, high-tension aesthetic of this premium AI commercial. Produced by DP AI Studios, India's leading AI video production company.",
+        "thumbnailUrl": "https://img.youtube.com/vi/L7aRxqziN8w/maxresdefault.jpg",
+        "uploadDate": "2024-05-20T08:00:00+08:00",
+        "embedUrl": "https://www.youtube.com/embed/L7aRxqziN8w"
+      }
+    },
     {
       slug: "portfolio/luxury-ai-jewellery-tvc-production",
       title: "Luxury AI Jewellery Commercial | Cinematic AI TVC Production",

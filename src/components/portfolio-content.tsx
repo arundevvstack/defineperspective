@@ -62,6 +62,7 @@ const aiData = [
     category: "AI Video Production",
     description: "Photorealistic generative video and motion for brands. Visual velocity refined.",
     projects: [
+      { id: "ai-cinematic", title: "Cinematic AI Commercial Production", videoId: "L7aRxqziN8w", service: "Premium AI Brand Film", industry: "Fashion & Lifestyle", client: "DP AI Studios", href: "/portfolio/cinematic-ai-commercial-production" },
       { id: "ai-jewellery", title: "Cinematic AI Jewellery Commercial", videoId: "ViVvFiF-kBQ", service: "Luxury AI TVC", industry: "Luxury & Jewellery", client: "DP AI Studios", href: "/portfolio/luxury-ai-jewellery-tvc-production" },
       { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue", href: "/portfolio/desert-queen" },
       { id: "ai2", title: "SHE Luxury Body Lotion", videoId: "5kOnWP-dZZY", service: "AI TV Commercial", industry: "Fashion & Lifestyle", client: "She", href: "/portfolio/she-body-lotion" },

@@ -13,6 +13,7 @@ export async function GET() {
     '/contact',
     '/portfolio',
     '/portfolio/luxury-ai-jewellery-tvc-production',
+    '/portfolio/cinematic-ai-commercial-production',
     '/arun-devv',
     '/services',
     '/blog',
