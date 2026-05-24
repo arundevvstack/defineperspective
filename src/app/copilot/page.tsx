@@ -1,12 +1,15 @@
 "use client";
 
 import { useChat } from '@ai-sdk/react';
+import { DefaultChatTransport } from 'ai';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function CopilotPage() {
   const { messages, sendMessage, status } = useChat({
-    api: '/api/chat',
+    transport: new DefaultChatTransport({
+      api: '/api/chat',
+    }),
     initialMessages: [
       {
         id: '1',
