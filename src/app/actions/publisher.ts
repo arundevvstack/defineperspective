@@ -268,14 +268,11 @@ export async function publishIntelligence(formData: FormData) {
 
     // ── STEP 3: AI ENRICHMENT ──
     let intelligence;
-    let isDraft = false;
+    let isPublished = false;
 
     if (!process.env.GEMINI_API_KEY) {
       console.warn('[publisher] GEMINI_API_KEY missing. Falling back to metadata-only draft.');
-      isDraft = true;
-    }
-
-    if (!isDraft) {
+    } else {
       try {
         console.log('[publisher] Triggering Gemini 1.5 Flash enrichment...');
         const abortController = new AbortController();
@@ -308,7 +305,13 @@ CRITICAL REQUIREMENTS:
         
         clearTimeout(timeoutId);
         intelligence = result.object;
+        isPublished = true; // explicitly transition to published ONLY on success
+        
         console.log('[publisher] Gemini Enrichment Success. Token Usage:', result.usage);
+        console.log({
+          enrichmentSuccess: true,
+          finalPublishedState: isPublished,
+        });
 
       } catch (aiError: any) {
         // Explicitly catch and log specific failure modes
@@ -324,12 +327,11 @@ CRITICAL REQUIREMENTS:
         } else {
           console.error('[publisher] Gemini API Unknown Failure. Falling back to draft. Details:', aiError);
         }
-        
-        isDraft = true;
+        // isPublished remains false
       }
     }
 
-    if (isDraft || !intelligence) {
+    if (!isPublished || !intelligence) {
       const fallbackTitle = meta.title || `${input.industry} Video Production in ${input.geo}`;
       intelligence = {
         title: fallbackTitle,
@@ -392,9 +394,8 @@ CRITICAL REQUIREMENTS:
     console.log('[publisher] SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
     console.log('[publisher] Executing DB Insert:', {
       slug: intelligence.slug,
-      isDraft,
-      geminiSuccess: !isDraft,
-      publishedState: !isDraft
+      isPublished,
+      geminiSuccess: isPublished
     });
 
     const { data: caseStudy, error: dbError } = await supabaseAdmin
@@ -418,10 +419,10 @@ CRITICAL REQUIREMENTS:
         geo: input.geo,
         geo_tags: geoTags,
         industry: input.industry,
-        published: !isDraft,
+        published: isPublished,
         published_at: new Date().toISOString(),
       })
-      .select('id, slug')
+      .select('id, slug, published')
       .single();
 
     if (dbError) {
@@ -429,7 +430,10 @@ CRITICAL REQUIREMENTS:
       throw new Error(`Database error: ${dbError.message}`);
     }
     
-    console.log('[publisher] DB Insert successful:', caseStudy);
+    console.log('[publisher] DB Insert successful:', {
+      insertedSlug: caseStudy.slug,
+      insertedPublishedState: caseStudy.published
+    });
 
     // ── STEP 7: VECTOR EMBEDDING (COPILOT MEMORY UPDATE) ──
     try {
@@ -456,7 +460,7 @@ CRITICAL REQUIREMENTS:
     return {
       success: true,
       slug: intelligence.slug,
-      isDraft,
+      isDraft: !isPublished,
       title: intelligence.title,
       aiSummary: intelligence.ai_summary,
       faqs: intelligence.faqs,
