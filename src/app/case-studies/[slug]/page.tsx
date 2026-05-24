@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 import Link from 'next/link';
 
 // ==============================================================================
@@ -47,7 +48,9 @@ export const revalidate = 60;
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  const { data: cs } = await supabase
+  console.log('[generateMetadata] SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
+
+  const { data: cs } = await supabaseAdmin
     .from('case_studies')
     .select('title, ai_summary, thumbnail_url, geo, industry, geo_tags, published')
     .eq('slug', slug)
@@ -80,7 +83,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
 
-  const { data: cs } = await supabase
+  console.log('[CaseStudyPage] SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
+
+  const { data: cs } = await supabaseAdmin
     .from('case_studies')
     .select('*')
     .eq('slug', slug)

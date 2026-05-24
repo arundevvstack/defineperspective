@@ -389,6 +389,7 @@ CRITICAL REQUIREMENTS:
     });
 
     // ── STEP 6: DATABASE INSERT ──
+    console.log('[publisher] SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
     console.log('[publisher] Executing DB Insert:', {
       slug: intelligence.slug,
       isDraft,
