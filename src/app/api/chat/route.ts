@@ -64,7 +64,6 @@ export async function POST(req: Request) {
       system: groundedSystemPrompt,
       messages: messages as any,
       temperature: 0.2, // Strict grounding to prevent hallucination
-      maxTokens: 1500,
     });
 
     return result.toDataStreamResponse();
