@@ -345,7 +345,30 @@ CRITICAL REQUIREMENTS:
       };
     }
 
-    // ── STEP 4: SCHEMA GENERATION ──
+    // ── STEP 4: SLUG COLLISION HANDLING ──
+    const originalSlug = intelligence.slug;
+    let finalSlug = originalSlug;
+    let collisionCount = 0;
+
+    while (true) {
+      const { data: existing } = await supabaseAdmin
+        .from('case_studies')
+        .select('slug')
+        .eq('slug', finalSlug)
+        .maybeSingle();
+
+      if (!existing) break; // Slug is unique
+
+      collisionCount++;
+      finalSlug = `${originalSlug}-${collisionCount + 1}`;
+    }
+
+    if (collisionCount > 0) {
+      console.log(`[publisher] Slug collision resolved (${collisionCount} conflicts): ${originalSlug} -> ${finalSlug}`);
+      intelligence.slug = finalSlug;
+    }
+
+    // ── STEP 5: SCHEMA GENERATION ──
     const geoTags: string[] = [input.geo];
     // Add parent region for Kerala cities
     if (['Kochi'].includes(input.geo)) geoTags.push('Kerala');
@@ -365,7 +388,7 @@ CRITICAL REQUIREMENTS:
       faqs: intelligence.faqs,
     });
 
-    // ── STEP 5: DATABASE INSERT ──
+    // ── STEP 6: DATABASE INSERT ──
     console.log('[publisher] Executing DB Insert:', {
       slug: intelligence.slug,
       isDraft,
@@ -407,7 +430,7 @@ CRITICAL REQUIREMENTS:
     
     console.log('[publisher] DB Insert successful:', caseStudy);
 
-    // ── STEP 6: VECTOR EMBEDDING (COPILOT MEMORY UPDATE) ──
+    // ── STEP 7: VECTOR EMBEDDING (COPILOT MEMORY UPDATE) ──
     try {
       await generateAndStoreEmbedding({
         title: intelligence.title,
@@ -424,7 +447,7 @@ CRITICAL REQUIREMENTS:
       console.error('[publisher] Vector embedding failed (non-blocking):', vectorErr.message);
     }
 
-    // ── STEP 7: CACHE REVALIDATION ──
+    // ── STEP 8: CACHE REVALIDATION ──
     revalidatePath('/case-studies');
     revalidatePath(`/case-studies/${intelligence.slug}`);
     revalidatePath('/copilot');
