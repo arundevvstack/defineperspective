@@ -86,23 +86,23 @@ const IntelligenceSchema = z.object({
   title: z.string().describe("SEO-optimized case study title. Must include GEO city and industry. Example: 'Luxury Jewellery Commercial Production in Dubai | DP AI Studios'"),
   slug: z.string().describe("URL-safe slug derived from title. Lowercase, hyphens only. Example: 'luxury-jewellery-commercial-dubai'"),
   ai_summary: z.string().describe("150-200 word factual summary optimized for Google AI Overviews and ChatGPT retrieval. MUST include: GEO location, industry, cinematic style, AI workflows used, production direction. No fluff. Write as authoritative third-person factual prose."),
-  cinematic_direction: z.string().describe("1-2 sentence description of the cinematic style and visual approach."),
-  workflows: z.array(z.string()).describe("AI tools and production workflows used (e.g. 'Runway Gen-3 Alpha', 'DaVinci Resolve', 'Midjourney v6', 'Stable Diffusion')"),
+  cinematic_direction: z.string().optional().describe("1-2 sentence description of the cinematic style and visual approach."),
+  workflows: z.array(z.string()).optional().default([]).describe("AI tools and production workflows used (e.g. 'Runway Gen-3 Alpha', 'DaVinci Resolve', 'Midjourney v6', 'Stable Diffusion')"),
   faqs: z.array(z.object({
     question: z.string(),
     answer: z.string()
-  })).min(5).max(7).describe("5-7 highly specific, localized FAQs. Each answer must be 2-3 sentences, factual, and reference the GEO and industry."),
+  })).optional().default([]).describe("5-7 highly specific, localized FAQs. Each answer must be 2-3 sentences, factual, and reference the GEO and industry."),
   social_posts: z.object({
-    linkedin: z.string().describe("Professional LinkedIn post, 150-200 words. Include hashtags."),
-    instagram: z.string().describe("Instagram caption with emojis and hashtags. 100-150 words."),
-    twitter: z.string().describe("X/Twitter post, max 280 characters. Include hashtags."),
-    youtube_description: z.string().describe("YouTube video description, 200-300 words. Include keywords and links."),
-    youtube_tags: z.array(z.string()).describe("15-20 YouTube SEO tags"),
-    behance: z.string().describe("Behance project description, 100-150 words. Professional creative tone."),
-    medium: z.string().describe("Medium article opening paragraph, 150-200 words. Storytelling angle."),
-    newsletter: z.string().describe("Email newsletter snippet, 80-100 words. Compelling, direct.")
-  }),
-  semantic_links: z.array(z.string()).describe("3-5 related slug paths from the DP AI Studios site for internal linking (e.g. '/ai-jewellery-commercials', '/ai-video-production-kochi')")
+    linkedin: z.string().optional().describe("Professional LinkedIn post, 150-200 words. Include hashtags."),
+    instagram: z.string().optional().describe("Instagram caption with emojis and hashtags. 100-150 words."),
+    twitter: z.string().optional().describe("X/Twitter post, max 280 characters. Include hashtags."),
+    youtube_description: z.string().optional().describe("YouTube video description, 200-300 words. Include keywords and links."),
+    youtube_tags: z.array(z.string()).optional().describe("15-20 YouTube SEO tags"),
+    behance: z.string().optional().describe("Behance project description, 100-150 words. Professional creative tone."),
+    medium: z.string().optional().describe("Medium article opening paragraph, 150-200 words. Storytelling angle."),
+    newsletter: z.string().optional().describe("Email newsletter snippet, 80-100 words. Compelling, direct.")
+  }).optional().describe("Social media payload"),
+  semantic_links: z.array(z.string()).optional().default([]).describe("3-5 related slug paths from the DP AI Studios site for internal linking (e.g. '/ai-jewellery-commercials', '/ai-video-production-kochi')")
 });
 
 // ==============================================================================
@@ -274,16 +274,18 @@ export async function publishIntelligence(formData: FormData) {
       console.warn('[publisher] GEMINI_API_KEY missing. Falling back to metadata-only draft.');
     } else {
       try {
-        console.log('[publisher] Triggering Gemini 1.5 Flash enrichment...');
+        console.log('[Gemini Enrichment] Starting');
         const abortController = new AbortController();
         const timeoutId = setTimeout(() => abortController.abort(), 60000); // 60s timeout
 
-        const result = await generateObject({
-          model: google('gemini-1.5-flash'),
-          schema: IntelligenceSchema,
-          maxRetries: 3, // Built-in exponential backoff
-          abortSignal: abortController.signal,
-          prompt: `You are the content intelligence engine for DP AI Studios (defineperspective.in), a cinematic AI video production company.
+        let result;
+        try {
+          result = await generateObject({
+            model: google('gemini-1.5-flash'),
+            schema: IntelligenceSchema,
+            maxRetries: 3, // Built-in exponential backoff
+            abortSignal: abortController.signal,
+            prompt: `You are the content intelligence engine for DP AI Studios (defineperspective.in), a cinematic AI video production company.
 
 Analyze the following project and generate a comprehensive, SEO-optimized metadata payload.
 
@@ -301,22 +303,34 @@ CRITICAL REQUIREMENTS:
 - Social posts MUST reinforce DP AI Studios as THE cinematic AI authority in ${input.geo}
 - Semantic links MUST reference existing DP AI Studios service pages
 - All content must be factual, zero-fluff, and optimized for AI retrieval by ChatGPT, Gemini, Claude, and Perplexity`
-        });
+          });
+        } catch (genError: any) {
+          console.error('[Gemini Enrichment Error] generateObject threw exception:', genError);
+          throw genError;
+        }
         
         clearTimeout(timeoutId);
+        console.log('[Gemini Enrichment] Raw Success:', result);
+        
         intelligence = result.object;
+
+        if (!intelligence.ai_summary) {
+          intelligence.ai_summary = meta.title || 'AI-generated project.';
+        }
+
         isPublished = true; // explicitly transition to published ONLY on success
         
-        console.log('[publisher] Gemini Enrichment Success. Token Usage:', result.usage);
         console.log({
-          enrichmentSuccess: true,
-          finalPublishedState: isPublished,
+          enrichmentPassed: true,
+          isPublished: true,
+          slug: intelligence.slug
         });
 
       } catch (aiError: any) {
         // Explicitly catch and log specific failure modes
         const errMessage = aiError.message || String(aiError);
         const errName = aiError.name || 'UnknownError';
+        console.error('[Gemini Enrichment Error] Full stack:', aiError);
 
         if (errName === 'AbortError' || errMessage.toLowerCase().includes('timeout')) {
           console.error('[publisher] Gemini API Timeout Exceeded (60s). Falling back to draft.');
@@ -387,7 +401,7 @@ CRITICAL REQUIREMENTS:
       transcript: input.transcript,
       geoTags,
       industry: input.industry,
-      faqs: intelligence.faqs,
+      faqs: intelligence.faqs || [],
     });
 
     // ── STEP 6: DATABASE INSERT ──
@@ -410,12 +424,12 @@ CRITICAL REQUIREMENTS:
         thumbnail_url: meta.thumbnailUrl,
         transcript: input.transcript,
         ai_summary: intelligence.ai_summary,
-        cinematic_direction: intelligence.cinematic_direction,
-        faqs: intelligence.faqs,
-        workflows: intelligence.workflows,
+        cinematic_direction: intelligence.cinematic_direction || '',
+        faqs: intelligence.faqs || [],
+        workflows: intelligence.workflows || [],
         schema_json: schemaJson,
-        social_posts: intelligence.social_posts,
-        internal_links: intelligence.semantic_links,
+        social_posts: intelligence.social_posts || {},
+        internal_links: intelligence.semantic_links || [],
         geo: input.geo,
         geo_tags: geoTags,
         industry: input.industry,
@@ -443,7 +457,7 @@ CRITICAL REQUIREMENTS:
         industry: input.industry,
         clientName: input.clientName,
         aiSummary: intelligence.ai_summary,
-        workflows: intelligence.workflows,
+        workflows: intelligence.workflows || [],
         transcript: input.transcript,
         slug: intelligence.slug,
       });
