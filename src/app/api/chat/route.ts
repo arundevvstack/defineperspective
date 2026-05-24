@@ -1,4 +1,4 @@
-import { streamText, UIMessage } from 'ai';
+import { streamText } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { createClient } from '@supabase/supabase-js';
 
@@ -62,7 +62,7 @@ export async function POST(req: Request) {
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       system: groundedSystemPrompt,
-      messages: messages as UIMessage[],
+      messages: messages as any,
       temperature: 0.2, // Strict grounding to prevent hallucination
       maxTokens: 1500,
     });
