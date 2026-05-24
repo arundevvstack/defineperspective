@@ -66,7 +66,7 @@ export async function POST(req: Request) {
       temperature: 0.2, // Strict grounding to prevent hallucination
     });
 
-    return result.toDataStreamResponse();
+    return result.toTextStreamResponse();
   } catch (error) {
     console.error('Copilot Stream Error:', error);
     return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
