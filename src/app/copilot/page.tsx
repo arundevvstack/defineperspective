@@ -103,8 +103,7 @@ export default function CopilotPage() {
               e.preventDefault();
               if (!input.trim()) return;
               sendMessage({
-                content: input,
-                role: 'user'
+                text: input,
               });
               setInput('');
             }} 
