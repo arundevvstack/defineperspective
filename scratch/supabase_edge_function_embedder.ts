@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================================================
 // DP AI STUDIOS - PHASE 8: SUPABASE EDGE FUNCTION ORCHESTRATOR (DENO)
 // Target: supabase/functions/generate-embeddings/index.ts
