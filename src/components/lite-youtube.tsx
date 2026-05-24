@@ -111,7 +111,9 @@ export default function LiteYouTube({
             loading={priority ? undefined : "lazy"}
             priority={priority}
             onError={() => {
-              setThumbUrl(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
+              if (!thumbUrl.includes("hqdefault.jpg")) {
+                setThumbUrl(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
+              }
             }}
           />
           
