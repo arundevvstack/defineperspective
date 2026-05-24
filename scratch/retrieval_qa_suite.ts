@@ -72,7 +72,7 @@ async function executeSemanticLoadTest() {
       });
 
     } catch (err) {
-      console.error(`  └─ [FAIL] Error executing query: ${err.message}\n`);
+      console.error(`  └─ [FAIL] Error executing query: ${(err as Error).message}\n`);
     }
   }
 
