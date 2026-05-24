@@ -6,18 +6,25 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function CopilotPage() {
-  const { messages, sendMessage, status } = useChat({
+  const [messages, setMessages] = useState<any[]>([
+    {
+      id: '1',
+      role: 'assistant',
+      content: 'Welcome to DP AI Copilot™. How can we architect your cinematic campaign today?',
+    }
+  ]);
+
+  const { messages: chatMessages, sendMessage, status } = useChat({
     transport: new DefaultChatTransport({
       api: '/api/chat',
-    }),
-    initialMessages: [
-      {
-        id: '1',
-        role: 'assistant',
-        content: "Welcome to the DP AI Studios intelligence node. I am the AI Copilot. How may I assist you with your cinematic production strategy today?"
-      }
-    ]
+    })
   });
+
+  useEffect(() => {
+    if (chatMessages && chatMessages.length > 0) {
+      setMessages(chatMessages);
+    }
+  }, [chatMessages]);
 
   const [input, setInput] = useState('');
 
