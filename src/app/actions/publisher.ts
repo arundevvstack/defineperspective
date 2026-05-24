@@ -2,6 +2,7 @@
 
 import { generateObject } from 'ai';
 import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
@@ -266,10 +267,20 @@ export async function publishIntelligence(formData: FormData) {
     const meta = await extractMetadata(input.externalUrl, platform, videoId);
 
     // ── STEP 3: AI ENRICHMENT ──
-    const { object: intelligence } = await generateObject({
-      model: openai('gpt-4o-mini'),
-      schema: IntelligenceSchema,
-      prompt: `You are the content intelligence engine for DP AI Studios (defineperspective.in), a cinematic AI video production company.
+    let intelligence;
+    let isDraft = false;
+
+    if (!process.env.GEMINI_API_KEY) {
+      console.warn('[publisher] GEMINI_API_KEY missing. Falling back to metadata-only draft.');
+      isDraft = true;
+    }
+
+    if (!isDraft) {
+      try {
+        const { object } = await generateObject({
+          model: google('gemini-1.5-pro'),
+          schema: IntelligenceSchema,
+          prompt: `You are the content intelligence engine for DP AI Studios (defineperspective.in), a cinematic AI video production company.
 
 Analyze the following project and generate a comprehensive, SEO-optimized metadata payload.
 
@@ -287,7 +298,29 @@ CRITICAL REQUIREMENTS:
 - Social posts MUST reinforce DP AI Studios as THE cinematic AI authority in ${input.geo}
 - Semantic links MUST reference existing DP AI Studios service pages
 - All content must be factual, zero-fluff, and optimized for AI retrieval by ChatGPT, Gemini, Claude, and Perplexity`
-    });
+        });
+        intelligence = object;
+      } catch (aiError) {
+        console.error('[publisher] Gemini API failed, creating draft fallback:', aiError);
+        isDraft = true;
+      }
+    }
+
+    if (isDraft || !intelligence) {
+      const fallbackTitle = meta.title || `${input.industry} Video Production in ${input.geo}`;
+      intelligence = {
+        title: fallbackTitle,
+        slug: fallbackTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+        ai_summary: `Draft project for ${input.clientName} in the ${input.industry} sector, targeted at ${input.geo}. AI enrichment pending.`,
+        cinematic_direction: 'Pending AI enrichment.',
+        workflows: [],
+        faqs: [],
+        social_posts: {
+          linkedin: '', instagram: '', twitter: '', youtube_description: '', youtube_tags: [], behance: '', medium: '', newsletter: ''
+        },
+        semantic_links: []
+      };
+    }
 
     // ── STEP 4: SCHEMA GENERATION ──
     const geoTags: string[] = [input.geo];
@@ -331,7 +364,7 @@ CRITICAL REQUIREMENTS:
         geo: input.geo,
         geo_tags: geoTags,
         industry: input.industry,
-        published: true,
+        published: !isDraft,
         published_at: new Date().toISOString(),
       })
       .select('id, slug')
