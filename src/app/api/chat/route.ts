@@ -1,9 +1,10 @@
-import { streamText, CoreMessage } from 'ai';
+import { streamText, UIMessage } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ''; // Requires elevated privileges to query raw vectors safely
+const openaiApiKey = process.env.OPENAI_API_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function POST(req: Request) {
@@ -61,7 +62,7 @@ export async function POST(req: Request) {
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       system: groundedSystemPrompt,
-      messages: messages as CoreMessage[],
+      messages: messages as UIMessage[],
       temperature: 0.2, // Strict grounding to prevent hallucination
       maxTokens: 1500,
     });
