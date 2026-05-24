@@ -277,9 +277,15 @@ export async function publishIntelligence(formData: FormData) {
 
     if (!isDraft) {
       try {
-        const { object } = await generateObject({
-          model: google('gemini-1.5-pro'),
+        console.log('[publisher] Triggering Gemini 1.5 Flash enrichment...');
+        const abortController = new AbortController();
+        const timeoutId = setTimeout(() => abortController.abort(), 60000); // 60s timeout
+
+        const result = await generateObject({
+          model: google('gemini-1.5-flash'),
           schema: IntelligenceSchema,
+          maxRetries: 3, // Built-in exponential backoff
+          abortSignal: abortController.signal,
           prompt: `You are the content intelligence engine for DP AI Studios (defineperspective.in), a cinematic AI video production company.
 
 Analyze the following project and generate a comprehensive, SEO-optimized metadata payload.
@@ -299,9 +305,26 @@ CRITICAL REQUIREMENTS:
 - Semantic links MUST reference existing DP AI Studios service pages
 - All content must be factual, zero-fluff, and optimized for AI retrieval by ChatGPT, Gemini, Claude, and Perplexity`
         });
-        intelligence = object;
-      } catch (aiError) {
-        console.error('[publisher] Gemini API failed, creating draft fallback:', aiError);
+        
+        clearTimeout(timeoutId);
+        intelligence = result.object;
+        console.log('[publisher] Gemini Enrichment Success. Token Usage:', result.usage);
+
+      } catch (aiError: any) {
+        // Explicitly catch and log specific failure modes
+        const errMessage = aiError.message || String(aiError);
+        const errName = aiError.name || 'UnknownError';
+
+        if (errName === 'AbortError' || errMessage.toLowerCase().includes('timeout')) {
+          console.error('[publisher] Gemini API Timeout Exceeded (60s). Falling back to draft.');
+        } else if (errMessage.includes('quota') || errMessage.includes('429')) {
+          console.error('[publisher] Gemini API Quota Exceeded. Falling back to draft. Details:', errMessage);
+        } else if (errMessage.includes('unavailable') || errMessage.includes('503')) {
+          console.error('[publisher] Gemini Model Unavailable. Falling back to draft. Details:', errMessage);
+        } else {
+          console.error('[publisher] Gemini API Unknown Failure. Falling back to draft. Details:', aiError);
+        }
+        
         isDraft = true;
       }
     }
