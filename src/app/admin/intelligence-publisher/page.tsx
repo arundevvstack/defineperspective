@@ -24,6 +24,7 @@ type PipelineStep = typeof PIPELINE_STEPS[number]['key'];
 type PublishResult = {
   success: boolean;
   slug?: string;
+  isDraft?: boolean;
   title?: string;
   aiSummary?: string;
   faqs?: { question: string; answer: string }[];
@@ -244,9 +245,9 @@ export default function IntelligencePublisher() {
                           initial={{ opacity: 0, y: 5 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0 }}
-                          className="text-green-500 text-sm truncate"
+                          className={`text-sm truncate ${result?.isDraft ? 'text-amber-500' : 'text-green-500'}`}
                         >
-                          ✓ Published: /case-studies/{result?.slug}
+                          {result?.isDraft ? `⚠️ Draft Saved (AI Failed): /case-studies/${result?.slug}` : `✓ Published: /case-studies/${result?.slug}`}
                         </motion.p>
                       )}
                       {status === 'error' && (

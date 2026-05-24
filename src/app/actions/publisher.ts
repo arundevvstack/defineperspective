@@ -343,6 +343,13 @@ CRITICAL REQUIREMENTS:
     });
 
     // ── STEP 5: DATABASE INSERT ──
+    console.log('[publisher] Executing DB Insert:', {
+      slug: intelligence.slug,
+      isDraft,
+      geminiSuccess: !isDraft,
+      publishedState: !isDraft
+    });
+
     const { data: caseStudy, error: dbError } = await supabaseAdmin
       .from('case_studies')
       .insert({
@@ -370,7 +377,12 @@ CRITICAL REQUIREMENTS:
       .select('id, slug')
       .single();
 
-    if (dbError) throw new Error(`Database error: ${dbError.message}`);
+    if (dbError) {
+      console.error('[publisher] Database insert failed:', dbError.message);
+      throw new Error(`Database error: ${dbError.message}`);
+    }
+    
+    console.log('[publisher] DB Insert successful:', caseStudy);
 
     // ── STEP 6: VECTOR EMBEDDING (COPILOT MEMORY UPDATE) ──
     try {
@@ -397,6 +409,7 @@ CRITICAL REQUIREMENTS:
     return {
       success: true,
       slug: intelligence.slug,
+      isDraft,
       title: intelligence.title,
       aiSummary: intelligence.ai_summary,
       faqs: intelligence.faqs,

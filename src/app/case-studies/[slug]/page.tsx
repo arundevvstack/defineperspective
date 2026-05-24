@@ -49,9 +49,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const { data: cs } = await supabase
     .from('case_studies')
-    .select('title, ai_summary, thumbnail_url, geo, industry, geo_tags')
+    .select('title, ai_summary, thumbnail_url, geo, industry, geo_tags, published')
     .eq('slug', slug)
-    .eq('published', true)
     .maybeSingle();
 
   if (!cs) return { title: 'Case Study Not Found | DP AI Studios' };
@@ -71,6 +70,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://defineperspective.in/case-studies/${slug}`,
     },
+    ...(cs.published ? {} : { robots: { index: false, follow: false } }),
   };
 }
 
@@ -84,7 +84,6 @@ export default async function CaseStudyPage({ params }: Props) {
     .from('case_studies')
     .select('*')
     .eq('slug', slug)
-    .eq('published', true)
     .maybeSingle();
 
   if (!cs) notFound();
@@ -93,6 +92,13 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <div className="bg-black text-white min-h-screen font-sans">
+      
+      {/* ── DRAFT MODE BANNER ── */}
+      {!caseStudy.published && (
+        <div className="bg-amber-500 text-black text-center text-xs font-bold uppercase tracking-widest py-2 px-4 sticky top-0 z-50">
+          ⚠️ Draft Mode: AI Enrichment Pending. This node is hidden from public indexing.
+        </div>
+      )}
 
       {/* ── JSON-LD SCHEMA ── */}
       {caseStudy.schema_json && (
