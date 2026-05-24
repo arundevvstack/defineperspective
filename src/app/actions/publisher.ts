@@ -470,6 +470,8 @@ CRITICAL REQUIREMENTS:
     revalidatePath('/case-studies');
     revalidatePath(`/case-studies/${intelligence.slug}`);
     revalidatePath('/copilot');
+    revalidatePath('/sitemap-case-studies.xml');
+    revalidatePath('/sitemap.xml');
 
     return {
       success: true,

@@ -7,6 +7,7 @@ import GlassNavbar from '@/components/glass-navbar';
 import WhatsAppChat from '@/components/whatsapp-chat';
 import LiteYouTube from '@/components/lite-youtube';
 import { ArrowRight } from 'lucide-react';
+import { getRelatedCaseStudies, CaseStudyNode } from '@/lib/related-engine';
 
 // ==============================================================================
 // TYPES
@@ -69,13 +70,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: cs.title,
       description,
-      images: cs.thumbnail_url ? [{ url: cs.thumbnail_url }] : [],
+      images: [{ 
+        url: `https://defineperspective.in/api/og?title=${encodeURIComponent(cs.title)}&industry=${encodeURIComponent(cs.industry)}&geo=${encodeURIComponent(cs.geo)}` 
+      }],
       type: 'article',
     },
     alternates: {
       canonical: `https://defineperspective.in/case-studies/${slug}`,
     },
-    ...(cs.published ? {} : { robots: { index: false, follow: false } }),
+    robots: cs.published 
+      ? { index: true, follow: true } 
+      : { index: false, follow: false },
   };
 }
 
@@ -96,13 +101,16 @@ export default async function CaseStudyPage({ params }: Props) {
   const caseStudy = cs as CaseStudy;
   const isPublic = caseStudy.published === true;
 
-  // Fetch related case studies (same industry or latest)
-  const { data: related } = await supabaseAdmin
+  // Fetch ALL published case studies to feed the scoring engine
+  const { data: allPublished } = await supabaseAdmin
     .from('case_studies')
-    .select('title, slug, thumbnail_url, industry')
-    .eq('published', true)
-    .neq('slug', slug)
-    .limit(3);
+    .select('id, slug, title, industry, geo, geo_tags, workflows, internal_links, platform, thumbnail_url, published_at, created_at')
+    .eq('published', true);
+
+  // Run Related Intelligence Heuristics
+  const related = allPublished 
+    ? getRelatedCaseStudies(caseStudy, allPublished as CaseStudyNode[], 3)
+    : [];
 
   // Generate Article & Speakable Schema
   const articleSchema = {
@@ -209,7 +217,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </section>
 
           {/* 3. Final Film / YouTube Embed */}
-          <section className="relative group">
+          <section id="the-film" className="relative group">
             <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">02 // The Final Film</h2>
             <div className="relative rounded-[2rem] overflow-hidden bg-black/60 border border-white/10 shadow-2xl aspect-video w-full group-hover:border-primary-accent/40 transition-colors duration-700">
               {caseStudy.video_embed_url ? (
@@ -245,7 +253,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
           {/* 5. Tools & Tech Stack */}
           {caseStudy.workflows && caseStudy.workflows.length > 0 && (
-            <section>
+            <section id="production-pipeline">
               <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">04 // Generative Stack & Tools</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {caseStudy.workflows.map((tool) => (
@@ -260,19 +268,22 @@ export default async function CaseStudyPage({ params }: Props) {
 
           {/* 6. Production Breakdown (Transcript / Detailed text) */}
           {caseStudy.transcript && caseStudy.transcript.length > 0 && (
-            <section>
+            <section id="full-transcript">
               <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">05 // Dialogue & Scripting</h2>
-              <div className="bg-neutral-900/40 p-8 rounded-[2rem] border border-white/5 h-96 overflow-y-auto custom-scrollbar">
-                <div className="text-zinc-400 font-mono leading-relaxed text-xs sm:text-sm whitespace-pre-wrap">
+              <details className="bg-neutral-900/40 p-6 rounded-[2rem] border border-white/5 group marker:text-primary-accent">
+                <summary className="text-zinc-300 font-bold uppercase tracking-widest text-xs cursor-pointer select-none hover:text-white transition-colors">
+                  Full Production Transcript
+                </summary>
+                <div className="mt-6 text-zinc-400 font-mono leading-relaxed text-xs sm:text-sm whitespace-pre-wrap max-h-96 overflow-y-auto custom-scrollbar pr-4 border-t border-white/10 pt-4">
                   {caseStudy.transcript}
                 </div>
-              </div>
+              </details>
             </section>
           )}
 
           {/* FAQ SEO Injection */}
           {caseStudy.faqs && caseStudy.faqs.length > 0 && (
-            <section>
+            <section id="analysis-faq">
               <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">06 // Analysis & FAQ</h2>
               <div className="space-y-4">
                 {caseStudy.faqs.map((faq, idx) => (
