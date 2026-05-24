@@ -1,11 +1,11 @@
 "use client";
 
 import { useChat } from '@ai-sdk/react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function CopilotPage() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+  const { messages, sendMessage, status } = useChat({
     api: '/api/chat',
     initialMessages: [
       {
@@ -15,6 +15,8 @@ export default function CopilotPage() {
       }
     ]
   });
+
+  const [input, setInput] = useState('');
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -68,7 +70,7 @@ export default function CopilotPage() {
               </div>
             </motion.div>
           ))}
-          {isLoading && (
+          {(status === 'submitted' || status === 'streaming') && (
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -86,16 +88,27 @@ export default function CopilotPage() {
       {/* Input Console */}
       <footer className="flex-none p-6 bg-gradient-to-t from-black via-black to-transparent z-10 pb-10">
         <div className="max-w-4xl mx-auto">
-          <form onSubmit={handleSubmit} className="relative">
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!input.trim()) return;
+              sendMessage({
+                content: input,
+                role: 'user'
+              });
+              setInput('');
+            }} 
+            className="relative"
+          >
             <input
               value={input}
-              onChange={handleInputChange}
+              onChange={(e) => setInput(e.target.value)}
               placeholder="Query cinematic strategies, workflows, or case studies..."
               className="w-full bg-neutral-900/80 border border-neutral-800 text-white px-6 py-4 rounded-full focus:outline-none focus:border-amber-500/50 transition-colors backdrop-blur-md"
             />
             <button 
               type="submit" 
-              disabled={isLoading || !input?.trim()}
+              disabled={status === 'submitted' || status === 'streaming' || !input?.trim()}
               className="absolute right-2 top-2 bottom-2 px-6 bg-white text-black font-medium rounded-full hover:bg-amber-500 hover:text-white transition-colors disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-black uppercase tracking-widest text-xs"
             >
               Execute
