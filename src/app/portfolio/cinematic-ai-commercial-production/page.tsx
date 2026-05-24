@@ -5,6 +5,7 @@ import CinematicOverview from "@/components/portfolio/cinematic-commercial/cinem
 import CinematicEditorialGrid from "@/components/portfolio/cinematic-commercial/cinematic-editorial-grid";
 import CinematicFAQ from "@/components/portfolio/cinematic-commercial/cinematic-faq";
 import GlassNavbar from "@/components/glass-navbar";
+import CaseStudyCTA from "@/components/portfolio/case-study-cta";
 
 export const metadata: Metadata = {
   title: "Cinematic AI Commercial Production | DP AI Studios India",
@@ -197,6 +198,7 @@ export default function CinematicCaseStudy() {
         <CinematicTranscript />
         <CinematicOverview />
         <CinematicEditorialGrid />
+        <CaseStudyCTA slug="cinematic-ai-commercial-production" />
         <CinematicFAQ />
       </div>
     </main>

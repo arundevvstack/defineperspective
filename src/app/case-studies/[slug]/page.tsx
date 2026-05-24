@@ -1,8 +1,12 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import Link from 'next/link';
+import Image from 'next/image';
+import GlassNavbar from '@/components/glass-navbar';
+import WhatsAppChat from '@/components/whatsapp-chat';
+import LiteYouTube from '@/components/lite-youtube';
+import { ArrowRight } from 'lucide-react';
 
 // ==============================================================================
 // TYPES
@@ -48,8 +52,6 @@ export const revalidate = 60;
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  console.log('[generateMetadata] SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
-
   const { data: cs } = await supabaseAdmin
     .from('case_studies')
     .select('title, ai_summary, thumbnail_url, geo, industry, geo_tags, published')
@@ -83,77 +85,133 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
 
-  console.log('[CaseStudyPage] SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
-
   const { data: cs } = await supabaseAdmin
     .from('case_studies')
     .select('*')
     .eq('slug', slug)
     .maybeSingle();
 
-  console.log('[CaseStudyPage Debug]', {
-    requestedSlug: slug,
-    rowFound: !!cs,
-    published: cs?.published
-  });
-
   if (!cs) notFound();
 
   const caseStudy = cs as CaseStudy;
+  const isPublic = caseStudy.published === true;
+
+  // Fetch related case studies (same industry or latest)
+  const { data: related } = await supabaseAdmin
+    .from('case_studies')
+    .select('title, slug, thumbnail_url, industry')
+    .eq('published', true)
+    .neq('slug', slug)
+    .limit(3);
+
+  // Generate Article & Speakable Schema
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": caseStudy.title,
+    "description": caseStudy.ai_summary,
+    "image": caseStudy.thumbnail_url || "https://defineperspective.in/og-image.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "DP AI Studios",
+      "url": "https://defineperspective.in/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DP AI Studios",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://defineperspective.in/logo.png"
+      }
+    },
+    "datePublished": caseStudy.published_at || caseStudy.created_at,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://defineperspective.in/case-studies/${caseStudy.slug}`
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#campaign-summary", "#creative-direction"]
+    }
+  };
+
+  // Generate BreadcrumbList
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://defineperspective.in/" },
+      { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://defineperspective.in/case-studies" },
+      { "@type": "ListItem", "position": 3, "name": caseStudy.title, "item": `https://defineperspective.in/case-studies/${caseStudy.slug}` }
+    ]
+  };
 
   return (
-    <div className="bg-black text-white min-h-screen font-sans">
-      
+    <main className="bg-obsidian text-white min-h-screen font-sans selection:bg-primary-accent/30 pt-20">
+      <GlassNavbar />
+
       {/* ── DRAFT MODE BANNER ── */}
-      {!caseStudy.published && (
-        <div className="bg-amber-500 text-black text-center text-xs font-bold uppercase tracking-widest py-2 px-4 sticky top-0 z-50">
-          ⚠️ Draft Mode: AI Enrichment Pending. This node is hidden from public indexing.
+      {!isPublic && (
+        <div className="bg-amber-500 text-black text-center text-xs font-bold uppercase tracking-widest py-3 px-4 sticky top-20 z-50">
+          ⚠️ Draft Mode: AI Enrichment Pending. Hidden from public indexing.
         </div>
       )}
 
       {/* ── JSON-LD SCHEMA ── */}
       {caseStudy.schema_json && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudy.schema_json) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudy.schema_json) }} />
       )}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      {/* ── HERO ── */}
-      <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] flex items-center justify-center overflow-hidden">
+      {/* ── 1. HERO SECTION ── */}
+      <section className="relative w-full min-h-[70vh] flex flex-col justify-end overflow-hidden border-b border-white/5 pb-16">
         {caseStudy.thumbnail_url && (
-          <div
-            className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
-            style={{ backgroundImage: `url(${caseStudy.thumbnail_url})` }}
-          />
+          <div className="absolute inset-0 z-0">
+            <Image src={caseStudy.thumbnail_url} alt={caseStudy.title} fill className="object-cover opacity-40" priority />
+            <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/40 to-transparent" />
+          </div>
         )}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
 
-        <div className="relative z-10 text-center max-w-4xl px-6 py-20">
-          <p className="text-amber-500 uppercase tracking-widest text-xs sm:text-sm mb-4 font-medium">
-            {caseStudy.industry} · {caseStudy.geo}
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-tight leading-tight">
-            {caseStudy.title}
-          </h1>
-          {caseStudy.cinematic_direction && (
-            <p className="text-lg sm:text-xl text-neutral-300 font-light max-w-2xl mx-auto">
-              {caseStudy.cinematic_direction}
-            </p>
-          )}
+        <div className="container relative z-10 mx-auto px-6 md:px-12">
+          <div className="max-w-4xl">
+            <div className="flex flex-wrap gap-3 mb-8">
+              <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono text-zinc-300 uppercase tracking-widest">{caseStudy.industry}</span>
+              <span className="px-3 py-1.5 bg-primary-accent/10 border border-primary-accent/20 rounded-full text-[10px] font-mono text-primary-accent uppercase tracking-widest">{caseStudy.geo}</span>
+              <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono text-zinc-300 uppercase tracking-widest">{caseStudy.platform}</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-7xl font-black uppercase mb-6 leading-[1.1] drop-shadow-2xl">
+              {caseStudy.title}
+            </h1>
+            
+            <div className="flex items-center gap-6 text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-400">
+              <p>Client: <span className="text-white font-bold">{caseStudy.client_name || "Confidential"}</span></p>
+              <p>Date: <span className="text-white font-bold">{new Date(caseStudy.published_at || caseStudy.created_at).getFullYear()}</span></p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ── MAIN CONTENT ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      {/* ── CONTENT BODY ── */}
+      <div className="container mx-auto px-6 md:px-12 py-20 lg:py-32 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        
+        {/* ── LEFT NARRATIVE COLUMN ── */}
+        <div className="lg:col-span-8 space-y-24">
+          
+          {/* 2. Campaign Summary */}
+          <section id="campaign-summary" className="prose prose-invert prose-xl max-w-none">
+            <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">01 // Campaign Summary</h2>
+            <p className="text-xl md:text-3xl font-light leading-relaxed text-zinc-200">
+              {caseStudy.ai_summary}
+            </p>
+          </section>
 
-        {/* ── LEFT COLUMN: Primary Content ── */}
-        <div className="lg:col-span-8 space-y-16 sm:space-y-24">
-
-          {/* Video Embed (Facade-loaded) */}
-          <section>
-            <h2 className="text-2xl sm:text-3xl font-light mb-6 tracking-wide">The Film</h2>
-            <div className="aspect-video w-full bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 shadow-2xl">
+          {/* 3. Final Film / YouTube Embed */}
+          <section className="relative group">
+            <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">02 // The Final Film</h2>
+            <div className="relative rounded-[2rem] overflow-hidden bg-black/60 border border-white/10 shadow-2xl aspect-video w-full group-hover:border-primary-accent/40 transition-colors duration-700">
               {caseStudy.video_embed_url ? (
                 <iframe
                   src={caseStudy.video_embed_url}
@@ -164,151 +222,157 @@ export default async function CaseStudyPage({ params }: Props) {
                   title={caseStudy.title}
                 />
               ) : (
-                <a
-                  href={caseStudy.external_video_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full h-full flex items-center justify-center text-neutral-400 hover:text-amber-500 transition-colors"
-                >
-                  ▶ Watch on {caseStudy.platform}
-                </a>
+                <div className="w-full h-full flex flex-col items-center justify-center">
+                  <a href={caseStudy.external_video_url} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all text-sm uppercase tracking-widest font-bold flex items-center gap-3">
+                    ▶ Watch on {caseStudy.platform}
+                  </a>
+                </div>
               )}
             </div>
           </section>
 
-          {/* AI Summary — The Core Authority Signal */}
-          <section>
-            <h2 className="text-2xl sm:text-3xl font-light mb-6 tracking-wide">Project Overview</h2>
-            <div id="ai-summary" className="prose prose-invert prose-lg max-w-none">
-              <p className="text-neutral-300 leading-relaxed font-light text-base sm:text-lg">
-                {caseStudy.ai_summary}
-              </p>
-            </div>
-          </section>
-
-          {/* Transcript */}
-          {caseStudy.transcript && caseStudy.transcript.length > 0 && (
-            <section className="bg-neutral-900/60 p-6 sm:p-8 rounded-xl border border-neutral-800">
-              <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-4">Full Transcript</h3>
-              <div className="text-neutral-400 font-light leading-relaxed text-sm whitespace-pre-wrap max-h-[400px] overflow-y-auto pr-2">
-                {caseStudy.transcript}
+          {/* 4. Creative Direction */}
+          {caseStudy.cinematic_direction && (
+            <section id="creative-direction">
+              <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">03 // Creative Direction</h2>
+              <div className="bg-white/[0.02] border border-white/5 p-8 md:p-12 rounded-[2rem]">
+                <p className="text-lg md:text-xl text-zinc-300 font-light leading-relaxed">
+                  {caseStudy.cinematic_direction}
+                </p>
               </div>
             </section>
           )}
 
-          {/* FAQ Section — SEO-critical, server-rendered */}
-          {caseStudy.faqs && caseStudy.faqs.length > 0 && (
+          {/* 5. Tools & Tech Stack */}
+          {caseStudy.workflows && caseStudy.workflows.length > 0 && (
             <section>
-              <h2 className="text-2xl sm:text-3xl font-light mb-8 tracking-wide">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-6">
-                {caseStudy.faqs.map((faq: { question: string; answer: string }, idx: number) => (
-                  <div key={idx} className="border-b border-neutral-800 pb-6 last:border-0">
-                    <h3 className="text-white text-base sm:text-lg font-medium mb-2">{faq.question}</h3>
-                    <p className="text-neutral-400 leading-relaxed text-sm sm:text-base">{faq.answer}</p>
+              <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">04 // Generative Stack & Tools</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {caseStudy.workflows.map((tool) => (
+                  <div key={tool} className="bg-white/5 border border-white/10 rounded-xl px-6 py-4 flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-accent shrink-0" />
+                    <span className="text-sm font-bold uppercase tracking-wider text-zinc-200">{tool}</span>
                   </div>
                 ))}
               </div>
             </section>
           )}
+
+          {/* 6. Production Breakdown (Transcript / Detailed text) */}
+          {caseStudy.transcript && caseStudy.transcript.length > 0 && (
+            <section>
+              <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">05 // Dialogue & Scripting</h2>
+              <div className="bg-neutral-900/40 p-8 rounded-[2rem] border border-white/5 h-96 overflow-y-auto custom-scrollbar">
+                <div className="text-zinc-400 font-mono leading-relaxed text-xs sm:text-sm whitespace-pre-wrap">
+                  {caseStudy.transcript}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* FAQ SEO Injection */}
+          {caseStudy.faqs && caseStudy.faqs.length > 0 && (
+            <section>
+              <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">06 // Analysis & FAQ</h2>
+              <div className="space-y-4">
+                {caseStudy.faqs.map((faq, idx) => (
+                  <div key={idx} className="bg-white/[0.02] border border-white/5 rounded-2xl p-6">
+                    <h3 className="text-white text-sm md:text-base font-bold uppercase tracking-wide mb-3">{faq.question}</h3>
+                    <p className="text-zinc-400 leading-relaxed text-sm">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
         </div>
 
-        {/* ── RIGHT COLUMN: Sidebar HUD ── */}
-        <aside className="lg:col-span-4 space-y-8">
-
-          {/* Workflow Proof */}
-          {caseStudy.workflows && caseStudy.workflows.length > 0 && (
-            <div className="bg-neutral-900/50 backdrop-blur-md border border-neutral-800 p-6 rounded-xl">
-              <h3 className="text-xs uppercase tracking-widest text-amber-500 mb-5 border-b border-neutral-800 pb-3 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
-                Production Workflow
-              </h3>
-              <ul className="space-y-3">
-                {caseStudy.workflows.map((w: string) => (
-                  <li key={w} className="flex items-center gap-2 text-sm text-neutral-300">
-                    <span className="w-1 h-1 rounded-full bg-amber-500/60 shrink-0" />
-                    {w}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Project Metadata */}
-          <div className="bg-neutral-900/50 backdrop-blur-md border border-neutral-800 p-6 rounded-xl">
-            <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-5 border-b border-neutral-800 pb-3">
-              Project Details
-            </h3>
-            <dl className="space-y-4 text-sm">
-              <div>
-                <dt className="text-neutral-600 text-xs uppercase mb-0.5">Client</dt>
-                <dd className="text-white">{caseStudy.client_name}</dd>
-              </div>
-              <div>
-                <dt className="text-neutral-600 text-xs uppercase mb-0.5">Location</dt>
-                <dd className="text-white">{caseStudy.geo}</dd>
-              </div>
-              <div>
-                <dt className="text-neutral-600 text-xs uppercase mb-0.5">Industry</dt>
-                <dd className="text-white">{caseStudy.industry}</dd>
-              </div>
-              <div>
-                <dt className="text-neutral-600 text-xs uppercase mb-0.5">Platform</dt>
-                <dd className="text-white capitalize">{caseStudy.platform}</dd>
-              </div>
-            </dl>
-          </div>
-
-          {/* GEO Authority Tags */}
-          {caseStudy.geo_tags && caseStudy.geo_tags.length > 0 && (
-            <div className="bg-neutral-900/30 border border-neutral-800 p-6 rounded-xl">
-              <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-4 border-b border-neutral-800 pb-3">
-                GEO Authority
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {caseStudy.geo_tags.map((tag: string) => (
-                  <span key={tag} className="text-xs uppercase tracking-wider bg-neutral-800 px-3 py-1.5 rounded text-neutral-400">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Semantic Internal Links */}
+        {/* ── RIGHT SIDEBAR / CONTEXT ── */}
+        <aside className="lg:col-span-4 space-y-12">
+          
+          {/* Internal Linking / Semantic Clustering */}
           {caseStudy.internal_links && caseStudy.internal_links.length > 0 && (
-            <div className="bg-neutral-900/30 border border-neutral-800 p-6 rounded-xl">
-              <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-4 border-b border-neutral-800 pb-3">
-                Related Authority Nodes
-              </h3>
-              <div className="flex flex-col gap-2">
-                {caseStudy.internal_links.map((link: string) => (
-                  <Link
-                    key={link}
-                    href={link}
-                    className="text-xs uppercase tracking-wider bg-neutral-800 hover:bg-amber-600 transition-colors px-3 py-2 rounded text-neutral-300 hover:text-white"
-                  >
-                    {link.replace(/^\//, '').replace(/-/g, ' ')}
+            <div className="bg-white/[0.02] border border-white/5 p-8 rounded-[2rem] sticky top-32">
+              <h3 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6">Semantic Pathways</h3>
+              <div className="flex flex-col gap-3">
+                {caseStudy.internal_links.map((link) => (
+                  <Link key={link} href={link} className="text-xs uppercase tracking-wider bg-white/5 hover:bg-primary-accent hover:text-obsidian transition-all px-4 py-3 rounded-xl text-zinc-300 font-bold border border-white/10 flex items-center justify-between group">
+                    <span>{link.split('/').pop()?.replace(/-/g, ' ')}</span>
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 ))}
               </div>
             </div>
           )}
+
+          {/* Sidebar CTA */}
+          <div className="bg-gradient-to-br from-primary-accent/20 to-transparent border border-primary-accent/30 p-8 rounded-[2rem]">
+            <h3 className="text-xl font-black uppercase mb-4 text-white">Scale your brand</h3>
+            <p className="text-sm text-zinc-400 mb-8 leading-relaxed">Want to achieve similar cinematic velocity? Let's build your next high-conversion generative campaign.</p>
+            <Link href="/contact" className="w-full text-center block py-4 bg-primary-accent text-obsidian font-black uppercase tracking-widest text-xs rounded-xl hover:bg-white transition-colors">
+              Start Project
+            </Link>
+          </div>
+
         </aside>
       </div>
 
-      {/* ── TEMPORARY DEBUG BLOCK ── */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
-        <div className="mt-12 p-6 bg-red-900/20 border border-red-500/50 rounded-xl text-xs font-mono text-neutral-300">
-          <h4 className="text-red-400 font-bold mb-3 uppercase tracking-widest">SSR Debug Data</h4>
-          <p>Slug: {caseStudy.slug}</p>
-          <p>Published: {String(caseStudy.published)}</p>
-          <p>Draft: {String(!caseStudy.published)}</p>
-          <p>AI Summary Exists: {String(!!caseStudy.ai_summary && caseStudy.ai_summary !== 'Pending AI enrichment.')}</p>
-          <p>FAQ Count: {caseStudy.faqs?.length || 0}</p>
+      {/* ── 7. RELATED PROJECTS & CTA ── */}
+      <section className="border-t border-white/5 bg-white/[0.01] py-24">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white mb-4">Related <span className="text-primary-accent">Intelligence.</span></h2>
+              <p className="text-sm uppercase tracking-widest text-zinc-500 font-mono">Explore adjacent cinematic benchmarks</p>
+            </div>
+            <Link href="/case-studies" className="hidden md:flex items-center gap-3 text-xs uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors border border-white/10 px-6 py-3 rounded-full bg-white/5">
+              View All Case Studies <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {related?.map((cs) => (
+              <Link href={`/case-studies/${cs.slug}`} key={cs.slug} className="group block bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden hover:border-primary-accent/30 transition-all">
+                <div className="aspect-[16/10] relative bg-black border-b border-white/5">
+                  {cs.thumbnail_url && <Image src={cs.thumbnail_url} alt={cs.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100" />}
+                </div>
+                <div className="p-6">
+                  <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-3 block">{cs.industry}</span>
+                  <h3 className="text-lg font-bold uppercase text-white group-hover:text-primary-accent transition-colors">{cs.title}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 md:hidden">
+            <Link href="/case-studies" className="flex items-center justify-center gap-3 w-full text-xs uppercase tracking-widest font-bold text-zinc-400 border border-white/10 px-6 py-4 rounded-xl bg-white/5">
+              View All Case Studies
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* ── GLOBAL FOOTER CTA ── */}
+      <section className="container mx-auto px-6 md:px-12 my-20">
+        <div className="p-12 md:p-32 rounded-[4rem] border border-white/5 bg-white/[0.02] backdrop-blur-3xl text-center relative overflow-hidden group">
+          <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+          <div className="relative z-10">
+            <h2 className="text-4xl md:text-7xl font-black uppercase text-white mb-12 leading-[1.1]">
+              Engineer Your <br /><span className="text-primary-accent">Advantage.</span>
+            </h2>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link href="/portfolio" className="h-16 px-12 rounded-full border-2 border-primary-accent text-white font-bold uppercase tracking-widest text-xs hover:bg-primary-accent hover:text-obsidian transition-all shadow-xl flex items-center justify-center gap-4">
+                View Visual Portfolio
+              </Link>
+              <Link href="https://wa.me/917012941696" target="_blank" className="h-16 px-12 rounded-full border border-white/10 bg-white/5 text-white font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-obsidian transition-all flex items-center justify-center gap-4">
+                Connect via WhatsApp
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <WhatsAppChat />
+    </main>
   );
 }

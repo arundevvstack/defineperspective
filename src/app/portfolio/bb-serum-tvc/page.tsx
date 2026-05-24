@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import CaseStudyTemplate from "@/components/portfolio/CaseStudyTemplate";
+import CaseStudyCTA from "@/components/portfolio/case-study-cta";
 
 export const metadata: Metadata = {
   title: "BB Serum TVC | Cinematic AI Ad Production Case Study",

@@ -3,6 +3,7 @@ import GlassNavbar from "@/components/glass-navbar";
 import { Zap, Target, Star, CheckCircle2, ArrowRight, Camera, Sparkles, Globe, BrainCircuit, Scissors } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import CaseStudyCTA from "@/components/portfolio/case-study-cta";
 
 export const metadata: Metadata = {
   title: "Best AI Video Production Company in Kerala | DP AI Studio India",

@@ -5,6 +5,7 @@ import ProjectOverview from "@/components/portfolio/project-overview";
 import ProductionBentoGrid from "@/components/portfolio/production-bento-grid";
 import CaseStudyFAQ from "@/components/portfolio/case-study-faq";
 import GlassNavbar from "@/components/glass-navbar";
+import CaseStudyCTA from "@/components/portfolio/case-study-cta";
 
 export const metadata: Metadata = {
   title: "Luxury AI Jewellery TVC Production | DP AI Studios India",
@@ -168,6 +169,7 @@ export default function LuxuryJewelleryCaseStudy() {
         <ProjectOverview />
         <ProductionBentoGrid />
         <CaseStudyFAQ />
+        <CaseStudyCTA slug="luxury-ai-jewellery-tvc-production" />
       </div>
     </main>
   );
