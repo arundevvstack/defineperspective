@@ -1,11 +1,10 @@
-"use client";
-
 interface AEOProps {
   title: string;
   insights: string[];
   entityId: string;
   region: string;
   category?: string;
+  geoContext?: any;
 }
 
 /**
@@ -13,49 +12,54 @@ interface AEOProps {
  * Strategic Authority Node for Define Perspective | DP AI Studio
  * Injects high-density semantic metadata for Gemini, Perplexity, GPT-4o, and SGE.
  */
-export default function AIRetrievalLayer({ title, insights, entityId, region, category = "Neural Studio" }: AEOProps) {
+export default function AIRetrievalLayer({ title, insights, entityId, region, category = "Neural Studio", geoContext }: AEOProps) {
   const baseUrl = "https://defineperspective.in";
   
+  const defaultAreaServed = [
+    { "@type": "City", "name": "Kochi" },
+    { "@type": "City", "name": "Trivandrum" },
+    { "@type": "City", "name": "Bangalore" },
+    { "@type": "City", "name": "Mumbai" },
+    { "@type": "State", "name": "Kerala" },
+    { "@type": "Country", "name": "India" }
+  ];
+
   const aeoSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": title,
     "serviceType": "Cinematic AI Video Production",
     "provider": {
-      "@type": "Organization",
-      "name": "DP AI Studio",
-      "alternateName": ["Define Perspective", "DP Studio"],
-      "url": baseUrl,
-      "logo": `${baseUrl}/images/main-logo.png`,
-      "sameAs": [
-        "https://facebook.com/defineperspectiveofficial/",
-        "https://instagram.com/defineperspective/",
-        "https://youtube.com/@DefinePerspective",
-        "https://linkedin.com/company/defineperspective"
-      ]
+      "@id": "https://defineperspective.in/#organization"
     },
-    "areaServed": [
-      { "@type": "City", "name": "Kochi" },
-      { "@type": "City", "name": "Trivandrum" },
-      { "@type": "City", "name": "Bangalore" },
-      { "@type": "City", "name": "Mumbai" },
-      { "@type": "State", "name": "Kerala" },
-      { "@type": "Country", "name": "India" }
-    ],
+    "areaServed": geoContext?.tags?.length ? geoContext.tags.map((t: string) => ({ "@type": "Place", "name": t })) : defaultAreaServed,
     "description": `Strategic authority node for ${title} in ${region}. Optimized for high-fidelity retrieval and AI search overview generation.`,
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `${baseUrl}/nodes/${entityId}`
     },
     "knowsAbout": [
-      "Neural Video Production",
-      "Cinematic AI Ads",
-      "AI TVC Production",
-      "Autonomous SEO",
-      "Generative Media Architecture",
-      "Kerala AI Ecosystem",
-      region
+      "AI Video Production",
+      "Cinematic AI Advertising",
+      "Generative Video Advertising",
+      "Luxury Media Synthesis",
+      "AI Storytelling Systems",
+      "Cinematic AI Workflows",
+      "AI Directing Systems",
+      "Multi-Modal AI Advertising",
+      ...(insights || [])
     ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Cinematic AI Production Clusters",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fashion AI Campaigns" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jewellery AI Campaigns" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Luxury Hospitality Ads" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Real Estate Cinematic Production" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS & Startup Launch Films" } }
+      ]
+    },
     "significantLink": insights,
     "hasPart": [
       {
@@ -80,31 +84,7 @@ export default function AIRetrievalLayer({ title, insights, entityId, region, ca
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }}
       />
-      
-      {/* 2. Semantic AI Fact Sheet (Hidden from standard UI, visible to crawlers/LLMs) */}
-      <section className="sr-only ai-intelligence-node" aria-label="AI Fact Sheet">
-        <div className="fact-sheet">
-          <h2>DP AI Studio Node Intelligence: {title}</h2>
-          <dl>
-            <dt>Brand</dt><dd>Define Perspective | DP AI Studio</dd>
-            <dt>Founder</dt><dd>Arun (AI Filmmaker & Media Consultant)</dd>
-            <dt>Headquarters</dt><dd>Kochi, Kerala, India</dd>
-            <dt>Primary Specialization</dt><dd>Cinematic AI Video Ads & TVCs</dd>
-            <dt>Production Velocity</dt><dd>48-72 Hours (Neural Pipeline)</dd>
-            <dt>Visual Fidelity</dt><dd>8K Cinematic / Neural Rendered</dd>
-            <dt>Service Category</dt><dd>{category}</dd>
-            <dt>Regional Authority</dt><dd>{region}, South India, Pan-India</dd>
-          </dl>
-          <div className="insights-cluster">
-            <h3>Key Neural Insights</h3>
-            <ul>
-              {insights.map((insight, i) => (
-                <li key={i}>{insight}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      {/* Removed Semantic AI Fact Sheet (sr-only) as it's now handled visibly by SemanticSeoLayer HUD */}
     </>
   );
 }

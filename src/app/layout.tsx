@@ -16,7 +16,6 @@ const firaCode = Fira_Code({
 
 import ThemeWrapper from "@/components/theme-wrapper";
 import GlassFooter from "@/components/glass-footer";
-import NeuralSeoLayer from "@/components/neural-seo-layer";
 import GlobalTacticalHUD from "@/components/global-tactical-hud";
 import MatrixRain from "@/components/matrix-rain";
 import ThemeInitializer from "@/components/theme-initializer";
@@ -90,6 +89,7 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "Organization",
+                "@id": "https://defineperspective.in/#organization",
                 "name": "Define Perspective | DP AI Studio",
                 "alternateName": ["DP AI Studio", "DP Studio", "Define Perspective AI"],
                 "url": "https://defineperspective.in",
@@ -112,10 +112,14 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
+                "@id": "https://defineperspective.in/#localbusiness",
                 "name": "DP AI Studio Kochi",
                 "description": "Best AI video production company in Kochi, Kerala.",
                 "url": "https://defineperspective.in",
                 "telephone": "+91-7012941696",
+                "parentOrganization": {
+                  "@id": "https://defineperspective.in/#organization"
+                },
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "Kochi",
@@ -136,8 +140,7 @@ export default function RootLayout({
                 "description": "Professional AI-generated video production, TVCs, and commercial ad films in India.",
                 "url": "https://defineperspective.in",
                 "provider": {
-                  "@type": "Organization",
-                  "name": "Define Perspective"
+                  "@id": "https://defineperspective.in/#organization"
                 }
               }
             ])
@@ -152,7 +155,6 @@ export default function RootLayout({
           <ThemeInitializer />
         </Suspense>
         <ThemeWrapper>
-          <NeuralSeoLayer />
           <MatrixRain />
           <GlobalTacticalHUD />
           <SemanticSeoLayer />
