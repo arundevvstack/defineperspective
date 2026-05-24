@@ -86,6 +86,12 @@ export default async function CaseStudyPage({ params }: Props) {
     .eq('slug', slug)
     .maybeSingle();
 
+  console.log('[CaseStudyPage Debug]', {
+    requestedSlug: slug,
+    rowFound: !!cs,
+    published: cs?.published
+  });
+
   if (!cs) notFound();
 
   const caseStudy = cs as CaseStudy;
@@ -285,6 +291,18 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
           )}
         </aside>
+      </div>
+
+      {/* ── TEMPORARY DEBUG BLOCK ── */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+        <div className="mt-12 p-6 bg-red-900/20 border border-red-500/50 rounded-xl text-xs font-mono text-neutral-300">
+          <h4 className="text-red-400 font-bold mb-3 uppercase tracking-widest">SSR Debug Data</h4>
+          <p>Slug: {caseStudy.slug}</p>
+          <p>Published: {String(caseStudy.published)}</p>
+          <p>Draft: {String(!caseStudy.published)}</p>
+          <p>AI Summary Exists: {String(!!caseStudy.ai_summary && caseStudy.ai_summary !== 'Pending AI enrichment.')}</p>
+          <p>FAQ Count: {caseStudy.faqs?.length || 0}</p>
+        </div>
       </div>
     </div>
   );
