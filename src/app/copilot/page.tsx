@@ -36,7 +36,7 @@ export default function CopilotPage() {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-screen bg-black text-neutral-300 font-sans selection:bg-amber-500/30 overflow-hidden">
+    <div className="flex flex-col min-h-[100dvh] bg-black text-neutral-300 font-sans selection:bg-amber-500/30 overflow-hidden">
       
       {/* Cinematic Header */}
       <header className="flex-none p-6 border-b border-neutral-900 bg-black/80 backdrop-blur-md z-10">

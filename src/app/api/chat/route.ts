@@ -3,7 +3,7 @@ import { openai } from '@ai-sdk/openai';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ''; // Requires elevated privileges to query raw vectors safely
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''; // Uses strictly typed RLS policy for read-only access
 const openaiApiKey = process.env.OPENAI_API_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
