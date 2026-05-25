@@ -173,7 +173,7 @@ Status: Executive Verified
                  </div>
                  <div className="space-y-1">
                     <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-widest">Budget Range</span>
-                    <p className="text-sm font-black uppercase text-green-500">{selectedLead.budget || "N/A"}</p>
+                    <p className="text-sm font-black uppercase text-blue-500">{selectedLead.budget || "N/A"}</p>
                  </div>
                  <div className="space-y-1">
                     <span className="text-[8px] font-mono text-zinc-600 uppercase tracking-widest">Email</span>
@@ -192,7 +192,7 @@ Status: Executive Verified
                  <div className="flex items-center gap-4">
                     <div className={cn(
                       "px-4 py-2 rounded-lg font-black text-xs uppercase tracking-widest",
-                      selectedLead.score > 80 ? "bg-green-500/10 text-green-500" : "bg-orange-500/10 text-orange-500"
+                      selectedLead.score > 80 ? "bg-blue-500/10 text-blue-500" : "bg-orange-500/10 text-orange-500"
                     )}>
                       Lead Score: {selectedLead.score || 50}
                     </div>
@@ -285,7 +285,7 @@ Status: Executive Verified
                   </p>
                   <div className="flex items-center justify-between pt-6 border-t border-white/5">
                     <div className="flex items-center gap-2">
-                      <TrendingUp size={12} className="text-green-500" />
+                      <TrendingUp size={12} className="text-blue-500" />
                       <span className="text-[9px] font-mono text-zinc-600">{guide.download_count || 0} DOWNLOADS</span>
                     </div>
                     <button 
@@ -348,7 +348,7 @@ Status: Executive Verified
                     <span className="text-[10px] font-mono text-zinc-400">{lead.region || "Global"}</span>
                   </div>
                   <div className="col-span-2">
-                    <div className="flex items-center gap-1 text-green-500">
+                    <div className="flex items-center gap-1 text-blue-500">
                       <DollarSign size={10} />
                       <span className="text-[10px] font-black">{lead.budget || "N/A"}</span>
                     </div>
@@ -356,7 +356,7 @@ Status: Executive Verified
                   <div className="col-span-1 text-right">
                     <div className={cn(
                       "inline-flex px-2 py-1 rounded-lg font-black text-[10px]",
-                      lead.score > 80 ? "bg-green-500/10 text-green-500" : "bg-orange-500/10 text-orange-500"
+                      lead.score > 80 ? "bg-blue-500/10 text-blue-500" : "bg-orange-500/10 text-orange-500"
                     )}>
                       {lead.score || 50}
                     </div>

@@ -198,7 +198,7 @@ export default function CinematicCaseStudy() {
         <CinematicTranscript />
         <CinematicOverview />
         <CinematicEditorialGrid />
-        <CaseStudyCTA slug="cinematic-ai-commercial-production" />
+        <CaseStudyCTA slug="best-ai-tvc-production-in-india-cinematic-ai-commercial-2026-dp-ai-studios" />
         <CinematicFAQ />
       </div>
     </main>

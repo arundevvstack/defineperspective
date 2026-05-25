@@ -165,7 +165,7 @@ export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string
               <div className="flex items-start justify-between mb-2">
                 <span className={cn(
                   "px-2 py-0.5 rounded-full text-[8px] font-mono uppercase tracking-widest",
-                  page.status === 'published' ? "bg-green-500/20 text-green-500" : "bg-orange-500/20 text-orange-500"
+                  page.status === 'published' ? "bg-blue-500/20 text-blue-500" : "bg-orange-500/20 text-orange-500"
                 )}>
                   {page.status}
                 </span>
@@ -340,7 +340,7 @@ export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string
                    </h4>
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {[
-                        { label: "Market Momentum", value: "95% (Critical)", color: "text-green-500" },
+                        { label: "Market Momentum", value: "95% (Critical)", color: "text-blue-500" },
                         { label: "Target Region", value: selectedPage.title.includes('Kerala') ? 'Kerala / Kochi' : 'National (India)', color: "text-white" },
                         { label: "Semantic Gap", value: "High Authority Capture", color: "text-blue-500" },
                         { label: "Recommended Density", value: "2.4% AI Keywords", color: "text-white" }

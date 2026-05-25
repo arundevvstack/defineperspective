@@ -29,10 +29,9 @@ export default function VideoHero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
       </div>
 
-      {/* 🔮 NEURAL AMBIENT GLOWS */}
+      {/* 🔮 NEURAL AMBIENT GLOWS - Restrained to cinematic luxury standards */}
       <div className="absolute inset-0 z-[4] pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -left-1/4 w-[1000px] h-[1000px] bg-primary-accent/5 blur-[250px] rounded-full opacity-30 animate-pulse" />
-        <div className="absolute bottom-1/4 -right-1/4 w-[800px] h-[800px] bg-blue-500/5 blur-[200px] rounded-full opacity-20" />
+        <div className="absolute top-1/4 -left-1/4 w-[1000px] h-[1000px] bg-primary-accent/5 blur-[250px] rounded-full opacity-10" />
       </div>
 
       {/* 🚀 HERO CONTENT */}
@@ -73,33 +72,31 @@ export default function VideoHero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8"
           >
-            {/* Watch Showcase — opens VideoLightbox */}
             <button
               onClick={() => setLightboxOpen(true)}
               className="group h-16 md:h-20 px-10 md:px-14 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center gap-4 hover:bg-primary-accent hover:text-white transition-all duration-500 shadow-2xl active:scale-95"
             >
-              Watch AI Video Showcase <Play size={18} fill="currentColor" />
+              View Cinematic Showcase <Play size={18} fill="currentColor" />
             </button>
             <Link
               href="/contact"
               className="group h-16 md:h-20 px-10 md:px-14 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[11px] flex items-center gap-4 hover:border-primary-accent/50 hover:bg-white/10 transition-all duration-500 backdrop-blur-3xl shadow-2xl active:scale-95"
             >
-              Start Project <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+              Request Consultation <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
             </Link>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - Refined to calm line instead of terminal output */}
       <div className="absolute bottom-12 left-0 w-full px-6 flex flex-col items-center gap-10 z-30">
         <motion.div
            animate={{ y: [0, 8, 0] }}
-           transition={{ duration: 2, repeat: Infinity }}
-           className="flex flex-col items-center gap-3 opacity-30"
+           transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
+           className="flex flex-col items-center opacity-20"
            aria-hidden="true"
         >
-          <span className="text-[8px] font-mono uppercase tracking-[0.3em] text-white">Neural Engine Active_</span>
-          <div className="h-8 w-[1px] bg-gradient-to-b from-white to-transparent" />
+          <div className="h-12 w-[1px] bg-gradient-to-b from-white to-transparent" />
         </motion.div>
       </div>
 

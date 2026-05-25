@@ -219,7 +219,7 @@ export default function AnalysisDashboard() {
                  <div className="h-10 w-px bg-white/10 hidden md:block" />
                  <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-[9px] md:text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
                     <span className="flex items-center gap-2"><Globe size={12} className="text-blue-500" /> Latency: 12ms</span>
-                    <span className="flex items-center gap-2"><RefreshCw size={12} className="text-green-500 animate-spin-slow" /> Real-time Sync</span>
+                    <span className="flex items-center gap-2"><RefreshCw size={12} className="text-blue-500 animate-spin-slow" /> Real-time Sync</span>
                  </div>
               </div>
               <div className="flex items-center gap-4 w-full sm:w-auto">
@@ -253,7 +253,7 @@ export default function AnalysisDashboard() {
                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                       <StatBox title="Active Nodes" value={visitors.toLocaleString()} sub="System Integrity: Secure" icon={Shield} onClick={() => setActiveTab("overview")} />
                       <StatBox title="Engagement" value="2.4m" sub="Retention High" icon={TrendingUp} color="text-blue-500" />
-                      <StatBox title="Security Index" value={`${seoScore.toFixed(0)}%`} sub="Encryption Level High" icon={Lock} color="text-green-500" onClick={() => setActiveTab("seo")} />
+                      <StatBox title="Security Index" value={`${seoScore.toFixed(0)}%`} sub="Encryption Level High" icon={Lock} color="text-blue-500" onClick={() => setActiveTab("seo")} />
                       <StatBox title="System Load" value="Optimal" sub="Zero Latency" icon={Cpu} color="text-zinc-500" onClick={() => setActiveTab("system")} />
                    </div>
 
@@ -363,7 +363,7 @@ export default function AnalysisDashboard() {
                 >
                    <div className="p-8 md:p-12 bg-zinc-900 border border-white/5 rounded-[2.5rem] md:rounded-[4rem]">
                       <div className="flex items-center gap-6 mb-8 md:mb-12 border-b border-white/5 pb-6 md:pb-8">
-                         <div className="h-12 w-12 md:h-14 md:w-14 rounded-xl md:rounded-2xl bg-green-500/10 flex items-center justify-center text-green-500 shadow-[0_0_30px_rgba(34,197,94,0.1)]">
+                         <div className="h-12 w-12 md:h-14 md:w-14 rounded-xl md:rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 shadow-[0_0_30px_rgba(34,197,94,0.1)]">
                             <SearchCode className="w-6 h-6 md:w-7 md:h-7" />
                          </div>
                          <div>
@@ -374,10 +374,10 @@ export default function AnalysisDashboard() {
 
                       <div className="space-y-3 md:space-y-4">
                          {[
-                           { name: "Sitemap Integrity", score: 99, status: "Secure", color: "text-green-500" },
+                           { name: "Sitemap Integrity", score: 99, status: "Secure", color: "text-blue-500" },
                            { name: "Schema Topology", score: 88, status: "Active", color: "text-blue-500" },
                            { name: "Backlink Network", score: 76, status: "Scaling", color: "text-zinc-500" },
-                           { name: "Metadata Density", score: 94, status: "Optimal", color: "text-green-500" },
+                           { name: "Metadata Density", score: 94, status: "Optimal", color: "text-blue-500" },
                            { name: "Core Web Vitals", score: 100, status: "Elite", color: "text-primary-accent" }
                          ].map((item, i) => (
                            <div key={i} className="p-5 md:p-6 rounded-2xl md:rounded-[2rem] bg-white/[0.02] border border-white/5 flex items-center justify-between group hover:border-primary-accent/30 transition-all">
@@ -391,7 +391,7 @@ export default function AnalysisDashboard() {
                                     <span className={cn("text-[8px] md:text-[9px] font-mono uppercase tracking-widest", item.color)}>{item.status}</span>
                                  </div>
                                  <div className="h-8 md:h-10 w-px bg-white/5" />
-                                 <CheckCircle2 className="w-4 h-4 md:w-[18px] md:h-[18px] text-green-500" />
+                                 <CheckCircle2 className="w-4 h-4 md:w-[18px] md:h-[18px] text-blue-500" />
                               </div>
                            </div>
                          ))}

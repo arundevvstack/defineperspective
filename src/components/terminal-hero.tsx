@@ -53,7 +53,7 @@ export default function TerminalHero() {
             <div className="flex gap-2">
               <div className="h-2.5 w-2.5 rounded-full bg-red-500/40" />
               <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/40" />
-              <div className="h-2.5 w-2.5 rounded-full bg-green-500/40" />
+              <div className="h-2.5 w-2.5 rounded-full bg-blue-500/40" />
             </div>
             <div className="flex-1 text-center font-mono text-[9px] text-zinc-400 uppercase tracking-[0.3em] opacity-40">
               System.Process.Initialize("Video_Scale_Engine")

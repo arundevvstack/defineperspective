@@ -104,7 +104,7 @@ export default function YouTubeSyncView({ setStatus, setActiveTab }: { setStatus
                 disabled={isSyncing || success}
                 className={cn(
                   "w-full py-4 rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 transition-all",
-                  success ? "bg-green-500 text-black" : "bg-red-600 text-white hover:scale-[1.02] active:scale-95 shadow-xl shadow-red-600/20"
+                  success ? "bg-blue-500 text-black" : "bg-red-600 text-white hover:scale-[1.02] active:scale-95 shadow-xl shadow-red-600/20"
                 )}
               >
                 {isSyncing ? <RefreshCcw size={14} className="animate-spin" /> : success ? <CheckCircle2 size={14} /> : "Start Sync"}
@@ -137,15 +137,15 @@ export default function YouTubeSyncView({ setStatus, setActiveTab }: { setStatus
               <div className="space-y-4">
                  <div className="flex items-center justify-between text-[10px] font-mono">
                     <span className="text-zinc-500">Video Transcript Extraction</span>
-                    <span className="text-green-500">READY</span>
+                    <span className="text-blue-500">READY</span>
                  </div>
                  <div className="flex items-center justify-between text-[10px] font-mono">
                     <span className="text-zinc-500">Article Drafting</span>
-                    <span className="text-green-500">READY</span>
+                    <span className="text-blue-500">READY</span>
                  </div>
                  <div className="flex items-center justify-between text-[10px] font-mono">
                     <span className="text-zinc-500">SEO Meta Generation</span>
-                    <span className="text-green-500">READY</span>
+                    <span className="text-blue-500">READY</span>
                  </div>
               </div>
            </div>

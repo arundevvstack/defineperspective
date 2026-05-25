@@ -129,7 +129,7 @@ export default function SeoRankingsPage() {
                                 {item.rank}
                               </span>
                               {item.trend === "up" ? (
-                                <TrendingUp className="text-green-500" size={14} />
+                                <TrendingUp className="text-blue-500" size={14} />
                               ) : item.trend === "down" ? (
                                 <TrendingDown className="text-red-500" size={14} />
                               ) : (

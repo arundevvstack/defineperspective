@@ -158,7 +158,7 @@ export default function RankingsView({ city, setStatus }: { city?: string, setSt
                    </div>
                 </td>
                 <td className="px-6 py-4 text-right last:rounded-r-[2rem]">
-                   {item.trend === "up" ? <TrendingUp className="text-green-500 ml-auto" size={14}/> : <TrendingDown className="text-red-500 ml-auto" size={14}/>}
+                   {item.trend === "up" ? <TrendingUp className="text-blue-500 ml-auto" size={14}/> : <TrendingDown className="text-red-500 ml-auto" size={14}/>}
                 </td>
               </tr>
             ))}

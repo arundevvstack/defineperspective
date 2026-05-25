@@ -84,17 +84,17 @@ function ContactForm() {
             <CheckCircle size={48} className="text-black" strokeWidth={3} />
          </div>
          <div className="space-y-4">
-            <h3 className="text-4xl font-black uppercase tracking-tighter text-white">Notification Sent</h3>
+            <h3 className="text-4xl font-black uppercase tracking-tighter text-white">Inquiry Received</h3>
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-zinc-400 max-w-sm mx-auto leading-relaxed">
-               Project intake synchronized. <br />
-               <span className="text-primary-accent">Success Mail Notification</span> triggered to the strategy hub.
+               Your project specifications have been received. <br />
+               <span className="text-primary-accent">Our strategy team</span> will review and contact you shortly.
             </p>
          </div>
          <button 
            onClick={() => setIsSuccess(false)}
            className="h-16 px-12 bg-white text-black rounded-2xl text-[10px] uppercase font-black tracking-widest hover:bg-primary-accent hover:scale-105 transition-all shadow-xl"
          >
-            New Transmission
+            Submit Another Inquiry
          </button>
       </motion.div>
     );
@@ -111,7 +111,7 @@ function ContactForm() {
       
       <div className="mb-14">
         <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">Project Intake</h3>
-        <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-[0.3em]">Status: Ready to Scale Your Vision</p>
+        <p className="text-[10px] font-mono text-zinc-400 uppercase tracking-[0.3em]">Complete the specifications below to begin a strategic collaboration.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-10">
@@ -126,7 +126,7 @@ function ContactForm() {
                  placeholder="Enter Name" 
                  required
                  disabled={isSubmitting}
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-base focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
                />
             </div>
             <div className="space-y-4">
@@ -139,7 +139,7 @@ function ContactForm() {
                  placeholder="Brand Name" 
                  required
                  disabled={isSubmitting}
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-base focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
                />
             </div>
         </div>
@@ -155,7 +155,7 @@ function ContactForm() {
                  placeholder="hq@yourbrand.com" 
                  required
                  disabled={isSubmitting}
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-base focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
                />
             </div>
             <div className="space-y-4">
@@ -168,7 +168,7 @@ function ContactForm() {
                  placeholder="+91 000 000 0000" 
                  required
                  disabled={isSubmitting}
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-base focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 text-white disabled:opacity-50" 
                />
             </div>
         </div>
@@ -181,7 +181,7 @@ function ContactForm() {
                  value={formData.projectType}
                  onChange={handleChange}
                  disabled={isSubmitting}
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all text-zinc-400 appearance-none cursor-pointer disabled:opacity-50"
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-base focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all text-zinc-400 appearance-none cursor-pointer disabled:opacity-50"
                >
                   <option className="bg-obsidian">Media & AI Video Production</option>
                   <option className="bg-obsidian">TV Commercial / Ad Film</option>
@@ -195,7 +195,7 @@ function ContactForm() {
                  value={formData.budget}
                  onChange={handleChange}
                  disabled={isSubmitting}
-                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all text-zinc-400 appearance-none cursor-pointer disabled:opacity-50"
+                 className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 text-base focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all text-zinc-400 appearance-none cursor-pointer disabled:opacity-50"
                >
                   <option className="bg-obsidian">Strategic: ₹5 Lakhs+</option>
                   <option className="bg-obsidian">Standard: ₹2 - 5 Lakhs</option>
@@ -213,7 +213,7 @@ function ContactForm() {
               rows={4}
               placeholder="Detail your requirements for global Media Production or AI Video Production services."
               disabled={isSubmitting}
-              className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-6 text-sm focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 resize-none text-white lg:min-h-[160px] disabled:opacity-50" 
+              className="w-full bg-white/5 border border-white/10 rounded-3xl px-6 py-6 text-base focus:outline-none focus:border-primary-accent focus:bg-white/[0.08] transition-all placeholder:text-zinc-800 resize-none text-white lg:min-h-[160px] disabled:opacity-50" 
             />
         </div>
 
@@ -226,9 +226,9 @@ function ContactForm() {
           )}
         >
             {isSubmitting ? (
-              <>INITIALIZING Bio-Sync... <Loader2 className="animate-spin" size={24} /></>
+              <>Processing Request... <Loader2 className="animate-spin" size={24} /></>
             ) : (
-              <>Get Proposal Within 24 Hours <ArrowRight size={24} className="group-hover:translate-x-3 transition-transform" /></>
+              <>Request Strategic Consultation <ArrowRight size={24} className="group-hover:translate-x-3 transition-transform" /></>
             )}
         </button>
       </form>

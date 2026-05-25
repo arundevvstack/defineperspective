@@ -127,7 +127,7 @@ export default function LeadCaptureModal({ isOpen, onClose, guideTitle, guideId 
                     animate={{ opacity: 1 }}
                     className="h-full flex flex-col items-center justify-center text-center"
                   >
-                    <div className="h-20 w-20 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 mb-6">
+                    <div className="h-20 w-20 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500 mb-6">
                        <CheckCircle2 size={40} />
                     </div>
                     <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Access Granted</h3>

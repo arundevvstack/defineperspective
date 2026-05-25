@@ -173,7 +173,7 @@ export default function SeoHubPage() {
 
                  <div className="text-right">
                     <span className="block text-[8px] font-mono text-zinc-600 uppercase tracking-widest">Uptime</span>
-                    <span className="text-lg font-black text-green-500">99.9%</span>
+                    <span className="text-lg font-black text-blue-500">99.9%</span>
                  </div>
               </div>
               <button 
@@ -245,7 +245,7 @@ export default function SeoHubPage() {
                     <div className="grid grid-cols-2 gap-4">
                        {[
                           { l: "Gap Volume", v: "High", c: "text-white" },
-                          { l: "Risk Level", v: "Low", c: "text-green-500" },
+                          { l: "Risk Level", v: "Low", c: "text-blue-500" },
                           { l: "AI Processing Load", v: "14%", c: "text-white" },
                           { l: "Auth Depth", v: "Max", c: "text-blue-500" }
                        ].map(s => (

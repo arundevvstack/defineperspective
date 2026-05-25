@@ -245,7 +245,7 @@ export default function IntelligencePublisher() {
                           initial={{ opacity: 0, y: 5 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0 }}
-                          className={`text-sm truncate ${result?.isDraft ? 'text-amber-500' : 'text-green-500'}`}
+                          className={`text-sm truncate ${result?.isDraft ? 'text-amber-500' : 'text-blue-500'}`}
                         >
                           {result?.isDraft ? `⚠️ Draft Saved (AI Failed): /case-studies/${result?.slug}` : `✓ Published: /case-studies/${result?.slug}`}
                         </motion.p>
@@ -297,7 +297,7 @@ export default function IntelligencePublisher() {
           >
             <div className="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 sm:p-8 backdrop-blur-md sticky top-8">
               <h2 className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full ${status === 'publishing' ? 'bg-amber-500 animate-pulse' : status === 'success' ? 'bg-green-500' : 'bg-neutral-700'}`} />
+                <span className={`w-2 h-2 rounded-full ${status === 'publishing' ? 'bg-amber-500 animate-pulse' : status === 'success' ? 'bg-blue-500' : 'bg-neutral-700'}`} />
                 Pipeline Status
               </h2>
 
@@ -314,7 +314,7 @@ export default function IntelligencePublisher() {
                     <div key={step.key} className="flex items-center gap-3">
                       <div className={`w-6 h-6 rounded-full border flex items-center justify-center text-[10px] shrink-0 transition-all duration-300 ${
                         state === 'done'
-                          ? 'bg-green-500/20 border-green-500/50 text-green-400'
+                          ? 'bg-blue-500/20 border-blue-500/50 text-blue-400'
                           : state === 'active'
                           ? 'bg-amber-500/20 border-amber-500/50 text-amber-400 animate-pulse'
                           : 'bg-neutral-900 border-neutral-700 text-neutral-600'
@@ -322,7 +322,7 @@ export default function IntelligencePublisher() {
                         {state === 'done' ? '✓' : state === 'active' ? '⟳' : idx + 1}
                       </div>
                       <span className={`text-sm transition-colors duration-300 ${
-                        state === 'done' ? 'text-green-400' : state === 'active' ? 'text-amber-400' : 'text-neutral-600'
+                        state === 'done' ? 'text-blue-400' : state === 'active' ? 'text-amber-400' : 'text-neutral-600'
                       }`}>
                         {step.label}
                       </span>

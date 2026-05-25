@@ -870,7 +870,7 @@ export default function CybersecurityDashboard() {
       <style dangerouslySetInnerHTML={{ __html: `
         footer, #glass-footer { display: none !important; opacity: 0 !important; visibility: hidden !important; height: 0 !important; pointer-events: none !important; }
         
-        .glow-green { text-shadow: 0 0 8px rgba(0, 255, 65, 0.6); }
+        .glow-blue { text-shadow: 0 0 8px rgba(0, 255, 65, 0.6); }
         .glow-red { text-shadow: 0 0 8px rgba(255, 62, 62, 0.6); }
         
         /* Force everything to Green or Red */
@@ -968,7 +968,7 @@ export default function CybersecurityDashboard() {
                           </div>
                           <div className="flex justify-between items-center text-[8px] text-zinc-500 font-mono">
                               <span>{comp.market}</span>
-                              <span className={comp.status === "ACTIVE" ? "text-green-500" : "text-primary-accent"}>{comp.status}</span>
+                              <span className={comp.status === "ACTIVE" ? "text-blue-500" : "text-primary-accent"}>{comp.status}</span>
                           </div>
                       </div>
                   ))}
@@ -1005,7 +1005,7 @@ export default function CybersecurityDashboard() {
               <Activity size={16} /> VISITOR_DIGITAL_IDENTITY
             </h3>
             <div className="space-y-4 text-[10px] font-mono">
-              <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">ADDRESS_ID</span><span className="text-primary-accent glow-green truncate">{userData?.query || "SCANNING..."}</span></div>
+              <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">ADDRESS_ID</span><span className="text-primary-accent glow-blue truncate">{userData?.query || "SCANNING..."}</span></div>
               <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">CORE_OS</span><span className="text-primary-accent truncate">{typeof window !== 'undefined' ? window.navigator.platform : "DETECTING..."}</span></div>
               <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">U_AGENT</span><span className="text-primary-accent truncate max-w-[150px]">{typeof window !== 'undefined' ? window.navigator.userAgent.split(')')[0].split('(')[1] : "DETECTING..."}</span></div>
               <div className="flex justify-between gap-4 border-b border-primary-accent/5 pb-2"><span className="text-secondary uppercase">GEOMETRY</span><span className="text-primary-accent">{typeof window !== 'undefined' ? `${window.screen.width}x${window.screen.height}` : "DETECTING..."}</span></div>

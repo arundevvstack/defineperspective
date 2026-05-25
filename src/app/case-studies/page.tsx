@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default async function CaseStudiesListingPage() {
   const { data: caseStudies } = await supabaseAdmin
     .from('case_studies')
-    .select('title, slug, thumbnail_url, ai_summary, geo, industry, published_at')
+    .select('title, slug, thumbnail_url, ai_summary, geo, industry, published_at, created_at')
     .eq('published', true)
     .order('published_at', { ascending: false });
 
@@ -125,7 +125,7 @@ export default async function CaseStudiesListingPage() {
                     
                     <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
                       <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
-                        {new Date(cs.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                        {new Date(cs.published_at || cs.created_at || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                       </span>
                       <span className="text-xs font-bold uppercase tracking-widest text-primary-accent group-hover:translate-x-2 transition-transform flex items-center gap-2">
                         Read Case Study &rarr;

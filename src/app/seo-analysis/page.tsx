@@ -187,7 +187,7 @@ export default function SeoAnalysisPage() {
                         className="flex items-center gap-4 text-sm font-mono tracking-wider"
                       >
                         {idx < currentStep ? (
-                          <CheckCircle2 size={14} className="text-green-500" />
+                          <CheckCircle2 size={14} className="text-blue-500" />
                         ) : idx === currentStep ? (
                           <RefreshCcw size={14} className="text-primary-accent animate-spin" />
                         ) : (
@@ -238,7 +238,7 @@ export default function SeoAnalysisPage() {
                     title="Performance" 
                     score="92" 
                     status="Excellent"
-                    color="text-green-400"
+                    color="text-blue-400"
                     items={[
                       { label: "LCP", value: "0.8s", status: "good" },
                       { label: "CLS", value: "0.01", status: "good" },
@@ -378,7 +378,7 @@ export default function SeoAnalysisPage() {
                         </p>
                       </div>
                       <div className="p-6 rounded-2xl bg-black/40 border border-white/5">
-                        <div className="flex items-center gap-3 mb-4 text-green-400">
+                        <div className="flex items-center gap-3 mb-4 text-blue-400">
                           <CheckCircle2 size={16} />
                           <span className="text-[10px] font-mono uppercase tracking-widest">Performance Win</span>
                         </div>
@@ -443,7 +443,7 @@ function ResultCard({ icon: Icon, title, score, status, items, color }: any) {
               <span className="text-[10px] font-bold text-white">{item.value}</span>
               <div className={cn(
                 "h-1.5 w-1.5 rounded-full",
-                item.status === 'good' ? "bg-green-500" : item.status === 'warning' ? "bg-orange-500" : "bg-red-500"
+                item.status === 'good' ? "bg-blue-500" : item.status === 'warning' ? "bg-orange-500" : "bg-red-500"
               )} />
             </div>
           </div>

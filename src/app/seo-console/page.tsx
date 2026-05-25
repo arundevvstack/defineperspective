@@ -85,7 +85,7 @@ const KeywordTerminal = ({ keywords }: { keywords: SEOKeyword[] }) => {
                 <span className="text-xl font-black text-white tabular-nums">#{k.position}</span>
                 <span className={cn(
                   "text-[8px] font-bold flex items-center gap-1",
-                  k.change > 0 ? "text-emerald-500" : k.change < 0 ? "text-rose-500" : "text-zinc-500"
+                  k.change > 0 ? "text-blue-500" : k.change < 0 ? "text-rose-500" : "text-zinc-500"
                 )}>
                   {k.change > 0 ? <ArrowUpRight size={8} /> : k.change < 0 ? <ArrowDownRight size={8} /> : <Minus size={8} />}
                   {Math.abs(k.change)}
@@ -144,10 +144,10 @@ const CompetitorRadar = ({ competitors }: { competitors: Competitor[] }) => {
 const OptimizationProtocols = ({ suggestions }: { suggestions: SEOSuggestion[] }) => {
     return (
         <div className="flex flex-col h-full">
-            <h3 className="text-[10px] font-black text-emerald-500 uppercase tracking-[0.3em] mb-4">OPTIMIZATION_PROTOCOLS</h3>
+            <h3 className="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em] mb-4">OPTIMIZATION_PROTOCOLS</h3>
             <div className="flex-1 space-y-2 overflow-y-auto custom-scrollbar">
                 {suggestions.map((s, i) => (
-                    <div key={i} className="p-3 bg-white/5 border border-emerald-500/10 group hover:border-emerald-500/40 transition-all">
+                    <div key={i} className="p-3 bg-white/5 border border-blue-500/10 group hover:border-blue-500/40 transition-all">
                         <div className="flex justify-between items-start mb-2">
                             <span className={cn(
                                 "text-[7px] font-bold px-2 py-0.5 rounded uppercase tracking-widest",
@@ -165,7 +165,7 @@ const OptimizationProtocols = ({ suggestions }: { suggestions: SEOSuggestion[] }
                             </span>
                         </div>
                         <p className="text-[10px] text-zinc-400 font-mono leading-relaxed mb-3">{s.msg}</p>
-                        <button className="w-full py-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[8px] font-black uppercase tracking-widest hover:bg-emerald-500 hover:text-black transition-all">
+                        <button className="w-full py-2 bg-blue-500/10 border border-blue-500/20 text-blue-500 text-[8px] font-black uppercase tracking-widest hover:bg-blue-500 hover:text-black transition-all">
                             EXECUTE_OPTIMIZATION
                         </button>
                     </div>
@@ -227,13 +227,13 @@ const SERPMap = () => {
             <div className="absolute top-6 right-6 flex flex-col gap-2 z-20">
                 <div className="glass p-3 border-cyan-500/30 bg-black/60">
                     <div className="text-[7px] text-cyan-400 font-mono uppercase tracking-widest mb-1">GLOBAL_VISIBILITY_INDEX</div>
-                    <div className="text-2xl font-black text-white tabular-nums">92.4 <span className="text-[10px] text-emerald-500">+1.2%</span></div>
+                    <div className="text-2xl font-black text-white tabular-nums">92.4 <span className="text-[10px] text-blue-500">+1.2%</span></div>
                 </div>
             </div>
 
             <div className="absolute bottom-6 left-6 z-20 flex gap-4">
                  <div className="flex items-center gap-2 px-3 py-1 bg-black/80 border border-white/10">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                    <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                     <span className="text-[8px] font-mono text-zinc-400 uppercase tracking-widest">TOP_3_NODES</span>
                  </div>
                  <div className="flex items-center gap-2 px-3 py-1 bg-black/80 border border-white/10">
@@ -369,7 +369,7 @@ export default function SEOTacticalConsole() {
                     <span className="text-[8px] text-zinc-600 uppercase tracking-widest mb-1">{m.label}</span>
                     <div className="flex items-baseline gap-2">
                         <span className="text-xl font-black text-white tabular-nums">{m.val}</span>
-                        <span className="text-[9px] text-emerald-500 font-bold">{m.sub}</span>
+                        <span className="text-[9px] text-blue-500 font-bold">{m.sub}</span>
                     </div>
                 </div>
             ))}

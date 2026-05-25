@@ -169,7 +169,7 @@ export default function LuxuryJewelleryCaseStudy() {
         <ProjectOverview />
         <ProductionBentoGrid />
         <CaseStudyFAQ />
-        <CaseStudyCTA slug="luxury-ai-jewellery-tvc-production" />
+        <CaseStudyCTA slug="best-ai-tvc-production-company-in-india-luxury-jewellery-ai-ad-film-dp-ai-studio" />
       </div>
     </main>
   );

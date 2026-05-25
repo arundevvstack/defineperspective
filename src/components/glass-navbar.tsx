@@ -274,9 +274,9 @@ const DropdownPanel = ({
                   <Link 
                     href="https://wa.me/917012941696"
                     target="_blank"
-                    className="h-20 px-10 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[11px] flex items-center justify-between group/wa hover:border-emerald-500/50 transition-all"
+                    className="h-20 px-10 rounded-xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[11px] flex items-center justify-between group/wa hover:border-red-500/50 transition-all"
                   >
-                    Direct Connect_ <MessageCircle size={18} className="text-emerald-500 group-hover/wa:scale-125 transition-transform" />
+                    Direct Connect_ <MessageCircle size={18} className="text-red-500 group-hover/wa:scale-125 transition-transform" />
                   </Link>
                 </div>
 

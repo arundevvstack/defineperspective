@@ -104,7 +104,7 @@ export default function MapView({ city, setStatus }: { city?: string, setStatus?
         
         <div className="absolute bottom-6 left-6 p-4 bg-black/60 border border-white/10 rounded-2xl backdrop-blur-md">
            <div className="flex items-center gap-4">
-              <TrendingUp size={12} className="text-green-500" />
+              <TrendingUp size={12} className="text-blue-500" />
               <span className="text-[10px] font-mono uppercase">+14% Growth Velocity</span>
            </div>
         </div>

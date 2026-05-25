@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from 'react';
+import React from 'react';
 import { Terminal, ChevronDown, Cpu, Activity } from 'lucide-react';
 
 /**
@@ -9,33 +7,28 @@ import { Terminal, ChevronDown, Cpu, Activity } from 'lucide-react';
  * Integrates directly with viewport as a premium, highly stylized cyber-console, eliminating cloaking risk.
  */
 const SemanticSeoLayer = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <section 
       className="relative z-40 bg-zinc-950/20 border-t border-white/5 py-6 px-6 font-mono selection:bg-primary-accent selection:text-white"
       data-ai-node="authority-mesh-v5"
     >
-      <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <details className="container mx-auto group">
+        <summary className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 list-none cursor-pointer [&::-webkit-details-marker]:hidden">
           <div className="flex items-center gap-3">
              <Terminal size={14} className="text-primary-accent animate-pulse" />
              <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-bold">
                 Neural AEO Registry Nodes: <span className="text-white">Active (v5.0)</span>
              </span>
           </div>
-          <button 
-             onClick={() => setIsOpen(!isOpen)}
-             className="h-8 px-4 rounded border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary-accent/40 text-[9px] uppercase tracking-widest text-zinc-400 hover:text-white flex items-center gap-2 transition-all cursor-pointer"
-             aria-expanded={isOpen}
+          <div 
+             className="h-8 px-4 rounded border border-white/10 bg-white/5 hover:bg-white/10 hover:border-primary-accent/40 text-[9px] uppercase tracking-widest text-zinc-400 hover:text-white flex items-center gap-2 transition-all"
           >
              <span>Console Output</span>
-             <ChevronDown size={10} className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary-accent' : ''}`} />
-          </button>
-        </div>
+             <ChevronDown size={10} className="transition-transform duration-300 group-open:rotate-180 group-open:text-primary-accent" />
+          </div>
+        </summary>
 
-        {isOpen && (
-          <div className="mt-8 pt-8 border-t border-white/5 grid gap-12 text-left">
+        <div className="mt-8 pt-8 border-t border-white/5 grid gap-12 text-left">
             {/* 1. MISSION CRITICAL SUMMARY (Phase 8: AI Overview Optimization) */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -184,8 +177,7 @@ const SemanticSeoLayer = () => {
         <a href="/ai-real-estate-commercials">AI Real Estate Films India</a>
       </nav>
           </div>
-        )}
-      </div>
+      </details>
     </section>
   );
 };

@@ -55,7 +55,7 @@ export default function DynamicLeadMagnet({ context, className }: DynamicLeadMag
           <div className="flex-1 space-y-6">
             <div className="flex items-center gap-3">
               <span className="px-4 py-1.5 rounded-full bg-primary-accent text-black text-[9px] font-black uppercase tracking-[0.2em]">Free Intelligence Report</span>
-              <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+              <div className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
             </div>
             
             <h3 className="text-3xl md:text-4xl font-blacker uppercase italic tracking-tighter leading-none">

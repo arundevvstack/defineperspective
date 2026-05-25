@@ -47,16 +47,28 @@ type CaseStudy = {
 // ==============================================================================
 export const revalidate = 60;
 
+export async function generateStaticParams() {
+  const { data: caseStudies } = await supabaseAdmin
+    .from('case_studies')
+    .select('slug')
+    .eq('published', true);
+
+  return (caseStudies || []).map((cs) => ({
+    slug: cs.slug,
+  }));
+}
+
 // ==============================================================================
 // METADATA
 // ==============================================================================
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
 
   const { data: cs } = await supabaseAdmin
     .from('case_studies')
     .select('title, ai_summary, thumbnail_url, geo, industry, geo_tags, published')
-    .eq('slug', slug)
+    .eq('slug', decodedSlug)
     .maybeSingle();
 
   if (!cs) return { title: 'Case Study Not Found | DP AI Studios' };
@@ -89,11 +101,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // ==============================================================================
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
 
   const { data: cs } = await supabaseAdmin
     .from('case_studies')
     .select('*')
-    .eq('slug', slug)
+    .eq('slug', decodedSlug)
     .maybeSingle();
 
   if (!cs) notFound();

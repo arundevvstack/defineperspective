@@ -27,9 +27,9 @@ const videoData = [
     category: "Corporate & Brand Films",
     description: "Premium brand storytelling and corporate video production in Kerala, designed to build trust and authority.",
     projects: [
-      { id: "corp1", title: "To U Commercial", videoId: "NEqjeiDThcY", service: "TVC", industry: "Fashion/ Apparal", href: "/case-studies/to-u-commercial" },
-      { id: "corp2", title: "BB Serum TVC", videoId: "8TntXDekuE8", service: "TVC", industry: "Cosmetics & Beauty", href: "/case-studies/bb-serum-tvc" },
-      { id: "corp3", title: "Dotspace Commercial", videoId: "HuX40LSwF7M", service: "TVC", industry: "Co-working Space", href: "/case-studies/dotspace-commercial" },
+      { id: "corp1", title: "To U Commercial", videoId: "NEqjeiDThcY", service: "TVC", industry: "Fashion/ Apparal", href: "/portfolio/to-u-commercial" },
+      { id: "corp2", title: "BB Serum TVC", videoId: "8TntXDekuE8", service: "TVC", industry: "Cosmetics & Beauty", href: "/portfolio/bb-serum-tvc" },
+      { id: "corp3", title: "Dotspace Commercial", videoId: "HuX40LSwF7M", service: "TVC", industry: "Co-working Space", href: "/portfolio/dotspace-commercial" },
       { id: "corp4", title: "SP Wellness Fort Hospital AD", videoId: "67IExKhWqd0", service: "TVC", industry: "Health" },
       { id: "corp5", title: "Suruma Wedding TVC", videoId: "oP9rsiWbGAE", service: "TVC", industry: "Fashion" },
     ]
@@ -62,13 +62,13 @@ const aiData = [
     category: "AI Video Production",
     description: "Photorealistic generative video and motion for brands. Visual velocity refined.",
     projects: [
-      { id: "ai-cinematic", title: "Cinematic AI Commercial Production", videoId: "L7aRxqziN8w", service: "Premium AI Brand Film", industry: "Fashion & Lifestyle", client: "DP AI Studios", href: "/case-studies/cinematic-ai-commercial-production" },
-      { id: "ai-jewellery", title: "Cinematic AI Jewellery Commercial", videoId: "ViVvFiF-kBQ", service: "Luxury AI TVC", industry: "Luxury & Jewellery", client: "DP AI Studios", href: "/case-studies/luxury-ai-jewellery-tvc-production" },
-      { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue", href: "/case-studies/desert-queen" },
-      { id: "ai2", title: "SHE Luxury Body Lotion", videoId: "5kOnWP-dZZY", service: "AI TV Commercial", industry: "Fashion & Lifestyle", client: "She", href: "/case-studies/she-body-lotion" },
-      { id: "ai3", title: "Banaras Silk | Fabrics of India", videoId: "ic0skwrzA5M", service: "AI Documentary", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/case-studies/banaras-silk" },
-      { id: "ai4", title: "Swarna Kosa | Heritage Silk Sarees", videoId: "-CYvl4ytIFY", service: "AI TVC", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/case-studies/swarna-kosa" },
-      { id: "ai5", title: "SHE Diamond | Cinematic AI Luxury Jewelry Advertisement", videoId: "ZKsTHF772K0", service: "AI TVC", industry: "Fashion & Lifestyle", client: "SHE", href: "/case-studies/she-diamond" },
+      { id: "ai-cinematic", title: "Cinematic AI Commercial Production", videoId: "L7aRxqziN8w", service: "Premium AI Brand Film", industry: "Fashion & Lifestyle", client: "DP AI Studios", href: "/portfolio/cinematic-ai-commercial-production" },
+      { id: "ai-jewellery", title: "Cinematic AI Jewellery Commercial", videoId: "ViVvFiF-kBQ", service: "Luxury AI TVC", industry: "Luxury & Jewellery", client: "DP AI Studios", href: "/portfolio/luxury-ai-jewellery-tvc-production" },
+      { id: "ai1", title: "Desert Queen | West Vogue Series", videoId: "HtomLPOzkCU", service: "AI Fashion Film", industry: "Fashion & Lifestyle", client: "West Vogue", href: "/portfolio/desert-queen" },
+      { id: "ai2", title: "SHE Luxury Body Lotion", videoId: "5kOnWP-dZZY", service: "AI TV Commercial", industry: "Fashion & Lifestyle", client: "She", href: "/portfolio/she-body-lotion" },
+      { id: "ai3", title: "Banaras Silk | Fabrics of India", videoId: "ic0skwrzA5M", service: "AI Documentary", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/portfolio/banaras-silk" },
+      { id: "ai4", title: "Swarna Kosa | Heritage Silk Sarees", videoId: "-CYvl4ytIFY", service: "AI TVC", industry: "Fashion & Lifestyle", client: "WestVogue", href: "/portfolio/swarna-kosa" },
+      { id: "ai5", title: "SHE Diamond | Cinematic AI Luxury Jewelry Advertisement", videoId: "ZKsTHF772K0", service: "AI TVC", industry: "Fashion & Lifestyle", client: "SHE", href: "/portfolio/she-diamond" },
       { id: "ai6", title: "Lacrispo Snacks AI Theatre Ad | Cinematic Commercial", videoId: "vGijXeVUS74", service: "AI Theatre Ad", industry: "FMCG / Snacks", client: "Lacrispo" },
     ]
   },
@@ -83,7 +83,7 @@ const aiData = [
         service: "AI Shortfom AD", 
         industry: "Food & Beverages", 
         client: "Leelamma Since 1980 Restaurant Chain",
-        href: "/case-studies/leelama-restaurant"
+        href: "/portfolio/leelama-restaurant"
       },
       { 
         id: "ai-vert2", 
@@ -92,7 +92,7 @@ const aiData = [
         service: "AI Vertical Ad", 
         industry: "Real Estate", 
         client: "Real Estate AI",
-        href: "/case-studies/real-estate-ai-ad"
+        href: "/portfolio/real-estate-ai-ad"
       },
       { 
         id: "ai-vert3", 
@@ -111,7 +111,7 @@ const photoData = [
     category: "Strategic Case Studies",
     description: "High-impact advertisement photography for billboards, luxury catalogs, and product advertising in India.",
     projects: [
-      { id: "photo1", title: "Kumbayah Kombucha", img: "/images/clients/kumbayah/van-marketing.jpg", href: "/case-studies/kumbayah-kombucha" },
+      { id: "photo1", title: "Kumbayah Kombucha", img: "/images/clients/kumbayah/van-marketing.jpg", href: "/portfolio/kumbayah-kombucha" },
     ]
   }
 ];

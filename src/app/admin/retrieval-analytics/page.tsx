@@ -46,7 +46,7 @@ export default function RetrievalAnalyticsDashboard() {
         {/* Live Semantic Query Stream */}
         <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
           <h2 className="text-xl font-medium mb-6 flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
             Live Query Telemetry
           </h2>
           
@@ -74,7 +74,7 @@ export default function RetrievalAnalyticsDashboard() {
                     <td className="py-4 text-neutral-400">{q.latency}ms</td>
                     <td className="py-4">
                       {q.similarity > 0.85 ? (
-                        <span className="bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded text-xs">High Precision</span>
+                        <span className="bg-blue-500/10 text-blue-400 px-2 py-1 rounded text-xs">High Precision</span>
                       ) : (
                         <span className="bg-amber-500/10 text-amber-400 px-2 py-1 rounded text-xs">Review Chunk</span>
                       )}
@@ -93,7 +93,7 @@ export default function RetrievalAnalyticsDashboard() {
 // Micro-component for HUD UI
 function MetricCard({ title, value, status }: { title: string, value: string, status: 'optimal' | 'warning' | 'critical' }) {
   const statusColors = {
-    optimal: 'text-emerald-400',
+    optimal: 'text-blue-400',
     warning: 'text-amber-400',
     critical: 'text-red-400'
   };

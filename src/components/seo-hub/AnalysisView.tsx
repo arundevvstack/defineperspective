@@ -175,7 +175,7 @@ export default function AnalysisView({ city }: { city?: string }) {
               <div className="space-y-3 w-full max-w-xs mx-auto">
                 {ANALYSIS_STEPS.map((step, idx) => (
                   <div key={idx} className={cn("flex items-center gap-4 text-[10px] font-mono tracking-wider transition-opacity duration-300", idx === currentStep ? "opacity-100" : idx < currentStep ? "opacity-40" : "opacity-10")}>
-                    {idx < currentStep ? <CheckCircle2 size={12} className="text-green-500" /> : <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />}
+                    {idx < currentStep ? <CheckCircle2 size={12} className="text-blue-500" /> : <div className="h-1.5 w-1.5 rounded-full bg-primary-accent" />}
                     {step}
                   </div>
                 ))}
@@ -190,7 +190,7 @@ export default function AnalysisView({ city }: { city?: string }) {
         {showResults && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-12">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-               <ResultCard icon={Zap} title="Performance" score="92" status="Optimal" color="text-green-400" items={[{label:"LCP", value:"0.8s", status:"good"}, {label:"CLS", value:"0.01", status:"good"}]} />
+               <ResultCard icon={Zap} title="Performance" score="92" status="Optimal" color="text-blue-400" items={[{label:"LCP", value:"0.8s", status:"good"}, {label:"CLS", value:"0.01", status:"good"}]} />
                <ResultCard icon={BrainCircuit} title="Semantic" score="78" status="Strong" color="text-primary-accent" items={[{label:"Schema", value:"Found", status:"good"}, {label:"Entities", value:"Strong", status:"good"}]} />
                <ResultCard icon={Cpu} title="AI Ready" score="89" status="Elite" color="text-purple-400" items={[{label:"Crawler", value:"Allowed", status:"good"}, {label:"Vector", value:"V2", status:"good"}]} />
             </div>

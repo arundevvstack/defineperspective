@@ -82,7 +82,7 @@ export default function LeadMagnetModal() {
 
                {status === "success" ? (
                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-10 text-center space-y-4">
-                    <div className="h-16 w-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto text-green-500">
+                    <div className="h-16 w-16 rounded-full bg-red-500/20 flex items-center justify-center mx-auto text-red-500">
                        <ShieldCheck size={32} />
                     </div>
                     <p className="text-sm font-black uppercase tracking-widest text-white">Transmission Successful. Check your inbox.</p>

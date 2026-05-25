@@ -152,8 +152,8 @@ export default function CompetitorMapPage() {
                    </div>
                    <div className="h-8 w-[1px] bg-white/10" />
                    <div className="flex items-center gap-2">
-                      <TrendingUp size={14} className="text-green-500" />
-                      <span className="text-[10px] font-mono text-green-500 uppercase">+14.2% Growth</span>
+                      <TrendingUp size={14} className="text-blue-500" />
+                      <span className="text-[10px] font-mono text-blue-500 uppercase">+14.2% Growth</span>
                    </div>
                 </div>
               </div>
@@ -249,7 +249,7 @@ export default function CompetitorMapPage() {
                    <h4 className="text-sm font-bold uppercase tracking-widest">{zone.name}</h4>
                    <span className={cn(
                      "text-[8px] font-mono uppercase px-2 py-0.5 rounded",
-                     zone.status === "Dominating" ? "bg-green-500/20 text-green-500" : "bg-orange-500/20 text-orange-500"
+                     zone.status === "Dominating" ? "bg-blue-500/20 text-blue-500" : "bg-orange-500/20 text-orange-500"
                    )}>{zone.status}</span>
                 </div>
 

@@ -44,7 +44,7 @@ export default function CopilotPage() {
           <div>
             <h1 className="text-xl font-light tracking-widest text-white">DP AI COPILOT</h1>
             <p className="text-xs uppercase tracking-widest text-amber-500 mt-1 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
               Neural Operations Active
             </p>
           </div>

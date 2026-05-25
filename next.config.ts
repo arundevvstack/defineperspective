@@ -33,7 +33,17 @@ const nextConfig: NextConfig = {
   },
   // Allow development origins for HMR when accessing via network IP or localhost
   allowedDevOrigins: ["localhost", "127.0.0.1", "172.20.10.3"],
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
   async headers() {
+    const isDev = process.env.NODE_ENV === 'development';
+    const scriptSrc = isDev
+      ? "'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://www.youtube.com https://s.ytimg.com https://api.mapbox.com https://unpkg.com"
+      : "'self' 'unsafe-inline' https://va.vercel-scripts.com https://www.youtube.com https://s.ytimg.com https://api.mapbox.com https://unpkg.com";
+
+    const cspHeader = `default-src 'self'; script-src ${scriptSrc}; style-src 'self' 'unsafe-inline' https://api.mapbox.com https://unpkg.com; img-src 'self' data: https://images.unsplash.com https://defineperspective.in https://i.ytimg.com https://img.youtube.com https://api.mapbox.com https://grainy-gradients.vercel.app https://basemaps.cartocdn.com *.basemaps.cartocdn.com; font-src 'self' data:; connect-src 'self' https://bdvhkvftsaxgrxiemdsg.supabase.co wss://bdvhkvftsaxgrxiemdsg.supabase.co https://vitals.vercel-insight.com https://www.youtube.com https://api.mapbox.com *.mapbox.com https://basemaps.cartocdn.com *.basemaps.cartocdn.com https://ipapi.co https://nominatim.openstreetmap.org; media-src 'self' https://player.vimeo.com https://vimeo.com *.vimeo.com https://www.youtube.com; frame-src 'self' https://www.youtube.com https://youtube.com; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests;`;
+
     return [
       {
         source: "/(.*)",
@@ -51,12 +61,20 @@ const nextConfig: NextConfig = {
             value: "strict-origin-when-cross-origin",
           },
           {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+          {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
           },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://www.youtube.com https://s.ytimg.com https://api.mapbox.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://api.mapbox.com https://unpkg.com; img-src 'self' data: https://images.unsplash.com https://defineperspective.in https://i.ytimg.com https://img.youtube.com https://api.mapbox.com https://grainy-gradients.vercel.app https://basemaps.cartocdn.com *.basemaps.cartocdn.com; font-src 'self' data:; connect-src 'self' https://bdvhkvftsaxgrxiemdsg.supabase.co wss://bdvhkvftsaxgrxiemdsg.supabase.co https://vitals.vercel-insight.com https://www.youtube.com https://api.mapbox.com *.mapbox.com https://basemaps.cartocdn.com *.basemaps.cartocdn.com https://ipapi.co https://nominatim.openstreetmap.org; media-src 'self' https://player.vimeo.com https://vimeo.com *.vimeo.com https://www.youtube.com; frame-src 'self' https://www.youtube.com https://youtube.com; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests;",
+            value: cspHeader,
           },
         ],
       },

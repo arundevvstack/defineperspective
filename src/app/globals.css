@@ -14,53 +14,46 @@
 :root {
   --background: #000000;
   --foreground: #FFFFFF;
-  --accent: #00ff41; /* Tactical Green - DP Studio Signature */
-  --accent-rgb: 0, 255, 65;
-  --accent-foreground: #000000;
-  --glow: rgba(0, 255, 65, 0.15);
-  --glow-strong: rgba(0, 255, 65, 0.25);
-  --glass-white: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --border-subtle: rgba(255, 255, 255, 0.05);
+  --accent: #fb2c36; 
+  --accent-rgb: 251, 44, 54;
+  --accent-foreground: #ffffff;
+  --glow: rgba(251, 44, 54, 0.05);
+  --glow-strong: rgba(251, 44, 54, 0.10);
+  --glass-white: rgba(255, 255, 255, 0.02); /* Apple-grade low opacity */
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --border-subtle: rgba(255, 255, 255, 0.03);
 }
 
-.theme-green {
-  --accent: #00ff41; 
-  --color-primary-accent: #00ff41 !important;
-  --accent-rgb: 0, 255, 65;
-  --accent-foreground: #000000;
-  --glow: rgba(0, 255, 65, 0.15);
-  --glow-strong: rgba(0, 255, 65, 0.25);
-}
+
 
 .theme-red {
   --accent: #fb2c36; 
   --color-primary-accent: #fb2c36 !important;
   --accent-rgb: 251, 44, 54;
   --accent-foreground: #ffffff;
-  --glow: rgba(251, 44, 54, 0.15);
-  --glow-strong: rgba(251, 44, 54, 0.25);
-  --shadow: rgba(0, 0, 0, 0.5);
+  --glow: rgba(251, 44, 54, 0.05);
+  --glow-strong: rgba(251, 44, 54, 0.10);
+  --shadow: rgba(0, 0, 0, 0.2);
 }
 
 .theme-blue {
-  --accent: #0967c0; /* Official Brand Blue */
+  --accent: #0967c0; 
   --color-primary-accent: #0967c0 !important;
   --accent-rgb: 9, 103, 192;
   --accent-foreground: #FFFFFF;
-  --glow: rgba(9, 103, 192, 0.15);
-  --glow-strong: rgba(9, 103, 192, 0.25);
-  --shadow: rgba(9, 103, 192, 0.1);
+  --glow: rgba(9, 103, 192, 0.05);
+  --glow-strong: rgba(9, 103, 192, 0.10);
+  --shadow: rgba(9, 103, 192, 0.05);
 }
 
 .theme-gold {
-  --accent: #d4af37; /* Premium Gold */
+  --accent: #d4af37; 
   --color-primary-accent: #d4af37 !important;
   --accent-rgb: 212, 175, 55;
   --accent-foreground: #000000;
-  --glow: rgba(212, 175, 55, 0.15);
-  --glow-strong: rgba(212, 175, 55, 0.25);
-  --shadow: rgba(212, 175, 55, 0.1);
+  --glow: rgba(212, 175, 55, 0.05);
+  --glow-strong: rgba(212, 175, 55, 0.10);
+  --shadow: rgba(212, 175, 55, 0.05);
 }
 
 body {
@@ -85,12 +78,12 @@ body {
   box-shadow: 0 0 10px rgba(82, 82, 91, 0.4);
 }
 
-/* Glassmorphism Utilities */
+/* Glassmorphism Utilities - Refined to Neural Luxury Standard */
 .glass {
-  background: var(--color-glass-white);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--color-glass-border);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .terminal-cursor {
@@ -130,7 +123,7 @@ body {
 }
 
 .text-glow {
-  text-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
+  text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.2);
 }
 
 /* Global Button Design Improvements */
@@ -169,17 +162,17 @@ button, .btn {
     @apply text-[10px] font-mono font-black uppercase tracking-[0.2em] text-primary-accent;
   }
 
-  /* Unified Button System */
+  /* Unified Button System - Stripped of harsh neon glows */
   .btn-primary {
-    @apply h-16 md:h-20 px-8 md:px-12 rounded-xl font-black uppercase tracking-widest text-[10px] md:text-[11px] flex items-center justify-center gap-4 transition-all duration-500 shadow-2xl active:scale-95 bg-white text-black hover:bg-primary-accent hover:text-white;
+    @apply h-16 md:h-20 px-8 md:px-12 rounded-xl font-black uppercase tracking-widest text-[10px] md:text-[11px] flex items-center justify-center gap-4 transition-all duration-500 shadow-xl active:scale-[0.98] bg-white text-black hover:bg-zinc-200;
   }
   
   .btn-accent {
-    @apply h-16 md:h-20 px-8 md:px-12 rounded-xl font-black uppercase tracking-widest text-[10px] md:text-[11px] flex items-center justify-center gap-4 transition-all duration-500 shadow-2xl active:scale-95 bg-primary-accent text-black hover:bg-white hover:text-black shadow-[0_0_50px_rgba(var(--accent-rgb),0.3)];
+    @apply h-16 md:h-20 px-8 md:px-12 rounded-xl font-black uppercase tracking-widest text-[10px] md:text-[11px] flex items-center justify-center gap-4 transition-all duration-500 shadow-xl active:scale-[0.98] bg-primary-accent text-black hover:bg-white hover:text-black;
   }
   
   .btn-glass {
-    @apply h-16 md:h-20 px-8 md:px-12 rounded-xl font-black uppercase tracking-widest text-[10px] md:text-[11px] flex items-center justify-center gap-4 transition-all duration-500 shadow-2xl active:scale-95 bg-white/5 border border-white/10 text-white hover:bg-white hover:text-black backdrop-blur-xl;
+    @apply h-16 md:h-20 px-8 md:px-12 rounded-xl font-black uppercase tracking-widest text-[10px] md:text-[11px] flex items-center justify-center gap-4 transition-all duration-500 active:scale-[0.98] bg-white/[0.03] border border-white/[0.06] text-white hover:bg-white/[0.08] backdrop-blur-3xl;
   }
 
   .btn-pill {

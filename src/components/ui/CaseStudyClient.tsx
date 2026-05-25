@@ -33,6 +33,8 @@ export default function CaseStudyClient({ caseStudy, videoMeta, aiWorkflow, pipe
               muted 
               loop 
               playsInline 
+              fetchPriority="high"
+              preload="auto"
               className="w-full h-full object-cover opacity-40"
               src={videoMeta.contentUrl}
             />
@@ -41,17 +43,17 @@ export default function CaseStudyClient({ caseStudy, videoMeta, aiWorkflow, pipe
           )}
         </div>
         <motion.div variants={fadeUpVariant} className="relative z-10 text-center max-w-4xl px-6">
-          <p className="text-amber-500 uppercase tracking-widest text-sm mb-4">{caseStudy.client_industry}</p>
-          <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tight">{caseStudy.title}</h1>
-          <p className="text-xl md:text-2xl text-neutral-300 font-light">{caseStudy.excerpt}</p>
+          <p className="text-zinc-400 uppercase tracking-widest text-sm mb-4">{caseStudy.client_industry}</p>
+          <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tighter">{caseStudy.title}</h1>
+          <p className="text-xl md:text-2xl text-zinc-400 font-light max-w-2xl mx-auto leading-relaxed">{caseStudy.excerpt}</p>
         </motion.div>
       </motion.section>
 
       {/* Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-12 gap-24">
         
         {/* Main Editorial Content */}
-        <motion.div variants={containerStagger} className="lg:col-span-8 space-y-24">
+        <motion.div variants={containerStagger} className="lg:col-span-8 space-y-32">
           
           {/* The Film */}
           <motion.section variants={fadeUpVariant}>
@@ -65,7 +67,7 @@ export default function CaseStudyClient({ caseStudy, videoMeta, aiWorkflow, pipe
                   allowFullScreen
                 ></iframe>
               ) : videoMeta?.contentUrl ? (
-                <video controls className="w-full h-full object-cover">
+                <video controls preload="metadata" className="w-full h-full object-cover">
                   <source src={videoMeta.contentUrl} type="video/mp4" />
                 </video>
               ) : (
@@ -75,49 +77,40 @@ export default function CaseStudyClient({ caseStudy, videoMeta, aiWorkflow, pipe
           </motion.section>
 
           {/* Workflow & Challenges */}
-          <motion.section variants={fadeUpVariant} className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <motion.section variants={fadeUpVariant} className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-              <h3 className="text-2xl font-light mb-6 text-amber-500 tracking-wide">Visual Storytelling</h3>
-              <p className="text-neutral-400 leading-relaxed text-lg font-light">{caseStudy.visual_storytelling}</p>
+              <h3 className="text-xl font-medium mb-6 text-white tracking-wide">Visual Storytelling</h3>
+              <p className="text-zinc-400 leading-relaxed text-lg font-light">{caseStudy.visual_storytelling}</p>
             </div>
             <div>
-              <h3 className="text-2xl font-light mb-6 text-amber-500 tracking-wide">Production Challenges</h3>
-              <p className="text-neutral-400 leading-relaxed text-lg font-light">{caseStudy.production_challenges}</p>
+              <h3 className="text-xl font-medium mb-6 text-white tracking-wide">Production Challenges</h3>
+              <p className="text-zinc-400 leading-relaxed text-lg font-light">{caseStudy.production_challenges}</p>
             </div>
           </motion.section>
 
           {/* Transcript Engine */}
           {caseStudy.transcript && (
-            <motion.section variants={fadeUpVariant} className="bg-neutral-900 p-8 rounded-lg border border-neutral-800 relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-1 h-full bg-amber-500 transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-700 ease-out"></div>
-              <h3 className="text-xl font-medium mb-4 uppercase tracking-widest text-neutral-300 text-sm">Neural Transcript & Entity Mapping</h3>
-              <div className="prose prose-invert prose-p:text-neutral-400 font-light leading-relaxed">
+            <motion.section variants={fadeUpVariant} className="bg-white/[0.02] p-12 rounded-2xl border border-white/[0.05] relative overflow-hidden backdrop-blur-2xl">
+              <h3 className="text-lg font-medium mb-6 uppercase tracking-widest text-zinc-300 text-xs">Cinematic Script & Mapping</h3>
+              <div className="prose prose-invert prose-p:text-zinc-400 font-light leading-relaxed max-w-none">
                 <p className="whitespace-pre-wrap">{caseStudy.transcript}</p>
               </div>
             </motion.section>
           )}
         </motion.div>
 
-        {/* Sidebar Neural HUD */}
-        <motion.div variants={containerStagger} className="lg:col-span-4 space-y-12">
+        {/* Sidebar Luxury Specifications */}
+        <motion.div variants={containerStagger} className="lg:col-span-4 space-y-8">
           
-          {/* AI Workflow Proof */}
-          <motion.div variants={fadeUpVariant} className="bg-neutral-900/50 backdrop-blur-md border border-neutral-800 p-8 rounded-lg shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10">
-              {/* Decorative Tech Element */}
-              <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" strokeDasharray="5 5"/>
-                <circle cx="50" cy="50" r="20" stroke="currentColor" strokeWidth="1"/>
-              </svg>
-            </div>
-            <h3 className="text-xs uppercase tracking-widest text-amber-500 mb-6 border-b border-neutral-800 pb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-              Neural HUD: Production Workflow
+          {/* Production Workflow */}
+          <motion.div variants={fadeUpVariant} className="bg-white/[0.02] backdrop-blur-3xl border border-white/[0.05] p-8 rounded-2xl shadow-xl relative overflow-hidden">
+            <h3 className="text-xs uppercase tracking-widest text-zinc-400 mb-8 pb-4 border-b border-white/[0.05]">
+              Production Specifications
             </h3>
-            <ul className="space-y-6 text-neutral-400">
+            <ul className="space-y-6 text-zinc-400">
               {Object.entries(aiWorkflow || {}).map(([k, v]) => (
                 <li key={k} className="flex flex-col">
-                  <span className="text-[10px] uppercase tracking-widest text-neutral-500 mb-1">{k.replace('_', ' ')}</span>
+                  <span className="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">{k.replace('_', ' ')}</span>
                   <span className="text-white font-medium tracking-wide">{String(v)}</span>
                 </li>
               ))}
@@ -125,16 +118,16 @@ export default function CaseStudyClient({ caseStudy, videoMeta, aiWorkflow, pipe
           </motion.div>
 
           {/* Authority Mesh Linking */}
-          <motion.div variants={fadeUpVariant} className="bg-neutral-900/30 border border-neutral-800 p-8 rounded-lg">
-            <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-6 border-b border-neutral-800 pb-4">Semantic Authority Mesh</h3>
+          <motion.div variants={fadeUpVariant} className="bg-white/[0.01] border border-white/[0.03] p-8 rounded-2xl">
+            <h3 className="text-xs uppercase tracking-widest text-zinc-500 mb-6 pb-4 border-b border-white/[0.05]">Semantic Authority Mesh</h3>
             <div className="flex flex-wrap gap-2">
               {caseStudy.geo_tags?.map((tag: string) => (
-                <Link key={tag} href={`/ai-video-production-${tag.toLowerCase().replace(/\s+/g, '-')}`} className="text-xs uppercase tracking-wider bg-neutral-800 hover:bg-amber-600 transition-colors px-4 py-2 rounded text-neutral-300">
+                <Link key={tag} href={`/ai-video-production-${tag.toLowerCase().replace(/\s+/g, '-')}`} className="text-[10px] uppercase tracking-widest bg-white/[0.03] hover:bg-white/10 border border-white/[0.05] transition-colors px-4 py-2 rounded-full text-zinc-400">
                   {tag}
                 </Link>
               ))}
               {relatedSlugs?.map((slug: string) => (
-                <Link key={slug} href={`/${slug}`} className="text-xs uppercase tracking-wider bg-neutral-800 hover:bg-amber-600 transition-colors px-4 py-2 rounded text-neutral-300">
+                <Link key={slug} href={`/${slug}`} className="text-[10px] uppercase tracking-widest bg-white/[0.03] hover:bg-white/10 border border-white/[0.05] transition-colors px-4 py-2 rounded-full text-zinc-400">
                   {slug.split('-').join(' ')}
                 </Link>
               ))}
@@ -143,6 +136,19 @@ export default function CaseStudyClient({ caseStudy, videoMeta, aiWorkflow, pipe
 
         </motion.div>
       </div>
+
+      {/* Strategic Consultation CTA */}
+      <motion.section variants={fadeUpVariant} className="max-w-7xl mx-auto px-6 pb-32">
+        <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12 md:p-16 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-10 backdrop-blur-3xl">
+          <div className="max-w-xl">
+            <h3 className="text-2xl md:text-3xl font-light tracking-tight text-white mb-4">Ready to elevate your production?</h3>
+            <p className="text-zinc-400 font-light text-lg">Discuss your cinematic infrastructure requirements with our strategy team.</p>
+          </div>
+          <Link href="/contact" className="shrink-0 h-16 md:h-20 px-10 md:px-14 rounded-2xl bg-white text-black font-black uppercase tracking-widest text-[11px] flex items-center gap-4 hover:bg-zinc-200 transition-all duration-500 shadow-2xl active:scale-95">
+            Request Consultation <ArrowRight size={18} className="transition-transform group-hover:translate-x-2" />
+          </Link>
+        </div>
+      </motion.section>
     </motion.div>
   );
 }

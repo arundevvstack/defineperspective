@@ -14,7 +14,7 @@ export default function BlogPage() {
     },
     {
       question: "CGI vs. Reality: Why choose virtual production?",
-      answer: "Unlike traditional CGI (post-production), VP allows actors and cameras to interact with digital worlds live. This eliminates the 'green screen effect,' provides perfect on-set lighting, and significantly speeds up production timelines."
+      answer: "Unlike traditional CGI (post-production), VP allows actors and cameras to interact with digital worlds live. This eliminates the 'red screen effect,' provides perfect on-set lighting, and significantly speeds up production timelines."
     },
     {
       question: "Is virtual production expensive?",
@@ -96,7 +96,7 @@ export default function BlogPage() {
                The Power of Real-Time Interaction
             </h2>
             <p className="mb-6">
-              In a traditional green screen shoot, actors have no visual reference. In <strong>Virtual Production</strong>, the LED wall provides perfect environmental lighting and reflections on physical objects in real-time. This creates a psychological shift on-set, leading to more authentic performances and 100% realistic lighting.
+              In a traditional red screen shoot, actors have no visual reference. In <strong>Virtual Production</strong>, the LED wall provides perfect environmental lighting and reflections on physical objects in real-time. This creates a psychological shift on-set, leading to more authentic performances and 100% realistic lighting.
             </p>
           </section>
 
