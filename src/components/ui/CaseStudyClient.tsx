@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeUpVariant, containerStagger, heroImageScale, durations, easing } from '@/lib/motion-tokens';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 interface CaseStudyClientProps {
   caseStudy: any;
@@ -33,6 +34,7 @@ export default function CaseStudyClient({ caseStudy, videoMeta, aiWorkflow, pipe
               muted 
               loop 
               playsInline 
+              // @ts-expect-error fetchPriority is supported in modern browsers but missing from React types
               fetchPriority="high"
               preload="auto"
               className="w-full h-full object-cover opacity-40"
