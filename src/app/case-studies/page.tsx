@@ -34,6 +34,15 @@ export default async function CaseStudiesListingPage() {
     .eq('published', true)
     .order('published_at', { ascending: false });
 
+  // Safe Set-based Deduplication to prevent future CMS clones from breaking SEO
+  const rawCaseStudies = caseStudies || [];
+  const uniqueTitles = new Set();
+  const uniqueCaseStudies = rawCaseStudies.filter(cs => {
+    if (uniqueTitles.has(cs.title)) return false;
+    uniqueTitles.add(cs.title);
+    return true;
+  });
+
   // Generate CollectionPage Schema
   const schemaJson = {
     "@context": "https://schema.org",
@@ -46,7 +55,7 @@ export default async function CaseStudiesListingPage() {
       "name": "DP AI Studios",
       "url": "https://defineperspective.in/"
     },
-    "hasPart": (caseStudies || []).map(cs => ({
+    "hasPart": uniqueCaseStudies.map(cs => ({
       "@type": "Article",
       "headline": cs.title,
       "url": `https://defineperspective.in/case-studies/${cs.slug}`
@@ -83,13 +92,13 @@ export default async function CaseStudiesListingPage() {
 
         {/* Case Studies Grid */}
         <section className="mt-12">
-          {!caseStudies || caseStudies.length === 0 ? (
+          {uniqueCaseStudies.length === 0 ? (
             <div className="p-12 border border-white/5 bg-white/[0.02] rounded-3xl text-center">
               <p className="text-zinc-500 font-mono text-sm uppercase tracking-widest">No public case studies found.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-              {caseStudies.map((cs) => (
+              {uniqueCaseStudies.map((cs) => (
                 <Link href={`/case-studies/${cs.slug}`} key={cs.slug} className="group flex flex-col h-full bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden hover:bg-white/[0.04] hover:border-primary-accent/30 transition-all duration-500 hover:-translate-y-2">
                   <div className="relative w-full aspect-[16/10] overflow-hidden bg-black shrink-0">
                     {cs.thumbnail_url ? (
