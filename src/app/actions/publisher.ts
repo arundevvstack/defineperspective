@@ -185,6 +185,7 @@ async function generateAndStoreEmbedding(params: {
   workflows: string[];
   transcript: string;
   slug: string;
+  focusKeywords?: string[];
 }) {
   const chunks: string[] = [];
 
@@ -198,7 +199,8 @@ async function generateAndStoreEmbedding(params: {
     `Industries: ${displayIndustries.join(', ')}\n` +
     `Client: ${params.clientName}\n` +
     `Workflows: ${params.workflows.join(', ')}\n` +
-    `Summary: ${params.aiSummary}`
+    `Summary: ${params.aiSummary}` +
+    (params.focusKeywords && params.focusKeywords.length > 0 ? `\nFocus Keywords: ${params.focusKeywords.join(', ')}` : '')
   );
 
   // Chunk 2: Transcript (if available, take first 2000 chars)
@@ -262,6 +264,11 @@ const PublishInputSchema = z.object({
   videoUrl: z.string().optional(),
   youtubeUrl: z.string().optional(),
   thumbnailUrl: z.string().optional(),
+  seoTitle: z.string().optional(),
+  seoDescription: z.string().optional(),
+  focusKeywords: z.array(z.string()).optional(),
+  ogTitle: z.string().optional(),
+  ogDescription: z.string().optional(),
 });
 
 export async function publishIntelligence(formData: FormData) {
@@ -290,6 +297,11 @@ export async function publishIntelligence(formData: FormData) {
       videoUrl: (formData.get('videoUrl') as string || '').trim(),
       youtubeUrl: (formData.get('youtubeUrl') as string || '').trim(),
       thumbnailUrl: (formData.get('thumbnailUrl') as string || '').trim(),
+      seoTitle: (formData.get('seoTitle') as string || '').trim(),
+      seoDescription: (formData.get('seoDescription') as string || '').trim(),
+      focusKeywords: JSON.parse((formData.get('focusKeywords') as string) || '[]'),
+      ogTitle: (formData.get('ogTitle') as string || '').trim(),
+      ogDescription: (formData.get('ogDescription') as string || '').trim(),
     };
 
     const input = PublishInputSchema.parse(raw);
@@ -476,6 +488,11 @@ CRITICAL REQUIREMENTS:
         bts_images: input.btsImages || [],
         video_url: input.videoUrl || null,
         youtube_url: input.youtubeUrl || null,
+        seo_title: input.seoTitle || null,
+        seo_description: input.seoDescription || null,
+        focus_keywords: input.focusKeywords || [],
+        og_title: input.ogTitle || null,
+        og_description: input.ogDescription || null,
       })
       .select('id, slug, published')
       .single();
@@ -503,6 +520,7 @@ CRITICAL REQUIREMENTS:
         workflows: intelligence.workflows || [],
         transcript: input.transcript,
         slug: intelligence.slug,
+        focusKeywords: input.focusKeywords,
       });
     } catch (vectorErr: any) {
       // Non-blocking: log but don't fail the publish

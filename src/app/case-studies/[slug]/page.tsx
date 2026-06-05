@@ -48,6 +48,11 @@ type CaseStudy = {
   published: boolean;
   published_at: string;
   created_at: string;
+  seo_title: string | null;
+  seo_description: string | null;
+  focus_keywords: string[];
+  og_title: string | null;
+  og_description: string | null;
 };
 
 // ==============================================================================
@@ -75,23 +80,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const { data: cs } = await supabaseAdmin
     .from('case_studies')
-    .select('title, ai_summary, thumbnail_url, hero_image_url, geo, geo_targets, industry, industries, geo_tags, published')
+    .select('title, ai_summary, thumbnail_url, hero_image_url, geo, geo_targets, industry, industries, geo_tags, published, seo_title, seo_description, focus_keywords, og_title, og_description')
     .eq('slug', decodedSlug)
     .maybeSingle();
 
   if (!cs) return { title: 'Case Study Not Found | DP AI Studios' };
 
-  const description = cs.ai_summary?.substring(0, 160) || `${cs.title} — AI cinematic production by DP AI Studios.`;
   const displayGeos = Array.from(new Set([cs.geo, ...(cs.geo_targets || [])])).filter(Boolean);
   const displayIndustries = Array.from(new Set([cs.industry, ...(cs.industries || [])])).filter(Boolean);
 
+  const displaySeoTitle = cs.seo_title || `${cs.title} | DP AI Studios`;
+  const displaySeoDescription = cs.seo_description || cs.ai_summary?.substring(0, 160) || `${cs.title} — AI cinematic production by DP AI Studios.`;
+  const displayOgTitle = cs.og_title || cs.seo_title || cs.title;
+  const displayOgDescription = cs.og_description || cs.seo_description || displaySeoDescription;
+  
+  const keywords = cs.focus_keywords && cs.focus_keywords.length > 0
+    ? cs.focus_keywords.join(', ')
+    : [...displayIndustries, 'AI video production', 'cinematic AI', ...displayGeos].join(', ');
+
   return {
-    title: `${cs.title} | DP AI Studios`,
-    description,
-    keywords: [...displayIndustries, 'AI video production', 'cinematic AI', ...displayGeos].join(', '),
+    title: displaySeoTitle,
+    description: displaySeoDescription,
+    keywords,
     openGraph: {
-      title: cs.title,
-      description,
+      title: displayOgTitle,
+      description: displayOgDescription,
       images: [{ 
         url: cs.hero_image_url || cs.thumbnail_url || `https://defineperspective.in/api/og?title=${encodeURIComponent(cs.title)}&industry=${encodeURIComponent(cs.industry)}&geo=${encodeURIComponent(cs.geo)}` 
       }],

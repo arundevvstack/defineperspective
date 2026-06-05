@@ -68,6 +68,12 @@ export default function IntelligencePublisher() {
   const [youtubeUrl, setYoutubeUrl] = useState('');
   const [thumbnailUrl, setThumbnailUrl] = useState('');
 
+  const [seoTitle, setSeoTitle] = useState('');
+  const [seoDescription, setSeoDescription] = useState('');
+  const [focusKeywords, setFocusKeywords] = useState('');
+  const [ogTitle, setOgTitle] = useState('');
+  const [ogDescription, setOgDescription] = useState('');
+
   const [status, setStatus] = useState<'idle' | 'publishing' | 'success' | 'error'>('idle');
   const [currentStep, setCurrentStep] = useState<PipelineStep | null>(null);
   const [result, setResult] = useState<PublishResult | null>(null);
@@ -130,6 +136,12 @@ export default function IntelligencePublisher() {
       if (youtubeUrl) formData.append('youtubeUrl', youtubeUrl);
       if (thumbnailUrl) formData.append('thumbnailUrl', thumbnailUrl);
 
+      formData.append('seoTitle', seoTitle);
+      formData.append('seoDescription', seoDescription);
+      formData.append('focusKeywords', JSON.stringify(focusKeywords.split(',').map(k => k.trim()).filter(Boolean)));
+      formData.append('ogTitle', ogTitle);
+      formData.append('ogDescription', ogDescription);
+
       const [res] = await Promise.all([
         publishIntelligence(formData),
         simulatePipeline(),
@@ -167,6 +179,11 @@ export default function IntelligencePublisher() {
     setVideoUrl('');
     setYoutubeUrl('');
     setThumbnailUrl('');
+    setSeoTitle('');
+    setSeoDescription('');
+    setFocusKeywords('');
+    setOgTitle('');
+    setOgDescription('');
     setStatus('idle');
     setResult(null);
     setCurrentStep(null);
@@ -353,6 +370,83 @@ export default function IntelligencePublisher() {
                         value={youtubeUrl}
                         onChange={(e) => setYoutubeUrl(e.target.value)}
                         placeholder="https://youtube.com/watch?v=..."
+                        disabled={status === 'publishing'}
+                        className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Advanced SEO Metadata */}
+                <div className="pt-6 border-t border-neutral-800 space-y-6">
+                  <h3 className="text-xs font-medium text-amber-500 uppercase tracking-widest">Enterprise SEO Controls (Optional)</h3>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        SEO Meta Title
+                      </label>
+                      <input
+                        type="text"
+                        value={seoTitle}
+                        onChange={(e) => setSeoTitle(e.target.value)}
+                        placeholder="Overrides generated title"
+                        disabled={status === 'publishing'}
+                        className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        Focus Keywords
+                      </label>
+                      <input
+                        type="text"
+                        value={focusKeywords}
+                        onChange={(e) => setFocusKeywords(e.target.value)}
+                        placeholder="Comma separated: AI Video, Cinematic..."
+                        disabled={status === 'publishing'}
+                        className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                      SEO Meta Description
+                    </label>
+                    <textarea
+                      value={seoDescription}
+                      onChange={(e) => setSeoDescription(e.target.value)}
+                      placeholder="Overrides generated summary (max 160 chars)"
+                      rows={2}
+                      disabled={status === 'publishing'}
+                      className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60 resize-y"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        OpenGraph Title
+                      </label>
+                      <input
+                        type="text"
+                        value={ogTitle}
+                        onChange={(e) => setOgTitle(e.target.value)}
+                        placeholder="Fallback: SEO Title or Generated Title"
+                        disabled={status === 'publishing'}
+                        className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        OpenGraph Description
+                      </label>
+                      <input
+                        type="text"
+                        value={ogDescription}
+                        onChange={(e) => setOgDescription(e.target.value)}
+                        placeholder="Fallback: SEO Desc or Generated Desc"
                         disabled={status === 'publishing'}
                         className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60"
                       />
