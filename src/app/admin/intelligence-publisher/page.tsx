@@ -122,7 +122,7 @@ export default function IntelligencePublisher() {
       }
 
       const formData = new FormData();
-      formData.append('externalUrl', url);
+      if (url) formData.append('externalUrl', url);
       formData.append('clientName', clientName);
       formData.append('geo', geoTargets.length > 0 ? geoTargets[0] : '');
       formData.append('industry', industries.length > 0 ? industries[0] : '');
@@ -189,6 +189,14 @@ export default function IntelligencePublisher() {
     setCurrentStep(null);
   };
 
+  const hasMedia =
+    url ||
+    videoUrl ||
+    youtubeUrl ||
+    heroImage ||
+    (galleryImages?.length ?? 0) > 0 ||
+    (btsImages?.length ?? 0) > 0;
+
   return (
     <div className="min-h-[100dvh] bg-black text-white font-sans selection:bg-amber-500/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
@@ -229,7 +237,6 @@ export default function IntelligencePublisher() {
                   <input
                     id="pub-url"
                     type="url"
-                    required
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     placeholder="https://youtube.com/watch?v=..."
@@ -493,7 +500,11 @@ export default function IntelligencePublisher() {
                     )}
                     <button
                       type="submit"
-                      disabled={status === 'publishing' || !url || !clientName}
+                      disabled={
+                        status === 'publishing' ||
+                        !clientName ||
+                        !hasMedia
+                      }
                       className="px-6 sm:px-8 py-3.5 bg-white text-black font-medium rounded-full hover:bg-amber-500 hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed uppercase tracking-widest text-xs"
                     >
                       {status === 'publishing' ? 'Publishing...' : 'Publish Everywhere'}
