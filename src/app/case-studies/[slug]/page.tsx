@@ -243,7 +243,7 @@ export default async function CaseStudyPage({ params }: Props) {
         
         {/* Cover Typography */}
         <Reveal className="relative z-10 w-full px-6 md:px-16 pb-16 md:pb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div className="flex-1 max-w-5xl">
+          <div className="flex-1 max-w-6xl">
             {/* Issue Number & Date */}
             <div className="flex items-center gap-6 mb-8 text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-white/70">
               <span>VOL. {(new Date(caseStudy.created_at).getMonth() + 1).toString().padStart(2, '0')}</span>
@@ -260,11 +260,11 @@ export default async function CaseStudyPage({ params }: Props) {
               const subTitle = parts.length > 1 ? parts.slice(1).join('-').trim() : '';
               return (
                 <div className="flex flex-col gap-4">
-                  <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-serif uppercase leading-[0.85] text-white tracking-tighter drop-shadow-2xl mix-blend-overlay opacity-90">
+                  <h1 className="text-5xl md:text-7xl lg:text-[100px] font-serif uppercase leading-[0.9] text-white tracking-tight drop-shadow-2xl mix-blend-overlay opacity-90 max-w-[1200px]">
                     {mainTitle}
                   </h1>
                   {subTitle && (
-                    <h2 className="text-xl md:text-3xl font-serif italic tracking-wide text-white/80 max-w-2xl">
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-serif italic tracking-wide text-white/80 max-w-[800px] leading-relaxed">
                       {subTitle}
                     </h2>
                   )}
@@ -284,140 +284,52 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* =========================================
           SECTION 02: EDITOR'S NOTE
           ========================================= */}
-      <section className="bg-neutral-950 py-24 md:py-32 px-6 md:px-16 border-b border-white/5 relative z-20">
-        <Reveal delay={0.2} className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+      <section className="bg-neutral-950 py-32 md:py-48 px-6 md:px-16 border-b border-white/5 relative z-20">
+        <Reveal delay={0.2} className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           
           {/* Left: Drop Cap Paragraph */}
-          <div className="lg:col-span-7">
-            <h3 className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 mb-12">01 // Editor's Note</h3>
-            <div className="prose prose-invert prose-lg max-w-none">
-              <p className="text-lg md:text-xl lg:text-2xl leading-relaxed text-zinc-300 font-light first-letter:text-6xl md:first-letter:text-8xl first-letter:font-serif first-letter:text-white first-letter:mr-3 first-letter:float-left first-letter:leading-[0.8]">
+          <div className="lg:col-span-8">
+            <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-12">01 // Editor's Note</h3>
+            <div className="prose prose-invert prose-lg max-w-[700px]">
+              <p className="text-lg md:text-xl lg:text-2xl leading-relaxed text-zinc-300 font-light first-letter:text-6xl md:first-letter:text-[100px] first-letter:font-serif first-letter:text-white first-letter:mr-4 first-letter:float-left first-letter:leading-[0.8] first-letter:mt-2">
                 {caseStudy.ai_summary}
               </p>
             </div>
           </div>
 
           {/* Right: Metadata Cards */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-x-8 gap-y-12 content-start border-l border-white/5 pl-0 lg:pl-16">
+          <div className="lg:col-span-4 grid grid-cols-2 gap-x-8 gap-y-16 content-start border-l border-white/5 pl-0 lg:pl-16 mt-16 lg:mt-0">
             <div>
-              <span className="block text-[9px] font-mono tracking-[0.3em] text-white/40 uppercase mb-3 border-b border-white/5 pb-2">Location</span>
-              <p className="text-sm text-white font-serif italic">{displayGeos.join(', ') || 'Global'}</p>
+              <span className="block text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase mb-4 border-b border-white/5 pb-3">Location</span>
+              <p className="text-base text-white font-serif italic">{displayGeos.join(', ') || 'Global'}</p>
             </div>
             <div>
-              <span className="block text-[9px] font-mono tracking-[0.3em] text-white/40 uppercase mb-3 border-b border-white/5 pb-2">Industry</span>
-              <p className="text-sm text-white font-serif italic">{displayIndustries.join(', ') || 'N/A'}</p>
+              <span className="block text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase mb-4 border-b border-white/5 pb-3">Industry</span>
+              <p className="text-base text-white font-serif italic">{displayIndustries.join(', ') || 'N/A'}</p>
             </div>
             <div>
-              <span className="block text-[9px] font-mono tracking-[0.3em] text-white/40 uppercase mb-3 border-b border-white/5 pb-2">Client</span>
-              <p className="text-sm text-white font-serif italic">{caseStudy.client_name || 'Confidential'}</p>
+              <span className="block text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase mb-4 border-b border-white/5 pb-3">Client</span>
+              <p className="text-base text-white font-serif italic">{caseStudy.client_name || 'Confidential'}</p>
             </div>
             <div>
-              <span className="block text-[9px] font-mono tracking-[0.3em] text-white/40 uppercase mb-3 border-b border-white/5 pb-2">Format</span>
-              <p className="text-sm text-white font-serif italic">{caseStudy.platform || 'Multi-platform'}</p>
+              <span className="block text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase mb-4 border-b border-white/5 pb-3">Format</span>
+              <p className="text-base text-white font-serif italic">{caseStudy.platform || 'Multi-platform'}</p>
             </div>
           </div>
         </Reveal>
       </section>
 
       {/* =========================================
-          SECTION 03: FULL BLEED IMAGE STORY
-          ========================================= */}
-      {caseStudy.gallery_images && caseStudy.gallery_images.length > 0 && (
-        <section className="w-full bg-neutral-950 overflow-hidden relative z-20">
-          <div className="flex flex-col gap-0 md:gap-4 lg:gap-8 pb-8">
-            {/* Image 1: Full Width Hero Spread */}
-            {caseStudy.gallery_images[0] && (
-              <Reveal delay={0.1}>
-                <div className="relative w-full h-[60vh] md:h-[90vh]">
-                  <ZoomableImage src={caseStudy.gallery_images[0]} alt="Story Image 1" fill className="absolute inset-0 w-full h-full" />
-                </div>
-              </Reveal>
-            )}
-            
-            {/* Images 2 & 3: Two-image split spread side-by-side */}
-            {(caseStudy.gallery_images[1] || caseStudy.gallery_images[2]) && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 px-4 md:px-8">
-                {caseStudy.gallery_images[1] && (
-                  <Reveal delay={0.1}>
-                    <div className="relative w-full h-[50vh] md:h-[80vh]">
-                      <ZoomableImage src={caseStudy.gallery_images[1]} alt="Story Image 2" fill className="absolute inset-0 w-full h-full" />
-                    </div>
-                  </Reveal>
-                )}
-                {caseStudy.gallery_images[2] && (
-                  <Reveal delay={0.2}>
-                    <div className="relative w-full h-[50vh] md:h-[80vh]">
-                      <ZoomableImage src={caseStudy.gallery_images[2]} alt="Story Image 3" fill className="absolute inset-0 w-full h-full" />
-                    </div>
-                  </Reveal>
-                )}
-              </div>
-            )}
-            
-            {/* Image 4: Giant Portrait (Centered) */}
-            {caseStudy.gallery_images[3] && (
-              <Reveal delay={0.1} className="flex justify-center w-full px-4 py-8 md:py-24">
-                <div className="relative w-full md:w-[60vw] lg:w-[45vw] h-[70vh] md:h-[120vh]">
-                  <ZoomableImage src={caseStudy.gallery_images[3]} alt="Story Image 4" fill className="absolute inset-0 w-full h-full" />
-                  <div className="absolute -bottom-8 md:-bottom-16 left-0 right-0 text-center">
-                    <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.4em] text-white/50">{caseStudy.platform || 'DIGITAL'} ARCHIVE</span>
-                  </div>
-                </div>
-              </Reveal>
-            )}
-
-            {/* Image 5: Cinematic Landscape Full Bleed */}
-            {caseStudy.gallery_images[4] && (
-              <Reveal delay={0.1}>
-                <div className="relative w-full h-[50vh] md:h-[70vh] mt-16 md:mt-0">
-                  <ZoomableImage src={caseStudy.gallery_images[4]} alt="Story Image 5" fill className="absolute inset-0 w-full h-full" />
-                </div>
-              </Reveal>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* =========================================
-          SECTION 04: VISUAL STORYTELLING MOSAIC
-          ========================================= */}
-      {caseStudy.gallery_images && caseStudy.gallery_images.length > 5 && (
-        <section className="bg-neutral-950 py-16 md:py-32 px-4 md:px-8 relative z-20">
-          <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 auto-rows-[300px] md:auto-rows-[400px]">
-            {/* 60% Image */}
-            {caseStudy.gallery_images[5] && (
-              <Reveal delay={0.1} className="md:col-span-8 md:row-span-2 relative">
-                <ZoomableImage src={caseStudy.gallery_images[5]} alt="Mosaic Image 1" fill className="absolute inset-0 w-full h-full" />
-              </Reveal>
-            )}
-            {/* 20% / 20% Stack */}
-            <div className="md:col-span-4 md:row-span-2 flex flex-col gap-4 md:gap-8">
-              {caseStudy.gallery_images[6] && (
-                <Reveal delay={0.2} className="relative flex-1">
-                  <ZoomableImage src={caseStudy.gallery_images[6]} alt="Mosaic Image 2" fill className="absolute inset-0 w-full h-full" />
-                </Reveal>
-              )}
-              {caseStudy.gallery_images[7] && (
-                <Reveal delay={0.3} className="relative flex-1">
-                  <ZoomableImage src={caseStudy.gallery_images[7]} alt="Mosaic Image 3" fill className="absolute inset-0 w-full h-full" />
-                </Reveal>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* =========================================
-          SECTION 05: THE VISION
+          SECTION 03: THE VISION (CREATIVE DIRECTION)
           ========================================= */}
       {(caseStudy.cinematic_direction || caseStudy.ai_summary) && (
-        <section className="bg-neutral-900 text-white py-32 md:py-48 px-6 md:px-16 border-t border-b border-white/5 relative z-20">
+        <section className="bg-neutral-900 text-white py-32 md:py-48 px-6 md:px-16 border-b border-white/5 relative z-20">
           <Reveal className="max-w-4xl mx-auto text-center">
-            <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-8 md:mb-16">02 // The Vision</h3>
-            <h2 className="text-3xl md:text-5xl lg:text-7xl font-serif italic leading-tight text-white mb-16">
+            <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-12 md:mb-16">02 // The Vision</h3>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif italic leading-tight text-white mb-16">
               "{caseStudy.title} Reimagined."
             </h2>
-            <div className="prose prose-invert prose-xl mx-auto max-w-prose text-left">
+            <div className="prose prose-invert prose-xl mx-auto max-w-[700px] text-left">
               <p className="text-zinc-300 font-light leading-loose text-lg md:text-xl">
                 {caseStudy.cinematic_direction || caseStudy.ai_summary}
               </p>
@@ -427,38 +339,102 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* =========================================
-          SECTION 06: FEATURED MAGAZINE SPREAD
+          SECTION 04: EDITORIAL IMAGE STORY
+          ========================================= */}
+      {caseStudy.gallery_images && caseStudy.gallery_images.length > 0 && (
+        <section className="w-full bg-neutral-950 overflow-hidden relative z-20 py-32 md:py-48">
+          <div className="flex flex-col gap-32 md:gap-48 px-4 md:px-16 max-w-screen-2xl mx-auto">
+            
+            {/* Pattern A: Full-width cinematic spread */}
+            {caseStudy.gallery_images[0] && (
+              <Reveal delay={0.1}>
+                <div className="relative w-full">
+                  <ZoomableImage src={caseStudy.gallery_images[0]} alt="Editorial Spread 1" fill={false} />
+                  <div className="mt-6 text-right">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40">FIG 01 // {caseStudy.platform?.toUpperCase() || 'DIGITAL'} ARCHIVE</span>
+                  </div>
+                </div>
+              </Reveal>
+            )}
+            
+            {/* Pattern B: 50/50 Luxury Split */}
+            {(caseStudy.gallery_images[1] || caseStudy.gallery_images[2]) && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                {caseStudy.gallery_images[1] && (
+                  <Reveal delay={0.1}>
+                    <div className="relative w-full">
+                      <ZoomableImage src={caseStudy.gallery_images[1]} alt="Editorial Split 1" fill={false} />
+                    </div>
+                  </Reveal>
+                )}
+                {caseStudy.gallery_images[2] && (
+                  <Reveal delay={0.3}>
+                    <div className="relative w-full">
+                      <ZoomableImage src={caseStudy.gallery_images[2]} alt="Editorial Split 2" fill={false} />
+                    </div>
+                  </Reveal>
+                )}
+              </div>
+            )}
+            
+            {/* Pattern C: Single Portrait, Max Height */}
+            {caseStudy.gallery_images[3] && (
+              <Reveal delay={0.1} className="flex flex-col items-center justify-center w-full">
+                <div className="relative w-full max-w-3xl">
+                  <ZoomableImage src={caseStudy.gallery_images[3]} alt="Editorial Portrait 1" fill={false} />
+                  <div className="mt-8 text-center">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40">FIG 02 // STUDIO SELECTION</span>
+                  </div>
+                </div>
+              </Reveal>
+            )}
+
+            {/* Pattern E: Full-width cinematic finish */}
+            {caseStudy.gallery_images[4] && (
+              <Reveal delay={0.1}>
+                <div className="relative w-full">
+                  <ZoomableImage src={caseStudy.gallery_images[4]} alt="Editorial Spread Finish" fill={false} />
+                </div>
+              </Reveal>
+            )}
+
+            {/* Any Remaining Images: Standard Single Column Flow */}
+            {caseStudy.gallery_images.length > 5 && (
+              <div className="flex flex-col gap-32 md:gap-48">
+                {caseStudy.gallery_images.slice(5).map((img, idx) => (
+                  <Reveal key={idx} delay={0.1}>
+                    <div className="relative w-full max-w-5xl mx-auto">
+                      <ZoomableImage src={img} alt={`Editorial Archive ${idx + 5}`} fill={false} />
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* =========================================
+          SECTION 05: MAGAZINE DOCUMENTARY (BTS)
           ========================================= */}
       {caseStudy.bts_images && caseStudy.bts_images.length > 0 && (
-        <section className="bg-neutral-950 py-32 overflow-hidden px-4 md:px-16 relative z-20">
-          <Reveal className="max-w-7xl mx-auto">
-            <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-16 text-center">03 // Behind The Scenes</h3>
-            <div className="relative w-full aspect-[4/3] md:aspect-[2/1] bg-[#ececec] text-black shadow-2xl flex items-center justify-center overflow-hidden transform -rotate-1 md:-rotate-2 hover:rotate-0 transition-transform duration-700">
-              {/* Mock Magazine Center Fold Shadow */}
-              <div className="absolute inset-y-0 left-1/2 w-12 -ml-6 bg-gradient-to-r from-transparent via-black/10 to-transparent z-10 hidden md:block"></div>
-              
-              <div className="flex flex-col md:flex-row w-full h-full p-4 md:p-12 gap-8 md:gap-16">
-                {/* Left Page */}
-                <div className="flex-1 relative border border-black/5 p-4 flex flex-col justify-between">
-                  <div className="text-[8px] font-mono tracking-widest text-black/50 uppercase flex justify-between">
-                    <span>DP Studios</span>
-                    <span>Page 142</span>
-                  </div>
-                  <h4 className="text-4xl md:text-6xl font-serif uppercase leading-none tracking-tighter mt-12 mb-8">
-                    The Process.
-                  </h4>
-                  <div className="relative w-full h-48 md:flex-1">
-                    <ZoomableImage src={caseStudy.bts_images[0]} alt="BTS 1" fill className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-500" />
+        <section className="bg-neutral-900 py-32 md:py-48 px-4 md:px-16 relative z-20 border-t border-white/5">
+          <Reveal className="max-w-screen-2xl mx-auto">
+            <div className="text-center mb-24">
+              <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-6">03 // Behind The Scenes</h3>
+              <h2 className="text-4xl md:text-6xl font-serif uppercase tracking-tight text-white">The Documentary.</h2>
+            </div>
+            
+            {/* Pattern D: Magazine Spread (Side-by-Side Large) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+              {caseStudy.bts_images.map((img, idx) => (
+                <div key={idx} className="relative w-full flex flex-col">
+                  <ZoomableImage src={img} alt={`BTS Documentary ${idx + 1}`} fill={false} />
+                  <div className="mt-6 border-b border-white/10 pb-4">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">PLATE {(idx + 1).toString().padStart(2, '0')}</span>
                   </div>
                 </div>
-                {/* Right Page */}
-                <div className="flex-1 relative border border-black/5 hidden md:block">
-                  <ZoomableImage src={caseStudy.bts_images[1] || caseStudy.bts_images[0]} alt="BTS 2" fill className="absolute inset-0 w-full h-full" />
-                  <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md p-4 text-xs font-mono uppercase tracking-widest text-black/80 z-20 pointer-events-none">
-                    Production Archive
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </Reveal>
         </section>
@@ -466,9 +442,9 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* THE FILM (Embed) */}
       {(caseStudy.youtube_url || caseStudy.video_url || caseStudy.external_video_url) && (
-        <section className="bg-neutral-950 py-24 px-4 relative z-20">
-          <Reveal className="max-w-5xl mx-auto">
-             <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-12 text-center">04 // The Film</h3>
+        <section className="bg-neutral-950 py-32 md:py-48 px-4 md:px-16 relative z-20">
+          <Reveal className="max-w-6xl mx-auto">
+             <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-16 text-center">04 // The Film</h3>
              <div className="aspect-video w-full rounded-none overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl">
               {caseStudy.youtube_url ? (
                 <LiteYouTube videoId={caseStudy.youtube_url.split('v=')[1]?.split('&')[0] || ''} title={caseStudy.title} />
@@ -483,19 +459,21 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* =========================================
-          SECTION 07: KEY DELIVERABLES (WORKFLOWS)
+          SECTION 06: KEY DELIVERABLES (WORKFLOWS)
           ========================================= */}
       {caseStudy.workflows && caseStudy.workflows.length > 0 && (
-        <section className="bg-neutral-950 py-32 px-6 md:px-16 border-t border-white/5 relative z-20">
-          <Reveal className="max-w-6xl mx-auto">
-            <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-16">05 // Generative Stack</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+        <section className="bg-neutral-950 py-32 md:py-48 px-6 md:px-16 border-t border-white/5 relative z-20">
+          <Reveal className="max-w-5xl mx-auto">
+            <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-24 text-center">05 // Generative Stack</h3>
+            <div className="flex flex-col gap-16">
               {caseStudy.workflows.map((workflow, idx) => (
-                <div key={idx} className="flex gap-8 group items-start border-b border-white/5 pb-8">
-                  <span className="text-4xl md:text-6xl font-serif italic text-white/20 group-hover:text-primary-accent transition-colors">
+                <div key={idx} className="flex flex-col md:flex-row gap-6 md:gap-16 items-start border-b border-white/5 pb-16">
+                  <span className="text-5xl md:text-7xl font-serif italic text-white/20 shrink-0 leading-none">
                     {(idx + 1).toString().padStart(2, '0')}
                   </span>
-                  <p className="text-lg md:text-xl font-light text-zinc-300 mt-2">{workflow}</p>
+                  <p className="text-xl md:text-2xl font-light text-zinc-300 leading-relaxed max-w-[700px]">
+                    {workflow}
+                  </p>
                 </div>
               ))}
             </div>
@@ -504,15 +482,15 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* =========================================
-          SECTION 09: FINAL STATEMENT
+          SECTION 07: FINAL STATEMENT
           ========================================= */}
-      <section className="bg-black py-48 px-6 text-center relative z-20 border-y border-white/10">
+      <section className="bg-black py-48 md:py-[300px] px-6 text-center relative z-20 border-y border-white/10">
         <Reveal className="max-w-5xl mx-auto">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif italic text-white leading-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif italic text-white leading-tight max-w-[900px] mx-auto">
             "{caseStudy.cinematic_direction?.split('.')[0] || caseStudy.ai_summary.split('.')[0] || "Innovation lies at the intersection of logic and art"}."
           </h2>
-          <div className="mt-16 w-16 h-[1px] bg-white/30 mx-auto"></div>
-          <span className="block mt-8 text-[10px] font-mono uppercase tracking-[0.4em] text-white/50">{caseStudy.client_name || 'DP AI STUDIOS'}</span>
+          <div className="mt-24 w-16 h-[1px] bg-white/30 mx-auto"></div>
+          <span className="block mt-12 text-[10px] font-mono uppercase tracking-[0.4em] text-white/50">{caseStudy.client_name || 'DP AI STUDIOS'}</span>
         </Reveal>
       </section>
 
@@ -520,10 +498,10 @@ export default async function CaseStudyPage({ params }: Props) {
           SECTION 08: SEMANTIC PATHWAYS
           ========================================= */}
       {caseStudy.internal_links && caseStudy.internal_links.length > 0 && (
-        <section className="bg-neutral-950 py-24 px-6 md:px-16 relative z-20">
+        <section className="bg-neutral-950 py-32 md:py-48 px-6 md:px-16 relative z-20">
           <Reveal className="max-w-7xl mx-auto text-center">
-            <h3 className="text-xs md:text-sm font-serif italic tracking-wider text-white mb-12">Further Exploration</h3>
-            <div className="flex flex-wrap justify-center gap-4">
+            <h3 className="text-sm md:text-base font-serif italic tracking-wider text-white mb-16">Further Exploration</h3>
+            <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
               {caseStudy.internal_links.map((link) => {
                 const displayText = link.split('/').pop()?.replace(/-/g, ' ');
                 return (
@@ -531,7 +509,7 @@ export default async function CaseStudyPage({ params }: Props) {
                     key={link} 
                     href="/services" 
                     prefetch={false}
-                    className="text-[10px] md:text-xs uppercase tracking-[0.2em] px-6 py-4 border border-white/10 text-zinc-400 hover:text-white hover:border-white hover:bg-white/5 transition-all"
+                    className="text-xs uppercase tracking-[0.2em] px-8 py-5 border border-white/10 text-zinc-400 hover:text-white hover:border-white hover:bg-white/5 transition-all"
                   >
                     {displayText}
                   </Link>
@@ -543,26 +521,27 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* =========================================
-          SECTION 10: RELATED CASE STUDIES
+          SECTION 09: RELATED CASE STUDIES
           ========================================= */}
       {related && related.length > 0 && (
-        <section className="bg-neutral-950 py-32 px-6 md:px-16 relative z-20">
+        <section className="bg-neutral-950 py-32 md:py-48 px-6 md:px-16 relative z-20 border-t border-white/5">
           <Reveal className="max-w-screen-2xl mx-auto">
-            <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-16 text-center">Volume Index // Keep Reading</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-24 text-center">Volume Index // Keep Reading</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {related.map((cs, idx) => (
                 <Reveal key={cs.id} delay={idx * 0.1}>
-                  <Link href={`/case-studies/${cs.slug}`} className="group block relative aspect-[3/4] overflow-hidden">
-                    <Image 
-                      src={cs.thumbnail_url || '/placeholder.jpg'} 
-                      alt={cs.title} 
-                      fill 
-                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
-                    <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col gap-4">
-                      <span className="text-[10px] font-mono tracking-widest uppercase text-white/60">{cs.industry || 'Editorial'}</span>
-                      <h4 className="text-3xl font-serif uppercase leading-none text-white">{cs.title}</h4>
+                  <Link href={`/case-studies/${cs.slug}`} className="group block relative w-full h-auto">
+                    <div className="relative w-full aspect-[3/4] overflow-hidden mb-8">
+                      <Image 
+                        src={cs.thumbnail_url || '/placeholder.jpg'} 
+                        alt={cs.title} 
+                        fill 
+                        className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                      />
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <span className="text-[10px] font-mono tracking-widest uppercase text-white/40">{cs.industry || 'Editorial'}</span>
+                      <h4 className="text-2xl font-serif uppercase leading-tight text-white group-hover:text-primary-accent transition-colors">{cs.title}</h4>
                     </div>
                   </Link>
                 </Reveal>

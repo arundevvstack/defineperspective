@@ -25,8 +25,9 @@ export function ZoomableImage({ src, alt, fill, className, priority }: ZoomableI
           src={src} 
           alt={alt} 
           fill={fill} 
-          width={fill ? undefined : 1920}
-          height={fill ? undefined : 1080}
+          sizes={fill ? undefined : "100vw"}
+          width={fill ? undefined : 0}
+          height={fill ? undefined : 0}
           priority={priority}
           className={`transition-transform duration-700 \${fill ? 'object-cover' : 'w-full h-auto'} group-hover:scale-[1.02]`}
         />
