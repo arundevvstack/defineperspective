@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, ShieldCheck, Terminal, ArrowRight, ShieldAlert, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { authenticateAdmin } from "@/app/actions/auth";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,30 +15,27 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // Auto-redirect if already logged in
-  useEffect(() => {
-    const auth = localStorage.getItem("dp_studio_auth");
-    if (auth === "authorized") {
-      router.push("/seo-hub");
-    }
-  }, [router]);
-
-  const handleLogin = (e: React.FormEvent) => {
+  // Auto-redirect if already logged in has been removed since we rely on server-side cookies now.
+  // Instead, the root layout or middleware should ideally handle this, but for now we just let them see the login page if they navigate here.
+  
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
 
-    // Strategic Credential Verification
-    setTimeout(() => {
-      if (username === "dp admin" && password === "NewTarget@2026") {
-        setIsSuccess(true);
-        localStorage.setItem("dp_studio_auth", "authorized");
-        setTimeout(() => router.push("/seo-hub"), 1500);
-      } else {
-        setError("AUTHENTICATION_FAILED: ACCESS_DENIED");
-        setIsSubmitting(false);
-      }
-    }, 1200);
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("password", password);
+
+    const result = await authenticateAdmin(formData);
+
+    if (result.success) {
+      setIsSuccess(true);
+      setTimeout(() => router.push("/admin/case-studies"), 1500);
+    } else {
+      setError(result.error || "AUTHENTICATION_FAILED: ACCESS_DENIED");
+      setIsSubmitting(false);
+    }
   };
 
   return (
