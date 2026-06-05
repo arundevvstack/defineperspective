@@ -441,22 +441,45 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* THE FILM (Embed) */}
-      {(caseStudy.youtube_url || caseStudy.video_url || caseStudy.external_video_url) && (
-        <section className="bg-neutral-950 py-32 md:py-48 px-4 md:px-16 relative z-20">
-          <Reveal className="max-w-6xl mx-auto">
-             <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-16 text-center">04 // The Film</h3>
-             <div className="aspect-video w-full rounded-none overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl">
-              {caseStudy.youtube_url ? (
-                <LiteYouTube videoId={caseStudy.youtube_url.split('v=')[1]?.split('&')[0] || ''} title={caseStudy.title} />
-              ) : caseStudy.video_url ? (
-                <video src={caseStudy.video_url} controls className="w-full h-full object-cover" />
-              ) : caseStudy.external_video_url && caseStudy.external_video_url.includes('vimeo') ? (
-                <iframe src={caseStudy.external_video_url} className="w-full h-full border-0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>
-              ) : null}
-             </div>
-          </Reveal>
-        </section>
-      )}
+      {(() => {
+        let renderContent = null;
+        
+        const getYouTubeId = (url: string | null | undefined) => {
+          if (!url) return null;
+          if (url.includes('youtu.be/')) return url.split('youtu.be/')[1]?.split('?')[0];
+          if (url.includes('v=')) return url.split('v=')[1]?.split('&')[0];
+          if (url.includes('embed/')) return url.split('embed/')[1]?.split('?')[0];
+          return null;
+        };
+
+        const ytIdPrimary = getYouTubeId(caseStudy.youtube_url);
+        const ytIdFallback = getYouTubeId(caseStudy.external_video_url);
+
+        if (ytIdPrimary) {
+          renderContent = <LiteYouTube videoId={ytIdPrimary} title={caseStudy.title} />;
+        } else if (caseStudy.video_url) {
+          renderContent = <video src={caseStudy.video_url} controls className="w-full h-full object-cover" />;
+        } else if (caseStudy.external_video_url) {
+          if (ytIdFallback) {
+            renderContent = <LiteYouTube videoId={ytIdFallback} title={caseStudy.title} />;
+          } else if (caseStudy.external_video_url.includes('vimeo')) {
+            renderContent = <iframe src={caseStudy.external_video_url} className="w-full h-full border-0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>;
+          }
+        }
+
+        if (!renderContent) return null;
+
+        return (
+          <section className="bg-neutral-950 py-32 md:py-48 px-4 md:px-16 relative z-20">
+            <Reveal className="max-w-6xl mx-auto">
+               <h3 className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-16 text-center">04 // The Film</h3>
+               <div className="aspect-video w-full rounded-none overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl">
+                {renderContent}
+               </div>
+            </Reveal>
+          </section>
+        );
+      })()}
 
       {/* =========================================
           SECTION 06: KEY DELIVERABLES (WORKFLOWS)
