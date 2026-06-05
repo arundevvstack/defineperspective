@@ -85,12 +85,12 @@ export default async function CaseStudiesListingPage() {
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         {/* Header Section */}
-        <section className="py-16 md:py-24 max-w-4xl">
-          <span className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 block">Strategic Node {" // "} 02</span>
-          <h1 className="text-4xl md:text-7xl font-black uppercase mb-8 leading-tight drop-shadow-2xl">
+        <section className="py-24 md:py-32 max-w-4xl">
+          <span className="text-[10px] font-sans font-medium tracking-[0.08em] text-primary-accent uppercase mb-6 block">Strategic Node {" // "} 02</span>
+          <h1 className="text-4xl md:text-7xl font-sans font-bold tracking-tight mb-8 leading-[0.9] text-white">
             Case <span className="text-primary-accent">Studies.</span>
           </h1>
-          <p className="text-base md:text-xl text-zinc-400 font-light max-w-2xl uppercase tracking-[0.15em] leading-relaxed">
+          <p className="text-base md:text-xl text-zinc-400 font-sans font-normal max-w-2xl leading-[1.8]">
             Deep-dive editorial analysis of our cinematic AI advertising workflows. Explore how we engineer broadcast-ready generative films for industry leaders.
           </p>
         </section>

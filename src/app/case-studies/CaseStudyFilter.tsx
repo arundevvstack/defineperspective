@@ -57,51 +57,42 @@ export default function CaseStudyFilter({ caseStudies }: { caseStudies: any[] })
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {filtered.map((cs) => (
-            <Link href={`/case-studies/${cs.slug}`} key={cs.slug} className="group flex flex-col h-full bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden hover:bg-white/[0.04] hover:border-primary-accent/30 transition-all duration-500 hover:-translate-y-2">
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-black shrink-0">
+            <Link href={`/case-studies/${cs.slug}`} key={cs.slug} className="group flex flex-col h-full bg-neutral-900/20 border border-white/5 rounded-2xl overflow-hidden hover:bg-neutral-900/40 hover:border-white/10 hover:shadow-2xl transition-all duration-500">
+              <div className="relative w-full overflow-hidden bg-neutral-950 shrink-0">
                 {cs.thumbnail_url ? (
                   <Image 
                     src={cs.thumbnail_url} 
                     alt={cs.title} 
-                    fill 
-                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
                   />
                 ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 to-black flex items-center justify-center">
-                    <span className="text-zinc-800 font-bold text-2xl uppercase opacity-30">DP AI</span>
+                  <div className="w-full aspect-video bg-gradient-to-br from-neutral-900 to-black flex items-center justify-center">
+                    <span className="text-zinc-800 font-semibold text-xl uppercase opacity-30 font-sans tracking-widest">DP AI</span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
               </div>
               
               <div className="p-8 flex flex-col flex-1">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {cs.displayIndustries.map((ind: string) => (
-                    <span key={ind} className="px-2 py-1 bg-white/5 rounded text-[10px] font-mono text-zinc-400 uppercase tracking-wider">{ind}</span>
+                    <span key={ind} className="text-[10px] font-sans font-medium text-zinc-400 uppercase tracking-[0.08em]">{ind}</span>
                   ))}
                   {cs.displayGeos.map((geo: string) => (
-                    <span key={geo} className="px-2 py-1 bg-primary-accent/10 rounded text-[10px] font-mono text-primary-accent uppercase tracking-wider">{geo}</span>
+                    <span key={geo} className="text-[10px] font-sans font-medium text-primary-accent uppercase tracking-[0.08em] before:content-['•'] before:mr-2 before:text-zinc-600">{geo}</span>
                   ))}
                 </div>
                 
-                <h2 className="text-xl md:text-2xl font-black uppercase text-white mb-4 group-hover:text-primary-accent transition-colors leading-snug">
+                <h2 className="text-xl font-sans font-semibold text-white mb-3 group-hover:text-primary-accent transition-colors leading-tight tracking-tight">
                   {cs.title}
                 </h2>
                 
                 {cs.ai_summary && (
-                  <p className="text-sm text-zinc-400 font-light leading-relaxed mb-6 line-clamp-3">
+                  <p className="text-sm text-zinc-400 font-sans font-normal leading-[1.8] mb-6 line-clamp-3">
                     {cs.ai_summary}
                   </p>
                 )}
-                
-                <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
-                    {new Date(cs.published_at || cs.created_at || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                  </span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-primary-accent group-hover:translate-x-2 transition-transform flex items-center gap-2">
-                    Read Case Study &rarr;
-                  </span>
-                </div>
               </div>
             </Link>
           ))}

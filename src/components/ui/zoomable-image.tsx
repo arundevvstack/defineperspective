@@ -29,7 +29,7 @@ export function ZoomableImage({ src, alt, fill, className, priority }: ZoomableI
           width={fill ? undefined : 0}
           height={fill ? undefined : 0}
           priority={priority}
-          className={`transition-transform duration-700 ${fill ? 'object-cover' : 'w-full h-auto'} group-hover:scale-[1.02]`}
+          className={`transition-transform duration-700 ${fill ? 'object-contain' : 'w-full h-auto'} group-hover:scale-[1.02]`}
         />
       </div>
 
