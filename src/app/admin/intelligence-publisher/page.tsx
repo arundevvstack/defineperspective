@@ -3,12 +3,13 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { publishIntelligence } from '@/app/actions/publisher';
+import { supabase } from '@/lib/supabase';
+import { MultiSelect } from '@/components/ui/multi-select';
+import { GEO_TAXONOMY, INDUSTRY_TAXONOMY } from '@/lib/taxonomies';
 
 // ==============================================================================
 // CONSTANTS
 // ==============================================================================
-const GEO_OPTIONS = ['Kerala', 'Kochi', 'Dubai', 'Bangalore', 'Mumbai', 'Chennai'] as const;
-const INDUSTRY_OPTIONS = ['Jewellery', 'Fashion', 'Hospitality', 'Real Estate', 'SaaS'] as const;
 
 const PIPELINE_STEPS = [
   { key: 'detect', label: 'Platform Detection' },
@@ -56,9 +57,16 @@ const SOCIAL_PLATFORMS = [
 export default function IntelligencePublisher() {
   const [url, setUrl] = useState('');
   const [clientName, setClientName] = useState('');
-  const [geo, setGeo] = useState<string>(GEO_OPTIONS[0]);
-  const [industry, setIndustry] = useState<string>(INDUSTRY_OPTIONS[0]);
+  const [geoTargets, setGeoTargets] = useState<string[]>([]);
+  const [industries, setIndustries] = useState<string[]>([]);
   const [transcript, setTranscript] = useState('');
+
+  const [heroImage, setHeroImage] = useState<File | null>(null);
+  const [galleryImages, setGalleryImages] = useState<File[]>([]);
+  const [btsImages, setBtsImages] = useState<File[]>([]);
+  const [videoUrl, setVideoUrl] = useState('');
+  const [youtubeUrl, setYoutubeUrl] = useState('');
+  const [thumbnailUrl, setThumbnailUrl] = useState('');
 
   const [status, setStatus] = useState<'idle' | 'publishing' | 'success' | 'error'>('idle');
   const [currentStep, setCurrentStep] = useState<PipelineStep | null>(null);
@@ -81,25 +89,62 @@ export default function IntelligencePublisher() {
     setResult(null);
     setCurrentStep('detect');
 
-    const formData = new FormData();
-    formData.append('externalUrl', url);
-    formData.append('clientName', clientName);
-    formData.append('geo', geo);
-    formData.append('industry', industry);
-    formData.append('transcript', transcript);
+    try {
+      const slugBase = clientName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'case-study';
+      
+      const uploadFile = async (file: File, folder: string) => {
+        const ext = file.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${ext}`;
+        const path = `${folder}/${fileName}`;
+        const { error } = await supabase.storage.from('case-study-assets').upload(path, file);
+        if (error) throw error;
+        const { data: { publicUrl } } = supabase.storage.from('case-study-assets').getPublicUrl(path);
+        return publicUrl;
+      };
 
-    // Run pipeline UI animation and actual publish in parallel
-    const [res] = await Promise.all([
-      publishIntelligence(formData),
-      simulatePipeline(),
-    ]);
+      let heroUrl = '';
+      if (heroImage) heroUrl = await uploadFile(heroImage, `${slugBase}/hero`);
+      
+      const galleryUrls = [];
+      for (const file of galleryImages) {
+        galleryUrls.push(await uploadFile(file, `${slugBase}/gallery`));
+      }
+      
+      const btsUrls = [];
+      for (const file of btsImages) {
+        btsUrls.push(await uploadFile(file, `${slugBase}/bts`));
+      }
 
-    if (res.success) {
-      setStatus('success');
-      setResult(res);
-    } else {
+      const formData = new FormData();
+      formData.append('externalUrl', url);
+      formData.append('clientName', clientName);
+      formData.append('geo', geoTargets.length > 0 ? geoTargets[0] : '');
+      formData.append('industry', industries.length > 0 ? industries[0] : '');
+      formData.append('geoTargets', JSON.stringify(geoTargets));
+      formData.append('industries', JSON.stringify(industries));
+      formData.append('transcript', transcript);
+      if (heroUrl) formData.append('heroImageUrl', heroUrl);
+      if (galleryUrls.length > 0) formData.append('galleryImages', JSON.stringify(galleryUrls));
+      if (btsUrls.length > 0) formData.append('btsImages', JSON.stringify(btsUrls));
+      if (videoUrl) formData.append('videoUrl', videoUrl);
+      if (youtubeUrl) formData.append('youtubeUrl', youtubeUrl);
+      if (thumbnailUrl) formData.append('thumbnailUrl', thumbnailUrl);
+
+      const [res] = await Promise.all([
+        publishIntelligence(formData),
+        simulatePipeline(),
+      ]);
+
+      if (res.success) {
+        setStatus('success');
+        setResult(res);
+      } else {
+        setStatus('error');
+        setResult(res);
+      }
+    } catch (err: any) {
       setStatus('error');
-      setResult(res);
+      setResult({ success: false, error: err.message });
     }
     setCurrentStep(null);
   };
@@ -113,7 +158,15 @@ export default function IntelligencePublisher() {
   const handleReset = () => {
     setUrl('');
     setClientName('');
+    setGeoTargets([]);
+    setIndustries([]);
     setTranscript('');
+    setHeroImage(null);
+    setGalleryImages([]);
+    setBtsImages([]);
+    setVideoUrl('');
+    setYoutubeUrl('');
+    setThumbnailUrl('');
     setStatus('idle');
     setResult(null);
     setCurrentStep(null);
@@ -190,33 +243,29 @@ export default function IntelligencePublisher() {
                   </div>
 
                   <div>
-                    <label htmlFor="pub-geo" className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
-                      GEO Target
+                    <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                      GEO Targets
                     </label>
-                    <select
-                      id="pub-geo"
-                      value={geo}
-                      onChange={(e) => setGeo(e.target.value)}
+                    <MultiSelect
+                      options={GEO_TAXONOMY}
+                      selected={geoTargets}
+                      onChange={setGeoTargets}
+                      placeholder="Select regions..."
                       disabled={status === 'publishing'}
-                      className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60 transition-colors disabled:opacity-40 appearance-none"
-                    >
-                      {GEO_OPTIONS.map(g => <option key={g} value={g}>{g}</option>)}
-                    </select>
+                    />
                   </div>
 
                   <div>
-                    <label htmlFor="pub-industry" className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
-                      Industry
+                    <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                      Industries
                     </label>
-                    <select
-                      id="pub-industry"
-                      value={industry}
-                      onChange={(e) => setIndustry(e.target.value)}
+                    <MultiSelect
+                      options={INDUSTRY_TAXONOMY}
+                      selected={industries}
+                      onChange={setIndustries}
+                      placeholder="Select industries..."
                       disabled={status === 'publishing'}
-                      className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60 transition-colors disabled:opacity-40 appearance-none"
-                    >
-                      {INDUSTRY_OPTIONS.map(i => <option key={i} value={i}>{i}</option>)}
-                    </select>
+                    />
                   </div>
                 </div>
 
@@ -234,6 +283,81 @@ export default function IntelligencePublisher() {
                     disabled={status === 'publishing'}
                     className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60 transition-colors disabled:opacity-40 resize-y placeholder:text-neutral-600 font-mono"
                   />
+                </div>
+
+                {/* Advanced Media Options */}
+                <div className="pt-6 border-t border-neutral-800 space-y-6">
+                  <h3 className="text-xs font-medium text-amber-500 uppercase tracking-widest">Advanced Media</h3>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        Hero Image
+                      </label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => setHeroImage(e.target.files?.[0] || null)}
+                        disabled={status === 'publishing'}
+                        className="w-full text-sm text-neutral-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        Gallery Images
+                      </label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={(e) => setGalleryImages(Array.from(e.target.files || []))}
+                        disabled={status === 'publishing'}
+                        className="w-full text-sm text-neutral-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700 transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        BTS Images
+                      </label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        multiple
+                        onChange={(e) => setBtsImages(Array.from(e.target.files || []))}
+                        disabled={status === 'publishing'}
+                        className="w-full text-sm text-neutral-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700 transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        Direct Video URL (.mp4)
+                      </label>
+                      <input
+                        type="url"
+                        value={videoUrl}
+                        onChange={(e) => setVideoUrl(e.target.value)}
+                        placeholder="https://.../video.mp4"
+                        disabled={status === 'publishing'}
+                        className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-neutral-400 mb-2 uppercase tracking-wider">
+                        YouTube URL (Overrides direct video)
+                      </label>
+                      <input
+                        type="url"
+                        value={youtubeUrl}
+                        onChange={(e) => setYoutubeUrl(e.target.value)}
+                        placeholder="https://youtube.com/watch?v=..."
+                        disabled={status === 'publishing'}
+                        className="w-full bg-black border border-neutral-700 text-white px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-amber-500/60"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Submit */}

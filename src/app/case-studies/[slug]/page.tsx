@@ -8,6 +8,7 @@ import WhatsAppChat from '@/components/whatsapp-chat';
 import LiteYouTube from '@/components/lite-youtube';
 import { ArrowRight } from 'lucide-react';
 import { getRelatedCaseStudies, CaseStudyNode } from '@/lib/related-engine';
+import MediaGallery from './MediaGallery';
 
 // ==============================================================================
 // TYPES
@@ -25,6 +26,11 @@ type CaseStudy = {
   external_video_url: string;
   video_embed_url: string | null;
   thumbnail_url: string | null;
+  hero_image_url: string | null;
+  gallery_images: string[];
+  bts_images: string[];
+  video_url: string | null;
+  youtube_url: string | null;
   video_duration: string;
   transcript: string;
   ai_summary: string;
@@ -36,7 +42,9 @@ type CaseStudy = {
   internal_links: string[];
   geo: string;
   geo_tags: string[];
+  geo_targets: string[];
   industry: string;
+  industries: string[];
   published: boolean;
   published_at: string;
   created_at: string;
@@ -67,23 +75,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const { data: cs } = await supabaseAdmin
     .from('case_studies')
-    .select('title, ai_summary, thumbnail_url, geo, industry, geo_tags, published')
+    .select('title, ai_summary, thumbnail_url, hero_image_url, geo, geo_targets, industry, industries, geo_tags, published')
     .eq('slug', decodedSlug)
     .maybeSingle();
 
   if (!cs) return { title: 'Case Study Not Found | DP AI Studios' };
 
   const description = cs.ai_summary?.substring(0, 160) || `${cs.title} — AI cinematic production by DP AI Studios.`;
+  const displayGeos = Array.from(new Set([cs.geo, ...(cs.geo_targets || [])])).filter(Boolean);
+  const displayIndustries = Array.from(new Set([cs.industry, ...(cs.industries || [])])).filter(Boolean);
 
   return {
     title: `${cs.title} | DP AI Studios`,
     description,
-    keywords: [cs.industry, 'AI video production', 'cinematic AI', ...(cs.geo_tags || [])].join(', '),
+    keywords: [...displayIndustries, 'AI video production', 'cinematic AI', ...displayGeos].join(', '),
     openGraph: {
       title: cs.title,
       description,
       images: [{ 
-        url: `https://defineperspective.in/api/og?title=${encodeURIComponent(cs.title)}&industry=${encodeURIComponent(cs.industry)}&geo=${encodeURIComponent(cs.geo)}` 
+        url: cs.hero_image_url || cs.thumbnail_url || `https://defineperspective.in/api/og?title=${encodeURIComponent(cs.title)}&industry=${encodeURIComponent(cs.industry)}&geo=${encodeURIComponent(cs.geo)}` 
       }],
       type: 'article',
     },
@@ -125,13 +135,17 @@ export default async function CaseStudyPage({ params }: Props) {
     ? getRelatedCaseStudies(caseStudy, allPublished as CaseStudyNode[], 3)
     : [];
 
+  const displayGeos = Array.from(new Set([caseStudy.geo, ...(caseStudy.geo_targets || [])])).filter(Boolean);
+  const displayIndustries = Array.from(new Set([caseStudy.industry, ...(caseStudy.industries || [])])).filter(Boolean);
+
   // Generate Article & Speakable Schema
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": caseStudy.title,
     "description": caseStudy.ai_summary,
-    "image": caseStudy.thumbnail_url || "https://defineperspective.in/og-image.jpg",
+    "image": caseStudy.hero_image_url || caseStudy.thumbnail_url || "https://defineperspective.in/og-image.jpg",
+    "imageGallery": caseStudy.gallery_images,
     "author": {
       "@type": "Organization",
       "name": "DP AI Studios",
@@ -187,9 +201,9 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* ── 1. HERO SECTION ── */}
       <section className="relative w-full min-h-[70vh] flex flex-col justify-end overflow-hidden border-b border-white/5 pb-16">
-        {caseStudy.thumbnail_url && (
+        {(caseStudy.hero_image_url || caseStudy.thumbnail_url) && (
           <div className="absolute inset-0 z-0">
-            <Image src={caseStudy.thumbnail_url} alt={caseStudy.title} fill className="object-cover opacity-40" priority />
+            <Image src={(caseStudy.hero_image_url || caseStudy.thumbnail_url) as string} alt={caseStudy.title} fill className="object-cover opacity-40" priority />
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/40 to-transparent" />
           </div>
@@ -198,8 +212,12 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="container relative z-10 mx-auto px-6 md:px-12">
           <div className="max-w-4xl">
             <div className="flex flex-wrap gap-3 mb-8">
-              <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono text-zinc-300 uppercase tracking-widest">{caseStudy.industry}</span>
-              <span className="px-3 py-1.5 bg-primary-accent/10 border border-primary-accent/20 rounded-full text-[10px] font-mono text-primary-accent uppercase tracking-widest">{caseStudy.geo}</span>
+              {displayIndustries.map(ind => (
+                <span key={ind} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono text-zinc-300 uppercase tracking-widest">{ind}</span>
+              ))}
+              {displayGeos.map(g => (
+                <span key={g} className="px-3 py-1.5 bg-primary-accent/10 border border-primary-accent/20 rounded-full text-[10px] font-mono text-primary-accent uppercase tracking-widest">{g}</span>
+              ))}
               <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono text-zinc-300 uppercase tracking-widest">{caseStudy.platform}</span>
             </div>
             
@@ -229,28 +247,42 @@ export default async function CaseStudyPage({ params }: Props) {
             </p>
           </section>
 
+          {/* Cinematic Gallery Grid */}
+          {caseStudy.gallery_images && caseStudy.gallery_images.length > 0 && (
+            <section id="cinematic-gallery">
+              <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">01.5 // Production Stills</h2>
+              <MediaGallery images={caseStudy.gallery_images} title={caseStudy.title} />
+            </section>
+          )}
+
           {/* 3. Final Film / YouTube Embed */}
-          <section id="the-film" className="relative group">
-            <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">02 // The Final Film</h2>
-            <div className="relative rounded-[2rem] overflow-hidden bg-black/60 border border-white/10 shadow-2xl aspect-video w-full group-hover:border-primary-accent/40 transition-colors duration-700">
-              {caseStudy.video_embed_url ? (
-                <iframe
-                  src={caseStudy.video_embed_url}
-                  className="w-full h-full"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                  title={caseStudy.title}
-                />
-              ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center">
-                  <a href={caseStudy.external_video_url} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all text-sm uppercase tracking-widest font-bold flex items-center gap-3">
-                    ▶ Watch on {caseStudy.platform}
-                  </a>
-                </div>
-              )}
-            </div>
-          </section>
+          {(caseStudy.youtube_url || caseStudy.video_url || caseStudy.video_embed_url || caseStudy.external_video_url) && (
+            <section id="the-film" className="relative group">
+              <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">02 // The Final Film</h2>
+              <div className="relative rounded-[2rem] overflow-hidden bg-black/60 border border-white/10 shadow-2xl aspect-video w-full group-hover:border-primary-accent/40 transition-colors duration-700">
+                {caseStudy.youtube_url ? (
+                  <LiteYouTube videoId={caseStudy.youtube_url.split('v=')[1] || caseStudy.youtube_url.split('/').pop() || ''} title={caseStudy.title} />
+                ) : caseStudy.video_url ? (
+                  <video src={caseStudy.video_url} className="w-full h-full object-cover" controls preload="metadata" />
+                ) : caseStudy.video_embed_url ? (
+                  <iframe
+                    src={caseStudy.video_embed_url}
+                    className="w-full h-full"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    title={caseStudy.title}
+                  />
+                ) : caseStudy.external_video_url ? (
+                  <div className="w-full h-full flex flex-col items-center justify-center">
+                    <a href={caseStudy.external_video_url} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all text-sm uppercase tracking-widest font-bold flex items-center gap-3">
+                      ▶ Watch on {caseStudy.platform || 'Link'}
+                    </a>
+                  </div>
+                ) : null}
+              </div>
+            </section>
+          )}
 
           {/* 4. Creative Direction */}
           {caseStudy.cinematic_direction && (
@@ -276,6 +308,14 @@ export default async function CaseStudyPage({ params }: Props) {
                   </div>
                 ))}
               </div>
+            </section>
+          )}
+
+          {/* BTS Section */}
+          {caseStudy.bts_images && caseStudy.bts_images.length > 0 && (
+            <section id="behind-the-scenes">
+              <h2 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6 border-b border-white/10 pb-4">04.5 // Behind The Scenes</h2>
+              <MediaGallery images={caseStudy.bts_images} title={`${caseStudy.title} BTS`} />
             </section>
           )}
 

@@ -10,13 +10,10 @@ import { z } from 'zod';
 // ==============================================================================
 // CONSTANTS
 // ==============================================================================
-const GEO_TARGETS = ['Kerala', 'Kochi', 'Dubai', 'Bangalore', 'Mumbai', 'Chennai'] as const;
-const INDUSTRY_TARGETS = ['Jewellery', 'Fashion', 'Hospitality', 'Real Estate', 'SaaS'] as const;
-
-// ==============================================================================
 // 1. URL PARSING & PLATFORM DETECTION
 // ==============================================================================
-function detectPlatform(url: string): { platform: string; videoId: string | null } {
+function detectPlatform(url: string | undefined): { platform: string; videoId: string | null } {
+  if (!url) return { platform: 'unknown', videoId: null };
   const u = url.trim();
 
   // YouTube
@@ -43,11 +40,13 @@ function detectPlatform(url: string): { platform: string; videoId: string | null
 // ==============================================================================
 // 2. METADATA EXTRACTION (oEmbed — no API key needed)
 // ==============================================================================
-async function extractMetadata(url: string, platform: string, videoId: string | null) {
+async function extractMetadata(url: string | undefined, platform: string, videoId: string | null) {
   let title = '';
   let thumbnailUrl = '';
   let embedUrl = '';
   let authorName = '';
+
+  if (!url) return { title, thumbnailUrl, embedUrl, authorName };
 
   try {
     if (platform === 'youtube' && videoId) {
@@ -123,47 +122,52 @@ function generateSchemaJson(params: {
   const url = `https://defineperspective.in/case-studies/${params.slug}`;
   const orgId = "https://defineperspective.in/#organization";
 
+  const graph: any[] = [
+    {
+      "@type": "FAQPage",
+      "@id": `${url}/#faq`,
+      "mainEntity": params.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${url}/#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://defineperspective.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://defineperspective.in/case-studies" },
+        { "@type": "ListItem", "position": 3, "name": params.title, "item": url }
+      ]
+    }
+  ];
+
+  if (params.externalUrl || params.embedUrl) {
+    graph.unshift({
+      "@type": "VideoObject",
+      "@id": `${url}/#video`,
+      "name": params.title,
+      "description": params.description,
+      "thumbnailUrl": params.thumbnailUrl,
+      "uploadDate": new Date().toISOString(),
+      "contentUrl": params.externalUrl || undefined,
+      "embedUrl": params.embedUrl || undefined,
+      "transcript": params.transcript || undefined,
+      "creator": { "@id": orgId },
+      "publisher": { "@id": orgId },
+      "productionCompany": { "@id": orgId },
+      "spatialCoverage": params.geoTags.map(tag => ({ "@type": "Place", "name": tag })),
+      "keywords": [params.industry, "AI Video Production", "Cinematic AI", ...params.geoTags].filter(Boolean).join(", ")
+    });
+  }
+
   return {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "VideoObject",
-        "@id": `${url}/#video`,
-        "name": params.title,
-        "description": params.description,
-        "thumbnailUrl": params.thumbnailUrl,
-        "uploadDate": new Date().toISOString(),
-        "contentUrl": params.externalUrl,
-        "embedUrl": params.embedUrl || undefined,
-        "transcript": params.transcript || undefined,
-        "creator": { "@id": orgId },
-        "publisher": { "@id": orgId },
-        "productionCompany": { "@id": orgId },
-        "spatialCoverage": params.geoTags.map(tag => ({ "@type": "Place", "name": tag })),
-        "keywords": [params.industry, "AI Video Production", "Cinematic AI", ...params.geoTags].join(", ")
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}/#faq`,
-        "mainEntity": params.faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${url}/#breadcrumb`,
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://defineperspective.in/" },
-          { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://defineperspective.in/case-studies" },
-          { "@type": "ListItem", "position": 3, "name": params.title, "item": url }
-        ]
-      }
-    ]
+    "@graph": graph
   };
 }
 
@@ -174,6 +178,8 @@ async function generateAndStoreEmbedding(params: {
   title: string;
   geo: string;
   industry: string;
+  geoTargets?: string[];
+  industries?: string[];
   clientName: string;
   aiSummary: string;
   workflows: string[];
@@ -182,11 +188,14 @@ async function generateAndStoreEmbedding(params: {
 }) {
   const chunks: string[] = [];
 
+  const displayGeos = Array.from(new Set([params.geo, ...(params.geoTargets || [])])).filter(Boolean);
+  const displayIndustries = Array.from(new Set([params.industry, ...(params.industries || [])])).filter(Boolean);
+
   // Chunk 1: Core authority signal
   chunks.push(
     `Title: ${params.title}\n` +
-    `GEO: ${params.geo}\n` +
-    `Industry: ${params.industry}\n` +
+    `GEO Targets: ${displayGeos.join(', ')}\n` +
+    `Industries: ${displayIndustries.join(', ')}\n` +
     `Client: ${params.clientName}\n` +
     `Workflows: ${params.workflows.join(', ')}\n` +
     `Summary: ${params.aiSummary}`
@@ -240,22 +249,47 @@ async function generateAndStoreEmbedding(params: {
 // 6. MAIN PUBLISH ACTION
 // ==============================================================================
 const PublishInputSchema = z.object({
-  externalUrl: z.string().url("Invalid URL"),
+  externalUrl: z.string().optional().or(z.literal('')),
   clientName: z.string().min(1, "Client name required").max(200),
-  geo: z.enum(GEO_TARGETS),
-  industry: z.enum(INDUSTRY_TARGETS),
+  geo: z.string(),
+  industry: z.string(),
+  geoTargets: z.array(z.string()).optional(),
+  industries: z.array(z.string()).optional(),
   transcript: z.string().optional().default(''),
+  heroImageUrl: z.string().optional(),
+  galleryImages: z.array(z.string()).optional(),
+  btsImages: z.array(z.string()).optional(),
+  videoUrl: z.string().optional(),
+  youtubeUrl: z.string().optional(),
+  thumbnailUrl: z.string().optional(),
 });
 
 export async function publishIntelligence(formData: FormData) {
   try {
-    // ── VALIDATE INPUT ──
+    let galleryImages = [];
+    try {
+      galleryImages = JSON.parse(formData.get('galleryImages') as string || '[]');
+    } catch (e) {}
+
+    let btsImages = [];
+    try {
+      btsImages = JSON.parse(formData.get('btsImages') as string || '[]');
+    } catch (e) {}
+
     const raw = {
       externalUrl: (formData.get('externalUrl') as string || '').trim(),
       clientName: (formData.get('clientName') as string || '').trim(),
       geo: (formData.get('geo') as string || '').trim(),
       industry: (formData.get('industry') as string || '').trim(),
+      geoTargets: JSON.parse((formData.get('geoTargets') as string) || '[]'),
+      industries: JSON.parse((formData.get('industries') as string) || '[]'),
       transcript: (formData.get('transcript') as string || '').trim(),
+      heroImageUrl: (formData.get('heroImageUrl') as string || '').trim(),
+      galleryImages: galleryImages,
+      btsImages: btsImages,
+      videoUrl: (formData.get('videoUrl') as string || '').trim(),
+      youtubeUrl: (formData.get('youtubeUrl') as string || '').trim(),
+      thumbnailUrl: (formData.get('thumbnailUrl') as string || '').trim(),
     };
 
     const input = PublishInputSchema.parse(raw);
@@ -290,17 +324,17 @@ export async function publishIntelligence(formData: FormData) {
 Analyze the following project and generate a comprehensive, SEO-optimized metadata payload.
 
 CLIENT: ${input.clientName}
-GEO: ${input.geo}
-INDUSTRY: ${input.industry}
+GEO TARGETS: ${[input.geo, ...(input.geoTargets || [])].filter(Boolean).join(', ')}
+INDUSTRIES: ${[input.industry, ...(input.industries || [])].filter(Boolean).join(', ')}
 PLATFORM: ${platform}
 VIDEO TITLE: ${meta.title || 'Untitled'}
 TRANSCRIPT: ${input.transcript || 'No transcript provided.'}
 
 CRITICAL REQUIREMENTS:
-- The AI Summary MUST explicitly mention ${input.geo} and ${input.industry}
+- The AI Summary MUST explicitly mention the key GEO TARGETS and INDUSTRIES
 - The AI Summary MUST read as authoritative factual prose suitable for Google AI Overviews
-- FAQs MUST be localized to ${input.geo} and specific to ${input.industry}
-- Social posts MUST reinforce DP AI Studios as THE cinematic AI authority in ${input.geo}
+- FAQs MUST be localized to the primary GEOs and specific to the relevant INDUSTRIES
+- Social posts MUST reinforce DP AI Studios as THE cinematic AI authority in these markets
 - Semantic links MUST reference existing DP AI Studios service pages
 - All content must be factual, zero-fluff, and optimized for AI retrieval by ChatGPT, Gemini, Claude, and Perplexity`
           });
@@ -385,11 +419,11 @@ CRITICAL REQUIREMENTS:
     }
 
     // ── STEP 5: SCHEMA GENERATION ──
-    const geoTags: string[] = [input.geo];
+    const geoTags: string[] = Array.from(new Set([input.geo, ...(input.geoTargets || [])])).filter(Boolean);
     // Add parent region for Kerala cities
-    if (['Kochi'].includes(input.geo)) geoTags.push('Kerala');
-    if (['Bangalore', 'Chennai', 'Mumbai', 'Kochi'].includes(input.geo)) geoTags.push('India');
-    if (input.geo === 'Dubai') geoTags.push('UAE');
+    if (geoTags.includes('Kochi')) geoTags.push('Kerala');
+    if (geoTags.some(g => ['Bangalore', 'Chennai', 'Mumbai', 'Kochi'].includes(g))) geoTags.push('India');
+    if (geoTags.includes('Dubai')) geoTags.push('UAE');
 
     const schemaJson = generateSchemaJson({
       slug: intelligence.slug,
@@ -397,7 +431,7 @@ CRITICAL REQUIREMENTS:
       description: intelligence.ai_summary.substring(0, 160),
       thumbnailUrl: meta.thumbnailUrl,
       embedUrl: meta.embedUrl,
-      externalUrl: input.externalUrl,
+      externalUrl: input.externalUrl || '',
       transcript: input.transcript,
       geoTags,
       industry: input.industry,
@@ -421,7 +455,7 @@ CRITICAL REQUIREMENTS:
         platform,
         external_video_url: input.externalUrl,
         video_embed_url: meta.embedUrl,
-        thumbnail_url: meta.thumbnailUrl,
+        thumbnail_url: input.thumbnailUrl || meta.thumbnailUrl,
         transcript: input.transcript,
         ai_summary: intelligence.ai_summary,
         cinematic_direction: intelligence.cinematic_direction || '',
@@ -432,9 +466,16 @@ CRITICAL REQUIREMENTS:
         internal_links: intelligence.semantic_links || [],
         geo: input.geo,
         geo_tags: geoTags,
+        geo_targets: input.geoTargets || [],
         industry: input.industry,
+        industries: input.industries || [],
         published: isPublished,
         published_at: new Date().toISOString(),
+        hero_image_url: input.heroImageUrl || null,
+        gallery_images: input.galleryImages || [],
+        bts_images: input.btsImages || [],
+        video_url: input.videoUrl || null,
+        youtube_url: input.youtubeUrl || null,
       })
       .select('id, slug, published')
       .single();
@@ -454,7 +495,9 @@ CRITICAL REQUIREMENTS:
       await generateAndStoreEmbedding({
         title: intelligence.title,
         geo: input.geo,
+        geoTargets: input.geoTargets,
         industry: input.industry,
+        industries: input.industries,
         clientName: input.clientName,
         aiSummary: intelligence.ai_summary,
         workflows: intelligence.workflows || [],
