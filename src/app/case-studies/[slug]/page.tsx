@@ -365,19 +365,27 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
 
         {/* ── RIGHT SIDEBAR / CONTEXT ── */}
-        <aside className="lg:col-span-4 space-y-12">
+        <aside className="lg:col-span-4 space-y-12 sticky top-32 h-fit">
           
           {/* Internal Linking / Semantic Clustering */}
           {caseStudy.internal_links && caseStudy.internal_links.length > 0 && (
-            <div className="bg-white/[0.02] border border-white/5 p-8 rounded-[2rem] sticky top-32">
+            <div className="bg-white/[0.02] border border-white/5 p-8 rounded-[2rem]">
               <h3 className="text-[10px] font-mono tracking-widest text-primary-accent uppercase mb-6">Semantic Pathways</h3>
               <div className="flex flex-col gap-3">
-                {caseStudy.internal_links.map((link) => (
-                  <Link key={link} href={link} className="text-xs uppercase tracking-wider bg-white/5 hover:bg-primary-accent hover:text-obsidian transition-all px-4 py-3 rounded-xl text-zinc-300 font-bold border border-white/10 flex items-center justify-between group">
-                    <span>{link.split('/').pop()?.replace(/-/g, ' ')}</span>
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                ))}
+                {caseStudy.internal_links.map((link) => {
+                  const displayText = link.split('/').pop()?.replace(/-/g, ' ');
+                  return (
+                    <Link 
+                      key={link} 
+                      href="/services" 
+                      prefetch={false}
+                      className="text-xs uppercase tracking-wider bg-white/5 hover:bg-primary-accent hover:text-obsidian transition-all px-4 py-3 rounded-xl text-zinc-300 font-bold border border-white/10 flex items-center justify-between group"
+                    >
+                      <span>{displayText}</span>
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           )}

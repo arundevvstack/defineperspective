@@ -327,7 +327,7 @@ export async function publishIntelligence(formData: FormData) {
         let result;
         try {
           result = await generateObject({
-            model: google('gemini-1.5-flash'),
+            model: google('gemini-2.5-flash'),
             schema: IntelligenceSchema,
             maxRetries: 3, // Built-in exponential backoff
             abortSignal: abortController.signal,
