@@ -57,7 +57,7 @@ export default function BrochureSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button 
-                onClick={() => window.print()}
+                onClick={() => window.open('/ebrochure?print=true', '_blank')}
                 className="flex-1 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl flex items-center justify-center gap-3 transition-all group"
               >
                 <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />

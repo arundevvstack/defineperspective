@@ -137,8 +137,8 @@ export default function CoursePricing() {
                   </a>
                   
                   <button 
-                    onClick={() => window.print()}
-                    className="block w-full bg-blue-700/50 hover:bg-blue-600 border border-blue-400 text-white font-bold py-4 px-6 rounded-xl text-lg hover:scale-[1.02] transition-all"
+                    onClick={() => window.open('/ebrochure?print=true', '_blank')}
+                    className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/20 text-white rounded-xl font-bold transition-colors print:hidden"
                   >
                     📘 Download eBrochure (PDF)
                   </button>

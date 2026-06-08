@@ -136,7 +136,7 @@ export default function EpicHeroSection() {
               </Link>
               
               <button 
-                onClick={() => window.print()}
+                onClick={() => window.open('/ebrochure?print=true', '_blank')}
                 className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-lg rounded-full hover:bg-white/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 relative overflow-hidden group"
               >
                 📘 Download eBrochure (PDF)
