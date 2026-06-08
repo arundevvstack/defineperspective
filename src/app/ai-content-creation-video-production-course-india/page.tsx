@@ -417,12 +417,12 @@ export default function CoursePage() {
         </div>
       </section>
 
-      {/* Why Students Across India & UAE Choose Define Perspective */}
+      {/* Why Students Across India & UAE Choose DP AI STUDIOS */}
       <section className="py-24 bg-black relative border-t border-white/5">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.05)_0%,transparent_70%)]" />
         <div className="container mx-auto px-6 relative z-10">
           <ScrollFade className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why Students Across India & UAE Choose Define Perspective</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why Students Across India & UAE Choose DP AI STUDIOS</h2>
             <p className="text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
               Our AI-integrated curriculum prepares students for the future of content creation, filmmaking, advertising, fashion media, and creative business.
             </p>
