@@ -239,16 +239,34 @@ export default function CoursePage() {
       <section className="py-32 bg-black relative">
         <div className="container mx-auto px-6 max-w-6xl">
           <ScrollFade className="text-center mb-20">
-            <h2 className="text-sm uppercase tracking-widest text-zinc-500 mb-4">Our Student Learning Experience & Real Industry Projects</h2>
+            <h2 className="text-sm uppercase tracking-widest text-zinc-500 mb-4">Our AI Films, Commercials & Live Action Productions</h2>
             <h3 className="text-4xl md:text-6xl font-bold mb-8">Learn From Real Industry Productions</h3>
             <p className="text-xl text-zinc-400 max-w-4xl mx-auto leading-relaxed">
-              At Define Perspective Academy, students don't learn from theoretical examples. They learn from real-world productions, commercial campaigns, fashion films, AI advertising projects, documentaries, magazine productions, and cinematic storytelling created by our professional team.
+              At Define Perspective, students learn from real productions created by our in-house creative team. From commercial advertisements and documentaries to AI-generated films, fashion campaigns, and hybrid productions, our curriculum is built around actual industry workflows and real-world creative execution.
               <br /><br />
-              Our curriculum is built from actual client projects, fashion productions, AI campaigns, and creative workflows used in the industry today.
+              Explore a selection of our AI and live-action productions that showcase the quality, innovation, and professional standards students are exposed to throughout the program.
             </p>
           </ScrollFade>
 
           <div className="space-y-32">
+            
+            {/* Why Define Perspective? (Featured Intro Video) */}
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <ScrollFade>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Define Perspective?</h2>
+                <p className="text-lg text-zinc-400 leading-relaxed">
+                  Watch how Define Perspective combines traditional filmmaking, commercial production, fashion media, and AI-powered content creation into a future-ready creative ecosystem.
+                  <br /><br />
+                  This video introduces our vision, production capabilities, industry approach, and commitment to building the next generation of creators, filmmakers, and AI content specialists.
+                </p>
+              </ScrollFade>
+              <ScrollFade delay={0.2}>
+                <div className="rounded-xl overflow-hidden shadow-2xl border border-white/10 aspect-video">
+                  <LiteYouTube videoId="qJwObz6fe-M" title="Why Define Perspective?" />
+                </div>
+              </ScrollFade>
+            </div>
+
             {/* Commercial & Brand Productions */}
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <ScrollFade>
@@ -443,10 +461,10 @@ export default function CoursePage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <ScrollFade>
-              <h2 className="text-2xl font-semibold text-zinc-400 mb-2">Best Media Academy in Kerala</h2>
+              <h2 className="text-2xl font-semibold text-zinc-400 mb-2">AI Content Creation, Filmmaking & Video Production Academy in Kerala</h2>
               <h3 className="text-4xl md:text-5xl font-bold mb-6">Why Define Perspective?</h3>
               <p className="text-zinc-400 text-lg mb-8 leading-relaxed">
-                We bridge the gap between traditional filmmaking and modern AI workflows. Our academy operates within a real production house, ensuring you learn industry-standard practices, not just theory.
+                Define Perspective is a professional creative academy and production house that integrates AI content creation, commercial filmmaking, fashion media, documentary production, editing, creative direction, and business workflows into one industry-focused learning experience. Students gain exposure to real production environments, AI-powered creative tools, and modern media practices used by agencies, brands, production houses, and content studios worldwide.
               </p>
               <ul className="space-y-4">
                 {[
@@ -526,17 +544,22 @@ export default function CoursePage() {
           <h2 className="text-sm uppercase tracking-widest text-zinc-500 mb-8 text-center">Explore Related Services & Expertise</h2>
           <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
             {[
-              { name: "AI Filmmaking Course in Kochi", href: "/ai-video-production-kochi" },
-              { name: "Documentary Filmmaking Course India", href: "/video-production" },
-              { name: "Fashion Media & Magazine Production Course", href: "/services" },
-              { name: "AI Fashion Production", href: "/ai-fashion-commercials" },
-              { name: "Commercial Production Services", href: "/video-production" },
-              { name: "Creative Agency Services", href: "/services" },
-              { name: "AI Film Production", href: "/ai-studios" }
+              { name: "AI Content Creation Course in Kerala", href: "/ai-content-creation-video-production-course-india" },
+              { name: "Video Production Training in Kochi", href: "/ai-content-creation-video-production-course-india" },
+              { name: "Commercial Filmmaking Course in India", href: "/ai-content-creation-video-production-course-india" },
+              { name: "Fashion Film Production Training", href: "/ai-content-creation-video-production-course-india" },
+              { name: "AI Filmmaking Academy India", href: "/ai-content-creation-video-production-course-india" },
+              { name: "Learn From Real Industry Productions", href: "/ai-content-creation-video-production-course-india" },
+              { name: "AI Advertising & Brand Content Creation", href: "/ai-content-creation-video-production-course-india" },
+              { name: "Hybrid AI + Live Action Production Training", href: "/ai-content-creation-video-production-course-india" },
+              { name: "Creative Media Academy for Future Creators", href: "/ai-content-creation-video-production-course-india" },
+              { name: "Professional Content Creator Certification Program", href: "/ai-content-creation-video-production-course-india" }
             ].map((link, i) => (
-              <Link key={i} href={link.href} className="px-5 py-2.5 rounded-full bg-black border border-white/5 hover:border-white/20 transition-colors text-zinc-300 hover:text-white">
-                {link.name}
-              </Link>
+              <h2 key={i} className="m-0">
+                <Link href={link.href} className="inline-block px-5 py-2.5 rounded-full bg-black border border-white/5 hover:border-white/20 transition-colors text-zinc-300 hover:text-white font-normal">
+                  {link.name}
+                </Link>
+              </h2>
             ))}
           </div>
         </div>
