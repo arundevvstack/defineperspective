@@ -139,17 +139,38 @@ export default function LiteYouTube({
         )}
       </div>
 
-      {/* PDF Print QR Code Fallback */}
-      <div className="hidden print:flex flex-col items-center justify-center p-4 bg-white border-2 border-gray-200 rounded-xl w-full aspect-video">
-        <img 
-          src={`https://quickchart.io/qr?text=${encodeURIComponent(`https://youtu.be/${videoId}`)}&size=200&margin=1`} 
-          alt="Video QR Code" 
-          className="w-32 h-32 mb-4 object-contain" 
-        />
-        <span className="text-sm font-bold text-black text-center line-clamp-1 break-words px-2 uppercase tracking-wide">
-          {title}
-        </span>
-        <span className="text-xs font-medium text-gray-500 mt-1 uppercase">Scan to Watch</span>
+      {/* PDF Print "Video-Enabled" Fallback */}
+      <div className="hidden print:flex flex-col w-full break-inside-avoid my-8 border-2 border-zinc-200 rounded-2xl overflow-hidden bg-white">
+        {/* Large Thumbnail with Play Button Overlay */}
+        <div className="relative w-full aspect-video bg-zinc-100 border-b-2 border-zinc-200">
+          <img src={thumbUrl} alt={title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-md border border-white/50 flex items-center justify-center shadow-2xl">
+              <Play size={48} fill="currentColor" className="text-white ml-2" />
+            </div>
+          </div>
+        </div>
+        
+        {/* Metadata and QR Block */}
+        <div className="flex items-center gap-6 p-6">
+          <div className="flex-shrink-0 bg-white p-2 border-2 border-zinc-200 rounded-xl shadow-sm">
+            <img 
+              src={`https://quickchart.io/qr?text=${encodeURIComponent(`https://youtu.be/${videoId}`)}&size=150&margin=1`} 
+              alt="Video QR Code" 
+              className="w-24 h-24 object-contain" 
+            />
+          </div>
+          <div className="flex flex-col gap-2 flex-grow">
+            <h4 className="font-black text-2xl text-black uppercase tracking-tight">{title}</h4>
+            <div className="flex items-center gap-2 mb-1">
+              <Play size={16} fill="currentColor" className="text-red-600" />
+              <span className="text-sm font-bold text-red-600 uppercase tracking-widest">Watch Film</span>
+            </div>
+            <a href={`https://youtu.be/${videoId}`} className="text-sm font-mono text-blue-600 underline underline-offset-4 font-semibold break-all">
+              https://youtu.be/{videoId}
+            </a>
+          </div>
+        </div>
       </div>
     </>
   );

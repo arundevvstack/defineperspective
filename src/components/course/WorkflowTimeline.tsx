@@ -114,7 +114,7 @@ export default function WorkflowTimeline() {
     <div className="w-full relative py-12" ref={containerRef}>
       
       {/* Desktop Horizontal Scroll Container */}
-      <div className="hidden lg:flex w-full overflow-x-auto pb-16 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent items-stretch px-6" style={{ scrollBehavior: 'smooth' }}>
+      <div className="hidden lg:flex print:hidden w-full overflow-x-auto pb-16 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent items-stretch px-6" style={{ scrollBehavior: 'smooth' }}>
         <div className="flex gap-8 relative items-center min-h-[500px] min-w-max">
           
           {/* Animated Connecting Line (Background) */}
@@ -179,11 +179,11 @@ export default function WorkflowTimeline() {
         </div>
       </div>
 
-      {/* Mobile Vertical Timeline */}
-      <div className="lg:hidden px-4 py-8 relative">
-        <div className="absolute left-10 top-12 bottom-12 w-1 bg-white/5 rounded-full" />
+      {/* Mobile Vertical Timeline (Also used for Print) */}
+      <div className="lg:hidden print:block px-4 py-8 relative print:px-0">
+        <div className="absolute left-10 top-12 bottom-12 w-1 bg-white/5 rounded-full print:bg-gray-300 print:left-8" />
         
-        <div className="space-y-8 relative">
+        <div className="space-y-8 relative print:space-y-6">
           {workflowSteps.map((step, index) => {
             const Icon = step.icon;
             const isAI = step.theme === "ai";
@@ -196,27 +196,27 @@ export default function WorkflowTimeline() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5 }}
-                className="flex gap-6 relative"
+                className="flex gap-6 relative print:break-inside-avoid"
               >
                 {/* Timeline Dot */}
-                <div className={`w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center relative z-10 border-4 border-black ${isFinal ? 'bg-green-500 text-black' : isAI ? 'bg-blue-600 text-white' : 'bg-zinc-800 text-white'}`}>
-                  <span className="font-bold text-sm">{step.id}</span>
+                <div className={`w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center relative z-10 border-4 border-black print:border-white print:bg-black print:text-white print:w-16 print:h-16 ${isFinal ? 'bg-green-500 text-black' : isAI ? 'bg-blue-600 text-white' : 'bg-zinc-800 text-white'}`}>
+                  <span className="font-bold text-sm print:text-xl print:font-black">{step.id}</span>
                 </div>
 
-                <div className={`flex-1 bg-zinc-950/80 backdrop-blur-xl border ${isFinal ? 'border-green-500/50' : isAI ? 'border-blue-500/30' : 'border-white/10'} rounded-2xl p-6 ${step.glow} shadow-xl relative overflow-hidden`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-20 pointer-events-none`} />
+                <div className={`flex-1 bg-zinc-950/80 backdrop-blur-xl border ${isFinal ? 'border-green-500/50' : isAI ? 'border-blue-500/30' : 'border-white/10'} rounded-2xl p-6 ${step.glow} shadow-xl relative overflow-hidden print:bg-white print:border-2 print:border-gray-200 print:shadow-md print:rounded-xl`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-20 pointer-events-none print:hidden`} />
                   
-                  <div className="flex items-center gap-3 mb-6 relative z-10">
-                    <Icon className={`w-6 h-6 ${isFinal ? 'text-green-400' : isAI ? 'text-blue-400' : 'text-zinc-400'}`} />
-                    <h3 className={`font-bold tracking-wide ${isFinal ? 'text-green-400' : isAI ? 'text-blue-300' : 'text-white'}`}>
+                  <div className="flex items-center gap-3 mb-6 relative z-10 print:mb-3">
+                    <Icon className={`w-6 h-6 print:text-black ${isFinal ? 'text-green-400' : isAI ? 'text-blue-400' : 'text-zinc-400'}`} />
+                    <h3 className={`font-bold tracking-wide print:text-black print:text-xl print:uppercase print:tracking-tighter ${isFinal ? 'text-green-400' : isAI ? 'text-blue-300' : 'text-white'}`}>
                       {step.title}
                     </h3>
                   </div>
 
-                  <ul className="space-y-3 relative z-10">
+                  <ul className="space-y-3 relative z-10 print:grid print:grid-cols-2 print:gap-x-4 print:space-y-0 print:gap-y-2">
                     {step.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm text-zinc-400">
-                        <ArrowRight className={`w-3 h-3 ${isFinal ? 'text-green-500' : isAI ? 'text-blue-500' : 'text-zinc-600'}`} />
+                      <li key={i} className="flex items-center gap-3 text-sm text-zinc-400 print:text-gray-700 print:font-medium">
+                        <ArrowRight className={`w-3 h-3 print:text-red-500 ${isFinal ? 'text-green-500' : isAI ? 'text-blue-500' : 'text-zinc-600'}`} />
                         {feature}
                       </li>
                     ))}

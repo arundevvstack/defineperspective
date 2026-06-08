@@ -186,16 +186,16 @@ export default function CoursePage() {
       </section>
 
       {/* Curriculum Section */}
-      <section id="curriculum" className="py-24 bg-zinc-950 border-y border-white/5">
+      <section id="curriculum" className="py-24 bg-zinc-950 border-y border-white/5 print:bg-white print:border-black">
         <div className="container mx-auto px-6 max-w-5xl">
           <ScrollFade>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">AI Integrated Creative Production Program</h2>
-              <p className="text-zinc-400 text-lg">Comprehensive modules designed to take you from basics to professional production workflows.</p>
+            <div className="text-center mb-16 print:text-left print:border-b-4 print:border-black print:pb-8 print:mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 print:text-black print:text-6xl print:uppercase print:tracking-tight">AI Integrated Creative Production Program</h2>
+              <p className="text-zinc-400 text-lg print:text-2xl print:text-gray-600 print:font-medium">Comprehensive modules designed to take you from basics to professional production workflows.</p>
             </div>
           </ScrollFade>
 
-          <div className="space-y-8">
+          <div className="space-y-8 print:space-y-12">
             {[
               {
                 title: "Creative Foundations",
@@ -223,14 +223,14 @@ export default function CoursePage() {
                 items: ["Client Communication", "Budgeting", "Proposal Writing", "Agency Operations", "Freelancing", "Portfolio Development"]
               }
             ].map((module, index) => (
-              <ScrollFade key={index} delay={0.1 * index} className="p-8 border border-white/10 rounded-2xl bg-black relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-1 h-full bg-zinc-800 group-hover:bg-white transition-colors" />
-                <h2 className="text-sm font-medium text-zinc-500 mb-2 pl-4">{module.seoHeading}</h2>
-                <h3 className="text-2xl font-bold mb-6 pl-4">{module.title}</h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-4">
+              <ScrollFade key={index} delay={0.1 * index} className="p-8 border border-white/10 rounded-2xl bg-black relative overflow-hidden group print:bg-white print:border-4 print:border-black print:rounded-3xl print:break-inside-avoid print:shadow-xl">
+                <div className="absolute top-0 left-0 w-1 h-full bg-zinc-800 group-hover:bg-white transition-colors print:w-4 print:bg-black" />
+                <h2 className="text-sm font-medium text-zinc-500 mb-2 pl-4 print:pl-8 print:text-gray-400 print:tracking-widest print:uppercase">{module.seoHeading}</h2>
+                <h3 className="text-2xl font-bold mb-6 pl-4 print:pl-8 print:text-4xl print:text-black print:uppercase print:tracking-tight">{module.title}</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-4 print:pl-8">
                   {module.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-zinc-300">
-                      <CheckCircle className="w-4 h-4 text-zinc-600" />
+                    <li key={i} className="flex items-center gap-3 text-zinc-300 print:text-black print:text-xl print:font-medium">
+                      <CheckCircle className="w-4 h-4 text-zinc-600 print:text-red-600 print:w-6 print:h-6" />
                       {item}
                     </li>
                   ))}

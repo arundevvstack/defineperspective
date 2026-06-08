@@ -20,43 +20,43 @@ export default function CoursePricing() {
   const whatsappUrl = `https://wa.me/917012941696?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <section className="py-24 relative overflow-hidden bg-zinc-950 border-t border-white/5">
+    <section className="py-24 relative overflow-hidden bg-zinc-950 border-t border-white/5 print:bg-white print:border-t-0 print:py-12 print:break-inside-avoid">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none print:hidden" />
       
-      <div className="container mx-auto px-6 relative z-10">
-        <ScrollFade className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-medium text-sm mb-6">
-            <Zap className="w-4 h-4 fill-blue-400" />
+      <div className="container mx-auto px-6 relative z-10 print:px-0">
+        <ScrollFade className="text-center mb-16 print:mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-medium text-sm mb-6 print:bg-red-50 print:border-red-600 print:text-red-600 print:text-lg print:px-6 print:py-3 print:font-bold print:uppercase tracking-widest">
+            <Zap className="w-4 h-4 fill-current print:w-6 print:h-6" />
             🚀 Founder's Launch Offer – Limited Seats
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white max-w-4xl mx-auto leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white max-w-4xl mx-auto leading-tight print:text-black print:text-5xl print:uppercase print:tracking-tight">
             Become a Professional AI Content Creator, Filmmaker & Creative Producer
           </h2>
         </ScrollFade>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 items-start">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 items-start print:block print:w-full">
           
           {/* Left Column: Offer Details & High-Converting Badge */}
-          <ScrollFade delay={0.1} className="lg:col-span-7 space-y-6">
+          <ScrollFade delay={0.1} className="lg:col-span-7 space-y-6 print:w-full">
             
-            <div className="bg-gradient-to-br from-zinc-900 to-black border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-6 opacity-10">
+            <div className="bg-gradient-to-br from-zinc-900 to-black border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden print:bg-white print:bg-none print:border-4 print:border-black print:shadow-none print:p-12">
+              <div className="absolute top-0 right-0 p-6 opacity-10 print:opacity-5 text-black">
                 <Trophy className="w-48 h-48" />
               </div>
               
               <div className="relative z-10">
-                <h3 className="text-2xl font-semibold text-zinc-300 mb-2">Exclusive Founder's Scholarship</h3>
-                <p className="text-zinc-500 mb-8">Available for the First 6 Admissions Only</p>
+                <h3 className="text-2xl font-semibold text-zinc-300 mb-2 print:text-gray-500 print:uppercase print:tracking-widest">Exclusive Founder's Scholarship</h3>
+                <p className="text-zinc-500 mb-8 print:text-black print:font-bold print:text-xl">Available for the First 6 Admissions Only</p>
                 
-                <div className="flex flex-col md:flex-row md:items-end gap-6 mb-10">
+                <div className="flex flex-col md:flex-row md:items-end gap-6 mb-10 print:items-center print:justify-start">
                   <div>
-                    <p className="text-zinc-500 line-through text-2xl font-medium mb-1">₹110,000</p>
+                    <p className="text-zinc-500 line-through text-2xl font-medium mb-1 print:text-gray-400 print:text-3xl">₹110,000</p>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-6xl md:text-7xl font-bold text-white tracking-tight">₹43,000</span>
+                      <span className="text-6xl md:text-7xl font-bold text-white tracking-tight print:text-black print:text-8xl">₹43,000</span>
                     </div>
                   </div>
-                  <div className="bg-green-500/20 border border-green-500/30 text-green-400 px-4 py-2 rounded-xl font-bold text-lg mb-2 inline-flex items-center gap-2 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
+                  <div className="bg-green-500/20 border border-green-500/30 text-green-400 px-4 py-2 rounded-xl font-bold text-lg mb-2 inline-flex items-center gap-2 shadow-[0_0_20px_rgba(34,197,94,0.2)] print:bg-red-50 print:text-red-600 print:border-red-600 print:shadow-none print:text-2xl print:px-6 print:py-3 print:uppercase print:tracking-widest">
                     ✅ Save ₹67,000
                   </div>
                 </div>
