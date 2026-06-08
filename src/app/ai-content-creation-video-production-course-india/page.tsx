@@ -239,7 +239,7 @@ export default function CoursePage() {
       <section className="py-32 bg-black relative">
         <div className="container mx-auto px-6 max-w-6xl">
           <ScrollFade className="text-center mb-20">
-            <h2 className="text-sm uppercase tracking-widest text-zinc-500 mb-4">Our AI Films, Commercials & Live Action Productions</h2>
+            <h2 className="text-sm uppercase tracking-widest text-zinc-500 mb-4">Our Projects</h2>
             <h3 className="text-4xl md:text-6xl font-bold mb-8">Learn From Real Industry Productions</h3>
             <p className="text-xl text-zinc-400 max-w-4xl mx-auto leading-relaxed">
               At Define Perspective, students learn from real productions created by our in-house creative team. From commercial advertisements and documentaries to AI-generated films, fashion campaigns, and hybrid productions, our curriculum is built around actual industry workflows and real-world creative execution.
