@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, ChevronDown, Play, Star, Video, Camera, Scisso
 import ScrollFade from "@/components/ui/scroll-fade";
 import LiteYouTube from "@/components/lite-youtube";
 import EpicHeroSection from "@/components/course/HeroSection";
+import WorkflowTimeline from "@/components/course/WorkflowTimeline";
 import GlassNavbar from "@/components/glass-navbar";
 export const metadata: Metadata = {
   title: "Best AI Content Creation & Video Production Course in India | Define Perspective Academy",
@@ -456,39 +457,19 @@ export default function CoursePage() {
         </div>
       </section>
 
-      {/* Why Define Perspective */}
-      <section className="py-24 border-y border-white/5 relative overflow-hidden bg-zinc-950 text-white">
+      {/* Real Production Workflows */}
+      <section className="py-24 border-y border-white/5 relative overflow-hidden bg-black text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.03)_0%,transparent_70%)]" />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <ScrollFade>
-              <h2 className="text-2xl font-semibold text-zinc-400 mb-2">AI Content Creation, Filmmaking & Video Production Academy in Kerala</h2>
-              <h3 className="text-4xl md:text-5xl font-bold mb-6">Why Define Perspective?</h3>
-              <p className="text-zinc-400 text-lg mb-8 leading-relaxed">
-                Define Perspective is a professional creative academy and production house that integrates AI content creation, commercial filmmaking, fashion media, documentary production, editing, creative direction, and business workflows into one industry-focused learning experience. Students gain exposure to real production environments, AI-powered creative tools, and modern media practices used by agencies, brands, production houses, and content studios worldwide.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Industry-focused training",
-                  "AI + Traditional Production workflows",
-                  "Professional Mentorship from working directors",
-                  "Real Production Workflows and sets",
-                  "Future-Ready Skills for the evolving creator economy",
-                  "Creative Business Training"
-                ].map((benefit, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-white shrink-0 mt-0.5" />
-                    <span className="font-medium text-zinc-300">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </ScrollFade>
-            <ScrollFade delay={0.2} className="relative h-[600px] rounded-3xl overflow-hidden border border-white/10 bg-black hidden md:flex items-center justify-center">
-              <div className="text-center p-8">
-                <Video className="w-16 h-16 text-zinc-700 mx-auto mb-4" />
-                <p className="text-zinc-500 font-medium">Real Production Workflows</p>
-              </div>
-            </ScrollFade>
-          </div>
+          <ScrollFade className="text-center max-w-4xl mx-auto mb-16">
+            <h2 className="text-sm uppercase tracking-widest text-zinc-500 mb-4">Learn the Professional Workflow Used by Production Houses, Creative Agencies, Fashion Studios & AI Content Companies</h2>
+            <h3 className="text-4xl md:text-6xl font-bold mb-6">Real Production Workflows</h3>
+            <p className="text-xl text-zinc-400 leading-relaxed">
+              This workflow is based on real-world commercial productions, fashion campaigns, documentaries, AI films, and brand content projects executed by the Define Perspective team. It gives students exposure to the complete lifecycle of modern content creation—from client brief to final campaign delivery.
+            </p>
+          </ScrollFade>
+
+          <WorkflowTimeline />
         </div>
       </section>
 
