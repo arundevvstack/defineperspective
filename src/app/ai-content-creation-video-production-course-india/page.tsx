@@ -6,6 +6,7 @@ import LiteYouTube from "@/components/lite-youtube";
 import EpicHeroSection from "@/components/course/HeroSection";
 import WorkflowTimeline from "@/components/course/WorkflowTimeline";
 import CoursePricing from "@/components/course/CoursePricing";
+import BrochureSection from "@/components/course/BrochureSection";
 import GlassNavbar from "@/components/glass-navbar";
 export const metadata: Metadata = {
   title: "Best AI Content Creation & Video Production Course in India | Define Perspective Academy",
@@ -475,6 +476,8 @@ export default function CoursePage() {
       </section>
 
       <CoursePricing />
+
+      <BrochureSection />
 
       {/* FAQ Section */}
       <section className="py-24 bg-black">

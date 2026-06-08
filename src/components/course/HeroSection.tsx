@@ -122,17 +122,28 @@ export default function EpicHeroSection() {
             <div className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-zinc-500" /> India & UAE Students</div>
           </ScrollFade>
 
-          {/* Single High-Converting CTA */}
-          <ScrollFade delay={0.4} className="flex flex-col items-center justify-center gap-4">
-            <Link 
-              href="https://wa.me/917012941696?text=Hello%20Define%20Perspective,%20I%20am%20interested%20in%20the%20AI%20Integrated%20Content%20Creation%20%26%20Video%20Production%20Professional%20Program.%20Please%20share%20course%20details,%20fees,%20upcoming%20batch%20dates,%20and%20admission%20process." 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-12 py-5 bg-blue-600 text-white font-bold text-lg md:text-xl rounded-full hover:bg-blue-500 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(37,99,235,0.4)] relative overflow-hidden group"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              🚀 Apply for Admission
-            </Link>
+          {/* Dual High-Converting CTAs */}
+          <ScrollFade delay={0.4} className="flex flex-col items-center justify-center gap-6">
+            <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
+              <Link 
+                href="https://wa.me/917012941696?text=Hello%20Define%20Perspective,%20I%20am%20interested%20in%20the%20AI%20Integrated%20Content%20Creation%20%26%20Video%20Production%20Professional%20Program.%20Please%20share%20course%20details,%20fees,%20upcoming%20batch%20dates,%20and%20admission%20process." 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-4 bg-blue-600 text-white font-bold text-lg rounded-full hover:bg-blue-500 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(37,99,235,0.4)] relative overflow-hidden group"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                🚀 Apply for Admission
+              </Link>
+              
+              <Link 
+                href="https://wa.me/917012941696?text=Hello%20Define%20Perspective,%20I%20would%20like%20to%20receive%20the%20AI%20Integrated%20Content%20Creation%20%26%20Video%20Production%20Program%20eBrochure." 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-lg rounded-full hover:bg-white/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 relative overflow-hidden group"
+              >
+                📘 Download eBrochure
+              </Link>
+            </div>
             
             <p className="text-xs md:text-sm text-blue-300 font-medium tracking-wide">
               Limited Seats Per Batch • Portfolio-Based Learning • Industry Mentorship

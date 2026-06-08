@@ -126,14 +126,25 @@ export default function CoursePricing() {
                   The Founder Offer is available only for the first six students joining the AI Integrated Content Creation & Video Production Professional Program.
                 </p>
 
-                <a 
-                  href={whatsappUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block w-full bg-white text-blue-900 font-bold py-4 px-6 rounded-xl text-lg shadow-xl hover:scale-105 hover:bg-zinc-100 transition-all active:scale-95"
-                >
-                  🚀 Apply for Admission on WhatsApp
-                </a>
+                <div className="flex flex-col gap-3">
+                  <a 
+                    href={whatsappUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block w-full bg-white text-blue-900 font-bold py-4 px-6 rounded-xl text-lg shadow-xl hover:scale-105 hover:bg-zinc-100 transition-all active:scale-95"
+                  >
+                    🚀 Apply for Admission
+                  </a>
+                  
+                  <a 
+                    href={`https://wa.me/917012941696?text=${encodeURIComponent("Hello Define Perspective, I would like to receive the AI Integrated Content Creation & Video Production Program eBrochure.")}`}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block w-full bg-blue-700/50 hover:bg-blue-600 border border-blue-400 text-white font-bold py-4 px-6 rounded-xl text-lg hover:scale-[1.02] transition-all"
+                  >
+                    📘 Download eBrochure
+                  </a>
+                </div>
                 <p className="text-blue-200 text-xs mt-4">Offer Ends When All 6 Seats Are Filled</p>
               </div>
             </div>
