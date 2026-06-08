@@ -416,7 +416,7 @@ function GlassNavbarInner() {
   return (
     <>
       <nav className={cn(
-        "fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 backdrop-blur-3xl transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 backdrop-blur-3xl transition-all duration-500 print:hidden",
         isAiMode ? "bg-blue-900/10" : "bg-obsidian/90"
       )}>
         <div className="w-full max-w-none flex h-12 items-center justify-between px-2 md:px-8">
@@ -665,7 +665,7 @@ function GlassNavbarInner() {
 export default function GlassNavbar() {
   return (
     <Suspense fallback={
-      <nav className="fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 bg-obsidian/90 backdrop-blur-3xl h-[80px]">
+      <nav className="fixed top-0 left-0 right-0 z-[10000] border-b border-white/5 px-6 md:px-12 py-4 bg-obsidian/90 backdrop-blur-3xl h-[80px] print:hidden">
         <div className="w-full max-w-none flex h-12 items-center justify-between px-2 md:px-8">
            <div className="w-[160px] md:w-[240px] h-10 bg-white/5 animate-pulse rounded-lg" />
            <div className="hidden md:flex gap-8">

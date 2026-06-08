@@ -151,11 +151,15 @@ export default function RootLayout({
           <ThemeInitializer />
         </Suspense>
         <ThemeWrapper>
-          <MatrixRain />
-          <GlobalTacticalHUD />
-          <SemanticSeoLayer />
+          <div className="print:hidden">
+            <MatrixRain />
+            <GlobalTacticalHUD />
+            <SemanticSeoLayer />
+          </div>
           {children}
-          <GlassFooter />
+          <div className="print:hidden">
+            <GlassFooter />
+          </div>
         </ThemeWrapper>
       </body>
     </html>

@@ -70,72 +70,87 @@ export default function LiteYouTube({
   };
 
   return (
-    <div className={cn(
-      "relative w-full h-full overflow-hidden", 
-      aspectRatio === "vertical" ? "aspect-[9/16]" : "aspect-video",
-      className
-    )}>
-      {/* 🎬 Multimodal AI Indexing Node */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
-      />
-      
-      {isPlaying ? (
-        <div className="absolute inset-0 w-full h-full bg-black flex items-center justify-center">
-          {!isLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="w-10 h-10 border-4 border-primary-accent border-t-transparent rounded-full animate-spin" />
+    <>
+      <div className={cn(
+        "relative w-full h-full overflow-hidden print:hidden", 
+        aspectRatio === "vertical" ? "aspect-[9/16]" : "aspect-video",
+        className
+      )}>
+        {/* 🎬 Multimodal AI Indexing Node */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+        />
+        
+        {isPlaying ? (
+          <div className="absolute inset-0 w-full h-full bg-black flex items-center justify-center">
+            {!isLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="w-10 h-10 border-4 border-primary-accent border-t-transparent rounded-full animate-spin" />
+              </div>
+            )}
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+              title={title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              onLoad={() => setIsLoaded(true)}
+              className={cn("w-full h-full border-0 relative z-0", !isLoaded && "opacity-0")}
+            />
+          </div>
+        ) : (
+          <div 
+            className="relative cursor-pointer group/yt w-full h-full"
+            onClick={handlePlay}
+          >
+            <Image
+              src={thumbUrl}
+              alt={title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover/yt:scale-110"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              loading={priority ? undefined : "lazy"}
+              priority={priority}
+              onError={() => {
+                if (!thumbUrl.includes("hqdefault.jpg")) {
+                  setThumbUrl(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
+                }
+              }}
+            />
+            
+            <div className="absolute inset-0 bg-black/20 group-hover/yt:bg-black/0 transition-colors flex items-center justify-center">
+              <div className="h-16 w-16 rounded-full bg-white/10 backdrop-blur-md border-2 border-primary-accent text-white flex items-center justify-center scale-90 group-hover/yt:scale-110 transition-transform shadow-2xl">
+                <Play size={24} fill="currentColor" className="text-primary-accent" />
+              </div>
             </div>
-          )}
-          <iframe
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-            title={title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            onLoad={() => setIsLoaded(true)}
-            className={cn("w-full h-full border-0 relative z-0", !isLoaded && "opacity-0")}
-          />
-        </div>
-      ) : (
-        <div 
-          className="relative cursor-pointer group/yt w-full h-full"
-          onClick={handlePlay}
-        >
-          <Image
-            src={thumbUrl}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover/yt:scale-110"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            loading={priority ? undefined : "lazy"}
-            priority={priority}
-            onError={() => {
-              if (!thumbUrl.includes("hqdefault.jpg")) {
-                setThumbUrl(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
-              }
-            }}
-          />
-          
-          <div className="absolute inset-0 bg-black/20 group-hover/yt:bg-black/0 transition-colors flex items-center justify-center">
-            <div className="h-16 w-16 rounded-full bg-white/10 backdrop-blur-md border-2 border-primary-accent text-white flex items-center justify-center scale-90 group-hover/yt:scale-110 transition-transform shadow-2xl">
-              <Play size={24} fill="currentColor" className="text-primary-accent" />
+            
+            <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <span className="text-[10px] font-mono text-white/60 uppercase tracking-widest">{title}</span>
             </div>
           </div>
-          
-          <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
-            <span className="text-[10px] font-mono text-white/60 uppercase tracking-widest">{title}</span>
+        )}
+        
+        {/* 🧩 Semantic Context Node (sr-only) */}
+        {transcript && (
+          <div className="sr-only" aria-hidden="true">
+            <h3>Video Transcript: {title}</h3>
+            <p>{transcript}</p>
           </div>
-        </div>
-      )}
-      
-      {/* 🧩 Semantic Context Node (sr-only) */}
-      {transcript && (
-        <div className="sr-only" aria-hidden="true">
-          <h3>Video Transcript: {title}</h3>
-          <p>{transcript}</p>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+
+      {/* PDF Print QR Code Fallback */}
+      <div className="hidden print:flex flex-col items-center justify-center p-4 bg-white border-2 border-gray-200 rounded-xl w-full aspect-video">
+        <img 
+          src={`https://quickchart.io/qr?text=${encodeURIComponent(`https://youtu.be/${videoId}`)}&size=200&margin=1`} 
+          alt="Video QR Code" 
+          className="w-32 h-32 mb-4 object-contain" 
+        />
+        <span className="text-sm font-bold text-black text-center line-clamp-1 break-words px-2 uppercase tracking-wide">
+          {title}
+        </span>
+        <span className="text-xs font-medium text-gray-500 mt-1 uppercase">Scan to Watch</span>
+      </div>
+    </>
   );
 }

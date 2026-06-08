@@ -13,7 +13,7 @@ export default function BrochureSection() {
   const whatsappAdmissionUrl = `https://wa.me/917012941696?text=${encodeURIComponent(whatsappAdmissionMsg)}`;
 
   return (
-    <section className="py-24 relative overflow-hidden bg-zinc-950 border-t border-white/5">
+    <section className="py-24 relative overflow-hidden bg-zinc-950 border-t border-white/5 print:hidden">
       {/* Background gradient for depth */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none" />
       
@@ -56,22 +56,20 @@ export default function BrochureSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <button 
+                onClick={() => window.print()}
+                className="flex-1 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl flex items-center justify-center gap-3 transition-all group"
+              >
+                <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+                📘 Download eBrochure (PDF)
+              </button>
               <a 
                 href={whatsappBrochureUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl flex items-center justify-center gap-3 transition-all group"
-              >
-                <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-                📘 Download eBrochure
-              </a>
-              <a 
-                href={whatsappAdmissionUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex-1 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center justify-center gap-3 transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:scale-[1.02]"
               >
-                🚀 Apply for Admission
+                💬 Get eBrochure on WhatsApp
               </a>
             </div>
             <p className="text-sm text-zinc-500 text-center sm:text-left">One Click. Delivered Instantly on WhatsApp.</p>

@@ -7,6 +7,8 @@ import EpicHeroSection from "@/components/course/HeroSection";
 import WorkflowTimeline from "@/components/course/WorkflowTimeline";
 import CoursePricing from "@/components/course/CoursePricing";
 import BrochureSection from "@/components/course/BrochureSection";
+import PrintCover from "@/components/course/PrintCover";
+import PrintFooter from "@/components/course/PrintFooter";
 import GlassNavbar from "@/components/glass-navbar";
 export const metadata: Metadata = {
   title: "Best AI Content Creation & Video Production Course in India | Define Perspective Academy",
@@ -121,6 +123,7 @@ const jsonLd = {
 export default function CoursePage() {
   return (
     <main className="min-h-screen bg-black text-white selection:bg-white/20 selection:text-white pb-0">
+      <PrintCover />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -571,6 +574,7 @@ export default function CoursePage() {
         </div>
       </a>
 
+      <PrintFooter />
     </main>
   );
 }

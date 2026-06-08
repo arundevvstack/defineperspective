@@ -126,7 +126,7 @@ export default function CoursePricing() {
                   The Founder Offer is available only for the first six students joining the AI Integrated Content Creation & Video Production Professional Program.
                 </p>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 print:hidden">
                   <a 
                     href={whatsappUrl} 
                     target="_blank" 
@@ -136,13 +136,19 @@ export default function CoursePricing() {
                     🚀 Apply for Admission
                   </a>
                   
+                  <button 
+                    onClick={() => window.print()}
+                    className="block w-full bg-blue-700/50 hover:bg-blue-600 border border-blue-400 text-white font-bold py-4 px-6 rounded-xl text-lg hover:scale-[1.02] transition-all"
+                  >
+                    📘 Download eBrochure (PDF)
+                  </button>
                   <a 
                     href={`https://wa.me/917012941696?text=${encodeURIComponent("Hello Define Perspective, I would like to receive the AI Integrated Content Creation & Video Production Program eBrochure.")}`}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block w-full bg-blue-700/50 hover:bg-blue-600 border border-blue-400 text-white font-bold py-4 px-6 rounded-xl text-lg hover:scale-[1.02] transition-all"
+                    className="block w-full bg-black/40 hover:bg-black/60 border border-white/10 text-white font-bold py-3 px-6 rounded-xl text-sm hover:scale-[1.02] transition-all"
                   >
-                    📘 Download eBrochure
+                    💬 Get eBrochure on WhatsApp
                   </a>
                 </div>
                 <p className="text-blue-200 text-xs mt-4">Offer Ends When All 6 Seats Are Filled</p>

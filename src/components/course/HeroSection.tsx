@@ -123,7 +123,7 @@ export default function EpicHeroSection() {
           </ScrollFade>
 
           {/* Dual High-Converting CTAs */}
-          <ScrollFade delay={0.4} className="flex flex-col items-center justify-center gap-6">
+          <ScrollFade delay={0.4} className="flex flex-col items-center justify-center gap-6 print:hidden">
             <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
               <Link 
                 href="https://wa.me/917012941696?text=Hello%20Define%20Perspective,%20I%20am%20interested%20in%20the%20AI%20Integrated%20Content%20Creation%20%26%20Video%20Production%20Professional%20Program.%20Please%20share%20course%20details,%20fees,%20upcoming%20batch%20dates,%20and%20admission%20process." 
@@ -135,13 +135,20 @@ export default function EpicHeroSection() {
                 🚀 Apply for Admission
               </Link>
               
+              <button 
+                onClick={() => window.print()}
+                className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-lg rounded-full hover:bg-white/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 relative overflow-hidden group"
+              >
+                📘 Download eBrochure (PDF)
+              </button>
+              
               <Link 
                 href="https://wa.me/917012941696?text=Hello%20Define%20Perspective,%20I%20would%20like%20to%20receive%20the%20AI%20Integrated%20Content%20Creation%20%26%20Video%20Production%20Program%20eBrochure." 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-lg rounded-full hover:bg-white/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 relative overflow-hidden group"
+                className="px-8 py-4 bg-zinc-900/80 border border-zinc-700 text-white font-bold rounded-full hover:bg-zinc-800 hover:scale-[1.02] transition-all flex items-center justify-center gap-3"
               >
-                📘 Download eBrochure
+                💬 Get eBrochure on WhatsApp
               </Link>
             </div>
             
