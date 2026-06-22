@@ -17,6 +17,7 @@ export function middleware(request: NextRequest) {
 
   Array.from(url.searchParams.keys()).forEach((key) => {
     if (!ALLOWED_PARAMS.has(key)) {
+      url.searchParams.delete(key);
       strippedParams.push(key);
       hasUnallowedParams = true;
     }
