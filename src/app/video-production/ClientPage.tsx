@@ -297,7 +297,7 @@ export default function VideoProductionClient() {
                   </h2>
                </div>
                <p className="body-copy max-w-sm text-right">
-                  We offer a full range of video production services for brands of all sizes.
+                  We offer a full range of video production services, including cutting-edge <Link href="/ai-video-production-services" className="text-white hover:text-primary-accent underline decoration-white/20 underline-offset-4">AI video production services</Link>, for brands of all sizes.
                </p>
             </div>
 

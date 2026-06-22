@@ -25,6 +25,8 @@ export async function GET() {
     '/ai-studios',
     '/ai-video-production-india',
     '/ai-video-production-company-india',
+    '/ai-video-production',
+    '/ai-video-production-services',
     '/ai-tvc-production',
     '/ai-commercial-production-india',
     '/ai-product-commercials',
