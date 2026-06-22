@@ -22,14 +22,7 @@ export function middleware(request: NextRequest) {
   });
 
   if (hasUnallowedParams) {
-    console.log(`[MIDDLEWARE ACTION] Would have stripped: ${strippedParams.join(', ')}`);
-    console.log(`[MIDDLEWARE ACTION] Would have redirected to: ${url.pathname}`);
-    
-    // DEBUG MODE: We do NOT redirect. We just proceed.
-    // Uncomment the line below for production:
-    // return NextResponse.redirect(url, 301);
-  } else {
-    console.log(`[MIDDLEWARE ACTION] URL is clean. Proceeding.`);
+    return NextResponse.redirect(url, 301);
   }
 
   return NextResponse.next();
