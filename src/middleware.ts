@@ -8,7 +8,7 @@ const ALLOWED_PARAMS = new Set([
 ]);
 
 export function middleware(request: NextRequest) {
-  const url = request.nextUrl;
+  const url = request.nextUrl.clone();
   let hasUnallowedParams = false;
   const strippedParams: string[] = [];
 
