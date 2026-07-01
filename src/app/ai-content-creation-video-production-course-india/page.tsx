@@ -32,7 +32,7 @@ const jsonLd = {
       "provider": {
         "@type": "Organization",
         "name": "Define Perspective Academy",
-        "sameAs": "https://www.defineperspective.com"
+        "sameAs": "https://defineperspective.in"
       },
       "educationalCredentialAwarded": "Define Perspective Certified Professional",
       "timeRequired": "P50D",
@@ -93,7 +93,7 @@ const jsonLd = {
     {
       "@type": "EducationalOrganization",
       "name": "Define Perspective Academy",
-      "url": "https://www.defineperspective.com"
+      "url": "https://defineperspective.in"
     },
     {
       "@type": "BreadcrumbList",
@@ -102,13 +102,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://www.defineperspective.com"
+          "item": "https://defineperspective.in"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Academy",
-          "item": "https://www.defineperspective.com/academy"
+          "item": "https://defineperspective.in/academy"
         },
         {
           "@type": "ListItem",
