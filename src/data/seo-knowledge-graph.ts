@@ -18,7 +18,8 @@ export const SEO_ENTITIES = {
     sameAs: [
       "https://www.youtube.com/@defineperspective",
       "https://www.instagram.com/defineperspective/",
-      "https://www.linkedin.com/company/defineperspective"
+      "https://www.linkedin.com/company/defineperspective",
+      "https://www.facebook.com/defineperspectiveofficial/"
     ],
     contactPoint: {
       "@type": "ContactPoint",

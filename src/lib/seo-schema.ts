@@ -8,6 +8,7 @@ import { SEO_ENTITIES } from "@/data/seo-knowledge-graph";
 export const generateOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://defineperspective.in/#organization",
   ...SEO_ENTITIES.Organization
 });
 
@@ -22,6 +23,7 @@ export const generateServiceSchema = (serviceId: string) => {
     "description": service.description,
     "provider": {
       "@type": "Organization",
+      "@id": "https://defineperspective.in/#organization",
       "name": SEO_ENTITIES.Organization.name
     },
     "areaServed": service.locations.map(loc => ({
@@ -53,6 +55,10 @@ export const generateLocalBusinessSchema = (city: string) => {
     "image": SEO_ENTITIES.Organization.logo,
     "@id": `https://defineperspective.in/location/${location.slug}`,
     "url": `https://defineperspective.in/location/${location.slug}`,
+    "parentOrganization": {
+      "@type": "Organization",
+      "@id": "https://defineperspective.in/#organization"
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": city,
@@ -62,7 +68,7 @@ export const generateLocalBusinessSchema = (city: string) => {
   };
 };
 
-export const generateVideoSchema = (video: { title: string, description: string, thumbnail: string, uploadDate: string, url: string }) => ({
+export const generateVideoSchema = (video: { title: string, description: string, thumbnail: string, uploadDate: string, url: string, duration?: string, transcript?: string }) => ({
   "@context": "https://schema.org",
   "@type": "VideoObject",
   "name": video.title,
@@ -70,8 +76,11 @@ export const generateVideoSchema = (video: { title: string, description: string,
   "thumbnailUrl": video.thumbnail,
   "uploadDate": video.uploadDate,
   "contentUrl": video.url,
+  ...(video.duration ? { "duration": video.duration } : {}),
+  ...(video.transcript ? { "transcript": video.transcript } : {}),
   "publisher": {
     "@type": "Organization",
+    "@id": "https://defineperspective.in/#organization",
     "name": SEO_ENTITIES.Organization.name,
     "logo": {
       "@type": "ImageObject",

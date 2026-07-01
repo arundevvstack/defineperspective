@@ -24,6 +24,10 @@ export default function KochiLocationPage() {
     "description": "Kochi's premier AI-powered video production company and ad agency. Helping Cochin's high-stakes brands dominate with cinematic brand films.",
     "url": "https://defineperspective.in/locations/kochi",
     "telephone": "+91-949-619-1684",
+    "parentOrganization": {
+      "@type": "Organization",
+      "@id": "https://defineperspective.in/#organization"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Kochi",

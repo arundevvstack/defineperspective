@@ -26,6 +26,10 @@ export default function TrivandrumLocationPage() {
     "@id": "https://defineperspective.in/locations/trivandrum",
     "url": "https://defineperspective.in/locations/trivandrum",
     "telephone": "+91-949-619-1684",
+    "parentOrganization": {
+      "@type": "Organization",
+      "@id": "https://defineperspective.in/#organization"
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Trivandrum",

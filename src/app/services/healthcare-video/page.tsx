@@ -26,6 +26,7 @@ export default function HealthcareVideoPage() {
     "name": "Healthcare Video Solutions",
     "provider": {
       "@type": "Organization",
+      "@id": "https://defineperspective.in/#organization",
       "name": "Define Perspective",
       "url": "https://defineperspective.in"
     },
