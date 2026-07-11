@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import PortfolioContent from "@/components/portfolio-content";
 import { Suspense } from "react";
+import { supabaseAdmin } from "@/lib/supabase-admin";
+
+export const revalidate = 60; // ISR revalidation
 
 export const metadata: Metadata = {
   title: "Best AI Video Production Company in Kerala | DP AI Studio India",
@@ -21,7 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -59,11 +62,31 @@ export default function PortfolioPage() {
     ]
   };
 
+  // Fetch case studies directly on the server to preserve Zero-Regression and pass as props
+  const { data: caseStudies } = await supabaseAdmin
+    .from('case_studies')
+    .select('title, slug, thumbnail_url, ai_summary, geo, geo_targets, industry, industries, published_at, created_at')
+    .eq('published', true)
+    .order('published_at', { ascending: false });
+
+  // Safe Set-based Deduplication
+  const rawCaseStudies = caseStudies || [];
+  const uniqueTitles = new Set();
+  const uniqueCaseStudies = rawCaseStudies.filter(cs => {
+    if (uniqueTitles.has(cs.title)) return false;
+    uniqueTitles.add(cs.title);
+    return true;
+  }).map(cs => ({
+    ...cs,
+    displayGeos: Array.from(new Set([cs.geo, ...(cs.geo_targets || [])])).filter(Boolean),
+    displayIndustries: Array.from(new Set([cs.industry, ...(cs.industries || [])])).filter(Boolean)
+  }));
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center"><div className="h-1 w-24 bg-transparent border-2 border-primary-accent animate-pulse rounded-full hover:bg-transparent    transition-all duration-300" /></div>}>
-        <PortfolioContent />
+      <Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center"><div className="h-1 w-24 bg-transparent border-2 border-primary-accent animate-pulse rounded-full hover:bg-transparent transition-all duration-300" /></div>}>
+        <PortfolioContent caseStudies={uniqueCaseStudies} />
       </Suspense>
     </>
   );

@@ -18,9 +18,10 @@ import Image from "next/image";
 import GlassNavbar from "@/components/glass-navbar";
 import WhatsAppChat from "@/components/whatsapp-chat";
 import { cn } from "@/lib/utils";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import LiteYouTube from "@/components/lite-youtube";
 import Link from "next/link";
+import CaseStudyFilter from "@/app/case-studies/CaseStudyFilter";
 
 const videoData = [
   {
@@ -116,24 +117,23 @@ const photoData = [
   }
 ];
 
-function PortfolioInner() {
+function PortfolioInner({ caseStudies }: { caseStudies: any[] }) {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const activeTab = searchParams.get("view") || "video";
+  const [activeTab, setActiveTab] = useState("video");
   const [viewMode, setViewMode] = useState<"grid" | "list" | "masonry">("grid");
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   const tabs = [
     { id: "video", label: "Portfolio", icon: Video },
     { id: "ai", label: "DP AI Studios", icon: Cpu },
-    { id: "photo", label: "Case Study", icon: Camera },
+    { id: "photo", label: "Case Studies", icon: Camera },
   ];
 
   const handleNavigate = (pathOrId: string) => {
     if (pathOrId.startsWith("/")) {
       router.push(pathOrId);
     } else {
-      router.push(`/portfolio?view=${pathOrId}`, { scroll: false });
+      setActiveTab(pathOrId);
     }
   };
 
@@ -161,7 +161,7 @@ function PortfolioInner() {
             <h1 className="text-4xl md:text-8xl font-black uppercase mb-6 leading-tight drop-shadow-2xl">
               {activeTab === "video" && <>Cinematic <span className="text-primary-accent">Portfolio.</span></>}
               {activeTab === "ai" && <>DP <span className="text-primary-accent">AI Studios.</span></>}
-              {activeTab === "photo" && <>Case <span className="text-primary-accent">Study.</span></>}
+              {activeTab === "photo" && <>Case <span className="text-primary-accent">Studies.</span></>}
             </h1>
             
             <p className="text-base md:text-lg text-zinc-400 font-light max-w-3xl mx-auto uppercase tracking-[0.15em] leading-relaxed mb-10">
@@ -362,6 +362,17 @@ function PortfolioInner() {
           ))}
         </div>
 
+        {activeTab === "photo" && (
+          <motion.section 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mt-12"
+          >
+            <CaseStudyFilter caseStudies={caseStudies} />
+          </motion.section>
+        )}
+
         <section className="mt-40 p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group">
           <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           <div className="relative z-10">
@@ -392,10 +403,10 @@ function PortfolioInner() {
 }
 
 
-export default function PortfolioContent() {
+export default function PortfolioContent({ caseStudies }: { caseStudies: any[] }) {
   return (
     <Suspense fallback={null}>
-      <PortfolioInner />
+      <PortfolioInner caseStudies={caseStudies} />
     </Suspense>
   );
 }

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, MessageCircle, Play, Sparkles, Target, Zap, Shield, Cpu, BarChart3, Star, Award, Search, Clapperboard, MonitorPlay, BrainCircuit, Globe, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -368,14 +368,13 @@ const NavTrigger = ({ title, isOpen, categories, pathname, href, onOpen, onClose
 
 function GlassNavbarInner() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [openMenu, setOpenMenu] = useState<"video" | "ai" | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // AI Mode Logic: Trigger when on AI pages OR when AI menu is open
-  const isAiMode = pathname.includes("/ai-") || openMenu === "ai" || (pathname === "/portfolio" && searchParams.get("view") === "ai");
+  const isAiMode = pathname.includes("/ai-") || openMenu === "ai";
 
   const handleOpen = (menu: "video" | "ai") => {
     if (timerRef.current) clearTimeout(timerRef.current);

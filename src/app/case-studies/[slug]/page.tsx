@@ -39,6 +39,8 @@ type CaseStudy = {
   cinematic_direction: string;
   faqs: { question: string; answer: string }[];
   workflows: string[];
+  metrics: { label: string; value: string; prefix?: string; suffix?: string }[];
+  business_results: string;
   schema_json: any;
   social_posts: any;
   internal_links: string[];
@@ -263,11 +265,11 @@ export default async function CaseStudyPage({ params }: Props) {
       </section>
 
       {/* =========================================
-          SECTION 02: EXECUTIVE SUMMARY
+          SECTION 02: CLIENT OVERVIEW & CHALLENGE
           ========================================= */}
       <section className="bg-neutral-950 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
         <Reveal className="max-w-[800px] mx-auto">
-          <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-8">Executive Summary</h3>
+          <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-8">Client Overview & Challenge</h3>
           <div className="prose prose-invert prose-lg">
             <p className="text-lg md:text-xl leading-[1.8] text-zinc-300 font-sans font-normal" id="campaign-summary">
               {caseStudy.ai_summary}
@@ -277,7 +279,7 @@ export default async function CaseStudyPage({ params }: Props) {
       </section>
 
       {/* =========================================
-          SECTION 03: MEDIA STORY
+          SECTION 03: GALLERY
           ========================================= */}
       {mediaStory.length > 0 && (
         <section className="w-full bg-neutral-950 relative z-20 py-24 md:py-32">
@@ -337,12 +339,12 @@ export default async function CaseStudyPage({ params }: Props) {
       })()}
 
       {/* =========================================
-          SECTION 05: CREATIVE DIRECTION
+          SECTION 05: CREATIVE STRATEGY & MARKET ANALYSIS
           ========================================= */}
       {caseStudy.cinematic_direction && (
         <section className="bg-neutral-900 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
           <Reveal className="max-w-[800px] mx-auto">
-            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-8">Creative Direction</h3>
+            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-8">Creative Strategy & Market Analysis</h3>
             <h2 className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white mb-12 leading-[1.1]">
               Vision & Concept
             </h2>
@@ -356,12 +358,12 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* =========================================
-          SECTION 06: PRODUCTION WORKFLOW
+          SECTION 06: WORKFLOW & EXECUTION
           ========================================= */}
       {caseStudy.workflows && caseStudy.workflows.length > 0 && (
         <section className="bg-neutral-950 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
           <Reveal className="max-w-[1000px] mx-auto">
-            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-16">Production Workflow</h3>
+            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-16">Workflow & Execution</h3>
             <div className="relative pl-8 md:pl-0">
               {/* Timeline Line */}
               <div className="absolute left-[39px] md:left-[50px] top-0 bottom-0 w-[1px] bg-white/10"></div>
@@ -383,6 +385,40 @@ export default async function CaseStudyPage({ params }: Props) {
                 ))}
               </div>
             </div>
+          </Reveal>
+        </section>
+      )}
+
+      {/* =========================================
+          SECTION: METRICS & BUSINESS RESULTS
+          ========================================= */}
+      {(caseStudy.business_results || (caseStudy.metrics && caseStudy.metrics.length > 0)) && (
+        <section className="bg-neutral-900 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
+          <Reveal className="max-w-[1000px] mx-auto">
+            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-12 text-center">Business Results & Metrics</h3>
+            
+            {caseStudy.metrics && caseStudy.metrics.length > 0 && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                {caseStudy.metrics.map((metric, idx) => (
+                  <div key={idx} className="bg-neutral-950 border border-white/5 rounded-2xl p-6 text-center shadow-xl">
+                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                      <span className="text-primary-accent">{metric.prefix || ''}</span>
+                      {metric.value}
+                      <span className="text-primary-accent">{metric.suffix || ''}</span>
+                    </div>
+                    <div className="text-[10px] font-sans font-medium text-zinc-400 uppercase tracking-widest">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+            
+            {caseStudy.business_results && (
+              <div className="prose prose-invert prose-lg mx-auto text-center">
+                <p className="text-lg md:text-xl leading-[1.8] text-zinc-300 font-sans font-normal">
+                  {caseStudy.business_results}
+                </p>
+              </div>
+            )}
           </Reveal>
         </section>
       )}
@@ -416,41 +452,68 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* =========================================
-          SECTION 08: RELATED WORK
+          SECTION 08: RELATED PROJECTS & SERVICES
           ========================================= */}
-      {related && related.length > 0 && (
-        <section className="bg-neutral-900 py-24 md:py-32 px-6 md:px-12 relative z-20 border-t border-white/5">
-          <Reveal className="max-w-[1400px] mx-auto">
-            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-16 text-center">Related Work</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-              {related.map((cs, idx) => (
-                <Reveal key={cs.id} delay={idx * 0.1}>
-                  <Link href={`/case-studies/${cs.slug}`} className="group flex flex-col h-full bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden hover:bg-neutral-900/50 hover:border-white/10 hover:shadow-2xl transition-all duration-500">
-                    <div className="relative w-full aspect-[4/3] overflow-hidden bg-black shrink-0">
-                      <Image 
-                        src={cs.thumbnail_url || '/placeholder.jpg'} 
-                        alt={cs.title} 
-                        fill 
-                        className="object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
-                      />
-                    </div>
-                    <div className="p-8 flex flex-col flex-1">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-[10px] font-sans font-medium text-zinc-400 uppercase tracking-[0.08em]">
-                          {cs.industry || 'Editorial'}
-                        </span>
+      <section className="bg-neutral-900 py-24 md:py-32 px-6 md:px-12 relative z-20 border-t border-white/5">
+        <Reveal className="max-w-[1400px] mx-auto space-y-24">
+          
+          {/* Related Case Studies */}
+          {related && related.length > 0 && (
+            <div>
+              <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-12 text-center">Related Projects</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                {related.map((cs, idx) => (
+                  <Reveal key={cs.id} delay={idx * 0.1}>
+                    <Link href={`/case-studies/${cs.slug}`} className="group flex flex-col h-full bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden hover:bg-neutral-900/50 hover:border-white/10 hover:shadow-2xl transition-all duration-500">
+                      <div className="relative w-full aspect-[4/3] overflow-hidden bg-black shrink-0">
+                        <Image 
+                          src={cs.thumbnail_url || '/placeholder.jpg'} 
+                          alt={cs.title} 
+                          fill 
+                          className="object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
+                        />
                       </div>
-                      <h4 className="text-xl font-sans font-semibold text-white group-hover:text-primary-accent transition-colors leading-tight tracking-tight">
-                        {cs.title}
-                      </h4>
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
+                      <div className="p-8 flex flex-col flex-1">
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <span className="text-[10px] font-sans font-medium text-zinc-400 uppercase tracking-[0.08em]">
+                            {cs.industry || 'Editorial'}
+                          </span>
+                        </div>
+                        <h4 className="text-xl font-sans font-semibold text-white group-hover:text-primary-accent transition-colors leading-tight tracking-tight">
+                          {cs.title}
+                        </h4>
+                      </div>
+                    </Link>
+                  </Reveal>
+                ))}
+              </div>
             </div>
-          </Reveal>
-        </section>
-      )}
+          )}
+
+           {/* Internal Linking & Services CTA */}
+          <div className="pt-24 border-t border-white/5 text-center">
+             <h3 className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white mb-8">Deploy This Architecture.</h3>
+             <p className="text-zinc-400 mb-12 max-w-2xl mx-auto">
+               Ready to scale your brand with cinematic AI visual production? 
+               Explore our <Link href="/pricing" className="text-primary-accent hover:underline">Pricing Plans</Link>, 
+               review our <Link href="/services/video-production" className="text-primary-accent hover:underline">Video Production Services</Link>, 
+               read our <Link href="/knowledge-center" className="text-primary-accent hover:underline">Knowledge Center</Link>, 
+               or get started immediately.
+             </p>
+             <div className="flex flex-col sm:flex-row justify-center gap-6">
+                <Link href="/contact" className="h-16 px-12 rounded-xl bg-primary-accent text-black font-sans font-bold uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center">
+                  Contact Studio
+                </Link>
+                <Link href="/portfolio" className="h-16 px-12 rounded-xl border border-white/10 bg-white/5 text-white font-sans font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all flex items-center justify-center">
+                  View Full Portfolio
+                </Link>
+                <Link href={`/industries/${caseStudy.industry ? caseStudy.industry.toLowerCase().replace(/[^a-z0-9]+/g, '-') : 'general'}`} className="h-16 px-12 rounded-xl border border-white/10 bg-white/5 text-white font-sans font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all flex items-center justify-center">
+                  Industry Solutions
+                </Link>
+             </div>
+          </div>
+        </Reveal>
+      </section>
 
       {/* Include the floating WhatsApp button */}
       <WhatsAppChat />
