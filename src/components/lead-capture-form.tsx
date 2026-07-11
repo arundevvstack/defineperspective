@@ -2,15 +2,41 @@
 
 import { useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { submitLeadAction } from "@/app/actions/submit-lead";
 
 export default function LeadCaptureForm() {
-  const [formState, setFormState] = useState<"idle" | "submitting" | "success">("idle");
+  const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState("submitting");
-    setTimeout(() => setFormState("success"), 1500);
+
+    const formData = new FormData(e.currentTarget);
+    
+    // 1. Send the email via Server Action (Resend)
+    const result = await submitLeadAction(formData);
+
+    if (result.success) {
+      setFormState("success");
+
+      // 2. Redirect to WhatsApp
+      const name = formData.get("name") as string;
+      const businessName = formData.get("businessName") as string;
+      const requirement = formData.get("requirement") as string;
+      
+      const whatsappMessage = `Hi DP AI Studio! I just submitted a strategy request on your website.\n\n*Name:* ${name}\n*Business:* ${businessName}\n*Requirement:* ${requirement}\n\nI'd like to discuss my project.`;
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      
+      // IMPORTANT: Replace '919876543210' with your actual WhatsApp Business Number (include country code)
+      const whatsappUrl = `https://wa.me/917012941696?text=${encodedMessage}`;
+      
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, "_blank");
+    } else {
+      setFormState("error");
+      setErrorMessage(result.error || "An unknown error occurred.");
+    }
   };
 
   if (formState === "success") {
@@ -21,7 +47,7 @@ export default function LeadCaptureForm() {
         </div>
         <h3 className="text-3xl font-black uppercase italic text-white">Protocol Initiated_</h3>
         <p className="text-sm text-zinc-400 uppercase tracking-widest leading-loose">
-          Our strategy team will contact you within 24 hours to scale your vision.
+          Your request has been routed to our strategy team. We've opened WhatsApp to connect with you instantly.
         </p>
       </div>
     );
@@ -41,27 +67,37 @@ export default function LeadCaptureForm() {
           <p className="text-[10px] text-zinc-400 uppercase tracking-[0.3em] font-mono">Precision Lead Protocol v0.1</p>
         </div>
 
+        {formState === "error" && (
+          <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm font-mono text-center">
+            Error: {errorMessage}
+          </div>
+        )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <input 
             type="text" 
+            name="name"
             placeholder="NAME_" 
             required
             className="h-16 px-8 rounded-2xl bg-white/5 border border-white/10 text-white text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none transition-all"
           />
           <input 
             type="text" 
+            name="businessName"
             placeholder="BUSINESS NAME_" 
             required
             className="h-16 px-8 rounded-2xl bg-white/5 border border-white/10 text-white text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none transition-all"
           />
           <input 
             type="tel" 
+            name="phone"
             placeholder="PHONE / WHATSAPP_" 
             required
             className="h-16 px-8 rounded-2xl bg-white/5 border border-white/10 text-white text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none transition-all"
           />
           <input 
             type="email" 
+            name="email"
             placeholder="EMAIL_" 
             required
             className="h-16 px-8 rounded-2xl bg-white/5 border border-white/10 text-white text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none transition-all"
@@ -70,6 +106,7 @@ export default function LeadCaptureForm() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <select 
+            name="requirement"
             required
             className="h-16 px-8 rounded-2xl bg-[#111] border border-white/10 text-zinc-400 text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none appearance-none transition-all"
           >
@@ -81,6 +118,7 @@ export default function LeadCaptureForm() {
             <option value="explainer">EXPLAINER / SAAS</option>
           </select>
           <select 
+            name="budget"
             required
             className="h-16 px-8 rounded-2xl bg-[#111] border border-white/10 text-zinc-400 text-xs font-black uppercase tracking-widest focus:border-primary-accent outline-none appearance-none transition-all"
           >
