@@ -9,7 +9,7 @@ import { ZoomableImage } from '@/components/ui/zoomable-image';
 import GlassNavbar from '@/components/glass-navbar';
 import WhatsAppChat from '@/components/whatsapp-chat';
 import LiteYouTube from '@/components/lite-youtube';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, Zap, Target, Star, CheckCircle2, Camera, Sparkles, Globe, BrainCircuit, Lightbulb, Search, BarChart3, Presentation } from 'lucide-react';
 import { getRelatedCaseStudies, CaseStudyNode } from '@/lib/related-engine';
 
 // ==============================================================================
@@ -201,7 +201,7 @@ export default async function CaseStudyPage({ params }: Props) {
   };
 
   return (
-    <main className="bg-neutral-950 text-white min-h-screen font-sans selection:bg-white/30">
+    <main className="min-h-screen bg-obsidian text-white pt-40 pb-40 relative overflow-hidden font-sans selection:bg-white/30">
       <ScrollProgress />
       <GlassNavbar />
 
@@ -212,6 +212,10 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       )}
 
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-accent/5 blur-[250px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-accent/5 blur-[200px] rounded-full pointer-events-none" />
+
       {/* ── JSON-LD SCHEMA ── */}
       {caseStudy.schema_json && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudy.schema_json) }} />
@@ -219,303 +223,357 @@ export default async function CaseStudyPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-
-      {/* =========================================
-          SECTION 01: HERO
-          ========================================= */}
-      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 flex flex-col bg-neutral-950">
-        <div className="px-6 md:px-12 w-full max-w-[1400px] mx-auto mb-12">
-          {caseStudy.video_url ? (
-            <div className="w-full aspect-video rounded-3xl overflow-hidden bg-black relative">
-              <video 
-                src={caseStudy.video_url} 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ) : (
-            <div className="w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden bg-neutral-900 relative">
-              <Image 
-                src={caseStudy.hero_image_url || caseStudy.thumbnail_url || '/placeholder.jpg'}
-                alt={caseStudy.title}
-                fill
-                priority
-                className="object-cover"
-              />
-            </div>
-          )}
-        </div>
+      <div className="container mx-auto max-w-6xl px-6 md:px-12 relative z-10">
         
-        <Reveal className="w-full px-6 md:px-12 max-w-[1400px] mx-auto flex flex-col gap-8">
-          <div className="flex flex-wrap items-center gap-4 text-[10px] md:text-xs font-sans font-medium uppercase tracking-[0.08em] text-zinc-500">
-            <span>{displayIndustries.join(', ') || 'Industry'}</span>
-            <span className="w-4 h-[1px] bg-white/20"></span>
-            <span className="text-primary-accent">{displayGeos.join(', ') || 'Global'}</span>
-            <span className="w-4 h-[1px] bg-white/20"></span>
-            <span>{caseStudy.client_name || 'Client'}</span>
+        {/* =========================================
+            SECTION 01: HERO SECTION
+            ========================================= */}
+        <header className="mb-40 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+          <div className="space-y-12">
+            <h1 className="text-6xl md:text-[12rem] font-blacker uppercase leading-[0.75] text-white italic drop-shadow-2xl">
+              {caseStudy.title.split(' ').slice(0, -1).join(' ')} <br />
+              <span className="text-primary-accent">{caseStudy.title.split(' ').pop()}_</span>
+            </h1>
           </div>
-
-          <h1 className="text-4xl md:text-6xl lg:text-[80px] font-sans font-bold tracking-[-0.04em] leading-[0.9] text-white max-w-[1000px]">
-            {caseStudy.title}
-          </h1>
-        </Reveal>
-      </section>
-
-      {/* =========================================
-          SECTION 02: CLIENT OVERVIEW & CHALLENGE
-          ========================================= */}
-      <section className="bg-neutral-950 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
-        <Reveal className="max-w-[800px] mx-auto">
-          <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-8">Client Overview & Challenge</h3>
-          <div className="prose prose-invert prose-lg">
-            <p className="text-lg md:text-xl leading-[1.8] text-zinc-300 font-sans font-normal" id="campaign-summary">
-              {caseStudy.ai_summary}
-            </p>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* =========================================
-          SECTION 03: GALLERY
-          ========================================= */}
-      {mediaStory.length > 0 && (
-        <section className="w-full bg-neutral-950 relative z-20 py-24 md:py-32">
-          <div className="flex flex-col gap-24 md:gap-40 px-6 md:px-12 max-w-[1400px] mx-auto">
-            {mediaStory.map((img, idx) => (
-              <Reveal key={idx} delay={0.1} className={`w-full flex ${idx % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                <div className="relative w-full max-w-[1000px] rounded-2xl overflow-hidden bg-neutral-900 border border-white/5">
-                  <ZoomableImage src={img} alt={`Media Story ${idx + 1}`} fill={false} />
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* =========================================
-          SECTION 04: THE FILM
-          ========================================= */}
-      {(() => {
-        let renderContent = null;
-        
-        const getYouTubeId = (url: string | null | undefined) => {
-          if (!url) return null;
-          if (url.includes('youtu.be/')) return url.split('youtu.be/')[1]?.split('?')[0];
-          if (url.includes('v=')) return url.split('v=')[1]?.split('&')[0];
-          if (url.includes('embed/')) return url.split('embed/')[1]?.split('?')[0];
-          return null;
-        };
-
-        const ytIdPrimary = getYouTubeId(caseStudy.youtube_url);
-        const ytIdFallback = getYouTubeId(caseStudy.external_video_url);
-
-        if (ytIdPrimary) {
-          renderContent = <LiteYouTube videoId={ytIdPrimary} title={caseStudy.title} />;
-        } else if (caseStudy.video_url) {
-          renderContent = <video src={caseStudy.video_url} controls className="w-full h-full object-contain" />;
-        } else if (caseStudy.external_video_url) {
-          if (ytIdFallback) {
-            renderContent = <LiteYouTube videoId={ytIdFallback} title={caseStudy.title} />;
-          } else if (caseStudy.external_video_url.includes('vimeo')) {
-            renderContent = <iframe src={caseStudy.external_video_url} className="w-full h-full border-0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>;
-          }
-        }
-
-        if (!renderContent) return null;
-
-        return (
-          <section className="bg-neutral-950 py-24 md:py-32 px-6 md:px-12 relative z-20 border-t border-white/5">
-            <Reveal className="max-w-[1400px] mx-auto">
-               <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-12 text-center">The Film</h3>
-               <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black ring-1 ring-white/10 shadow-2xl">
-                {renderContent}
-               </div>
-            </Reveal>
-          </section>
-        );
-      })()}
-
-      {/* =========================================
-          SECTION 05: CREATIVE STRATEGY & MARKET ANALYSIS
-          ========================================= */}
-      {caseStudy.cinematic_direction && (
-        <section className="bg-neutral-900 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
-          <Reveal className="max-w-[800px] mx-auto">
-            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-8">Creative Strategy & Market Analysis</h3>
-            <h2 className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white mb-12 leading-[1.1]">
-              Vision & Concept
-            </h2>
-            <div className="prose prose-invert prose-lg">
-              <p className="text-lg md:text-xl leading-[1.8] text-zinc-300 font-sans font-normal" id="creative-direction">
-                {caseStudy.cinematic_direction}
-              </p>
-            </div>
-          </Reveal>
-        </section>
-      )}
-
-      {/* =========================================
-          SECTION 06: WORKFLOW & EXECUTION
-          ========================================= */}
-      {caseStudy.workflows && caseStudy.workflows.length > 0 && (
-        <section className="bg-neutral-950 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
-          <Reveal className="max-w-[1000px] mx-auto">
-            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-16">Workflow & Execution</h3>
-            <div className="relative pl-8 md:pl-0">
-              {/* Timeline Line */}
-              <div className="absolute left-[39px] md:left-[50px] top-0 bottom-0 w-[1px] bg-white/10"></div>
-              
-              <div className="flex flex-col gap-12">
-                {caseStudy.workflows.map((workflow, idx) => (
-                  <div key={idx} className="relative flex items-start gap-8 md:gap-16">
-                    <div className="relative z-10 w-12 h-12 rounded-full bg-neutral-950 border border-white/20 flex items-center justify-center shrink-0">
-                      <span className="text-xs font-sans font-bold text-white tracking-widest">
-                        {(idx + 1).toString().padStart(2, '0')}
-                      </span>
-                    </div>
-                    <div className="pt-2">
-                      <p className="text-base md:text-lg font-sans font-normal text-zinc-300 leading-[1.8]">
-                        {workflow}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </section>
-      )}
-
-      {/* =========================================
-          SECTION: METRICS & BUSINESS RESULTS
-          ========================================= */}
-      {(caseStudy.business_results || (caseStudy.metrics && caseStudy.metrics.length > 0)) && (
-        <section className="bg-neutral-900 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
-          <Reveal className="max-w-[1000px] mx-auto">
-            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-12 text-center">Business Results & Metrics</h3>
-            
-            {caseStudy.metrics && caseStudy.metrics.length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-                {caseStudy.metrics.map((metric, idx) => (
-                  <div key={idx} className="bg-neutral-950 border border-white/5 rounded-2xl p-6 text-center shadow-xl">
-                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                      <span className="text-primary-accent">{metric.prefix || ''}</span>
-                      {metric.value}
-                      <span className="text-primary-accent">{metric.suffix || ''}</span>
-                    </div>
-                    <div className="text-[10px] font-sans font-medium text-zinc-400 uppercase tracking-widest">{metric.label}</div>
-                  </div>
-                ))}
-              </div>
-            )}
-            
-            {caseStudy.business_results && (
-              <div className="prose prose-invert prose-lg mx-auto text-center">
-                <p className="text-lg md:text-xl leading-[1.8] text-zinc-300 font-sans font-normal">
-                  {caseStudy.business_results}
-                </p>
-              </div>
-            )}
-          </Reveal>
-        </section>
-      )}
-
-      {/* =========================================
-          SECTION 07: FAQS
-          ========================================= */}
-      {caseStudy.faqs && caseStudy.faqs.length > 0 && (
-        <section className="bg-neutral-950 py-24 md:py-32 px-6 md:px-12 border-t border-white/5 relative z-20">
-          <Reveal className="max-w-[800px] mx-auto">
-            <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-12">Frequently Asked Questions</h3>
-            <div className="flex flex-col gap-4">
-              {caseStudy.faqs.map((faq, idx) => (
-                <details key={idx} className="group bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="flex items-center justify-between cursor-pointer p-6 md:p-8 hover:bg-white/[0.02] transition-colors">
-                    <h4 className="text-lg md:text-xl font-sans font-semibold text-white tracking-tight pr-6">
-                      {faq.question}
-                    </h4>
-                    <ChevronDown className="shrink-0 text-zinc-500 group-open:rotate-180 transition-transform duration-300 w-5 h-5" />
-                  </summary>
-                  <div className="px-6 md:px-8 pb-6 md:pb-8 pt-2">
-                    <p className="text-base text-zinc-400 font-sans font-normal leading-[1.8]">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </details>
-              ))}
-            </div>
-          </Reveal>
-        </section>
-      )}
-
-      {/* =========================================
-          SECTION 08: RELATED PROJECTS & SERVICES
-          ========================================= */}
-      <section className="bg-neutral-900 py-24 md:py-32 px-6 md:px-12 relative z-20 border-t border-white/5">
-        <Reveal className="max-w-[1400px] mx-auto space-y-24">
           
-          {/* Related Case Studies */}
-          {related && related.length > 0 && (
-            <div>
-              <h3 className="text-[10px] font-sans font-medium uppercase tracking-[0.08em] text-primary-accent mb-12 text-center">Related Projects</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-                {related.map((cs, idx) => (
-                  <Reveal key={cs.id} delay={idx * 0.1}>
-                    <Link href={`/case-studies/${cs.slug}`} className="group flex flex-col h-full bg-neutral-950 border border-white/5 rounded-2xl overflow-hidden hover:bg-neutral-900/50 hover:border-white/10 hover:shadow-2xl transition-all duration-500">
-                      <div className="relative w-full aspect-[4/3] overflow-hidden bg-black shrink-0">
-                        <Image 
-                          src={cs.thumbnail_url || '/placeholder.jpg'} 
-                          alt={cs.title} 
-                          fill 
-                          className="object-contain transition-transform duration-700 group-hover:scale-[1.02]" 
-                        />
-                      </div>
-                      <div className="p-8 flex flex-col flex-1">
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <span className="text-[10px] font-sans font-medium text-zinc-400 uppercase tracking-[0.08em]">
-                            {cs.industry || 'Editorial'}
-                          </span>
-                        </div>
-                        <h4 className="text-xl font-sans font-semibold text-white group-hover:text-primary-accent transition-colors leading-tight tracking-tight">
-                          {cs.title}
-                        </h4>
-                      </div>
-                    </Link>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          )}
-
-           {/* Internal Linking & Services CTA */}
-          <div className="pt-24 border-t border-white/5 text-center">
-             <h3 className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-white mb-8">Deploy This Architecture.</h3>
-             <p className="text-zinc-400 mb-12 max-w-2xl mx-auto">
-               Ready to scale your brand with cinematic AI visual production? 
-               Explore our <Link href="/pricing" className="text-primary-accent hover:underline">Pricing Plans</Link>, 
-               review our <Link href="/services/video-production" className="text-primary-accent hover:underline">Video Production Services</Link>, 
-               read our <Link href="/knowledge-center" className="text-primary-accent hover:underline">Knowledge Center</Link>, 
-               or get started immediately.
-             </p>
-             <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <Link href="/contact" className="h-16 px-12 rounded-xl bg-primary-accent text-black font-sans font-bold uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center">
-                  Contact Studio
-                </Link>
-                <Link href="/portfolio" className="h-16 px-12 rounded-xl border border-white/10 bg-white/5 text-white font-sans font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all flex items-center justify-center">
-                  View Full Portfolio
-                </Link>
-                <Link href={`/industries/${caseStudy.industry ? caseStudy.industry.toLowerCase().replace(/[^a-z0-9]+/g, '-') : 'general'}`} className="h-16 px-12 rounded-xl border border-white/10 bg-white/5 text-white font-sans font-bold uppercase tracking-widest text-sm hover:bg-white/10 transition-all flex items-center justify-center">
-                  Industry Solutions
-                </Link>
+          <div className="grid md:grid-cols-3 gap-12 pt-20 border-t border-white/5">
+             <div className="space-y-4">
+                <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Executive Summary</span>
+                <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-wider line-clamp-4">
+                  {caseStudy.ai_summary}
+                </p>
+             </div>
+             <div className="space-y-4">
+                <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Client</span>
+                <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-wider">
+                  {caseStudy.client_name || 'Global Brand'}
+                </p>
+             </div>
+             <div className="flex flex-wrap gap-4 items-end justify-start md:justify-end">
+                <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                   <p className="text-[8px] font-mono text-zinc-600 uppercase mb-1">Sector</p>
+                   <p className="text-xs font-black text-white uppercase tracking-widest">{displayIndustries[0] || 'Premium'}</p>
+                </div>
+                <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
+                   <p className="text-[8px] font-mono text-zinc-600 uppercase mb-1">Location</p>
+                   <p className="text-xs font-black text-white uppercase tracking-widest">{displayGeos[0] || 'Global'}</p>
+                </div>
              </div>
           </div>
-        </Reveal>
-      </section>
+        </header>
 
-      {/* Include the floating WhatsApp button */}
+        {/* =========================================
+            SECTION 02: HERO MASTERPLATE
+            ========================================= */}
+        <section className="mb-60 relative group">
+           <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl transition-all duration-700 hover:border-primary-accent/30 bg-black">
+              {caseStudy.video_url ? (
+                <video 
+                  src={caseStudy.video_url} 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+              ) : (
+                <Image 
+                  src={caseStudy.hero_image_url || caseStudy.thumbnail_url || '/placeholder.jpg'}
+                  alt={caseStudy.title}
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  priority
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-bottom p-12 pointer-events-none">
+                 <div className="mt-auto">
+                    <h2 className="text-2xl md:text-4xl font-black uppercase text-white">The Master Creative</h2>
+                    <p className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mt-2">Node 01 // Cinematic Shot</p>
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* =========================================
+            SECTION 03: CREATIVE STRATEGY
+            ========================================= */}
+        {caseStudy.cinematic_direction && (
+          <section className="mb-60 grid md:grid-cols-2 gap-32 items-center">
+             <div className="space-y-12">
+                <div className="flex items-center gap-4">
+                   <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 border border-primary-accent/20 flex items-center justify-center">
+                      <Search className="text-primary-accent" size={24} />
+                   </div>
+                   <h2 className="text-3xl md:text-5xl font-black uppercase">Creative Strategy_</h2>
+                </div>
+                <div className="space-y-8 text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
+                  <p>{caseStudy.cinematic_direction}</p>
+                </div>
+             </div>
+             <div className="grid grid-cols-1 gap-8">
+                <div className="p-12 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl group hover:bg-white/[0.04] transition-all">
+                   <Target className="text-primary-accent mb-6" size={32} />
+                   <h4 className="text-lg font-black uppercase tracking-widest mb-4">Precision Targeting</h4>
+                   <p className="text-sm text-zinc-400 uppercase tracking-widest leading-relaxed">Defining the aesthetic for {caseStudy.industry || 'the brand'} audience in {caseStudy.geo || 'target markets'}.</p>
+                </div>
+                <div className="p-12 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl group hover:bg-white/[0.04] transition-all">
+                   <Lightbulb className="text-primary-accent mb-6" size={32} />
+                   <h4 className="text-lg font-black uppercase tracking-widest mb-4">Visual Logic</h4>
+                   <p className="text-sm text-zinc-400 uppercase tracking-widest leading-relaxed">Utilizing advanced lighting and AI generation to elevate the brand narrative.</p>
+                </div>
+             </div>
+          </section>
+        )}
+
+        {/* =========================================
+            SECTION 04: PRODUCTION WORKFLOW
+            ========================================= */}
+        {caseStudy.workflows && caseStudy.workflows.length > 0 && (
+          <section className="mb-60">
+             <div className="flex items-center gap-4 mb-20">
+                 <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 border border-primary-accent/20 flex items-center justify-center">
+                    <Camera className="text-primary-accent" size={24} />
+                 </div>
+                 <h2 className="text-3xl md:text-6xl font-black uppercase">High-Velocity Execution_</h2>
+             </div>
+
+             <div className="grid md:grid-cols-12 gap-12 group">
+                <div className="md:col-span-8 relative aspect-[3/4] md:aspect-square lg:aspect-[4/3] rounded-[3rem] overflow-hidden border border-white/10 shadow-3xl bg-black max-w-2xl mx-auto w-full flex flex-col justify-center px-12">
+                   <div className="space-y-8">
+                     {caseStudy.workflows.map((workflow, idx) => (
+                       <div key={idx} className="flex items-start gap-6 border-b border-white/10 pb-6 last:border-0 last:pb-0">
+                         <div className="text-primary-accent font-black text-xl">{(idx + 1).toString().padStart(2, '0')}</div>
+                         <p className="text-zinc-300 font-light text-lg uppercase tracking-widest leading-relaxed">{workflow}</p>
+                       </div>
+                     ))}
+                   </div>
+                </div>
+                <div className="md:col-span-4 flex flex-col gap-12">
+                   <div className="flex-1 p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 flex flex-col justify-end">
+                      <Sparkles className="text-primary-accent mb-4" size={24} />
+                      <h4 className="text-sm font-black uppercase tracking-widest mb-2">Workflow</h4>
+                      <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed">Optimized pipeline for cinematic scale.</p>
+                   </div>
+                   {caseStudy.thumbnail_url && (
+                     <div className="flex-1 relative aspect-video rounded-[3rem] overflow-hidden border border-white/10">
+                        <Image 
+                          src={caseStudy.thumbnail_url}
+                          alt="Workflow Phase"
+                          fill
+                          className="object-cover"
+                        />
+                     </div>
+                   )}
+                </div>
+             </div>
+          </section>
+        )}
+
+        {/* =========================================
+            SECTION 05: GALLERY (OMNICHANNEL SYSTEM)
+            ========================================= */}
+        {mediaStory.length > 0 && (
+          <section className="mb-60 border-t border-white/5 pt-40">
+             <div className="max-w-3xl mb-24">
+                <h3 className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mb-4">Strategic Assets // OMNICHANNEL</h3>
+                <h2 className="text-3xl md:text-5xl font-black uppercase mb-8 leading-tight">Engineering the <br /> Visual Identity_</h2>
+                <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
+                  We didn't just stop at one medium. We built a scalable identity system that maintains luxury fidelity across all brand touchpoints.
+                </p>
+             </div>
+
+             <div className="grid md:grid-cols-3 gap-12 group">
+                {mediaStory.map((img, idx) => {
+                  const isLarge = idx % 3 === 1; // Make every second image take 2 columns
+                  return (
+                    <div key={idx} className={`${isLarge ? 'md:col-span-2 aspect-video' : 'aspect-[3/4]'} relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-black group-hover:border-primary-accent/20 transition-all`}>
+                       <ZoomableImage 
+                         src={img} 
+                         alt={`Gallery Image ${idx + 1}`} 
+                         fill={true} 
+                       />
+                       <div className={`absolute ${isLarge ? 'bottom-8 left-8' : 'top-8 right-8'} pointer-events-none`}>
+                          <div className={`${isLarge ? 'bg-primary-accent px-6 py-2 text-obsidian font-black' : 'bg-black/60 backdrop-blur-md px-3 py-1 text-white/60 font-mono'} rounded-full text-[10px] uppercase tracking-widest`}>
+                             {isLarge ? 'Core Asset Node' : 'Variant'}
+                          </div>
+                       </div>
+                    </div>
+                  );
+                })}
+             </div>
+          </section>
+        )}
+
+        {/* =========================================
+            SECTION 06: VIDEOS
+            ========================================= */}
+        {(() => {
+          let renderContent = null;
+          
+          const getYouTubeId = (url: string | null | undefined) => {
+            if (!url) return null;
+            if (url.includes('youtu.be/')) return url.split('youtu.be/')[1]?.split('?')[0];
+            if (url.includes('v=')) return url.split('v=')[1]?.split('&')[0];
+            if (url.includes('embed/')) return url.split('embed/')[1]?.split('?')[0];
+            return null;
+          };
+
+          const ytIdPrimary = getYouTubeId(caseStudy.youtube_url);
+          const ytIdFallback = getYouTubeId(caseStudy.external_video_url);
+
+          if (ytIdPrimary) {
+            renderContent = <LiteYouTube videoId={ytIdPrimary} title={caseStudy.title} />;
+          } else if (caseStudy.external_video_url && ytIdFallback) {
+            renderContent = <LiteYouTube videoId={ytIdFallback} title={caseStudy.title} />;
+          } else if (caseStudy.external_video_url && caseStudy.external_video_url.includes('vimeo')) {
+            renderContent = <iframe src={caseStudy.external_video_url} className="w-full h-full border-0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen></iframe>;
+          } else if (caseStudy.video_url) {
+            renderContent = <video src={caseStudy.video_url} controls className="w-full h-full object-contain" />;
+          }
+
+          if (!renderContent) return null;
+
+          return (
+            <section className="mb-60 border-t border-white/5 pt-40">
+               <div className="flex items-center gap-4 mb-20">
+                  <div className="h-14 w-14 rounded-2xl bg-primary-accent/10 border border-primary-accent/20 flex items-center justify-center">
+                     <Presentation className="text-primary-accent" size={24} />
+                  </div>
+                  <h2 className="text-3xl md:text-6xl font-black uppercase">The Film_</h2>
+               </div>
+               <div className="aspect-video w-full rounded-[3rem] overflow-hidden bg-black ring-1 ring-white/10 shadow-3xl relative">
+                {renderContent}
+               </div>
+            </section>
+          );
+        })()}
+
+        {/* =========================================
+            SECTION 07: BUSINESS RESULTS & METRICS
+            ========================================= */}
+        {(caseStudy.business_results || (caseStudy.metrics && caseStudy.metrics.length > 0)) && (
+          <section className="mb-60 py-32 rounded-[5rem] bg-gradient-to-br from-white/[0.03] to-transparent border border-white/5 relative overflow-hidden">
+             <div className="absolute top-0 right-0 p-12 text-primary-accent opacity-20 pointer-events-none">
+                <BarChart3 size={120} />
+             </div>
+             <div className="container px-12 md:px-24">
+                <h2 className="text-3xl md:text-6xl font-black uppercase mb-20 drop-shadow-lg">Business <br /> Result_</h2>
+                
+                {caseStudy.metrics && caseStudy.metrics.length > 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-16 mb-16">
+                    {caseStudy.metrics.map((metric, idx) => (
+                      <div key={idx} className="space-y-4">
+                         <p className={`text-5xl md:text-7xl font-black italic tracking-tighter ${idx % 2 !== 0 ? 'text-primary-accent' : 'text-white'}`}>
+                           {metric.prefix || ''}{metric.value}{metric.suffix || ''}
+                         </p>
+                         <p className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.3em]">{metric.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                
+                {caseStudy.business_results && (
+                  <div className="max-w-3xl">
+                    <p className="text-xl text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
+                      {caseStudy.business_results}
+                    </p>
+                  </div>
+                )}
+             </div>
+          </section>
+        )}
+
+        {/* =========================================
+            SECTION 08: FAQS
+            ========================================= */}
+        {caseStudy.faqs && caseStudy.faqs.length > 0 && (
+          <section className="mb-60 border-t border-white/5 pt-40">
+             <h3 className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mb-12">Frequently Asked Questions</h3>
+             <div className="flex flex-col gap-4 max-w-4xl">
+               {caseStudy.faqs.map((faq, idx) => (
+                 <details key={idx} className="group bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                   <summary className="flex items-center justify-between cursor-pointer p-8 md:p-10 hover:bg-white/[0.04] transition-colors">
+                     <h4 className="text-lg md:text-xl font-bold uppercase tracking-widest text-white pr-6">
+                       {faq.question}
+                     </h4>
+                     <ChevronDown className="shrink-0 text-primary-accent group-open:rotate-180 transition-transform duration-300 w-6 h-6" />
+                   </summary>
+                   <div className="px-8 md:px-10 pb-8 md:pb-10 pt-2 border-t border-white/5">
+                     <p className="text-base text-zinc-400 font-light uppercase tracking-widest leading-loose">
+                       {faq.answer}
+                     </p>
+                   </div>
+                 </details>
+               ))}
+             </div>
+          </section>
+        )}
+
+        {/* =========================================
+            SECTION 09: RELATED PROJECTS
+            ========================================= */}
+        {related && related.length > 0 && (
+          <section className="mb-60 border-t border-white/5 pt-40">
+            <h3 className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.3em] mb-12">Related Architecture</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {related.map((cs, idx) => (
+                <Link key={cs.id} href={`/case-studies/${cs.slug}`} className="group flex flex-col h-full bg-white/[0.02] border border-white/5 rounded-[3rem] overflow-hidden hover:bg-white/[0.04] hover:border-white/10 transition-all duration-500 shadow-2xl">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-black shrink-0">
+                    <Image 
+                      src={cs.thumbnail_url || '/placeholder.jpg'} 
+                      alt={cs.title} 
+                      fill 
+                      className="object-contain transition-transform duration-1000 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div className="p-10 flex flex-col flex-1">
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest border border-white/10 rounded-full px-3 py-1">
+                        {cs.industry || 'Editorial'}
+                      </span>
+                    </div>
+                    <h4 className="text-2xl font-black uppercase tracking-widest text-white group-hover:text-primary-accent transition-colors leading-tight">
+                      {cs.title}
+                    </h4>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* =========================================
+            SECTION 10: CALL TO ACTION
+            ========================================= */}
+        <section className="p-12 md:p-32 rounded-[5rem] border border-white/10 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group shadow-3xl mb-40">
+           <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
+           <div className="relative z-10">
+              <div className="flex justify-center mb-12">
+                 <span className="px-6 py-2 rounded-full border border-primary-accent/30 bg-primary-accent/10 text-[10px] font-black uppercase text-primary-accent tracking-[0.3em]">
+                    Now Available for 2026 Campaigns
+                 </span>
+              </div>
+              <h2 className="text-5xl md:text-[8rem] font-black uppercase text-white mb-16 leading-[0.8] italic">
+                Dominate <br /><span className="text-primary-accent italic font-black underline decoration-white/10 underline-offset-8">The Market.</span>
+              </h2>
+              <div className="flex flex-col sm:flex-row justify-center gap-10">
+                 <Link 
+                   href="/contact?subject=Portfolio Inquiry: Enterprise Strategy"
+                   className="h-24 px-20 rounded-3xl bg-primary-accent text-obsidian font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-4 group/btn"
+                 >
+                   Launch New Project <ArrowRight size={20} className="group-hover/btn:translate-x-2 transition-transform" />
+                 </Link>
+                 <Link 
+                   href="/portfolio"
+                   className="h-24 px-20 rounded-3xl border-2 border-white/10 bg-white/5 text-white font-black uppercase tracking-[0.2em] text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-4"
+                 >
+                   Project Archives
+                 </Link>
+              </div>
+           </div>
+        </section>
+
+      </div>
       <WhatsAppChat />
     </main>
   );
