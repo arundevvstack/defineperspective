@@ -13,7 +13,7 @@ export const SEO_ENTITIES = {
     description: "India's leading cinematic AI video production company and authority hub for AI-driven advertising.",
     foundingDate: "2017",
     founders: [
-      { "@type": "Person", "name": "Arun Dev" }
+      { "@type": "Person", "name": "Arun Devv" }
     ],
     sameAs: [
       "https://www.youtube.com/@defineperspective",

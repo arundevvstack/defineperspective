@@ -115,6 +115,21 @@ const nextConfig: NextConfig = {
         destination: "/ai-video-production-company-india",
         permanent: true,
       },
+      {
+        source: "/services/ai-corporate-video",
+        destination: "/ai-corporate-video-production",
+        permanent: true,
+      },
+      {
+        source: "/services/corporate-video-production",
+        destination: "/ai-corporate-video-production",
+        permanent: true,
+      },
+      {
+        source: "/ai-corporate-films",
+        destination: "/ai-corporate-video-production",
+        permanent: true,
+      },
     ];
   },
 };

@@ -22,9 +22,49 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "url": "https://defineperspective.in/portfolio/luxury-ai-jewellery-tvc-production",
+        "name": "Luxury AI Jewellery TVC Production"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "https://defineperspective.in/portfolio/cinematic-ai-commercial-production",
+        "name": "Cinematic AI Commercial Production"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "url": "https://defineperspective.in/portfolio/dotspace-commercial",
+        "name": "Dotspace Commercial"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "url": "https://defineperspective.in/portfolio/banaras-silk",
+        "name": "Banaras Silk AI Film"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "url": "https://defineperspective.in/portfolio/bb-serum-tvc",
+        "name": "BB Serum TVC"
+      }
+    ]
+  };
+
   return (
-    <Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center"><div className="h-1 w-24 bg-transparent border-2 border-primary-accent animate-pulse rounded-full hover:bg-transparent    transition-all duration-300" /></div>}>
-      <PortfolioContent />
-    </Suspense>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center"><div className="h-1 w-24 bg-transparent border-2 border-primary-accent animate-pulse rounded-full hover:bg-transparent    transition-all duration-300" /></div>}>
+        <PortfolioContent />
+      </Suspense>
+    </>
   );
 }

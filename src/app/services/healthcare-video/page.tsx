@@ -22,25 +22,73 @@ export const metadata: Metadata = {
 export default function HealthcareVideoPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Healthcare Video Solutions",
-    "provider": {
-      "@type": "Organization",
-      "@id": "https://defineperspective.in/#organization",
-      "name": "Define Perspective",
-      "url": "https://defineperspective.in"
-    },
-    "description": "High-impact healthcare video production for hospital branding, doctor profiles, and patient trust-building in India and Kochi.",
-    "areaServed": "India",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Healthcare Video Catalog",
-      "itemListElement": [
-        { "@type": "Service", "name": "Hospital Branding Videos" },
-        { "@type": "Service", "name": "Doctor Profile Movies" },
-        { "@type": "Service", "name": "Patient Awareness Content" }
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Healthcare Video Solutions",
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://defineperspective.in/#organization",
+          "name": "Define Perspective",
+          "url": "https://defineperspective.in"
+        },
+        "description": "High-impact healthcare video production for hospital branding, doctor profiles, and patient trust-building in India and Kochi.",
+        "areaServed": "India",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Healthcare Video Catalog",
+          "itemListElement": [
+            { "@type": "Service", "name": "Hospital Branding Videos" },
+            { "@type": "Service", "name": "Doctor Profile Movies" },
+            { "@type": "Service", "name": "Patient Awareness Content" }
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://defineperspective.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://defineperspective.in/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Healthcare Video Solutions",
+            "item": "https://defineperspective.in/services/healthcare-video"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is healthcare video production?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Healthcare video production involves creating specialized medical narratives, doctor profiles, and hospital branding content designed to build patient trust and establish authority."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is cinematic video important for hospitals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "High-fidelity video conveys professionalism and care, bridging the gap between world-class medical expertise and the emotional assurance patients need."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
@@ -67,10 +115,10 @@ export default function HealthcareVideoPage() {
 
         <div className="grid md:grid-cols-4 gap-6 mb-40">
            {[
-             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Building2, desc: "High-fidelity brand narratives that establish authority for elite hospitals." },
-             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Stethoscope, desc: "Bespoke cinematic profiles of world-class medical specialists." },
-             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Users, desc: "Empathetic patient awareness videos designed for global distribution." },
-             { title: "Best AI Video Production Company in Kerala | DP AI Studio India", icon: Heart, desc: "Synchronized trust-building visual campaigns for high-stakes clinical launches." }
+             { title: "Elite Hospital Branding Narratives", icon: Building2, desc: "High-fidelity brand narratives that establish authority for elite hospitals." },
+             { title: "Cinematic Doctor Profiles", icon: Stethoscope, desc: "Bespoke cinematic profiles of world-class medical specialists." },
+             { title: "Global Patient Awareness", icon: Users, desc: "Empathetic patient awareness videos designed for global distribution." },
+             { title: "Clinical Launch Campaigns", icon: Heart, desc: "Synchronized trust-building visual campaigns for high-stakes clinical launches." }
            ].map((item) => (
              <div key={item.title} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-3xl transition-all hover:border-primary-accent/50 group">
                 <item.icon className="text-primary-accent mb-6 group-hover:scale-110 transition-transform" size={32} />
@@ -104,7 +152,26 @@ export default function HealthcareVideoPage() {
             </div>
         </section>
 
+        <section className="mb-40 grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+            <Link href="/portfolio" className="group block p-12 rounded-[3.5rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-center">
+               <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic group-hover:text-primary-accent transition-colors">View Healthcare Showreel</h3>
+               <p className="text-zinc-400 font-light text-sm uppercase tracking-widest leading-relaxed">See our cinematic medical productions.</p>
+            </Link>
+            <Link href="/case-studies" className="group block p-12 rounded-[3.5rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-center">
+               <h3 className="text-2xl font-black uppercase tracking-widest mb-4 italic group-hover:text-primary-accent transition-colors">Read Clinical Case Studies</h3>
+               <p className="text-zinc-400 font-light text-sm uppercase tracking-widest leading-relaxed">Explore the performance of our campaigns.</p>
+            </Link>
+        </section>
+
         <CinematicHero mode="ai-studio" />
+        <section className="mt-20 flex justify-center gap-6 pb-20">
+          <Link href="/knowledge-center" className="px-8 py-4 border border-white/20 rounded-xl hover:bg-white/10 transition-all font-black uppercase tracking-widest text-xs flex items-center gap-2">
+             Explore Knowledge Center <ArrowRight size={16} />
+          </Link>
+          <Link href="/contact" className="px-8 py-4 bg-primary-accent rounded-xl hover:scale-105 transition-transform font-black uppercase tracking-widest text-xs flex items-center gap-2">
+             Start Your Project <ArrowRight size={16} />
+          </Link>
+        </section>
       </div>
     </main>
   );

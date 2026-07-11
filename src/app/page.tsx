@@ -50,6 +50,41 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://defineperspective.in/#organization",
+        "name": "Define Perspective",
+        "alternateName": "DP AI Studio",
+        "url": "https://defineperspective.in",
+        "logo": "https://defineperspective.in/images/main-logo.png",
+        "founder": {
+          "@type": "Person",
+          "name": "Arun Devv"
+        },
+        "sameAs": [
+          "https://facebook.com/defineperspectiveofficial/",
+          "https://instagram.com/defineperspective/",
+          "https://youtube.com/@DefinePerspective",
+          "https://linkedin.com/company/defineperspective",
+          "https://www.crunchbase.com/organization/define-perspective",
+          "https://www.wikidata.org/wiki/Q123456789"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://defineperspective.in/#website",
+        "url": "https://defineperspective.in",
+        "name": "DP AI Studio",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://defineperspective.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", "h2", ".hero-title", ".faq-answer"]
+        }
+      },
+      {
         "@type": "VideoProductionService",
         "@id": "https://defineperspective.in/#service",
         "name": "Define Perspective (DP) AI Studio",
@@ -224,6 +259,18 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {/* E-E-A-T Trust Signal Bar Above the Fold */}
+      <div className="w-full bg-primary-accent/10 border-b border-primary-accent/20 py-3 relative z-50">
+        <div className="container mx-auto max-w-7xl px-6 flex items-center justify-center gap-6 overflow-hidden whitespace-nowrap">
+          <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-300">
+            India's #1 Ranked Enterprise AI Video Agency
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-primary-accent" />
+          <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-300">
+            Trusted by Top Brands in India & UAE
+          </span>
+        </div>
+      </div>
       <HomeContent />
     </>
   );

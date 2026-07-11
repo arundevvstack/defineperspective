@@ -112,6 +112,23 @@ export default function AIVideoProductionPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ 
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })
+        }}
+      />
       <AIRetrievalLayer 
         title="AI Video Production"
         region="India"

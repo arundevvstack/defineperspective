@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { isSpamRequest } from '@/lib/spam-url-firewall';
 
 const ALLOWED_PARAMS = new Set([
   'view', 'title', 'industry', 'geo', 'node', 
@@ -9,6 +10,10 @@ const ALLOWED_PARAMS = new Set([
 ]);
 
 export function middleware(request: NextRequest) {
+  if (isSpamRequest(request)) {
+    return new NextResponse('Gone', { status: 410 });
+  }
+
   const url = request.nextUrl.clone();
   let hasUnallowedParams = false;
   const strippedParams: string[] = [];

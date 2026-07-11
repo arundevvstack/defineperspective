@@ -129,9 +129,9 @@ export default function KeralaLocationPage() {
 
         <div className="grid md:grid-cols-3 gap-12 mb-40">
           {[
-            { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Using AI to create realistic brand films and cinematic videos without traditional limits." },
-            { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Using AI to create video stories that connect with your audience and drive results." },
-            { title: "Best AI Video Production Company in Kerala | DP AI Studio India", desc: "Create and launch many high-quality AI video ads quickly for e-commerce brands." }
+            { title: "Cinematic Brand Films", desc: "Using AI to create realistic brand films and cinematic videos without traditional limits." },
+            { title: "Visual Storytelling", desc: "Using AI to create video stories that connect with your audience and drive results." },
+            { title: "High-Velocity E-Commerce Ads", desc: "Create and launch many high-quality AI video ads quickly for e-commerce brands." }
           ].map((cap, i) => (
             <div key={i} className="p-10 rounded-[3rem] border border-white/5 bg-white/5 hover:bg-primary-accent/10 hover:border-primary-accent/20 transition-all group text-left shadow-xl">
               <Sparkles className="text-primary-accent mb-8 group-hover:scale-125 transition-transform" size={32} />
@@ -168,7 +168,7 @@ export default function KeralaLocationPage() {
           </div>
           
           <div className="mt-16 text-center md:text-left">
-            <Link href="/blogs" className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-primary-accent border-b border-primary-accent/30 pb-2 hover:text-white transition-colors font-black">
+            <Link href="/knowledge-center" className="text-[10px] font-mono font-black uppercase tracking-[0.3em] text-primary-accent border-b border-primary-accent/30 pb-2 hover:text-white transition-colors font-black">
               View All Insights
             </Link>
           </div>

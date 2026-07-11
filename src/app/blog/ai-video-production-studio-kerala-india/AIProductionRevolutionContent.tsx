@@ -231,7 +231,7 @@ export default function AIProductionRevolutionContent() {
                   Television commercials in India are no longer bound by the limits of physical reality. AI TVC production is enabling national brands to launch hyper-targeted, cinematic ad campaigns in days. From luxury automotive ads to intricate fashion films, the quality of AI-generated content is now indistinguishable from traditional cinema. 
                 </p>
                 <p>
-                  The strategic advantage of <Link href="/services/ai-tvc-production" className="text-white underline decoration-primary-accent transition-colors">AI TVC Production India</Link> lies in its scalability. A single creative vision can be translated into dozens of unique, localized variations for different markets across the subcontinent, all while maintaining the same premium visual standard.
+                  The strategic advantage of <Link href="/ai-tvc-production" className="text-white underline decoration-primary-accent transition-colors">AI TVC Production India</Link> lies in its scalability. A single creative vision can be translated into dozens of unique, localized variations for different markets across the subcontinent, all while maintaining the same premium visual standard.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
                    {[

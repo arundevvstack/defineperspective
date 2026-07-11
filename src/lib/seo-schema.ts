@@ -133,3 +133,9 @@ export const generateAIGeneratedSchema = (pageData: { title: string, description
     "name": kw
   }))
 });
+
+export const generateSpeakableSchema = (cssSelectors: string[]) => ({
+  "@context": "https://schema.org",
+  "@type": "SpeakableSpecification",
+  "cssSelector": cssSelectors
+});

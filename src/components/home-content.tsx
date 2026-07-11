@@ -150,7 +150,7 @@ export default function HomeContent() {
               </div>
               <p className="text-sm md:text-lg text-zinc-400 leading-relaxed font-light">
                 Define Perspective (DP AI Studio) is India&apos;s leading <Link href="/services/ai-cinematic-production" className="text-white font-medium hover:text-primary-accent transition-colors">cinematic AI production house</Link>. 
-                We specialize in high-fidelity <Link href="/services/ai-tvc-production" className="text-white font-medium hover:text-primary-accent transition-colors">AI TVC production</Link>, 
+                We specialize in high-fidelity <Link href="/ai-tvc-production" className="text-white font-medium hover:text-primary-accent transition-colors">AI TVC production</Link>, 
                 professional <Link href="/ai-video-production" className="text-white font-medium hover:text-primary-accent transition-colors">AI video production</Link>, and luxury brand storytelling 
                 for clients in <Link href="/ai-video-production-kochi" className="text-white font-medium hover:text-primary-accent transition-colors">Kochi</Link>, 
                 <Link href="/ai-video-production-kerala" className="text-white font-medium hover:text-primary-accent transition-colors">Kerala</Link>, 
