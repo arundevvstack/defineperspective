@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TrendingUp, ArrowRight, ChevronRight, BarChart3 } from "lucide-react";
+import { submitUniversalForm } from "@/app/actions/submit-form";
 
 export default function EfficiencyLeadMagnet() {
   const [step, setStep] = useState(1);
@@ -22,21 +23,19 @@ export default function EfficiencyLeadMagnet() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/neural-production-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          asset_requested: "AI_EFFICIENCY_PLAN",
-          details: {
-            current_output: formData.output,
-            team_size: formData.teamSize,
-            primary_bottleneck: formData.bottleneck,
-            calculated_savings: "Estimated 60% Reduction"
-          }
-        })
-      });
-      if (res.ok) setStep(5);
+      const payload = new FormData();
+      payload.append("form_type", "AI Efficiency Plan Request");
+      payload.append("name", formData.name);
+      payload.append("email", formData.email);
+      payload.append("industry", formData.industry);
+      payload.append("current_output", formData.output);
+      payload.append("team_size", formData.teamSize);
+      payload.append("primary_bottleneck", formData.bottleneck);
+      payload.append("asset_requested", "AI_EFFICIENCY_PLAN");
+      payload.append("calculated_savings", "Estimated 60% Reduction");
+
+      const result = await submitUniversalForm(payload);
+      if (result.success) setStep(5);
     } catch (err) {
       console.error(err);
     } finally {

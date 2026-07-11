@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Download, ShieldCheck, Mail } from "lucide-react";
+import { submitUniversalForm } from "@/app/actions/submit-form";
 
 export default function LeadMagnetModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,14 +25,20 @@ export default function LeadMagnetModal() {
     setStatus("loading");
     
     try {
-      await fetch('/api/leads/capture', {
-        method: 'POST',
-        body: JSON.stringify({ 
-          email, 
-          sourceUrl: window.location.href,
-          asset: "2026_AI_Production_Strategy_Guide"
-        })
-      });
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("asset", "2026_AI_Production_Strategy_Guide");
+      formData.append("form_type", "Lead Magnet Download");
+      
+      // If we have a honey field in state, we'd append it here, but since it's a controlled form, 
+      // let's grab it from the form submission event.
+      const formEl = e.currentTarget as HTMLFormElement;
+      const honey = (formEl.elements.namedItem("_honey") as HTMLInputElement)?.value;
+      if (honey) formData.append("_honey", honey);
+
+      const result = await submitUniversalForm(formData);
+      
+      if (!result.success) throw new Error(result.error);
       
       setStatus("success");
       localStorage.setItem("dp_lead_magnet_seen", "true");
@@ -89,6 +96,7 @@ export default function LeadMagnetModal() {
                  </motion.div>
                ) : (
                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
                     <div className="relative group">
                        <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-primary-accent transition-colors" size={18} />
                        <input 

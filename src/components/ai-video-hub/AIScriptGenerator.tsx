@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cpu, Send, RefreshCw, MessageSquare, ArrowRight, Zap, Target, Sparkles, Calendar, DollarSign, User, Mail, Phone, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { submitUniversalForm } from "@/app/actions/submit-form";
 
 export default function AIScriptGenerator() {
   const [step, setStep] = useState(1);
@@ -49,14 +50,25 @@ CTA: "EXPERIENCE THE FUTURE."`);
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/neural-production-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, script })
-      });
-      
-      if (response.ok) {
+      const payload = new FormData();
+      payload.append("form_type", "AI Script Generation Lead");
+      payload.append("brand", formData.brand);
+      payload.append("product", formData.product);
+      payload.append("audience", formData.audience);
+      payload.append("mood", formData.mood);
+      payload.append("goal", formData.goal);
+      payload.append("budget", formData.budget);
+      payload.append("timeline", formData.timeline);
+      payload.append("name", formData.name);
+      payload.append("email", formData.email);
+      payload.append("phone", formData.phone);
+      if (script) payload.append("generated_script", script);
+
+      const result = await submitUniversalForm(payload);
+      if (result.success) {
         setStep(6);
+      } else {
+        throw new Error(result.error);
       }
     } catch (err) {
       console.error("Submission failed:", err);

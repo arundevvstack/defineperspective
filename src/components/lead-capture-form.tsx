@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { submitLeadAction } from "@/app/actions/submit-lead";
+import { submitUniversalForm } from "@/app/actions/submit-form";
 
 export default function LeadCaptureForm() {
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -15,7 +15,8 @@ export default function LeadCaptureForm() {
     const formData = new FormData(e.currentTarget);
     
     // 1. Send the email via Server Action (Resend)
-    const result = await submitLeadAction(formData);
+    formData.append("form_type", "Quote / Strategy Request");
+    const result = await submitUniversalForm(formData);
 
     if (result.success) {
       setFormState("success");
@@ -60,6 +61,7 @@ export default function LeadCaptureForm() {
       </div>
       
       <form onSubmit={handleSubmit} className="relative z-10 space-y-8">
+        <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
         <div className="space-y-4">
           <h3 className="text-3xl font-black uppercase text-white tracking-tight italic">
             Get Free Video <br /><span className="text-primary-accent">Strategy & Quote_</span>

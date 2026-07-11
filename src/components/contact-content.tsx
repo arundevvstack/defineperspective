@@ -9,6 +9,7 @@ import {
 import dynamic from "next/dynamic";
 import GlassNavbar from "@/components/glass-navbar";
 import { cn } from "@/lib/utils";
+import { submitUniversalForm } from "@/app/actions/submit-form";
 
 // Dynamic import for the FAQ section to optimize initial load
 const FAQSection = dynamic(() => import("@/components/faq-section"), { ssr: false });
@@ -30,40 +31,35 @@ function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Using Formspree for automatic "Success Mail Notification" to Admin
-    // And background delivery so user doesn't have to manually 'Send' in a client.
     try {
-      const response = await fetch("https://formspree.io/f/defineperspective.in@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          _subject: `INTAKE_NOTIFICATION: ${formData.projectType} from ${formData.brand}`,
-          _replyto: formData.email
-        })
+      const formPayload = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        formPayload.append(key, value);
       });
+      formPayload.append("form_type", "Strategic Consultation Request");
 
-      if (response.ok) {
+      const result = await submitUniversalForm(formPayload);
+
+      if (result.success) {
         setIsSuccess(true);
-        setIsSubmitting(false);
-        return;
+      } else {
+        throw new Error(result.error || "Submission failed");
       }
     } catch (err) {
       console.error("Submission failed, fallback to mailto");
+      // Direct Fallback if Background Submission fails
+      const subject = encodeURIComponent(`Project: ${formData.projectType} - ${formData.brand}`);
+      const body = encodeURIComponent(
+        `Project Details:\n` +
+        `Name: ${formData.name}\n` +
+        `Brand: ${formData.brand}\n` +
+        `WhatsApp: ${formData.whatsapp}\n` +
+        `Type: ${formData.projectType}\n` +
+        `Budget: ${formData.budget}\n` +
+        `Vision: ${formData.vision}`
+      );
+      window.location.href = `mailto:defineperspective.in@gmail.com?subject=${subject}&body=${body}`;
     }
-
-    // Direct Fallback if Background Submission fails
-    const subject = encodeURIComponent(`Project: ${formData.projectType} - ${formData.brand}`);
-    const body = encodeURIComponent(
-      `Project Details:\n` +
-      `Name: ${formData.name}\n` +
-      `Brand: ${formData.brand}\n` +
-      `WhatsApp: ${formData.whatsapp}\n` +
-      `Type: ${formData.projectType}\n` +
-      `Budget: ${formData.budget}\n` +
-      `Vision: ${formData.vision}`
-    );
-    window.location.href = `mailto:defineperspective.in@gmail.com?subject=${subject}&body=${body}`;
     setIsSubmitting(false);
   };
 
@@ -115,6 +111,7 @@ function ContactForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-10">
+        <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="space-y-4">
                <label className="text-[10px] font-mono text-primary-accent uppercase tracking-[0.2em] ml-1 block">Your Name</label>
