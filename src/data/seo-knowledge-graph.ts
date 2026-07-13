@@ -71,5 +71,39 @@ export const SEO_ENTITIES = {
       "Top AI ad agency in Kochi",
       "AI filmmaking Trivandrum"
     ]
-  }
+  },
+  EntityDictionary: {
+    brands: [
+      { id: "dp-ai-studios", name: "DP AI Studios", type: "Organization", description: "The AI Video Production division of Define Perspective." },
+      { id: "define-perspective", name: "Define Perspective", type: "Organization", description: "The parent media conglomerate." }
+    ],
+    projects: [
+      { id: "red-chamber", name: "Red Chamber", type: "CreativeWork", description: "Flagship Cinematic AI Music Video." }
+    ],
+    characters: [
+      { id: "nova-rae", name: "Nova Rae", type: "Person", description: "Virtual AI artist created by DP AI Studios." }
+    ],
+    concepts: [
+      { id: "ai-music-video", name: "AI Music Video", type: "Thing", description: "Music videos produced using generative video models." },
+      { id: "ai-tvc", name: "AI TVC", type: "Thing", description: "Television commercials generated using AI." },
+      { id: "ai-commercial", name: "AI Commercial", type: "Thing", description: "Commercial advertising produced with generative AI." },
+      { id: "ai-filmmaking", name: "AI Filmmaking", type: "Thing", description: "The process of creating films using artificial intelligence." },
+      { id: "ai-cinematic-storytelling", name: "AI Cinematic Storytelling", type: "Thing", description: "Using AI to craft emotionally resonant narratives." },
+      { id: "ai-image-generation", name: "AI Image Generation", type: "Thing", description: "Creation of base images using latent diffusion models." },
+      { id: "virtual-cinematography", name: "Virtual Cinematography", type: "Thing", description: "Simulating physical camera attributes in a digital latent space." },
+      { id: "character-consistency", name: "Character Consistency", type: "Thing", description: "Maintaining identity preservation in generative video." }
+    ]
+  },
+  TopicTaxonomy: [
+    { id: "ai-music-videos", label: "AI Music Videos", slug: "ai-music-videos" },
+    { id: "ai-advertising", label: "AI Advertising", slug: "ai-advertising" },
+    { id: "ai-tvcs", label: "AI TVCs", slug: "ai-tvcs" },
+    { id: "ai-filmmaking", label: "AI Filmmaking", slug: "ai-filmmaking" },
+    { id: "ai-storytelling", label: "AI Storytelling", slug: "ai-storytelling" },
+    { id: "virtual-production", label: "Virtual Production", slug: "virtual-production" },
+    { id: "prompt-engineering", label: "Prompt Engineering", slug: "prompt-engineering" },
+    { id: "character-consistency", label: "Character Consistency", slug: "character-consistency" },
+    { id: "lighting", label: "Lighting", slug: "lighting" },
+    { id: "editing", label: "Editing", slug: "editing" }
+  ]
 };

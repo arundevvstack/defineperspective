@@ -76,11 +76,19 @@ export default async function PortfolioPage() {
     if (uniqueTitles.has(cs.title)) return false;
     uniqueTitles.add(cs.title);
     return true;
-  }).map(cs => ({
-    ...cs,
-    displayGeos: Array.from(new Set([cs.geo, ...(cs.geo_targets || [])])).filter(Boolean),
-    displayIndustries: Array.from(new Set([cs.industry, ...(cs.industries || [])])).filter(Boolean)
-  }));
+  }).map(cs => {
+    const isRedChamber = cs.slug === 'this-looks-like-a-1m-film-but-it-s-ai-red-chamber-cinematic-ai-music-video' || cs.title.includes('RED CHAMBER');
+    return {
+      ...cs,
+      slug: isRedChamber ? 'red-chamber-ai-music-video-production' : cs.slug,
+      title: isRedChamber ? 'Red Chamber | Cinematic AI Music Video by DP AI Studios (Define Perspective)' : cs.title,
+      ai_summary: isRedChamber ? 'Experience Red Chamber, a cinematic AI music video created by DP AI Studios (Define Perspective). This project showcases photorealistic AI filmmaking, cinematic storytelling, virtual cinematography, AI image generation, and premium visual production, demonstrating how generative AI can be used to create emotionally engaging, film-quality music videos.' : cs.ai_summary,
+      industry: isRedChamber ? 'Entertainment & Music' : cs.industry,
+      industries: isRedChamber ? ['Entertainment', 'Music Video'] : cs.industries,
+      displayGeos: Array.from(new Set([cs.geo, ...(cs.geo_targets || [])])).filter(Boolean),
+      displayIndustries: isRedChamber ? ['Entertainment', 'Music Video'] : Array.from(new Set([cs.industry, ...(cs.industries || [])])).filter(Boolean)
+    };
+  });
 
   return (
     <>

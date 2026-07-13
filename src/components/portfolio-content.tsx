@@ -202,6 +202,17 @@ function PortfolioInner({ caseStudies }: { caseStudies: any[] }) {
           </motion.div>
         </section>
 
+        {activeTab === "photo" && (
+          <motion.section 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-20"
+          >
+            <CaseStudyFilter caseStudies={caseStudies} />
+          </motion.section>
+        )}
+
         <div className="space-y-20">
           {currentData.map((section, sectionIdx) => (
             <motion.section 
@@ -361,17 +372,6 @@ function PortfolioInner({ caseStudies }: { caseStudies: any[] }) {
             </motion.section>
           ))}
         </div>
-
-        {activeTab === "photo" && (
-          <motion.section 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="mt-12"
-          >
-            <CaseStudyFilter caseStudies={caseStudies} />
-          </motion.section>
-        )}
 
         <section className="mt-40 p-12 md:p-32 rounded-[5rem] border border-white/5 bg-white/5 backdrop-blur-3xl text-center relative overflow-hidden group">
           <div className="absolute inset-0 bg-primary-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
