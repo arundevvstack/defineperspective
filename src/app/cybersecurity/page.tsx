@@ -6,8 +6,6 @@ import {
   Shield, AlertTriangle, Activity, Globe, Terminal, 
   Cpu, Lock, Unlock, Zap, Database, Hash, Map as LucideMap 
 } from "lucide-react";
-// recharts imports removed due to compatibility issues in dev
-// mapboxgl removed — now using PositionStack + SVG map
 import { cn } from "@/lib/utils";
 
 // Mock Data for the Charts
