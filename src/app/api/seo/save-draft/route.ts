@@ -1,24 +1,89 @@
 import { NextResponse } from 'next/server';
+import { cookies, headers } from 'next/headers';
 import { supabase } from '@/lib/supabase';
+import { verifySession } from '@/lib/session';
+
+// In-memory rate limiting map: { [ip]: { count: number, resetAt: number } }
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const MAX_REQUESTS = 10;
+const WINDOW_MS = 60 * 1000; // 1 minute window
 
 export async function POST(req: Request) {
   try {
-    const { keyword, region } = await req.json();
+    // 1. IP Rate Limiting
+    const headersList = await headers();
+    const ip = headersList.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown-ip';
+    const now = Date.now();
 
-    if (!keyword) {
-      return NextResponse.json({ error: 'Keyword is required' }, { status: 400 });
+    const rateInfo = rateLimitMap.get(ip);
+    if (rateInfo) {
+      if (now < rateInfo.resetAt) {
+        if (rateInfo.count >= MAX_REQUESTS) {
+          return NextResponse.json(
+            { error: 'Too many requests. Rate limit exceeded.' },
+            { status: 429 }
+          );
+        }
+        rateInfo.count++;
+      } else {
+        rateLimitMap.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+      }
+    } else {
+      rateLimitMap.set(ip, { count: 1, resetAt: now + WINDOW_MS });
     }
 
-    // AI Generation Logic (Simulated for Cinematic Authority)
-    const pageTitle = `${keyword} | Premium AI Video Production ${region || 'India'}`;
-    const slug = keyword.toLowerCase().replace(/ /g, '-');
+    // Clean up memory cache periodically
+    if (rateLimitMap.size > 500) {
+      rateLimitMap.clear();
+    }
+
+    // 2. Authentication & Authorization Enforcement
+    const cookieStore = await cookies();
+    const sessionCookie = cookieStore.get('dp_admin_session')?.value;
+    const session = verifySession(sessionCookie);
+
+    const authHeader = req.headers.get('authorization') || req.headers.get('x-admin-token');
+    const adminSecret = process.env.ADMIN_API_SECRET || process.env.SESSION_SECRET;
+    const isSecretAuthorized = Boolean(
+      adminSecret &&
+      authHeader &&
+      (authHeader === adminSecret || authHeader === `Bearer ${adminSecret}`)
+    );
+
+    if ((!session || session.role !== 'admin') && !isSecretAuthorized) {
+      return NextResponse.json(
+        { error: 'Unauthorized: Administrative authentication required.' },
+        { status: 401 }
+      );
+    }
+
+    // 3. Strict Input Validation
+    const body = await req.json().catch(() => null);
+    if (!body || typeof body !== 'object') {
+      return NextResponse.json({ error: 'Invalid JSON payload' }, { status: 400 });
+    }
+
+    const { keyword, region } = body;
+    if (!keyword || typeof keyword !== 'string' || keyword.trim().length < 2 || keyword.length > 100) {
+      return NextResponse.json(
+        { error: 'Valid keyword required (2-100 characters)' },
+        { status: 400 }
+      );
+    }
+
+    const cleanKeyword = keyword.trim();
+    const cleanRegion = (typeof region === 'string' ? region.trim().slice(0, 50) : '') || 'India';
+
+    // 4. Safe Generation & Insertion
+    const pageTitle = `${cleanKeyword} | Premium AI Video Production ${cleanRegion}`;
+    const slug = cleanKeyword.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
     const generatedContent = `
 # ${pageTitle}
-Experience the future of visual storytelling with Define Perspective. Our neural production pipelines deliver unparalleled cinematic quality for ${keyword}.
+Experience the future of visual storytelling with Define Perspective. Our neural production pipelines deliver unparalleled cinematic quality for ${cleanKeyword}.
 
-## Why Choose DP for ${keyword}?
-- **Neural Precision**: Advanced AI models tailored for the ${region || 'Indian'} market.
+## Why Choose DP for ${cleanKeyword}?
+- **Neural Precision**: Advanced AI models tailored for the ${cleanRegion} market.
 - **Cinematic Heritage**: Combining traditional filmmaking expertise with cutting-edge AI.
 - **Velocity**: From concept to final render in a fraction of traditional timelines.
 
@@ -28,46 +93,46 @@ Experience the future of visual storytelling with Define Perspective. Our neural
 3. **Executive Finishing**: Professional color grading and sound design.
     `.trim();
 
-    // Store in content_pages
     const { data, error } = await supabase
       .from('content_pages')
       .insert({
         title: pageTitle,
         slug: `services/${slug}`,
         content: generatedContent,
-        meta_title: `Best ${keyword} in ${region || 'India'} | DP AI Studio`,
-        meta_description: `Leading AI-powered production for ${keyword} in ${region || 'India'}. Cinematic quality, neural efficiency.`,
-        keywords: [keyword, "AI Video", "DP Studio", region],
+        meta_title: `Best ${cleanKeyword} in ${cleanRegion} | DP AI Studio`,
+        meta_description: `Leading AI-powered production for ${cleanKeyword} in ${cleanRegion}. Cinematic quality, neural efficiency.`,
+        keywords: [cleanKeyword, 'AI Video', 'DP Studio', cleanRegion],
         status: 'review',
         schema_json: {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "name": keyword,
-          "provider": {
-            "@type": "Organization",
-            "name": "Define Perspective"
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          name: cleanKeyword,
+          provider: {
+            '@type': 'Organization',
+            name: 'Define Perspective',
           },
-          "areaServed": region || "India"
-        }
+          areaServed: cleanRegion,
+        },
       })
       .select()
       .single();
 
-    if (error) throw error;
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
 
     // Update trend status
     await supabase
       .from('ai_trends')
       .update({ status: 'drafted' })
-      .eq('keyword', keyword);
+      .eq('keyword', cleanKeyword);
 
-    return NextResponse.json({ 
-      success: true, 
-      message: `Autonomous draft created for ${keyword}`,
-      pageId: data.id 
+    return NextResponse.json({
+      success: true,
+      message: `Autonomous draft created for ${cleanKeyword}`,
+      pageId: data?.id,
     });
-
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
   }
 }
