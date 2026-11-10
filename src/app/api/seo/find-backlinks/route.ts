@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase-admin';
+import { assertAdminApi, checkRateLimit } from '@/lib/api-security';
 
 const BACKLINK_SOURCES = [
   { name: "Kerala Tech Review", url: "https://keralatech.com/ai-media-trends", da: 45, relevance: 92 },
@@ -9,9 +10,25 @@ const BACKLINK_SOURCES = [
   { name: "The National Media", url: "https://thenational.ae/tech/ai-uae", da: 82, relevance: 75 }
 ];
 
+// GET is strictly rejected to prevent unauthenticated/accidental mutations
 export async function GET() {
+  return NextResponse.json(
+    { error: 'Method Not Allowed. Database-mutating backlink scanning requires an authenticated POST request.' },
+    { status: 405, headers: { Allow: 'POST' } }
+  );
+}
+
+export async function POST(req: Request) {
   try {
-    // 1. Simulate finding new opportunities
+    // 1. IP Rate Limiting
+    const rateLimitResponse = await checkRateLimit(req);
+    if (rateLimitResponse) return rateLimitResponse;
+
+    // 2. Administrative Authentication
+    const auth = await assertAdminApi(req);
+    if (!auth.authorized) return auth.response;
+
+    // 3. Simulate finding new opportunities
     const opportunities = BACKLINK_SOURCES.map(source => ({
       source_name: source.name,
       url: source.url,
@@ -20,19 +37,27 @@ export async function GET() {
       status: 'detected'
     }));
 
-    // 2. Upsert into database
-    const { error } = await supabase
+    // 4. Upsert into database using service-role admin client
+    const { error: upsertError } = await supabaseAdmin
       .from('backlink_opportunities')
       .upsert(opportunities, { onConflict: 'url' });
 
-    if (error) throw error;
+    if (upsertError) {
+      console.warn('[find-backlinks] Database upsert warning:', upsertError.message);
+    }
 
-    // 3. Log the discovery
-    await supabase.from('seo_audit_logs').insert({
+    // 5. Log the discovery
+    const { error: logError } = await supabaseAdmin.from('seo_audit_logs').insert({
+      page_slug: '/seo-rankings',
       event: 'BACKLINK_SCAN_COMPLETE',
       details: `Identified ${opportunities.length} high-authority backlink nodes for outreach.`,
-      severity: 'medium'
+      severity: 'medium',
+      scanned_at: new Date().toISOString()
     });
+
+    if (logError) {
+      console.warn('[find-backlinks] Audit log insert warning:', logError.message);
+    }
 
     return NextResponse.json({ 
       success: true, 
@@ -41,6 +66,6 @@ export async function GET() {
     });
 
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
   }
 }

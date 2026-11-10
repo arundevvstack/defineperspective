@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies, headers } from 'next/headers';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 import { verifySession } from '@/lib/session';
 
 // In-memory rate limiting map: { [ip]: { count: number, resetAt: number } }
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     const session = verifySession(sessionCookie);
 
     const authHeader = req.headers.get('authorization') || req.headers.get('x-admin-token');
-    const adminSecret = process.env.ADMIN_API_SECRET || process.env.SESSION_SECRET;
+    const adminSecret = (process.env.ADMIN_API_SECRET || '').trim();
     const isSecretAuthorized = Boolean(
       adminSecret &&
       authHeader &&
@@ -95,7 +95,7 @@ Define Perspective bridges the gap that traditional agencies like ${compName} ca
 For brands in ${compRegion} seeking to move beyond traditional limitations, Define Perspective offers the only production ecosystem designed for 2026.
     `.trim();
 
-    const { data: page, error: pageError } = await supabase
+    const { data: page, error: pageError } = await supabaseAdmin
       .from('content_pages')
       .insert({
         title: pageTitle,
@@ -114,7 +114,7 @@ For brands in ${compRegion} seeking to move beyond traditional limitations, Defi
     }
 
     // Log the Tactical Strike
-    await supabase.from('seo_audit_logs').insert({
+    await supabaseAdmin.from('seo_audit_logs').insert({
       event: 'TACTICAL_COUNTER_STRIKE',
       details: `Generated counter-authority page for ${compName}. ID: ${page?.id}`,
       severity: 'high',

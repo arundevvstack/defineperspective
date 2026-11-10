@@ -1,0 +1,36 @@
+# ==============================================================================
+# DEFINE PERSPECTIVE — VERCEL DEPLOYMENT IGNORE SPECIFICATION
+# Phase 2C.9 Production Release Gate 1.4
+# ==============================================================================
+
+# Governance, Audit, and Technical Reports
+dp_intelligence_core_*.md
+*.md
+!README.md
+
+# Investigative Test Suites, Scratch Harnesses, and Task Logs
+scratch/
+
+# SQL Migration Scripts and Database Snapshots
+sql_review/
+supabase/
+
+# Offline Seeding, Automation, and Research Scripts
+scripts/
+generate_audit.py
+url_inventory.txt
+
+# Local Raw Data Exports and GSC Analytics (Runtime files reside in src/data/)
+/data/
+.gsc-auth/
+
+# Environment Local Overrides and Secrets
+.env*.local
+.env.development
+.env.test
+
+# IDE and System Files
+.DS_Store
+.vscode/
+.idea/
+

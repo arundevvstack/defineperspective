@@ -1,0 +1,13 @@
+[
+  { "city": "Mumbai, India", "lat": 19.076, "lng": 72.877, "region": "Asia South" },
+  { "city": "London, UK", "lat": 51.507, "lng": -0.127, "region": "Europe West" },
+  { "city": "New York, USA", "lat": 40.712, "lng": -74.006, "region": "Americas East" },
+  { "city": "Singapore", "lat": 1.352, "lng": 103.819, "region": "Asia Southeast" },
+  { "city": "Dubai, UAE", "lat": 25.204, "lng": 55.27, "region": "Middle East" },
+  { "city": "Tokyo, Japan", "lat": 35.689, "lng": 139.692, "region": "Asia East" },
+  { "city": "Paris, France", "lat": 48.856, "lng": 2.352, "region": "Europe Central" },
+  { "city": "Sydney, Australia", "lat": -33.868, "lng": 151.209, "region": "Oceania" },
+  { "city": "Trivandrum, India", "lat": 8.524, "lng": 76.936, "region": "Kerala South" },
+  { "city": "Kochi, India", "lat": 9.931, "lng": 76.267, "region": "Kerala Central" }
+]
+

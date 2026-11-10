@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Download, Sparkles, ArrowRight, ShieldCheck, Globe } from "lucide-react";
+import { Download, Sparkles, ShieldCheck, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/lib/supabase";
 import LeadCaptureModal from "./LeadCaptureModal";
@@ -12,35 +11,63 @@ interface DynamicLeadMagnetProps {
   className?: string;
 }
 
+interface GuidePreview {
+  id: string;
+  title: string;
+  summary: string;
+  category: string;
+  download_count: number;
+  created_at: string;
+}
+
 export default function DynamicLeadMagnet({ context, className }: DynamicLeadMagnetProps) {
-  const [guide, setGuide] = useState<any>(null);
+  const [guide, setGuide] = useState<GuidePreview | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchRelevantGuide();
-  }, [context]);
+    let isCancelled = false;
 
-  async function fetchRelevantGuide() {
-    setLoading(true);
-    // Find guide matching context or just get latest premium one
-    let query = supabase.from('lead_magnets').select('*');
-    
-    if (context) {
-      query = query.ilike('title', `%${context}%`);
+    async function loadGuide() {
+      // Find guide matching context or just get latest premium one using explicit public preview projection
+      let query = supabase
+        .from('lead_magnets')
+        .select('id, title, summary, category, download_count, created_at');
+      
+      if (context) {
+        query = query.ilike('title', `%${context}%`);
+      }
+      
+      const { data } = await query.order('created_at', { ascending: false }).limit(1);
+      
+      if (isCancelled) return;
+
+      if (data && data.length > 0) {
+        setGuide(data[0] as GuidePreview);
+        setLoading(false);
+      } else {
+        // Fallback to most popular using explicit public preview projection
+        const { data: popular } = await supabase
+          .from('lead_magnets')
+          .select('id, title, summary, category, download_count, created_at')
+          .order('download_count', { ascending: false })
+          .limit(1);
+
+        if (!isCancelled) {
+          if (popular && popular.length > 0) {
+            setGuide(popular[0] as GuidePreview);
+          }
+          setLoading(false);
+        }
+      }
     }
-    
-    const { data } = await query.order('created_at', { ascending: false }).limit(1);
-    
-    if (data && data.length > 0) {
-      setGuide(data[0]);
-    } else {
-      // Fallback to most popular
-      const { data: popular } = await supabase.from('lead_magnets').select('*').order('download_count', { ascending: false }).limit(1);
-      if (popular) setGuide(popular[0]);
-    }
-    setLoading(false);
-  }
+
+    loadGuide();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [context]);
 
   if (loading || !guide) return null;
 

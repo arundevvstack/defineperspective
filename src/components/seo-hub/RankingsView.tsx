@@ -45,7 +45,10 @@ export default function RankingsView({ city, setStatus }: { city?: string, setSt
     setIsScanning(true);
     setStatus?.("Links: Finding growth opportunities...");
     try {
-      const res = await fetch('/api/seo/find-backlinks');
+      const res = await fetch('/api/seo/find-backlinks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
       const data = await res.json();
       if (data.opportunities) {
         setBacklinks(data.opportunities);

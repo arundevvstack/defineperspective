@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies, headers } from 'next/headers';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 import { verifySession } from '@/lib/session';
 
 // In-memory rate limiting map: { [ip]: { count: number, resetAt: number } }
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     const session = verifySession(sessionCookie);
 
     const authHeader = req.headers.get('authorization') || req.headers.get('x-admin-token');
-    const adminSecret = process.env.ADMIN_API_SECRET || process.env.SESSION_SECRET;
+    const adminSecret = (process.env.ADMIN_API_SECRET || '').trim();
     const isSecretAuthorized = Boolean(
       adminSecret &&
       authHeader &&
@@ -93,7 +93,7 @@ Experience the future of visual storytelling with Define Perspective. Our neural
 3. **Executive Finishing**: Professional color grading and sound design.
     `.trim();
 
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('content_pages')
       .insert({
         title: pageTitle,
@@ -122,7 +122,7 @@ Experience the future of visual storytelling with Define Perspective. Our neural
     }
 
     // Update trend status
-    await supabase
+    await supabaseAdmin
       .from('ai_trends')
       .update({ status: 'drafted' })
       .eq('keyword', cleanKeyword);

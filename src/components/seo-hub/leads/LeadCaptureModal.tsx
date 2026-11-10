@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Download, Mail, Briefcase, DollarSign, Globe, CheckCircle2, ArrowRight, Clock } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { supabase } from "@/lib/supabase";
+import { X, Download, CheckCircle2, Clock } from "lucide-react";
 import CommandModal from "../CommandModal";
 
 interface LeadCaptureModalProps {
@@ -15,7 +13,6 @@ interface LeadCaptureModalProps {
 }
 
 export default function LeadCaptureModal({ isOpen, onClose, guideTitle, guideId }: LeadCaptureModalProps) {
-  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,37 +25,53 @@ export default function LeadCaptureModal({ isOpen, onClose, guideTitle, guideId 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("The neural link could not be established. Please verify your credentials and try again.");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
     setIsSubmitting(true);
     
     try {
-      // Calculate lead score (mock logic)
-      const budgetNum = parseInt(formData.budget.replace(/[^0-9]/g, "")) || 0;
-      const score = budgetNum > 10000 ? 90 : 65;
+      // Assemble approved client allowlist payload
+      const payload = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        company: formData.company.trim(),
+        industry: formData.industry,
+        region: formData.region.trim(),
+        budget: formData.budget,
+        source_guide_id: guideId || null,
+        source_url: typeof window !== 'undefined' ? window.location.href : null
+      };
 
-      const { error } = await supabase.from('leads').insert({
-        ...formData,
-        source_guide_id: guideId,
-        score,
-        interest_cluster: guideTitle,
-        created_at: new Date().toISOString()
+      const res = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
       });
 
-      if (error) throw error;
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => ({}));
+        throw new Error(errJson.error || `Submission failed with status ${res.status}`);
+      }
 
-      // Update download count
-      await supabase.rpc('increment_download', { row_id: guideId });
+      const data = await res.json();
+      if (!data.success) {
+        throw new Error('Server rejected lead registration');
+      }
 
       setIsSuccess(true);
       setTimeout(() => {
         onClose();
         setIsSuccess(false);
-        setStep(1);
       }, 3000);
-    } catch (err) {
-      console.error(err);
+    } catch (err: unknown) {
+      console.error('[LeadCaptureModal] Submission error:', err);
+      const errorMsg = err instanceof Error ? err.message : "The neural link could not be established. Please verify your credentials and try again.";
+      setErrorMessage(errorMsg);
       setShowErrorModal(true);
     } finally {
       setIsSubmitting(false);
@@ -74,7 +87,7 @@ export default function LeadCaptureModal({ isOpen, onClose, guideTitle, guideId 
             onClose={() => setShowErrorModal(false)}
             type="alert"
             title="Transmission Failed"
-            description="The neural link could not be established. Please verify your credentials and try again."
+            description={errorMessage}
             onConfirm={() => {}}
           />
           <motion.div 
@@ -131,7 +144,7 @@ export default function LeadCaptureModal({ isOpen, onClose, guideTitle, guideId 
                        <CheckCircle2 size={40} />
                     </div>
                     <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Access Granted</h3>
-                    <p className="text-zinc-500 text-sm font-mono uppercase tracking-widest">The guide has been sent to your terminal.</p>
+                    <p className="text-zinc-500 text-sm font-mono uppercase tracking-widest">Your access request has been recorded. Our intelligence team will contact you shortly.</p>
                   </motion.div>
                 ) : (
                   <motion.form 

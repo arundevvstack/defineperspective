@@ -7,6 +7,7 @@ import {
   Cpu, Lock, Unlock, Zap, Database, Hash, Map as LucideMap 
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import serviceNodes from "@/config/service-nodes.json";
 
 // Mock Data for the Charts
 // Real Industry Competitors for AI Video Production (India/Global)
@@ -283,19 +284,11 @@ type GeoLocation = { city: string; lat: number; lng: number; region?: string };
 
 // Component: Map Visualizer (MapLibre-powered High Performance GL)
 const MapVisualizer = () => {
-  const [locations, setLocations] = useState<GeoLocation[]>([]);
+  const [locations, setLocations] = useState<GeoLocation[]>(serviceNodes as GeoLocation[]);
   const [search, setSearch] = useState("");
   const [alerts, setAlerts] = useState<{ id: string; city: string; ip: string; lat: number; lng: number }[]>([]);
   const mapRef = useRef<any>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
-
-  // Fetch real coords from PositionStack via our API route
-  useEffect(() => {
-    fetch("/api/geolocate")
-      .then(r => r.json())
-      .then(d => setLocations(d.locations || []))
-      .catch(() => {});
-  }, []);
 
   // Initialize MapLibre
   useEffect(() => {

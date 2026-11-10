@@ -37,3 +37,9 @@ export async function authenticateAdmin(formData: FormData) {
 
   return { success: false, error: 'AUTHENTICATION_FAILED: ACCESS_DENIED' };
 }
+
+export async function logoutAdmin() {
+  const cookieStore = await cookies();
+  cookieStore.delete('dp_admin_session');
+  return { success: true };
+}
