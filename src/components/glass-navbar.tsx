@@ -108,6 +108,7 @@ const AI_STUDIO_CATEGORIES = [
     href: "/services/ai-cinematic",
     description: "Fusing legacy optics with neural vision.",
     subItems: [
+      { name: "AI Video Production Services", href: "/ai-video-production-services" },
       { name: "AI Video Production India", href: "/ai-video-production-company-india" },
       { name: "AI Brand Films", href: "/services/ai-cinematic/premium-ai-brand-films-india" },
       { name: "AI Visual Narratives", href: "/services/ai-cinematic/high-end-ai-storytelling-agency" },

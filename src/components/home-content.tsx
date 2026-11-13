@@ -153,7 +153,7 @@ export default function HomeContent() {
                 We specialize in high-fidelity <Link href="/ai-tvc-production" className="text-white font-medium hover:text-primary-accent transition-colors">AI TVC production</Link>, 
                 professional <Link href="/ai-video-production" className="text-white font-medium hover:text-primary-accent transition-colors">AI video production</Link>, and luxury brand storytelling 
                 for clients in <Link href="/ai-video-production-kochi" className="text-white font-medium hover:text-primary-accent transition-colors">Kochi</Link>, 
-                <Link href="/ai-video-production-kerala" className="text-white font-medium hover:text-primary-accent transition-colors">Kerala</Link>, 
+                <Link href="/locations/kerala" className="text-white font-medium hover:text-primary-accent transition-colors">Kerala</Link>,
                 <Link href="/ai-video-production-bangalore" className="text-white font-medium hover:text-primary-accent transition-colors">Bangalore</Link>, and 
                 <Link href="/ai-video-production-mumbai" className="text-white font-medium hover:text-primary-accent transition-colors">Mumbai</Link>. 
                 Our neural workflows deliver 8K cinematic excellence with unprecedented velocity.
@@ -503,7 +503,7 @@ export default function HomeContent() {
               <span className="label-mono">Geo-Political Authority</span>
               <h2 className="heading-section">The Leading AI Video Production <br /><span className="text-primary-accent">Company in Kerala_</span></h2>
               <p className="body-copy !text-lg opacity-80 leading-loose">
-                Headquartered in <span className="text-white font-bold">Kochi</span>, we serve as the primary production hub for brands in <span className="text-zinc-400">Trivandrum, Bangalore, Chennai, Mumbai, and South India</span>. DP AI Studio is the leading provider of cinematic AI advertising and professional video production services.
+                Headquartered in <span className="text-white font-bold">Kochi</span>, we operate our primary <Link href="/locations/kerala" className="text-white font-bold underline hover:text-primary-accent transition-colors">AI video production studio in Kerala</Link>, serving visionary brands in <span className="text-zinc-400">Trivandrum, Bangalore, Chennai, Mumbai, and South India</span>. Explore our <Link href="/ai-video-production-company-india" className="text-white font-bold underline hover:text-primary-accent transition-colors">national AI video production company across India</Link> and full suite of <Link href="/ai-video-production-services" className="text-primary-accent font-bold underline hover:text-white transition-colors">AI video production services</Link>.
               </p>
               <div className="flex flex-wrap gap-4">
                 {["Kochi", "Trivandrum", "Bangalore", "Mumbai", "Dubai"].map(city => (
