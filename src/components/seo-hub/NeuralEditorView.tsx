@@ -19,7 +19,6 @@ import {
   Trash2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { supabase } from "@/lib/supabase";
 
 export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string) => void }) {
   const [pages, setPages] = useState<any[]>([]);
@@ -39,6 +38,7 @@ export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string
     setStatus?.("GENERATING_SOCIAL: Drafting tailored campaigns for LinkedIn, IG, and X...");
     const res = await fetch('/api/seo/generate-social-posts', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         title: selectedPage.title, 
         content: selectedPage.content,
@@ -55,22 +55,19 @@ export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string
 
   async function fetchPages() {
     setLoading(true);
-    console.log("Fetching pages from content_pages...");
-    const { data, error } = await supabase
-      .from('content_pages')
-      .select('*')
-      .order('created_at', { ascending: false });
-    
-    if (error) {
-      console.error("Supabase Fetch Error:", error);
-      alert(`Connection Error: ${error.message}`);
+    try {
+      const res = await fetch('/api/seo/content');
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to fetch content pages');
+      }
+      setPages(data.pages || []);
+    } catch (err: any) {
+      console.error("Content Fetch Error:", err);
+      alert(`Connection Error: ${err.message}`);
+    } finally {
+      setLoading(false);
     }
-    
-    if (data) {
-      console.log(`Successfully fetched ${data.length} pages.`);
-      setPages(data);
-    }
-    setLoading(false);
   }
 
   async function handleSave() {
@@ -79,19 +76,22 @@ export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string
     setStatus?.("Saving: Updating your content in the database...");
     
     try {
-      const { error } = await supabase
-        .from('content_pages')
-        .update({
+      const res = await fetch('/api/seo/content', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: selectedPage.id,
           title: selectedPage.title,
           content: selectedPage.content,
           meta_title: selectedPage.meta_title,
           meta_description: selectedPage.meta_description,
-          status: selectedPage.status,
-          updated_at: new Date().toISOString()
+          status: selectedPage.status
         })
-        .eq('id', selectedPage.id);
-      
-      if (error) throw error;
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to save changes');
+      }
 
       setStatus?.("Success: Changes saved and synchronized.");
       fetchPages(); // Refresh the list
@@ -111,27 +111,22 @@ export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string
     setStatus?.("Deleting: Removing content from database...");
     
     try {
-      // 1. Clear associated media sync records first (Fix FK constraint)
-      await supabase
-        .from('youtube_sync')
-        .delete()
-        .eq('generated_article_id', selectedPage.id);
+      const res = await fetch(`/api/seo/content?id=${encodeURIComponent(selectedPage.id)}`, {
+        method: 'DELETE'
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to delete content');
+      }
 
-      // 2. Clear the actual article
-      const { error } = await supabase
-        .from('content_pages')
-        .delete()
-        .eq('id', selectedPage.id);
-      
-      if (error) throw error;
-
-      setStatus?.("Success: Content and media link deleted.");
+      setStatus?.("Success: Content page deleted.");
       // Instant UI update
       setPages(prev => prev.filter(p => p.id !== selectedPage.id));
       setSelectedPage(null);
     } catch (err: any) {
       console.error("Delete Error:", err);
       setStatus?.(`Error: Could not delete. ${err.message || ""}`);
+      alert(`Deletion Failed: ${err.message || "Unknown error"}`);
     } finally {
       setIsSaving(false);
     }
@@ -205,6 +200,7 @@ export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string
                       setStatus?.("Refining: Optimizing content for search...");
                       const res = await fetch('/api/seo/enhance-content', {
                         method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ title: selectedPage.title, content: selectedPage.content })
                       });
                       const data = await res.json();
@@ -238,6 +234,7 @@ export default function NeuralEditorView({ setStatus }: { setStatus?: (s: string
                       setStatus?.(`Translating: Adapting content to ${targetLang === 'ml' ? 'Malayalam' : 'Arabic'}...`);
                       const res = await fetch('/api/seo/translate-page', {
                         method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ 
                           title: selectedPage.title, 
                           content: selectedPage.content,

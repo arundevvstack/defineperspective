@@ -1,38 +1,70 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal, Activity, ShieldAlert, Zap, Clock } from "lucide-react";
-import { supabase } from "@/lib/supabase";
 import { cn } from "@/lib/utils";
 
 export default function TacticalFeed() {
   const [logs, setLogs] = useState<any[]>([]);
+  const inFlightRef = useRef(false);
+  const isMountedRef = useRef(true);
+  const abortControllerRef = useRef<AbortController | null>(null);
+  const latestRequestIdRef = useRef(0);
 
   useEffect(() => {
+    isMountedRef.current = true;
+    
+    // Initial fetch
     fetchLogs();
     
-    // Set up real-time subscription
-    const channel = supabase
-      .channel('tactical_logs')
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'seo_audit_logs' }, (payload) => {
-        setLogs(prev => [payload.new, ...prev].slice(0, 10));
-      })
-      .subscribe();
-
+    // Periodically refresh tactical operations feed
+    const interval = setInterval(fetchLogs, 15000);
     return () => {
-      supabase.removeChannel(channel);
+      isMountedRef.current = false;
+      clearInterval(interval);
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
     };
   }, []);
 
   async function fetchLogs() {
-    const { data } = await supabase
-      .from('seo_audit_logs')
-      .select('*')
-      .order('created_at', { ascending: false })
-      .limit(10);
-    
-    if (data) setLogs(data);
+    // Prevent overlapping requests or updates after unmount
+    if (inFlightRef.current || !isMountedRef.current) return;
+    inFlightRef.current = true;
+
+    const requestId = ++latestRequestIdRef.current;
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
+    try {
+      const res = await fetch('/api/seo/audit-logs?limit=10', {
+        signal: controller.signal
+      });
+
+      // Discard if component unmounted or newer request was already dispatched
+      if (!isMountedRef.current || requestId !== latestRequestIdRef.current) {
+        return;
+      }
+
+      if (res.ok) {
+        const data = await res.json();
+        if (isMountedRef.current && requestId === latestRequestIdRef.current && data.logs) {
+          setLogs(data.logs);
+        }
+      } else if (res.status === 401 || res.status === 429) {
+        console.warn(`[TacticalFeed] Polling received status ${res.status}`);
+      }
+    } catch (err: any) {
+      if (err.name === 'AbortError') {
+        // Component cleanly aborted on unmount; ignore
+        return;
+      }
+      console.error('[TacticalFeed] Error fetching audit logs:', err);
+    } finally {
+      inFlightRef.current = false;
+    }
   }
 
   return (

@@ -192,7 +192,7 @@ export default function FutureAITVCommercialsPage() {
                       At DP AI Studio, we utilize highly optimized neural video pipelines to generate cinema-grade assets in 8K resolution. Our workflow operates at the intersection of human art direction and state-of-the-art AI. By bypasssing traditional filming bottlenecks, we deliver <Link href="/services/ai-cinematic-production" className="text-white underline decoration-primary-accent transition-colors hover:text-primary-accent">Cinematic AI Advertising</Link> assets that stand out on massive theatrical screens.
                     </p>
                     <p>
-                      Rather than using raw templates, our proprietary engines translate direct creative prompts into realistic atmospheric environments, detailed character features, and stunning lighting. This is the cornerstone of premium <Link href="/services/ai-commercial-production" className="text-white underline decoration-primary-accent transition-colors hover:text-primary-accent">AI Commercial Production</Link> across India.
+                      Rather than using raw templates, our proprietary engines translate direct creative prompts into realistic atmospheric environments, detailed character features, and stunning lighting. This is the cornerstone of premium <Link href="/ai-commercial-production-india" className="text-white underline decoration-primary-accent transition-colors hover:text-primary-accent">AI Commercial Production</Link> across India.
                     </p>
                   </div>
                   <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-900">

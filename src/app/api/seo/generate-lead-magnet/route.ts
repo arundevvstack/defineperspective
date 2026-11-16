@@ -1,35 +1,58 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase-admin';
+import { assertAdminApi, checkRateLimit } from '@/lib/api-security';
 
 export async function POST(req: Request) {
   try {
-    const { topic, node } = await req.json();
+    // 1. IP Rate Limiting
+    const rateLimitResponse = await checkRateLimit(req);
+    if (rateLimitResponse) return rateLimitResponse;
 
-    if (!topic) {
-      return NextResponse.json({ error: 'Topic is required' }, { status: 400 });
+    // 2. Administrative Authentication
+    const auth = await assertAdminApi(req);
+    if (!auth.authorized) return auth.response;
+
+    // 3. Strict Input Validation
+    let body: any;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json({ error: 'Invalid JSON payload' }, { status: 400 });
     }
 
-    const activeNode = node || "Kochi, IN";
+    if (!body || typeof body !== 'object') {
+      return NextResponse.json({ error: 'Body must be a valid JSON object' }, { status: 400 });
+    }
 
-    // 1. AI Synthesis (Simulated - in production call OpenAI/Gemini)
-    // The engine would search public trends and synthesize a unique report
+    const { topic, node } = body;
+
+    if (!topic || typeof topic !== 'string' || topic.trim().length === 0 || topic.trim().length > 150) {
+      return NextResponse.json(
+        { error: 'Valid topic string is required (1-150 characters).' },
+        { status: 400 }
+      );
+    }
+
+    const cleanTopic = topic.trim();
+    const cleanNode = (typeof node === 'string' && node.trim().length > 0)
+      ? node.trim().slice(0, 100)
+      : 'Kochi, IN';
+
+    // 4. AI Synthesis (Simulated Neural Engine)
     const synthesisData = {
-      title: `${topic} (${activeNode})`,
-      summary: `An exclusive executive report exploring the intersection of cinematic storytelling and neural AI pipelines in the ${topic} sector for the ${activeNode} market.`,
-      content: `### ${activeNode} Market Overview\nThe landscape of ${topic} in ${activeNode} is shifting towards autonomous production...\n\n### Strategic Framework\n1. Neural Asset Generation\n2. Cinematic Lighting Synthesis\n3. Real-time Market Adaptation...`,
-      category: topic.toLowerCase().includes('luxury') ? 'Luxury Strategy' : 'AI Intelligence',
+      title: `${cleanTopic} (${cleanNode})`,
+      summary: `An exclusive executive report exploring the intersection of cinematic storytelling and neural AI pipelines in the ${cleanTopic} sector for the ${cleanNode} market.`,
+      content: `### ${cleanNode} Market Overview\nThe landscape of ${cleanTopic} in ${cleanNode} is shifting towards autonomous production...\n\n### Strategic Framework\n1. Neural Asset Generation\n2. Cinematic Lighting Synthesis\n3. Real-time Market Adaptation...`,
+      category: cleanTopic.toLowerCase().includes('luxury') ? 'Luxury Strategy' : 'AI Intelligence',
       metadata: {
-        keywords: [topic, activeNode, 'AI Advertising', 'Cinematic AI', 'Define Perspective'],
+        keywords: [cleanTopic, cleanNode, 'AI Advertising', 'Cinematic AI', 'Define Perspective'],
         sentiment: 'bullish',
         market_readiness: 'high'
       }
     };
 
-    // 2. Store in Supabase
-    // Table: lead_magnets (id, title, summary, content, category, metadata_json, download_count, created_at)
-    console.log('Inserting Guide into Supabase:', synthesisData.title);
-    
-    const { data, error: dbError } = await supabase
+    // 5. Store in Supabase using service-role admin client
+    const { data, error: dbError } = await supabaseAdmin
       .from('lead_magnets')
       .insert({
         title: synthesisData.title,
@@ -43,17 +66,17 @@ export async function POST(req: Request) {
       .single();
 
     if (dbError) {
-      console.error('Supabase DB Error:', dbError);
+      console.warn('[generate-lead-magnet] Database insert warning:', dbError.message);
       return NextResponse.json({ 
-        error: 'Database error: Ensure the "lead_magnets" table is created with the correct columns.',
+        error: 'Database operation failed. Verify lead_magnets table schema.',
         details: dbError.message 
-      }, { status: 400 });
+      }, { status: 500 });
     }
 
     return NextResponse.json({ 
       success: true, 
       message: 'Guide created.',
-      guideId: data.id 
+      guideId: data?.id || null 
     });
 
   } catch (error: any) {

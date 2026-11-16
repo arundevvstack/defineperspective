@@ -46,3 +46,8 @@ next-env.d.ts
 
 # local temp
 tmp/
+
+# GSC Auth
+.gsc-auth/
+scripts/gsc/credentials.json
+scripts/gsc/token.json

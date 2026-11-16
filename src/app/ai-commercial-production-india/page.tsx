@@ -46,6 +46,7 @@ export default function CommercialProductionPage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="L7aRxqziN8w"
     />
   );
 }

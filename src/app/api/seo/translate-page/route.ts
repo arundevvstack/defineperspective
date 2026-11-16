@@ -1,20 +1,62 @@
 import { NextResponse } from 'next/server';
+import { assertAdminApi, checkRateLimit } from '@/lib/api-security';
+
+const SUPPORTED_LANGUAGES = new Set(['ml', 'ar']);
 
 export async function POST(req: Request) {
   try {
-    const { title, content, targetLang } = await req.json();
+    // 1. IP Rate Limiting
+    const rateLimitResponse = await checkRateLimit(req);
+    if (rateLimitResponse) return rateLimitResponse;
 
-    if (!title || !content || !targetLang) {
-      return NextResponse.json({ error: 'Missing data' }, { status: 400 });
+    // 2. Administrative Authentication
+    const auth = await assertAdminApi(req);
+    if (!auth.authorized) return auth.response;
+
+    // 3. Strict Input Validation
+    let body: any;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json({ error: 'Invalid JSON payload' }, { status: 400 });
     }
 
-    // Neural Translation Logic (Simulated for high-fidelity Malayalam/Arabic)
-    let translatedTitle = title;
-    let translatedContent = content;
+    if (!body || typeof body !== 'object') {
+      return NextResponse.json({ error: 'Body must be a valid JSON object' }, { status: 400 });
+    }
 
-    if (targetLang === 'ml') {
-       translatedTitle = `AI വീഡിയോ പ്രൊഡക്ഷൻ - ${title.split('|')[0].trim()}`;
-       translatedContent = `
+    const { title, content, targetLang } = body;
+
+    if (!targetLang || typeof targetLang !== 'string' || !SUPPORTED_LANGUAGES.has(targetLang.trim().toLowerCase())) {
+      return NextResponse.json(
+        { error: 'Invalid or unsupported targetLang. Supported languages: "ml" (Malayalam), "ar" (Arabic).' },
+        { status: 400 }
+      );
+    }
+
+    if (!title || typeof title !== 'string' || title.trim().length === 0) {
+      return NextResponse.json({ error: 'Title string is required.' }, { status: 400 });
+    }
+
+    if (!content || typeof content !== 'string' || content.trim().length === 0) {
+      return NextResponse.json({ error: 'Content string is required.' }, { status: 400 });
+    }
+
+    if (content.length > 20000) {
+      return NextResponse.json({ error: 'Content exceeds maximum permitted length of 20,000 characters.' }, { status: 400 });
+    }
+
+    const cleanTitle = title.trim().slice(0, 300);
+    const cleanContent = content.trim();
+    const cleanLang = targetLang.trim().toLowerCase();
+
+    // 4. Neural Translation Logic (Simulated for high-fidelity Malayalam/Arabic)
+    let translatedTitle = cleanTitle;
+    let translatedContent = cleanContent;
+
+    if (cleanLang === 'ml') {
+      translatedTitle = `AI വീഡിയോ പ്രൊഡക്ഷൻ - ${cleanTitle.split('|')[0].trim()}`;
+      translatedContent = `
 # ${translatedTitle}
 ## കേരളത്തിലെ മികച്ച AI വീഡിയോ പ്രൊഡക്ഷൻ സേവനം.
 
@@ -25,11 +67,11 @@ export async function POST(req: Request) {
 - **വേഗത**: പരമ്പരാഗതമായ പ്രൊഡക്ഷനേക്കാൾ 60% വേഗത്തിൽ.
 - **ഗുണനിലവാരം**: പ്രീമിയം ലുക്ക് ഉറപ്പാക്കുന്നു.
 
-${content.slice(0, 300)}... (Neural Regionalization Active)
-       `.trim();
-    } else if (targetLang === 'ar') {
-       translatedTitle = `إنتاج فيديو الذكاء الاصطناعي - ${title.split('|')[0].trim()}`;
-       translatedContent = `
+${cleanContent.slice(0, 300)}... (Neural Regionalization Active)
+      `.trim();
+    } else if (cleanLang === 'ar') {
+      translatedTitle = `إنتاج فيديو الذكاء الاصطناعي - ${cleanTitle.split('|')[0].trim()}`;
+      translatedContent = `
 # ${translatedTitle}
 ## رائد إنتاج الفيديو بالذكاء الاصطناعي في المنطقة.
 
@@ -40,8 +82,8 @@ ${content.slice(0, 300)}... (Neural Regionalization Active)
 - **كفاءة عالية**: سرعة في التنفيذ تتفوق على الطرق التقليدية.
 - **دعم إقليمي**: خبرة واسعة في السوق الإماراتي والسعودي.
 
-${content.slice(0, 300)}... (Neural Regionalization Active)
-       `.trim();
+${cleanContent.slice(0, 300)}... (Neural Regionalization Active)
+      `.trim();
     }
 
     return NextResponse.json({ 
@@ -51,6 +93,6 @@ ${content.slice(0, 300)}... (Neural Regionalization Active)
     });
 
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
   }
 }

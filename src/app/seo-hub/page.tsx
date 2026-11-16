@@ -23,6 +23,7 @@ import {
   LogOut
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { logoutAdmin } from "@/app/actions/auth";
 import NeuralSeoLayer from "@/components/neural-seo-layer";
 
 // View Components
@@ -44,18 +45,10 @@ export default function SeoHubPage() {
 
   const [globalStatus, setGlobalStatus] = useState("Ready: Waiting for command...");
 
-  // Executive Route Guard
-  useEffect(() => {
-    const auth = localStorage.getItem("dp_studio_auth");
-    if (auth !== "authorized") {
-      router.push("/login");
-    }
-  }, [router]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("dp_studio_auth");
+  const handleLogout = async () => {
     setGlobalStatus("Terminating Session...");
-    setTimeout(() => router.push("/login"), 500);
+    await logoutAdmin();
+    router.push("/login");
   };
 
   const LOCATIONS = [
@@ -74,7 +67,11 @@ export default function SeoHubPage() {
     setGlobalStatus(`Scanning: Finding market opportunities in ${activeNode}...`);
     setShowScanModal(true);
     try {
-      const res = await fetch(`/api/seo/analyze-gaps?node=${activeNode}`);
+      const res = await fetch("/api/seo/analyze-gaps", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ node: activeNode }),
+      });
       const data = await res.json();
       setScanResults(data.trends || []);
       setGlobalStatus(`Success: Found ${data.trends?.length || 0} gaps in ${activeNode}.`);

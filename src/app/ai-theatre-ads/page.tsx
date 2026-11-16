@@ -45,6 +45,7 @@ export default function TheatrePage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="vGijXeVUS74"
     />
   );
 }

@@ -45,6 +45,7 @@ export default function AutomobilePage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="BisAbe9s4N8"
     />
   );
 }

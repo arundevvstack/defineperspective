@@ -45,6 +45,7 @@ export default function StartupPage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="HuX40LSwF7M"
     />
   );
 }

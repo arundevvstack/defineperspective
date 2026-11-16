@@ -18,10 +18,7 @@ export async function GET() {
     '/arun-devv',
     '/services',
     '/blog',
-    '/industries',
-    '/locations',
     '/video-production',
-    '/photography',
     '/ai-services',
     '/ai-studios',
     '/ai-video-production-india',
@@ -52,24 +49,38 @@ export async function GET() {
     '/ai-video-production-south-india',
     '/ai-video-production-trivandrum',
     '/ai-healthcare-ads',
-    '/ai-corporate-films',
+    '/ai-corporate-video-production',
     '/ai-video-production-delhi',
     '/ai-commercial-production-cost-india',
     '/ai-vs-traditional-commercial-production',
     '/knowledge-center',
   ];
 
-  // 2. Discover App Router Knowledge Center Pages
+  // 2. Discover App Router Knowledge Center, Industry, and Location Pages
   const discoveredKnowledgeCenterRoutes = discoverAppRoutes('knowledge-center');
+  const discoveredIndustryRoutes = discoverAppRoutes('industries');
+  const discoveredLocationRoutes = discoverAppRoutes('locations');
   
   // Merge static routes and automatically discovered routes (removing duplicates)
-  const allStaticRoutes = Array.from(new Set([...staticRoutes, ...discoveredKnowledgeCenterRoutes]));
+  const allStaticRoutes = Array.from(new Set([
+    ...staticRoutes,
+    ...discoveredKnowledgeCenterRoutes,
+    ...discoveredIndustryRoutes,
+    ...discoveredLocationRoutes,
+  ]));
 
-  // 3. Dynamic Routes from content_pages
+  // 3. Dynamic Routes from content_pages (excluding unrouted services and legacy redirects)
   const { data: pages } = await supabase
     .from('content_pages')
     .select('slug, updated_at')
     .eq('status', 'published');
+
+  const validPages = (pages || []).filter((page: any) => {
+    if (!page?.slug) return false;
+    if (page.slug.startsWith('services/')) return false;
+    if (page.slug.startsWith('ai-films/')) return false;
+    return true;
+  });
 
   // 4. Entity Nodes (Locations/Industries)
   const { data: entities } = await supabase
@@ -90,7 +101,7 @@ export async function GET() {
   </url>`);
   });
 
-  (pages || []).forEach((page: any) => {
+  validPages.forEach((page: any) => {
     urlSet.set(`${baseUrl}/${page.slug}`, `
   <url>
     <loc>${baseUrl}/${page.slug}</loc>

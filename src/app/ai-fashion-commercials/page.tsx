@@ -46,6 +46,7 @@ export default function FashionPage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="HtomLPOzkCU"
     />
   );
 }

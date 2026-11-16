@@ -45,6 +45,9 @@ export default function HospitalityPage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="sNp1a5I6WsI"
+      videoLabel="DP AI Studio — Cinematic Capability Showreel"
+      videoDescription="Cinematic AI commercial production and visual engineering showreel by Define Perspective (DP AI Studio)."
     />
   );
 }

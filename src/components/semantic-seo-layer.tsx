@@ -57,7 +57,7 @@ const SemanticSeoLayer = () => {
         </p>
         
         <div className="founder-entity" itemProp="founder" itemScope itemType="https://schema.org/Person">
-          <span itemProp="name">Arun</span>
+          <span itemProp="name">Arun Devv</span>
           <span itemProp="jobTitle">AI Filmmaker & Media Consultant</span>
           <link itemProp="sameAs" href="https://instagram.com/arun_dp" />
         </div>

@@ -128,7 +128,7 @@ export default function ArunDevvConsultantBlog() {
                       Arun Devv doesn't just create content; he engineers systems. As brands in India face an oversaturated market, Arun’s approach focuses on "Intelligence-First Production."
                     </p>
                     <p>
-                      By integrating advanced workflows into <Link href="/services/ai-video-production-kerala" className="text-white underline decoration-primary-accent">AI video production in Kerala</Link>, he enables brands to produce 10x the output without compromising on the premium quality expected of a <Link href="/services/ad-film-production" className="text-white underline decoration-primary-accent">top-tier ad film production</Link> house.
+                      By integrating advanced workflows into <Link href="/locations/kerala" className="text-white underline decoration-primary-accent">AI video production in Kerala</Link>, he enables brands to produce 10x the output without compromising on the premium quality expected of a <Link href="/services/ad-film-production" className="text-white underline decoration-primary-accent">top-tier ad film production</Link> house.
                     </p>
                   </div>
                   <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 group">

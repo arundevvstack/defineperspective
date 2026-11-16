@@ -45,6 +45,7 @@ export default function JewelleryPage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="ViVvFiF-kBQ"
     />
   );
 }

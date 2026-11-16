@@ -205,7 +205,7 @@ export default function AIProductionRevolutionContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                   <div className="space-y-8">
                     <p>
-                      At DP AI Studio, we’ve re-engineered the entire filmmaking pipeline. By integrating generative AI at the core of our <Link href="/services/ai-commercial-production" className="text-white underline decoration-primary-accent transition-colors">AI Commercial Production</Link> workflow, we deliver 8K cinematic visuals that look like million-dollar shoots—at a fraction of the cost.
+                      At DP AI Studio, we’ve re-engineered the entire filmmaking pipeline. By integrating generative AI at the core of our <Link href="/ai-commercial-production-india" className="text-white underline decoration-primary-accent transition-colors">AI Commercial Production</Link> workflow, we deliver 8K cinematic visuals that look like million-dollar shoots—at a fraction of the cost.
                     </p>
                     <p>
                       Our neural rendering engines allow us to simulate complex environments, lighting, and character performances without ever setting foot on a traditional soundstage. This isn&apos;t just about speed; it&apos;s about a level of visual fidelity that was previously impossible. From hyper-realistic product rendering to surreal, cinematic landscapes, our AI-native workflow pushes the boundaries of <Link href="/services/ai-video-production" className="text-white underline decoration-primary-accent transition-colors">AI Video Production India</Link>.
@@ -264,7 +264,7 @@ export default function AIProductionRevolutionContent() {
                   </div>
                    <div className="space-y-8">
                      <p>
-                       Modern brands require an always-on content engine that doesn&apos;t compromise on luxury positioning. Our <Link href="/services/ai-commercial-production" className="text-white underline decoration-primary-accent transition-colors">AI Commercial Production</Link> services are designed for premium brands that need high-impact visuals for social, web, and broadcast.
+                       Modern brands require an always-on content engine that doesn&apos;t compromise on luxury positioning. Our <Link href="/ai-commercial-production-india" className="text-white underline decoration-primary-accent transition-colors">AI Commercial Production</Link> services are designed for premium brands that need high-impact visuals for social, web, and broadcast.
                      </p>
                      <p>
                        We specialize in "Luxury Retrieval"—creating visuals that align with high-end aesthetic entities. This involves neural-driven textures, moody volumetric lighting, and precise cinematic framing that communicates prestige and authority.

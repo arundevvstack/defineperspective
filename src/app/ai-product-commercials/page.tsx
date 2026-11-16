@@ -46,6 +46,7 @@ export default function ProductPage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="8TntXDekuE8"
     />
   );
 }

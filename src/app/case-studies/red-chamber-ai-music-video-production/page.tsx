@@ -94,26 +94,34 @@ function generateSchema() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is a cinematic AI music video?",
+        "name": "How is an AI music video produced?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A cinematic AI music video is a musical short film produced entirely through generative artificial intelligence, utilizing prompt engineering, motion generation, and virtual cinematography to create photorealistic visuals without physical cameras or sets."
+          "text": "An AI music video is produced using a generative workflow combining prompt engineering, virtual cinematography, and digital human consistency techniques. For Red Chamber, DP AI Studios utilized a prompt-to-frame and frame-to-video pipeline locked with specific seed referencing to simulate physical lighting grids and maintain cinematic quality."
         }
       },
       {
         "@type": "Question",
-        "name": "How was Red Chamber produced?",
+        "name": "How do AI filmmakers maintain character consistency?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Red Chamber was produced by DP AI Studios using an enterprise AI pipeline that includes character consistency workflows for the virtual artist Nova Rae, virtual lens simulation (12mm to 35mm), and precise lighting prompts mapped to traditional grip equipment techniques."
+          "text": "Character consistency in AI filmmaking is maintained through multi-stage seed locking, structural control nets based on skeletal poses, and iterative frame-by-frame enhancements. This ensures the digital human's facial topology and textures remain stable across diverse lighting scenarios and extreme camera movements."
         }
       },
       {
         "@type": "Question",
-        "name": "How is character consistency maintained in AI video?",
+        "name": "What role does human direction play in AI filmmaking?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Character consistency in AI video is maintained through specialized face-locking algorithms, seed constraints, and multi-stage rendering pipelines that enforce geometric and textural continuity of the digital human across diverse lighting scenarios and camera angles."
+          "text": "Human direction is central to AI filmmaking. Generative AI acts as a tool, not an autonomous director. Human creative directors establish the visual language, meticulously craft deterministic prompts replicating physical lenses and lighting, curate generations, and lead the traditional editing and color grading phases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What was the production workflow used for Red Chamber?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Red Chamber production workflow progressed from concept and creative direction to visual development. It then moved into character creation (digital human Nova Rae), generative production, shot development, consistency control, and finalized with human-led editing, color grading, and delivery."
         }
       }
     ]
@@ -170,6 +178,7 @@ export default function RedChamberRefinedPage() {
                 <a href="#prompt-engineering" className="hover:text-white transition-colors">Prompt Engineering & Generation</a>
                 <a href="#lighting-philosophy" className="hover:text-white transition-colors">Lighting Philosophy</a>
                 <a href="#virtual-cinematography" className="hover:text-white transition-colors">Virtual Cinematography</a>
+                <a href="#production-workflow" className="hover:text-white transition-colors">Production Workflow</a>
                 <a href="#ai-search-answers" className="hover:text-white transition-colors">AI Search Answers</a>
               </nav>
             </div>
@@ -198,7 +207,7 @@ export default function RedChamberRefinedPage() {
               
               <h2 id="executive-summary" className="text-3xl md:text-5xl text-white mb-8 scroll-mt-24">Executive Summary</h2>
               <p className="text-xl text-zinc-300 leading-relaxed mb-6 font-light">
-                Red Chamber represents a quantum leap in generative cinematic storytelling. Conceived and produced by DP AI Studios, this project demonstrates the absolute pinnacle of <Link href="/ai-video-production-services">AI Video Production</Link> in India. By leveraging advanced generative workflows, we bypassed traditional physical constraints to deliver a highly stylized, photorealistic visual experience centered around our virtual artist, Nova Rae.
+                Red Chamber represents a quantum leap in generative cinematic storytelling. Conceived and produced by DP AI Studios, this project demonstrates high-fidelity <Link href="/services/ai-video-production">AI video production workflow</Link> capabilities. By leveraging advanced generative workflows, we bypassed traditional physical constraints to deliver a highly stylized, photorealistic visual experience centered around our virtual artist, Nova Rae.
               </p>
               <p className="text-lg text-zinc-400 leading-relaxed mb-12">
                 <strong>Why was this project initiated?</strong> The entertainment and luxury fashion industries require visually striking assets at an unprecedented velocity. Traditional pipelines are hindered by location constraints, massive crew logistics, and inflexible shooting schedules. Red Chamber was engineered to prove that a completely synthetic pipeline could yield broadcast-quality, emotionally resonant cinematic results faster and with absolute creative control over the mise-en-scène.
@@ -305,19 +314,61 @@ export default function RedChamberRefinedPage() {
                 </figure>
               </div>
 
+              <h2 id="production-workflow" className="text-3xl text-white mb-8 mt-16 scroll-mt-24">Red Chamber Production Workflow</h2>
+              <p className="text-zinc-400 mb-6">
+                The execution of Red Chamber relied on a strictly sequenced human-directed pipeline. Generative AI was utilized as a powerful toolset rather than an autonomous creator. Human creative directors guided every step from initial concept to the final frame.
+              </p>
+
+              <div className="my-12 overflow-x-auto pb-4">
+                <div className="min-w-[800px] flex items-center justify-between gap-4 p-8 bg-white/[0.02] border border-white/5 rounded-3xl">
+                  {['CONCEPT', 'CREATIVE DIRECTION', 'VISUAL DEV', 'DIGITAL HUMAN', 'GENERATION', 'SHOT DEV', 'CONSISTENCY', 'EDITING', 'FINISHING'].map((step, idx) => (
+                    <div key={idx} className="flex flex-col items-center gap-2 group relative">
+                      <div className="w-12 h-12 rounded-full border-2 border-primary-accent flex items-center justify-center bg-obsidian text-primary-accent font-black text-sm z-10 group-hover:bg-primary-accent group-hover:text-white transition-colors shadow-[0_0_15px_rgba(220,38,38,0.3)]">
+                        {idx + 1}
+                      </div>
+                      <span className="text-[10px] font-black tracking-widest uppercase text-zinc-400 text-center w-20 leading-tight">
+                        {step}
+                      </span>
+                      {idx < 8 && <div className="absolute top-6 left-12 w-full h-[2px] bg-white/10 -z-0"><div className="h-full bg-primary-accent/50 w-full" /></div>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16 bg-neutral-900 border border-white/10 rounded-3xl p-8">
+                <div>
+                  <h3 className="text-xl text-white font-black uppercase tracking-widest mb-4">Production Evidence: Before & After</h3>
+                  <p className="text-sm text-zinc-400 mb-6">Demonstrating human decision-making: The raw generation output versus the final color-graded, consistency-locked cinematic frame.</p>
+                  <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10">
+                     <Image src="/images/casestudy/redchanber/repalce_her_with_him,_Cinematic_202605082058.jpeg" alt="Raw Generation Frame" fill className="object-cover" />
+                     <div className="absolute top-2 left-2 bg-black/80 px-2 py-1 text-[10px] uppercase font-mono tracking-widest rounded">Raw Generation</div>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-end">
+                  <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10">
+                     <Image src="/images/casestudy/redchanber/top_aangle,_Noir_Lighting_Shot,_202605061948.jpeg" alt="Final Color Graded Frame" fill className="object-cover" />
+                     <div className="absolute top-2 right-2 bg-primary-accent/90 px-2 py-1 text-[10px] uppercase font-mono tracking-widest text-white rounded">Final Frame</div>
+                  </div>
+                </div>
+              </div>
+
               <h2 id="ai-search-answers" className="text-3xl text-white mb-8 mt-16 scroll-mt-24">Red Chamber Core Production Answers</h2>
               <div className="bg-white/5 border border-white/10 rounded-3xl p-8 mb-12">
                 <div className="mb-8">
-                  <h3 className="text-xl text-primary-accent mb-2">What is a cinematic AI music video?</h3>
-                  <p className="text-zinc-300 text-base font-light m-0">A cinematic AI music video is a visual asset created entirely through generative artificial intelligence. It utilizes prompt engineering, virtual cinematography, and digital human generation to replicate the fidelity of traditional live-action productions without the logistical overhead of physical shoots.</p>
+                  <h3 className="text-xl text-primary-accent mb-2">How is an AI music video produced?</h3>
+                  <p className="text-zinc-300 text-base font-light m-0">An AI music video is produced using a generative workflow combining prompt engineering, virtual cinematography, and digital human consistency techniques. For Red Chamber, DP AI Studios utilized a prompt-to-frame and frame-to-video pipeline locked with specific seed referencing to simulate physical lighting grids and maintain cinematic quality.</p>
                 </div>
                 <div className="mb-8">
-                  <h3 className="text-xl text-primary-accent mb-2">How was Red Chamber produced?</h3>
-                  <p className="text-zinc-300 text-base font-light m-0">Red Chamber was produced by DP AI Studios using a proprietary V6 Generative Workflow. The pipeline involves mathematical prompt construction for lighting (simulating grip equipment), seed locking for maintaining the consistency of the virtual artist Nova Rae, and traditional post-production editing and grading.</p>
+                  <h3 className="text-xl text-primary-accent mb-2">How do AI filmmakers maintain character consistency?</h3>
+                  <p className="text-zinc-300 text-base font-light m-0">Character consistency in AI filmmaking is maintained through multi-stage seed locking, structural control nets based on skeletal poses, and iterative frame-by-frame enhancements. This ensures the digital human's facial topology and textures remain stable across diverse lighting scenarios and extreme camera movements.</p>
+                </div>
+                <div className="mb-8">
+                  <h3 className="text-xl text-primary-accent mb-2">What role does human direction play in AI filmmaking?</h3>
+                  <p className="text-zinc-300 text-base font-light m-0">Human direction is central to AI filmmaking. Generative AI acts as a tool, not an autonomous director. Human creative directors establish the visual language, meticulously craft deterministic prompts replicating physical lenses and lighting, curate generations, and lead the traditional editing and color grading phases.</p>
                 </div>
                 <div>
-                  <h3 className="text-xl text-primary-accent mb-2">How is character consistency maintained in AI video?</h3>
-                  <p className="text-zinc-300 text-base font-light m-0">Consistency is achieved through multi-stage seed locking, structural control nets based on skeletal poses, and iterative frame-by-frame enhancement. This ensures the digital human’s facial topology and textures remain stable regardless of aggressive virtual camera movements or extreme lighting shifts.</p>
+                  <h3 className="text-xl text-primary-accent mb-2">What was the production workflow used for Red Chamber?</h3>
+                  <p className="text-zinc-300 text-base font-light m-0">The Red Chamber production workflow progressed from concept and creative direction to visual development. It then moved into character creation (digital human Nova Rae), generative production, shot development, consistency control, and finalized with human-led editing, color grading, and delivery.</p>
                 </div>
               </div>
 
