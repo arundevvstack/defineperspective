@@ -66,6 +66,7 @@ export default function TrivandrumPage() {
       faqs={data.faqs}
       schema={schema}
       theme="theme-blue"
+      videoId="sNp1a5I6WsI"
     />
   );
 }

@@ -138,7 +138,7 @@ export default function FutureAIBlogPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                   <div className="space-y-8">
                     <p>
-                      The era of generic stock footage is dead. Today, Kerala’s top brands are leveraging <Link href="/services/ai-video-production-kerala" className="text-white underline decoration-primary-accent">AI video production in Kerala</Link> to create hyper-personalized content that speaks directly to the Malayali diaspora and local consumers alike. 
+                      The era of generic stock footage is dead. Today, Kerala’s top brands are leveraging <Link href="/locations/kerala" className="text-white underline decoration-primary-accent">AI video production in Kerala</Link> to create hyper-personalized content that speaks directly to the Malayali diaspora and local consumers alike. 
                     </p>
                     <p>
                       With costs plummeting to nearly one-fifth of traditional shoots, the barrier to entry for world-class <Link href="/services/ad-film-production" className="text-white underline decoration-primary-accent">ad film production</Link> has vanished.

@@ -56,6 +56,7 @@ export default function IndiaPage() {
       faqs={data.faqs}
       schema={schema}
       theme="theme-blue"
+      videoId="qJwObz6fe-M"
     />
   );
 }

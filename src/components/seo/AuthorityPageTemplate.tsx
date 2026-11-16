@@ -7,7 +7,7 @@ import AIVideoComparison from "@/components/ai-video-hub/AIVideoComparison";
 import BlueprintLeadMagnet from "@/components/ai-video-hub/BlueprintLeadMagnet";
 import FAQSection from "@/components/faq-section";
 import NeuralSeoLayer from "@/components/neural-seo-layer";
-import { CheckCircle2, Play, ArrowRight, Sparkles, Cpu, Target } from "lucide-react";
+import { Play, ArrowRight, Sparkles, Cpu, Target } from "lucide-react";
 import Link from "next/link";
 import VideoLightbox from "@/components/ai-video-hub/VideoLightbox";
 
@@ -21,9 +21,11 @@ interface AuthorityPageProps {
   industry?: string;
   contentTitle: string;
   contentBody: string;
-  schema?: any;
+  schema?: Record<string, unknown>;
   faqs?: { q: string, a: string }[];
   videoId?: string;
+  videoLabel?: string;
+  videoDescription?: string;
 }
 
 export default function AuthorityPageTemplate({
@@ -38,11 +40,26 @@ export default function AuthorityPageTemplate({
   contentBody,
   schema,
   faqs,
-  videoId
+  videoId,
+  videoLabel,
+  videoDescription
 }: AuthorityPageProps) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const finalVideoId = videoId || "5kOnWP-dZZY";
+
+  const [fallbackAttempt, setFallbackAttempt] = useState<number>(0);
+
+  const thumbSrc =
+    fallbackAttempt === 0
+      ? `https://img.youtube.com/vi/${finalVideoId}/maxresdefault.jpg`
+      : fallbackAttempt === 1
+      ? `https://img.youtube.com/vi/${finalVideoId}/hqdefault.jpg`
+      : "/images/full-archive-cinematic.png";
+
+  const handleThumbnailError = () => {
+    setFallbackAttempt((prev) => (prev < 2 ? prev + 1 : prev));
+  };
 
   return (
     <main className={`min-h-screen bg-obsidian text-white overflow-x-hidden ${theme}`}>
@@ -61,8 +78,8 @@ export default function AuthorityPageTemplate({
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "VideoObject",
-            "name": title + " // Cinematic AI Showcase",
-            "description": subheadline,
+            "name": videoLabel || title + " // Cinematic AI Showcase",
+            "description": videoDescription || subheadline,
             "thumbnailUrl": `https://img.youtube.com/vi/${finalVideoId}/maxresdefault.jpg`,
             "uploadDate": "2026-05-12",
             "duration": "PT1M",
@@ -157,7 +174,7 @@ export default function AuthorityPageTemplate({
               {subheadline}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 pt-10">
-               <button onClick={() => setActiveVideo("5kOnWP-dZZY")} className="btn-primary group !h-20 !px-12 !text-xl">
+               <button onClick={() => setActiveVideo(finalVideoId)} className="btn-primary group !h-20 !px-12 !text-xl">
                   Watch Showreel <Play size={24} fill="currentColor" className="ml-2" />
                </button>
                <Link href="/contact" className="btn-glass !h-20 !px-12 !text-xl">
@@ -201,15 +218,38 @@ export default function AuthorityPageTemplate({
                      ))}
                   </div>
                </div>
-               <div className="relative group">
-                  <div className="absolute -inset-4 bg-primary-accent/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-white/10 bg-zinc-900">
-                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
-                     <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="label-mono opacity-20">[ High_Fidelity_Authority_Node ]</span>
+               <button
+                  type="button"
+                  onClick={() => setActiveVideo(finalVideoId)}
+                  aria-label={videoLabel ? `Play ${videoLabel}` : `Play ${title} AI Commercial Showreel`}
+                  className="relative group w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-accent focus-visible:ring-offset-4 focus-visible:ring-offset-obsidian rounded-[3rem] transition-transform duration-300 active:scale-[0.99]"
+               >
+                  <div className="absolute -inset-4 bg-primary-accent/20 blur-3xl opacity-0 group-hover:opacity-70 transition-opacity duration-700 pointer-events-none" />
+                  <div className="relative aspect-square w-full rounded-[3rem] overflow-hidden border border-white/10 bg-zinc-900 shadow-2xl">
+                     {/* eslint-disable-next-line @next/next/no-img-element */}
+                     <img
+                        src={thumbSrc}
+                        alt={videoLabel || `${title} AI Commercial Showcase`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                        loading="lazy"
+                        onError={handleThumbnailError}
+                     />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none" />
+                     <div className="absolute inset-0 flex flex-col items-center justify-center z-20 gap-4 pointer-events-none text-center px-6">
+                        <div className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-primary-accent text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                           <Play size={28} fill="currentColor" className="ml-1" />
+                        </div>
+                        <span className="label-mono !text-white text-xs tracking-[0.25em] drop-shadow-md">
+                           Watch Showreel
+                        </span>
+                        {videoLabel && (
+                           <span className="label-mono !text-zinc-300 text-[10px] md:text-xs tracking-wider uppercase drop-shadow-md max-w-sm">
+                              {videoLabel}
+                           </span>
+                        )}
                      </div>
                   </div>
-               </div>
+               </button>
             </div>
          </div>
       </section>

@@ -11,7 +11,7 @@ const industries = [
     title: "Luxury Brands",
     desc: "Cinematic AI commercials for high-end fashion, perfumes, and lifestyle icons.",
     icon: Star,
-    href: "/industries/luxury"
+    href: "/ai-luxury-brand-films"
   },
   {
     id: "fashion-jewellery",
@@ -25,7 +25,7 @@ const industries = [
     title: "Technology & SaaS",
     desc: "Product films that visualize the future through AI-integrated storytelling.",
     icon: Cpu,
-    href: "/industries/technology"
+    href: "/industries/saas-tech"
   },
   {
     id: "real-estate",
@@ -53,7 +53,7 @@ const industries = [
     title: "High-Growth Startups",
     desc: "Viral AI commercials and product demos designed for rapid scale.",
     icon: Rocket,
-    href: "/industries/startups"
+    href: "/ai-startup-commercials"
   },
   {
     id: "education",

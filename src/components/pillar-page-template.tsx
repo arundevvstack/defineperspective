@@ -171,7 +171,7 @@ export default function PillarPageTemplate({
            <div className="flex flex-wrap gap-x-12 gap-y-8">
               {[
                 { name: "Cinematic AI Commercial Workflow", href: "/ai-video-production-india" },
-                { name: "AI TVC Production Pipeline", href: "/ai-tvc-production-india" },
+                { name: "AI TVC Production Pipeline", href: "/ai-tvc-production" },
                 { name: "AI Fashion Film Production", href: "/ai-fashion-commercials" },
                 { name: "Luxury Brand AI Filmmaking", href: "/ai-luxury-brand-films" },
                 { name: "AI Video Production Kochi", href: "/ai-video-production-kochi" },

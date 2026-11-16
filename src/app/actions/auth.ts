@@ -1,7 +1,9 @@
 "use server";
 
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { signSession } from '@/lib/session';
+import { recordSecurityEvent, categorizeUserAgent } from '@/lib/intelligence/security-telemetry';
+import { hashClientIp } from '@/lib/intelligence/telemetry-hasher';
 
 export async function authenticateAdmin(formData: FormData) {
   const username = formData.get('username') as string;
@@ -33,6 +35,30 @@ export async function authenticateAdmin(formData: FormData) {
     });
 
     return { success: true };
+  }
+
+  // Record failed administrator login in security telemetry (Fail-Open)
+  try {
+    const headersList = await headers();
+    const rawIp =
+      headersList.get('cf-connecting-ip') ||
+      headersList.get('x-real-ip') ||
+      headersList.get('x-forwarded-for')?.split(',')[0] ||
+      'unknown';
+    const ipHash = hashClientIp(rawIp);
+
+    recordSecurityEvent({
+      eventType: 'AUTH_FAIL_401',
+      requestPath: '/login',
+      httpMethod: 'POST',
+      httpStatusCode: 401,
+      ipHash,
+      userAgentCategory: categorizeUserAgent(headersList.get('user-agent')),
+      actionTaken: 'REJECTED_401',
+      ruleId: 'ADMIN_CREDENTIAL_MISMATCH',
+    }).catch(() => {});
+  } catch (e) {
+    // Fail-open
   }
 
   return { success: false, error: 'AUTHENTICATION_FAILED: ACCESS_DENIED' };

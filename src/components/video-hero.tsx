@@ -101,11 +101,13 @@ export default function VideoHero() {
       </div>
 
       {/* Lightbox — self-contained inside hero */}
-      <VideoLightbox
-        isOpen={lightboxOpen}
-        onClose={() => setLightboxOpen(false)}
-        videoId={SHOWREEL_ID}
-      />
+      {lightboxOpen && (
+        <VideoLightbox
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          videoId={SHOWREEL_ID}
+        />
+      )}
     </section>
   );
 }

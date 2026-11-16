@@ -46,6 +46,7 @@ export default function LuxuryPage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="ZKsTHF772K0"
     />
   );
 }

@@ -14,6 +14,7 @@ export async function GET() {
     .not('schema_json', 'is', null);
 
   const videoPages = (pages || []).filter((p: any) => {
+    if (!p?.slug || p.slug.startsWith('ai-films/')) return false;
     const schema: any = p.schema_json;
     if (Array.isArray(schema)) {
       return schema.some((s: any) => s["@type"] === "VideoObject");

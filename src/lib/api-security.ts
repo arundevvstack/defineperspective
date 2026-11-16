@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { cookies, headers } from 'next/headers';
 import { verifySession, SessionPayload } from '@/lib/session';
+import { recordSecurityEvent, categorizeUserAgent } from '@/lib/intelligence/security-telemetry';
+import { hashClientIp } from '@/lib/intelligence/telemetry-hasher';
 
 // In-memory sliding window rate limiting
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -55,6 +57,30 @@ export async function assertAdminApi(req: Request): Promise<AuthResult> {
       }
     }
 
+    // Log unauthorized access attempt via keyed HMAC IP
+    try {
+      const rawIp =
+        req.headers.get('cf-connecting-ip') ||
+        req.headers.get('x-real-ip') ||
+        req.headers.get('x-forwarded-for')?.split(',')[0] ||
+        'unknown';
+      const ipHash = hashClientIp(rawIp);
+      const pathname = new URL(req.url).pathname;
+
+      recordSecurityEvent({
+        eventType: 'AUTH_FAIL_401',
+        requestPath: pathname,
+        httpMethod: req.method,
+        httpStatusCode: 401,
+        ipHash,
+        userAgentCategory: categorizeUserAgent(req.headers.get('user-agent')),
+        actionTaken: 'REJECTED_401',
+        ruleId: 'AUTH_GUARD_ASSERT_ADMIN',
+      }).catch(() => { });
+    } catch (e) {
+      // Fail-open
+    }
+
     return {
       authorized: false,
       response: NextResponse.json(
@@ -82,6 +108,30 @@ export async function checkRateLimit(
   maxRequests: number = DEFAULT_MAX_REQUESTS,
   windowMs: number = DEFAULT_WINDOW_MS
 ): Promise<NextResponse | null> {
+  // Exclude authenticated administrators from rate limits and telemetry logging
+  try {
+    const cookieStore = await cookies();
+    const sessionCookie = cookieStore.get('dp_admin_session')?.value;
+    if (sessionCookie) {
+      const session = verifySession(sessionCookie);
+      if (session && session.role === 'admin') {
+        return null; // Authenticated admin bypass
+      }
+    }
+    const authHeader = req.headers.get('authorization') || req.headers.get('x-admin-token');
+    const adminSecret = (process.env.ADMIN_API_SECRET || '').trim();
+    if (adminSecret && authHeader) {
+      const cleanHeader = authHeader.startsWith('Bearer ')
+        ? authHeader.slice(7).trim()
+        : authHeader.trim();
+      if (cleanHeader === adminSecret) {
+        return null; // Admin secret bypass
+      }
+    }
+  } catch {
+    // Fail-safe: continue to public IP rate check
+  }
+
   const headersList = await headers();
   const cfConnectingIp = headersList.get('cf-connecting-ip');
   const realIp = headersList.get('x-real-ip');
@@ -94,6 +144,24 @@ export async function checkRateLimit(
   if (rateInfo) {
     if (now < rateInfo.resetAt) {
       if (rateInfo.count >= maxRequests) {
+        // Record rate limit violation
+        try {
+          const ipHash = hashClientIp(ip);
+          const pathname = new URL(req.url).pathname;
+          recordSecurityEvent({
+            eventType: 'RATE_LIMIT_429',
+            requestPath: pathname,
+            httpMethod: req.method,
+            httpStatusCode: 429,
+            ipHash,
+            userAgentCategory: categorizeUserAgent(headersList.get('user-agent')),
+            actionTaken: 'THROTTLED_429',
+            ruleId: 'RATE_LIMIT_EXCEEDED',
+          }).catch(() => { });
+        } catch (e) {
+          // Fail-open
+        }
+
         return NextResponse.json(
           { error: 'Too many requests. Rate limit exceeded.' },
           { status: 429 }
@@ -118,4 +186,3 @@ export async function checkRateLimit(
 
   return null;
 }
-

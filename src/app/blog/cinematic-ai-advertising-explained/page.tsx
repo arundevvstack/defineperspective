@@ -175,7 +175,7 @@ export default function AIExtendedPage() {
                     Cinematic AI advertising is the integration of elite art direction, filmmaking lenses, spatial soundscapes, and DaVinci color grading with advanced generative AI video engines. Rather than generic templates, we construct unique, character-consistent visual assets designed to capture immediate human emotion.
                   </p>
                   <p>
-                    By coupling this craft with our professional <Link href="/services/ai-commercial-production" className="text-white underline decoration-primary-accent transition-colors hover:text-primary-accent">AI Commercial Production</Link> workflows, we deliver theater-ready assets at a fraction of traditional shoot costs. This is the future of digital and broadcast media.
+                    By coupling this craft with our professional <Link href="/ai-commercial-production-india" className="text-white underline decoration-primary-accent transition-colors hover:text-primary-accent">AI Commercial Production</Link> workflows, we deliver theater-ready assets at a fraction of traditional shoot costs. This is the future of digital and broadcast media.
                   </p>
                 </div>
               </section>

@@ -46,6 +46,7 @@ export default function HealthcarePage() {
       contentBody={data.contentBody}
       schema={schema}
       theme="theme-blue"
+      videoId="67IExKhWqd0"
     />
   );
 }

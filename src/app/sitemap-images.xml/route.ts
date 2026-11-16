@@ -14,14 +14,20 @@ export async function GET() {
     '/services',
     '/ai-video-production-india',
     '/ai-tvc-production',
-    '/photography'
   ];
 
-  // 2. Dynamic Routes from content_pages
+  // 2. Dynamic Routes from content_pages (excluding unrouted services and legacy redirects)
   const { data: pages } = await supabase
     .from('content_pages')
     .select('slug, title, schema_json')
     .eq('status', 'published');
+
+  const validPages = (pages || []).filter((page: any) => {
+    if (!page?.slug) return false;
+    if (page.slug.startsWith('services/')) return false;
+    if (page.slug.startsWith('ai-films/')) return false;
+    return true;
+  });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -35,7 +41,7 @@ export async function GET() {
       <image:caption>Define Perspective - Premium AI Video Production Agency</image:caption>
     </image:image>
   </url>`).join('')}
-  ${(pages || []).map((page: any) => {
+  ${validPages.map((page: any) => {
     const images: any[] = [];
     if (page.schema_json?.thumbnailUrl) {
       images.push({

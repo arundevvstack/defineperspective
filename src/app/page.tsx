@@ -65,8 +65,7 @@ export default function Home() {
           "https://instagram.com/defineperspective/",
           "https://youtube.com/@DefinePerspective",
           "https://linkedin.com/company/defineperspective",
-          "https://www.crunchbase.com/organization/define-perspective",
-          "https://www.wikidata.org/wiki/Q123456789"
+          "https://www.crunchbase.com/organization/define-perspective"
         ]
       },
       {
