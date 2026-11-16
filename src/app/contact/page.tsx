@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "Digital video marketing services UAE",
     "Professional video editing & post production"
   ],
+  alternates: {
+    canonical: "https://defineperspective.in/contact",
+  },
   openGraph: {
     title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     description: "Leading AI video production company in Kerala and India, delivering services in Kochi, Trivandrum, and Dubai for global brands.",

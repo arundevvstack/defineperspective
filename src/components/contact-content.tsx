@@ -254,13 +254,13 @@ export default function ContactContent() {
               <div className="lg:col-span-5 space-y-16 lg:space-y-32 w-full">
                  
                  <div className="space-y-16">
-                    <motion.h2 
+                    <motion.h1
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       className="text-xs font-mono text-zinc-600 uppercase tracking-[0.5em] mb-12 flex items-center gap-4 italic font-bold"
                     >
                        Contact Define Perspective <Mail size={14} className="text-primary-accent" />
-                    </motion.h2>
+                    </motion.h1>
                     
                     <div className="space-y-16">
                         <a href="mailto:defineperspective.in@gmail.com" className="flex gap-8 group">

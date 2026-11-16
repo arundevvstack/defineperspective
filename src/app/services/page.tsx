@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Best AI Video Production Company in Kerala | DP AI Studio India",
   description: "Explore our 6-pillar service matrix. From elite cinematic video production to AI-augmented media labs in Kerala & India. High-impact TVCs, Brand Films, and CGI.",
   keywords: ["Video production services Kerala", "AI media studio India", "CGI product videos", "corporate brand films Kerala", "advertising production India"],
+  alternates: {
+    canonical: "https://defineperspective.in/services",
+  },
   openGraph: {
     title: "Best AI Video Production Company in Kerala | DP AI Studio India",
     description: "Eliminating mediocrity. High-end human filmmaking fused with 2026 AI production.",

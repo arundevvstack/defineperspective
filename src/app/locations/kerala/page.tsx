@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "AI ad production Kerala",
     "neural filmmaking Kerala"
   ],
+  alternates: {
+    canonical: "https://defineperspective.in/locations/kerala",
+  },
 };
 
 export default function KeralaLocationPage() {

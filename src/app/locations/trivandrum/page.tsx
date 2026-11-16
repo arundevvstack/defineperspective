@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "Technopark ad production",
     "Trivandrum videographer"
   ],
+  alternates: {
+    canonical: "https://defineperspective.in/locations/trivandrum",
+  },
 };
 
 export default function TrivandrumLocationPage() {
