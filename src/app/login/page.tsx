@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, ShieldCheck, Terminal, ArrowRight, ShieldAlert, Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { authenticateAdmin } from "@/app/actions/auth";
 
 export default function LoginPage() {
@@ -31,7 +30,7 @@ export default function LoginPage() {
 
     if (result.success) {
       setIsSuccess(true);
-      setTimeout(() => router.push("/admin/case-studies"), 1500);
+      setTimeout(() => router.push("/admin/portfolio"), 1500);
     } else {
       setError(result.error || "AUTHENTICATION_FAILED: ACCESS_DENIED");
       setIsSubmitting(false);

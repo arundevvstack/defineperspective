@@ -435,8 +435,12 @@ export function extractMediaStoragePath(urlOrPath: string): string | null {
  *   'http://defineperspective.in/api/portfolio/media/...' URLs.
  * - Converts only this known internal media route to its root-relative equivalent:
  *   '/api/portfolio/media/...'.
- * - Preserves the complete path, query parameters, and encoded characters.
- * - Leaves unrelated external URLs (e.g. YouTube, Vimeo, Supabase direct signed URLs, Unsplash) unchanged.
+ * - Recognizes legacy Supabase signed URLs only when the hostname matches the configured
+ *   Supabase project (process.env.NEXT_PUBLIC_SUPABASE_URL) and the path belongs to
+ *   'portfolio-media-vault/uploads/'. Converts them to '/api/portfolio/media/uploads/...'
+ *   without carrying query tokens.
+ * - Preserves the complete path, query parameters, and encoded characters for known routes.
+ * - Leaves unrelated external URLs (e.g. YouTube, Vimeo, Unsplash, unconfigured Supabase projects) unchanged.
  * - Handles null, undefined, empty, non-string, and malformed inputs safely.
  * - Does not change database records.
  */
@@ -460,6 +464,31 @@ export function normalizeMediaUrl(url: string | null | undefined): string {
   const match = trimmed.match(/^https?:\/\/(?:www\.)?defineperspective\.in(\/api\/portfolio\/media\/.*)$/i);
   if (match && match[1]) {
     return match[1];
+  }
+
+  // Recognize legacy Supabase signed URLs only when the hostname matches the configured
+  // Supabase project and the path belongs to portfolio-media-vault/uploads/
+  try {
+    const parsedUrl = new URL(trimmed);
+    const configuredSupabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    let configuredHost: string | null = null;
+    if (configuredSupabaseUrl && typeof configuredSupabaseUrl === 'string') {
+      try {
+        configuredHost = new URL(configuredSupabaseUrl).hostname.toLowerCase();
+      } catch {
+        configuredHost = null;
+      }
+    }
+
+    if (configuredHost && parsedUrl.hostname.toLowerCase() === configuredHost) {
+      const vaultMatch = parsedUrl.pathname.match(/\/portfolio-media-vault\/(uploads\/.+)$/);
+      if (vaultMatch && vaultMatch[1]) {
+        // Convert to /api/portfolio/media/uploads/... without query tokens
+        return `/api/portfolio/media/${vaultMatch[1]}`;
+      }
+    }
+  } catch {
+    // Malformed or non-URL inputs safely fall through
   }
 
   // Unrelated external URLs or other paths remain untouched
