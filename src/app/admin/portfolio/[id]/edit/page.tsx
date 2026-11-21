@@ -19,6 +19,7 @@ import {
   normalizePortfolioVideoType,
   normalizePortfolioSchemaType,
   parsePortfolioStatus,
+  normalizeMediaUrl,
 } from '@/types/portfolio-cms';
 import {
   getProjectById,
@@ -845,7 +846,7 @@ export default function EditPortfolioProjectPage() {
                 {heroImageUrl && (
                   <div className="relative max-w-md rounded-lg overflow-hidden border border-neutral-800 bg-black aspect-video group">
                     <img
-                      src={heroImageUrl}
+                      src={normalizeMediaUrl(heroImageUrl)}
                       alt="Hero preview"
                       className="w-full h-full object-cover"
                     />
@@ -967,7 +968,7 @@ export default function EditPortfolioProjectPage() {
                   </label>
                   <div className="max-w-md rounded-lg overflow-hidden border border-neutral-800 bg-black aspect-video">
                     <video
-                      src={videoUrl}
+                      src={normalizeMediaUrl(videoUrl)}
                       controls
                       preload="metadata"
                       className="w-full h-full object-contain"
@@ -998,7 +999,7 @@ export default function EditPortfolioProjectPage() {
                         {/* Thumbnail */}
                         <div className="relative w-32 h-20 rounded overflow-hidden border border-neutral-800 bg-black shrink-0">
                           <img
-                            src={img.url}
+                            src={normalizeMediaUrl(img.url)}
                             alt={img.alt_text || `Gallery asset ${idx + 1}`}
                             className="w-full h-full object-cover"
                           />

@@ -428,3 +428,40 @@ export function extractMediaStoragePath(urlOrPath: string): string | null {
   }
   return null;
 }
+
+/**
+ * Normalizes internal media URLs to root-relative paths (/api/portfolio/media/...).
+ * - Recognizes existing 'https://defineperspective.in/api/portfolio/media/...' or
+ *   'http://defineperspective.in/api/portfolio/media/...' URLs.
+ * - Converts only this known internal media route to its root-relative equivalent:
+ *   '/api/portfolio/media/...'.
+ * - Preserves the complete path, query parameters, and encoded characters.
+ * - Leaves unrelated external URLs (e.g. YouTube, Vimeo, Supabase direct signed URLs, Unsplash) unchanged.
+ * - Handles null, undefined, empty, non-string, and malformed inputs safely.
+ * - Does not change database records.
+ */
+export function normalizeMediaUrl(url: string | null | undefined): string {
+  if (!url || typeof url !== 'string') {
+    return '';
+  }
+
+  const trimmed = url.trim();
+  if (!trimmed) {
+    return '';
+  }
+
+  // Already root-relative internal media route
+  if (trimmed.startsWith('/api/portfolio/media/')) {
+    return trimmed;
+  }
+
+  // Recognize known internal media route with Production origin (http, https, with or without www)
+  // Preserve complete path, query strings, and encoded characters
+  const match = trimmed.match(/^https?:\/\/(?:www\.)?defineperspective\.in(\/api\/portfolio\/media\/.*)$/i);
+  if (match && match[1]) {
+    return match[1];
+  }
+
+  // Unrelated external URLs or other paths remain untouched
+  return trimmed;
+}

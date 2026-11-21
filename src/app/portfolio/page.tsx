@@ -3,7 +3,7 @@ import PortfolioContent from "@/components/portfolio-content";
 import { Suspense } from "react";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { getPublicPublishedProjects } from "@/app/actions/portfolio-cms";
-import { isReservedSlug, PortfolioProject } from "@/types/portfolio-cms";
+import { isReservedSlug, PortfolioProject, normalizeMediaUrl } from "@/types/portfolio-cms";
 
 export const revalidate = 60; // ISR revalidation
 
@@ -138,7 +138,7 @@ export default async function PortfolioPage() {
         title: p.title,
         slug: cleanSlug,
         href: `/portfolio/${cleanSlug}`,
-        thumbnail_url: p.thumbnail_url || p.hero_image_url || null,
+        thumbnail_url: normalizeMediaUrl(p.thumbnail_url || p.hero_image_url || null) || null,
         ai_summary: p.project_overview || p.creative_concept || '',
         geo: p.production_location || 'India',
         geo_targets: p.geo_entities || [],

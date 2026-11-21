@@ -745,8 +745,8 @@ export async function uploadProjectMedia(formData: FormData) {
       .from('portfolio-media-vault')
       .createSignedUrl(uploadData.path, 60 * 60 * 24 * 365); // 1 year
 
-    // Permanent branded URL matching https://defineperspective.in/api/portfolio/media/${storagePath}
-    const permanentUrl = `https://defineperspective.in/api/portfolio/media/${uploadData.path}`;
+    // Permanent branded URL matching /api/portfolio/media/${storagePath}
+    const permanentUrl = `/api/portfolio/media/${uploadData.path}`;
 
     return {
       success: true,

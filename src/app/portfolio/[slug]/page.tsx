@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
-import { isReservedSlug, GalleryImage, PortfolioProject } from '@/types/portfolio-cms';
+import { isReservedSlug, GalleryImage, PortfolioProject, normalizeMediaUrl } from '@/types/portfolio-cms';
 import { getPublicPublishedProject, getAdminPreviewProject } from '@/app/actions/portfolio-cms';
 import GlassNavbar from '@/components/glass-navbar';
 import GlassFooter from '@/components/glass-footer';
@@ -302,8 +302,8 @@ export default async function DynamicPortfolioProjectPage(
           ) : (project.video_type === 'custom' || project.video_type === 'mux' || (project.video_type as string) === 'direct') && (project.video_url || project.video_id) ? (
             <div className="aspect-video w-full">
               <video
-                src={project.video_url || project.video_id || ''}
-                poster={project.video_thumbnail_url || project.hero_image_url || undefined}
+                src={normalizeMediaUrl(project.video_url || project.video_id || '')}
+                poster={normalizeMediaUrl(project.video_thumbnail_url || project.hero_image_url || undefined) || undefined}
                 controls
                 playsInline
                 className="w-full h-full object-cover"
@@ -312,7 +312,7 @@ export default async function DynamicPortfolioProjectPage(
           ) : project.hero_image_url ? (
             <div className="aspect-video w-full relative">
               <img
-                src={project.hero_image_url}
+                src={normalizeMediaUrl(project.hero_image_url)}
                 alt={project.title}
                 className="w-full h-full object-cover"
               />
@@ -417,7 +417,7 @@ export default async function DynamicPortfolioProjectPage(
                   className="rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 aspect-video group"
                 >
                   <img
-                    src={img.url}
+                    src={normalizeMediaUrl(img.url)}
                     alt={img.alt_text || `${project.title} frame still ${idx + 1}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
