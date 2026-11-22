@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import PortfolioContent from "@/components/portfolio-content";
 import { Suspense } from "react";
 import { supabaseAdmin } from "@/lib/supabase-admin";
+import { getPublicPublishedProjects } from "@/app/actions/portfolio-cms";
+import { isReservedSlug, PortfolioProject, normalizeMediaUrl } from "@/types/portfolio-cms";
 
 export const revalidate = 60; // ISR revalidation
 
@@ -69,12 +71,17 @@ export default async function PortfolioPage() {
     .eq('published', true)
     .order('published_at', { ascending: false });
 
-  // Safe Set-based Deduplication
+  // Safe Set-based Deduplication & Normalization for legacy case studies
   const rawCaseStudies = caseStudies || [];
-  const uniqueTitles = new Set();
+  const uniqueTitles = new Set<string>();
+  const uniqueLowerTitles = new Set<string>();
+  const uniqueSlugs = new Set<string>();
+
   const uniqueCaseStudies = rawCaseStudies.filter(cs => {
     if (uniqueTitles.has(cs.title)) return false;
     uniqueTitles.add(cs.title);
+    uniqueLowerTitles.add(cs.title.toLowerCase().trim());
+    uniqueSlugs.add(cs.slug.toLowerCase().trim());
     return true;
   }).map(cs => {
     const isRedChamber = cs.slug === 'this-looks-like-a-1m-film-but-it-s-ai-red-chamber-cinematic-ai-music-video' || cs.title.includes('RED CHAMBER');
@@ -90,11 +97,69 @@ export default async function PortfolioPage() {
     };
   });
 
+  // Fetch published CMS portfolio projects safely (Fail-Safe: never breaks legacy portfolio if unmigrated or unavailable)
+  let cmsProjects: PortfolioProject[] = [];
+  try {
+    cmsProjects = await getPublicPublishedProjects();
+  } catch (err) {
+    console.warn('[portfolio] getPublicPublishedProjects unavailable, falling back to legacy case studies:', err);
+    cmsProjects = [];
+  }
+
+  // Filter and map CMS projects to the portfolio grid format
+  // Strict invariants: status = publicly_published AND robots_index = true AND not reserved static slug AND not duplicate
+  const validCmsItems = (cmsProjects || [])
+    .filter(p => {
+      if (!p || !p.slug || !p.title) return false;
+      if (p.status !== 'publicly_published' || p.robots_index !== true) return false;
+      const cleanSlug = p.slug.toLowerCase().trim();
+      if (isReservedSlug(cleanSlug)) return false; // Never duplicate or shadow 13 bespoke static routes
+      if (uniqueSlugs.has(cleanSlug)) return false; // Never duplicate existing slug
+      if (uniqueLowerTitles.has(p.title.toLowerCase().trim())) return false; // Never duplicate existing title
+      return true;
+    })
+    .map(p => {
+      const cleanSlug = p.slug.toLowerCase().trim();
+      uniqueSlugs.add(cleanSlug);
+      uniqueLowerTitles.add(p.title.toLowerCase().trim());
+
+      const rawGeos = [p.production_location, ...(p.geo_entities || [])].filter(Boolean) as string[];
+      const displayGeos = Array.from(new Set(rawGeos));
+
+      const rawIndustries = [
+        p.category ? p.category.replace(/_/g, ' ') : null,
+        ...(p.services_delivered || []),
+        ...(p.deliverables || []),
+      ].filter(Boolean) as string[];
+      const displayIndustries = Array.from(new Set(rawIndustries));
+
+      return {
+        id: p.id,
+        title: p.title,
+        slug: cleanSlug,
+        href: `/portfolio/${cleanSlug}`,
+        thumbnail_url: normalizeMediaUrl(p.thumbnail_url || p.hero_image_url || null) || null,
+        ai_summary: p.project_overview || p.creative_concept || '',
+        geo: p.production_location || 'India',
+        geo_targets: p.geo_entities || [],
+        industry: p.category ? p.category.replace(/_/g, ' ') : 'AI Commercial',
+        industries: displayIndustries.length > 0 ? displayIndustries : ['AI Commercial'],
+        displayGeos: displayGeos.length > 0 ? displayGeos : ['India'],
+        displayIndustries: displayIndustries.length > 0 ? displayIndustries : ['AI Commercial'],
+        published_at: p.published_at || p.created_at,
+        created_at: p.created_at,
+        isCmsProject: true,
+      };
+    });
+
+  // Preserve all legacy case studies in original order, then append published CMS projects
+  const allPortfolioItems = [...uniqueCaseStudies, ...validCmsItems];
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Suspense fallback={<div className="min-h-screen bg-obsidian flex items-center justify-center"><div className="h-1 w-24 bg-transparent border-2 border-primary-accent animate-pulse rounded-full hover:bg-transparent transition-all duration-300" /></div>}>
-        <PortfolioContent caseStudies={uniqueCaseStudies} />
+        <PortfolioContent caseStudies={allPortfolioItems} />
       </Suspense>
     </>
   );

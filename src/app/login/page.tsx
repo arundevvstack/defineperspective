@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, ShieldCheck, Terminal, ArrowRight, ShieldAlert, Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { authenticateAdmin } from "@/app/actions/auth";
 
 export default function LoginPage() {
@@ -18,20 +17,29 @@ export default function LoginPage() {
   // Auto-redirect if already logged in has been removed since we rely on server-side cookies now.
   // Instead, the root layout or middleware should ideally handle this, but for now we just let them see the login page if they navigate here.
   
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
 
+    const form = e.currentTarget;
+    const formNativeData = new FormData(form);
+    const nativePassword = formNativeData.get("password");
+    const resolvedUsername = (formNativeData.get("username") as string)?.trim() || username.trim();
+    const resolvedPassword =
+      typeof nativePassword === "string" && nativePassword.length > 0
+        ? nativePassword
+        : password;
+
     const formData = new FormData();
-    formData.append("username", username);
-    formData.append("password", password);
+    formData.append("username", resolvedUsername);
+    formData.append("password", resolvedPassword);
 
     const result = await authenticateAdmin(formData);
 
     if (result.success) {
       setIsSuccess(true);
-      setTimeout(() => router.push("/admin/case-studies"), 1500);
+      setTimeout(() => router.push("/admin/portfolio"), 1500);
     } else {
       setError(result.error || "AUTHENTICATION_FAILED: ACCESS_DENIED");
       setIsSubmitting(false);
@@ -88,6 +96,8 @@ export default function LoginPage() {
                     <div className="relative">
                       <input 
                         required
+                        name="username"
+                        autoComplete="username"
                         value={username}
                         onChange={e => setUsername(e.target.value)}
                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm outline-none focus:border-primary-accent/50 transition-all text-white placeholder:text-zinc-800"
@@ -103,6 +113,8 @@ export default function LoginPage() {
                       <input 
                         required
                         type="password"
+                        name="password"
+                        autoComplete="current-password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm outline-none focus:border-primary-accent/50 transition-all text-white placeholder:text-zinc-800"
