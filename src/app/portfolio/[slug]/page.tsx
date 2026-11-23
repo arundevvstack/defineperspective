@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { isReservedSlug, GalleryImage, PortfolioProject, normalizeMediaUrl } from '@/types/portfolio-cms';
 import { getPublicPublishedProject, getAdminPreviewProject } from '@/app/actions/portfolio-cms';
 import GlassNavbar from '@/components/glass-navbar';
-import GlassFooter from '@/components/glass-footer';
 import LiteYouTube from '@/components/lite-youtube';
 import {
   ArrowLeft,
@@ -448,8 +447,6 @@ export default async function DynamicPortfolioProjectPage(
           </div>
         </section>
       </div>
-
-      <GlassFooter />
     </main>
   );
 }
