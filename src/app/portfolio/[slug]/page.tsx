@@ -6,6 +6,12 @@ import { isReservedSlug, GalleryImage, PortfolioProject, normalizeMediaUrl } fro
 import { getPublicPublishedProject, getAdminPreviewProject } from '@/app/actions/portfolio-cms';
 import GlassNavbar from '@/components/glass-navbar';
 import LiteYouTube from '@/components/lite-youtube';
+import MasterCaseStudyLayout from '@/components/case-study/master-case-study-layout';
+import {
+  isEligibleForMasterCaseStudy,
+  mapPortfolioProjectToMasterCaseStudy,
+  cleanLocationString,
+} from '@/lib/case-study-mapper';
 import {
   ArrowLeft,
   ArrowRight,
@@ -86,11 +92,12 @@ export async function generateMetadata(
   }
 
   const pageTitle = project.seo_title || `${project.title} | DP AI Studio India`;
+  const locationContext = cleanLocationString(project.production_location);
   const pageDescription =
     project.seo_description ||
     project.project_overview ||
     project.creative_concept ||
-    `Cinematic AI ad film and video production case study: ${project.title}. Produced by DP AI Studio (Define Perspective)${project.production_location ? ` — ${project.production_location}` : ''}.`;
+    `Cinematic AI ad film and video production case study: ${project.title}. Produced by DP AI Studio (Define Perspective)${locationContext ? ` — ${locationContext}` : ''}.`;
   const canonicalUrl =
     project.canonical_url || `https://defineperspective.in/portfolio/${project.slug}`;
 
@@ -110,7 +117,7 @@ export async function generateMetadata(
       ...(project.focus_keywords || []),
       ...defaultKeywords,
       ...(project.geo_entities || []),
-      project.category ? project.category.replace(/_/g, ' ') : 'AI Commercial',
+      ...(project.category ? [project.category.replace(/_/g, ' ')] : []),
     ])
   );
 
@@ -190,10 +197,12 @@ export default async function DynamicPortfolioProjectPage(
 
   const clientName = project.is_client_confidential
     ? null
-    : project.public_client_display_name || project.internal_client_name;
+    : project.public_client_display_name || project.internal_client_name || null;
 
   const canonicalUrl =
     project.canonical_url || `https://defineperspective.in/portfolio/${project.slug}`;
+
+  const cleanedLocation = cleanLocationString(project.production_location);
 
   const defaultKeywords = [
     'AI fashion commercial',
@@ -211,9 +220,15 @@ export default async function DynamicPortfolioProjectPage(
       ...(project.focus_keywords || []),
       ...defaultKeywords,
       ...(project.geo_entities || []),
-      project.category ? project.category.replace(/_/g, ' ') : 'AI Commercial',
+      ...(project.category ? [project.category.replace(/_/g, ' ')] : []),
     ])
   );
+
+  // Check eligibility for master case study layout
+  const eligibleForMaster = isEligibleForMasterCaseStudy(project);
+  const masterCaseStudyData = eligibleForMaster
+    ? mapPortfolioProjectToMasterCaseStudy(project, isPreviewMode)
+    : null;
 
   // JSON-LD Structured Data: only for published pages, never for previews
   const jsonLd = isPreviewMode ? null : {
@@ -253,9 +268,9 @@ export default async function DynamicPortfolioProjectPage(
           name: 'Define Perspective',
           url: 'https://defineperspective.in',
         },
-        locationCreated: project.production_location ? {
+        locationCreated: cleanedLocation ? {
           '@type': 'Place',
-          name: project.production_location,
+          name: cleanedLocation,
         } : undefined,
         keywords: keywordsList.join(', '),
       },
@@ -276,6 +291,20 @@ export default async function DynamicPortfolioProjectPage(
             name: 'DP AI Studio (Define Perspective)',
             url: 'https://defineperspective.in',
           },
+        }
+      ] : []),
+      ...(masterCaseStudyData && masterCaseStudyData.faqs.length > 0 ? [
+        {
+          '@type': 'FAQPage',
+          '@id': `${canonicalUrl}#faq`,
+          mainEntity: masterCaseStudyData.faqs.map(f => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: f.answer,
+            },
+          })),
         }
       ] : []),
       {
@@ -304,6 +333,29 @@ export default async function DynamicPortfolioProjectPage(
     ],
   };
 
+  // ---------------------------------------------------------------------------
+  // DATA-DRIVEN MASTER CASE STUDY EXPERIENCE UPGRADE
+  // If the project possesses sufficient narrative and media depth,
+  // render the 11-module Master Case Study layout modeled after Red Chamber.
+  // Projects without sufficient case study material retain the default layout.
+  // ---------------------------------------------------------------------------
+  if (masterCaseStudyData) {
+    return (
+      <>
+        {jsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+        )}
+        <MasterCaseStudyLayout data={masterCaseStudyData} />
+      </>
+    );
+  }
+
+  // ---------------------------------------------------------------------------
+  // DEFAULT PORTFOLIO PROJECT LAYOUT (Clean fallback for incomplete projects)
+  // ---------------------------------------------------------------------------
   return (
     <main className="min-h-screen bg-black text-white relative overflow-hidden font-sans selection:bg-amber-500/30">
       {/* ADMIN PREVIEW BANNER */}
@@ -342,7 +394,6 @@ export default async function DynamicPortfolioProjectPage(
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-amber-500/5 blur-[200px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto max-w-6xl px-6 md:px-12 pt-36 md:pt-44 pb-28 relative z-10 space-y-16">
-
         {/* Navigation Breadcrumb */}
         <div>
           <Link
@@ -432,7 +483,6 @@ export default async function DynamicPortfolioProjectPage(
 
         {/* Project Details & Narrative */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-6">
-
           {/* Main Narrative Content */}
           <div className="lg:col-span-8 space-y-10">
             {project.creative_concept && (
@@ -470,13 +520,13 @@ export default async function DynamicPortfolioProjectPage(
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {project.production_location && (
+                {cleanedLocation && (
                   <div className="p-4 rounded-xl bg-neutral-900/40 border border-neutral-800/60">
                     <h3 className="text-xs font-mono uppercase tracking-widest text-amber-500 mb-1">
                       Production Context
                     </h3>
                     <p className="text-xs text-neutral-300 font-light">
-                      {project.production_location}
+                      {cleanedLocation}
                     </p>
                   </div>
                 )}

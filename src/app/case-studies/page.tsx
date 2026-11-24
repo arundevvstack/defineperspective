@@ -4,7 +4,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import GlassNavbar from '@/components/glass-navbar';
 import WhatsAppChat from '@/components/whatsapp-chat';
-import CaseStudyFilter from './CaseStudyFilter';
+import CaseStudyFilter, { CaseStudyItem } from './CaseStudyFilter';
+import { getPublicPublishedProjects } from '@/app/actions/portfolio-cms';
+import { isReservedSlug, PortfolioProject, normalizeMediaUrl } from '@/types/portfolio-cms';
+import { cleanLocationString, isEligibleForMasterCaseStudy } from '@/lib/case-study-mapper';
 
 export const revalidate = 60; // ISR revalidation
 
@@ -35,28 +38,108 @@ export default async function CaseStudiesListingPage() {
     .eq('published', true)
     .order('published_at', { ascending: false });
 
-  // Safe Set-based Deduplication to prevent future CMS clones from breaking SEO
+  // Safe Set-based Deduplication by Canonical Slug and Normalized Title
   const rawCaseStudies = caseStudies || [];
-  const uniqueTitles = new Set();
-  const uniqueCaseStudies = rawCaseStudies.filter(cs => {
-    if (uniqueTitles.has(cs.title)) return false;
-    uniqueTitles.add(cs.title);
-    return true;
-  }).map(cs => {
-    const isRedChamber = cs.slug === 'this-looks-like-a-1m-film-but-it-s-ai-red-chamber-cinematic-ai-music-video' || cs.title.includes('RED CHAMBER');
-    return {
-      ...cs,
-      slug: isRedChamber ? 'red-chamber-ai-music-video-production' : cs.slug,
-      title: isRedChamber ? 'Red Chamber | Cinematic AI Music Video by DP AI Studios (Define Perspective)' : cs.title,
-      ai_summary: isRedChamber ? 'Experience Red Chamber, a cinematic AI music video created by DP AI Studios (Define Perspective). This project showcases photorealistic AI filmmaking, cinematic storytelling, virtual cinematography, AI image generation, and premium visual production, demonstrating how generative AI can be used to create emotionally engaging, film-quality music videos.' : cs.ai_summary,
-      industry: isRedChamber ? 'Entertainment & Music' : cs.industry,
-      industries: isRedChamber ? ['Entertainment', 'Music Video'] : cs.industries,
-      displayGeos: Array.from(new Set([cs.geo, ...(cs.geo_targets || [])])).filter(Boolean),
-      displayIndustries: isRedChamber ? ['Entertainment', 'Music Video'] : Array.from(new Set([cs.industry, ...(cs.industries || [])])).filter(Boolean)
-    };
-  });
+  const uniqueTitles = new Set<string>();
+  const uniqueLowerTitles = new Set<string>();
+  const uniqueSlugs = new Set<string>();
 
-  // Generate CollectionPage Schema
+  const uniqueCaseStudies: CaseStudyItem[] = [];
+  for (const cs of rawCaseStudies) {
+    if (!cs || !cs.slug || !cs.title) continue;
+    const isRedChamber = cs.slug === 'this-looks-like-a-1m-film-but-it-s-ai-red-chamber-cinematic-ai-music-video' || cs.title.toUpperCase().includes('RED CHAMBER') || cs.slug === 'red-chamber-ai-music-video-production';
+    const canonicalSlug = isRedChamber ? 'red-chamber-ai-music-video-production' : cs.slug.toLowerCase().trim();
+    const normalizedTitle = (isRedChamber ? 'Red Chamber | Cinematic AI Music Video by DP AI Studios (Define Perspective)' : cs.title).toLowerCase().trim();
+
+    // Deduplicate by both canonical slug and normalized title
+    if (uniqueSlugs.has(canonicalSlug)) continue;
+    if (uniqueLowerTitles.has(normalizedTitle)) continue;
+
+    uniqueSlugs.add(canonicalSlug);
+    uniqueSlugs.add(cs.slug.toLowerCase().trim());
+    uniqueLowerTitles.add(normalizedTitle);
+    uniqueTitles.add(cs.title);
+
+    uniqueCaseStudies.push({
+      slug: canonicalSlug,
+      href: `/case-studies/${canonicalSlug}`,
+      title: isRedChamber ? 'Red Chamber | Cinematic AI Music Video by DP AI Studios (Define Perspective)' : cs.title,
+      thumbnail_url: cs.thumbnail_url,
+      ai_summary: isRedChamber ? 'Experience Red Chamber, a cinematic AI music video created by DP AI Studios (Define Perspective). This project showcases photorealistic AI filmmaking, cinematic storytelling, virtual cinematography, AI image generation, and premium visual production, demonstrating how generative AI can be used to create emotionally engaging, film-quality music videos.' : cs.ai_summary,
+      displayGeos: Array.from(new Set([cleanLocationString(cs.geo), ...(cs.geo_targets || [])].filter(Boolean))) as string[],
+      displayIndustries: isRedChamber ? ['Entertainment', 'Music Video'] : Array.from(new Set([cs.industry, ...(cs.industries || [])].filter(Boolean))) as string[],
+    });
+  }
+
+  // Fetch published CMS portfolio projects safely (Fail-Safe: preserves case studies if CMS unavailable)
+  let cmsProjects: PortfolioProject[] = [];
+  try {
+    cmsProjects = await getPublicPublishedProjects();
+  } catch (err) {
+    console.warn('[case-studies] getPublicPublishedProjects unavailable, falling back to legacy case studies:', err);
+    cmsProjects = [];
+  }
+
+  // Filter and map eligible published CMS projects
+  // Strict invariants: status = publicly_published AND robots_index = true AND isEligibleForMasterCaseStudy AND not reserved static slug AND not duplicate
+  const eligibleCmsItems: CaseStudyItem[] = (cmsProjects || [])
+    .filter(p => {
+      if (!p || !p.slug || !p.title) return false;
+      if (p.status !== 'publicly_published' || p.robots_index !== true) return false;
+      const cleanSlug = p.slug.toLowerCase().trim();
+      if (isReservedSlug(cleanSlug)) return false; // Never duplicate 13 reserved static routes
+      if (uniqueSlugs.has(cleanSlug)) return false; // Never duplicate existing slug
+      if (uniqueLowerTitles.has(p.title.toLowerCase().trim())) return false; // Never duplicate existing title
+      if (!isEligibleForMasterCaseStudy(p)) return false; // Only include deep, eligible case studies
+      return true;
+    })
+    .map(p => {
+      const cleanSlug = p.slug.toLowerCase().trim();
+      uniqueSlugs.add(cleanSlug);
+      uniqueLowerTitles.add(p.title.toLowerCase().trim());
+
+      const rawGeos = [cleanLocationString(p.production_location), ...(p.geo_entities || [])].filter(Boolean) as string[];
+      const displayGeos = Array.from(new Set(rawGeos));
+
+      const rawIndustries = [
+        p.category ? p.category.replace(/_/g, ' ') : null,
+        ...(p.services_delivered || []),
+      ].filter(Boolean) as string[];
+      const displayIndustries = Array.from(new Set(rawIndustries));
+
+      const thumbUrl = p.thumbnail_url ? normalizeMediaUrl(p.thumbnail_url) : (p.hero_image_url ? normalizeMediaUrl(p.hero_image_url) : null);
+      const summary = p.project_overview || (p.creative_concept ? p.creative_concept.split(/\n\n+/)[0].replace(/^#+\s*/, '') : p.title);
+
+      return {
+        id: p.id,
+        slug: p.slug,
+        href: `/portfolio/${p.slug}`,
+        title: p.title,
+        thumbnail_url: thumbUrl,
+        ai_summary: summary,
+        displayGeos,
+        displayIndustries,
+      };
+    });
+
+  const allCaseStudies: CaseStudyItem[] = [...uniqueCaseStudies, ...eligibleCmsItems];
+
+  // Generate CollectionPage Schema (guaranteeing exactly one entity per canonical URL)
+  const seenCanonicalUrls = new Set<string>();
+  const hasPartEntities = [];
+
+  for (const cs of allCaseStudies) {
+    const canonicalUrl = cs.href ? `https://defineperspective.in${cs.href}` : `https://defineperspective.in/case-studies/${cs.slug}`;
+    if (seenCanonicalUrls.has(canonicalUrl)) continue;
+    seenCanonicalUrls.add(canonicalUrl);
+
+    hasPartEntities.push({
+      "@type": "Article",
+      "headline": cs.title,
+      "url": canonicalUrl
+    });
+  }
+
   const schemaJson = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -68,11 +151,7 @@ export default async function CaseStudiesListingPage() {
       "name": "DP AI Studios",
       "url": "https://defineperspective.in/"
     },
-    "hasPart": uniqueCaseStudies.map(cs => ({
-      "@type": "Article",
-      "headline": cs.title,
-      "url": `https://defineperspective.in/case-studies/${cs.slug}`
-    }))
+    "hasPart": hasPartEntities
   };
 
   return (
@@ -105,7 +184,7 @@ export default async function CaseStudiesListingPage() {
 
         {/* Case Studies Grid & Filters */}
         <section className="mt-12">
-          <CaseStudyFilter caseStudies={uniqueCaseStudies} />
+          <CaseStudyFilter caseStudies={allCaseStudies} />
         </section>
       </div>
 

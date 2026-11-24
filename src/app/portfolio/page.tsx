@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { getPublicPublishedProjects } from "@/app/actions/portfolio-cms";
 import { isReservedSlug, PortfolioProject, normalizeMediaUrl } from "@/types/portfolio-cms";
+import { cleanLocationString } from "@/lib/case-study-mapper";
 
 export const revalidate = 60; // ISR revalidation
 
@@ -77,25 +78,33 @@ export default async function PortfolioPage() {
   const uniqueLowerTitles = new Set<string>();
   const uniqueSlugs = new Set<string>();
 
-  const uniqueCaseStudies = rawCaseStudies.filter(cs => {
-    if (uniqueTitles.has(cs.title)) return false;
-    uniqueTitles.add(cs.title);
-    uniqueLowerTitles.add(cs.title.toLowerCase().trim());
+  const uniqueCaseStudies = [];
+  for (const cs of rawCaseStudies) {
+    if (!cs || !cs.slug || !cs.title) continue;
+    const isRedChamber = cs.slug === 'this-looks-like-a-1m-film-but-it-s-ai-red-chamber-cinematic-ai-music-video' || cs.title.toUpperCase().includes('RED CHAMBER') || cs.slug === 'red-chamber-ai-music-video-production';
+    const canonicalSlug = isRedChamber ? 'red-chamber-ai-music-video-production' : cs.slug.toLowerCase().trim();
+    const normalizedTitle = (isRedChamber ? 'Red Chamber | Cinematic AI Music Video by DP AI Studios (Define Perspective)' : cs.title).toLowerCase().trim();
+
+    // Deduplicate by both canonical slug and normalized title
+    if (uniqueSlugs.has(canonicalSlug)) continue;
+    if (uniqueLowerTitles.has(normalizedTitle)) continue;
+
+    uniqueSlugs.add(canonicalSlug);
     uniqueSlugs.add(cs.slug.toLowerCase().trim());
-    return true;
-  }).map(cs => {
-    const isRedChamber = cs.slug === 'this-looks-like-a-1m-film-but-it-s-ai-red-chamber-cinematic-ai-music-video' || cs.title.includes('RED CHAMBER');
-    return {
+    uniqueLowerTitles.add(normalizedTitle);
+    uniqueTitles.add(cs.title);
+
+    uniqueCaseStudies.push({
       ...cs,
-      slug: isRedChamber ? 'red-chamber-ai-music-video-production' : cs.slug,
+      slug: canonicalSlug,
       title: isRedChamber ? 'Red Chamber | Cinematic AI Music Video by DP AI Studios (Define Perspective)' : cs.title,
       ai_summary: isRedChamber ? 'Experience Red Chamber, a cinematic AI music video created by DP AI Studios (Define Perspective). This project showcases photorealistic AI filmmaking, cinematic storytelling, virtual cinematography, AI image generation, and premium visual production, demonstrating how generative AI can be used to create emotionally engaging, film-quality music videos.' : cs.ai_summary,
       industry: isRedChamber ? 'Entertainment & Music' : cs.industry,
       industries: isRedChamber ? ['Entertainment', 'Music Video'] : cs.industries,
-      displayGeos: Array.from(new Set([cs.geo, ...(cs.geo_targets || [])])).filter(Boolean),
-      displayIndustries: isRedChamber ? ['Entertainment', 'Music Video'] : Array.from(new Set([cs.industry, ...(cs.industries || [])])).filter(Boolean)
-    };
-  });
+      displayGeos: Array.from(new Set([cleanLocationString(cs.geo), ...(cs.geo_targets || [])].filter(Boolean))) as string[],
+      displayIndustries: isRedChamber ? ['Entertainment', 'Music Video'] : Array.from(new Set([cs.industry, ...(cs.industries || [])].filter(Boolean))) as string[],
+    });
+  }
 
   // Fetch published CMS portfolio projects safely (Fail-Safe: never breaks legacy portfolio if unmigrated or unavailable)
   let cmsProjects: PortfolioProject[] = [];
@@ -123,7 +132,8 @@ export default async function PortfolioPage() {
       uniqueSlugs.add(cleanSlug);
       uniqueLowerTitles.add(p.title.toLowerCase().trim());
 
-      const rawGeos = [p.production_location, ...(p.geo_entities || [])].filter(Boolean) as string[];
+      const cleanedLoc = cleanLocationString(p.production_location);
+      const rawGeos = [cleanedLoc, ...(p.geo_entities || [])].filter(Boolean) as string[];
       const displayGeos = Array.from(new Set(rawGeos));
 
       const rawIndustries = [
@@ -133,6 +143,10 @@ export default async function PortfolioPage() {
       ].filter(Boolean) as string[];
       const displayIndustries = Array.from(new Set(rawIndustries));
 
+      const client = p.is_client_confidential
+        ? ''
+        : p.public_client_display_name || p.internal_client_name || '';
+
       return {
         id: p.id,
         title: p.title,
@@ -141,17 +155,17 @@ export default async function PortfolioPage() {
         thumbnail_url: normalizeMediaUrl(p.thumbnail_url || p.hero_image_url || null) || null,
         hero_image_url: normalizeMediaUrl(p.hero_image_url || null) || null,
         ai_summary: p.project_overview || p.creative_concept || '',
-        geo: p.production_location || 'India',
+        geo: cleanedLoc || '',
         geo_targets: p.geo_entities || [],
         category: p.category,
         videoId: p.video_id || null,
         video_type: p.video_type || null,
         video_url: p.video_url || null,
-        client: p.public_client_display_name || 'DP AI Studio',
-        industry: p.category ? p.category.replace(/_/g, ' ') : 'AI Commercial',
-        industries: displayIndustries.length > 0 ? displayIndustries : ['AI Commercial'],
-        displayGeos: displayGeos.length > 0 ? displayGeos : ['India'],
-        displayIndustries: displayIndustries.length > 0 ? displayIndustries : ['AI Commercial'],
+        client,
+        industry: p.category ? p.category.replace(/_/g, ' ') : '',
+        industries: displayIndustries,
+        displayGeos,
+        displayIndustries,
         published_at: p.published_at || p.created_at,
         created_at: p.created_at,
         isCmsProject: true,

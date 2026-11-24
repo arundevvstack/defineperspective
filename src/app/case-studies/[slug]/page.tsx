@@ -12,6 +12,12 @@ import CaseStudyHeroBanner from '@/components/case-study-hero-banner';
 import CaseStudyEditorial from '@/components/case-study-editorial';
 import CaseStudyEditorialBottom from '@/components/case-study-editorial-bottom';
 import { getRelatedCaseStudies, CaseStudyNode } from '@/lib/related-engine';
+import MasterCaseStudyLayout from '@/components/case-study/master-case-study-layout';
+import {
+  isLegacyCaseStudyEligibleForMaster,
+  mapLegacyCaseStudyToMasterCaseStudy,
+  LegacyCaseStudy,
+} from '@/lib/case-study-mapper';
 
 // ==============================================================================
 // TYPES
@@ -200,6 +206,54 @@ export default async function CaseStudyPage({ params }: Props) {
       { "@type": "ListItem", "position": 3, "name": caseStudy.title, "item": `https://defineperspective.in/case-studies/${caseStudy.slug}` }
     ]
   };
+
+  // Evaluate eligibility for Master Case Study Experience
+  const isMasterEligible = isLegacyCaseStudyEligibleForMaster(caseStudy as LegacyCaseStudy);
+  const masterData = isMasterEligible ? mapLegacyCaseStudyToMasterCaseStudy(caseStudy as LegacyCaseStudy) : null;
+
+  if (isMasterEligible && masterData) {
+    return (
+      <>
+        {/* ── JSON-LD SCHEMAS ── */}
+        {caseStudy.schema_json && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudy.schema_json) }}
+          />
+        )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        {masterData.faqs && masterData.faqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: masterData.faqs.map((faq) => ({
+                  '@type': 'Question',
+                  name: faq.question,
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.answer,
+                  },
+                })),
+              }),
+            }}
+          />
+        )}
+
+        {/* ── MASTER CASE STUDY EXPERIENCE ── */}
+        <MasterCaseStudyLayout data={masterData} />
+      </>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-obsidian text-white pb-40 relative overflow-hidden font-sans selection:bg-white/30">
