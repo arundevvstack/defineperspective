@@ -5,6 +5,39 @@ import { assertAdminApi } from '@/lib/api-security';
 import { getAdminPreviewProject } from '@/app/actions/portfolio-cms';
 
 /**
+ * Validates and sanitizes internal redirect URLs.
+ * Strictly enforces safe relative internal paths starting with a single '/'.
+ * Rejects protocol-relative URLs (//), backslashes, external URLs, CRLF, and malformed paths.
+ */
+function getSafeInternalRedirect(rawPath: string | null | undefined, defaultPath: string = '/portfolio'): string {
+  if (!rawPath || typeof rawPath !== 'string') {
+    return defaultPath;
+  }
+
+  const trimmed = rawPath.trim();
+
+  // Must begin with a single '/' and never '//' (protocol-relative) or '/\'
+  if (!trimmed.startsWith('/') || trimmed.startsWith('//') || trimmed.startsWith('/\\')) {
+    return defaultPath;
+  }
+
+  // Must not contain backslashes or CRLF injection characters
+  if (trimmed.includes('\\') || /[\r\n]/.test(trimmed)) {
+    return defaultPath;
+  }
+
+  try {
+    const parsed = new URL(trimmed, 'https://defineperspective.in');
+    if (parsed.origin !== 'https://defineperspective.in') {
+      return defaultPath;
+    }
+    return parsed.pathname + parsed.search;
+  } catch {
+    return defaultPath;
+  }
+}
+
+/**
  * GET /api/portfolio/preview
  * Dedicated administrator-only preview endpoint.
  *
@@ -23,8 +56,16 @@ export async function GET(req: Request) {
       return auth.response;
     }
 
-    // 2. Validate query identifier
+    // 2. Validate query identifier or exit draft mode request
     const { searchParams } = new URL(req.url);
+    if (searchParams.get('disable') === 'true' || searchParams.get('exit') === 'true') {
+      const draft = await draftMode();
+      draft.disable();
+      const defaultRedirect = searchParams.get('slug') ? `/portfolio/${searchParams.get('slug')}` : '/portfolio';
+      const redirectPath = getSafeInternalRedirect(searchParams.get('redirect'), defaultRedirect);
+      redirect(redirectPath);
+    }
+
     const id = searchParams.get('id');
     const slug = searchParams.get('slug');
     const identifier = id || slug;

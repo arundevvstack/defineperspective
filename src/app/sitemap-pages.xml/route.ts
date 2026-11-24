@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 import { discoverAppRoutes } from '@/lib/route-discovery';
 
 export const revalidate = 3600; // Cache for 1 hour
@@ -82,6 +83,21 @@ export async function GET() {
     return true;
   });
 
+  // 3b. Published Dynamic CMS Portfolio Projects
+  let cmsProjects: any[] = [];
+  try {
+    const { data: cmsData } = await supabaseAdmin
+      .from('portfolio_projects')
+      .select('slug, published_at, updated_at')
+      .eq('status', 'publicly_published')
+      .eq('robots_index', true)
+      .eq('in_sitemap', true);
+    cmsProjects = cmsData || [];
+  } catch (err) {
+    console.warn('[sitemap-pages] Failed to query portfolio_projects:', err);
+    cmsProjects = [];
+  }
+
   // 4. Entity Nodes (Locations/Industries)
   const { data: entities } = await supabase
     .from('entity_graph')
@@ -109,6 +125,20 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`);
+  });
+
+  cmsProjects.forEach((proj: any) => {
+    if (!proj?.slug) return;
+    const loc = `${baseUrl}/portfolio/${proj.slug}`;
+    if (!urlSet.has(loc)) {
+      urlSet.set(loc, `
+  <url>
+    <loc>${loc}</loc>
+    <lastmod>${proj.updated_at || proj.published_at || new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`);
+    }
   });
 
   (entities || []).forEach((entity: any) => {

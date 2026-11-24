@@ -44,7 +44,13 @@ export async function generateMetadata(
     const previewRes = await getAdminPreviewProject(slug);
     if (previewRes.success && previewRes.data) {
       project = previewRes.data;
-      isPreviewMode = true;
+      // A project may bypass preview mode only when status is publicly_published (or published) AND robots_index is true
+      const isPublicEligible =
+        (project.status === 'publicly_published' || project.status === 'published') &&
+        project.robots_index === true;
+      if (!isPublicEligible) {
+        isPreviewMode = true;
+      }
     }
   }
 
@@ -52,7 +58,13 @@ export async function generateMetadata(
     project = await getPublicPublishedProject(slug);
   }
 
-  if (!project) {
+  const isPublicEligible =
+    project !== null &&
+    (project.status === 'publicly_published' || project.status === 'published') &&
+    project.robots_index === true;
+
+  // Never expose unpublished or non-indexable records to anonymous visitors
+  if (!project || (!isDraftMode && !isPublicEligible)) {
     return {
       title: 'Project Not Found | DP AI Studio',
       robots: { index: false, follow: false },
@@ -78,21 +90,34 @@ export async function generateMetadata(
     project.seo_description ||
     project.project_overview ||
     project.creative_concept ||
-    `Cinematic AI ad film and video production case study: ${project.title}.`;
+    `Cinematic AI ad film and video production case study: ${project.title}. Produced by DP AI Studio (Define Perspective)${project.production_location ? ` — ${project.production_location}` : ''}.`;
   const canonicalUrl =
     project.canonical_url || `https://defineperspective.in/portfolio/${project.slug}`;
+
+  const defaultKeywords = [
+    'AI fashion commercial',
+    'AI fashion film India',
+    'generative AI fashion video',
+    'cinematic AI commercial',
+    'DP AI Studio',
+    'Define Perspective',
+    'DP WestVogue',
+    'India',
+  ];
+
+  const keywords = Array.from(
+    new Set([
+      ...(project.focus_keywords || []),
+      ...defaultKeywords,
+      ...(project.geo_entities || []),
+      project.category ? project.category.replace(/_/g, ' ') : 'AI Commercial',
+    ])
+  );
 
   return {
     title: pageTitle,
     description: pageDescription,
-    keywords: project.focus_keywords && project.focus_keywords.length > 0
-      ? project.focus_keywords
-      : [
-          'AI video production',
-          'AI commercial studio',
-          'cinematic generative AI',
-          project.category,
-        ],
+    keywords,
     alternates: {
       canonical: canonicalUrl,
     },
@@ -139,7 +164,13 @@ export default async function DynamicPortfolioProjectPage(
     const previewRes = await getAdminPreviewProject(slug);
     if (previewRes.success && previewRes.data) {
       project = previewRes.data;
-      isPreviewMode = true;
+      // A project may bypass preview mode only when status is publicly_published (or published) AND robots_index is true
+      const isPublicEligible =
+        (project.status === 'publicly_published' || project.status === 'published') &&
+        project.robots_index === true;
+      if (!isPublicEligible) {
+        isPreviewMode = true;
+      }
     }
   }
 
@@ -147,7 +178,13 @@ export default async function DynamicPortfolioProjectPage(
     project = await getPublicPublishedProject(slug);
   }
 
-  if (!project || (!isPreviewMode && project.status !== 'published' && project.status !== 'publicly_published')) {
+  // Admin preview fallback must never expose unpublished or non-indexable records to anonymous visitors
+  const isPublicEligible =
+    project !== null &&
+    (project.status === 'published' || project.status === 'publicly_published') &&
+    project.robots_index === true;
+
+  if (!project || (!isPreviewMode && !isPublicEligible)) {
     notFound();
   }
 
@@ -155,22 +192,92 @@ export default async function DynamicPortfolioProjectPage(
     ? null
     : project.public_client_display_name || project.internal_client_name;
 
+  const canonicalUrl =
+    project.canonical_url || `https://defineperspective.in/portfolio/${project.slug}`;
+
+  const defaultKeywords = [
+    'AI fashion commercial',
+    'AI fashion film India',
+    'generative AI fashion video',
+    'cinematic AI commercial',
+    'DP AI Studio',
+    'Define Perspective',
+    'DP WestVogue',
+    'India',
+  ];
+
+  const keywordsList = Array.from(
+    new Set([
+      ...(project.focus_keywords || []),
+      ...defaultKeywords,
+      ...(project.geo_entities || []),
+      project.category ? project.category.replace(/_/g, ' ') : 'AI Commercial',
+    ])
+  );
+
   // JSON-LD Structured Data: only for published pages, never for previews
   const jsonLd = isPreviewMode ? null : {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': project.schema_type || 'CreativeWork',
+        '@id': `${canonicalUrl}#creativework`,
         headline: project.title,
-        description: project.project_overview || project.creative_concept,
-        image: project.hero_image_url,
+        name: project.title,
+        description: project.project_overview || project.creative_concept || project.seo_description,
+        image: project.hero_image_url ? normalizeMediaUrl(project.hero_image_url) : undefined,
         datePublished: project.published_at || project.created_at,
+        dateModified: project.updated_at || project.published_at || project.created_at,
+        url: canonicalUrl,
+        mainEntityOfPage: canonicalUrl,
+        inLanguage: 'en-US',
         author: {
+          '@type': 'Organization',
+          '@id': 'https://defineperspective.in/#organization',
+          name: 'DP AI Studio',
+          legalName: 'Define Perspective',
+          url: 'https://defineperspective.in',
+        },
+        creator: {
+          '@type': 'Organization',
+          name: 'Define Perspective (DP AI Studio)',
+          url: 'https://defineperspective.in',
+        },
+        producer: {
           '@type': 'Organization',
           name: 'DP AI Studio',
           url: 'https://defineperspective.in',
         },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Define Perspective',
+          url: 'https://defineperspective.in',
+        },
+        locationCreated: project.production_location ? {
+          '@type': 'Place',
+          name: project.production_location,
+        } : undefined,
+        keywords: keywordsList.join(', '),
       },
+      ...(project.video_url || project.video_id ? [
+        {
+          '@type': 'VideoObject',
+          '@id': `${canonicalUrl}#video`,
+          name: project.title,
+          description: project.project_overview || project.creative_concept || project.title,
+          thumbnailUrl: [
+            normalizeMediaUrl(project.video_thumbnail_url || project.hero_image_url || 'https://defineperspective.in/images/og-default.jpg')
+          ],
+          uploadDate: project.published_at || project.created_at,
+          contentUrl: project.video_url ? normalizeMediaUrl(project.video_url) : undefined,
+          embedUrl: project.video_embed_url || (project.video_type === 'youtube' && project.video_id ? `https://www.youtube.com/embed/${project.video_id}` : undefined),
+          productionCompany: {
+            '@type': 'Organization',
+            name: 'DP AI Studio (Define Perspective)',
+            url: 'https://defineperspective.in',
+          },
+        }
+      ] : []),
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -190,7 +297,7 @@ export default async function DynamicPortfolioProjectPage(
             '@type': 'ListItem',
             position: 3,
             name: project.title,
-            item: `https://defineperspective.in/portfolio/${project.slug}`,
+            item: canonicalUrl,
           },
         ],
       },
@@ -350,6 +457,39 @@ export default async function DynamicPortfolioProjectPage(
                 </p>
               </section>
             )}
+
+            {/* Semantic Editorial Context for AI Search Engines & Brand Authority */}
+            <section className="space-y-6 pt-4 border-t border-neutral-800/80">
+              <div className="space-y-3">
+                <h2 className="text-xl md:text-2xl font-light text-white tracking-tight">
+                  Cinematic AI Commercial Production & Brand Direction
+                </h2>
+                <p className="text-neutral-400 font-light text-sm md:text-base leading-relaxed">
+                  Produced by <strong className="text-neutral-200 font-medium">DP AI Studio</strong> (the cinematic generative video production division of <strong className="text-neutral-200 font-medium">Define Perspective</strong>), this commercial showcase represents the leading edge of AI fashion films in India. The production bridges high-fidelity neural image synthesis, temporal motion dynamics, and editorial luxury styling under the <strong className="text-neutral-200 font-medium">DP WestVogue</strong> commercial series.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                {project.production_location && (
+                  <div className="p-4 rounded-xl bg-neutral-900/40 border border-neutral-800/60">
+                    <h3 className="text-xs font-mono uppercase tracking-widest text-amber-500 mb-1">
+                      Production Context
+                    </h3>
+                    <p className="text-xs text-neutral-300 font-light">
+                      {project.production_location}
+                    </p>
+                  </div>
+                )}
+                <div className="p-4 rounded-xl bg-neutral-900/40 border border-neutral-800/60">
+                  <h3 className="text-xs font-mono uppercase tracking-widest text-amber-500 mb-1">
+                    Production Architecture
+                  </h3>
+                  <p className="text-xs text-neutral-300 font-light">
+                    Generative Diffusion Video & Synthetic Fashion Direction
+                  </p>
+                </div>
+              </div>
+            </section>
           </div>
 
           {/* Sidebar / Metadata */}

@@ -137,7 +137,33 @@ function PortfolioInner({ caseStudies }: { caseStudies: any[] }) {
     }
   };
 
-  const currentData = activeTab === "video" ? videoData : activeTab === "ai" ? aiData : photoData;
+  // Dynamically blend published CMS items into the DP AI Studios showcase tab so they appear natively on /portfolio
+  const cmsProjects = (caseStudies || []).filter((cs: any) => cs.isCmsProject);
+
+  const enrichedAiData = aiData.map((section, idx) => {
+    if (idx === 0) {
+      const existingHrefs = new Set(section.projects.map((p: any) => p.href).filter(Boolean));
+      const newAiProjects = cmsProjects
+        .filter((cp: any) => !existingHrefs.has(cp.href))
+        .map((cp: any) => ({
+          id: `cms-${cp.slug}`,
+          title: cp.title,
+          videoId: cp.videoId || undefined,
+          service: cp.industry || "AI Fashion Film",
+          industry: cp.industries?.[0] || "Fashion & Lifestyle",
+          client: cp.client || "DP WestVogue",
+          href: cp.href,
+          img: cp.thumbnail_url || cp.hero_image_url || null,
+        }));
+      return {
+        ...section,
+        projects: [...section.projects, ...newAiProjects],
+      };
+    }
+    return section;
+  });
+
+  const currentData = activeTab === "video" ? videoData : activeTab === "ai" ? enrichedAiData : photoData;
 
   return (
     <main className="min-h-screen bg-obsidian text-white pt-20 pb-40 relative overflow-hidden selection:bg-primary-accent/30">
