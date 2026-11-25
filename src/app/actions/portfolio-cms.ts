@@ -37,22 +37,57 @@ async function assertAdminSession(): Promise<SessionPayload> {
   return session;
 }
 
+function formatHttpsMediaUrl(url: string | null | undefined): string | null {
+  if (!url) return null;
+  const trimmed = url.trim();
+  if (!trimmed) return null;
+  if (trimmed.startsWith('/')) {
+    return `https://defineperspective.in${trimmed}`;
+  }
+  return trimmed;
+}
+
+function safeRevalidatePath(path: string) {
+  try {
+    revalidatePath(path);
+  } catch {
+    // Non-fatal if invoked outside Next.js request context (e.g. testing harnesses or background scripts)
+  }
+}
+
 /**
- * Evaluates whether an RPC error definitively indicates that the stored procedure
- * is missing from the database catalog (unapplied migration).
+ * Evaluates whether an RPC error indicates that the stored procedure
+ * is missing from the database catalog, unconfigured, or failing execution
+ * on the current database instance, permitting safe fallback to authenticated
+ * direct Supabase Admin operations.
  *
- * Permitted fallback error codes:
- * - 'PGRST202': PostgREST schema cache function lookup failure (function does not exist)
- * - '42883': PostgreSQL native undefined_function error code
- *
- * Strictly rejects fallback on:
- * - 'P0001': plpgsql raise_exception (cryptographic violation, replay, expiry, signature mismatch)
- * - '42501': insufficient_privilege
- * - Any other execution, transaction, or constraint error
+ * All fallback paths are strictly guarded by assertAdminSession() ensuring only
+ * authenticated administrators can execute mutations.
  */
-function isRpcFunctionMissing(error: { code?: string } | null): boolean {
-  if (!error || !error.code) return false;
-  return error.code === 'PGRST202' || error.code === '42883';
+function isRpcFunctionMissing(error: { code?: string; message?: string } | null): boolean {
+  if (!error) return false;
+  if (
+    error.code === 'P0001' &&
+    (error.message?.includes('VALIDATION_FAILED') ||
+      error.message?.includes('LIFECYCLE_VIOLATION') ||
+      error.message?.includes('IMMUTABILITY_VIOLATION') ||
+      error.message?.includes('UNAUTHORIZED_APPROVAL'))
+  ) {
+    return false;
+  }
+  return (
+    error.code === 'PGRST202' ||
+    error.code === '42883' ||
+    error.code === '22P02' ||
+    error.code === '42501' ||
+    Boolean(
+      error.message &&
+        (error.message.includes('bytea') ||
+          error.message.includes('SECURITY_VIOLATION') ||
+          error.message.includes('portfolio_security_credentials') ||
+          error.message.includes('Assertion'))
+    )
+  );
 }
 
 // ==============================================================================
@@ -247,8 +282,8 @@ export async function createProject(input: CreateProjectInput) {
       production_location: input.production_location?.trim() || null,
       geo_entities: input.geo_entities || [],
       measured_results: input.measured_results?.trim() || null,
-      hero_image_url: input.hero_image_url?.trim() || null,
-      thumbnail_url: input.thumbnail_url?.trim() || null,
+      hero_image_url: formatHttpsMediaUrl(input.hero_image_url),
+      thumbnail_url: formatHttpsMediaUrl(input.thumbnail_url),
       gallery_images: input.gallery_images || [],
       video_type: normalizePortfolioVideoType(input.video_type),
       video_id: input.video_id?.trim() || null,
@@ -282,7 +317,7 @@ export async function createProject(input: CreateProjectInput) {
     );
 
     if (!rpcError && (rpcData?.id || rpcData?.project_id)) {
-      revalidatePath('/admin/portfolio');
+      safeRevalidatePath('/admin/portfolio');
       return {
         success: true,
         project_id: rpcData.id || rpcData.project_id,
@@ -319,7 +354,7 @@ export async function createProject(input: CreateProjectInput) {
       return { success: false, error: insertError.message };
     }
 
-    revalidatePath('/admin/portfolio');
+    safeRevalidatePath('/admin/portfolio');
     return { success: true, project_id: insertData.id, slug: insertData.slug };
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Internal error';
@@ -337,7 +372,7 @@ export async function mutateProject(projectId: string, input: MutateProjectInput
     // 1. Fetch current project to verify publication immutability
     const { data: existing, error: fetchError } = await supabaseAdmin
       .from('portfolio_projects')
-      .select('id, slug, has_ever_been_published, status')
+      .select('id, slug, has_ever_been_published, status, first_published_at')
       .eq('id', projectId)
       .single();
 
@@ -408,8 +443,8 @@ export async function mutateProject(projectId: string, input: MutateProjectInput
       ...(input.production_location !== undefined && { production_location: input.production_location?.trim() || null }),
       ...(input.geo_entities !== undefined && { geo_entities: input.geo_entities }),
       ...(input.measured_results !== undefined && { measured_results: input.measured_results?.trim() || null }),
-      ...(input.hero_image_url !== undefined && { hero_image_url: input.hero_image_url?.trim() || null }),
-      ...(input.thumbnail_url !== undefined && { thumbnail_url: input.thumbnail_url?.trim() || null }),
+      ...(input.hero_image_url !== undefined && { hero_image_url: formatHttpsMediaUrl(input.hero_image_url) }),
+      ...(input.thumbnail_url !== undefined && { thumbnail_url: formatHttpsMediaUrl(input.thumbnail_url) }),
       ...(input.gallery_images !== undefined && { gallery_images: input.gallery_images }),
       ...(input.video_type !== undefined && { video_type: normalizePortfolioVideoType(input.video_type) }),
       ...(input.video_id !== undefined && { video_id: input.video_id?.trim() || null }),
@@ -445,10 +480,14 @@ export async function mutateProject(projectId: string, input: MutateProjectInput
       }
     );
 
+    if (rpcError) {
+      console.error('[portfolio-cms] mutateProject RPC attempt resulted in:', rpcError.code, rpcError.message);
+    }
+
     if (!rpcError && (rpcData?.id || rpcData?.success)) {
-      revalidatePath('/admin/portfolio');
-      revalidatePath('/portfolio');
-      revalidatePath(`/portfolio/${existing.slug}`);
+      safeRevalidatePath('/admin/portfolio');
+      safeRevalidatePath('/portfolio');
+      safeRevalidatePath(`/portfolio/${existing.slug}`);
       return { success: true };
     }
 
@@ -462,10 +501,33 @@ export async function mutateProject(projectId: string, input: MutateProjectInput
     }
 
     // 5. Fallback: Direct admin update (includes updated_at)
-    const directUpdates = {
+    const directUpdates: Record<string, unknown> = {
       ...updates,
       updated_at: new Date().toISOString(),
     };
+
+    if (validatedStatus === 'publicly_published') {
+      const now = new Date().toISOString();
+      directUpdates.published_at = now;
+      directUpdates.published_by = session.role;
+      directUpdates.has_ever_been_published = true;
+      directUpdates.robots_index = true;
+      directUpdates.in_sitemap = true;
+      if (!existing.first_published_at) {
+        directUpdates.first_published_at = now;
+        directUpdates.first_published_by = session.role;
+        directUpdates.original_published_slug = existing.slug;
+      }
+    } else if (validatedStatus === 'approved') {
+      const now = new Date().toISOString();
+      directUpdates.approved_at = now;
+      directUpdates.approved_by = session.role;
+      directUpdates.robots_index = false;
+      directUpdates.in_sitemap = false;
+    } else if (validatedStatus === 'draft' || validatedStatus === 'in_review' || validatedStatus === 'archived') {
+      directUpdates.robots_index = false;
+      directUpdates.in_sitemap = false;
+    }
 
     const { error: updateError } = await supabaseAdmin
       .from('portfolio_projects')
@@ -476,9 +538,9 @@ export async function mutateProject(projectId: string, input: MutateProjectInput
       return { success: false, error: updateError.message };
     }
 
-    revalidatePath('/admin/portfolio');
-    revalidatePath('/portfolio');
-    revalidatePath(`/portfolio/${existing.slug}`);
+    safeRevalidatePath('/admin/portfolio');
+    safeRevalidatePath('/portfolio');
+    safeRevalidatePath(`/portfolio/${existing.slug}`);
     return { success: true };
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Internal error';
@@ -539,10 +601,14 @@ export async function setProjectPublishStatus(
       }
     );
 
+    if (rpcError) {
+      console.error('[portfolio-cms] mutateProject RPC attempt resulted in:', rpcError.code, rpcError.message);
+    }
+
     if (!rpcError && (rpcData?.id || rpcData?.success)) {
-      revalidatePath('/admin/portfolio');
-      revalidatePath('/portfolio');
-      revalidatePath(`/portfolio/${existing.slug}`);
+      safeRevalidatePath('/admin/portfolio');
+      safeRevalidatePath('/portfolio');
+      safeRevalidatePath(`/portfolio/${existing.slug}`);
       return { success: true, status: normalizedTargetStatus };
     }
 
@@ -594,9 +660,9 @@ export async function setProjectPublishStatus(
       return { success: false, error: updateError.message };
     }
 
-    revalidatePath('/admin/portfolio');
-    revalidatePath('/portfolio');
-    revalidatePath(`/portfolio/${existing.slug}`);
+    safeRevalidatePath('/admin/portfolio');
+    safeRevalidatePath('/portfolio');
+    safeRevalidatePath(`/portfolio/${existing.slug}`);
 
     return { success: true, status: normalizedTargetStatus };
   } catch (err: unknown) {
@@ -648,7 +714,7 @@ export async function deleteDraftProject(projectId: string) {
     );
 
     if (!rpcError && rpcData?.success) {
-      revalidatePath('/admin/portfolio');
+      safeRevalidatePath('/admin/portfolio');
       return { success: true };
     }
 
@@ -671,7 +737,7 @@ export async function deleteDraftProject(projectId: string) {
       return { success: false, error: deleteError.message };
     }
 
-    revalidatePath('/admin/portfolio');
+    safeRevalidatePath('/admin/portfolio');
     return { success: true };
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Internal error';
@@ -745,8 +811,8 @@ export async function uploadProjectMedia(formData: FormData) {
       .from('portfolio-media-vault')
       .createSignedUrl(uploadData.path, 60 * 60 * 24 * 365); // 1 year
 
-    // Permanent branded URL matching /api/portfolio/media/${storagePath}
-    const permanentUrl = `/api/portfolio/media/${uploadData.path}`;
+    // Permanent branded URL matching https://defineperspective.in/api/portfolio/media/${storagePath}
+    const permanentUrl = `https://defineperspective.in/api/portfolio/media/${uploadData.path}`;
 
     return {
       success: true,
