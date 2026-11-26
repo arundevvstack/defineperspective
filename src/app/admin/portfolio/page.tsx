@@ -46,6 +46,51 @@ const CATEGORIES: PortfolioCategory[] = [
   'experimental',
 ];
 
+function normalizeThumbnailUrl(url: string | null | undefined): string | null {
+  if (!url) return null;
+  const trimmed = url.trim();
+  if (!trimmed) return null;
+
+  // When hero_image_url contains /api/portfolio/media/, strip the foreign origin
+  // and render it as a relative URL on the current host.
+  const mediaIdx = trimmed.indexOf('/api/portfolio/media/');
+  if (mediaIdx !== -1) {
+    return trimmed.substring(mediaIdx);
+  }
+
+  return trimmed;
+}
+
+function ProjectThumbnail({ url, title }: { url: string | null | undefined; title: string }) {
+  const [hasError, setHasError] = useState(false);
+  const normalizedUrl = normalizeThumbnailUrl(url);
+
+  useEffect(() => {
+    setHasError(false);
+  }, [url]);
+
+  if (!normalizedUrl || hasError) {
+    return (
+      <div
+        className="w-12 h-12 rounded bg-neutral-800 border border-neutral-700 flex items-center justify-center text-neutral-600 shrink-0"
+        title={title}
+      >
+        <Layers className="w-5 h-5" />
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={normalizedUrl}
+      alt={title}
+      className="w-12 h-12 rounded object-cover border border-neutral-800 shrink-0"
+      onError={() => setHasError(true)}
+      loading="lazy"
+    />
+  );
+}
+
 export default function AdminPortfolioPage() {
   const [projects, setProjects] = useState<PortfolioProject[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -327,17 +372,7 @@ export default function AdminPortfolioPage() {
                       <tr key={p.id} className="hover:bg-neutral-800/30 transition-colors">
                         <td className="py-4 px-6">
                           <div className="flex items-center gap-3">
-                            {p.hero_image_url ? (
-                              <img
-                                src={p.hero_image_url}
-                                alt={p.title}
-                                className="w-12 h-12 rounded object-cover border border-neutral-800 shrink-0"
-                              />
-                            ) : (
-                              <div className="w-12 h-12 rounded bg-neutral-800 border border-neutral-700 flex items-center justify-center text-neutral-600 shrink-0">
-                                <Layers className="w-5 h-5" />
-                              </div>
-                            )}
+                            <ProjectThumbnail url={p.hero_image_url} title={p.title} />
                             <div>
                               <div className="flex items-center gap-2">
                                 <p className="font-medium text-white">{p.title}</p>
