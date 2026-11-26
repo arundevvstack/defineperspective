@@ -61,27 +61,31 @@ export default function MasterCaseStudyLayout({ data }: { data: MasterCaseStudyD
       <ScrollProgress />
       <GlassNavbar />
 
-      {/* ADMIN PREVIEW BANNER (Unpublished draft mode only) */}
-      {data.isPreviewMode && (
-        <div className="sticky top-0 z-50 w-full bg-amber-500/95 text-black py-2.5 px-4 backdrop-blur-md shadow-lg border-b border-amber-400">
-          <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-mono font-bold uppercase tracking-wider">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-black animate-pulse" />
-              <span>ADMIN PREVIEW MODE — UNPUBLISHED DRAFT</span>
-              <span className="opacity-75 font-normal">({data.previewStatus || 'draft'})</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="text-[10px] bg-black/10 px-2 py-0.5 rounded">noindex, nofollow</span>
-              <Link
-                href={`/admin/portfolio/${data.id}/edit`}
-                className="bg-black text-amber-400 px-3 py-1 rounded hover:bg-neutral-900 transition-colors"
-              >
-                Return to Editor
-              </Link>
+      {/* ADMIN PREVIEW BANNER (Unpublished draft mode only for authorized admins) */}
+      {data.isPreviewMode &&
+        data.previewStatus !== 'publicly_published' &&
+        data.previewStatus !== 'published' && (
+          <div className="sticky top-0 z-50 w-full bg-amber-500/95 text-black py-2.5 px-4 backdrop-blur-md shadow-lg border-b border-amber-400">
+            <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-mono font-bold uppercase tracking-wider">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-black animate-pulse" />
+                <span>ADMIN PREVIEW MODE — UNPUBLISHED DRAFT</span>
+                <span className="opacity-75 font-normal">({data.previewStatus || 'draft'})</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-[10px] bg-black/10 px-2 py-0.5 rounded">noindex, nofollow</span>
+                {data.id && (
+                  <Link
+                    href={`/admin/portfolio/${data.id}/edit`}
+                    className="bg-black text-amber-400 px-3 py-1 rounded hover:bg-neutral-900 transition-colors"
+                  >
+                    Return to Editor
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
       {/* Ambient background glows */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-accent/5 blur-[250px] rounded-full pointer-events-none" />

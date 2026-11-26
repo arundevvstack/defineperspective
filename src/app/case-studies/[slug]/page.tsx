@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { draftMode, cookies } from 'next/headers';
 import { supabaseAdmin } from '@/lib/supabase-admin';
+import { verifySession } from '@/lib/session';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ScrollProgress } from '@/components/ui/scroll-progress';
@@ -95,7 +97,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .eq('slug', decodedSlug)
     .maybeSingle();
 
-  if (!cs) return { title: 'Case Study Not Found | DP AI Studios' };
+  const { isEnabled: isDraftMode } = await draftMode();
+  const cookieStore = await cookies();
+  const sessionToken = cookieStore.get('dp_admin_session')?.value;
+  const adminSession = verifySession(sessionToken);
+  const isAuthenticatedAdmin = adminSession?.role === 'admin';
+
+  if (!cs || (!cs.published && (!isDraftMode || !isAuthenticatedAdmin))) {
+    return { title: 'Case Study Not Found | DP AI Studios', robots: { index: false, follow: false } };
+  }
 
   const displayGeos = Array.from(new Set([cs.geo, ...(cs.geo_targets || [])])).filter(Boolean);
   const displayIndustries = Array.from(new Set([cs.industry, ...(cs.industries || [])])).filter(Boolean);
@@ -146,6 +156,16 @@ export default async function CaseStudyPage({ params }: Props) {
 
   const caseStudy = cs as CaseStudy;
   const isPublic = caseStudy.published === true;
+
+  const { isEnabled: isDraftMode } = await draftMode();
+  const cookieStore = await cookies();
+  const sessionToken = cookieStore.get('dp_admin_session')?.value;
+  const adminSession = verifySession(sessionToken);
+  const isAuthenticatedAdmin = adminSession?.role === 'admin';
+
+  if (!caseStudy.published && (!isDraftMode || !isAuthenticatedAdmin)) {
+    notFound();
+  }
 
   // Fetch ALL published case studies to feed the scoring engine
   const { data: allPublished } = await supabaseAdmin
@@ -209,7 +229,12 @@ export default async function CaseStudyPage({ params }: Props) {
 
   // Evaluate eligibility for Master Case Study Experience
   const isMasterEligible = isLegacyCaseStudyEligibleForMaster(caseStudy as LegacyCaseStudy);
-  const masterData = isMasterEligible ? mapLegacyCaseStudyToMasterCaseStudy(caseStudy as LegacyCaseStudy) : null;
+  const masterData = isMasterEligible
+    ? mapLegacyCaseStudyToMasterCaseStudy(
+        caseStudy as LegacyCaseStudy,
+        Boolean(!caseStudy.published && isDraftMode && isAuthenticatedAdmin)
+      )
+    : null;
 
   if (isMasterEligible && masterData) {
     return (

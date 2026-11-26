@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { draftMode } from 'next/headers';
+import { draftMode, cookies } from 'next/headers';
 import Link from 'next/link';
+import { verifySession } from '@/lib/session';
 import { isReservedSlug, GalleryImage, PortfolioProject, normalizeMediaUrl } from '@/types/portfolio-cms';
 import { getPublicPublishedProject, getAdminPreviewProject } from '@/app/actions/portfolio-cms';
 import GlassNavbar from '@/components/glass-navbar';
@@ -43,18 +44,22 @@ export async function generateMetadata(
   }
 
   const { isEnabled: isDraftMode } = await draftMode();
+  const cookieStore = await cookies();
+  const sessionToken = cookieStore.get('dp_admin_session')?.value;
+  const adminSession = verifySession(sessionToken);
+  const isAuthenticatedAdmin = adminSession?.role === 'admin';
+
   let project: PortfolioProject | null = null;
   let isPreviewMode = false;
 
-  if (isDraftMode) {
+  // Only authorized administrators in Next.js draftMode can load unpublished draft projects
+  if (isDraftMode && isAuthenticatedAdmin) {
     const previewRes = await getAdminPreviewProject(slug);
     if (previewRes.success && previewRes.data) {
       project = previewRes.data;
-      // A project may bypass preview mode only when status is publicly_published (or published) AND robots_index is true
-      const isPublicEligible =
-        (project.status === 'publicly_published' || project.status === 'published') &&
-        project.robots_index === true;
-      if (!isPublicEligible) {
+      const isUnpublished =
+        project.status !== 'publicly_published' && project.status !== 'published';
+      if (isUnpublished || project.robots_index !== true) {
         isPreviewMode = true;
       }
     }
@@ -70,7 +75,7 @@ export async function generateMetadata(
     project.robots_index === true;
 
   // Never expose unpublished or non-indexable records to anonymous visitors
-  if (!project || (!isDraftMode && !isPublicEligible)) {
+  if (!project || (!isPreviewMode && !isPublicEligible)) {
     return {
       title: 'Project Not Found | DP AI Studio',
       robots: { index: false, follow: false },
@@ -164,23 +169,28 @@ export default async function DynamicPortfolioProjectPage(
   }
 
   const { isEnabled: isDraftMode } = await draftMode();
+  const cookieStore = await cookies();
+  const sessionToken = cookieStore.get('dp_admin_session')?.value;
+  const adminSession = verifySession(sessionToken);
+  const isAuthenticatedAdmin = adminSession?.role === 'admin';
+
   let project: PortfolioProject | null = null;
   let isPreviewMode = false;
 
-  if (isDraftMode) {
+  // Only authorized administrators in Next.js draftMode can load unpublished draft projects
+  if (isDraftMode && isAuthenticatedAdmin) {
     const previewRes = await getAdminPreviewProject(slug);
     if (previewRes.success && previewRes.data) {
       project = previewRes.data;
-      // A project may bypass preview mode only when status is publicly_published (or published) AND robots_index is true
-      const isPublicEligible =
-        (project.status === 'publicly_published' || project.status === 'published') &&
-        project.robots_index === true;
-      if (!isPublicEligible) {
+      const isUnpublished =
+        project.status !== 'publicly_published' && project.status !== 'published';
+      if (isUnpublished || project.robots_index !== true) {
         isPreviewMode = true;
       }
     }
   }
 
+  // Fallback to public published access (accessible to anonymous visitors)
   if (!project) {
     project = await getPublicPublishedProject(slug);
   }
@@ -358,8 +368,10 @@ export default async function DynamicPortfolioProjectPage(
   // ---------------------------------------------------------------------------
   return (
     <main className="min-h-screen bg-black text-white relative overflow-hidden font-sans selection:bg-amber-500/30">
-      {/* ADMIN PREVIEW BANNER */}
-      {isPreviewMode && (
+      {/* ADMIN PREVIEW BANNER (Unpublished draft mode only for authorized admins) */}
+      {isPreviewMode &&
+        project.status !== 'publicly_published' &&
+        project.status !== 'published' && (
         <div className="sticky top-0 z-50 w-full bg-amber-500/95 text-black py-2.5 px-4 backdrop-blur-md shadow-lg border-b border-amber-400">
           <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-mono font-bold uppercase tracking-wider">
             <div className="flex items-center gap-2">

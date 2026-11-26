@@ -451,7 +451,8 @@ export function isLegacyCaseStudyEligibleForMaster(cs: LegacyCaseStudy | null | 
  * - Preserves verified workflows, FAQs, media, and cinematic direction
  */
 export function mapLegacyCaseStudyToMasterCaseStudy(
-  cs: LegacyCaseStudy
+  cs: LegacyCaseStudy,
+  isPreviewMode: boolean = false
 ): MasterCaseStudyData {
   const clientName = cs.client_name?.trim() ? cs.client_name.trim() : undefined;
   const location = cleanLocationString(cs.geo);
@@ -703,7 +704,7 @@ export function mapLegacyCaseStudyToMasterCaseStudy(
     ctaButtonText: 'Inquire For Production',
     ctaButtonLink: '/contact',
 
-    isPreviewMode: !cs.published,
+    isPreviewMode: !cs.published && isPreviewMode,
     previewStatus: cs.published ? 'published' : 'draft',
     backHref: '/case-studies',
     backLabel: 'Back to Case Studies',
