@@ -148,7 +148,8 @@ export default function EditPortfolioProjectPage() {
           setFocusKeywords(Array.isArray(p.focus_keywords) ? p.focus_keywords.join(', ') : '');
           setSchemaType(normalizePortfolioSchemaType(p.schema_type));
           setCanonicalOverride(p.canonical_override || '');
-          setTargetStatus(parsePortfolioStatus(p.status).status || 'draft');
+          const initialStatus = parsePortfolioStatus(p.status).status || 'draft';
+          setTargetStatus(initialStatus === 'approved' ? 'publicly_published' : initialStatus);
         } else {
           setFeedback({ type: 'error', message: res.error || 'Failed to load project details.' });
         }
@@ -571,11 +572,9 @@ export default function EditPortfolioProjectPage() {
                 )}
                 {project.status === 'approved' && (
                   <>
-                    <option value="draft">Return to Draft</option>
+                    <option value="publicly_published">Publish Live (Promote to Production)</option>
                     <option value="in_review">Return to Review</option>
-                    <option value="publicly_published" disabled>
-                      Publish Live (Gated — Requires Authorization)
-                    </option>
+                    <option value="draft">Return to Draft</option>
                   </>
                 )}
                 {(project.status === 'published' || project.status === 'publicly_published') && (
@@ -594,10 +593,18 @@ export default function EditPortfolioProjectPage() {
               <button
                 type="button"
                 onClick={handleStatusChange}
-                disabled={isPending || targetStatus === project.status || targetStatus === 'publicly_published'}
-                className="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-40 text-black font-bold text-xs uppercase tracking-widest px-4 py-3 rounded-lg transition-colors shadow-sm"
+                disabled={isPending || targetStatus === project.status}
+                className={`w-full font-bold text-xs uppercase tracking-widest px-4 py-3 rounded-lg transition-colors shadow-sm disabled:opacity-40 ${
+                  targetStatus === 'publicly_published'
+                    ? 'bg-emerald-500 hover:bg-emerald-400 text-black'
+                    : 'bg-amber-500 hover:bg-amber-400 text-black'
+                }`}
               >
-                {isPending ? 'Transitioning...' : 'Apply Transition'}
+                {isPending
+                  ? 'Transitioning...'
+                  : targetStatus === 'publicly_published'
+                  ? 'Publish Live to Production'
+                  : 'Apply Transition'}
               </button>
             </div>
           </div>
@@ -611,8 +618,8 @@ export default function EditPortfolioProjectPage() {
               <p>Under review. Reviewers can approve this project for staging validation or return it to draft for revisions.</p>
             )}
             {project.status === 'approved' && (
-              <p className="text-purple-300">
-                Approved for staging validation. Fast live publishing is locked to prevent accidental search exposure. Live release requires explicit production authorization.
+              <p className="text-emerald-300">
+                Project is approved. Select &quot;Publish Live&quot; and click &quot;Publish Live to Production&quot; to make this project publicly accessible, indexed by search engines, and visible in the portfolio showcase.
               </p>
             )}
             {(project.status === 'published' || project.status === 'publicly_published') && (

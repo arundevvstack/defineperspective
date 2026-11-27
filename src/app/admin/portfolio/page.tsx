@@ -24,6 +24,7 @@ import {
   ArrowUpRight,
   RefreshCw,
   Eye,
+  Globe,
 } from 'lucide-react';
 
 const STATUS_COLORS: Record<PortfolioProjectStatus, { bg: string; text: string; border: string }> = {
@@ -142,19 +143,22 @@ export default function AdminPortfolioPage() {
   };
 
   const handleQuickStatusChange = (id: string, newStatus: PortfolioProjectStatus) => {
-    if (newStatus === 'publicly_published' || newStatus === 'published') {
-      alert('Safety Lock: Direct public publishing from the project table is disabled. Please perform pre-publish review inside the project editor.');
-      return;
-    }
+    const isPublishing = newStatus === 'publicly_published' || newStatus === 'published';
+    const confirmMessage = isPublishing
+      ? 'Are you sure you want to PUBLISH this project to the live production website?\n\nIt will become publicly accessible, indexable by search engines, and visible in the portfolio showcase.'
+      : `Are you sure you want to transition this project to "${newStatus}"?`;
 
-    if (!confirm(`Are you sure you want to transition this project to "${newStatus}"?`)) {
+    if (!confirm(confirmMessage)) {
       return;
     }
 
     startTransition(async () => {
       const res = await setProjectPublishStatus(id, newStatus, `Admin fast transition to ${newStatus}`);
       if (res.success) {
-        setActionMessage({ type: 'success', text: `Project status updated to ${newStatus}` });
+        setActionMessage({
+          type: 'success',
+          text: isPublishing ? 'Project published live successfully!' : `Project status updated to ${newStatus}`,
+        });
         fetchProjectsList();
       } else {
         setActionMessage({ type: 'error', text: res.error || 'Failed to update status' });
@@ -491,12 +495,15 @@ export default function AdminPortfolioPage() {
                             )}
 
                             {p.status === 'approved' && (
-                              <span
-                                title="Project is approved. Fast publishing from listing is locked. Open editor to review before live publication."
-                                className="px-2 py-1 text-purple-400 bg-purple-500/10 border border-purple-500/30 rounded text-[10px] font-mono uppercase tracking-wider cursor-default"
+                              <button
+                                onClick={() => handleQuickStatusChange(p.id, 'publicly_published')}
+                                title="Publish to Live Website"
+                                disabled={isPending}
+                                className="px-2.5 py-1 flex items-center gap-1.5 text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded text-[10px] font-mono uppercase tracking-wider transition-colors"
                               >
-                                Ready
-                              </span>
+                                <Globe className="w-3 h-3" />
+                                Publish
+                              </button>
                             )}
 
                             {(p.status === 'published' || p.status === 'publicly_published') && (
