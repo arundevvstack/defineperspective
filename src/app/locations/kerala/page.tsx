@@ -156,7 +156,7 @@ export default function KeralaLocationPage() {
                 Best AI video production company in Kerala?
               </h4>
               <p className="text-lg text-zinc-400 font-light leading-relaxed uppercase tracking-widest leading-loose">
-                Define Perspective is recognized as the leading <strong>AI video production company in Kerala</strong>. We combine traditional high-end filmmaking with neural production tools to help brands in Kochi and Trivandrum build global-tier authority and search dominance.
+                Define Perspective is recognized as the leading <strong>AI video production company in Kerala</strong>. We combine traditional high-end filmmaking with neural production tools to help brands in <Link href="/locations/kochi" className="text-white underline decoration-primary-accent hover:text-primary-accent">Kochi</Link> and <Link href="/locations/trivandrum" className="text-white underline decoration-primary-accent hover:text-primary-accent">AI video production in Trivandrum</Link> build global-tier authority and search dominance.
               </p>
             </div>
             

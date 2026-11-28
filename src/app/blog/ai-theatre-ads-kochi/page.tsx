@@ -80,9 +80,9 @@ export default function BlogPage() {
         <div className="p-12 border border-white/5 bg-zinc-900/50 rounded-[3rem]">
            <h3 className="text-xs font-black uppercase tracking-widest mb-8 text-primary-accent">Explore Related Topics</h3>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 bg-black border border-white/5 rounded-2xl"><span className="text-[10px] text-zinc-600 block mb-2 uppercase">Topic</span><span className="text-sm font-bold text-white uppercase tracking-tight">AI Video Production Kerala</span></div>
-<div className="p-6 bg-black border border-white/5 rounded-2xl"><span className="text-[10px] text-zinc-600 block mb-2 uppercase">Topic</span><span className="text-sm font-bold text-white uppercase tracking-tight">AI TVC Production India</span></div>
-<div className="p-6 bg-black border border-white/5 rounded-2xl"><span className="text-[10px] text-zinc-600 block mb-2 uppercase">Topic</span><span className="text-sm font-bold text-white uppercase tracking-tight">Luxury AI Brand Films</span></div>
+              <Link href="/ai-video-production-kochi" className="p-6 bg-black border border-white/5 hover:border-primary-accent/40 rounded-2xl transition-all"><span className="text-[10px] text-zinc-600 block mb-2 uppercase">Topic</span><span className="text-sm font-bold text-white uppercase tracking-tight">AI Commercial Production in Kochi</span></Link>
+<Link href="/ai-tvc-production" className="p-6 bg-black border border-white/5 hover:border-primary-accent/40 rounded-2xl transition-all"><span className="text-[10px] text-zinc-600 block mb-2 uppercase">Topic</span><span className="text-sm font-bold text-white uppercase tracking-tight">AI TVC Production India</span></Link>
+<Link href="/ai-luxury-brand-films" className="p-6 bg-black border border-white/5 hover:border-primary-accent/40 rounded-2xl transition-all"><span className="text-[10px] text-zinc-600 block mb-2 uppercase">Topic</span><span className="text-sm font-bold text-white uppercase tracking-tight">Luxury AI Brand Films</span></Link>
            </div>
         </div>
       </section>

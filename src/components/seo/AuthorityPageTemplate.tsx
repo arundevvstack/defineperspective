@@ -26,6 +26,7 @@ interface AuthorityPageProps {
   videoId?: string;
   videoLabel?: string;
   videoDescription?: string;
+  enrichmentSlot?: React.ReactNode;
 }
 
 export default function AuthorityPageTemplate({
@@ -42,7 +43,8 @@ export default function AuthorityPageTemplate({
   faqs,
   videoId,
   videoLabel,
-  videoDescription
+  videoDescription,
+  enrichmentSlot
 }: AuthorityPageProps) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
@@ -256,6 +258,8 @@ export default function AuthorityPageTemplate({
 
       <NeuralPipeline />
       <AIVideoComparison />
+
+      {enrichmentSlot}
 
       {faqs && (
         <section className="section-pad bg-obsidian border-t border-white/5">

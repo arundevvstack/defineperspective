@@ -402,7 +402,7 @@ export default function BlogPage() {
                 Enter the <br /> <span className="italic underline decoration-obsidian/30">AI Arena_</span>
               </h2>
               <p className="text-xl md:text-3xl font-light uppercase tracking-[0.25em] mb-16 opacity-90 max-w-4xl mx-auto leading-relaxed">
-                Connect with the <span className="font-bold">Best AI Video Production Company in Kerala</span> today.
+                Connect with the <span className="font-bold">Best AI Video Production Company in Kerala</span> or explore <Link href="/ai-tvc-production" className="font-bold underline decoration-obsidian/50 hover:text-white transition-colors">AI TVC production in India</Link> today.
               </p>
               <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
                 <Link href="/contact" className="inline-flex h-24 px-16 rounded-[2rem] bg-obsidian text-primary-accent font-black uppercase tracking-[0.4em] text-sm items-center gap-8 shadow-2xl hover:scale-105 transition-all">
