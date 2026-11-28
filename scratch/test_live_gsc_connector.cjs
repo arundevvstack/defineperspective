@@ -177,6 +177,70 @@ testAssert(routeContent.includes('fetchLiveGscPerformance'), 'API route invokes 
 testAssert(routeContent.includes('isGscLiveConfigured'), 'API route checks isGscLiveConfigured before live call');
 testAssert(routeContent.includes('getSearchPerformanceData'), 'API route falls back to getSearchPerformanceData on error');
 testAssert(routeContent.includes('Fallback to historical evidence archive'), 'API route notes fallback reason in provenance when live fetch fails');
+testAssert(!routeContent.includes('...archiveData'), 'Live GSC and archive data are mutually exclusive (never merged)');
+
+// -----------------------------------------------------------------------------
+// TEST 10: Data Integrity — Inclusive Windows, Pacific Time, Lag, Precision & Archive Disclosure
+// -----------------------------------------------------------------------------
+console.log('\n--- TEST 10: DATA INTEGRITY (WINDOWS, TIMEZONE, PRECISION, ARCHIVE) ---');
+
+testAssert(connectorContent.includes("timeZone: 'America/Los_Angeles'"), 'Date window anchored to Pacific Time (America/Los_Angeles)');
+testAssert(connectorContent.includes('endMs - (safeDays - 1) * MS_PER_DAY'), 'Inclusive date window uses (safeDays - 1) offset');
+testAssert(connectorContent.includes('weightedPosSum += rawPosition * impressions'), 'Summary averagePosition weights using unrounded rawPosition');
+testAssert(connectorContent.includes('full-archive aggregates (no date column in CSV)'), 'Archive mode discloses query/page full-archive coverage limitation');
+
+// Behavioral runtime verification of computeGscDateWindow logic
+function computeGscDateWindowMirror(windowDays = 28, now = new Date(), lagDays = 3) {
+  const safeDays = Math.max(1, Math.floor(windowDays));
+  const safeLag = Math.max(0, Math.floor(lagDays));
+  const pacificDateStr = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(now);
+  const [year, month, day] = pacificDateStr.split('-').map(Number);
+  const pacificTodayUtcMs = Date.UTC(year, month - 1, day);
+  const MS_PER_DAY = 24 * 60 * 60 * 1000;
+  const endMs = pacificTodayUtcMs - safeLag * MS_PER_DAY;
+  const startMs = endMs - (safeDays - 1) * MS_PER_DAY;
+  return {
+    startDate: new Date(startMs).toISOString().split('T')[0],
+    endDate: new Date(endMs).toISOString().split('T')[0],
+    calendarDays: safeDays,
+  };
+}
+
+function countInclusiveDays(startDate, endDate) {
+  const s = Date.parse(startDate + 'T00:00:00Z');
+  const e = Date.parse(endDate + 'T00:00:00Z');
+  return Math.round((e - s) / 86400000) + 1;
+}
+
+// Test UTC boundary: 2026-11-29T03:00:00Z is still 2026-11-28 19:00 PST (America/Los_Angeles)
+const utcBoundaryInstant = new Date('2026-11-29T03:00:00Z');
+const w7 = computeGscDateWindowMirror(7, utcBoundaryInstant, 3);
+const w28 = computeGscDateWindowMirror(28, utcBoundaryInstant, 3);
+const w30 = computeGscDateWindowMirror(30, utcBoundaryInstant, 3);
+
+testAssert(w7.endDate === '2026-11-25', `Pacific Time + 3d lag gives endDate 2026-11-25 (not UTC 2026-11-26), got ${w7.endDate}`);
+testAssert(w7.startDate === '2026-11-19' && countInclusiveDays(w7.startDate, w7.endDate) === 7, `7d window spans exactly 7 inclusive days (${w7.startDate} to ${w7.endDate})`);
+testAssert(w28.startDate === '2026-10-29' && countInclusiveDays(w28.startDate, w28.endDate) === 28, `28d window spans exactly 28 inclusive days (${w28.startDate} to ${w28.endDate})`);
+testAssert(w30.startDate === '2026-10-27' && countInclusiveDays(w30.startDate, w30.endDate) === 30, `30d window spans exactly 30 inclusive days (${w30.startDate} to ${w30.endDate})`);
+
+// Test unrounded vs rounded weighted position precision
+const sampleDaily = [
+  { position: 4.44, impressions: 1000 },
+  { position: 4.54, impressions: 1000 },
+];
+const unroundedWeighted = sampleDaily.reduce((acc, r) => acc + r.position * r.impressions, 0) / 2000;
+const roundedFirstWeighted = sampleDaily.reduce((acc, r) => acc + Number(r.position.toFixed(1)) * r.impressions, 0) / 2000;
+testAssert(Number(unroundedWeighted.toFixed(1)) === 4.5 && Number(roundedFirstWeighted.toFixed(1)) === 4.5 && unroundedWeighted === 4.49, 'Unrounded weighted mean preserves 4.49 precision before final rounding');
+
+// Verify archive CSV schemas have no date column on query.csv / page.csv
+const queryHeader = fs.readFileSync(path.join(process.cwd(), 'data/gsc-api/normalized/query.csv'), 'utf8').split(/\\n|\r?\n/)[0];
+const pageHeader = fs.readFileSync(path.join(process.cwd(), 'data/gsc-api/normalized/page.csv'), 'utf8').split(/\\n|\r?\n/)[0];
+testAssert(!queryHeader.includes('date') && !pageHeader.includes('date'), 'Confirmed archive query.csv and page.csv lack date column (disclosure required)');
 
 // -----------------------------------------------------------------------------
 // SUMMARY

@@ -219,6 +219,11 @@ export function getSearchPerformanceData(windowDays: number = 28): SearchPerform
     }
 
     const latestDate = sliceDays.length > 0 ? sliceDays[sliceDays.length - 1].key : null;
+    const sliceStartDate = sliceDays.length > 0 ? sliceDays[0].key : null;
+    const archiveStartDate = dateRows.length > 0 ? dateRows[0].key : null;
+    const archiveEndDate = dateRows.length > 0 ? dateRows[dateRows.length - 1].key : null;
+    const archiveCoverage = archiveStartDate && archiveEndDate ? `${archiveStartDate} to ${archiveEndDate}` : 'unknown';
+    const windowCoverage = sliceStartDate && latestDate ? `${sliceStartDate} to ${latestDate}` : 'unknown';
 
     // Explicitly classify local CSV as historical evidence archive, NOT active live connection
     return {
@@ -232,7 +237,7 @@ export function getSearchPerformanceData(windowDays: number = 28): SearchPerform
             lastRetrievedAt: latestDate,
             status: 'OPERATIONAL',
             confidenceScore: 1.0,
-            notes: 'Extracted from verified sc-domain:defineperspective.in evidence archive. Live API connection pending.',
+            notes: `Extracted from verified sc-domain:defineperspective.in evidence archive (daily window: ${windowCoverage}; full archive query/page coverage: ${archiveCoverage}). Live API connection pending.`,
           },
         },
         totalImpressions: {
@@ -273,14 +278,14 @@ export function getSearchPerformanceData(windowDays: number = 28): SearchPerform
       dailyTrend,
       topQueries,
       topPages,
-      dataLagNotice: 'Google Search Console data reflects a standard 48-hour processing window.',
+      dataLagNotice: `Historical archive mode: daily trend covers ${windowCoverage} (${sliceDays.length} days). Query & page tables reflect full archive (${archiveCoverage}) because exported CSVs lack a date column.`,
       provenance: {
         sourceProvider: 'Google Search Console (Historical Evidence Archive)',
         evidenceClassification: 'SOURCE-VERIFIED',
         lastRetrievedAt: latestDate,
         status: 'OPERATIONAL',
         confidenceScore: 1.0,
-        notes: 'Data sourced from verified local GSC evidence archive. Live API connection is NOT CONNECTED in cloud environment.',
+        notes: `Historical GSC archive (${archiveCoverage}). Summary/daily trend sliced to ${sliceDays.length} days (${windowCoverage}); query/page tables are full-archive aggregates (no date column in CSV).`,
       },
     };
   } catch (error) {
@@ -543,6 +548,41 @@ export function isGscLiveConfigured(): boolean {
   return Boolean(process.env.GSC_CLIENT_EMAIL && process.env.GSC_PRIVATE_KEY);
 }
 
+/**
+ * Computes an inclusive YYYY-MM-DD reporting window anchored to Pacific Time (America/Los_Angeles),
+ * matching Google Search Console's daily reporting timezone and preserving a 3-day finalized-data lag.
+ */
+export function computeGscDateWindow(
+  windowDays: number = 28,
+  now: Date = new Date(),
+  lagDays: number = 3
+): { startDate: string; endDate: string; calendarDays: number } {
+  const safeDays = Math.max(1, Math.floor(windowDays));
+  const safeLag = Math.max(0, Math.floor(lagDays));
+
+  // Format current instant as YYYY-MM-DD in Pacific Time (America/Los_Angeles)
+  const pacificDateStr = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(now);
+
+  const [year, month, day] = pacificDateStr.split('-').map(Number);
+  const pacificTodayUtcMs = Date.UTC(year, month - 1, day);
+  const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+  const endMs = pacificTodayUtcMs - safeLag * MS_PER_DAY;
+  // Both startDate and endDate are inclusive in GSC Search Analytics API
+  const startMs = endMs - (safeDays - 1) * MS_PER_DAY;
+
+  return {
+    startDate: new Date(startMs).toISOString().split('T')[0],
+    endDate: new Date(endMs).toISOString().split('T')[0],
+    calendarDays: safeDays,
+  };
+}
+
 export async function fetchLiveGscPerformance(
   credentials?: GscLiveCredentials,
   windowDays: number = 28
@@ -573,14 +613,8 @@ export async function fetchLiveGscPerformance(
     };
   }
 
-  // 2. Compute date window
-  const end = new Date();
-  end.setDate(end.getDate() - 3); // GSC standard 72h data lag
-  const start = new Date(end);
-  start.setDate(start.getDate() - windowDays);
-
-  const startDate = start.toISOString().split('T')[0];
-  const endDate = end.toISOString().split('T')[0];
+  // 2. Compute inclusive Pacific Time date window with 72h finalized-data lag
+  const { startDate, endDate, calendarDays } = computeGscDateWindow(windowDays);
 
   // 3. Query Search Analytics in parallel: daily trend, top queries, top pages
   try {
@@ -621,12 +655,13 @@ export async function fetchLiveGscPerformance(
     const dailyTrend: SearchPerformanceDailyItem[] = (dateRes.rows || []).map((r) => {
       const clicks = Number(r.clicks) || 0;
       const impressions = Number(r.impressions) || 0;
+      const rawPosition = Number(r.position) || 0;
       const ctr = Number(((r.ctr || 0) * 100).toFixed(2));
-      const avgPosition = Number((r.position || 0).toFixed(1));
+      const avgPosition = Number(rawPosition.toFixed(1));
 
       sumClicks += clicks;
       sumImpressions += impressions;
-      weightedPosSum += avgPosition * impressions;
+      weightedPosSum += rawPosition * impressions;
 
       return {
         date: r.keys?.[0] || '',
@@ -712,7 +747,7 @@ export async function fetchLiveGscPerformance(
       dailyTrend,
       topQueries,
       topPages,
-      dataLagNotice: 'Google Search Console data reflects a standard 48-72 hour processing window.',
+      dataLagNotice: `Google Search Console Live API (${calendarDays}d Pacific Time window: ${startDate} to ${endDate}, 72h finalized-data lag).`,
       provenance: {
         sourceProvider: 'Google Search Console (Live API)',
         evidenceClassification: 'LIVE-VERIFIED',
