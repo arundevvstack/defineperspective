@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import ResearchReportTemplate from "@/components/seo/ResearchReportTemplate";
-import AIVideoROICalculator from "@/components/ai-video-hub/AIVideoROICalculator";
+import CommercialBudgetEstimator from "@/components/ai-video-hub/CommercialBudgetEstimator";
 
 export const metadata: Metadata = {
   title: "AI Commercial Production Cost India 2026 | DP AI Studio Report",
@@ -26,7 +26,7 @@ export default function AICostReportPage() {
         "Regional language adaptations can be planned efficiently without organizing separate physical shoots.",
         "Every film is guided by commercial filmmakers from concept and storyboarding through final finishing."
       ]}
-      interactiveComponent={<AIVideoROICalculator />}
+      interactiveComponent={<CommercialBudgetEstimator />}
       sections={[
         {
           title: "Video Production Costs in India",
