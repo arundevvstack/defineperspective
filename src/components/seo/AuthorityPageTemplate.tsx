@@ -64,7 +64,7 @@ export default function AuthorityPageTemplate({
   };
 
   return (
-    <main className={`min-h-screen bg-obsidian text-white overflow-x-hidden ${theme}`}>
+    <main className={`min-h-screen bg-obsidian text-white overflow-x-clip ${theme}`}>
       <NeuralSeoLayer />
       {schema && (
         <script
