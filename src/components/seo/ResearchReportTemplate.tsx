@@ -37,7 +37,7 @@ export default function ResearchReportTemplate({
   interactiveComponent
 }: ResearchReportTemplateProps) {
   return (
-    <main className="min-h-screen bg-obsidian text-white pt-40 pb-40 relative overflow-hidden">
+    <main className="min-h-screen bg-obsidian text-white pt-40 pb-40 relative overflow-x-clip">
       <GlassNavbar />
       <AIRetrievalLayer 
         title={metaTitle}
