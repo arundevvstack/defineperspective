@@ -6,33 +6,33 @@ import { BrainCircuit, Cpu, Film, Sparkles, Wand2, Mic2, MonitorCheck, Settings2
 const steps = [
   {
     icon: BrainCircuit,
-    title: "AI Concept Development",
-    desc: "We turn your brand goals into creative video concepts made to get views.",
+    title: "Concept & Creative Direction",
+    desc: "We shape your brief into a clear story, visual treatment and commercial direction.",
   },
   {
     icon: Sparkles,
-    title: "Prompt Engineering & Design",
-    desc: "We use advanced AI tools to design high-quality visuals for your brand.",
+    title: "Visual Development",
+    desc: "We establish the look, lighting mood and key frames before full production begins.",
   },
   {
     icon: Film,
-    title: "Motion AI Pipeline",
-    desc: "We create smooth, cinematic motion in every video using AI.",
+    title: "Art Direction & Production",
+    desc: "We develop scenes, products and environments with close attention to brand consistency.",
   },
   {
     icon: Wand2,
-    title: "Neural VFX & Compositing",
-    desc: "We mix real-world footage with AI art to tell unique stories.",
+    title: "Cinematography & Composition",
+    desc: "Every shot is considered for framing, perspective, movement and visual storytelling.",
   },
   {
     icon: Mic2,
-    title: "AI Voice & Sound Architecture",
-    desc: "We add realistic voices and great sound to make your brand stand out.",
+    title: "Editing, Sound & Finishing",
+    desc: "Our creative team refines rhythm, music, voiceover, sound design and colour grading.",
   },
   {
     icon: MonitorCheck,
-    title: "Platform Optimization",
-    desc: "We make sure your video looks perfect on TV, phones, and cinema screens.",
+    title: "Final Delivery",
+    desc: "Films are prepared in the aspect ratios and formats required for social, digital and widescreen campaigns.",
   },
 ];
 
@@ -44,14 +44,14 @@ export default function NeuralPipeline() {
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-32 space-y-8">
           <span className="text-primary-accent font-mono text-[10px] uppercase font-black underline decoration-2 underline-offset-8">
-            Technical Architecture {" // "} Pipeline_Alpha
+            Production Process
           </span>
           <h2 className="text-4xl md:text-6xl font-black uppercase leading-[0.9] text-white">
-            Our Neural <br />
-            <span className="text-primary-accent">Pipeline_</span>
+            Our Production <br />
+            <span className="text-primary-accent">Process_</span>
           </h2>
           <p className="text-xl text-zinc-500 font-light max-w-3xl mx-auto uppercase leading-relaxed">
-            The intersection of cinematic craftsmanship and high-velocity generative intelligence.
+            From creative concept and visual direction to final sound, colour and delivery.
           </p>
         </div>
 
