@@ -70,7 +70,7 @@ export default function ContentPlannerView() {
             <h3 className="text-sm font-black uppercase text-white flex items-center gap-2">
               <FileSpreadsheet size={16} className="text-primary-accent" /> Strategic Content Opportunities
             </h3>
-            <p className="text-[9px] font-mono text-zinc-500 uppercase">Pre-vetted against 229 existing URLs</p>
+            <p className="text-[9px] font-mono text-zinc-500 uppercase">Pre-vetted against 233 protected URLs</p>
           </div>
           <span className="text-[9px] font-mono px-2.5 py-1 rounded-md bg-white/5 text-zinc-400">
             {opportunities.length} Briefs

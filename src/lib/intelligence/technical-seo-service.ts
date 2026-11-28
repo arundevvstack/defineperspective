@@ -31,7 +31,7 @@ export function getTechnicalSeoAudit(): TechnicalSeoAudit {
     robotsTxtStatus: robotsValid ? 'VALID' : 'RESTRICTIVE',
     structuredDataStatus: 'ALL_PASS',
     coreWebVitalsStatus: 'REAL_USER_DATA_UNAVAILABLE', // Real user monitoring field not connected; zero fabricated CWV scores
-    notes: 'Verified against local Next.js project build and sitemap specifications. 229 URLs registered.',
+    notes: `Verified against local Next.js project build and sitemap specifications. ${totalUrls} URLs registered.`,
     provenance: {
       sourceProvider: 'Next.js Build & Static Route Auditor',
       evidenceClassification: 'SOURCE-VERIFIED',

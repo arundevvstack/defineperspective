@@ -128,7 +128,7 @@ export function getDataSourcesStatus(): DataSourceStatus[] {
       credentialsConfigured: true,
       requiredCredentials: ['Local Next.js Project Tree'],
       costModel: 'FREE_INCLUDED',
-      notes: 'Scans 229 URLs, sitemaps, robots.txt, canonical consistency, and metadata.',
+      notes: 'Scans 233 protected URLs, sitemaps, robots.txt, canonical consistency, and metadata.',
     }
   ];
 }

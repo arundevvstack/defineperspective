@@ -151,7 +151,7 @@ export default function SeoHubPage() {
               <div className="hidden xl:flex items-center gap-6 font-mono text-xs">
                 <div>
                   <span className="text-[8px] text-zinc-500 uppercase block">Protected Baseline</span>
-                  <span className="font-bold text-white text-[11px]">229 URLs Registered</span>
+                  <span className="font-bold text-white text-[11px]">233 URLs Registered</span>
                 </div>
                 <div>
                   <span className="text-[8px] text-zinc-500 uppercase block">First-Party Data</span>
@@ -280,7 +280,7 @@ export default function SeoHubPage() {
                  </h4>
                  <div className="grid grid-cols-2 gap-3">
                     {[
-                       { l: "Protected URLs", v: "229", c: "text-white" },
+                       { l: "Protected URLs", v: "233", c: "text-white" },
                        { l: "GSC Queries", v: "305", c: "text-emerald-400" },
                        { l: "Competitors", v: "6 Verified", c: "text-white" },
                        { l: "Autonomous Edits", v: "PROHIBITED", c: "text-red-400" }

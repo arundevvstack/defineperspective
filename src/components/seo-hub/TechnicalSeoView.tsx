@@ -40,7 +40,7 @@ export default function TechnicalSeoView() {
     return (
       <div className="py-24 text-center text-zinc-500 font-mono text-xs">
         <RefreshCcw size={24} className="animate-spin mx-auto mb-3 text-primary-accent" />
-        Running real technical health audit across 229 static URLs...
+        Running real technical health audit across 233 protected URLs...
       </div>
     );
   }
@@ -59,7 +59,7 @@ export default function TechnicalSeoView() {
 
         <div className="flex items-center gap-2">
           <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[9px] font-mono uppercase font-bold">
-            All 229 Static Routes Validated
+            All 233 Protected Routes Validated
           </span>
         </div>
       </div>
