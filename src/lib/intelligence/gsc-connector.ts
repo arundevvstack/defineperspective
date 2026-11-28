@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 import { SearchPerformanceData, SearchPerformanceDailyItem, SearchQueryItem, SearchPageItem } from '@/types/intelligence';
 
 interface RawRow {
@@ -365,6 +366,179 @@ export function normalizePrivateKey(key?: string): string {
   return key.replace(/\\n/g, '\n').trim();
 }
 
+function base64UrlEncode(strOrBuffer: string | Buffer): string {
+  const buf = typeof strOrBuffer === 'string' ? Buffer.from(strOrBuffer, 'utf8') : strOrBuffer;
+  return buf.toString('base64')
+    .replace(/=/g, '')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_');
+}
+
+export function createServiceAccountJwt(
+  clientEmail: string,
+  privateKey: string,
+  scope: string = 'https://www.googleapis.com/auth/webmasters.readonly',
+  aud: string = 'https://oauth2.googleapis.com/token'
+): string {
+  if (!clientEmail) {
+    throw new Error('clientEmail is required for service account JWT creation');
+  }
+  if (!privateKey) {
+    throw new Error('privateKey is required for service account JWT creation');
+  }
+
+  const now = Math.floor(Date.now() / 1000);
+  const header = {
+    alg: 'RS256',
+    typ: 'JWT',
+  };
+
+  const claimSet = {
+    iss: clientEmail,
+    scope: scope,
+    aud: aud,
+    exp: now + 3600,
+    iat: now,
+  };
+
+  const encodedHeader = base64UrlEncode(JSON.stringify(header));
+  const encodedClaimSet = base64UrlEncode(JSON.stringify(claimSet));
+  const signInput = `${encodedHeader}.${encodedClaimSet}`;
+
+  const formattedKey = normalizePrivateKey(privateKey);
+  const signer = crypto.createSign('RSA-SHA256');
+  signer.update(signInput);
+  signer.end();
+
+  const signature = signer.sign(formattedKey);
+  const encodedSignature = base64UrlEncode(signature);
+
+  return `${signInput}.${encodedSignature}`;
+}
+
+interface CachedToken {
+  accessToken: string;
+  expiresAt: number;
+}
+let cachedGscToken: CachedToken | null = null;
+
+export async function getGoogleAccessToken(
+  clientEmail: string,
+  privateKey: string,
+  timeoutMs: number = 10000
+): Promise<{ accessToken: string; error?: string }> {
+  const now = Math.floor(Date.now() / 1000);
+  if (cachedGscToken && cachedGscToken.expiresAt > now + 300) {
+    return { accessToken: cachedGscToken.accessToken };
+  }
+
+  let jwtAssertion: string;
+  try {
+    jwtAssertion = createServiceAccountJwt(clientEmail, privateKey);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return { accessToken: '', error: `JWT signing failed: ${msg}` };
+  }
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const params = new URLSearchParams();
+    params.append('grant_type', 'urn:ietf:params:oauth:grant-type:jwt-bearer');
+    params.append('assertion', jwtAssertion);
+
+    const response = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params.toString(),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timer);
+
+    if (!response.ok) {
+      const errText = await response.text();
+      let parsedError = `HTTP ${response.status}`;
+      try {
+        const json = JSON.parse(errText);
+        parsedError = json.error_description || json.error || parsedError;
+      } catch {
+        parsedError = errText.slice(0, 150);
+      }
+      return { accessToken: '', error: `Google OAuth error: ${parsedError}` };
+    }
+
+    const tokenData = await response.json();
+    if (!tokenData.access_token) {
+      return { accessToken: '', error: 'OAuth response missing access_token' };
+    }
+
+    const expiresIn = Number(tokenData.expires_in) || 3600;
+    cachedGscToken = {
+      accessToken: tokenData.access_token,
+      expiresAt: now + expiresIn,
+    };
+
+    return { accessToken: tokenData.access_token };
+  } catch (err: unknown) {
+    clearTimeout(timer);
+    const msg = err instanceof Error ? err.message : String(err);
+    return { accessToken: '', error: `OAuth token exchange failed: ${msg}` };
+  }
+}
+
+interface SearchAnalyticsRow {
+  keys?: string[];
+  clicks?: number;
+  impressions?: number;
+  ctr?: number;
+  position?: number;
+}
+
+async function querySearchAnalytics(
+  siteUrl: string,
+  accessToken: string,
+  body: Record<string, unknown>,
+  timeoutMs: number = 10000
+): Promise<{ ok: boolean; error?: string; rows: SearchAnalyticsRow[] }> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(siteUrl)}/searchAnalytics/query`;
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      const errText = await res.text();
+      let errMsg = `HTTP ${res.status}`;
+      try {
+        const j = JSON.parse(errText);
+        errMsg = j.error?.message || errMsg;
+      } catch {
+        errMsg = errText.slice(0, 150);
+      }
+      return { ok: false, error: errMsg, rows: [] };
+    }
+    const data = await res.json();
+    return { ok: true, rows: data.rows || [] };
+  } catch (err: unknown) {
+    clearTimeout(timer);
+    const msg = err instanceof Error ? err.message : String(err);
+    return { ok: false, error: msg, rows: [] };
+  }
+}
+
 export function isGscLiveConfigured(): boolean {
   return Boolean(process.env.GSC_CLIENT_EMAIL && process.env.GSC_PRIVATE_KEY);
 }
@@ -387,20 +561,180 @@ export async function fetchLiveGscPerformance(
     };
   }
 
-  try {
+  // 1. Authenticate with Google
+  const authResult = await getGoogleAccessToken(clientEmail, privateKey);
+  if (!authResult.accessToken) {
     return {
       success: false,
       status: 'LAST_SYNC_FAILED',
       data: null,
-      error: 'Live GSC API token exchange requires active Google Service Account authorization.',
+      error: authResult.error || 'Failed to authenticate Google Service Account.',
+      requiredCredentials: ['GSC_CLIENT_EMAIL', 'GSC_PRIVATE_KEY', 'GSC_SITE_URL'],
+    };
+  }
+
+  // 2. Compute date window
+  const end = new Date();
+  end.setDate(end.getDate() - 3); // GSC standard 72h data lag
+  const start = new Date(end);
+  start.setDate(start.getDate() - windowDays);
+
+  const startDate = start.toISOString().split('T')[0];
+  const endDate = end.toISOString().split('T')[0];
+
+  // 3. Query Search Analytics in parallel: daily trend, top queries, top pages
+  try {
+    const [dateRes, queryRes, pageRes] = await Promise.all([
+      querySearchAnalytics(siteUrl, authResult.accessToken, {
+        startDate,
+        endDate,
+        dimensions: ['date'],
+        rowLimit: 50,
+      }),
+      querySearchAnalytics(siteUrl, authResult.accessToken, {
+        startDate,
+        endDate,
+        dimensions: ['query'],
+        rowLimit: 50,
+      }),
+      querySearchAnalytics(siteUrl, authResult.accessToken, {
+        startDate,
+        endDate,
+        dimensions: ['page'],
+        rowLimit: 25,
+      }),
+    ]);
+
+    if (!dateRes.ok) {
+      return {
+        success: false,
+        status: 'LAST_SYNC_FAILED',
+        data: null,
+        error: `Search Console API error (date breakdown): ${dateRes.error}`,
+      };
+    }
+
+    let sumClicks = 0;
+    let sumImpressions = 0;
+    let weightedPosSum = 0;
+
+    const dailyTrend: SearchPerformanceDailyItem[] = (dateRes.rows || []).map((r) => {
+      const clicks = Number(r.clicks) || 0;
+      const impressions = Number(r.impressions) || 0;
+      const ctr = Number(((r.ctr || 0) * 100).toFixed(2));
+      const avgPosition = Number((r.position || 0).toFixed(1));
+
+      sumClicks += clicks;
+      sumImpressions += impressions;
+      weightedPosSum += avgPosition * impressions;
+
+      return {
+        date: r.keys?.[0] || '',
+        clicks,
+        impressions,
+        ctr,
+        avgPosition,
+      };
+    });
+
+    dailyTrend.sort((a, b) => a.date.localeCompare(b.date));
+
+    const averageCtr = sumImpressions > 0 ? Number(((sumClicks / sumImpressions) * 100).toFixed(2)) : 0;
+    const averagePosition = sumImpressions > 0 ? Number((weightedPosSum / sumImpressions).toFixed(1)) : 0;
+
+    const topQueries: SearchQueryItem[] = (queryRes.rows || []).map((r) => ({
+      query: r.keys?.[0] || '',
+      clicks: Number(r.clicks) || 0,
+      impressions: Number(r.impressions) || 0,
+      ctr: Number(((r.ctr || 0) * 100).toFixed(2)),
+      avgPosition: Number((r.position || 0).toFixed(1)),
+    }));
+
+    const topPages: SearchPageItem[] = (pageRes.rows || []).map((r) => ({
+      pageUrl: r.keys?.[0] || '',
+      clicks: Number(r.clicks) || 0,
+      impressions: Number(r.impressions) || 0,
+      ctr: Number(((r.ctr || 0) * 100).toFixed(2)),
+      avgPosition: Number((r.position || 0).toFixed(1)),
+    }));
+
+    const retrievedAt = new Date().toISOString();
+
+    const data: SearchPerformanceData = {
+      summary: {
+        totalClicks: {
+          value: sumClicks,
+          unit: 'clicks',
+          meta: {
+            sourceProvider: 'Google Search Console (Live API)',
+            evidenceClassification: 'LIVE-VERIFIED',
+            lastRetrievedAt: retrievedAt,
+            status: 'OPERATIONAL',
+            confidenceScore: 1.0,
+            notes: `Live Search Analytics queried for ${siteUrl} (${startDate} to ${endDate}).`,
+          },
+        },
+        totalImpressions: {
+          value: sumImpressions,
+          unit: 'impressions',
+          meta: {
+            sourceProvider: 'Google Search Console (Live API)',
+            evidenceClassification: 'LIVE-VERIFIED',
+            lastRetrievedAt: retrievedAt,
+            status: 'OPERATIONAL',
+            confidenceScore: 1.0,
+          },
+        },
+        averageCtr: {
+          value: averageCtr,
+          unit: '%',
+          meta: {
+            sourceProvider: 'Google Search Console (Live API)',
+            evidenceClassification: 'CALCULATED',
+            lastRetrievedAt: retrievedAt,
+            status: 'OPERATIONAL',
+            confidenceScore: 1.0,
+          },
+        },
+        averagePosition: {
+          value: averagePosition,
+          unit: 'rank',
+          meta: {
+            sourceProvider: 'Google Search Console (Live API)',
+            evidenceClassification: 'CALCULATED',
+            lastRetrievedAt: retrievedAt,
+            status: 'OPERATIONAL',
+            confidenceScore: 1.0,
+            notes: 'Weighted average position across all active queries.',
+          },
+        },
+      },
+      dailyTrend,
+      topQueries,
+      topPages,
+      dataLagNotice: 'Google Search Console data reflects a standard 48-72 hour processing window.',
+      provenance: {
+        sourceProvider: 'Google Search Console (Live API)',
+        evidenceClassification: 'LIVE-VERIFIED',
+        lastRetrievedAt: retrievedAt,
+        status: 'OPERATIONAL',
+        confidenceScore: 1.0,
+        notes: `Live Search Console performance retrieved for property: ${siteUrl}. Window: ${startDate} to ${endDate}.`,
+      },
+    };
+
+    return {
+      success: true,
+      status: 'OPERATIONAL',
+      data,
     };
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : String(err);
+    const msg = err instanceof Error ? err.message : String(err);
     return {
       success: false,
       status: 'LAST_SYNC_FAILED',
       data: null,
-      error: message,
+      error: `Live Search Console API execution failed: ${msg}`,
     };
   }
 }
