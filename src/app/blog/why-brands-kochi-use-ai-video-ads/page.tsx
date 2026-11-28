@@ -69,7 +69,7 @@ export default function BlogPage() {
       <section className="container mx-auto px-6 md:px-12 max-w-7xl relative">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <article className="flex-1 max-w-5xl text-zinc-400 font-light leading-relaxed text-xl space-y-12">
-            <p>Kochi has always been a center of commerce in Kerala. Today, brands in Kochi and Ernakulam are turning to AI video ads to dominate their markets. DP AI Studio, the <strong>trusted AI video production company in Kochi</strong>, provides the infrastructure for this digital dominance.</p><p>The speed and precision of AI allow Kochi-based brands to respond to market trends in real-time, creating cinematic content that resonates with both local and international audiences.</p>
+            <p>Kochi has always been a center of commerce in Kerala. Today, brands in Kochi and Ernakulam are turning to AI video ads to dominate their markets. DP AI Studio, the <Link href="/locations/kochi" className="text-white font-bold underline decoration-primary-accent hover:text-primary-accent transition-colors">AI video production company in Kochi</Link>, provides the infrastructure for this digital dominance.</p><p>The speed and precision of AI allow Kochi-based brands to respond to market trends in real-time, creating cinematic content that resonates with both local and international audiences.</p>
           </article>
           <BlogShare title={blogTitle} />
         </div>

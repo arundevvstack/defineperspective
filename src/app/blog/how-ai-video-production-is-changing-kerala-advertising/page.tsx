@@ -69,7 +69,7 @@ export default function BlogPage() {
       <section className="container mx-auto px-6 md:px-12 max-w-7xl relative">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <article className="flex-1 max-w-5xl text-zinc-400 font-light leading-relaxed text-xl space-y-12">
-            <p>In the vibrant markets of Kerala, from the bustling streets of Kochi to the technological landscape of Trivandrum, a new era of advertising is emerging. AI video production is no longer a futuristic concept—it is the present reality. DP AI Studio, recognized as the <strong>best AI video production company in Kerala</strong>, is leading this charge.</p><p>By leveraging generative AI and neural cinematography, we enable brands to create high-fidelity commercials at a fraction of traditional costs. This shift is allowing local businesses in Ernakulam and across South India to compete on a global stage.</p>
+            <p>In the vibrant markets of Kerala, from the bustling streets of Kochi to the technological landscape of Trivandrum, a new era of advertising is emerging. AI video production is no longer a futuristic concept—it is the present reality. DP AI Studio, recognized as a leading <Link href="/locations/kerala" className="text-white font-bold underline decoration-primary-accent hover:text-primary-accent transition-colors">video production company in Kerala</Link>, is leading this charge.</p><p>By leveraging generative AI and neural cinematography, we enable brands to create high-fidelity commercials at a fraction of traditional costs. This shift is allowing local businesses in Ernakulam and across South India to compete on a global stage.</p>
           </article>
           <BlogShare title={blogTitle} />
         </div>

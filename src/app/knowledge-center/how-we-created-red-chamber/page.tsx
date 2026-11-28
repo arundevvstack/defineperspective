@@ -247,6 +247,11 @@ export default function ArticlePage() {
                   <strong className="text-lg text-white group-hover:text-primary-accent transition-colors block mb-2">AI Video Production</strong>
                   <p className="text-sm text-zinc-400">Learn how we deploy these workflows for enterprise brands.</p>
                 </Link>
+                <Link href="/ai-luxury-brand-films" className="group p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.05] hover:border-white/20 transition-all">
+                  <span className="text-[10px] text-primary-accent uppercase tracking-widest font-mono mb-2 block">Commercial Craft</span>
+                  <strong className="text-lg text-white group-hover:text-primary-accent transition-colors block mb-2">Cinematic Luxury Brand Films</strong>
+                  <p className="text-sm text-zinc-400">Explore how we apply optical physics and material fidelity to luxury campaigns.</p>
+                </Link>
                 <Link href="/portfolio" className="group p-6 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.05] hover:border-white/20 transition-all">
                   <span className="text-[10px] text-primary-accent uppercase tracking-widest font-mono mb-2 block">Our Work</span>
                   <strong className="text-lg text-white group-hover:text-primary-accent transition-colors block mb-2">The DP AI Portfolio</strong>

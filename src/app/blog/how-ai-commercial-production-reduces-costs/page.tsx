@@ -234,7 +234,7 @@ export default function AICostsPage() {
                   For brands operating nationwide—serving consumers across Kochi, Kerala, Bangalore, Mumbai, Chennai, and Dubai—scaling video advertisements is traditionally cost-prohibitive. Filming multiple language variations or localized backgrounds requires starting the shoot process over again.
                 </p>
                 <p>
-                  With <Link href="/ai-tvc-production" className="text-white underline decoration-primary-accent transition-colors hover:text-primary-accent">AI TVC Production</Link>, scaling is instantaneous. Our digital assets allow us to modify voiceovers, environments, and text overlays in hours, reducing the cost of secondary and tertiary ad variations by over 80%. This is the defining edge of DP AI Studio.
+                  With <Link href="/ai-tvc-production" className="text-white underline decoration-primary-accent transition-colors hover:text-primary-accent">AI TVC Production</Link>, scaling is instantaneous. Our digital assets allow us to modify voiceovers, environments, and text overlays in hours, reducing the cost of secondary and tertiary ad variations by over 80%. For full tier-by-tier budgets, review our <Link href="/ai-commercial-production-cost-india" className="text-white underline decoration-primary-accent transition-colors hover:text-primary-accent">AI commercial production cost breakdown in India</Link>.
                 </p>
               </section>
 

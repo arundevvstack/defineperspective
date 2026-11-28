@@ -56,7 +56,7 @@ export default function BlogPage() {
             dangerouslySetInnerHTML={{ __html: `
         <div class="space-y-12">
             <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">The Architecture of <span class="text-primary-accent italic">Luxury AI Fashion Ads India</span></h2>
-            <p>At DP AI Studio, we don't just generate video; we craft cinematic legacies. The emergence of <strong>Luxury AI Fashion Ads India</strong> represents a pivotal shift in how brands in Dubai communicate with global audiences.</p>
+            <p>At <a href="/ai-luxury-brand-films" class="text-white underline decoration-primary-accent hover:text-primary-accent">DP AI Studio's luxury AI brand film studio</a>, we don't just generate video; we craft cinematic legacies. The emergence of <strong>Luxury AI Fashion Ads India</strong> represents a pivotal shift in how brands in Dubai communicate with global audiences.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-12 border-y border-white/5">
                 <div class="space-y-4">
@@ -69,7 +69,7 @@ export default function BlogPage() {
                 </div>
             </div>
 
-            <p>Our studio in Dubai is currently leading the <strong>Luxury AI Fashion Ads India</strong> movement, integrating generative neural networks with traditional cinematography to deliver unmatched performance.</p>
+            <p>Our studio in Dubai is currently leading the <strong>Luxury AI Fashion Ads India</strong> movement through <a href="/ae/luxury-cinematic" class="text-white underline decoration-primary-accent hover:text-primary-accent">luxury AI cinematic production in Dubai</a>, integrating generative neural networks with traditional cinematography to deliver unmatched performance.</p>
         </div>
         ` }}
           />
