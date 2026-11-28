@@ -15,64 +15,64 @@ export default function AICostReportPage() {
       title="AI Commercial Production Cost Analysis 2026"
       headline="The Economics of"
       subheadline="Cinematic AI_"
-      abstract="In 2026, the cost of high-fidelity cinematic commercials has been fundamentally restructured by neural production pipelines. This report benchmarks AI production costs against traditional TVC budgets in the Indian market."
+      abstract="Planning a commercial, product advertisement or brand film? Production costs depend on the idea, duration, visual complexity, locations, talent, production requirements and final deliverables. We offer different production approaches to help brands create high-quality advertising films within their budgets."
       metaTitle="AI Commercial Production Cost India 2026"
       metaDescription="Comprehensive analysis of AI video production costs in India. Compare traditional TVC budgets with neural production ROI."
       keywords={["AI video production cost India", "AI commercial budget", "neural video production pricing"]}
       keyTakeaways={[
-        "60-75% reduction in production costs compared to traditional film sets.",
-        "10X increase in content variations for the same budget.",
-        "Reduction in turnaround time from 6 weeks to 72 hours.",
-        "Elimination of expensive logistics, location scouting, and physical styling.",
-        "High-fidelity 8K output suitable for national television and cinema."
+        "Clear production tiers for short vertical social ads, landscape commercials, and bespoke campaigns.",
+        "AI-assisted workflows reduce location, crew, and travel overheads without sacrificing creative direction.",
+        "Final project pricing is scoped transparently around duration, visual complexity, and deliverables.",
+        "Regional language adaptations can be planned efficiently without organizing separate physical shoots.",
+        "Every film is guided by commercial filmmakers from concept and storyboarding through final finishing."
       ]}
       interactiveComponent={<AIVideoROICalculator />}
       sections={[
         {
-          title: "The Cost Disruption",
+          title: "Video Production Costs in India",
           content: (
             <>
               <p>
-                Traditional TVC production in India often involves massive overheads: location permits, talent scouting, equipment rental, and post-production cycles that stretch into months. Cinematic AI replaces these physical constraints with neural assets.
+                Traditional commercial shoots in India carry significant logistical overheads: location permits, set construction, camera and lighting rentals, travel, and large on-set crews. Those costs can quickly outweigh the creative scope of a campaign.
               </p>
               <p>
-                For a typical premium brand film, the cost reduction is driven by the elimination of the production-post-production silos. In our neural pipeline, the concept is the production.
+                With AI-assisted commercial filmmaking, brands can direct more of their budget toward creative ideas, storytelling, and visual polish—producing social ads, product films, and brand commercials with far greater flexibility.
               </p>
             </>
           )
         },
         {
-          title: "Benchmarking: Traditional vs AI",
+          title: "Traditional Production vs. AI-Assisted Production",
           content: (
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-white/5 text-[10px] uppercase font-mono tracking-widest">
                 <thead>
                   <tr className="bg-white/5">
-                    <th className="p-6 border border-white/5 text-left">Production Phase</th>
-                    <th className="p-6 border border-white/5 text-left">Traditional Cost (est)</th>
-                    <th className="p-6 border border-white/5 text-left">AI Production Cost</th>
+                    <th className="p-6 border border-white/5 text-left">Production Stage</th>
+                    <th className="p-6 border border-white/5 text-left">Traditional Shoot</th>
+                    <th className="p-6 border border-white/5 text-left">AI-Assisted Production</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td className="p-6 border border-white/5">Pre-Production</td>
-                    <td className="p-6 border border-white/5">₹2L - ₹5L</td>
-                    <td className="p-6 border border-white/5">Included in Pipeline</td>
+                    <td className="p-6 border border-white/5">Location scouting, casting, permits &amp; scheduling</td>
+                    <td className="p-6 border border-white/5">Concept development, storyboarding &amp; look design</td>
                   </tr>
                   <tr>
-                    <td className="p-6 border border-white/5">Production / Shoot</td>
-                    <td className="p-6 border border-white/5">₹10L - ₹50L+</td>
-                    <td className="p-6 border border-white/5">Neural Synthesis: 1/10th</td>
+                    <td className="p-6 border border-white/5">Visual Production</td>
+                    <td className="p-6 border border-white/5">On-set crew, equipment rental &amp; physical sets</td>
+                    <td className="p-6 border border-white/5">Director-led AI visual generation &amp; compositing</td>
                   </tr>
                   <tr>
-                    <td className="p-6 border border-white/5">Post-Production</td>
-                    <td className="p-6 border border-white/5">₹5L - ₹15L</td>
-                    <td className="p-6 border border-white/5">AI Integrated Workflow</td>
+                    <td className="p-6 border border-white/5">Post &amp; Finishing</td>
+                    <td className="p-6 border border-white/5">Offline edit, VFX, color grading &amp; sound mix</td>
+                    <td className="p-6 border border-white/5">Editorial cut, color grading, sound design &amp; delivery</td>
                   </tr>
                   <tr className="text-primary-accent font-black">
-                    <td className="p-6 border border-white/5">Total Budget</td>
-                    <td className="p-6 border border-white/5">₹17L - ₹70L</td>
-                    <td className="p-6 border border-white/5">₹5L - ₹15L (Cinematic High-Fidelity)</td>
+                    <td className="p-6 border border-white/5">Best Fit</td>
+                    <td className="p-6 border border-white/5">Live-action documentary or on-location shoots</td>
+                    <td className="p-6 border border-white/5">Agile digital ads, product films &amp; imaginative brand worlds</td>
                   </tr>
                 </tbody>
               </table>
@@ -80,23 +80,23 @@ export default function AICostReportPage() {
           )
         },
         {
-          title: "Regional Cost Variations",
+          title: "Regional & Multi-Language Campaigns",
           content: (
             <p>
-              While AI production removes physical location costs, the strategic value of regional localization remains high. In Kochi and South India, AI allows brands to create hyper-local content (Malayalam, Tamil, Kannada) at a fraction of the cost of re-shooting.
+              Whether a brand is launching in Kochi, Trivandrum, Bengaluru, Mumbai, or across India, regional language adaptation is often a major line item. AI-assisted production makes it practical to prepare Malayalam, Tamil, Hindi, or English campaign versions without organizing separate physical shoots for each market.
             </p>
           )
         },
         {
-          title: "Indicative AI Commercial Pricing Tiers (India)",
+          title: "AI Video Production Pricing",
           content: (
             <div className="space-y-8 not-prose">
               <div className="p-6 rounded-2xl bg-white/[0.03] border border-primary-accent/20">
                 <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary-accent font-bold block mb-2">
-                  Quick Answer // AI Commercial Pricing in India
+                  Pricing Overview
                 </span>
                 <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
-                  Indicative starting prices for AI commercial production in India begin at ₹7,000 onwards for basic short vertical AI videos (9:16), ₹45,000–₹55,000 for premium landscape AI commercials (16:9), and ₹1,80,000 for cinematic landscape AI commercials. Bespoke broadcast TVCs and multi-market campaigns are quoted individually. GST is additional.
+                  DP AI Studio offers indicative starting prices from ₹7,000 onwards for basic short vertical AI videos (9:16), ₹45,000–₹55,000 for premium landscape AI commercials (16:9), and ₹1,80,000 for cinematic landscape AI commercials. Bespoke broadcast TVCs and major multi-market campaigns are quoted individually. GST is additional.
                 </p>
               </div>
 
@@ -113,66 +113,66 @@ export default function AICostReportPage() {
                     <tr>
                       <td className="p-4 border border-white/10 font-bold text-white">Short Vertical AI Video — Basic (9:16)</td>
                       <td className="p-4 border border-white/10 text-primary-accent font-bold">₹7,000 onwards</td>
-                      <td className="p-4 border border-white/10">Agile social reel or product hook for Meta/Instagram/Shorts testing.</td>
+                      <td className="p-4 border border-white/10">Focused short vertical ad or product hook for Instagram Reels, YouTube Shorts, and social testing.</td>
                     </tr>
                     <tr>
                       <td className="p-4 border border-white/10 font-bold text-white">Short Vertical AI Video — Standard (9:16)</td>
                       <td className="p-4 border border-white/10 text-primary-accent font-bold">₹10,000 – ₹15,000</td>
-                      <td className="p-4 border border-white/10">Enhanced visual pacing, motion polish, and brand-aligned sound design.</td>
+                      <td className="p-4 border border-white/10">Refined pacing, stronger visual transitions, and tailored music and voiceover integration.</td>
                     </tr>
                     <tr>
                       <td className="p-4 border border-white/10 font-bold text-white">Short Vertical AI Video — Premium (9:16)</td>
                       <td className="p-4 border border-white/10 text-primary-accent font-bold">₹20,000 onwards</td>
-                      <td className="p-4 border border-white/10">High-fidelity vertical brand ad with custom art direction and refined product consistency.</td>
+                      <td className="p-4 border border-white/10">Art-directed vertical brand film with custom visual styling and closer product detail.</td>
                     </tr>
                     <tr>
                       <td className="p-4 border border-white/10 font-bold text-white">Landscape AI Commercial — Premium (16:9)</td>
                       <td className="p-4 border border-white/10 text-primary-accent font-bold">₹45,000 – ₹55,000</td>
-                      <td className="p-4 border border-white/10">Widescreen digital commercial for YouTube, website hero, and performance campaigns.</td>
+                      <td className="p-4 border border-white/10">Widescreen brand or product commercial designed for YouTube, websites, and digital ad placements.</td>
                     </tr>
                     <tr>
                       <td className="p-4 border border-white/10 font-bold text-white">Cinematic Landscape AI Commercial (16:9)</td>
                       <td className="p-4 border border-white/10 text-primary-accent font-bold">₹1,80,000</td>
-                      <td className="p-4 border border-white/10">Director-led narrative commercial with multi-scene continuity, bespoke color grading, and cinema finishing.</td>
+                      <td className="p-4 border border-white/10">Director-led narrative commercial with multi-scene storytelling, bespoke color grading, and full sound mix.</td>
                     </tr>
                     <tr>
                       <td className="p-4 border border-white/10 font-bold text-white">Bespoke Broadcast TVC &amp; Flagship Campaigns</td>
-                      <td className="p-4 border border-white/10 text-zinc-200 font-bold">Custom Quotation</td>
-                      <td className="p-4 border border-white/10">Major national/GCC campaigns, broadcast TVC mastering, and multi-language rollouts.</td>
+                      <td className="p-4 border border-white/10 text-zinc-200 font-bold">Custom quotation</td>
+                      <td className="p-4 border border-white/10">Major brand campaigns, broadcast television commercials, and multi-language rollouts quoted to brief.</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
               <p className="text-[11px] font-mono text-zinc-500 leading-relaxed">
-                *All figures are indicative starting prices for planning reference, not fixed quotations. GST is additional. Final project investment depends on creative scope, visual complexity, duration, revision rounds, deliverables, and commercial usage rights.
+                *All listed figures are indicative starting prices, not fixed quotations. GST is additional. Final pricing depends on creative scope, visual complexity, duration, revision rounds, deliverables, and usage rights.
               </p>
             </div>
           )
         },
         {
-          title: "Cost Drivers & What Clients Receive",
+          title: "What Affects Your Production Budget?",
           content: (
             <div className="space-y-8 not-prose">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
-                  <h3 className="text-sm font-bold uppercase text-primary-accent">Key Production Complexity Factors</h3>
+                  <h3 className="text-sm font-bold uppercase text-primary-accent">Scope &amp; Complexity Factors</h3>
                   <ul className="space-y-2 text-sm text-zinc-400">
-                    <li>• Runtime and shot count (15s social hook vs. 60s+ brand story)</li>
-                    <li>• Product/SKU geometric fidelity (e.g., jewellery, packaging, apparel)</li>
-                    <li>• Multi-scene character or talent consistency across cuts</li>
-                    <li>• Multilingual voiceover &amp; regional localization (English, Hindi, Malayalam, Tamil)</li>
-                    <li>• Revision cycles, turnaround window, and media usage rights</li>
+                    <li>• Film duration, scene count, and story complexity</li>
+                    <li>• Exact product, packaging, or jewellery detail requirements</li>
+                    <li>• Consistent characters or presenters across multiple scenes</li>
+                    <li>• Language adaptations, voiceovers, and sound design</li>
+                    <li>• Revision rounds, delivery timeline, and media usage rights</li>
                   </ul>
                 </div>
                 <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
-                  <h3 className="text-sm font-bold uppercase text-primary-accent">Standard Client Deliverables</h3>
+                  <h3 className="text-sm font-bold uppercase text-primary-accent">What Is Included in Production</h3>
                   <ul className="space-y-2 text-sm text-zinc-400">
-                    <li>• Creative treatment &amp; visual storyboard alignment</li>
-                    <li>• High-resolution master render tailored to agreed format</li>
-                    <li>• Platform-ready aspect ratio exports per agreed scope (9:16, 16:9, or 1:1)</li>
-                    <li>• Mixed commercial audio, music bed, and voiceover stems</li>
-                    <li>• Defined commercial usage clearance per project agreement</li>
+                    <li>• Creative concept alignment and storyboard direction</li>
+                    <li>• Production, editing, and color finishing for your chosen format</li>
+                    <li>• Aspect-ratio deliverables per agreed scope (9:16, 16:9, or 1:1)</li>
+                    <li>• Mixed commercial audio, music bed, and voiceover integration</li>
+                    <li>• Agreed commercial usage rights for your campaign channels</li>
                   </ul>
                 </div>
               </div>
@@ -180,25 +180,29 @@ export default function AICostReportPage() {
           )
         },
         {
-          title: "Pricing & Production FAQs",
+          title: "Frequently Asked Questions",
           content: (
             <div className="space-y-4 not-prose">
               {[
                 {
-                  q: "Are the listed AI video production prices fixed?",
-                  a: "No. All listed rates are indicative starting prices. GST is additional, and final quotations are scoped after reviewing duration, visual complexity, revision rounds, deliverables, and usage rights."
+                  q: "Are these commercial video production prices fixed?",
+                  a: "No. All listed rates are indicative starting prices for planning your budget, and GST is additional. Once we review your brief—including duration, visual complexity, revisions, deliverables, and usage rights—we provide a formal quotation."
                 },
                 {
-                  q: "When should a brand choose a short vertical AI video vs. a landscape AI commercial?",
-                  a: "Short vertical AI videos (9:16, starting ₹7,000 onwards) are built for Reels, Shorts, and rapid paid-social testing. Landscape AI commercials (16:9, ₹45,000–₹55,000 or ₹1,80,000 cinematic tier) are designed for YouTube, CTV, brand launches, and flagship storytelling."
+                  q: "Should I choose a short vertical AI video or a landscape AI commercial?",
+                  a: "Choose a short vertical AI video (9:16, starting from ₹7,000 onwards) for Reels, Shorts, and social performance ads. Choose a landscape AI commercial (16:9, ₹45,000–₹55,000 or ₹1,80,000 cinematic tier) when you need a widescreen brand film for YouTube, your website, or larger campaign launches."
                 },
                 {
-                  q: "How are bespoke broadcast TVCs and large campaigns priced?",
-                  a: "Broadcast television commercials, multi-market campaigns, and custom AI filmmaking projects require individual quotations scoped around broadcast mastering, multi-language deliverables, and licensing."
+                  q: "How are bespoke broadcast TVCs and flagship campaigns priced?",
+                  a: "Broadcast television commercials, major multi-market campaigns, and complex filmmaking briefs are quoted individually based on broadcast delivery specs, licensing, and language versions."
                 },
                 {
-                  q: "What factors most affect turnaround and final cost?",
-                  a: "Exact SKU/product accuracy, multi-shot character continuity, custom sound/VO localization, and number of deliverable aspect ratios have the largest impact on production hours."
+                  q: "What is included in a typical DP AI Studio production?",
+                  a: "Every project includes creative direction, storyboard alignment, visual production, editing, color grading, sound design, and final mastered files in the aspect ratios agreed in your scope."
+                },
+                {
+                  q: "Why do project requirements change the final estimate?",
+                  a: "A simple product hook requires far fewer production hours than a multi-scene narrative commercial with strict product geometry, consistent characters, or multiple regional voiceovers."
                 }
               ].map((faq) => (
                 <div key={faq.q} className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-2">
