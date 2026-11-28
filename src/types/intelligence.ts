@@ -220,3 +220,192 @@ export interface ExecutiveIntelligenceSummary {
   pendingRecommendations: IntelligenceRecommendation[];
   retrievedAt: string;
 }
+
+// ==============================================================================
+// EXPANDED SEO, AEO & GEO INTELLIGENCE AND AUTHORITY GOVERNANCE SPECIFICATIONS
+// ==============================================================================
+
+export type AssetProtectionTier = 'FLAGSHIP_CORE' | 'PRIMARY_SERVICE' | 'REGIONAL_HUB' | 'EDITORIAL' | 'PORTFOLIO_CASE_STUDY';
+export type RiskLevel = 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
+
+export interface ProtectedAsset {
+  id: string;
+  url: string;
+  slug: string;
+  title: string;
+  h1: string;
+  canonicalUrl: string;
+  metaDescription: string;
+  protectionTier: AssetProtectionTier;
+  isLocked: boolean;
+  baselineTimestamp: string;
+  rankingKeywordsCount: number;
+  historicalClicks: number;
+  historicalImpressions: number;
+  prohibitedAutonomousActions: string[];
+}
+
+export interface KeywordIntelligenceItem {
+  id: string;
+  keyword: string;
+  searchIntent: 'COMMERCIAL' | 'TRANSACTIONAL' | 'INFORMATIONAL' | 'NAVIGATIONAL';
+  searchVolume: number | null;
+  searchVolumeSource: string;
+  searchVolumePeriod: string | null;
+  searchVolumeConfidence: number; // 0.0 - 1.0
+  keywordDifficulty: number | null;
+  cpc: number | null;
+  currentRankPosition: number | null; // GSC aggregate position
+  rankingUrl: string | null;
+  impressions: number;
+  clicks: number;
+  ctr: number;
+  cluster: string;
+  commercialTier: 'HIGH_TICKET' | 'MID_TIER' | 'VOLUME_DRIVER' | 'REGIONAL_AUTHORITY';
+  targetUrl: string;
+  isProtected: boolean;
+  opportunityScore: number;
+  provenance: DataProvenance;
+}
+
+export type KeywordGapType = 
+  | 'GAP_A_COMPETITOR_RANKS_DP_DOES_NOT'
+  | 'GAP_B_DP_UNIQUE_AUTHORITY'
+  | 'GAP_C_BOTH_RANK_COMPETITOR_OUTPERFORMS'
+  | 'GAP_D_EMERGING_DEMAND'
+  | 'GAP_E_COMMERCIAL_HIGH_INTENT'
+  | 'GAP_F_AI_SEARCH_GAP';
+
+export interface KeywordGapItem {
+  id: string;
+  gapType: KeywordGapType;
+  query: string;
+  intent: 'COMMERCIAL' | 'TRANSACTIONAL' | 'INFORMATIONAL';
+  searchDemand: string;
+  source: string;
+  competitorsObserved: string[];
+  competitorUrls: string[];
+  dpCurrentStatus: string;
+  dpRelevantUrl: string | null;
+  commercialRelevance: 'VERY_HIGH' | 'HIGH' | 'MEDIUM';
+  competitionLevel: 'HIGH' | 'MEDIUM' | 'LOW';
+  recommendedAction: string;
+  riskLevel: RiskLevel;
+  confidenceScore: number;
+  evidence: string;
+  priority: 'P1_CRITICAL' | 'P2_HIGH' | 'P3_MEDIUM';
+}
+
+export interface RankingDefenceAlert {
+  id: string;
+  keyword: string;
+  affectedUrl: string;
+  severity: 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
+  alertType: 'POSITION_DROP' | 'IMPRESSIONS_DECLINE' | 'CTR_DECAY' | 'COMPETITOR_INCURSION' | 'CANONICAL_THREAT';
+  baselinePosition: number;
+  currentPosition: number;
+  impressionDeltaPct: number;
+  ctrDeltaPct: number;
+  observedPeriod: string;
+  likelyCause: string;
+  confidence: number;
+  recommendedInvestigation: string;
+  proposedRecoveryAction: string;
+  requiresHumanApproval: boolean;
+  status: 'ACTIVE' | 'INVESTIGATING' | 'ACTION_PROPOSED' | 'RESOLVED' | 'DISMISSED';
+  createdAt: string;
+}
+
+export interface AEOGEOObservation {
+  id: string;
+  query: string;
+  platform: 'Google AI Overviews' | 'Perplexity' | 'Gemini' | 'ChatGPT Search' | 'Claude';
+  observationDate: string;
+  dpMentioned: boolean;
+  dpPosition: number | null;
+  dpRecommended: boolean;
+  dpCited: boolean;
+  citedUrl: string | null;
+  competitorsMentioned: string[];
+  competitorCitations: Array<{ competitor: string; url: string }>;
+  answerSnippet: string;
+  methodology: 'OBSERVED_SEARCH' | 'USER_QUERY_EVIDENCE' | 'MANUAL_AUDIT';
+  confidenceScore: number;
+  geographicScope: 'India National' | 'Kerala' | 'Trivandrum' | 'Kochi' | 'International';
+}
+
+export interface ContentOpportunityItem {
+  id: string;
+  topic: string;
+  primaryKeyword: string;
+  supportingKeywords: string[];
+  searchIntent: string;
+  pageType: 'SERVICE_LANDING' | 'CASE_STUDY' | 'INDUSTRY_PILLAR' | 'GEO_HUB' | 'METHODOLOGY_GUIDE' | 'COMMERCIAL_PRICING';
+  existingUrlMatch: string | null;
+  cannibalizationRisk: 'NONE' | 'LOW' | 'HIGH_OVERLAP';
+  proposedUrl: string;
+  contentBrief: string;
+  aeoQuestionBlocks: string[];
+  geoStrategy: string;
+  requiredProofAssets: string[];
+  opportunityScore: {
+    searchScore: number;
+    commercialScore: number;
+    competitiveScore: number;
+    aeoGeoScore: number;
+    strategicRelevance: number;
+    implementationRisk: RiskLevel;
+    confidence: number;
+    compositeScore: number;
+  };
+  reviewStatus: 'DRAFT_PROPOSAL' | 'NEEDS_REVISION' | 'PENDING_HUMAN_APPROVAL' | 'APPROVED' | 'REJECTED';
+  createdAt: string;
+}
+
+export interface TechnicalSeoAudit {
+  timestamp: string;
+  totalIndexedUrls: number;
+  crawlableUrls: number;
+  brokenLinksCount: number;
+  canonicalMismatches: number;
+  missingH1Count: number;
+  missingMetaCount: number;
+  sitemapStatus: 'VALID' | 'WARNING' | 'ERROR';
+  robotsTxtStatus: 'VALID' | 'RESTRICTIVE' | 'PERMISSIVE';
+  structuredDataStatus: 'ALL_PASS' | 'WARNINGS_DETECTED' | 'ERRORS_DETECTED';
+  coreWebVitalsStatus: 'REAL_USER_DATA_UNAVAILABLE' | 'PASSING' | 'NEEDS_IMPROVEMENT';
+  notes: string;
+  provenance: DataProvenance;
+}
+
+export interface ChangeGovernanceProposal {
+  actionId: string;
+  targetAsset: string;
+  actionType: 'CONTENT_CREATION' | 'METADATA_OPTIMIZATION' | 'INTERNAL_LINKING' | 'SCHEMA_ENRICHMENT' | 'DEFENCE_ACTION';
+  originalState: string;
+  proposedState: string;
+  evidence: string;
+  reason: string;
+  expectedOutcome: string;
+  riskClassification: RiskLevel;
+  seoImpactAssessment: string;
+  aeoGeoImpactAssessment: string;
+  requiresHumanApproval: boolean;
+  approvalStatus: 'PENDING_REVIEW' | 'APPROVED' | 'REJECTED' | 'EXECUTED';
+  approvedBy: string | null;
+  timestamp: string;
+  executionStatus: 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED' | 'FAILED' | 'ROLLED_BACK';
+  rollbackPlan: string;
+}
+
+export interface DataSourceStatus {
+  sourceId: string;
+  displayName: string;
+  sourceType: 'FIRST_PARTY' | 'THIRD_PARTY_API' | 'OBSERVED_RESEARCH' | 'AI_ANALYSIS' | 'INTERNAL_ENGINE';
+  status: 'OPERATIONAL' | 'DATA_NOT_CONNECTED' | 'DATA_UNAVAILABLE' | 'NO_DATA_YET' | 'CONNECTION_REQUIRED';
+  lastSyncTimestamp: string | null;
+  credentialsConfigured: boolean;
+  requiredCredentials: string[];
+  costModel: 'FREE_INCLUDED' | 'PAID_SUBSCRIPTION' | 'CREDENTIAL_REQUIRED';
+  notes: string;
+}

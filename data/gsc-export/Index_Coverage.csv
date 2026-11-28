@@ -1,0 +1,13 @@
+Status,Granularity,Source,Validation,Affected pages
+Not found (404),AGGREGATE — NOT URL LEVEL,Website,Failed,151715
+Blocked due to access forbidden (403),AGGREGATE — NOT URL LEVEL,Website,Failed,16053
+Crawled - currently not indexed,AGGREGATE — NOT URL LEVEL,Google systems,Failed,282932
+Duplicate without user-selected canonical,AGGREGATE — NOT URL LEVEL,Website,Not Started,6363
+Alternate page with proper canonical tag,AGGREGATE — NOT URL LEVEL,Website,Not Started,1685
+Excluded by ‘noindex’ tag,AGGREGATE — NOT URL LEVEL,Website,Not Started,691
+Page with redirect,AGGREGATE — NOT URL LEVEL,Website,Not Started,162
+Soft 404,AGGREGATE — NOT URL LEVEL,Website,Not Started,7
+Discovered - currently not indexed,AGGREGATE — NOT URL LEVEL,Google systems,Not Started,47
+"Duplicate, Google chose different canonical than user",AGGREGATE — NOT URL LEVEL,Google systems,Not Started,1
+Server error (5xx),AGGREGATE — NOT URL LEVEL,Website,Passed,19103
+Blocked due to other 4xx issue,AGGREGATE — NOT URL LEVEL,Website,,0

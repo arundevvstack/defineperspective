@@ -6,169 +6,264 @@ import {
   ShieldAlert, 
   Zap, 
   Crosshair, 
-  BarChart2, 
   Target,
-  TrendingUp,
-  Minimize2
+  ExternalLink,
+  Building2,
+  MapPin,
+  RefreshCcw,
+  Plus
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-import { supabase } from "@/lib/supabase";
+import { VerifiedCompetitorProfile } from "@/lib/intelligence/competitor-intelligence-service";
 
 export default function MapView({ city, setStatus }: { city?: string, setStatus?: (s: string) => void }) {
-  const [competitors, setCompetitors] = useState<any[]>([]);
-  const [selectedComp, setSelectedComp] = useState<any>(null);
-  const [isRunningStrategy, setIsRunningStrategy] = useState(false);
-  const [strategyPlan, setStrategyPlan] = useState<string | null>(null);
+  const [competitors, setCompetitors] = useState<VerifiedCompetitorProfile[]>([]);
+  const [selectedComp, setSelectedComp] = useState<VerifiedCompetitorProfile | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newDomain, setNewDomain] = useState("");
+  const [newCompanyName, setNewCompanyName] = useState("");
+  const [newGeography, setNewGeography] = useState("Mumbai, Maharashtra");
 
   useEffect(() => {
-    async function fetchCompetitors() {
-      const { data } = await supabase
-        .from('entity_graph')
-        .select('*')
-        .eq('type', 'competitor');
-      
-      if (data) {
-        const mapped = data.map(c => ({
-          ...c,
-          id: c.id,
-          name: c.entity_name,
-          x: 20 + (Math.random() * 60),
-          y: 20 + (Math.random() * 60),
-          threat: c.metadata?.threat_level || "Medium",
-          strength: c.metadata?.focus || "Traditional",
-          weakness: "Neural Adoption"
-        }));
-        setCompetitors(mapped);
-      }
-    }
     fetchCompetitors();
   }, []);
 
-  // Auto-select a competitor if they match the detected city
-  useEffect(() => {
-    if (city && competitors.length > 0) {
-      const match = competitors.find(c => c.name.toLowerCase().includes(city.toLowerCase()));
-      if (match) setSelectedComp(match);
-    }
-  }, [city, competitors]);
-
-  const runStrategy = async () => {
-    if (!selectedComp) return;
-    setIsRunningStrategy(true);
-    setStrategyPlan(null);
-    setStatus?.(`Strategy: Creating comparison page for ${selectedComp.name}...`);
-    
+  async function fetchCompetitors() {
+    setIsLoading(true);
     try {
-      const res = await fetch('/api/seo/execute-counter-strategy', {
+      const res = await fetch('/api/intelligence/competitors');
+      const data = await res.json();
+      if (data.competitors) {
+        setCompetitors(data.competitors);
+        if (data.competitors.length > 0) {
+          setSelectedComp(data.competitors[0]);
+        }
+      }
+    } catch (err) {
+      console.error("Competitor fetch error:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  const handleAddCompetitor = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newDomain || !newCompanyName) return;
+    try {
+      const res = await fetch('/api/intelligence/competitors', {
         method: 'POST',
-        body: JSON.stringify({ competitor: selectedComp })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          domain: newDomain,
+          companyName: newCompanyName,
+          geography: newGeography,
+          competitiveClassification: 'DIRECT'
+        })
       });
       const data = await res.json();
-      
-      setStrategyPlan(`Success: A comparison page for ${selectedComp.name} has been drafted and is ready for review in the Content Editor.`);
-      setStatus?.(`Success: Comparison for ${selectedComp.name} drafted.`);
+      if (data.competitor) {
+        setCompetitors(prev => [...prev, data.competitor]);
+        setSelectedComp(data.competitor);
+        setShowAddModal(false);
+        setNewDomain("");
+        setNewCompanyName("");
+        setStatus?.(`Registered verified competitor ${data.competitor.companyName}`);
+      }
     } catch (err) {
-      console.error("Strategy Execution Error:", err);
-      setStrategyPlan("Error: Could not complete comparison strategy.");
-      setStatus?.("Error: Connection lost.");
-    } finally {
-      setIsRunningStrategy(false);
+      console.error(err);
     }
   };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-      {/* Tactical Map */}
-      <div className="lg:col-span-8 relative aspect-video bg-white/[0.02] border border-white/10 rounded-[3rem] overflow-hidden group">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:30px_30px] opacity-20" />
-        
-        {/* DP Core */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-           <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 3, repeat: Infinity }} className="h-10 w-10 rounded-full bg-primary-accent border-2 border-white/20 shadow-[0_0_30px_rgba(235,30,44,0.5)] flex items-center justify-center">
-             <Zap size={20} className="text-white" />
-           </motion.div>
-           <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-[8px] font-mono uppercase text-primary-accent font-black">DP_CORE</span>
-        </div>
+      {/* Verified Competitor Grid & Geographic Clustering */}
+      <div className="lg:col-span-7 flex flex-col gap-6">
+        <div className="p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/5 relative overflow-hidden">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Target size={16} className="text-primary-accent" />
+                <h3 className="text-lg font-black uppercase">Verified Indian Competitors</h3>
+              </div>
+              <p className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
+                Empirically verified studios and platforms active in Indian AI commercial video.
+              </p>
+            </div>
+            <button
+              onClick={() => setShowAddModal(true)}
+              className="px-4 py-2.5 bg-white/5 hover:bg-white/10 text-white rounded-xl text-[9px] font-mono uppercase tracking-widest flex items-center gap-2 border border-white/10 transition-colors"
+            >
+              <Plus size={14} /> Add Competitor
+            </button>
+          </div>
 
-        {/* Competitor Nodes */}
-        {competitors.map((comp) => (
-          <button key={comp.id} onClick={() => { setSelectedComp(comp); setStrategyPlan(null); }} className="absolute z-30 group" style={{ left: `${comp.x}%`, top: `${comp.y}%` }}>
-            <div className={cn(
-              "h-5 w-5 rotate-45 border transition-all duration-500", 
-              selectedComp?.id === comp.id ? "bg-primary-accent scale-125 border-white shadow-xl" : "bg-white/10 border-white/20"
-            )} />
-            <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black p-2 rounded text-[8px] font-mono whitespace-nowrap z-50 border border-white/10">{comp.name}</div>
-          </button>
-        ))}
-        
-        <div className="absolute bottom-6 left-6 p-4 bg-black/60 border border-white/10 rounded-2xl backdrop-blur-md">
-           <div className="flex items-center gap-4">
-              <TrendingUp size={12} className="text-blue-500" />
-              <span className="text-[10px] font-mono uppercase">+14% Growth Velocity</span>
-           </div>
+          {isLoading ? (
+            <div className="py-20 text-center text-zinc-500 font-mono text-xs">
+              <RefreshCcw size={20} className="animate-spin mx-auto mb-2 text-primary-accent" />
+              Loading verified competitor registry...
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {competitors.map((comp) => (
+                <button
+                  key={comp.id}
+                  onClick={() => setSelectedComp(comp)}
+                  className={cn(
+                    "p-5 rounded-2xl border text-left transition-all flex flex-col justify-between gap-4",
+                    selectedComp?.id === comp.id
+                      ? "bg-primary-accent/10 border-primary-accent/40 shadow-lg shadow-primary-accent/5"
+                      : "bg-black/40 border-white/5 hover:border-white/15"
+                  )}
+                >
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h4 className="text-xs font-black uppercase text-white truncate max-w-[180px]">{comp.companyName}</h4>
+                      <span className="text-[9px] font-mono text-zinc-500 truncate block">{comp.domain}</span>
+                    </div>
+                    <span className={cn(
+                      "text-[8px] font-mono px-2 py-0.5 rounded font-bold uppercase",
+                      comp.threatLevel === 'HIGH' ? "bg-red-500/10 text-red-400 border border-red-500/20" :
+                      comp.threatLevel === 'MEDIUM' ? "bg-amber-500/10 text-amber-400 border border-amber-500/20" :
+                      "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+                    )}>
+                      {comp.threatLevel} Threat
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between text-[8px] font-mono text-zinc-500 pt-2 border-t border-white/5">
+                    <span className="flex items-center gap-1 truncate">
+                      <MapPin size={10} /> {comp.geography}
+                    </span>
+                    <span className="text-primary-accent font-bold uppercase">{comp.competitiveClassification}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Intel Panel */}
-      <div className="lg:col-span-4 h-full">
-         <AnimatePresence mode="wait">
-           {selectedComp ? (
-             <motion.div key="intel" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 h-full flex flex-col">
-                <div className="flex justify-between items-center mb-8">
-                   <h3 className="text-[10px] font-mono uppercase text-zinc-500 underline font-black">Target Intel Brief</h3>
-                   <button onClick={() => setSelectedComp(null)} className="hover:text-primary-accent transition-colors"><Minimize2 size={12}/></button>
-                </div>
-                
-                <div className="mb-8">
-                   <h4 className="text-2xl font-black uppercase mb-2">{selectedComp.name}</h4>
-                   <span className={cn("px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest", selectedComp.threat === "High" ? "bg-red-500/20 text-red-500" : "bg-white/10 text-zinc-400")}>
-                     Threat: {selectedComp.threat}
-                   </span>
-                </div>
+      {/* Selected Competitor Profile Drilldown */}
+      <div className="lg:col-span-5 flex flex-col gap-6">
+        {selectedComp ? (
+          <div className="p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/5 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/5 pb-4">
+              <div>
+                <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest block mb-1">Competitor Intelligence Profile</span>
+                <h3 className="text-lg font-black uppercase text-white">{selectedComp.companyName}</h3>
+              </div>
+              <a 
+                href={`https://${selectedComp.domain}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="h-9 w-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+              >
+                <ExternalLink size={14} />
+              </a>
+            </div>
 
-                <div className="space-y-4 flex-1">
-                   <div className="p-4 rounded-xl bg-black/40 border border-white/5">
-                      <span className="text-[7px] font-mono text-zinc-600 block mb-1 uppercase tracking-widest">Market Strength</span>
-                      <span className="text-xs font-bold text-white uppercase">{selectedComp.strength}</span>
-                   </div>
-                   <div className="p-4 rounded-xl bg-black/40 border border-white/5">
-                      <span className="text-[7px] font-mono text-zinc-600 block mb-1 uppercase tracking-widest">Vulnerability Node</span>
-                      <span className="text-xs font-bold text-primary-accent uppercase">{selectedComp.weakness}</span>
-                   </div>
+            <div className="space-y-4 text-xs font-mono">
+              <div>
+                <span className="text-[9px] text-zinc-500 uppercase block mb-1">Positioning & Market Stance</span>
+                <p className="text-zinc-300 font-sans text-xs leading-relaxed bg-black/40 p-3 rounded-xl border border-white/5">
+                  {selectedComp.positioning}
+                </p>
+              </div>
 
-                   <AnimatePresence>
-                      {strategyPlan && (
-                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-6 rounded-2xl bg-primary-accent/10 border border-primary-accent/30 shadow-inner">
-                           <h5 className="text-[9px] font-black uppercase text-primary-accent mb-3 flex items-center gap-2">
-                             <BarChart2 size={12} /> Executable Strategy
-                           </h5>
-                           <p className="text-[10px] text-zinc-200 leading-relaxed italic font-light">{strategyPlan}</p>
-                        </motion.div>
-                      )}
-                   </AnimatePresence>
-                </div>
+              <div>
+                <span className="text-[9px] text-zinc-500 uppercase block mb-1">Empirical Observation Evidence</span>
+                <p className="text-zinc-400 font-sans text-xs leading-relaxed bg-black/40 p-3 rounded-xl border border-white/5">
+                  {selectedComp.evidence}
+                </p>
+              </div>
 
-                <div className="mt-8">
-                   <button 
-                    onClick={runStrategy}
-                    disabled={isRunningStrategy}
-                    className="w-full py-4 bg-primary-accent text-black rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary-accent/20"
-                   >
-                     {isRunningStrategy ? <div className="h-4 w-4 border-2 border-black border-t-transparent animate-spin rounded-full" /> : <><Target size={14} /> Run Comparison</>}
-                   </button>
+              <div>
+                <span className="text-[9px] text-zinc-500 uppercase block mb-2">Core Service Offerings</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {selectedComp.relevantServices.map(s => (
+                    <span key={s} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white text-[9px] uppercase">
+                      {s}
+                    </span>
+                  ))}
                 </div>
-             </motion.div>
-           ) : (
-             <div className="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 h-full flex flex-col items-center justify-center text-center py-20 group hover:border-primary-accent/20 transition-all">
-                <div className="h-20 w-20 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Target size={40} className="text-zinc-800" />
+              </div>
+
+              <div>
+                <span className="text-[9px] text-zinc-500 uppercase block mb-2">Observed Ranking Keywords</span>
+                <div className="space-y-1.5">
+                  {selectedComp.observedRankingKeywords.map(k => (
+                    <div key={k} className="p-2 rounded-lg bg-black/50 border border-white/5 text-[9px] text-zinc-300 flex items-center justify-between">
+                      <span>{k}</span>
+                      <span className="text-emerald-400 text-[8px]">SERP OBSERVED</span>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-[10px] text-zinc-500 font-mono uppercase tracking-[0.3em]">Acquire Target Node for Tactical Intel</p>
-             </div>
-           )}
-         </AnimatePresence>
+              </div>
+
+              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[8px] text-zinc-600">
+                <span>Discovery: {selectedComp.discoverySource}</span>
+                <span>Verified: {selectedComp.lastObservedAt?.split('T')[0] || '2026-11-20'}</span>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/5 text-center py-20 text-zinc-600 font-mono text-xs">
+            Select a competitor to view detailed empirical profile.
+          </div>
+        )}
       </div>
+
+      {/* Add Competitor Modal */}
+      {showAddModal && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-obsidian border border-white/10 rounded-3xl p-8 max-w-md w-full space-y-6">
+            <h3 className="text-lg font-black uppercase text-white">Register Verified Competitor</h3>
+            <form onSubmit={handleAddCompetitor} className="space-y-4 font-mono text-xs">
+              <div>
+                <label className="block text-[9px] text-zinc-500 uppercase mb-1">Company Name</label>
+                <input 
+                  type="text" 
+                  value={newCompanyName} 
+                  onChange={e => setNewCompanyName(e.target.value)} 
+                  placeholder="e.g. Acme AI Films" 
+                  required
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-primary-accent"
+                />
+              </div>
+              <div>
+                <label className="block text-[9px] text-zinc-500 uppercase mb-1">Domain</label>
+                <input 
+                  type="text" 
+                  value={newDomain} 
+                  onChange={e => setNewDomain(e.target.value)} 
+                  placeholder="e.g. acmefilms.ai" 
+                  required
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-primary-accent"
+                />
+              </div>
+              <div>
+                <label className="block text-[9px] text-zinc-500 uppercase mb-1">Primary Geography</label>
+                <input 
+                  type="text" 
+                  value={newGeography} 
+                  onChange={e => setNewGeography(e.target.value)} 
+                  placeholder="e.g. Mumbai, Maharashtra" 
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 text-white outline-none focus:border-primary-accent"
+                />
+              </div>
+              <div className="flex items-center gap-3 pt-4">
+                <button type="submit" className="flex-1 py-3 bg-primary-accent text-black font-black uppercase tracking-widest rounded-xl text-[9px]">
+                  Save Competitor
+                </button>
+                <button type="button" onClick={() => setShowAddModal(false)} className="py-3 px-6 bg-white/5 text-white uppercase rounded-xl text-[9px]">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
